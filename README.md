@@ -11,9 +11,9 @@ With Milan we aim at bringing all the various NGOs and donors under one single r
 
 ## Willing to help ? 👩🏻‍💻
 
-A beginner to Open Source, Web Development ? <br/>
+**A beginner to Open Source, Web Development ?** <br/>
 This might be the debut repo for you , contribute to this repo , solve the issues and learn more about web as well as get started with Open Source.
-Take a look at the contribution guidelines below.
+Take a look at the **[contribution guidelines](https://github.com/IAmTamal/Milan/blob/main/README.md#contribution-guidelines-)** below.
 
 <br/>
 
@@ -27,7 +27,7 @@ Take a look at the contribution guidelines below.
 
 ## Useful Links 🌐
 
-Live Site : https://iamtamal.github.io/Milan/
+**Live Site** : https://iamtamal.github.io/Milan/
 
 <br/>
 
@@ -42,5 +42,7 @@ Live Site : https://iamtamal.github.io/Milan/
 
 - Make your desired changes to the code , then create a Pull Request.
 - Don't forget to attach **Screenshots, Proper Description and Issue Number**
+
+<br/>
 
 ## Happy Contributions !!
