@@ -1,53 +1,6 @@
-#Navbarrr {
-  padding-left: 30px;
-  padding-right: 50px;
-  background-color: #ddf7e4;
-  /* background-color: #96BAFF; */
-  position: relative;
-}
-
-.navbar {
-  font-size: 1em;
-  font-family: "ABeeZee", sans-serif;
-  position: relative;
-}
-
-.navbar.sticky {
-  padding: 15px 0;
-  background: white;
-}
-
-.navbar .max-width {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.fa-user-circle {
-  font-size: 1.3rem;
-  color: rgba(0, 0, 0, 0.5);
-  position: relative;
-  top: 10px;
-}
-
-#nb {
-  font-size: 30px;
-  font-family: "Ubuntu", sans-serif;
-  /* color: rgba(0, 0, 0, 0.8); */
-  color: black;
-}
-
-.nav-item {
-  padding-right: 15px;
-}
-
 #title {
   background-color: #819dff;
   padding-left: 50px;
-}
-
-.navbar-brand {
-  font-family: "Acme", sans-serif;
 }
 
 .about_img {

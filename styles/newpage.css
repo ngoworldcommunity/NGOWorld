@@ -1,63 +1,17 @@
-#Navbarrr {
-    padding-left: 30px;
-    padding-right: 50px;
-    background-color: #ddf7e4;
-    position: relative;
-
-}
-
-
-.navbar {
-    font-size: 1em;
-    font-family: 'ABeeZee', sans-serif;
-    position: relative;
-}
-
-.navbar.sticky {
-    padding: 15px 0;
-    background: white;
-}
-
-
-.navbar .max-width {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-
-
-#nb {
-    font-size: 30px;
-    font-family: 'Ubuntu', sans-serif;
-    color: rgba(0, 0, 0, 0.5);
-}
-
-.nav-item {
-    padding-right: 15px;
-}
-
-.fa-user-circle {
-    font-size: 1.3rem;
-    color: rgba(0, 0, 0, 0.5);
-    position: relative;
-    top: 10px;
-}
-
 .come {
-    position: relative;
-    width: 50%;
-    margin-top: 100px;
-    margin-left: 530px;
+  position: relative;
+  width: 50%;
+  margin-top: 100px;
+  margin-left: 530px;
 }
 
 .come h1 {
-    color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .coming {
-    position: relative;
-    right: 100px;
-    height: 300px;
-    width: 450px;
+  position: relative;
+  right: 100px;
+  height: 300px;
+  width: 450px;
 }
