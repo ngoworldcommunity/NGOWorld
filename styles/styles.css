@@ -1,0 +1,313 @@
+#Navbarrr {
+  padding-left: 30px;
+  padding-right: 50px;
+  background-color: #ddf7e4;
+  position: relative;
+}
+
+.navbar {
+  font-size: 1em;
+  font-family: "ABeeZee", sans-serif;
+  position: relative;
+}
+
+.navbar.sticky {
+  padding: 15px 0;
+  background: white;
+}
+
+.navbar .max-width {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#nb {
+  font-size: 30px;
+  font-family: "Ubuntu", sans-serif;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.nav-item {
+  padding-right: 15px;
+}
+
+.fa-user-circle {
+  font-size: 1.3rem;
+  color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  top: 10px;
+}
+
+/* Background picture */
+
+.fh5co-cover,
+.fh5co-hero {
+  position: relative;
+  height: 800px;
+}
+
+@media screen and (max-width: 768px) {
+  .fh5co-cover,
+  .fh5co-hero {
+    height: 700px;
+  }
+}
+
+.fh5co-cover.fh5co-hero {
+  height: 600px;
+}
+
+.fh5co-cover.fh5co-overlay,
+.fh5co-hero.fh5co-overlay {
+  position: absolute !important;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.fh5co-overlay {
+  position: absolute !important;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  background: rgba(66, 64, 64, 0.9);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.fh5co-cover {
+  background-size: cover;
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .fh5co-cover {
+    height: inherit;
+    padding: 3em 0;
+  }
+}
+
+.fh5co-cover .btn {
+  padding: 1em 2em;
+  opacity: 0.9;
+}
+
+.fh5co-cover.fh5co-cover_2 {
+  height: 600px;
+}
+
+@media screen and (max-width: 768px) {
+  .fh5co-cover {
+    height: inherit;
+    padding: 3em 0;
+  }
+}
+
+.fh5co-cover .desc {
+  top: 50%;
+  position: absolute;
+  width: 100%;
+  margin-top: -80px;
+  z-index: 2;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .fh5co-cover .desc {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.fh5co-cover .desc h2 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 60px;
+  margin-bottom: 10px;
+  font-weight: 300 !important;
+}
+
+.fh5co-cover .desc h2 strong {
+  font-weight: 700;
+}
+
+/* Timeline section */
+
+.Sec_3 {
+  background-image: url(../images/concrete_seamless.jpg);
+  padding-bottom: 50px;
+}
+
+.Sec_3 .container {
+  padding-left: 15px;
+}
+
+.center-line {
+  position: absolute;
+  background: #70d6ff;
+  width: 3.5px;
+  height: 162rem;
+  left: 50%;
+}
+
+.contents {
+  width: 38%;
+}
+
+.content_0 {
+  /* position: absolute; */
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  top: 50px;
+  left: 53%;
+  z-index: 1;
+}
+
+.img_0 {
+  position: relative;
+  height: 400px;
+  width: 650px;
+  left: 18%;
+}
+
+.content_1 {
+  /* position: absolute; */
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  top: 50px;
+  left: 140px;
+  z-index: 1;
+}
+
+.content_head {
+  font-size: 15px;
+  padding-top: 20px;
+  font-weight: 900;
+}
+
+hr.new1 {
+  border-top: 2px solid #23a5a7;
+}
+
+.content_head2 {
+  font-family: "Exo 2", sans-serif;
+  font-size: 2rem;
+  color: #339a9c;
+}
+
+.content_p {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: "Sarabun", sans-serif;
+}
+
+.img_1 {
+  position: relative;
+  height: 400px;
+  width: 650px;
+  bottom: 170px;
+  left: 380px;
+  /* z-index: -1; */
+}
+
+.content_2 {
+  position: relative;
+  left: 53%;
+  background-color: white;
+  bottom: 130px;
+
+  z-index: 1;
+}
+
+.img_2 {
+  position: relative;
+  height: 360px;
+  width: 620px;
+  bottom: 190px;
+  left: 240px;
+}
+
+.content_3 {
+  position: relative;
+  background-color: white;
+  bottom: 100px;
+  left: 10%;
+}
+
+.img_3 {
+  position: relative;
+  height: 350px;
+  width: 500px;
+  left: 40%;
+  bottom: 100px;
+}
+
+/*
+
+
+
+
+
+.content_4 {
+  position: absolute;
+  left: 50%;
+}
+
+.content_5 {
+  position: absolute;
+  left: 50%;
+} */
+
+/* custom scroll bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7ed957;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7ed957;
+}
+
+.scroll-up-btn {
+  position: fixed;
+  height: 45px;
+  width: 42px;
+  background: #7ed957;
+  right: 30px;
+  bottom: 10px;
+  text-align: center;
+  line-height: 45px;
+  color: #fff;
+  z-index: 9999;
+  font-size: 30px;
+  border-radius: 6px;
+  border-bottom-width: 2px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.scroll-up-btn.show {
+  bottom: 30px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scroll-up-btn:hover {
+  filter: brightness(90%);
+}

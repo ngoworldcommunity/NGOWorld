@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css");
+
+#blog .hero-body {
+    padding: 1rem 0.25rem 1rem 0.25rem;
+      background-color: #008dc9;
+}
+
+#blog .container {
+    margin: 1.5rem auto;
+    background-color: #008dc9;
+}
+
+
+.title {
+  text-align: left;
+  padding-left: 0.01rem;
+  letter-spacing: 0.25rem
+}
+
+#search input {
+    border: none;
+    outline: none;
+    font-weight: 500 !important
+}
+
+#search input::placeholder {
+    font-weight: 500;
+    color: grey;
+    letter-spacing: 0.25rem
+}
+
+#search .button {
+    transition: all 0.25s ease;
+    border: none
+}
+
+#search .button:focus {
+    outline: 0.25rem solid white
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.nav1 {
+    background: #232323;
+    height: 40px;
+
+}
+
+.nav1 li {
+    float: left;
+    list-style-type: none;
+    position: relative;
+}
+
+.nav1 li a {
+    font-size: 16px;
+    color: white;
+    display: block;
+    padding: 7px 0.1px;
+    text-decoration: none;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+.nav1 li a:hover {
+    background-color: #2e2e2e;
+}
+
+.subnav {
+    visibility: hidden;
+    position: absolute;
+    top: 110%;
+    right: 0;
+    width: 200px;
+    height: auto;
+    opacity: 0;
+    transition: all 0.1s;
+    background: #232323;
+}
+.subnav li {
+    float: none;
+}
+.subnav li a {
+    border-bottom: 1px solid #2e2e2e;
+}
+#options:hover .subnav {
+    visibility: visible;
+    opacity: 1;
+}
