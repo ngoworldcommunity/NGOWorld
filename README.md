@@ -1,4 +1,4 @@
-![MILAN](https://user-images.githubusercontent.com/72851613/139521356-ee0b62fd-24fc-4950-977b-74a33778d6dc.png)
+![MILAN](https://user-images.githubusercontent.com/72851613/149673209-1dc460b5-24f7-470b-8d9b-29eb5e50015f.png)
 
 ## What is Milan ? 🤔
 
