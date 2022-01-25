@@ -1,5 +1,9 @@
 ![MILAN](https://user-images.githubusercontent.com/72851613/149673209-1dc460b5-24f7-470b-8d9b-29eb5e50015f.png)
 
+# Disclaimer ⚠
+
+**This is only for JWOC participants , issue assignments and coding will start after 31st January. Any comments/PRs made before that are hereby declared invalid.**
+
 ## What is Milan ? 🤔
 
 The word ‘Milan’ when literally translated from its colloquial form to English means ‘conjugation’.
