@@ -1,9 +1,5 @@
 ![MILAN](https://user-images.githubusercontent.com/72851613/149673209-1dc460b5-24f7-470b-8d9b-29eb5e50015f.png)
 
-# Disclaimer ⚠
-
-**This is only for JWOC participants , issue assignments and coding will start after 31st January. Any comments/PRs made before that are hereby declared invalid.**
-
 ## What is Milan ? 🤔
 
 The word ‘Milan’ when literally translated from its colloquial form to English means ‘conjugation’.
@@ -15,7 +11,8 @@ With Milan we aim at bringing all the various NGOs and donors under one single r
 
 ## Willing to help ? 👩🏻‍💻
 
-**A beginner to Open Source, Web Development ?** <br/>
+**A beginner to Open Source, Web Development ?**  
+<br/>
 This might be the debut repo for you , contribute to this repo , solve the issues and learn more about web as well as get started with Open Source.
 Take a look at the **[contribution guidelines](https://github.com/IAmTamal/Milan/blob/main/README.md#contribution-guidelines-)** below.
 

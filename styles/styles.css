@@ -87,14 +87,10 @@
 
 .fh5co-cover .desc h2 {
   color: #fff;
-  text-transform: uppercase;
+
   font-size: 60px;
   margin-bottom: 10px;
   font-weight: 300 !important;
-}
-
-.fh5co-cover .desc h2 strong {
-  font-weight: 700;
 }
 
 /* Timeline section */
@@ -148,7 +144,6 @@
 .content_head {
   font-size: 15px;
   padding-top: 20px;
-  font-weight: 900;
 }
 
 hr.new1 {
@@ -157,8 +152,7 @@ hr.new1 {
 
 .content_head2 {
   font-family: "Exo 2", sans-serif;
-  font-size: 2rem;
-  color: #339a9c;
+  font-size: 1rem;
 }
 
 .content_p {
