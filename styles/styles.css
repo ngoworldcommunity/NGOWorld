@@ -142,8 +142,10 @@
 }
 
 .content_head {
-  font-size: 15px;
+  font-size: 23px;
   padding-top: 20px;
+  font-weight: bold;
+  color: #339a9c;
 }
 
 hr.new1 {
@@ -152,7 +154,7 @@ hr.new1 {
 
 .content_head2 {
   font-family: "Exo 2", sans-serif;
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 .content_p {
