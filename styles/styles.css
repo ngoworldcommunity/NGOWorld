@@ -142,10 +142,10 @@
 }
 
 .content_head {
-  font-size: 20px;
+  font-size: 23px;
   padding-top: 20px;
-   font-weight: bold;
-
+  font-weight: bold;
+  color: #339a9c;
 }
 
 hr.new1 {
