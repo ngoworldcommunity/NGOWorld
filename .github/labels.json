@@ -1,0 +1,37 @@
+[
+  {
+    "name": "good first issue",
+    "description": "This issue is good for first timers",
+    "color": "7057ff"
+  },
+  {
+    "name": "help wanted",
+    "description": "This issue needs help ! Please help if possible !",
+    "color": "008672"
+  },
+  {
+    "name": "hard",
+    "description": "Points will be: 5(1st Phase), 8(2nd Phase). 4 days will be allotted.",
+    "color": "f90716"
+  },
+  {
+    "name": "medium",
+    "description": "Points will be: 3(1st Phase), 4(2nd Phase). 2-3 days will be allotted.",
+    "color": "ffe400"
+  },
+  {
+    "name": "easy",
+    "description": "Points will be: 1(1st Phase), 2(2nd Phase). 1 day will be allotted.",
+    "color": "28ffbf"
+  },
+  {
+    "name": "JWOC",
+    "description": "This issue/pull request will be considered for JWOC 2k22.",
+    "color": "1d4cb0"
+  },
+  {
+    "name": "🤩 Up for Grab",
+    "description": "This issue is not assigned ! Grab It !",
+    "color": "bf00ff"
+  }
+]
