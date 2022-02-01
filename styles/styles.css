@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
 /* Background picture */
 
 .fh5co-cover,
@@ -85,13 +88,47 @@
   }
 }
 
-.fh5co-cover .desc h2 {
+/* Change in code starts from here */
+
+/* .fh5co-cover .desc h2 {      <<--- previous selectors   */  
+.title, .motto{
   color: #fff;
 
-  font-size: 60px;
+  font-family: 'Fira Sans', sans-serif;
+  
+  font-size: 70px;
   margin-bottom: 10px;
-  font-weight: 300 !important;
+  font-weight: 300 ;
+  
 }
+
+.title{
+  
+  font-size: 90px;
+  font-weight: 500;
+  
+}
+ 
+.motto{
+  text-transform:uppercase;
+  text-shadow: 2px 3px 10px black;
+}
+
+.motto strong{
+  font-weight: 600;
+}
+
+@media screen and (max-width:568px) {
+   .title, .motto{
+     font-size: 50px;
+   }
+}
+
+.btn-success{
+  width: 152px;
+}
+/* Change in code ends here */
+/* -------------x--------------- */
 
 /* Timeline section */
 
