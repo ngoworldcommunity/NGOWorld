@@ -1,5 +1,5 @@
 name: Issue_watcher
-
+ 
 on:
   issues:
     types: [opened]
@@ -7,13 +7,14 @@ on:
 jobs:
   first-job:
     runs-on: ubuntu-latest
+    if: ${{ github.actor != github.repository_owner }} 
     steps:
       - name: Checkout code
         uses: actions/checkout@main
       - name: Run Action
         uses: TesseractCoding/Issue_Watcher@main
         with:
-          token: "${{ secrets.GITHUB_TOKEN }}"
-          author: "${{github.actor}}"
+          token: '${{ secrets.GITHUB_TOKEN }}'
+          author: '${{github.actor}}'
           repo: IAmTamal/Milan
           maxIssue: 2
