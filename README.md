@@ -13,36 +13,33 @@ With Milan we aim at bringing all the various NGOs and donors under one single r
 
 **A beginner to Open Source, Web Development ?**  
 <br/>
-This might be the debut repo for you , contribute to this repo , solve the issues and learn more about web as well as get started with Open Source.
-Take a look at the **[contribution guidelines](https://github.com/IAmTamal/Milan/blob/main/README.md#contribution-guidelines-)** below.
+This might be the debut repo for you , contribute to this repo , solve the issues and learn more about web as well as get started with Open Source. Remember , we belive in **Quality**.
 
-<br/>
+---
+
+## Hello Contributors 👋🏻
+
+- **Take a look at the [Contributing Guidelines](https://github.com/IAmTamal/Milan/blob/main/rules/Contributing.md) for proper contributions**
+- **Take a look at the [Setup Guidelines](https://github.com/IAmTamal/Milan/blob/main/rules/Setup.md) to setup the react app locally**
+
+---
 
 ## Technologies used 💻
 
-<a href="https://github.com/search?q=user%3ADenverCoder1+is%3Arepo+language%3Acss"><img alt="CSS" src="https://img.shields.io/badge/CSS%20-%231572B6.svg?logo=css3&logoColor=white"></a>
-<a href="https://github.com/search?q=user%3ADenverCoder1+is%3Arepo+language%3Ahtml"><img alt="HTML" src="https://img.shields.io/badge/HTML%20-%23E34F26.svg?logo=html5&logoColor=white"></a>
-<a href="https://github.com/search?q=user%3ADenverCoder1+is%3Arepo+language%3Ajavascript"><img alt="JavaScript" src="https://img.shields.io/badge/JavaScript%20-%23F7DF1E.svg?logo=javascript&logoColor=black"></a>
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
 
- <br/>
+---
 
 ## Useful Links 🌐
 
-**Live Site** : https://iamtamal.github.io/Milan/
-
-<br/>
-
-## Contribution guidelines 🔐
-
-- Issues will be assigned on a First-Come-First-Serve basis and are applicable only when they are opted through GitHub.
-- Each issue needs to be completed within a specific time limit according to its difficulty level (**Easy: 1 day, Medium: 2-3 days and Hard: 4 days)**.
-- If a mentee is unable to solve the allotted issue within the given period, the issue needs to be passed to other contenders on the discretion of the mentor.
-
-- `Fork` the repo to your account.
-- `git clone` to clone the repo
-
-- Make your desired changes to the code , then create a Pull Request.
-- Don't forget to attach **Screenshots, Proper Description and Issue Number**
+**Live Site** : https://iamtamal.github.io/Milan/ <br/>
+**Live Milan App** : https://milaan.netlify.app/
 
 <br/>
 
