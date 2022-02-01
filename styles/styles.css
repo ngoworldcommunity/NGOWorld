@@ -1,3 +1,63 @@
+/*         Navbar css */
+body html{
+  font-family:"Exo 2", sans-serif ;
+  font-size: 10px;
+  line-height: 1px;
+  box-sizing: border-box;
+  margin: 0;
+  overflow-x: hidden;
+  top: 0;
+  left:0;
+}
+
+.navbar{
+  background-color: #5fc9f7;
+  position: relative;
+}
+
+
+a{
+  text-decoration: none;
+  color: rgb(15, 15, 15);
+  font-weight: 500;
+
+}
+a:hover{
+  color: rgb(113, 243, 87);
+}
+.navbar-brand{
+padding-left: 3.5rem;
+
+top: 50%;
+left: 10%;
+
+letter-spacing: 5px;
+
+}
+.nav-link{
+  font-style: bold;
+}
+
+ul{
+  list-style-type: none;
+  padding-right: 2rem;
+  font-size: 1.5rem;
+}
+li{
+  padding:0rem 4rem 0rem 5rem;
+}
+
+
+
+.btn{
+  margin-top: 5px;
+  margin-left: 67px;
+  margin-right: 50px;
+}
+
+
+
+
 /* Background picture */
 
 .fh5co-cover,
