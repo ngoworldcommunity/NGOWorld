@@ -88,9 +88,9 @@
   }
 }
 
+/* Change in code starts from here */
+
 /* .fh5co-cover .desc h2 {      <<--- previous selectors   */  
-
-
 .title, .motto{
   color: #fff;
 
@@ -126,7 +126,8 @@
 .btn-success{
   width: 152px;
 }
-/* ----------x--------------- */
+/* Change in code ends here */
+/* -------------x--------------- */
 
 /* Timeline section */
 
