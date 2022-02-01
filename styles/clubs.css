@@ -505,15 +505,16 @@ img {
 }
 
 .clubs-card .container {
-    width: 1000px;
+    width: 400px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    flex-direction: row;
 }
 
 .box {
     position: relative;
-    width: 300px;
+    width: 400px;
     height: 400px;
     background: #000;
     box-shadow: 0 30px 30px rgba(0, 0, 0, .5);
@@ -581,4 +582,13 @@ img {
 .box:hover .content p {
     opacity: 1;
     transition-delay: 0.2s;
+}
+.column {
+    float: left;
+    width: 30%;
+    padding: 0-10px;
+}
+  
+.row {
+    margin: 0 -5px;
 }
