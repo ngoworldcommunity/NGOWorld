@@ -98,13 +98,14 @@
   
   font-size: 70px;
   margin-bottom: 10px;
-  font-weight: 300 !important;
+  font-weight: 300 ;
   
 }
 
 .title{
   
   font-size: 90px;
+  font-weight: 500;
   
 }
  
