@@ -7,9 +7,8 @@ import "../../styles/ClubLogin.css";
 
 const ClubLogin = () =>{    
     document.title = "Club Login | Milan";
-       
-    const [email, setEmail] = useState(""); 
-    const [password, setPassword] = useState("");
+
+    const [credentials, setCredentials] = useState({email: "", password: ""}); 
 
     return (
         <>
@@ -28,13 +27,13 @@ const ClubLogin = () =>{
                     <strong className="highlighted">Clubs</strong> can <strong className="highlighted">Login</strong> from here.</p>
                     <div className="form-outline mb-2">
                         <label className=" col-form-label col-form-label-lg">Email address</label>
-                        <input type="email" className="form-control form-control-lg" placeholder="Enter your email address"  value={email}
-                                onChange={(e) => setEmail(e.target.value)} />
+                        <input type="email" className="form-control form-control-lg" placeholder="Enter your email address"  value={credentials.email}
+                                onChange={(e) => setCredentials({email:e.target.value})} />
                       </div>
                       <div className="form-outline mb-2">
                         <label className="col-form-label col-form-label-lg">Password</label>
-                        <input type="password" className="form-control form-control-lg" placeholder="Enter your password" value={password} 
-                        onChange={(e) => setPassword(e.target.value)} />
+                        <input type="password" className="form-control form-control-lg" placeholder="Enter your password" value={credentials.password} 
+                        onChange={(e) => setCredentials({...credentials,password:e.target.value})} />
                       </div>
                       <div className="form-check mt-4 d-flex">
 
@@ -50,8 +49,8 @@ const ClubLogin = () =>{
                       </div>
                       <div className="d-grid gap-2 py-4">
                         <button type="button" className="login-btn btn btn-primary py-2"  onClick={()=>{
-                            console.log("Email ID= " + email);
-                            console.log("Password= " + password);
+                            console.log("Email ID= " + credentials.email);
+                            console.log("Password= " + credentials.password);
                         }}>Login</button>
                       </div>
                     
