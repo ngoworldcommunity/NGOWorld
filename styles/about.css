@@ -41,19 +41,19 @@ section#banner::before {
 
 section#banner div#banner-text {
     position: relative;
-    min-width: 330px;
+    min-width: 300px;
     width: 60%;
     color: #ededed;
 }
 
 section#banner div#banner-text h1 {
     font-size: 64px;
-    padding: 22px 0;
+    padding: 22px;
 }
 
 section#banner div#banner-text p {
     font-size: 22px;
-    padding: 22px 0;
+    padding: 22px;
 }
 
 /* Core-Team Section */
@@ -98,4 +98,57 @@ div.card:hover {
 hr.line {
     margin: 0;
     height: 4px;
+}
+
+/* Responsive media */
+
+@media screen and (max-width: 1155px) {
+    section#banner div#banner-text {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    section#banner div#banner-text h1 {
+        font-size: 48px;
+    }
+
+    section#banner div#banner-text p {
+        font-size: 18px;
+    }
+
+    section#core-team h1, section#contributors h1{
+        font-size: 48px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    section#banner div#banner-text h1 {
+        font-size: 40px;
+    }
+
+    section#banner div#banner-text p {
+        font-size: 16px;
+    }
+
+    section#core-team h1, section#contributors h1{
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    section#banner div#banner-text h1 {
+        font-size: 32px;
+    }
+
+    section#banner div#banner-text p {
+        font-size: 14px;
+    }
+
+    section#core-team h1, section#contributors h1{
+        font-size: 32px;
+    }
 }
