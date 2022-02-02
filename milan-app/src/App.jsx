@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from './pages/Home'
-
+import UserRegister from './pages/user/UserRegister';
 
 const App = () => {
     return (
@@ -16,8 +16,8 @@ const App = () => {
 
                     {/* //* Auth routes - USER*/}
 
-                    {/* <Route exact path='/user/register' element={<UserLogin />} />
-                    <Route exact path='/user/login' element={<UserRegister />} /> */}
+                    {/* <Route exact path='/user/login' element={<UserLogin />} /> */}
+                    <Route exact path='/user/register' element={<UserRegister />} />
 
                     {/* //* Auth routes - CLUBS*/}
 
