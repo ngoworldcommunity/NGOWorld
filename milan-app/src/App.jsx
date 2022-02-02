@@ -3,10 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from './pages/Home'
 
 
-
-
-
-
 const App = () => {
     return (
         <>
@@ -18,11 +14,28 @@ const App = () => {
 
                     <Route exact path='/' element={<Home />} />
 
-                    {/* //* Auth routes */}
+                    {/* //* Auth routes - USER*/}
+
+                    {/* <Route exact path='/user/register' element={<UserLogin />} />
+                    <Route exact path='/user/login' element={<UserRegister />} /> */}
+
+                    {/* //* Auth routes - CLUBS*/}
+
+                    {/* <Route exact path='/user/register' element={<ClubLogin />} />
+                    <Route exact path='/user/login' element={<ClubRegister />} /> */}
+
+                    {/* //* Display Routes */}
                     {/* <Route exact path='/' element={<Home />} />
+                    <Route exact path='/' element={<Home />} />
+                    <Route exact path='/' element={<Home />} />
                     <Route exact path='/' element={<Home />} /> */}
 
-
+                    {/* //* Donations */}
+                    {/* <Route exact path='/' element={<Home />} />
+                    <Route exact path='/' element={<Home />} />
+                    <Route exact path='/' element={<Home />} />
+                    <Route exact path='/' element={<Home />} />
+                    <Route exact path='/' element={<Home />} /> */}
                 </Routes>
             </Router>
 
