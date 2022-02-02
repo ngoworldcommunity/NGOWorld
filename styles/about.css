@@ -82,6 +82,7 @@ div.team {
 
 div.card {
     margin: 22px 32px;
+    border: 8px solid #70d6ff;
     transition: transform 0.2s ease;
 }
 
@@ -91,7 +92,7 @@ div.card div.links {
 }
 
 div.card:hover {
-    box-shadow: 4px 4px 8px rgb(190 190 190);
+    box-shadow: 4px 4px 12px #8fd2ed;
     transform: scale(1.1);
 }
 
