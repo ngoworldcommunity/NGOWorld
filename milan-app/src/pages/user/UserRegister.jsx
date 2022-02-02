@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import registerImg from "../../assets/pictures/register.jpg";
 import "../../styles/UserRegister.css";
+
 export default function UserRegister() {
+
+    const [credentials, setCredentials] = useState({firstName: "", lastName: "", email: "", password: "", address: "", pin: ""});
+
+    const handleOnChange = (event) => {
+        setCredentials({...credentials, [event.target.name]: event.target.value});
+    }
+
+    const handleSubmit = () => {
+        console.log('Form submitted');
+    }
+
 	return (
 		<div id="userRegister">
 			<Navbar />
-			<div className="container">
+			<div className="body">
 				<div id="section1">
 					<img src={registerImg} alt="" />
 					<h1>Join us at MILAN...and help millions!</h1>
@@ -14,7 +26,8 @@ export default function UserRegister() {
 
 				<div id="section2">
 					<h2>Register Now!</h2>
-					<form>
+                    <button onClick={handleSubmit}>abcdadsad</button>
+					<form onSubmit={handleSubmit}>
 						<div id="name">
 							<div className="form-group">
 								<label htmlFor="firstName">First Name</label>
@@ -22,6 +35,9 @@ export default function UserRegister() {
 									type="text"
 									className="form-control"
 									id="firstName"
+                                    name="firstName"
+                                    value={credentials.firstName}
+                                    onChange={handleOnChange}
 									placeholder="First name"
 								/>
 							</div>
@@ -31,43 +47,58 @@ export default function UserRegister() {
 									type="text"
 									className="form-control"
 									id="lastName"
+                                    name="lastName"
+                                    value={credentials.lastName}
+                                    onChange={handleOnChange}
 									placeholder="Last name"
 								/>
 							</div>
 						</div>
 						<div className="form-group">
-							<label htmlFor="inputEmail">Email address</label>
+							<label htmlFor="email">Email address</label>
 							<input
 								type="email"
 								className="form-control"
-								id="inputEmail"
+								id="email"
+                                name="email"
+                                value={credentials.email}
+                                onChange={handleOnChange}
 								placeholder="name@example.com"
 							/>
 						</div>
 						<div className="form-group">
-							<label htmlFor="inputPassword">Password</label>
+							<label htmlFor="password">Password</label>
 							<input
 								type="password"
 								className="form-control"
-								id="inputPassword"
+								id="password"
+                                name="password"
+                                value={credentials.password}
+                                onChange={handleOnChange}
 								placeholder="Password"
 							/>
 						</div>
 						<div class="form-group">
-							<label for="inputAddress">Address</label>
+							<label for="address">Address</label>
 							<textarea
 								class="form-control"
-								id="inputAddress"
+								id="address"
+                                name="address"
+                                value={credentials.address}
+                                onChange={handleOnChange}
 								rows="2"
 								placeholder="Address"
 							></textarea>
 						</div>
 						<div className="form-group">
-							<label htmlFor="inputPincode">PIN Code</label>
+							<label htmlFor="pin">PIN Code</label>
 							<input
 								type="text"
 								className="form-control"
-								id="inputPincode"
+								id="pin"
+                                name="pin"
+                                value={credentials.pin}
+                                onChange={handleOnChange}
 								placeholder="Pincode"
 							/>
 						</div>
@@ -76,7 +107,8 @@ export default function UserRegister() {
 								Sign Up
 							</button>
                             <p>
-                                Already have an account? <a href="">Sign In</a>
+                                {/* Insert path to /user/login here when the page is up */}
+                                Already have an account? <a href="/">Sign In</a>
                             </p>
 						</div>
 					</form>
