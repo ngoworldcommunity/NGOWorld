@@ -1,0 +1,63 @@
+/* Forgot password, create new account styling */
+.login-link{
+    text-decoration: none!important;
+    color:grey;
+    font-weight:550;
+}
+.login-link:hover{
+    color:#7ED957;
+}
+
+/* Create New link styling */
+.new-acc{
+    color:#7ED957!important;
+}
+.new-acc:hover{
+    color:#558b3e;
+    font-weight: bold;
+}
+
+/* Login Button */
+.login-btn{
+    background-color: #7ED957;
+    color:black;
+    border:none;
+    text-transform: uppercase!important;
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+    transition: 0.2s;
+}
+.login-btn:hover{
+    transform: scale(1.02);
+    background-color: white;
+    color:black;
+    border:1px solid #7ED957;
+}
+.highlighted {
+    color:#7ED957;
+}
+
+.mobile-img{
+    display: none;
+}
+
+/* For Mobile */
+@media screen and (max-width: 400px) {
+
+    .mobile-txt{
+        text-align: center!important;
+    }
+
+    .mobile-img{
+        display: block;
+    }
+
+    .desktop-img{
+        display: none;
+    }
+
+    .mobile-sec{
+        padding: 0 5%;
+    }
+}

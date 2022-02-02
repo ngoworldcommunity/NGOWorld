@@ -1,6 +1,7 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Home from './pages/Home'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from './pages/Home';
+import ClubLogin from './pages/clubs/ClubsLogin';
 import UserRegister from './pages/user/UserRegister';
 
 const App = () => {
@@ -21,9 +22,9 @@ const App = () => {
 
                     {/* //* Auth routes - CLUBS*/}
 
-                    {/* <Route exact path='/user/register' element={<ClubLogin />} />
+                    {<Route exact path='/user/login' element={<ClubLogin />} />
                     
-                    <Route exact path='/user/login' element={<ClubRegister />} /> */}
+                    /* <Route exact path='/user/register' element={<ClubRegister />} /> */}
 
                     {/* //* Display Routes */}
                     {/* <Route exact path='/display/clubs' element={<ClubsPage />} /> */}
