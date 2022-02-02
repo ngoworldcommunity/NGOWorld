@@ -68,3 +68,16 @@
 	color:whitesmoke;
 	transform: scale(1.2);
 }
+
+/* For hiding quick links in the mobile */
+ @media screen and (max-width: 400px) {
+
+	 #quick-links{
+		 display: none !important;
+	 }
+
+	 .contact-us{
+		 text-align: center;
+	 }
+	 
+ }
