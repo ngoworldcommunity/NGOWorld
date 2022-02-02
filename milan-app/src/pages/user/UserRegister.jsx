@@ -26,7 +26,6 @@ export default function UserRegister() {
 
 				<div id="section2">
 					<h2>Register Now!</h2>
-                    <button onClick={handleSubmit}>abcdadsad</button>
 					<form onSubmit={handleSubmit}>
 						<div id="name">
 							<div className="form-group">
