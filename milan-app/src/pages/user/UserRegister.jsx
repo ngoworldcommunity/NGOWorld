@@ -11,7 +11,9 @@ export default function UserRegister() {
         setCredentials({...credentials, [event.target.name]: event.target.value});
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(credentials);
         console.log('Form submitted');
     }
 
@@ -77,10 +79,10 @@ export default function UserRegister() {
 								placeholder="Password"
 							/>
 						</div>
-						<div class="form-group">
-							<label for="address">Address</label>
+						<div className="form-group">
+							<label htmlFor="address">Address</label>
 							<textarea
-								class="form-control"
+								className="form-control"
 								id="address"
                                 name="address"
                                 value={credentials.address}
