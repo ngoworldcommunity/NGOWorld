@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
 import loginImg from '../../assets/pictures/login-img.png';
+import mobileLoginImg from '../../assets/pictures/login-img-mobile.png';
 import { Link } from 'react-router-dom';
 import "../../styles/login.css";
 
@@ -12,7 +13,8 @@ const ClubRegister = () =>{
         <div className="mobile-sec container py-5 h-100">
             <div className="row d-flex align-items-center justify-content-center h-100">
                 <div className="col-md-8 col-lg-7 col-xl-6">
-                    <img src={loginImg}  className="img-fluid" alt="Login" />
+                    <img src={loginImg}  className="img-fluid desktop-img" alt="Login" />
+                    <img src={mobileLoginImg}  className="img-fluid mobile-img" alt="Another Login" />
                 </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">

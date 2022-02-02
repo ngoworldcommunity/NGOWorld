@@ -38,11 +38,23 @@ p strong {
     color:#7ED957;
 }
 
+.mobile-img{
+    display: none;
+}
+
 /* For Mobile */
 @media screen and (max-width: 400px) {
 
     .mobile-txt{
         text-align: center!important;
+    }
+
+    .mobile-img{
+        display: block;
+    }
+    
+    .desktop-img{
+        display: none;
     }
 
     .mobile-sec{
