@@ -99,7 +99,7 @@ div.card div.links {
 
 div.card:hover {
     box-shadow: 4px 4px 12px #8fd2ed;
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
 }
 
 hr.line {
