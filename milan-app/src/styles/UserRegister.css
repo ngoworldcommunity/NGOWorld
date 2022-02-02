@@ -1,0 +1,175 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+div#userRegister div.body {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin: 0 34px;
+	padding-top: 6rem;
+	padding-bottom: 2rem;
+}
+
+div#userRegister div#section1 {
+	margin-right: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+div#userRegister div#section1 img {
+	height: 440px;
+	width: 598px;
+}
+
+div#userRegister div#section1 h1 {
+	color: #fc5bb2;
+	text-align: center;
+}
+
+div#userRegister div#section2 {
+	width: 600px;
+	padding: 12px 0;
+}
+
+div#userRegister div#section2 h2 {
+	margin: 0;
+	color: #7447d8;
+	text-align: center;
+}
+
+div#userRegister div#section2 form {
+	padding: 18px;
+	border-radius: 12px;
+}
+
+div#userRegister div#section2 div#name {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+div#userRegister div#section2 div#name div.form-group {
+	width: 100%;
+}
+
+div#userRegister div#section2 div#name div.form-group:nth-child(1) {
+	margin-right: 6px;
+}
+
+div#userRegister div#section2 div.form-group {
+	padding: 10px 0;
+}
+
+div#userRegister div#section2 div.form-group label {
+	font-size: 22px;
+}
+div#userRegister div#section2 div.form-group input {
+	font-size: 18px;
+}
+div#userRegister div#section2 div.form-group textarea {
+	font-size: 18px;
+}
+
+div#userRegister div#section2 div#links {
+	padding: 10px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+div#userRegister div#section2 div#links button.btn {
+	width: 50%;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	background-color: #9771ea;
+}
+
+div#userRegister div#section2 div#links p {
+	margin: 0;
+	margin-top: 12px;
+	text-align: center;
+}
+
+@media screen and (max-width: 1199px) {
+	div#userRegister div#section1 img {
+		height: 332px;
+		width: 448px;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	div#userRegister div#section2 div#name {
+		display: block;
+	}
+	div#userRegister div#section2 div#name div.form-group {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 992px) {
+	div#userRegister div#section2 div#name {
+		display: flex;
+	}
+	div#userRegister div.body {
+		flex-direction: column;
+	}
+	div#userRegister div#section1 {
+		margin: 0;
+		margin-bottom: 32px;
+	}
+	div#userRegister div#section1 img {
+		height: 398px;
+		width: 600px;
+	}
+}
+
+@media screen and (max-width: 680px) {
+	div#userRegister div#section2 div#name {
+		display: block;
+	}
+	div#userRegister div#section1 img {
+		height: 80%;
+		width: 80%;
+	}
+	div#userRegister div#section2 {
+		width: 100%;
+		padding: 12px 12px;
+	}
+	div#userRegister div#section2 div.form-group label {
+		font-size: 18px;
+	}
+	div#userRegister div#section2 div.form-group input {
+		font-size: 15px;
+	}
+	div#userRegister div#section2 div.form-group textarea {
+		font-size: 15px;
+	}
+	div#userRegister div#section2 div#links button.btn {
+		font-size: 15px;
+	}
+}
+
+@media screen and (max-width: 476px) {
+	div#userRegister div#section2 div.form-group label {
+		font-size: 16px;
+	}
+	div#userRegister div#section2 div.form-group input {
+		font-size: 12px;
+	}
+	div#userRegister div#section2 div.form-group textarea {
+		font-size: 12px;
+	}
+	div#userRegister div#section2 div#links button.btn {
+		font-size: 12px;
+	}
+	div#userRegister div#section2 div#links p {
+		font-size: 12px;
+	}
+}
