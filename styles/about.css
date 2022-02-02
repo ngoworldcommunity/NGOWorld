@@ -82,8 +82,14 @@ div.team {
 
 div.card {
     margin: 22px 32px;
-    border: 8px solid #70d6ff;
+    border: none;
+    border-radius: 12px;
     transition: transform 0.2s ease;
+}
+
+div.card img.card-img-top {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
 
 div.card div.links {
