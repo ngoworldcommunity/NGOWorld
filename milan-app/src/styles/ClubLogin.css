@@ -34,7 +34,7 @@
     color:black;
     border:1px solid #7ED957;
 }
-p strong {
+.highlighted {
     color:#7ED957;
 }
 
@@ -52,7 +52,7 @@ p strong {
     .mobile-img{
         display: block;
     }
-    
+
     .desktop-img{
         display: none;
     }

@@ -3,9 +3,9 @@ import Navbar from '../../components/Navbar';
 import loginImg from '../../assets/pictures/login-img.png';
 import mobileLoginImg from '../../assets/pictures/login-img-mobile.png';
 import { Link } from 'react-router-dom';
-import "../../styles/login.css";
+import "../../styles/ClubLogin.css";
 
-const ClubRegister = () =>{    
+const ClubLogin = () =>{    
     document.title = "Club Login | Milan";   
     return (
         <>
@@ -20,7 +20,8 @@ const ClubRegister = () =>{
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
                 <form >
                     <h2 className="mobile-txt">LOGIN</h2>
-                    <p className="gray-400 fw-bold mobile-txt"><strong>Clubs</strong> can <strong>Login</strong> from here.</p>
+                    <p className="gray-400 fw-bold mobile-txt">
+                    <strong className="highlighted">Clubs</strong> can <strong className="highlighted">Login</strong> from here.</p>
                     <div className="form-outline mb-2">
                         <label className=" col-form-label col-form-label-lg">Email address</label>
                         <input type="email" className="form-control form-control-lg" placeholder="Enter your email address" />
@@ -62,4 +63,4 @@ const ClubRegister = () =>{
 
 }
 
-export default ClubRegister;
+export default ClubLogin;
