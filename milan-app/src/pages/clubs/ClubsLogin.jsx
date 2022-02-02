@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../../components/Navbar';
 import loginImg from '../../assets/pictures/login-img.png';
 import mobileLoginImg from '../../assets/pictures/login-img-mobile.png';
@@ -6,7 +6,11 @@ import { Link } from 'react-router-dom';
 import "../../styles/ClubLogin.css";
 
 const ClubLogin = () =>{    
-    document.title = "Club Login | Milan";   
+    document.title = "Club Login | Milan";
+       
+    const [email, setEmail] = useState(""); 
+    const [password, setPassword] = useState("");
+
     return (
         <>
         <Navbar />
@@ -24,11 +28,13 @@ const ClubLogin = () =>{
                     <strong className="highlighted">Clubs</strong> can <strong className="highlighted">Login</strong> from here.</p>
                     <div className="form-outline mb-2">
                         <label className=" col-form-label col-form-label-lg">Email address</label>
-                        <input type="email" className="form-control form-control-lg" placeholder="Enter your email address" />
+                        <input type="email" className="form-control form-control-lg" placeholder="Enter your email address"  value={email}
+                                onChange={(e) => setEmail(e.target.value)} />
                       </div>
                       <div className="form-outline mb-2">
                         <label className="col-form-label col-form-label-lg">Password</label>
-                        <input type="password" className="form-control form-control-lg" placeholder="Enter your password" />
+                        <input type="password" className="form-control form-control-lg" placeholder="Enter your password" value={password} 
+                        onChange={(e) => setPassword(e.target.value)} />
                       </div>
                       <div className="form-check mt-4 d-flex">
 
@@ -42,8 +48,11 @@ const ClubLogin = () =>{
                       </div>
                         
                       </div>
-                      <div class="d-grid gap-2 py-4">
-                        <button type="button" className="login-btn btn btn-primary py-2">Login</button>
+                      <div className="d-grid gap-2 py-4">
+                        <button type="button" className="login-btn btn btn-primary py-2"  onClick={()=>{
+                            console.log("Email ID= " + email);
+                            console.log("Password= " + password);
+                        }}>Login</button>
                       </div>
                     
                    
