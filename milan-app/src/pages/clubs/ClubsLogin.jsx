@@ -9,7 +9,7 @@ const ClubRegister = () =>{
     return (
         <>
         <Navbar />
-        <div className="container py-5 h-100">
+        <div className="mobile-sec container py-5 h-100">
             <div className="row d-flex align-items-center justify-content-center h-100">
                 <div className="col-md-8 col-lg-7 col-xl-6">
                     <img src={loginImg}  className="img-fluid" alt="Login" />
@@ -17,8 +17,8 @@ const ClubRegister = () =>{
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
                 <form >
-                    <h2>LOGIN</h2>
-                    <p className="gray-400 fw-bold"><strong>Clubs</strong> can <strong>Login</strong> from here.</p>
+                    <h2 className="mobile-txt">LOGIN</h2>
+                    <p className="gray-400 fw-bold mobile-txt"><strong>Clubs</strong> can <strong>Login</strong> from here.</p>
                     <div className="form-outline mb-2">
                         <label className=" col-form-label col-form-label-lg">Email address</label>
                         <input type="email" className="form-control form-control-lg" placeholder="Enter your email address" />

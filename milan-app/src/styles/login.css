@@ -1,3 +1,4 @@
+/* Forgot password, create new account styling */
 .login-link{
     text-decoration: none!important;
     color:grey;
@@ -7,6 +8,7 @@
     color:#7ED957;
 }
 
+/* Create New link styling */
 .new-acc{
     color:#7ED957!important;
 }
@@ -14,6 +16,8 @@
     color:#558b3e;
     font-weight: bold;
 }
+
+/* Login Button */
 .login-btn{
     background-color: #7ED957;
     color:black;
@@ -32,4 +36,16 @@
 }
 p strong {
     color:#7ED957;
+}
+
+/* For Mobile */
+@media screen and (max-width: 400px) {
+
+    .mobile-txt{
+        text-align: center!important;
+    }
+
+    .mobile-sec{
+        padding: 0 5%;
+    }
 }
