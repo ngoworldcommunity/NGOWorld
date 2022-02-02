@@ -22,8 +22,8 @@ const App = () => {
 
                     {/* //* Auth routes - CLUBS*/}
 
-                    {<Route exact path='/user/login' element={<ClubLogin />} />
-                    
+                    {<Route exact path='/clubs/login' element={<ClubLogin />} />
+
                     /* <Route exact path='/user/register' element={<ClubRegister />} /> */}
 
                     {/* //* Display Routes */}
