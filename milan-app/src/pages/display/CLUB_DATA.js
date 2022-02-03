@@ -1,4 +1,4 @@
-[
+const data = [
   {
     "id": 1,
     "club_name": "Rotary International",
@@ -42,3 +42,5 @@
     "club_logo": "https://i.ibb.co/0hxWDDD/1.jpg"
   }
 ]
+
+export default data;

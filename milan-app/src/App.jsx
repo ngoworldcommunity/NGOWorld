@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import ClubLogin from './pages/clubs/ClubsLogin';
 import UserRegister from './pages/user/UserRegister';
+import ClubsPage from './pages/display/ClubsPage';
 
 const App = () => {
+    
     return (
         <>
 
@@ -27,7 +29,7 @@ const App = () => {
                     /* <Route exact path='/user/register' element={<ClubRegister />} /> */}
 
                     {/* //* Display Routes */}
-                    {/* <Route exact path='/display/clubs' element={<ClubsPage />} /> */}
+                    <Route exact path='/display/clubs' element={<ClubsPage />} />
 
 
                     {/* //* Donations */}

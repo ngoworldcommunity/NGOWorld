@@ -1,0 +1,45 @@
+.cards{
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 4%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    column-gap: 2%;
+    row-gap: 2%;
+    /* background-image: linear-gradient(to top, #aca7cb, #8b82c0, #7b70ba, #6a5eb4); */
+}
+.card{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 15px;
+}
+.card-img-top{
+    border-radius: 15px 15px 5px 5px;
+}
+.cardReadLess{
+    height: 15ex;
+    overflow: hidden;
+}
+.cardReadMore{
+    height: fit-content;
+}
+body::-webkit-scrollbar-track
+{
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: darkgrey;
+}

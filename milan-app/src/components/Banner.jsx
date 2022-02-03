@@ -16,9 +16,11 @@ const Banner = () => {
                 </div>
 
                 <div className="banner-Buttons">
-                    <button type="button" class="btn btn-primary">Clubs</button>
+                    <Link to="/display/clubs" className="banner-button">
+                        <button type="button" className="btn btn-primary">Clubs</button>
+                    </Link>
                     <Link to="/user/register">
-                        <button type="button" class="btn btn-primary">Register</button>
+                        <button type="button" className="btn btn-primary">Register</button>
                     </Link>
                 </div>
             </div>
