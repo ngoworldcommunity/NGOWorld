@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import BannerBg from "../assets/pictures/milanBg.jpg";
 import "../styles/Banner.css";
 
@@ -15,8 +16,12 @@ const Banner = () => {
                 </div>
 
                 <div className="banner-Buttons">
-                    <button type="button" class="btn btn-primary" >Clubs</button>
-                    <button type="button" class="btn btn-primary">Register</button>
+                    <Link to="/display/clubs" className="banner-button">
+                        <button type="button" className="btn btn-primary">Clubs</button>
+                    </Link>
+                    <Link to="/user/register">
+                        <button type="button" className="btn btn-primary">Register</button>
+                    </Link>
                 </div>
             </div>
         </div>

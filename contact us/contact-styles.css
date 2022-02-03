@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, Helvetica, sans-serif
+}
+
+img {
+    padding-top: 110px;
+    padding-left: 100px;
+    width: 85%;
+    height: 80%
+}
+.form-group label {
+    font-size: 11px;
+    font-weight: bold;
+    padding-left: 5px;
+    color: #828282
+}
+.formsetup{
+  padding-top:20px;
+}
+.form-control {
+    border: none;
+    border-radius: 20px;
+    background: rgba(165, 147, 69, 0.075);
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.2)
+}
+
+.btn {
+    width: 100%;
+    font-size: 12px;
+    margin-top: 10px;
+    background-color: rgba(56, 147, 243, 0.67);
+    text-align: center;
+    border-radius: 5px
+}
+
+.form-control:focus {
+    color: #495057;
+    border-color: #fff !important;
+    outline: 0;
+    box-shadow: 0 1px 1px 1px rgba(0, 123, 255, .25) !important
+}
+.namecol{
+  width: 400px;
+}
+.emailcol{
+  width : 500px;
+}

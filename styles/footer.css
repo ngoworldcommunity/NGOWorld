@@ -1,151 +1,83 @@
-/* Footer Section */
-
-.footer p {
-	color: black;
-}
-
-span {
-	color: black;
-}
-
-.footer a {
-	text-decoration: none;
-	color: black;
-}
-
-.footer .btn {
-	padding: .5rem 1rem;
-	background: #38A3A5;
-	color: white;
-	border: 1px solid transparent;
-	border-radius: .25rem;
-}
-
-.footer .btn-big {
-	padding: .7rem 1.3rem;
-	line-height: 1.3rem;
-
-}
-
-.footer .btn:hover {
-	color: white !important;
-	background: #22577A;
-}
-
-.text-input {
-	padding: .7rem 1rem;
-	display: block;
-	width: 100%;
-	color: white;
-	border-radius: 5px;
-	outline: none;
-	line-height: 1.5rem;
-	font-size: 1.2em;
-	font-family: 'Lora', serif;
-}
-
-/*FOOTER*/
-.footer {
-	background: #A2DBFA;
-	/* background-color: #ddf7e4; */
-	color: blanchedalmond;
-	height: 400px;
+.footer-area{
 	position: relative;
-
+	background-color:#192285 ; /* For footer background color */
+	color: whitesmoke;
 }
 
-.footer .footer-content {
-	height: 350px;
-	display: flex;
-
+.footer-logo{
+	width:15vh;
+	height: 15vh;
+	margin:0px!important;
 }
 
-.footer .footer-content .footer-section {
-	flex: 1;
-	padding: 25px;
-
+/*Organization name */
+.footer-head{
+	font-family: 'Fira Sans', sans-serif;
+	font-weight: bold;
+	font-size: 2rem;	
 }
 
-.footer .footer-content h1,
-.footer .footer-content h2 {
-	color: #22577A;
+/*Organization Tagline */
+.footer-subhead{
+	font-weight: 500;
+	font-size:1.15rem;
 }
 
-
-
-.footer .footer-content .about .contact span {
-	display: block;
-	font-size: 1.1rem;
-	margin-bottom: 8px;
+.footer-subhead strong{
+	color:#7ED957;
 }
 
-.footer .footer-content .about .socials a {
-	border: 1px solid gray;
-	width: 45px;
-	height: 41px;
-	padding-top: 5px;
-	margin-right: 5px;
-	padding: none;
-	text-align: center;
-	display: inline-block;
-	font-size: 1.3em;
-	border-radius: 5px;
-	transition: all .3s;
-
+.copyright-text strong{
+	color:#7ED957;
 }
 
-.footer .footer-content .about .socials a:hover {
-	border: 1px solid white;
-	color: white;
-	transition: all .3s;
+.copyright-text a{
+	text-decoration: none;
 }
 
-.footer .footer-content .links ul a {
-	color: grey;
-	display: block;
-	margin-bottom: 10px;
-	font-size: 1.2em;
-	transition: all .3s;
+.quick-links a, .contact-us a{
+	text-decoration: none;
+	color: whitesmoke;
+	font-size: 1.05rem;
+	letter-spacing: 0.03rem;
+	line-height: 2rem;
+	transition: 0.2s;
 }
 
-.footer .footer-content .links ul a:hover {
-	color: black;
-	margin-left: 15px;
-	transition: all .3s;
+.quick-links a:hover, .contact-us a:hover{
+	color:#7ED957;
+	transform: scale(1.1);
 }
 
-.footer .footer-content .contact-form .contact-input {
-	background: white;
-	color: black;
-	margin-bottom: 10px;
-	line-height: 1.5rem;
-	padding: .9rem 1.4rem;
-	border: none;
-	resize: none;
+/* iframe of google map address */
+.milan-address{
+	width:35vh;
+	height: 35vh;
+	margin-bottom: 5%;
 }
 
-.footer .footer-content .contact-form .contact-input:focus {
-	background: white;
+.footer-socials{
+	text-decoration: none;
+	color: #7ED957;
+	font-size: 1.3rem;
+	transition: 0.2s;
+	margin: 0 0.5rem;
 }
 
-.footer .footer-content .contact-form .contact-btn {
-	float: right;
-	font-size: 1.1em;
-	font-family: 'Lora', serif;
+.footer-socials:hover{
+	color:whitesmoke;
+	transform: scale(1.2);
 }
 
-.footer .footer-bottom {
-	/* background: #22577A; */
-	background: #38A3A5;
-	color: white;
-	height: 50px;
-	width: 100%;
-	text-align: center;
-	position: absolute;
-	bottom: 0px;
-	left: 0px;
-	padding-top: 12px;
+/* For hiding quick links in the mobile */
+ @media screen and (max-width: 400px) {
 
-}
+	 #quick-links{
+		 display: none !important;
+	 }
 
-/* Footer ends */
+	 .contact-us{
+		 text-align: center;
+	 }
+	 
+ }
