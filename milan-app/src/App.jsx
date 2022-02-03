@@ -17,8 +17,8 @@ const App = () => {
 
                     {/* //* Auth routes - USER*/}
 
-                    <Route exact path='/user/register' element={<UserLogin />} />
-                    {/* <Route exact path='/user/login' element={<UserRegister />} /> */}
+                    {/* <Route exact path='/user/register' element={<UserRegister />} /> */}
+                    <Route exact path='/user/login' element={ <UserLogin />} />
 
                     {/* //* Auth routes - CLUBS*/}
 

@@ -17,7 +17,7 @@ const Navbar = (props) => {
     const navigate = useNavigate();
 
     const handleNavigate = () => {
-        navigate("/user/register") 
+        navigate("/user/login") 
     }
 
     return (
