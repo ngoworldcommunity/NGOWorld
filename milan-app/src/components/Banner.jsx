@@ -1,8 +1,18 @@
 import React from 'react';
 import BannerBg from "../assets/pictures/milanBg.jpg";
 import "../styles/Banner.css";
+import "../pages/clubs/ClubsRegister";
+import { useNavigate } from 'react-router-dom';
+
 
 const Banner = () => {
+
+    const navigate = useNavigate();
+    const HandelNavigate= ()=>{
+        
+        navigate('user/register')
+    }
+
     return <>
         <div className="banner-container" style={{ backGround: BannerBg }}>
             <div className="banner-inner">
@@ -16,7 +26,7 @@ const Banner = () => {
 
                 <div className="banner-Buttons">
                     <button type="button" class="btn btn-primary" >Clubs</button>
-                    <button type="button" class="btn btn-primary">Register</button>
+                    <button onClick={HandelNavigate} type="button" class="btn btn-primary">Register</button>
                 </div>
             </div>
         </div>
