@@ -8,7 +8,7 @@ import UserLogin from "./pages/user/UserLogin"
 
 
 const App = () => {
-    
+
     return (
         <>
 
@@ -23,12 +23,11 @@ const App = () => {
 
 
                     <Route exact path='/user/register' element={<UserRegister />} />
-                      <Route exact path='/user/login' element={ <UserLogin />} />
+                    <Route exact path='/user/login' element={<UserLogin />} />
 
                     {/* //* Auth routes - CLUBS*/}
 
                     {<Route exact path='/clubs/login' element={<ClubLogin />} />
-
                     /* <Route exact path='/user/register' element={<ClubRegister />} /> */}
 
                     {/* //* Display Routes */}
