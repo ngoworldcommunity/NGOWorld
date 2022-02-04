@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Dancing+Script&family=Neonderthaw&family=Vujahday+Script&display=swap');
+
+.clubPic{
+    margin-top: 10rem;
+    margin-left: 5rem;
+    height: 10rem;
+  
+}
+img{
+   width: 30rem;
+   height: 40rem;
+}
+.container{
+    display: flex;
+}
+.content{
+    margin-top: 3rem;
+margin-left: 4rem;
+}
+label {
+    font-size: large;
+    font-weight: bolder;
+    padding: 10px;
+    
+}
+
+input{
+    width: 20rem;
+    height: 3rem;
+    margin: 0px;
+}
+button{
+   
+    margin: 10px;
+    border: 0px;
+    border-radius:20px ;
+    width: 7rem;
+    height: 3rem;
+    font-size: larger;
+    font-weight: 900;
+    color: white;
+    opacity: .7;
+}
+button:hover{
+   cursor: pointer;
+}
+#exampleCheck1{
+    width: auto;
+    height: auto;
+    margin: 0px;
+}
+@media(max-width:768px){
+    .clubPic{
+        margin-top: 1rem;
+        margin-left: 10rem;
+        width: 100%;
+        height: auto;
+    }
+    
+    .container{
+        display: grid;
+    }
+    input{
+        width: 20rem;
+        height: 3rem;
+        margin: 0px;
+    }
+    .content{
+        margin-top: 3rem;
+    margin-left: 13rem;
+    }
+}
+
+@media(max-width:425px){
+    img{
+        width: 20rem;
+        height: 20rem;
+    }
+    .clubPic{
+        margin-top: 1rem;
+        margin-left: 0rem;
+        width: 100%;
+        height: auto;
+    }
+    
+    .container{
+        display: grid;
+    }
+    input{
+        width: 13.2rem;
+        height: 3rem;
+        margin: 0px;
+    }
+    .content{
+        margin-top: 3rem;
+    margin-left: 5px;
+    }
+    button{
+        font-size: small;
+        width: 5rem;
+        height: 3rem;
+    }
+}
