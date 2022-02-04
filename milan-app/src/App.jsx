@@ -1,12 +1,18 @@
+
 import React, {Component} from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import axios from 'axios';
-import Home from './pages/Home'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from './pages/Home';
+import ClubLogin from './pages/clubs/ClubsLogin';
+import UserRegister from './pages/user/UserRegister';
+import ClubsPage from './pages/display/ClubsPage';
+import UserLogin from "./pages/user/UserLogin"
 import ClubRegister from './pages/clubs/ClubsRegister'
 import "./pages/clubs/ClubsRegister"
 
 
+
 const App = () => {
+
     return (
         <>
 
@@ -19,17 +25,23 @@ const App = () => {
 
                     {/* //* Auth routes - USER*/}
 
-                    {/* <Route exact path='/user/register' element={<UserLogin />} />
-                    <Route exact path='/user/login' element={<UserRegister />} /> */}
+
+                    <Route exact path='/user/register' element={<UserRegister />} />
+                    <Route exact path='/user/login' element={<UserLogin />} />
 
                     {/* //* Auth routes - CLUBS*/}
+
 
                     {/* <Route exact path='/user/login' element={<ClubLogin />} /> */}
                     
                     <Route exact path='/user/register' element={<ClubRegister />} />
 
+                    {<Route exact path='/clubs/login' element={<ClubLogin />} />
+                    /* <Route exact path='/user/register' element={<ClubRegister />} /> */}
+
+
                     {/* //* Display Routes */}
-                    {/* <Route exact path='/display/clubs' element={<ClubsPage />} /> */}
+                    <Route exact path='/display/clubs' element={<ClubsPage />} />
 
 
                     {/* //* Donations */}

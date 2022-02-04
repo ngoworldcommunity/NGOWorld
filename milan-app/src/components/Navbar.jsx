@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import "../styles/Navbar.css"
 import solidarity from "../assets/pictures/solidarity.png"
+import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
 
 const Navbar = (props) => {
 
@@ -11,6 +12,12 @@ const Navbar = (props) => {
         sessionStorage.removeItem("token");
         sessionStorage.removeItem("type");
         alert("Logging you out")
+    }
+
+    const navigate = useNavigate();
+
+    const handleNavigate = () => {
+        navigate("/user/login") 
     }
 
     return (
@@ -52,7 +59,9 @@ const Navbar = (props) => {
 
 
                             <li className="nav-item home">
-                                <img src={props.pictureUrl || "https://www.shareicon.net/data/512x512/2016/09/15/829452_user_512x512.png"} alt="lol" className='nav_user_img' />
+                            
+                                <img    onClick={handleNavigate} src={props.pictureUrl || "https://www.shareicon.net/data/512x512/2016/09/15/829452_user_512x512.png"} alt="lol" className='nav_user_img' />
+                               
                             </li>
 
 
