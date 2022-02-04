@@ -39,7 +39,6 @@ function UserLogin() {
 	});
 
 	const validateData = (name, value) => {
-		let errorLogs = errors.formErrors;
 		let isEmailValid = errors.emailValid;
 		let isPasswordValid = errors.passwordValid;
 
