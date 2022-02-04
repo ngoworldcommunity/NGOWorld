@@ -33,7 +33,6 @@ function UserLogin() {
 	});
 
 	const [errors, setErrors] = useState({
-		formErrors: { email: "", password: "" },
 		emailValid: false,
 		passwordValid: false,
 		formValid: false,
@@ -49,19 +48,14 @@ function UserLogin() {
 				isEmailValid = value.match(
 					'^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$'
 				);
-				errors.email = isEmailValid ? "" : "is invalid";
 				break;
 			case "password":
 				isPasswordValid = value.length > 5;
-				errors.password = isPasswordValid
-					? ""
-					: "should be more than 5 characters";
 				break;
 			default:
 		}
 
 		setErrors({
-			formErrors: errorLogs,
 			emailValid: isEmailValid,
 			passwordValid: isPasswordValid,
 			formValid: errors.emailValid && errors.passwordValid,
