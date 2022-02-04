@@ -32,40 +32,15 @@ function UserLogin() {
 		password: "",
 	});
 
-	const [errors, setErrors] = useState({
-		emailValid: false,
-		passwordValid: false,
-		formValid: false,
-	});
-
-	const validateData = (name, value) => {
-		let isEmailValid = errors.emailValid;
-		let isPasswordValid = errors.passwordValid;
-
-		switch (name) {
-			case "email":
-				isEmailValid = value.match(
-					'^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$'
-				);
-				break;
-			case "password":
-				isPasswordValid = value.length > 5;
-				break;
-			default:
-		}
-
-		setErrors({
-			emailValid: isEmailValid,
-			passwordValid: isPasswordValid,
-			formValid: errors.emailValid && errors.passwordValid,
-		});
-	};
+	const [isEmailValid, setIsEmailValid] = useState(false);
 
 	const handleChange = (e) => {
-		setCredentials(
-			{ ...credentials, [e.target.name]: e.target.value },
-			validateData(e.target.name, e.target.value)
-		);
+		setCredentials({ ...credentials, [e.target.name]: e.target.value });
+		if (
+			e.target.name === "email" &&
+			e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
+		)
+			setIsEmailValid(true);
 	};
 
 	const handleSubmit = (e) => {
@@ -126,7 +101,7 @@ function UserLogin() {
 									onChange={handleChange}
 									required
 								></input>
-                                <small
+								<small
 									id="passwordHelp"
 									className="form-text text-muted"
 								>
@@ -147,7 +122,10 @@ function UserLogin() {
 						<button
 							type="submit"
 							className="btn btn-lg btn-block"
-							disabled={!errors.formValid}
+							disabled={
+								credentials.password.length <= 5 ||
+								!isEmailValid
+							}
 							style={{ backgroundColor: "#89b5f7" }}
 						>
 							Login
