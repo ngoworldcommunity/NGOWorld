@@ -176,9 +176,9 @@ function UserLogin() {
 				</div>
 			</div>
 
-			{/* <div className="homeIconContainer">
+			<div className="homeIconContainer">
 				<FcHome className="homeIcon" style={{ width: "auto" }} />
-			</div> */}
+			</div>
 		</div>
 	);
 }
