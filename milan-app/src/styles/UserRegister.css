@@ -26,6 +26,18 @@ div#userRegister div#links button {
     margin-bottom: 22px;
 }
 
+@media screen and (max-width: 991px) {
+    div#userRegister div#form-col h2 {
+        text-align: center;
+    }
+
+    div#userRegister div#links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 @media screen and (max-width: 767px) {
     div#userRegister div#form-col {
         width: 376px;

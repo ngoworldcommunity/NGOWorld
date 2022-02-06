@@ -42,7 +42,7 @@ export default function UserRegister() {
 
 					{/* Form column */}
 					<div id="form-col" className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                        <h2>Register Here</h2>
+                        <h2>Join Us Now!</h2>
 						<form onSubmit={handleSubmit}>
 							{/* <div id="name"> */}
 							<div className="form-outline mb-2 form-group">
