@@ -11,10 +11,10 @@ assignees: ''
  
 ---
  
-## Guidelines 🔐
+## Guidelines ⚠
 
-- [ ] I have read the **[Contributing Guidelines](https://github.com/IAmTamal/Milan/blob/main/rules/Contributing.md)** 🔐
-- [ ] I have read the **[Setup guidelines](https://github.com/IAmTamal/Milan/blob/main/rules/Setup.md)** 🔐
+#### I have read the **[Contributing Guidelines](https://github.com/IAmTamal/Milan/blob/main/rules/Contributing.md)** 🔐
+#### I have read the **[Setup guidelines](https://github.com/IAmTamal/Milan/blob/main/rules/Setup.md)** 🔐
  
  ---
 
@@ -35,5 +35,6 @@ If there are **images** in your `.jsx` files  give them unique classnames like *
   
 Once you are done with the code , please tag me in `#milan` with the **Screenshot** of whatever you made so that we can review that there together.
 If you have any **doubts, queries** please tag me in `#milan` so that we can discuss the issue there together.
+Please **Donot DM.**
   
 ### Cheers 🥂
