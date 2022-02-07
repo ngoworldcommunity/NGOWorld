@@ -1,0 +1,30 @@
+footer{
+    background-color: rgb(66, 65, 65);
+    padding: 30px 80px;
+    color: #fff;
+    
+}
+
+.links{
+    color: rgb(177, 177, 177);
+    text-decoration: none;
+}
+.links:hover{
+    color: rgb(231, 231, 231);
+}
+
+.footer-text{
+    color: rgb(177, 177, 177);
+}
+
+
+
+.button{
+    background-color: rgb(15, 127, 233);
+    color: #fff;
+}
+
+.footer-copyright, .copyright{
+    color:rgb(156, 156, 156);
+    text-decoration: none;
+}
