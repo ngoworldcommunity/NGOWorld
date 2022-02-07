@@ -1,0 +1,143 @@
+.contactUs {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+}
+
+.contactUsImage {
+    width: auto;
+    height: 350px;
+}
+
+.contactUsForm {
+    width: 100%;
+    height: 100%;
+    margin-left: 4rem;
+    padding: 1rem 9.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16px;
+    border: none;
+    box-shadow: 11px 11px 16px 5px rgba(0,0,0,0.25);
+}
+
+.contactUsFormHeader {
+    text-align: center;
+    color: #2E8E83;
+    margin-bottom: 3rem;
+}
+
+.contactUsFormNameInput {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.contactUsFNFormInput {
+    border: 1px solid #948F8F;
+    background-color: #FCFCFC;
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+}
+
+.contactUsLNFormInput {
+    border: 1px solid #948F8F;
+    background-color: #FCFCFC;
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+}
+
+.contactUsFormEmail {
+    width: 100%;
+}
+
+.contactUsEmailFormInput {
+    border: 1px solid #948F8F;
+    background-color: #FCFCFC;
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.contactUsFormMsg {
+    width: 100%;
+}
+
+.contactUsMsgFormInput {
+    border: 1px solid #948F8F;
+    background-color: #FCFCFC;
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    resize: none;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.contactUsFormSubmit {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.contactUsSubmitBtn {
+    padding: 0.5rem 2rem;
+    color: white;
+    background-color: #2E8E83;
+    border-radius: 15px;
+    border: none;
+}
+
+@media screen and (max-width: 768px) {
+    .contactUs {
+        flex-direction: column;
+        padding: 3rem 1rem;
+        justify-content: center;
+    }
+    .contactUsImage {
+        width: 100%;
+        height: auto;
+        margin-bottom: 2rem;
+    }
+    .contactUsFormHeader {
+        font-size: 24px;
+    }
+    .contactUsForm {
+        padding: 1rem 1rem;
+        margin-left: 0;
+    }
+    .contactUsFNFormInput {
+        width: 46%;
+    }
+    .contactUsLNFormInput {
+        width: 46%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .contactUs {
+        flex-direction: column;
+        padding: 3rem 8rem;
+        justify-content: center;
+    }
+    .contactUsForm {
+        padding: 1rem 5rem;
+        margin-left: 0;
+    }
+    .contactUsImage {
+        width: 100%;
+        height: auto;
+        margin-bottom: 2rem;
+    }
+    .contactUsFNFormInput {
+        width: 46%;
+    }
+    .contactUsLNFormInput {
+        width: 46%;
+    }
+}
