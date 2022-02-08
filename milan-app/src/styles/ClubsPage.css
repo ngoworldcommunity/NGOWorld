@@ -2,6 +2,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	scroll-behaviour:smooth;
 }
 
 .cards {
@@ -10,9 +11,9 @@
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	column-gap: 8%;
 	row-gap: 6%;
-	overflow-y: auto;
+/* 	overflow-y: auto;
     overflow: -moz-scrollbars-none;
-    -ms-overflow-style: none;
+    -ms-overflow-style: none; */
 }
 
 .cards::-webkit-scrollbar {
