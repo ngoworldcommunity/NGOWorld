@@ -145,14 +145,17 @@
 
 	#body-section .content_head {
 		font-size: 1.2rem;
+        text-align: center;
 	}
 
 	#body-section .content_head2 {
 		font-size: 1.1rem;
+        text-align: center;
 	}
 
 	#body-section .content_p {
 		font-size: 14px;
+        text-align: center;
 	}
 
 	#body-section .img_0 {
