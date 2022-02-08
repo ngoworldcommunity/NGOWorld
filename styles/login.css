@@ -1,0 +1,43 @@
+@media screen and (max-width: 800px){
+    h2{
+        text-align: center;
+        padding-bottom:2vw;
+    }
+    form{
+        text-align: center;
+    }
+  label[for="exampleInputEmail1"]{
+      display: none;
+  }
+  label[for="exampleInputPassword1"]{
+    display: none;
+  }
+ 
+  ::placeholder{
+      text-align: center;
+  }
+
+  #homeIcon{
+   margin-top:16.4rem;
+   font-size:4.5vw;
+   
+  }
+ }
+ 
+ label[for="exampleCheck1"]{
+    visibility: hidden;
+}
+#exampleCheck1{
+    visibility: hidden;
+}
+#homeIcon{
+    color:#24a0ed;
+    text-decoration: none;
+    font-size: 25px;
+}
+#homeIcon:hover{
+    color:#40a9eb;
+    text-decoration:underline;
+    transition: 0.5s ease-in-out; 
+    cursor: pointer;
+}
