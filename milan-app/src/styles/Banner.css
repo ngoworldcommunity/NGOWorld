@@ -67,7 +67,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* width: 100%; */
 }
 .banner-Buttons button {
   background-color: #0d6efd;
@@ -78,5 +77,16 @@
   color: #fff;
   margin-right: 10px;
   cursor: pointer;
-  width: 8vw;
+  width: auto;
+}
+@media (max-width: 425px) {
+  .banner-Buttons {
+    margin-top: 50px;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .banner-Buttons button {
+    margin-bottom: 10px;
+  }
 }
