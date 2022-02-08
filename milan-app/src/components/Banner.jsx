@@ -17,10 +17,10 @@ const Banner = () => {
 
                 <div className="banner-Buttons">
                     <Link to="/display/clubs" className="banner-button">
-                        <button type="button" className="btn btn-primary">Clubs</button>
+                        <button type="button" className="btn btn-primary">Continue as a Club</button>
                     </Link>
                     <Link to="/user/register">
-                        <button type="button" className="btn btn-primary">Register</button>
+                        <button type="button" className="btn btn-primary">Continue as an User</button>
                     </Link>
                 </div>
             </div>
