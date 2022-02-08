@@ -18,12 +18,12 @@
   }
 
   #homeIcon{
-   margin-top:16.4rem;
-   font-size:4.5vw;
+  
+   font-size:3.5vw;
    
   }
  }
- 
+
  label[for="exampleCheck1"]{
     visibility: hidden;
 }
@@ -33,7 +33,7 @@
 #homeIcon{
     color:#24a0ed;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 22px;
 }
 #homeIcon:hover{
     color:#40a9eb;
