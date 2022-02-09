@@ -1,105 +1,96 @@
-footer{
-    background-color: rgb(66, 65, 65);
-    padding: 30px 80px;
-    color: #fff;
-    
+footer {
+  background-color: rgb(66, 65, 65);
+  padding: 30px 80px;
+  color: #fff;
 }
 
-.links{
-    color: rgb(177, 177, 177);
-    text-decoration: none;
+.links {
+  color: rgb(177, 177, 177);
+  text-decoration: none;
 }
-.links:hover{
-    color: rgb(231, 231, 231);
-}
-
-.footer-text{
-    color: rgb(177, 177, 177);
+.links:hover {
+  color: rgb(231, 231, 231);
 }
 
-
-
-.button{
-    background-color: rgb(15, 127, 233);
-    color: #fff;
+.footer-text {
+  color: rgb(177, 177, 177);
 }
 
-.footer-copyright, .copyright{
-    color:rgb(156, 156, 156);
-    text-decoration: none;
+.button {
+  background-color: rgb(15, 127, 233);
+  color: #fff;
 }
 
-.report{
-    width: 200px;
-    height: 50px;
-    border: none;
-    border-radius: 15px;
+.footer-copyright,
+.copyright {
+  color: rgb(156, 156, 156);
+  text-decoration: none;
+}
+
+.report {
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 15px;
+  position: relative;
+  right: 220%;
+  top: 120%;
+  background-color: #27414D;
+  color: #fff;
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.report:hover {
+  box-shadow: 0 2px 8px rgb(122, 122, 122);
+}
+
+.report img {
+  width: 20px;
+}
+
+.top-img {
+  height: 25px;
+  position: relative;
+  left: 4%;
+}
+
+.bottom-img {
+  position: relative;
+  right: 5%;
+}
+.col-md-3 {
+  width: 150px;
+}
+.ls {
+  margin-left: 200px;
+}
+
+@media (max-width: 868px) {
+  .footer-links {
+    display: none;
+  }
+
+  .report {
     position: relative;
-    right: 220%;
-    top: 120%;
-    background-color: rgba(22, 72, 180, 0.692);
-    color: #fff;
-    font-weight: 600;
-    
+    right: -85%;
+    top: 15%;
+    margin-bottom: 20px;
+  }
 }
-
-.report:hover{
-    box-shadow: 0 2px 8px rgb(122, 122, 122);
-}
-
-.report img{
-    width: 20px;
-}
-
-.top-img{
-    height: 25px;
-    position: relative;
-    left: 4%;
-}
-
-.bottom-img{
-    position: relative;
-    right: 5%;
-}
-.col-md-3{
-   width: 150px;
-   
-}
-.ls{
-    margin-left: 200px;
-}
-
-
-@media (max-width:868px) {
-    .footer-links{
-        display: none;
-    } 
-
-    .report{
-      
-        position: relative;
-        right: -85%;
-        top: 15%;
-        margin-bottom: 20px;
-       
-    }
-}
-
 
 @media (max-width: 368px) {
-    .footer-links{
-        display: none;
-    } 
+  .footer-links {
+    display: none;
+  }
 
-    .report{
-        width: 250px;
-        height: 42px;
-        position: relative;
-        right: 20%;
-        top: 15%;
-        margin-bottom: 20px;
-       
-    }
+  .report {
+    width: 250px;
+    height: 42px;
+    position: relative;
+    right: 20%;
+    top: 15%;
+    margin-bottom: 20px;
+  }
 }
-
-
