@@ -2,8 +2,21 @@ import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import registerImg from "../../assets/pictures/register.jpg";
 import "../../styles/UserRegister.css";
+import { Link } from "react-router-dom";
 
 export default function UserRegister() {
+
+	function Anchor(props) {
+		return (
+			<div>
+				<p>
+					{props.para}
+					<Link to={props.link}>{props.details}</Link>
+				</p>
+			</div>
+		);
+	}
+
 	const [credentials, setCredentials] = useState({
 		firstName: "",
 		lastName: "",
@@ -42,7 +55,7 @@ export default function UserRegister() {
 
 					{/* Form column */}
 					<div id="form-col" className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                        <h2>Join Us Now!</h2>
+						<h2>Join Us Now!</h2>
 						<form onSubmit={handleSubmit}>
 							{/* <div id="name"> */}
 							<div className="form-outline mb-2 form-group">
@@ -55,7 +68,7 @@ export default function UserRegister() {
 									value={credentials.firstName}
 									onChange={handleOnChange}
 									placeholder="First name"
-                                    required
+									required
 								/>
 							</div>
 							<div className="form-outline mb-2 form-group">
@@ -68,7 +81,7 @@ export default function UserRegister() {
 									value={credentials.lastName}
 									onChange={handleOnChange}
 									placeholder="Last name"
-                                    required
+									required
 								/>
 							</div>
 							{/* </div> */}
@@ -82,7 +95,7 @@ export default function UserRegister() {
 									value={credentials.email}
 									onChange={handleOnChange}
 									placeholder="name@example.com"
-                                    required
+									required
 								/>
 							</div>
 							<div className="form-outline mb-2 form-group">
@@ -95,7 +108,7 @@ export default function UserRegister() {
 									value={credentials.password}
 									onChange={handleOnChange}
 									placeholder="Password"
-                                    required
+									required
 								/>
 							</div>
 							<div className="form-outline mb-2 form-group">
@@ -108,7 +121,7 @@ export default function UserRegister() {
 									onChange={handleOnChange}
 									rows="2"
 									placeholder="Address"
-                                    required
+									required
 								></textarea>
 							</div>
 							<div className="form-outline mb-2 form-group">
@@ -121,17 +134,19 @@ export default function UserRegister() {
 									value={credentials.pin}
 									onChange={handleOnChange}
 									placeholder="Pincode"
-                                    required
+									required
 								/>
 							</div>
 							<div id="links">
 								<button className="btn btn-lg btn-block" type="submit">
 									Sign Up
 								</button>
-								<p>
-									Already have an account?{" "}
-									<a href="/">Sign In</a>
-								</p>
+								<Anchor
+									para="Already have an account? "
+									details="Login here"
+									link="/user/login"
+									className="link-info"
+								/>
 							</div>
 						</form>
 					</div>

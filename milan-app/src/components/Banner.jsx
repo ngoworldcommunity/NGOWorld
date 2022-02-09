@@ -16,7 +16,7 @@ const Banner = () => {
                 </div>
 
                 <div className="banner-Buttons">
-                    <Link to="/display/clubs" className="banner-button">
+                    <Link to="/clubs/login" className="banner-button">
                         <button type="button" className="btn btn-primary">Continue as a Club</button>
                     </Link>
                     <Link to="/user/register">

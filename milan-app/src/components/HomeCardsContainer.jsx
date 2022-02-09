@@ -23,7 +23,7 @@ const HomeCardsContainer = () => {
 				data-aos="fade-right"
 				data-aos-duration="500"
 			/>
-            
+
 			<div
 				className="contents content_0"
 				data-aos="fade-left"
