@@ -60,7 +60,7 @@ const ClubLogin = () => {
 
 
                             <span>Already have an account?
-                                <Link to="" className="registration-link old-acc"> Login</Link>
+                                <Link to="/clubs/login" className="registration-link old-acc"> Login</Link>
                             </span>
                         </form>
                     </div>
