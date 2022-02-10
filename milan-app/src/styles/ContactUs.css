@@ -31,13 +31,13 @@
 }
 
 .contactUsFormNameInput {
-    width: 100%;
     display: flex;
-    justify-content: space-between;
     margin-bottom: 2rem;
+    width: 100%;
 }
 
 .contactUsFNFormInput {
+    width: 50%;
     border: 1px solid #948F8F;
     background-color: #FCFCFC;
     padding: 0.8rem 1rem;
@@ -45,9 +45,11 @@
 }
 
 .contactUsLNFormInput {
+    width: 50%;
     border: 1px solid #948F8F;
     background-color: #FCFCFC;
     padding: 0.8rem 1rem;
+    margin-left: 15px;
     border-radius: 5px;
 }
 
@@ -78,12 +80,12 @@
     overflow-y: auto;
     width: 100%;
 }
-
 .contactUsFormSubmit {
     display: flex;
     justify-content: center;
     width: 100%;
 }
+
 
 .contactUsSubmitBtn {
     padding: 0.5rem 2rem;
@@ -92,6 +94,9 @@
     border-radius: 15px;
     border: none;
 }
+.contactUsSubmitBtn:hover {
+    background-color: #0e776b;
+  }
 
 @media screen and (max-width: 768px) {
     .contactUs {
@@ -112,10 +117,10 @@
         margin-left: 0;
     }
     .contactUsFNFormInput {
-        width: 46%;
+        width: 50%;
     }
     .contactUsLNFormInput {
-        width: 46%;
+        width: 50%;
     }
 }
 
@@ -128,6 +133,7 @@
     .contactUsForm {
         padding: 1rem 5rem;
         margin-left: 0;
+        margin-top: 80px;
     }
     .contactUsImage {
         width: 100%;
@@ -135,9 +141,34 @@
         margin-bottom: 2rem;
     }
     .contactUsFNFormInput {
-        width: 46%;
+        width: 50%;
     }
     .contactUsLNFormInput {
-        width: 46%;
+        width: 50%;
     }
+}
+@media screen and (min-width: 1000px) and (max-width:1500px){
+    
+   
+    .contactUsForm {
+        padding: 2rem 4rem;
+        margin: 5%;
+        margin-left: 0;
+        margin-left: 50px;
+        width: 75%;
+        
+    }
+    .contactUsImage {
+        width: 110%;
+        height: auto;
+        margin-bottom: 2rem;
+        padding-right: 50px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width:900px){
+    .contactUsForm {
+        margin-top: 80px;
+    }
+
 }
