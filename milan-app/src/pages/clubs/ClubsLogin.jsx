@@ -56,7 +56,7 @@ const ClubLogin = () => {
 
 
                             <span>Don't have an account?
-                                <Link to="/user/register" className="login-link new-acc"> Create New</Link>
+                                <Link to="/clubs/register" className="login-link new-acc"> Create New</Link>
                             </span>
                         </form>
                     </div>
