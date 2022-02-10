@@ -44,4 +44,8 @@
     .mobile-sec{
         padding: 0 5%;
     }
+
+    .mobile-label{
+        display: none;
+    }
 }

@@ -34,38 +34,38 @@ const ClubLogin = () => {
                                 <strong className="highlighted-registration">Clubs</strong> can <strong className="highlighted-registration">Register</strong> from here.
                                 </p>
 
-                            <div className="form-outline mb-2">
-                                <label className=" col-form-label col-form-label-lg">Club Name</label>
+                            <div className="form-outline mb-4">
+                                <label className=" col-form-label col-form-label-lg mobile-label">Club Name</label>
                                 <input type="email" className="form-control form-control-lg" placeholder="Enter your club name" value={credentials.name}
                                     onChange={(e) => setCredentials({...credentials, name: e.target.value })} />
                             </div>
 
-                            <div className="form-outline mb-2">
-                                <label className=" col-form-label col-form-label-lg">Club Email</label>
+                            <div className="form-outline mb-4">
+                                <label className=" col-form-label col-form-label-lg mobile-label">Club Email</label>
                                 <input type="email" className="form-control form-control-lg" placeholder="Enter your email address" value={credentials.email}
                                     onChange={(e) => setCredentials({...credentials, email: e.target.value })} />
                             </div>
 
-                            <div className="form-outline mb-2">
-                                <label className="col-form-label col-form-label-lg">Password</label>
+                            <div className="form-outline mb-4">
+                                <label className="col-form-label col-form-label-lg mobile-label">Password</label>
                                 <input type="password" className="form-control form-control-lg" placeholder="Enter your password" value={credentials.password}
                                     onChange={(e) => setCredentials({ ...credentials, password: e.target.value })} />
                             </div>
 
-                            <div className="form-outline mb-2">
-                                <label className="col-form-label col-form-label-lg">Confirm your Password</label>
+                            <div className="form-outline mb-4">
+                                <label className="col-form-label col-form-label-lg mobile-label">Confirm your Password</label>
                                 <input type="password" className="form-control form-control-lg" placeholder="Confirm your password" value={credentials.confirmPassword}
                                     onChange={(e) => setCredentials({ ...credentials, confirmPassword: e.target.value })} />
                             </div>
 
-                            <div className="form-outline mb-2">
-                                <label className="col-form-label col-form-label-lg">Address</label>
+                            <div className="form-outline mb-4">
+                                <label className="col-form-label col-form-label-lg mobile-label">Address</label>
                                 <input type="text" className="form-control form-control-lg" placeholder="Enter your club address" value={credentials.address}
                                     onChange={(e) => setCredentials({ ...credentials, address: e.target.value })} />
                             </div>
 
-                            <div className="form-outline mb-2">
-                                <label className="col-form-label col-form-label-lg">Pincode</label>
+                            <div className="form-outline mb-4">
+                                <label className="col-form-label col-form-label-lg mobile-label">Pincode</label>
                                 <input type="text" maxLength="6" className="form-control form-control-lg" placeholder="Enter your pincode" value={credentials.pincode}
                                     onChange={(e) => setCredentials({ ...credentials, pincode: e.target.value })} />
                             </div>

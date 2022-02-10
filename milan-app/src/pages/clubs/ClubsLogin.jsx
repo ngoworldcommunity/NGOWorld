@@ -25,13 +25,13 @@ const ClubLogin = () => {
                             <h2 className="mobile-txt">LOGIN</h2>
                             <p className="gray-400 fw-bold mobile-txt">
                                 <strong className="highlighted">Clubs</strong> can <strong className="highlighted">Login</strong> from here.</p>
-                            <div className="form-outline mb-2">
-                                <label className=" col-form-label col-form-label-lg">Email address</label>
+                            <div className="form-outline mb-4">
+                                <label className=" col-form-label col-form-label-lg mobile-label">Email address</label>
                                 <input type="email" className="form-control form-control-lg" placeholder="Enter your email address" value={credentials.email}
                                     onChange={(e) => setCredentials({ email: e.target.value })} />
                             </div>
-                            <div className="form-outline mb-2">
-                                <label className="col-form-label col-form-label-lg">Password</label>
+                            <div className="form-outline mb-4">
+                                <label className="col-form-label col-form-label-lg mobile-label">Password</label>
                                 <input type="password" className="form-control form-control-lg" placeholder="Enter your password" value={credentials.password}
                                     onChange={(e) => setCredentials({ ...credentials, password: e.target.value })} />
                             </div>
