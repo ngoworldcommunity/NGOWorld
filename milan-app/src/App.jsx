@@ -23,10 +23,8 @@ const App = () => {
 
           {/* //* Auth routes - CLUBS*/}
 
-          {
-            <Route exact path="/clubs/login" element={<ClubLogin />} />
-            /* <Route exact path='/user/register' element={<ClubRegister />} /> */
-          }
+          <Route exact path="/clubs/login" element={<ClubLogin />} />
+          {/* <Route exact path="/clubs/register" element={<ClubRegister />} /> */}
 
           {/* //* Display Routes */}
           <Route exact path="/display/clubs" element={<ClubsPage />} />
@@ -38,6 +36,8 @@ const App = () => {
                     <Route exact path='/' element={<Home />} />
                     <Route exact path='/' element={<Home />} />
                     <Route exact path='/' element={<Home />} /> */}
+
+
         </Routes>
       </Router>
     </>
