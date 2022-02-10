@@ -24,7 +24,7 @@ const ClubLogin = () => {
                 <div className="row d-flex align-items-center justify-content-center h-100">
 
                     <div className="col-md-8 col-lg-7 col-xl-6">
-                        <img src={registrationImage} className="img-fluid desktop-img" alt="Club Registration" />
+                        <img src={registrationImage} className="img-fluid" alt="Club Registration" />
                     </div>
 
                     <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
@@ -71,7 +71,13 @@ const ClubLogin = () => {
                             </div>
 
                             <div className="d-grid gap-2 py-4">
-                                <button type="button" className="registration-btn btn btn-primary py-2">Register</button>
+                                <button type="button" className="registration-btn btn btn-primary py-2" onClick={() => {
+                                    console.log("Club Name = " + credentials.name);
+                                    console.log("Club Email = " + credentials.email);
+                                    console.log("Password = " + credentials.password);
+                                    console.log("Club Address = " + credentials.address);
+                                    console.log("Club Pincode = " + credentials.pincode);
+                                }}>Register</button>
                             </div>
 
 
