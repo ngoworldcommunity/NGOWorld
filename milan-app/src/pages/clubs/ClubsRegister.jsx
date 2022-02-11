@@ -7,15 +7,34 @@ import "../../styles/ClubsRegister.css";
 const ClubLogin = () => {
     document.title = "Club Register | Milan";
 
+    function Anchor(props) {
+        return (
+            <div>
+                <p>
+                    {props.para}
+                    <Link to={props.link}>{props.details}</Link>
+                </p>
+            </div>
+        );
+    }
+
     const [credentials, setCredentials] = useState(
-        { 
-            name: "", 
-            email: "", 
+        {
+            name: "",
+            email: "",
             password: "",
             confirmPassword: "",
             address: "",
             pincode: "",
-         });
+        });
+
+    //* Submitting form
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        console.log(credentials);
+        console.log("Form submitted");
+    };
 
     return (
         <>
@@ -24,26 +43,24 @@ const ClubLogin = () => {
                 <div className="row d-flex align-items-center justify-content-center h-100">
 
                     <div className="col-md-8 col-lg-7 col-xl-6">
-                        <img src={registrationImage} className="img-fluid" alt="Club Registration" />
+                        <img src={registrationImage} className="img-fluid" alt="Club Registration" width="90%" />
                     </div>
 
                     <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                        <form >
+                        <form onSubmit={handleSubmit}>
                             <h2 className="mobile-txt">Club Register</h2>
-                            <p className="gray-400 fw-bold mobile-txt">
-                                <strong className="highlighted-registration">Clubs</strong> can <strong className="highlighted-registration">Register</strong> from here.
-                                </p>
+
 
                             <div className="form-outline mb-4">
                                 <label className=" col-form-label col-form-label-lg mobile-label">Club Name</label>
                                 <input type="email" className="form-control form-control-lg" placeholder="Enter your club name" value={credentials.name}
-                                    onChange={(e) => setCredentials({...credentials, name: e.target.value })} />
+                                    onChange={(e) => setCredentials({ ...credentials, name: e.target.value })} />
                             </div>
 
                             <div className="form-outline mb-4">
                                 <label className=" col-form-label col-form-label-lg mobile-label">Club Email</label>
                                 <input type="email" className="form-control form-control-lg" placeholder="Enter your email address" value={credentials.email}
-                                    onChange={(e) => setCredentials({...credentials, email: e.target.value })} />
+                                    onChange={(e) => setCredentials({ ...credentials, email: e.target.value })} />
                             </div>
 
                             <div className="form-outline mb-4">
@@ -71,19 +88,16 @@ const ClubLogin = () => {
                             </div>
 
                             <div className="d-grid gap-2 py-4">
-                                <button type="button" className="registration-btn btn btn-primary py-2" onClick={() => {
-                                    console.log("Club Name = " + credentials.name);
-                                    console.log("Club Email = " + credentials.email);
-                                    console.log("Password = " + credentials.password);
-                                    console.log("Club Address = " + credentials.address);
-                                    console.log("Club Pincode = " + credentials.pincode);
-                                }}>Register</button>
+                                <button type="button" className="registration-btn btn btn-primary py-2"  >Register</button>
                             </div>
 
 
-                            <span>Already have an account?
-                                <Link to="/clubs/login" className="registration-link old-acc"> Login</Link>
-                            </span>
+                            <Anchor
+                                para="Already have an account? "
+                                details="Login here"
+                                link="/user/login"
+                                className="link-info"
+                            />
                         </form>
                     </div>
                 </div>

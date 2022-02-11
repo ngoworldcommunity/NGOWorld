@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import Navbar from '../../components/Navbar';
-// import loginImg from '../../assets/pictures/login-img.png';
-// import mobileLoginImg from '../../assets/pictures/ClubSignIn.svg';
 import { Link } from 'react-router-dom';
 import "../../styles/ClubLogin.css";
 import Pic from "../../assets/pictures/clubs-login.png"
 
 
 function ClubLogin() {
-	
+
 
 	function Anchor(props) {
 		return (
@@ -100,7 +98,7 @@ function ClubLogin() {
 								<Anchor
 									para="Don't have an account? "
 									details="Register here"
-									link="/user/register"
+									link="/clubs/register"
 									className="link-info"
 								/>
 
