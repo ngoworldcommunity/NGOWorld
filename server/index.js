@@ -15,23 +15,14 @@ app.get("/", (req, res) => {
   res.send("HELLO FROM HOME");
 });
 
-//* club routes
-// app.use("/club", require("./routes/PriestAuth"));
-
-//* Display all
-// app.use("/displayall", require("./routes/Display"));
-
 //* user routes
-// app.use("/user", require("./routes/UserAuth"));
+app.use("/user", require("./routes/User"));
 
-//* TEST ROUTE
-//* You can simply call /testdisplay and get the list of all Users from the Database.
-//* This is made for testing purposes so that we can check connectivity of DB
+//* club routes
+app.use("/club", require("./routes/Clubs"));
 
-// app.get("/testdisplay", async (req, res) => {
-//   let testusers = await User.find({});
-//   res.json(testusers);
-// });
+//* Display routes
+app.use("/display", require("./routes/Display"));
 
 app.listen(port, () => {
   console.log("API IS RUNNING 🚀");
