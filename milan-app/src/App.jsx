@@ -7,6 +7,7 @@ import UserRegister from "./pages/user/UserRegister";
 import ClubsPage from "./pages/display/ClubsPage";
 import UserLogin from "./pages/user/UserLogin";
 import ContactPage from "./pages/ContactUs";
+import AboutUs from "./pages/AboutUs";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           {/* //* Display Routes */}
           <Route exact path="/display/clubs" element={<ClubsPage />} />
           <Route exact path="/contact" element={<ContactPage />} />
+          <Route exact path="/about" element={<AboutUs />} />
 
           {/* //* Donations */}
           {/* <Route exact path='/' element={<Home />} />

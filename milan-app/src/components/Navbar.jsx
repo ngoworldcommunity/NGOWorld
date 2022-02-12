@@ -58,7 +58,7 @@ const Navbar = (props) => {
               </li>
 
               <li className="nav-item home">
-                <a href="/">About</a>
+                <a href="/about">About</a>
               </li>
 
               <li className="nav-item home">
