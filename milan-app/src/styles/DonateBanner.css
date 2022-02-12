@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo&display=swap");
+
+div#donate-banner {
+	width: 75%;
+	margin: 128px auto;
+	font-family: "Arimo", sans-serif;
+}
+
+div#donateCol1 h2 {
+	font-weight: bold;
+	color: #2e8e83;
+}
+
+div#donateCol1 button {
+	width: 65%;
+	padding: 8px;
+	border: none;
+	border-radius: 12px;
+	text-align: center;
+	color: white;
+	background-color: #2e8e83;
+}
+
+div#donateCol2 img.donateImg {
+	max-width: 596px;
+	max-height: 500px;
+	width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+	div#donate-banner {
+		margin: 64px auto !important;
+		align-items: center;
+		flex-direction: column-reverse;
+	}
+
+	div#donateCol1 {
+		margin: 0 !important;
+		text-align: center;
+        flex-wrap: wrap;
+		align-items: center !important;
+	}
+
+	div#donateCol2 {
+		display: flex;
+		justify-content: center;
+	}
+
+	div#donateCol2 img.donateImg {
+		width: 80%;
+		margin-bottom: 38px;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	div#donateCol2 img.donateImg {
+		width: 75%;
+        max-width: 300px;
+	}
+}
