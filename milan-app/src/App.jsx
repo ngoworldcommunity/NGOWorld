@@ -31,7 +31,7 @@ const App = () => {
           {/* //* Display Routes */}
           <Route exact path="/display/clubs" element={<ClubsPage />} />
           <Route exact path="/contact" element={<ContactPage />} />
-          <Route exact path="/about" element={<AboutUs />} />
+          <Route exact path="/about-us" element={<AboutUs />} />
 
           {/* //* Donations */}
           {/* <Route exact path='/' element={<Home />} />
