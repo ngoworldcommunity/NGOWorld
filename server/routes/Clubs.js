@@ -34,24 +34,7 @@ router.post("/register", async (req, res) => {
             })
             club.save()//saving the data to db
             .then(club=>{
-                const payload = {
-                    Club:{
-                        id: Club.id,
-                    },
-                };
-                jwt.sign(
-                    payload,
-                    "thisismysecret123",
-                    {
-                        expiresIn: 10000,
-                    },
-                    (error,token) =>{
-                        if(error)
-                            throw error;
-                        return res.json({ sucess: true })
-                    }
-                )              
-                
+                return res.json({ sucess: true })       
             })
             .catch(err=>{
                 console.log(err);
