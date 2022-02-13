@@ -1,60 +1,92 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo&display=swap");
 
 div#donate-banner {
-	width: 75%;
-	margin: 128px auto;
-	font-family: "Arimo", sans-serif;
+  width: 75%;
+  margin: 128px auto;
+  font-family: "Arimo", sans-serif;
 }
 
 div#donateCol1 h2 {
-	font-weight: bold;
-	color: #2e8e83;
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 80px;
+
+  color: #2e8e83;
 }
 
 div#donateCol1 button {
-	width: 65%;
-	padding: 8px;
-	border: none;
-	border-radius: 12px;
-	text-align: center;
-	color: white;
-	background-color: #2e8e83;
+  width: 40%;
+  padding: 8px;
+  border: none;
+  border-radius: 12px;
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #2e8e83;
 }
 
 div#donateCol2 img.donateImg {
-	max-width: 596px;
-	max-height: 500px;
-	width: 100%;
+  max-width: 596px;
+  max-height: 500px;
+  width: 100%;
+}
+
+div#donateCol1 p {
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+
+  color: #000000;
 }
 
 @media screen and (max-width: 768px) {
-	div#donate-banner {
-		margin: 64px auto !important;
-		align-items: center;
-		flex-direction: column-reverse;
-	}
+  div#donate-banner {
+    margin: 64px auto !important;
+    align-items: center;
+    flex-direction: column-reverse;
+  }
 
-	div#donateCol1 {
-		margin: 0 !important;
-		text-align: center;
-        flex-wrap: wrap;
-		align-items: center !important;
-	}
+  div#donateCol1 {
+    margin: 0 !important;
+    text-align: center;
+    flex-wrap: wrap;
+    align-items: center !important;
+  }
 
-	div#donateCol2 {
-		display: flex;
-		justify-content: center;
-	}
+  div#donateCol2 {
+    display: flex;
+    justify-content: center;
+  }
 
-	div#donateCol2 img.donateImg {
-		width: 80%;
-		margin-bottom: 38px;
-	}
+  div#donateCol2 img.donateImg {
+    width: 80%;
+    margin-bottom: 38px;
+  }
+
+  div#donateCol1 h2 {
+    font-size: 44px;
+  }
+
+  div#donateCol1 p {
+    font-size: 18px;
+  }
+
+  div#donateCol1 button {
+    width: auto;
+  }
 }
 
 @media screen and (max-width: 420px) {
-	div#donateCol2 img.donateImg {
-		width: 75%;
-        max-width: 300px;
-	}
+  div#donateCol2 img.donateImg {
+    width: 70%;
+    max-width: 300px;
+  }
 }
