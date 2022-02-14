@@ -36,4 +36,7 @@ router.post("/register", async (req, res) => {
     console.log(e);
   }
 });
+
+//* Route 2 - User Login
+
 module.exports = router;
