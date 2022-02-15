@@ -1,8 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Arimo&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Arimo&display=swap"); */
+/* @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
 
 div#about {
 	margin: 68px 128px;
-    font-family: 'Arimo', sans-serif;
+    font-family: 'Mulish', sans-serif;
 }
 
 div.abtCol1 {
@@ -21,11 +23,16 @@ div.abtCol2 {
 
 div.abtCol2 h1 {
 	color: #2e8e83;
+	font-size: 35px;
+	font-style: normal;
     font-weight: bold;
 }
 
 div.abtCol2 p {
-	font-size: 20px;
+	font-size: 18px;
+	line-height: 25px;
+	font-style: normal;
+	font-weight: normal;
 }
 
 div.abtCol2 img.abtMembers {
