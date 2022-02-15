@@ -38,5 +38,28 @@ router.post("/register", async (req, res) => {
 });
 
 //* Route 2 - User Login
+router.post("/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    let exists = await User.findOne({
+      email,
+    });
+    const validPassword = await bcrypt.compare(password, exists.password);
+    const payload = {
+      User: {
+        id: exists.email,
+      },
+    };
+    if (validPassword) {
+      jwt.sign(payload, "HELLOSECRET123", (err, token) => {
+        return res.json({ status: true, token });
+      });
+    } else {
+      return res.json({ status: false });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 module.exports = router;
