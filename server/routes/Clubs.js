@@ -60,11 +60,11 @@ router.post("/login", async (req, res) => {
 
         if (validPassword) {
             jwt.sign(payload, "HELLOSECRET123", (err, authToken) => {
-                return res.json({ status: true, authToken });
+                return res.json({ success: true, authToken });
             });
         }
         else {
-            return res.json({ status: false });
+            return res.json({ success: false });
         }
     } catch (e) {
         console.log(e);
