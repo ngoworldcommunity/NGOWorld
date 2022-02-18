@@ -26,6 +26,7 @@ const ClubLogin = () => {
             confirmPassword: "",
             address: "",
             pincode: "",
+            desc:"",
         });
 
     //* Submitting form
@@ -35,7 +36,6 @@ const ClubLogin = () => {
         console.log(credentials);
         console.log("Form submitted");
     };
-
     return (
         <>
             <Navbar />
@@ -86,9 +86,25 @@ const ClubLogin = () => {
                                 <input type="text" maxLength="6" className="form-control form-control-lg" placeholder="Enter your pincode" value={credentials.pincode}
                                     onChange={(e) => setCredentials({ ...credentials, pincode: e.target.value })} />
                             </div>
+                            <label for="exampleInputEmail1" className="col-form-label col-form-label-lg mobile-label">Description</label>
+              <textarea
+                type="text"
+                class="form-control"
+                id="exampleInputText"
+                aria-describedby="textDemo"
+                placeholder='Describe your club in at least 20 characters'
+                value={credentials.desc}
+                onChange={(e) => {
+               
+                  setCredentials({ ...credentials, desc: e.target.value })
+                }}
+              />
+              <small id="textDemo" class="form-text text-muted">
+               
+              </small>
 
                             <div className="d-grid gap-2 py-4">
-                                <button type="button" className="registration-btn btn btn-primary py-2"  >Register</button>
+                                <button disabled={credentials.desc.trim().length < 20} type="button" className="registration-btn btn btn-primary py-2"  >Register</button>
                             </div>
 
 
