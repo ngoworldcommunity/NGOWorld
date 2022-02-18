@@ -8,41 +8,46 @@ import ClubsPage from "./pages/display/ClubsPage";
 import UserLogin from "./pages/user/UserLogin";
 import ContactPage from "./pages/ContactUs";
 import AboutUs from "./pages/AboutUs";
+import MilanState from "./context/MilanState";
 
 const App = () => {
   return (
     <>
-      <Router>
-        <Routes>
-          {/* //* Home routes */}
+      <MilanState>
 
-          <Route exact path="/" element={<Home />} />
+        <Router>
+          <Routes>
+            {/* //* Home routes */}
 
-          {/* //* Auth routes - USER*/}
+            <Route exact path="/" element={<Home />} />
 
-          <Route exact path="/user/register" element={<UserRegister />} />
-          <Route exact path="/user/login" element={<UserLogin />} />
+            {/* //* Auth routes - USER*/}
 
-          {/* //* Auth routes - CLUBS*/}
+            <Route exact path="/user/register" element={<UserRegister />} />
+            <Route exact path="/user/login" element={<UserLogin />} />
 
-          <Route exact path="/clubs/login" element={<ClubLogin />} />
-          <Route exact path="/clubs/register" element={<ClubRegister />} />
+            {/* //* Auth routes - CLUBS*/}
 
-          {/* //* Display Routes */}
-          <Route exact path="/display/clubs" element={<ClubsPage />} />
-          <Route exact path="/contact" element={<ContactPage />} />
-          <Route exact path="/about-us" element={<AboutUs />} />
+            <Route exact path="/clubs/login" element={<ClubLogin />} />
+            <Route exact path="/clubs/register" element={<ClubRegister />} />
 
-          {/* //* Donations */}
-          {/* <Route exact path='/' element={<Home />} />
+            {/* //* Display Routes */}
+            <Route exact path="/display/clubs" element={<ClubsPage />} />
+            <Route exact path="/contact" element={<ContactPage />} />
+            <Route exact path="/about-us" element={<AboutUs />} />
+
+            {/* //* Donations */}
+            {/* <Route exact path='/' element={<Home />} />
                     <Route exact path='/' element={<Home />} />
                     <Route exact path='/' element={<Home />} />
                     <Route exact path='/' element={<Home />} />
                     <Route exact path='/' element={<Home />} /> */}
 
 
-        </Routes>
-      </Router>
+          </Routes>
+        </Router>
+      </MilanState>
+
     </>
   );
 };

@@ -2,6 +2,10 @@ footer {
   background-color: rgb(66, 65, 65);
   padding: 30px 80px;
   color: #fff;
+  margin-bottom: 0px;
+  position: relative;
+  width: 100%;
+  top: 45px;
 }
 
 .links {
@@ -35,7 +39,7 @@ footer {
   position: relative;
   right: 220%;
   top: 120%;
-  background-color: #27414D;
+  background-color: #27414d;
   color: #fff;
   font-family: Mulish;
   font-style: normal;
