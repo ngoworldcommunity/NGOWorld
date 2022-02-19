@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Navbar from '../../components/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "../../styles/ClubLogin.css";
-import Pic from "../../assets/pictures/clubs-login.png"
+import Pic from "../../assets/pictures/clubs-login.png";
+import { LoginClub } from "../../service/MilanApi";
 
 
 function ClubLogin() {
-
+	const Navigate = useNavigate();
 
 	function Anchor(props) {
 		return (
@@ -38,8 +39,24 @@ function ClubLogin() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		console.log(credentials);
-		console.log("Form submitted");
+		const Data = LoginClub(credentials);
+
+		Data.then(response => {
+			if(response.data.success==true){
+				alert("Logged you in!!");
+				Navigate("/");
+			  }
+			else if(response.data.success==false){
+				alert("Please input valid credentials");
+				setCredentials({
+					email:"", 
+					password:""
+				});
+			}
+		})
+		.catch(err=>{			
+			console.log(err);
+		})
 	};
 
 	return (

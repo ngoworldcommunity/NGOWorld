@@ -5,6 +5,7 @@ import Axios from "axios";
 
 const User_Log = "http://localhost:5000/user/login";
 const User_Reg = "http://localhost:5000/user/register";
+const Club_Log = "http://localhost:5000/club/login";
 const Club_Reg = "http://localhost:5000/club/register";
 
 //^ `````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
@@ -40,6 +41,15 @@ export const RegisterUser = async (credentials) => {
     }
 }
 
+export const LoginClub = async (credentials) => {
+  try {
+    const Post = await Axios.post(`${Club_Log}`, credentials);
+    return Post;
+  } catch (error) {
+    console.log(error);
+    alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+  }
+}
 export const RegisterClub = async (credentials) => {
     try {
         const response = await Axios.post(`${Club_Reg}`, credentials);
