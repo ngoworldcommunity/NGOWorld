@@ -16,11 +16,12 @@
 - Make your desired changes to the code ,
 - Make sure you do `git pull` to pull the latest version of the code
 - `git add .` to stage for commits
-- `git commit -am "message"` for commiting the code.
+- **NOTICE--> message will be `fix: <anything you fixed>`**
+- `git commit -am "fix: Updtated bla bla bla"` for commiting the code.
 - then create a Pull Request and wait for review.
 - Don't forget to attach **`Screenshots, Proper Description and Issue Number`**
 - Remember to be respectful to other contributors, mentors, comunnity
-- Don't raise invalid/spam issues !!
+- Don't raise invalid/spam issues they will be closed !!
 
 <br/>
 

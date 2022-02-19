@@ -8,7 +8,7 @@
 - `git clone` to clone the repo
 
 - Now you have the repo in your **local storage**
-- Navigate to the **react app** by using `cd milan-app`
+
 - Next to setup the react app `npm install`
 - Once the node modules and other stuffs are installed , `npm start` to start the app in `http://localhost:3000/`
 - You can acess the `server` folder to get the backend and start it with `npm start` in `http://localhost:5000/`
@@ -22,7 +22,7 @@
 - `git pull` to pull the latest version of the code
 - `git add .` to stage for commits
 - `git commit -am "message"` for commiting the code.
-- **REMEMBER** --> YOU NEED TO PULL REQ ON `tamal` BRANCH !!
+- **REMEMBER** --> YOU NEED TO PULL REQ ON `tamal-milan` BRANCH !!
 - Once done create a Pull Request and wait for the mentor to review.
 - Don't forget to attach **`Screenshots, Proper Description and Issue Number` in the Pull request**
 
