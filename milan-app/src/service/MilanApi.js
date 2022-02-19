@@ -5,6 +5,7 @@ import Axios from "axios";
 
 const User_Log = "https://reimaginedworship.herokuapp.com/user/login";
 const User_Reg = "http://localhost:5000/user/register";
+const Club_Reg = "http://localhost:5000/club/register";
 
 //^ `````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 //* Axios call to login a User
@@ -28,6 +29,24 @@ export const RegisterUser = async (credentials) => {
 
         if (response.data.exists === true) {
             alert("User already present, please login")
+        }
+
+        if (response.data.success === true) {
+            alert("Registration successful, please login")
+        }
+    } catch (error) {
+        console.log(error);
+        alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+    }
+}
+
+export const RegisterClub = async (credentials) => {
+    try {
+        const response = await Axios.post(`${Club_Reg}`, credentials);
+        console.log(response);
+
+        if (response.data.exists === true) {
+            alert("Club already present, please login")
         }
 
         if (response.data.success === true) {
