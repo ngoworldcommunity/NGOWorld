@@ -42,11 +42,11 @@ function ClubLogin() {
 		const Data = LoginClub(credentials);
 
 		Data.then(response => {
-			if(response.data.status==true){
+			if(response.data.success==true){
 				alert("Logged you in!!");
 				Navigate("/");
 			  }
-			else if(response.data.status==false){
+			else if(response.data.success==false){
 				alert("Please input valid credentials");
 				setCredentials({
 					email:"", 
