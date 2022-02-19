@@ -20,7 +20,7 @@
 - `git pull` to pull the latest version of the code
 - `git add .` to stage for commits
 - `git commit -am "message"` for commiting the code.
-- then create a Pull Request and wait for review.
-- Don't forget to attach **Screenshots, Proper Description and Issue Number**
+- Once done create a Pull Request and wait for the mentor to review.
+- Don't forget to attach **`Screenshots, Proper Description and Issue Number`**
 
 <br/>

@@ -51,7 +51,7 @@ const ContactUs = () => {
 					</div>
 				</div>
 			</div>
-			<div id="contactBottom" className="d-flex justify-content-center mt-5 mb-3">
+			{/* <div id="contactBottom" className="d-flex justify-content-center mt-5 mb-3">
 				<Link to="/" className="text-decoration-none" id="homeLink">
 						<i
 							className="fa fa-home"
@@ -61,7 +61,7 @@ const ContactUs = () => {
 							Return Home
 						</span>
 				</Link>
-			</div>
+			</div> */}
 		</>
 	);
 };

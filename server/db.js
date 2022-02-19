@@ -1,3 +1,5 @@
+//This is a demo db , the original files are safe
+
 const mongoose = require("mongoose");
 
 const mongoURI =
