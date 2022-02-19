@@ -10,13 +10,11 @@
 - Now you have the repo in your **local storage**
 - Navigate to the **react app** by using `cd milan-app`
 - Next to setup the react app `npm install`
-- Once the node modules and other stuffs are installed , `npm start` to start the app in `http://localhost:3000/`
-- You can acess the `server` folder to get the backend and start it with `npm start` in `http://localhost:5000/`
+- Once the nodemodules and other stuffs are installed , `npm start` to start the app in `http://localhost:3000/`
 - Make changes **according** to the Tasks assigned to you
 - Maintain the folder structure , keep small components like **Navbar, Footer** in `src\components` folder
 - Keep big Pages like **Login page, home page** in the `src\pages` folder
 - We have used **Bootsrap 5.0** for styling , css files are available in `src\styles`
-- You are also allowed to use GOOGLE FONTS for same fonts as of figma files.
 - Other extra **Pictures, icons , svgs** are to be kept in `src\assets\`
 - Once you are done with the changes , `cd ..` to come to the root folder
 - `git pull` to pull the latest version of the code
