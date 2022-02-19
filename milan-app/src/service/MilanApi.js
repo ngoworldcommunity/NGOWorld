@@ -3,7 +3,7 @@
 
 import Axios from "axios";
 
-const User_Log = "https://reimaginedworship.herokuapp.com/user/login";
+const User_Log = "http://localhost:5000/user/login";
 const User_Reg = "http://localhost:5000/user/register";
 const Club_Reg = "http://localhost:5000/club/register";
 
@@ -13,14 +13,14 @@ const Club_Reg = "http://localhost:5000/club/register";
 //* we get the credentials from the Awb.jsx
 
 export const LoginUser = async (credentials) => {
-    try {
-        const Post = await Axios.post(` ${User_Log}`, credentials);
-        return Post;
-    } catch (error) {
-        console.log(error);
-        alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
-    }
-};
+  try {
+    const Post = await Axios.post(`${User_Log}`, credentials);
+    return Post;
+  } catch (error) {
+    console.log(error);
+    alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+  }
+}
 
 export const RegisterUser = async (credentials) => {
     try {

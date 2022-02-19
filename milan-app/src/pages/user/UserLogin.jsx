@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { FcHome } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
-import "../../styles/UserLogin.css"
+import "../../styles/UserLogin.css";
+import { LoginUser } from "../../service/MilanApi";
 
 
 function UserLogin() {
+	const Navigate = useNavigate();
 	function UserImage() {
 		return (
 			<div className="col-md-8 col-lg-7 col-xl-6">
@@ -48,9 +50,25 @@ function UserLogin() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		const Data = LoginUser(credentials);
 
-		console.log(credentials);
-		console.log("Form submitted");
+		Data.then(response => {
+			if(response.data.status==true){
+				alert("Logged you in!!");
+				Navigate("/");
+			  }
+			else if(response.data.status==false){
+				alert("Please input valid credentials");
+				setCredentials({
+					email:"", 
+					password:""
+				});
+			}
+		})
+		.catch(err=>{			
+			console.log(err);
+		})
+		
 	};
 
 	return (
