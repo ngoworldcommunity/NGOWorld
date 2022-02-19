@@ -53,22 +53,22 @@ function UserLogin() {
 		const Data = LoginUser(credentials);
 
 		Data.then(response => {
-			if(response.data.status==true){
+			if (response.data.status === true) {
 				alert("Logged you in!!");
 				Navigate("/");
-			  }
-			else if(response.data.status==false){
+			}
+			else if (response.data.status === false) {
 				alert("Please input valid credentials");
 				setCredentials({
-					email:"", 
-					password:""
+					email: "",
+					password: ""
 				});
 			}
 		})
-		.catch(err=>{			
-			console.log(err);
-		})
-		
+			.catch(err => {
+				console.log(err);
+			})
+
 	};
 
 	return (
