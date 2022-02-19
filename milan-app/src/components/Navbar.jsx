@@ -59,7 +59,7 @@ const Navbar = (props) => {
 
               <li className="nav-item home">
                 <Link to={"/about-us"}>About Us</Link>
-                {/* <a href="/about-us">About Us</a> */}
+
               </li>
 
               <li className="nav-item home">
