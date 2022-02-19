@@ -36,7 +36,7 @@ router.post("/register", async (req, res) => {
                     club
                         .save() //saving the data to db
                         .then((club) => {
-                            return res.json({ sucess: true });
+                            return res.json({ success: true });
                         })
                         .catch((err) => {
                             console.log(err);
