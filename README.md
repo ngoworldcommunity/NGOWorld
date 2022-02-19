@@ -20,7 +20,7 @@ This might be the debut repo for you , contribute to this repo , solve the issue
 ## Hello Contributors 👋🏻
 
 - **Take a look at the [Contributing Guidelines](https://github.com/IAmTamal/Milan/blob/main/rules/Contributing.md) for proper contributions**
-- **Take a look at the [Setup Guidelines](https://github.com/IAmTamal/Milan/blob/main/rules/Setup.md) to setup the react app locally**
+- **Take a look at the [Setup Guidelines](rules/Setup.md) to setup the react app locally**
 
 ---
 
