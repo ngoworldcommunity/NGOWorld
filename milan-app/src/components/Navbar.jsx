@@ -46,11 +46,11 @@ const Navbar = (props) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item home">
-                <a href="/">Home</a>
+                <Link to={"/"}>Home</Link>
               </li>
 
               <li className="nav-item home">
-                <a href="/display/clubs">Clubs</a>
+                <Link to={"/display/clubs"}>Clubs</Link>
               </li>
 
               <li className="nav-item home">
@@ -58,11 +58,12 @@ const Navbar = (props) => {
               </li>
 
               <li className="nav-item home">
-                <a href="/about-us">About Us</a>
+                <Link to={"/about-us"}>About Us</Link>
+                {/* <a href="/about-us">About Us</a> */}
               </li>
 
               <li className="nav-item home">
-                <a href="/contact">Contact Us</a>
+                <Link to={"/contact"}>Contact</Link>
               </li>
 
               <li className="nav-item home">
