@@ -1,3 +1,12 @@
+## [0.3.1](https://github.com/IAmTamal/Milan/compare/v0.3.0...v0.3.1) (2022-02-19)
+
+
+### Bug Fixes
+
+* updated guidelines ([0c29715](https://github.com/IAmTamal/Milan/commit/0c297152c65acbfb7d1e38e5ef5f9184ed74d326))
+
+
+
 # [0.3.0](https://github.com/IAmTamal/Milan/compare/v0.2.0...v0.3.0) (2022-02-19)
 
 
