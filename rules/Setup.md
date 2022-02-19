@@ -1,6 +1,6 @@
 # React app setup guidelines 🚀
 
-**Hello contributor , i want you to stick to the below listed setup guidelines to successfully setup the react app in your local system. Happy contributing.**
+**Hello contributor , i want you to stick to the below listed Setup guidelines to successfully setup the react app in your local system and get started with developing!!**
 
 <br/>
 
@@ -20,6 +20,7 @@
 - `git pull` to pull the latest version of the code
 - `git add .` to stage for commits
 - `git commit -am "message"` for commiting the code.
+- **REMEMBER** --> YOU NEED TO PULL REQ ON `tamal` BRANCH !!
 - Once done create a Pull Request and wait for the mentor to review.
 - Don't forget to attach **`Screenshots, Proper Description and Issue Number` in the Pull request**
 
