@@ -13,13 +13,13 @@ With Milan we aim at bringing all the various NGOs and donors under one single r
 
 **A beginner to Open Source, Web Development ?**  
 <br/>
-This might be the debut repo for you , contribute to this repo , solve the issues, raise one and learn more about web as well as get started with Open Source and contributing to projects. Remember , we belive in **Quality**.
+This might be the debut repo for you , you can contribute to this repo , solve the issues, raise one and learn more about web as well as get started with Open Source and contributing to projects. Remember , we belive in **Quality**.
 
 ---
 
 ## Hello Contributors 👋🏻
 
-- **Take a look at the [Contributing Guidelines](https://github.com/IAmTamal/Milan/blob/main/rules/Contributing.md) for proper contributions**
+- **Take a look at the [Contributing Guidelines](CONTRIBUTING.md) for proper contributions**
 - **Take a look at the [Setup Guidelines](rules/Setup.md) to setup the react app locally**
 
 ---
