@@ -1,3 +1,12 @@
+## [0.3.3](https://github.com/IAmTamal/Milan/compare/v0.3.2...v0.3.3) (2022-02-19)
+
+
+### Bug Fixes
+
+* infinite glitch. ([#119](https://github.com/IAmTamal/Milan/issues/119)) ([2bd779d](https://github.com/IAmTamal/Milan/commit/2bd779da4d2bdadea89bde1ac613831f9b7442d0))
+
+
+
 ## [0.3.2](https://github.com/IAmTamal/Milan/compare/v0.3.1...v0.3.2) (2022-02-19)
 
 
