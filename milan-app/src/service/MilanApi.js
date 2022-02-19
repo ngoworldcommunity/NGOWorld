@@ -5,11 +5,8 @@ import Axios from "axios";
 
 const User_Log = "http://localhost:5000/user/login";
 const User_Reg = "http://localhost:5000/user/register";
-<<<<<<< HEAD
 const Club_Log = "http://localhost:5000/club/login";
-=======
 const Club_Reg = "http://localhost:5000/club/register";
->>>>>>> 39b9e83376013e7c7529d7dfc166906670f6f5d1
 
 //^ `````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 //* Axios call to login a User
@@ -44,7 +41,6 @@ export const RegisterUser = async (credentials) => {
     }
 }
 
-<<<<<<< HEAD
 export const LoginClub = async (credentials) => {
   try {
     const Post = await Axios.post(`${Club_Log}`, credentials);
@@ -53,7 +49,7 @@ export const LoginClub = async (credentials) => {
     console.log(error);
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
   }
-=======
+}
 export const RegisterClub = async (credentials) => {
     try {
         const response = await Axios.post(`${Club_Reg}`, credentials);
@@ -70,5 +66,4 @@ export const RegisterClub = async (credentials) => {
         console.log(error);
         alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
     }
->>>>>>> 39b9e83376013e7c7529d7dfc166906670f6f5d1
 }
