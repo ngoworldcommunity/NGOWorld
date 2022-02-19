@@ -1,6 +1,8 @@
 # Contribution guidelines 🔐
 
-**Hello contributor , i want you to stick to the below listed contribution guidelines. Happy contributing.**
+**This time MILAN is participating in [JWOC 2K22](https://leaderboard.jwoc.tech/) and we have a set of guidelines to be followed.**
+
+**Hello contributors , i want you to stick to the below listed contribution guidelines. Happy contributing.**
 
 <br/>
 
@@ -16,6 +18,14 @@
 - `git add .` to stage for commits
 - `git commit -am "message"` for commiting the code.
 - then create a Pull Request and wait for review.
-- Don't forget to attach **Screenshots, Proper Description and Issue Number**
+- Don't forget to attach **`Screenshots, Proper Description and Issue Number`**
+- Remember to be respectful to other contributors, mentors, comunnity
+- Don't raise invalid/spam issues !!
 
 <br/>
+
+---
+
+<br/>
+
+**You'll be needing to follow the (Setup Guidelines)[] for more details on setting up the code in your local machine**
