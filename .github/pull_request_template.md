@@ -2,11 +2,14 @@
 
 - **I <your name here> have worked for this issue under JWOC**
 
+
+[put x to check the boxes]: <> (This is a comment, it will not be included)   
 ## Guidelines 🔐
 
+**I accept the fact that i have followed the guidelines and have not copied the codes from around the internet** 
 - [ ] **Setup Guidelines**
 - [ ] **Contribution Guidelines**
-- [ ] **Code of Conduct**
+- [x] **Code of Conduct**
 
 
 ## Issue to be closed 🛅
