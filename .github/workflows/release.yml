@@ -1,29 +1,23 @@
-name: Releases
+name: Release npm package
+
 on:
   push:
     branches:
       - main
 
 jobs:
-  changelog:
+  release:
+    name: Release
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-
-      - name: conventional Changelog Action
-        id: changelog
-        uses: TriPSs/conventional-changelog-action@v3.7.1
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
         with:
-          github-token: ${{ secrets.CHANGELOG_RELEASE }}
-          version-file: "./package.json,./package-lock.json"
-
-      - name: create release
-        uses: actions/create-release@v1
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+          node-version: "12.x"
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
+      - run: npx semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.CHANGELOG_RELEASE }}
-        with:
-          tag_name: ${{ steps.changelog.outputs.tag }}
-          release_name: ${{ steps.changelog.outputs.tag }}
-          body: ${{ steps.changelog.outputs.clean_changelog }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
