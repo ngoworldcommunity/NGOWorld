@@ -40,12 +40,16 @@
   color: black;
   text-transform: uppercase;
   font-size: 80px;
+  font-family: "Mulish";
+  font-weight: 600;
 }
 
 .banner-subtitle {
   color: rgb(111, 106, 106);
   font-size: 30px;
   margin: 0;
+  font-family: "Mulish";
+  font-weight: bold;
 }
 @media (min-width: 768px) {
   .banner-subtitle {

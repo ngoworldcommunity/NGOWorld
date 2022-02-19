@@ -38,14 +38,14 @@ This might be the debut repo for you , contribute to this repo , solve the issue
 
 ## Useful Links 🌐
 
-**Live Site** : https://iamtamal.github.io/Milan/ <br/>
-**Live Milan App** : https://milaan.netlify.app/
+**Deployed Site** : https://milaan.netlify.app/
 
 <br/>
 
 ---
 
-## Best Contributors !! 
+## Best Contributors !! 🎭
+
 <a href="https://github.com/IAmTamal/Milan/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=IAmTamal/Milan" />
 </a>
