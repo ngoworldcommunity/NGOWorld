@@ -5,6 +5,7 @@ const User = require("../models/UserSchema");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
+const ReportProblem = require("../models/ReportProblemSchema");
 
 //* Route 1  - User Registration
 router.post("/register", async (req, res) => {
@@ -60,6 +61,27 @@ router.post("/login", async (req, res) => {
   } catch (err) {
     return res.json({ status: false });
     console.log(err);
+  }
+});
+
+//* Route 3  - Report a Problem
+router.post("/userreport", async (req, res) => {
+  try {
+    const data = req.body;
+
+    const ReportData = ReportProblem({
+      firstname: data.firstname,
+      lastname: data.lastname,
+      email: data.email,
+      reportmessage: data.reportmessage,
+    });
+
+    //saving the data to mongodb
+    ReportData.save();
+    return res.json({ success: true });
+  } 
+  catch (e) {
+    console.log(e);
   }
 });
 
