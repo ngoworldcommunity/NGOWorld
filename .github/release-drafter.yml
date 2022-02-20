@@ -22,6 +22,22 @@ categories:
       - "dependencies"
   - title: "🧰 Maintenance"
     label: "chore"
+
+version-resolver:
+  major:
+    labels:
+      - "type: breaking"
+  minor:
+    labels:
+      - "type: feature"
+  patch:
+    labels:
+      - "type: bug"
+      - "type: maintenance"
+      - "type: docs"
+      - "type: dependencies"
+      - "type: security"
+
 change-template: "- #$NUMBER: $TITLE"
 template: |
   ## Changes
