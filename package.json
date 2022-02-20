@@ -1,6 +1,6 @@
 {
   "name": "milan-app",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",

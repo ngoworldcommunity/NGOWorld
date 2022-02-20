@@ -1,3 +1,12 @@
+## [0.3.7](https://github.com/IAmTamal/Milan/compare/v0.3.6...v0.3.7) (2022-02-20)
+
+
+### Bug Fixes
+
+* updates 1 ([#129](https://github.com/IAmTamal/Milan/issues/129)) ([5c17b40](https://github.com/IAmTamal/Milan/commit/5c17b40a2df08348e42ff949eaa5f0e419c990b9))
+
+
+
 ## [0.3.6](https://github.com/IAmTamal/Milan/compare/v0.3.5...v0.3.6) (2022-02-20)
 
 
@@ -34,15 +43,6 @@
 ### Bug Fixes
 
 * infinite glitch. ([#119](https://github.com/IAmTamal/Milan/issues/119)) ([2bd779d](https://github.com/IAmTamal/Milan/commit/2bd779da4d2bdadea89bde1ac613831f9b7442d0))
-
-
-
-## [0.3.2](https://github.com/IAmTamal/Milan/compare/v0.3.1...v0.3.2) (2022-02-19)
-
-
-### Bug Fixes
-
-* Updated files, guidelines ([#118](https://github.com/IAmTamal/Milan/issues/118)) ([fdcc73d](https://github.com/IAmTamal/Milan/commit/fdcc73d6d68b7f4b9075648307a92e215d704297))
 
 
 
