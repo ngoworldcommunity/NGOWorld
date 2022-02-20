@@ -1,16 +1,3 @@
-### This is me just testing the automations , release versions. 
-### IT all will be 2.0.0 soon !! 
+The files are cleared.
 
-(update-1)
-
-
-testting for 2nd time
-( update-2 )
-
-
-testinmg for 3rd time
-( update-3 )
-
-
-testinmg for 4th time
-( update-4 )
+Will be used later for ACTION TESTING
