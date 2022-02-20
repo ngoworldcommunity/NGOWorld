@@ -1,35 +1,7 @@
 import React from "react";
 import "../styles/Footer.css";
 
-// function Link() {
-//   return (
-//     <div className="col-md-3 mb-md-0 mb-3">
-//       <h5 className="text-uppercase">Link</h5>
-//       <ul className="list-unstyled">
-//         <li>
-//           <a className="links" href="#!">
-//             Link 1
-//           </a>
-//         </li>
-//         <li>
-//           <a className="links" href="#!">
-//             Link 2
-//           </a>
-//         </li>
-//         <li>
-//           <a className="links" href="#!">
-//             Link 3
-//           </a>
-//         </li>
-//         <li>
-//           <a className="links" href="#!">
-//             Link 4
-//           </a>
-//         </li>
-//       </ul>
-//     </div>
-//   );
-// }
+
 
 const Footer = () => {
   return (
@@ -55,7 +27,7 @@ const Footer = () => {
                   <h5 className="mb-1">Register for free</h5>
                 </li>
                 <li className="list-inline-item">
-                  <a href="#" className="btn btn-rounded button">
+                  <a className="btn btn-rounded button" href="/">
                     Sign up!
                   </a>
                 </li>
@@ -65,17 +37,17 @@ const Footer = () => {
             <div className="text-center">
               <ul className="list-unstyled list-inline">
                 <li className="list-inline-item">
-                  <a className="btn-floating btn-sm btn-fb mx-1">
+                  <a className="btn-floating btn-sm btn-fb mx-1" href="/">
                     <i className="fa fa-facebook"> </i>
                   </a>
                 </li>
                 <li className="list-inline-item">
-                  <a className="btn-floating btn-sm btn-tw mx-1">
+                  <a className="btn-floating btn-sm btn-tw mx-1" href="/">
                     <i className="fa fa-twitter"> </i>
                   </a>
                 </li>
                 <li className="list-inline-item">
-                  <a className="btn-floating btn-sm btn-li mx-1">
+                  <a className="btn-floating btn-sm btn-li mx-1" href="/">
                     <i className="fa fa-linkedin"> </i>
                   </a>
                 </li>
@@ -141,10 +113,10 @@ const Footer = () => {
                 <button className="report">
                   <img className="top-img"
                     src={require("../assets/pictures/footer-icon-top.png")}
-                  ></img>
+                    alt="isd" ></img>
                   <img className="bottom-img"
                     src={require("../assets/pictures/footer-icon.png")}
-                  ></img>
+                    alt="isd" ></img>
                   Report a problem
                 </button>
               </div>
@@ -157,7 +129,7 @@ const Footer = () => {
 
       <div className="footer-copyright text-center">
         Copyright {new Date().getFullYear()}:{" "}
-        <a className="copyright" href="#">
+        <a className="copyright" href="/">
           {" "}
           Milan{" "}
         </a>

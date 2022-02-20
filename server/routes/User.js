@@ -53,14 +53,13 @@ router.post("/login", async (req, res) => {
     };
     if (validPassword) {
       jwt.sign(payload, "HELLOSECRET123", (err, token) => {
-        return res.json({ status: true, token });
+        return res.json({ status: true, token, isuser: true });
       });
     } else {
       return res.json({ status: false });
     }
   } catch (err) {
-    return res.json({ status: false });
-    console.log(err);
+    return res.json({ sucess: false });
   }
 });
 
@@ -79,9 +78,8 @@ router.post("/userreport", async (req, res) => {
     //saving the data to mongodb
     ReportData.save();
     return res.json({ success: true });
-  } 
-  catch (e) {
-    console.log(e);
+  } catch (e) {
+    return res.json({ success: false });
   }
 });
 

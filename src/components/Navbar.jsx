@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import "../styles/Navbar.css";
 import solidarity from "../assets/pictures/solidarity.png";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, } from "react-router-dom";
 
 const Navbar = (props) => {
   const handleLogout = () => {
