@@ -1,4 +1,4 @@
-![MILAN](https://user-images.githubusercontent.com/72851613/149673209-1dc460b5-24f7-470b-8d9b-29eb5e50015f.png)
+![MILAN](https://i.ibb.co/8jqyhTF/NGOs.png)
 
 ## What is Milan ? 🤔
 
@@ -13,6 +13,7 @@ With Milan we aim at bringing all the various NGOs and donors under one single r
 
 **A beginner to Open Source, Web Development ?**  
 <br/>
+
 This might be the debut repo for you , you can contribute to this repo , solve the issues, raise one and learn more about web as well as get started with Open Source and contributing to projects. Remember , we belive in **Quality**.
 
 ---
@@ -38,7 +39,7 @@ This might be the debut repo for you , you can contribute to this repo , solve t
 
 ## Useful Links 🌐
 
-**Deployed Site** : https://milaan.netlify.app/
+**Deployed Site** **: https://milaan.netlify.app/**
 
 <br/>
 
