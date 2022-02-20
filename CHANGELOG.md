@@ -1,3 +1,12 @@
+## [0.3.6](https://github.com/IAmTamal/Milan/compare/v0.3.5...v0.3.6) (2022-02-20)
+
+
+### Bug Fixes
+
+* updated banner, fonts ([#127](https://github.com/IAmTamal/Milan/issues/127)) ([f7fe619](https://github.com/IAmTamal/Milan/commit/f7fe61943571db80358501e67657a97f5423f5f0))
+
+
+
 ## [0.3.5](https://github.com/IAmTamal/Milan/compare/v0.3.4...v0.3.5) (2022-02-20)
 
 
@@ -34,15 +43,6 @@
 ### Bug Fixes
 
 * Updated files, guidelines ([#118](https://github.com/IAmTamal/Milan/issues/118)) ([fdcc73d](https://github.com/IAmTamal/Milan/commit/fdcc73d6d68b7f4b9075648307a92e215d704297))
-
-
-
-## [0.3.1](https://github.com/IAmTamal/Milan/compare/v0.3.0...v0.3.1) (2022-02-19)
-
-
-### Bug Fixes
-
-* updated guidelines ([0c29715](https://github.com/IAmTamal/Milan/commit/0c297152c65acbfb7d1e38e5ef5f9184ed74d326))
 
 
 
