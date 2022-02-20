@@ -13,6 +13,7 @@ With Milan we aim at bringing all the various NGOs and donors under one single r
 
 **A beginner to Open Source, Web Development ?**  
 <br/>
+
 This might be the debut repo for you , you can contribute to this repo , solve the issues, raise one and learn more about web as well as get started with Open Source and contributing to projects. Remember , we belive in **Quality**.
 
 ---
@@ -38,7 +39,7 @@ This might be the debut repo for you , you can contribute to this repo , solve t
 
 ## Useful Links 🌐
 
-**Deployed Site** : https://milaan.netlify.app/
+**Deployed Site** **: https://milaan.netlify.app/**
 
 <br/>
 
