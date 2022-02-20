@@ -21,6 +21,7 @@ This might be the debut repo for you , you can contribute to this repo , solve t
 
 - **Take a look at the [Contributing Guidelines](CONTRIBUTING.md) for proper contributions**
 - **Take a look at the [Setup Guidelines](rules/Setup.md) to setup the react app locally**
+- **Take a look at the [Changelog](https://github.com/IAmTamal/Milan/blob/main/CHANGELOG.md) to see the changes we went through**
 
 ---
 
@@ -38,7 +39,7 @@ This might be the debut repo for you , you can contribute to this repo , solve t
 
 ## Useful Links 🌐
 
-**Deployed Site** : https://milaan.netlify.app/
+**Deployed Site** **:** **https://milaan.netlify.app/**
 
 <br/>
 
@@ -46,8 +47,12 @@ This might be the debut repo for you , you can contribute to this repo , solve t
 
 ## Best Contributors !! 🎭
 
+**Here are our contributors who helped solve issues be simple bug fixes all the way to brand new features !!**
+
 <a href="https://github.com/IAmTamal/Milan/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=IAmTamal/Milan" />
 </a>
+
+---
 
 ## Happy Contributions !!
