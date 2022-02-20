@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FcHome } from "react-icons/fc";
+
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import "../../styles/UserLogin.css";
@@ -8,18 +8,7 @@ import { LoginUser } from "../../service/MilanApi";
 
 function UserLogin() {
 	const Navigate = useNavigate();
-	function UserImage() {
-		return (
-			<div className="col-md-8 col-lg-7 col-xl-6">
-				<img
-					className="img-fluid"
-					alt="Phone"
-					style={{ width: "auto" }}
-					src="https://www.getillustrations.com/packs/plastic-illustrations-scene-builder-pack/scenes/_1x/accounts%20_%20man,%20workspace,%20desk,%20laptop,%20login,%20user_md.png"
-				></img>
-			</div>
-		);
-	}
+
 
 	function Anchor(props) {
 		return (
@@ -99,10 +88,7 @@ function UserLogin() {
 									<input type="password" className="form-control form-control-lg" id="password" placeholder="Password" name="password" value={credentials.password} onChange={handleChange} required />
 
 								</div>
-								{/* <div className="form-check">
-									<label className="form-check-label" htmlFor="check">Remember me</label>
-									<input type="checkbox" className="form-check-input" id="check" />
-								</div> */}
+
 								<br />
 
 

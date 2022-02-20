@@ -8,7 +8,7 @@ const EventsBanner = () => {
 			<div id="eventsCol1" className="me-4">
 				<img
 					src={eventCuate}
-					alt="events-image"
+					alt="events"
 					className="eventsImg"
 				/>
 			</div>

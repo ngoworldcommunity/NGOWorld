@@ -42,21 +42,21 @@ function ClubLogin() {
 		const Data = LoginClub(credentials);
 
 		Data.then(response => {
-			if(response.data.success==true){
+			if (response.data.success === true) {
 				alert("Logged you in!!");
 				Navigate("/");
-			  }
-			else if(response.data.success==false){
+			}
+			else if (response.data.success === false) {
 				alert("Please input valid credentials");
 				setCredentials({
-					email:"", 
-					password:""
+					email: "",
+					password: ""
 				});
 			}
 		})
-		.catch(err=>{			
-			console.log(err);
-		})
+			.catch(err => {
+				console.log(err);
+			})
 	};
 
 	return (

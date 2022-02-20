@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "../styles/ContactUs.css";
 import Navbar from "../components/Navbar";
 import contactImg from "../assets/pictures/contactusImage.png";
@@ -51,17 +50,7 @@ const ContactUs = () => {
 					</div>
 				</div>
 			</div>
-			{/* <div id="contactBottom" className="d-flex justify-content-center mt-5 mb-3">
-				<Link to="/" className="text-decoration-none" id="homeLink">
-						<i
-							className="fa fa-home"
-							aria-hidden="true"
-						></i>
-						<span className="ps-2">
-							Return Home
-						</span>
-				</Link>
-			</div> */}
+
 		</>
 	);
 };
