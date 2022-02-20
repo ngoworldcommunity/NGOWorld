@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.31a6d635.css",
+    "main.js": "/static/js/main.61cd3bd2.js",
+    "static/media/clubRegistrationImage.png": "/static/media/clubRegistrationImage.712a43e8a045a4487925.png",
+    "static/media/clubs-login.png": "/static/media/clubs-login.b590839c41a2e5b35597.png",
+    "static/media/milanBg.jpg": "/static/media/milanBg.d23adae82c4c81264534.jpg",
+    "static/media/about-pana.png": "/static/media/about-pana.b05a130585944eedeb83.png",
+    "static/media/contactusImage.png": "/static/media/contactusImage.ae26390d7fec63420741.png",
+    "static/media/eventCuate.png": "/static/media/eventCuate.2908cd9e4ad36c683abc.png",
+    "static/media/deba.png": "/static/media/deba.c7542a707dafb32e103e.png",
+    "static/media/parna.png": "/static/media/parna.1450dc1d4db01c09fc7d.png",
+    "static/media/donate-banner.png": "/static/media/donate-banner.0d8844f404e21d0f2e8b.png",
+    "static/media/roy.png": "/static/media/roy.6c4d457279b143837545.png",
+    "static/media/cuate.png": "/static/media/cuate.238707c9be1493c04143.png",
+    "static/media/solidarity.png": "/static/media/solidarity.bb7b8d81088b608b6036.png",
+    "static/media/pana.png": "/static/media/pana.3368a1b0e4b486391a57.png",
+    "static/media/td.png": "/static/media/td.b64f96e5e761e8ff2aae.png",
+    "static/media/bg-bottom.png": "/static/media/bg-bottom.b419e69b48e445f47e93.png",
+    "index.html": "/index.html",
+    "main.31a6d635.css.map": "/static/css/main.31a6d635.css.map",
+    "main.61cd3bd2.js.map": "/static/js/main.61cd3bd2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31a6d635.css",
+    "static/js/main.61cd3bd2.js"
+  ]
+}
