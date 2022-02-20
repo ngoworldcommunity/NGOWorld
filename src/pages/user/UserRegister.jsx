@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FcHome } from "react-icons/fc";
+
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { RegisterUser } from "../../service/MilanApi";
@@ -10,18 +10,7 @@ import "../../styles/UserLogin.css";
 function UserRegister() {
 	const navigate = useNavigate();
 
-	function UserImage() {
-		return (
-			<div className="col-md-8 col-lg-7 col-xl-6">
-				<img
-					className="img-fluid"
-					alt="Phone"
-					style={{ width: "auto" }}
-					src="https://www.getillustrations.com/packs/plastic-illustrations-scene-builder-pack/scenes/_1x/accounts%20_%20man,%20workspace,%20desk,%20laptop,%20login,%20user_md.png"
-				></img>
-			</div>
-		);
-	}
+
 
 	function Anchor(props) {
 		return (
