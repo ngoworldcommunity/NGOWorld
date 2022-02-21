@@ -1,29 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	scroll-behaviour:smooth;
+	scroll-behavior: smooth;
 }
 
 .cards {
 	padding: 6%;
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	column-gap: 8%;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 323px));
+	column-gap: 4%;
 	row-gap: 6%;
-/* 	overflow-y: auto;
-    overflow: -moz-scrollbars-none;
-    -ms-overflow-style: none; */
+	font-family: "Mulish", sans-serif;
 }
 
 .cards::-webkit-scrollbar {
-    width: 0 !important;
+	width: 0 !important;
 }
 
 @media screen and (max-width: 1217px) {
 	.cards {
-		padding: 8% 10%;
-		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		padding: 8% 4%;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 323px));
 		column-gap: 8%;
 		row-gap: 4%;
 	}
@@ -31,8 +31,8 @@
 
 @media screen and (max-width: 815px) {
 	.cards {
-		padding: 8% 22%;
-		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		padding: 6% 5%;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 323px));
 		row-gap: 2%;
 	}
 }
@@ -45,41 +45,70 @@
 	}
 }
 
+@media screen and (max-width: 400px) {
+	.cards {
+		padding: 10%;
+	}
+}
+
 .clubCard {
+	min-height: 405px;
+	height: fit-content;
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
 		rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 	border-radius: 15px;
 }
 
-@media screen and (max-width: 535px) {
-	.clubCard {
-        margin: 16px 0;
-    }
+.clubCard h3 {
+	font-weight: bold;
 }
 
-.card-img-top {
+@media screen and (max-width: 535px) {
+	.clubCard {
+		margin: 16px 0;
+	}
+}
+
+.club-img {
+	height: 190px;
 	border-radius: 15px 15px 5px 5px;
 }
 
-.cardReadLess {
-	height: 15ex;
-	overflow: hidden;
+.club-info {
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 6px;
+	color: rgba(0, 0, 0, 0.4);
 }
 
-.cardReadMore {
-	height: fit-content;
+.desc {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 23px;
+	/* height: 100%; */
+}
+
+.seeBtn {
+	cursor: pointer;
+	font-weight: lighter;
+	margin-left: 4px;
+	text-decoration: underline;
+}
+
+.hidden {
+	display: none;
 }
 
 @media screen and (max-width: 480px) {
-    .card-title {
-        font-size: 17px;
-    }
-    .card-text {
-        font-size: 14px;
-    }
-    .btn {
-        font-size: 14px;
-    }
+	.card-title {
+		font-size: 17px;
+	}
+	.desc {
+		font-size: 14px;
+	}
+	.btn {
+		font-size: 14px;
+	}
 }
 
 body::-webkit-scrollbar-track {

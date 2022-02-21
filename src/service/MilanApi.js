@@ -7,6 +7,7 @@ const User_Log = "http://localhost:5000/user/login";
 const User_Reg = "http://localhost:5000/user/register";
 const Club_Log = "http://localhost:5000/club/login";
 const Club_Reg = "http://localhost:5000/club/register";
+const All_Clubs = "http://localhost:5000/display/allClubs"
 
 //^ `````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 //* Axios call to login a User
@@ -62,6 +63,16 @@ export const RegisterClub = async (credentials) => {
         if (response.data.success === true) {
             alert("Registration successful, please login")
         }
+    } catch (error) {
+        console.log(error);
+        alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+    }
+}
+
+export const GetAllClubs = async () => {
+    try {
+        const response = await Axios.get(`${All_Clubs}`);
+        return response.data;
     } catch (error) {
         console.log(error);
         alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
