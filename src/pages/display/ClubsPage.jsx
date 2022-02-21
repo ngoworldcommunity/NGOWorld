@@ -1,29 +1,30 @@
-import React from 'react';
-import SingleClub from '../../components/SingleClub';
-import data from './CLUB_DATA.js'
-import '../../styles/ClubsPage.css'
-import Navbar from '../../components/Navbar';
+import React, { useEffect, useState } from "react";
+import SingleClub from "../../components/SingleClub";
+import "../../styles/ClubsPage.css";
+import Navbar from "../../components/Navbar";
+import { GetAllClubs } from "../../service/MilanApi";
 
 const ClubsPage = () => {
+	const [clubData, setClubData] = useState([]);
 
+	useEffect(() => {
+		const fetchClubData = async () => {
+			const response = await GetAllClubs();
+			setClubData(response);
+		};
+		fetchClubData();
+	}, []);
 
-
-    return <>
-
-        <Navbar />
-
-        <div className='cards'>
-            {
-                data.map((club) => {
-                    return <SingleClub
-                        key={club.id}
-                        club={club}
-                    />
-                })
-            }
-
-        </div>
-    </>;
+	return (
+		<>
+			<Navbar />
+			<div className="cards justify-content-center">
+				{clubData.map((club) => {
+					return <SingleClub key={club._id} club={club} />;
+				})}
+			</div>
+		</>
+	);
 };
 
 export default ClubsPage;
