@@ -3,11 +3,11 @@
 
 import Axios from "axios";
 
-const User_Log = "http://localhost:5000/user/login";
-const User_Reg = "http://localhost:5000/user/register";
-const Club_Log = "http://localhost:5000/club/login";
-const Club_Reg = "http://localhost:5000/club/register";
-const All_Clubs = "http://localhost:5000/display/allClubs"
+const User_Log = "https://milan-jwoc.herokuapp.com/user/login";
+const User_Reg = "https://milan-jwoc.herokuapp.com/user/register";
+const Club_Log = "https://milan-jwoc.herokuapp.com/club/login";
+const Club_Reg = "https://milan-jwoc.herokuapp.com/club/register";
+const All_Clubs = "https://milan-jwoc.herokuapp.com/display/allClubs";
 
 //^ `````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 //* Axios call to login a User
@@ -22,25 +22,25 @@ export const LoginUser = async (credentials) => {
     console.log(error);
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
   }
-}
+};
 
 export const RegisterUser = async (credentials) => {
-    try {
-        const response = await Axios.post(`${User_Reg}`, credentials);
-        console.log(response);
+  try {
+    const response = await Axios.post(`${User_Reg}`, credentials);
+    console.log(response);
 
-        if (response.data.exists === true) {
-            alert("User already present, please login")
-        }
-
-        if (response.data.success === true) {
-            alert("Registration successful, please login")
-        }
-    } catch (error) {
-        console.log(error);
-        alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+    if (response.data.exists === true) {
+      alert("User already present, please login");
     }
-}
+
+    if (response.data.success === true) {
+      alert("Registration successful, please login");
+    }
+  } catch (error) {
+    console.log(error);
+    alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+  }
+};
 
 export const LoginClub = async (credentials) => {
   try {
@@ -50,31 +50,31 @@ export const LoginClub = async (credentials) => {
     console.log(error);
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
   }
-}
+};
 export const RegisterClub = async (credentials) => {
-    try {
-        const response = await Axios.post(`${Club_Reg}`, credentials);
-        console.log(response);
+  try {
+    const response = await Axios.post(`${Club_Reg}`, credentials);
+    console.log(response);
 
-        if (response.data.exists === true) {
-            alert("Club already present, please login")
-        }
-
-        if (response.data.success === true) {
-            alert("Registration successful, please login")
-        }
-    } catch (error) {
-        console.log(error);
-        alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+    if (response.data.exists === true) {
+      alert("Club already present, please login");
     }
-}
+
+    if (response.data.success === true) {
+      alert("Registration successful, please login");
+    }
+  } catch (error) {
+    console.log(error);
+    alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+  }
+};
 
 export const GetAllClubs = async () => {
-    try {
-        const response = await Axios.get(`${All_Clubs}`);
-        return response.data;
-    } catch (error) {
-        console.log(error);
-        alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
-    }
-}
+  try {
+    const response = await Axios.get(`${All_Clubs}`);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+  }
+};
