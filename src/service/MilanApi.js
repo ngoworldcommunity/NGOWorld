@@ -8,7 +8,7 @@ const User_Reg = "https://milan-jwoc.herokuapp.com/user/register";
 const Club_Log = "https://milan-jwoc.herokuapp.com/club/login";
 const Club_Reg = "https://milan-jwoc.herokuapp.com/club/register";
 const All_Clubs = "https://milan-jwoc.herokuapp.com/display/allClubs";
-
+const Report_Log = "https://milan-jwoc.herokuapp.com/user/userreport";
 //^ `````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 //* Axios call to login a User
 //* IF sucess we alert user made else we alert user failed
@@ -78,3 +78,16 @@ export const GetAllClubs = async () => {
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
   }
 };
+
+export const ReportProblem = async (credentials) => {
+  try {
+    const response = await Axios.post(Report_Log, credentials);
+    // "http://localhost:5000/user/userreport"
+    if (response.data.success === true) {
+      return true;
+    }
+  } catch (error) {
+    console.log(error);
+    alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+  }
+}
