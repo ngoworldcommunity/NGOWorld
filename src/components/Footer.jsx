@@ -1,9 +1,108 @@
 import React from "react";
+import { ReportProblem } from "../service/MilanApi";
 import "../styles/Footer.css";
 
 const Footer = () => {
+	const [reportModal, setReportModal] = React.useState(false);
+	const [reportEmail, setReportEmail] = React.useState("");
+	const [reportFirstName, setReportFirstName] = React.useState("");
+	const [reportLastName, setReportLastName] = React.useState("");
+	const [reportIssue, setReportIssue] = React.useState("");
+
+	const handleReportModalOpen = () => {
+		setReportModal(true);
+	};
+	const handleReportModalClose = () => {
+		setReportModal(false);
+	};
+
+	const handleReportSubmit = async (e) => {
+		e.preventDefault();
+		if (reportFirstName==="" || reportLastName==="" || reportEmail==="" || reportIssue==="") {
+			alert("Please fill out all fields");
+			return;
+		}
+		const res = await ReportProblem({
+			firstname: reportFirstName,
+			lastname: reportLastName,
+			email: reportEmail,
+			reportmessage: reportIssue
+		})
+
+		if (res===true){
+			setTimeout( ()=>{
+				handleReportModalClose();
+			}, 1000);
+		}
+	}
+
 	return (
+
 		<footer className="page-footer font-small blue">
+
+			{reportModal && (
+					<div className="reportModal">
+						<div className="reportModalContent">
+							<div className="reportModalHeader">
+
+								<h4>REPORT A PROBLEM</h4>
+								<button className="btn" onClick={handleReportModalClose}>X</button>
+
+							</div>
+
+								<h6>We are trying our best. We give in the best shot and hope for the best.</h6>
+								<br/>
+								<form id="reportForm">
+									<div className="form-group">
+										<input 
+											required 
+											type="email" 
+											className="form-control" 
+											placeholder="Enter your Email*"
+											value={reportEmail}
+											onChange={e => setReportEmail(e.target.value)}
+										/>
+									</div>
+
+									<div className="form-group d-flex">
+										<input 
+											required 
+											type="text" 
+											className="form-control" 
+											placeholder="First Name*"
+											value={reportFirstName}
+											onChange={e => setReportFirstName(e.target.value)}
+										/>
+										<input 
+											required 
+											type="text" 
+											className="form-control" 
+											placeholder="Last Name*"
+											value={reportLastName}
+											onChange={e => setReportLastName(e.target.value)}
+										/>
+										
+									</div>
+									
+									<div className="form-group">
+										<textarea 
+											required 
+											type="text" 
+											className="form-control" 
+											placeholder="Brief the issue that you are facing*"
+											rows={6}
+											value={reportIssue}
+											onChange={e => setReportIssue(e.target.value)}
+										/>
+									</div>
+
+									<button className="btn btn-danger" onClick={handleReportSubmit}>Submit</button>
+								</form>
+
+						</div>
+					</div>
+			)}
+
 			<div className="container-fluid text-center">
 				<div className="footer-content row justify-content-around">
 					<div className="col1 col-md-6 mt-md-0 mt-3">
@@ -122,7 +221,7 @@ const Footer = () => {
 							</div>
 						</div>
 						<div className="row2 mt-5 d-flex justify-content-center">
-							<button className="report">
+							<button className="report" onClick={handleReportModalOpen}>
 								<img
 									className="top-img"
 									src={require("../assets/pictures/footer-icon-top.png")}
