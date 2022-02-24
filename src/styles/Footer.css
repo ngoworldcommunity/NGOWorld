@@ -163,3 +163,31 @@
 	margin-bottom: 1rem;
 }
 
+@media screen and (min-width: 526px) {
+	body {
+		overflow: unset;
+	}
+}
+
+@media screen and (max-width: 525px) {
+
+	.reportModalHeader {
+		justify-content: center;
+		align-items: center;
+	}
+
+	.reportModalHeader>h4 {
+		font-size: 1.2em;
+		margin-left: 1.4rem;
+		margin-bottom: 0px;
+		flex: auto;
+	}
+
+	.reportModalContent {
+		width: 89vw;
+		min-width: 220px;
+		text-align: center;
+	}
+
+}
+

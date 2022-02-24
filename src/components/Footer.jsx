@@ -36,6 +36,10 @@ const Footer = () => {
 		}
 	}
 
+	React.useEffect(()=>{
+		reportModal ? document.body.style.overflow = "hidden" : document.body.style.overflow="unset";
+	},[reportModal])
+
 	return (
 
 		<footer className="page-footer font-small blue">
