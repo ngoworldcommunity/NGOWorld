@@ -5,18 +5,32 @@ import Footer from "../components/Footer";
 import DonateBanner from "../components/DonateBanner";
 import HomeCardsContainer from "../components/HomeCardsContainer";
 import EventsBanner from "../components/Events";
+import LoginBanner from "../components/loginBanner";
 
 const Home = () => {
-  return (
-    <>
-      <Navbar />
-      <Banner />
-      <HomeCardsContainer />
-      <DonateBanner />
-      <EventsBanner />
-      <Footer />
-    </>
-  );
+  if (localStorage.getItem("token") === null) {
+    return (
+      <>
+        <Navbar />
+        <Banner />
+        <HomeCardsContainer />
+        <DonateBanner />
+        <EventsBanner />
+        <Footer />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Navbar />
+        <LoginBanner />
+        <HomeCardsContainer />
+        <DonateBanner />
+        <EventsBanner />
+        <Footer />
+      </>
+    );
+  }
 };
 
 export default Home;
