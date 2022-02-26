@@ -5,6 +5,7 @@ const LoginBanner = () => {
   return (
     <div id="login-banner">
       <img src={picture} alt="login-img" />
+
       <br />
       <div className="loginb-content">
         <h1>Welcome to Milan, a place where help meets need !!</h1>
