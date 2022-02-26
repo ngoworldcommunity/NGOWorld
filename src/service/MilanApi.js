@@ -81,10 +81,15 @@ export const GetAllClubs = async () => {
 
 export const ReportProblem = async (credentials) => {
   try {
-    const response = await Axios.post(Report_Log, credentials);
+    const response = await Axios.post("http://localhost:5000/user/userreport", credentials);
     // "http://localhost:5000/user/userreport"
-    if (response.data.success === true) {
+    // `${Report_Log}`
+    if (response.data.success === true){
       return true;
+    }else if (response.data.message === "tryagain"){
+      return "tryagain";
+    }else{
+      return false;
     }
   } catch (error) {
     console.log(error);
