@@ -3,8 +3,8 @@
 #login-banner {
   padding: 6rem 5rem;
   display: flex;
-  justify-content: space-between;
-  width: 100vw;
+  justify-content: space-evenly;
+  width: 100%;
   font-family: "Mulish", sans-serif;
   font-weight: 700;
   align-items: center;
@@ -25,8 +25,8 @@
 }
 
 #login-banner img {
-  height: 45%;
-  width: 40%;
+  height: 30rem;
+  width: 25rem;
 }
 
 @media only screen and (max-width: 770px) {
