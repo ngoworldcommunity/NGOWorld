@@ -66,6 +66,21 @@ router.post("/login", async (req, res) => {
 //* Route 3  - Report a Problem
 router.post("/userreport", async (req, res) => {
   try {
+    //fetch previous report from the same user
+    const currentHour = new Date().getMinutes();
+    const previousReports = await ReportProblem.find({email: req.body.email}).exec();
+
+    for (let i=0; i<previousReports.length; i++) {
+      let hourOfThisReport = new Date(previousReports[i].createdAt).getMinutes()
+      //check if the user created a report in the last 2 hours
+      if (hourOfThisReport >= currentHour-120) {
+        return res.json({
+          success: false,
+          message: "tryagain"       
+        });
+      }
+    }
+    //else begin to insert the request in database
     const data = req.body;
 
     const ReportData = ReportProblem({
@@ -77,9 +92,9 @@ router.post("/userreport", async (req, res) => {
 
     //saving the data to mongodb
     ReportData.save();
-    return res.json({ success: true });
+    return res.json({ success: true, messsage: "" });
   } catch (e) {
-    return res.json({ success: false });
+    return res.json({ success: false, message: "failed" });
   }
 });
 
