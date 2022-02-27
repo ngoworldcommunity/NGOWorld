@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Navbar.css";
 import solidarity from "../assets/pictures/solidarity.png";
-import { Link, useNavigate, } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
   const handleLogout = () => {
@@ -27,6 +27,7 @@ const Navbar = (props) => {
               solidarity ||
               "https://www.shareicon.net/data/512x512/2016/09/15/829452_user_512x512.png"
             }
+            onClick={() => window.location.replace("/")}
             alt="lol"
             className="nav_bramhin_img"
           />
@@ -59,7 +60,6 @@ const Navbar = (props) => {
 
               <li className="nav-item home">
                 <Link to={"/about-us"}>About Us</Link>
-
               </li>
 
               <li className="nav-item home">
