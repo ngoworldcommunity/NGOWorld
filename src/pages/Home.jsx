@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import DonateBanner from "../components/DonateBanner";
 import HomeCardsContainer from "../components/HomeCardsContainer";
 import EventsBanner from "../components/Events";
-import LoginBanner from "../components/LoginBanner";
+import LoginBanner from "../components/loginBanner";
 
 const AuthState = () => {
   const [login, setLogin] = useState(localStorage.getItem("token"));
