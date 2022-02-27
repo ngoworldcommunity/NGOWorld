@@ -26,6 +26,7 @@ function UserLogin() {
 
   const [isEmailValid, setIsEmailValid] = useState(false);
 
+  //* To set the value as soon as we input
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
     if (
@@ -35,6 +36,8 @@ function UserLogin() {
       setIsEmailValid(true);
   };
 
+  //* Submit to backend
+  //* If alright we get a session token
   const handleSubmit = (e) => {
     e.preventDefault();
     const Data = LoginUser(credentials);
@@ -43,7 +46,7 @@ function UserLogin() {
       if (response.data.status === true) {
         alert("Logged you in!!");
         console.log(response.data.token);
-        localStorage.setItem("token", response.data.token);
+        sessionStorage.setItem("token", response.data.token);
         Navigate("/");
       } else if (response.data.status === false) {
         alert("Please input valid credentials");
