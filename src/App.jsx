@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import ClubLogin from "./pages/clubs/ClubsLogin";
 import ClubRegister from "./pages/clubs/ClubsRegister";
 import UserRegister from "./pages/user/UserRegister";
+import UserProfile from "./pages/user/UserProfile";
 import ClubsPage from "./pages/display/ClubsPage";
 import UserLogin from "./pages/user/UserLogin";
 import ContactPage from "./pages/ContactUs";
@@ -25,7 +26,7 @@ const App = () => {
 
             <Route exact path="/user/register" element={<UserRegister />} />
             <Route exact path="/user/login" element={<UserLogin />} />
-
+            <Route exact path="/user/profile" element={<UserProfile />} />
             {/* //* Auth routes - CLUBS*/}
 
             <Route exact path="/clubs/login" element={<ClubLogin />} />

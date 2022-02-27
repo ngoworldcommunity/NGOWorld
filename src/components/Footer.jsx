@@ -21,7 +21,7 @@ const Footer = () => {
   const handleReportSubmit = async (e) => {
     e.preventDefault();
 
-    if (localStorage.getItem("user") === null) {
+    if (sessionStorage.getItem("token") === null) {
       toast.error("You must be logged in to report an issue");
       return;
     }

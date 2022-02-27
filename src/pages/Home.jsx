@@ -8,7 +8,7 @@ import EventsBanner from "../components/Events";
 import LoginBanner from "../components/loginBanner";
 
 const AuthState = () => {
-  const [login, setLogin] = useState(localStorage.getItem("token"));
+  const [login, setLogin] = useState(sessionStorage.getItem("token"));
   return login;
 };
 const Home = () => {
