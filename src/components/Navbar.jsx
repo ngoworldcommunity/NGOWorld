@@ -13,7 +13,11 @@ const Navbar = (props) => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/user/login");
+    if (sessionStorage.getItem("token")) {
+      navigate("/user/profile");
+    } else {
+      navigate("/user/login");
+    }
   };
 
   return (
