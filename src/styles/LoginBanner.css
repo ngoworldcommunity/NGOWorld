@@ -42,6 +42,7 @@
 @media only screen and (max-width: 770px) {
   #login-banner {
     flex-direction: column;
+    padding: 6rem 2rem;
   }
   #login-banner > * {
     width: 100%;
@@ -50,5 +51,12 @@
   #login-banner img {
     height: 80%;
     width: 80%;
+  }
+  #login-banner h1 {
+    font-size: 2rem;
+    line-height: 40px;
+  }
+  .loginb-content {
+    font-size: 1rem;
   }
 }
