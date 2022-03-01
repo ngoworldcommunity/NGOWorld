@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Audio, Oval, TailSpin } from "react-loader-spinner";
 import Navbar from "../../components/Navbar";
 import registrationImage from "../../assets/pictures/clubRegistrationImage.png";
 import { Link, useNavigate } from "react-router-dom";
@@ -31,6 +32,7 @@ const ClubLogin = () => {
   });
 
   const [isEmailValid, setIsEmailValid] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -47,8 +49,9 @@ const ClubLogin = () => {
 
     console.log(credentials);
     console.log("Form submitted");
-
+    setIsLoading(true);
     await RegisterClub(credentials);
+    setIsLoading(false);
     navigate("/clubs/login");
   };
 
@@ -188,7 +191,11 @@ const ClubLogin = () => {
                   type="submit"
                   className="registration-btn btn btn-primary py-2"
                 >
-                  Register
+                  {isLoading ? (
+                    <TailSpin color="#FFFFFF" height={30} width={30} />
+                  ) : (
+                    "Register"
+                  )}
                 </button>
               </div>
 

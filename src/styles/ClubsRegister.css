@@ -27,6 +27,9 @@
   background-color: #ba68c8;
   color: whitesmoke;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-transform: uppercase !important;
   font-size: 1.25rem;
   font-weight: 500;
