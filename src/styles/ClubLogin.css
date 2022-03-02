@@ -39,18 +39,41 @@
 }
 
 .mobile-img{
+    width: 90%;
+}
+
+.mobile {
     display: none;
 }
 
 /* For Mobile */
-@media screen and (max-width: 400px) {
+
+@media screen and (max-width: 800px) {
+    .mobile {
+        display: block;
+    }
+    .desktop {
+        display: none;
+    }
+    .mobile-img{
+        width: 300px;
+    }
+    #rememberMe {
+        display: none;
+    }
+    .login-btn {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 420px) {
 
     .mobile-txt{
         text-align: center!important;
     }
 
     .mobile-img{
-        display: block;
+        width: 256px;
     }
 
     .desktop-img{
