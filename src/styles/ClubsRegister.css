@@ -55,6 +55,8 @@
   .mobile-label {
     display: none;
   }
+}
+@media screen and (max-width: 500px) {
   .imageClub {
     width: 100%;
   }
