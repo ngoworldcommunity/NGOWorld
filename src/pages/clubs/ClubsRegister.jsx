@@ -80,7 +80,6 @@ const ClubLogin = () => {
                 <input
                   type="text"
                   className="form-control form-control-lg"
-                  placeholder="Enter your club name"
                   name="name"
                   value={credentials.name}
                   onChange={handleChange}
@@ -95,7 +94,6 @@ const ClubLogin = () => {
                 <input
                   type="email"
                   className="form-control form-control-lg"
-                  placeholder="Enter your email address"
                   name="email"
                   value={credentials.email}
                   onChange={handleChange}
@@ -110,7 +108,6 @@ const ClubLogin = () => {
                 <input
                   type="password"
                   className="form-control form-control-lg"
-                  placeholder="Enter your password"
                   name="password"
                   value={credentials.password}
                   onChange={handleChange}
@@ -125,7 +122,6 @@ const ClubLogin = () => {
                 <input
                   type="password"
                   className="form-control form-control-lg"
-                  placeholder="Confirm your password"
                   name="confirmPassword"
                   value={credentials.confirmPassword}
                   onChange={handleChange}
@@ -140,7 +136,6 @@ const ClubLogin = () => {
                 <input
                   type="text"
                   className="form-control form-control-lg"
-                  placeholder="Enter your club address"
                   name="address"
                   value={credentials.address}
                   onChange={handleChange}
@@ -156,7 +151,6 @@ const ClubLogin = () => {
                   type="text"
                   maxLength="6"
                   className="form-control form-control-lg"
-                  placeholder="Enter your pincode"
                   name="pincode"
                   value={credentials.pincode}
                   onChange={handleChange}
