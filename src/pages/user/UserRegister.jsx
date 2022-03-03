@@ -77,26 +77,26 @@ function UserRegister() {
                   >
                     Enter your name
                   </label>
-				  <div className="d-flex">
-                  <input
-                    type="text"
-                    className="form-control form-control-lg me-2"
-                    placeholder="First name"
-                    name="firstname"
-                    value={credentials.firstname}
-                    onChange={handleChange}
-                    required
-                  />
-                  <input
-                    type="text"
-                    className="form-control form-control-lg ms-2"
-                    placeholder="Last name"
-                    name="lastname"
-                    value={credentials.lastname}
-                    onChange={handleChange}
-                    required
-                  />
-				  </div>
+                  <div className="d-flex flex-column flex-md-row">
+                    <input
+                      type="text"
+                      className="form-control form-control-lg me-md-2"
+                      placeholder="First name"
+                      name="firstname"
+                      value={credentials.firstname}
+                      onChange={handleChange}
+                      required
+                    />
+                    <input
+                      type="text"
+                      className="form-control form-control-lg ms-md-2"
+                      placeholder="Last name"
+                      name="lastname"
+                      value={credentials.lastname}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
                 </div>
                 {/* //* Email */}
                 <div className="form-outline mb-4">
