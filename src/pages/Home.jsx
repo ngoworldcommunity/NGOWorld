@@ -6,6 +6,7 @@ import DonateBanner from "../components/DonateBanner";
 import HomeCardsContainer from "../components/HomeCardsContainer";
 import EventsBanner from "../components/Events";
 import LoginBanner from "../components/loginBanner";
+import ClubBanner from "../components/ClubBanner";
 
 const AuthState = () => {
   const [login, setLogin] = useState(sessionStorage.getItem("token"));
@@ -18,7 +19,7 @@ const Home = () => {
       {AuthState() ? <LoginBanner /> : <Banner />}
       <HomeCardsContainer />
       <DonateBanner />
-      <EventsBanner />
+      {localStorage.getItem("club") ? <ClubBanner /> : <EventsBanner />}
       <Footer />
     </>
   );
