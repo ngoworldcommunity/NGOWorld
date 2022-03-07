@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Alike+Angular&display=swap');
+
+.eventCreateSubmit {
+    border-radius: 15px;
+    background-color: #2E8E83;
+    color: white;
+}
+
+.eventCreateFormInput {
+    margin: 0px;
+    margin-bottom: 1em;
+    border: 1px #948F8F solid;
+    border-radius: 15px;
+}
+
+label {
+    font-family: 'Alike Angular', serif;
+}
+
+
+
+.eventCreateWelcome {
+    font-weight: bold;
+    color: #2E8E83;
+    font-size: 2.5rem;
+    top: -10px;
+    font-family: 'Alike Angular', serif;
+}

@@ -10,6 +10,7 @@ import UserLogin from "./pages/user/UserLogin";
 import ContactPage from "./pages/ContactUs";
 import AboutUs from "./pages/AboutUs";
 import MilanState from "./context/MilanState";
+import EventCreate from "./pages/clubs/EventCreate";
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
             <Route exact path="/display/clubs" element={<ClubsPage />} />
             <Route exact path="/contact" element={<ContactPage />} />
             <Route exact path="/about-us" element={<AboutUs />} />
+            <Route exact path='/clubs/createevent' element={<EventCreate />} />
 
             {/* //* Donations */}
             {/* <Route exact path='/' element={<Home />} />
@@ -43,6 +45,7 @@ const App = () => {
                     <Route exact path='/' element={<Home />} />
                     <Route exact path='/' element={<Home />} />
                     <Route exact path='/' element={<Home />} /> */}
+
 
 
           </Routes>
