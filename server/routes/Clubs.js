@@ -4,6 +4,7 @@ const express = require("express");
 const Club = require("../models/ClubsSchema");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
+const Events = require("../models/EventsSchema");
 var jwt = require("jsonwebtoken");
 
 //* Route 1  - Club Registration
@@ -72,4 +73,19 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post("/createevent", async (req, res) => {
+  try {
+    const { eventname, eventlocation, eventdate, eventdescription } = req.body;
+    const eventData = Events({
+      Eventname: eventname,
+      Eventdate: eventdate,
+      Eventlocation: eventlocation,
+      Eventdescription: eventdescription,
+    });
+    await eventData.save();
+    res.status(200).json(eventData);
+  } catch (e) {
+    console.log(`Error in creating a event: ${e}`);
+  }
+});
 module.exports = router;
