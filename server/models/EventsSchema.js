@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const EventsSchems = mongoose.Schema({
+const EventsSchema = mongoose.Schema({
   Eventname: {
     type: String,
   },
@@ -8,8 +8,7 @@ const EventsSchems = mongoose.Schema({
     type: String,
   },
   Eventdate: {
-    type: Date,
-    default: new Date(),
+    type: String,
   },
   Eventdescription: {
     type: String,
