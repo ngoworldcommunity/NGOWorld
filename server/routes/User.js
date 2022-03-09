@@ -6,6 +6,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
 const ReportProblem = require("../models/ReportProblemSchema");
+const ContactUs = require("../models/ContactUsSchema");
 
 //* Route 1  - User Registration
 router.post("/register", async (req, res) => {
@@ -68,15 +69,15 @@ router.post("/userreport", async (req, res) => {
   try {
     //fetch previous report from the same user
     const currentHour = new Date().getMinutes();
-    const previousReports = await ReportProblem.find({email: req.body.email}).exec();
+    const previousReports = await ReportProblem.find({ email: req.body.email }).exec();
 
-    for (let i=0; i<previousReports.length; i++) {
+    for (let i = 0; i < previousReports.length; i++) {
       let hourOfThisReport = new Date(previousReports[i].createdAt).getMinutes()
       //check if the user created a report in the last 2 hours
-      if (hourOfThisReport >= currentHour-120) {
+      if (hourOfThisReport >= currentHour - 120) {
         return res.json({
           success: false,
-          message: "tryagain"       
+          message: "tryagain"
         });
       }
     }
@@ -95,6 +96,27 @@ router.post("/userreport", async (req, res) => {
     return res.json({ success: true, messsage: "" });
   } catch (e) {
     return res.json({ success: false, message: "failed" });
+  }
+});
+
+//* Route 4  - Contact Us
+router.post("/contactus", (req, res) => {
+  try {    
+    //insert the Sender's Data in database
+    const data = req.body;
+
+    const SenderData = ContactUs({
+      firstname: data.firstname,
+      lastname: data.lastname,
+      email: data.email,
+      message: data.message,
+    });
+
+    //saving the data to mongodb
+    SenderData.save();
+    return res.json({ success: true, messsage: "Thank you for getting in touch!" });
+  } catch (e) {
+    return res.json({ success: false, message: "Error!" });
   }
 });
 
