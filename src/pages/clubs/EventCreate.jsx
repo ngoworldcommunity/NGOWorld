@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../../components/Navbar';
 // import { Link, useNavigate } from 'react-router-dom';
 import "../../styles/EventCreate.css";
-import Pic from "../../assets/pictures/bro.png";
+import Events from "../../assets/pictures/CreateEventsPic.svg";
 
 
 export default function EventCreate() {
@@ -14,50 +14,41 @@ export default function EventCreate() {
 				<div class="container py-5 h-100">
 					<div class="row d-flex align-items-center justify-content-center h-100">
 						<div class="col-md-8 col-lg-7 col-xl-6">
-							<img src={Pic} width="90%" alt='profile-img'></img>
+							<img src={Events} width="90%" alt='profile-img'></img>
 						</div>
 
 						<div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
 							<form style={{ width: "auto" }} >
 
 								<h2 className="eventCreateWelcome" >
-									Hello there!! <br />
-									Make your first club event
+									Create an event for your club
 								</h2>
 								<div class="form-outline">
-									<label for="eventName" class=" col-form-label col-form-label-lg">
-										What's your event called?
-									</label>
-									<input type="text" class="eventCreateFormInput form-control form-control-md" id="eventName" name="eventName" required />
+
+									<input type="text" class="eventCreateFormInput form-control " id="eventName" name="eventName" required placeholder="What's your event called?" />
 								</div>
 
 								<div class="form-outline">
-									<label for="eventPlace" class=" col-form-label col-form-label-lg">
-										Where will the event take place?
-									</label>
-									<input type="text" class="eventCreateFormInput form-control form-control-md" id="eventPlace" name="eventPlace" required />
+
+									<input type="text" class="eventCreateFormInput form-control form-control-md" id="eventPlace" name="eventPlace" required placeholder="Where will the event take place?" />
 								</div>
 
 								<div class="form-outline">
-									<label for="eventTime" class=" col-form-label col-form-label-lg">
-										When will it take place?
-									</label>
-									<input type="text" class="eventCreateFormInput form-control form-control-md" id="eventTime" name="eventTime" required />
+
+									<input type="text" class="eventCreateFormInput form-control form-control-md" id="eventTime" name="eventTime" required placeholder="When will it take place?" />
 								</div>
 
 								<div class="form-outline">
-									<label for="eventTime" class=" col-form-label col-form-label-lg">
-										When will it take place?
-									</label>
-									<textarea type="text" class="eventCreateFormInput form-control form-control-lg" id="eventTime" name="eventTime"  />
+
+									<textarea type="text" class="eventCreateFormInput form-control form-control-lg" id="eventTime" name="eventTime" placeholder="Tell us something more about the event" />
 								</div>
 
 
 								<button
 									type="submit"
-									className="btn btn-lg btn-block eventCreateSubmit"
+									className="btn  eventCreateSubmit"
 								>
-									Submit
+									Create
 								</button>
 								<br></br> <br></br>
 
