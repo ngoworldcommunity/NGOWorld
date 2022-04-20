@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../../styles/ClubLogin.css";
 import Pic from "../../assets/pictures/clubs-login.png";
 import { LoginClub } from "../../service/MilanApi";
+import { Audio, Oval, TailSpin } from "react-loader-spinner";
 
 function ClubLogin() {
   const Navigate = useNavigate();
@@ -25,6 +26,7 @@ function ClubLogin() {
   });
 
   const [isEmailValid, setIsEmailValid] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -35,10 +37,14 @@ function ClubLogin() {
       setIsEmailValid(true);
   };
 
+
+  //* SUBMIT 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    setIsLoading(true);
     const Data = LoginClub(credentials);
+    setIsLoading(false);
 
     Data.then((response) => {
       if (response.data.success === true) {
@@ -70,21 +76,16 @@ function ClubLogin() {
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
               <form style={{ width: "auto" }} onSubmit={handleSubmit}>
-                <h2 style={{ letterSpacing: "1px" }}>Log in</h2>
+                <h2 style={{ letterSpacing: "1px", marginBottom: "20px" }}>Log in</h2>
                 <div className="form-outline mb-4">
-                  <label
-                    htmlFor="exampleInputEmail1"
-                    className="col-form-label col-form-label-lg"
-                  >
-                    Email address
-                  </label>
+
 
                   <input
                     type="email"
                     className="desktop form-control form-control-lg"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
-                    placeholder="Enter email"
+                    placeholder="Enter your email"
                     name="email"
                     value={credentials.email}
                     onChange={handleChange}
@@ -103,18 +104,13 @@ function ClubLogin() {
                   />
                 </div>
                 <div className="form-outline mb-4">
-                  <label
-                    htmlFor="exampleInputPassword1"
-                    className="col-form-label col-form-label-lg"
-                  >
-                    Password
-                  </label>
+
 
                   <input
                     type="password"
                     className="desktop form-control form-control-lg"
                     id="exampleInputPassword1"
-                    placeholder="Password"
+                    placeholder="Enter your password"
                     name="password"
                     value={credentials.password}
                     onChange={handleChange}
@@ -142,14 +138,29 @@ function ClubLogin() {
                   </label>
                 </div>
                 <br />
-                <button
+                {/* <button
                   type="submit"
                   className="login-btn btn btn-lg btn-block"
                   disabled={credentials.password.length <= 4 || !isEmailValid}
                   style={{ backgroundColor: "#C996CC" }}
                 >
                   Login
+                </button> */}
+
+                <button
+                  disabled={credentials.password.length <= 4 || !isEmailValid}
+                  type="submit"
+                  className="login-btn btn btn-lg btn-block"
+                  style={{ backgroundColor: "#C996CC" }}
+                >
+
+                  {isLoading ? (
+                    <TailSpin color="#FFFFFF" height={30} width={30} />
+                  ) : (
+                    "Login"
+                  )}
                 </button>
+
                 <br></br> <br></br>
                 <Anchor
                   para=""

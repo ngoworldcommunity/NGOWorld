@@ -71,107 +71,97 @@ const ClubLogin = () => {
 
           <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
             <form onSubmit={handleSubmit}>
-              <h2 className="mobile-txt">Club Register</h2>
+              <h2 className="mobile-txt clubregisterheading1">Club Register</h2>
 
               <div className="form-outline mb-4">
-                <label className=" col-form-label col-form-label-lg mobile-label">
-                  Club Name
-                </label>
+
                 <input
                   type="text"
-                  className="form-control form-control-lg"
+                  className="form-control "
                   name="name"
                   value={credentials.name}
                   onChange={handleChange}
                   required
+                  placeholder="Enter your club name"
                 />
               </div>
 
               <div className="form-outline mb-4">
-                <label className=" col-form-label col-form-label-lg mobile-label">
-                  Club Email
-                </label>
+
                 <input
                   type="email"
-                  className="form-control form-control-lg"
+                  className="form-control"
                   name="email"
                   value={credentials.email}
                   onChange={handleChange}
                   required
+                  placeholder="Enter your club email"
                 />
               </div>
 
               <div className="form-outline mb-4">
-                <label className="col-form-label col-form-label-lg mobile-label">
-                  Password
-                </label>
+
                 <input
                   type="password"
-                  className="form-control form-control-lg"
+                  className="form-control"
                   name="password"
                   value={credentials.password}
                   onChange={handleChange}
                   required
+                  placeholder="Enter your password"
                 />
               </div>
 
               <div className="form-outline mb-4">
-                <label className="col-form-label col-form-label-lg mobile-label">
-                  Confirm your Password
-                </label>
+
                 <input
                   type="password"
-                  className="form-control form-control-lg"
+                  className="form-control"
                   name="confirmPassword"
                   value={credentials.confirmPassword}
                   onChange={handleChange}
                   required
+                  placeholder="Confirm your password"
                 />
               </div>
 
               <div className="form-outline mb-4">
-                <label className="col-form-label col-form-label-lg mobile-label">
-                  Address
-                </label>
+
                 <input
                   type="text"
-                  className="form-control form-control-lg"
+                  className="form-control"
                   name="address"
                   value={credentials.address}
                   onChange={handleChange}
                   required
+                  placeholder="Enter your address"
                 />
               </div>
 
               <div className="form-outline mb-4">
-                <label className="col-form-label col-form-label-lg mobile-label">
-                  Pincode
-                </label>
+
                 <input
                   type="text"
                   maxLength="6"
-                  className="form-control form-control-lg"
+                  className="form-control"
                   name="pincode"
                   value={credentials.pincode}
                   onChange={handleChange}
                   required
+                  placeholder="Enter your pincode"
                 />
               </div>
-              <label
-                htmlFor="desc"
-                className="col-form-label col-form-label-lg mobile-label"
-              >
-                Description
-              </label>
+
               <textarea
                 type="text"
                 className="form-control"
-                id="desc"
+                // id="desc"
                 aria-describedby="textDemo"
                 name="description"
                 value={credentials.description}
                 onChange={handleChange}
                 required
+                placeholder="Enter your description"
               />
               <small id="textDemo" className="form-text text-muted"></small>
 
