@@ -3,6 +3,7 @@
 const express = require("express");
 const Club = require("../models/ClubsSchema");
 const User = require("../models/UserSchema");
+const Events = require("../models/EventsSchema");
 const router = express.Router();
 
 //* Route 1  - Show all avaialble Users in the DB
@@ -26,5 +27,13 @@ router.get("/allclubs", async (req, res) => {
 });
 
 //* Route 3 - Show all the other events
+router.get("/allevents", async (req, res) => {
+  try {
+    const allEvents = await Events.find({});
+    return res.json(allEvents);
+  } catch (error) {
+    return res.status(500);
+  }
+});
 
 module.exports = router;

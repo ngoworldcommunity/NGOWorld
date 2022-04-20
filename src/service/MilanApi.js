@@ -14,6 +14,7 @@ const Report_Log = "https://milan-jwoc.herokuapp.com/user/userreport";
 //* IF sucess we alert user made else we alert user failed
 //* we get the credentials from the Awb.jsx
 
+//* LOGIN USER
 export const LoginUser = async (credentials) => {
   try {
     const Post = await Axios.post(`${User_Log}`, credentials);
@@ -24,6 +25,7 @@ export const LoginUser = async (credentials) => {
   }
 };
 
+//* REGISTER USER
 export const RegisterUser = async (credentials) => {
   try {
     const response = await Axios.post(`${User_Reg}`, credentials);
@@ -42,6 +44,7 @@ export const RegisterUser = async (credentials) => {
   }
 };
 
+//* LOGIN CLUB
 export const LoginClub = async (credentials) => {
   try {
     const Post = await Axios.post(`${Club_Log}`, credentials);
@@ -51,6 +54,8 @@ export const LoginClub = async (credentials) => {
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
   }
 };
+
+//* REGISTER CLUB
 export const RegisterClub = async (credentials) => {
   try {
     const response = await Axios.post(`${Club_Reg}`, credentials);
@@ -69,6 +74,7 @@ export const RegisterClub = async (credentials) => {
   }
 };
 
+//* GET ALL CLUBS
 export const GetAllClubs = async () => {
   try {
     const response = await Axios.get(`${All_Clubs}`);
@@ -79,20 +85,35 @@ export const GetAllClubs = async () => {
   }
 };
 
+//* REPORT PROBLEMS
 export const ReportProblem = async (credentials) => {
   try {
-    const response = await Axios.post("http://localhost:5000/user/userreport", credentials);
+    const response = await Axios.post(
+      "http://localhost:5000/user/userreport",
+      credentials
+    );
     // "http://localhost:5000/user/userreport"
     // `${Report_Log}`
-    if (response.data.success === true){
+    if (response.data.success === true) {
       return true;
-    }else if (response.data.message === "tryagain"){
+    } else if (response.data.message === "tryagain") {
       return "tryagain";
-    }else{
+    } else {
       return false;
     }
   } catch (error) {
     console.log(error);
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
   }
-}
+};
+
+//* GET ALL EVENTS
+export const GetAllEvents = async () => {
+  try {
+    const response = await Axios.get(`http://localhost:5000/display/allevents`);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+  }
+};
