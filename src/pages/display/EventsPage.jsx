@@ -24,6 +24,7 @@ const EventsPage = () => {
         <>
 
             <Navbar />
+
             <div className="eventspageintro_parent">
                 <div className="eventspageintro_imgdiv">
                     <img src={Eventspic} alt="events" />
@@ -40,6 +41,7 @@ const EventsPage = () => {
             </div>
 
             <hr className="container" />
+
 
             <div className="cards justify-content-center">
                 {clubData.map((club) => {
