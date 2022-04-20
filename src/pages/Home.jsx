@@ -15,7 +15,8 @@ const AuthState = () => {
 const Home = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
+      {AuthState() && <Navbar />}
       {AuthState() ? <LoginBanner /> : <Banner />}
       <HomeCardsContainer />
       <DonateBanner />

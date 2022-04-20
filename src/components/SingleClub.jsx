@@ -35,6 +35,8 @@ export default function SingleClub({ club }) {
 					) : (
 						""
 					)}
+
+
 				</div>
 				<div id={`more${club._id}`} className="hidden desc">
 					{club.description}
@@ -42,6 +44,7 @@ export default function SingleClub({ club }) {
 						See less
 					</span>
 				</div>
+
 			</div>
 		</div>
 	);

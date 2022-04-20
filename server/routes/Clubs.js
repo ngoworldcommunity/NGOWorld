@@ -73,6 +73,8 @@ router.post("/login", async (req, res) => {
   }
 });
 
+//* Route 3 - Create Event
+
 router.post("/createevent", async (req, res) => {
   try {
     const { eventname, eventlocation, eventdate, eventdescription } = req.body;
