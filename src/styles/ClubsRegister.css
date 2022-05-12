@@ -1,0 +1,75 @@
+/* create new account styling */
+.registration-link {
+  text-decoration: none !important;
+  color: grey;
+  font-weight: 550;
+}
+.registration-link:hover {
+  color: #7ed957;
+}
+
+/* Create New link styling */
+.old-acc {
+  color: #ba68c8 !important;
+}
+.old-acc:hover {
+  font-weight: bold;
+}
+#desc {
+  font-size: 1.3rem;
+}
+.imageClub {
+  width: 80%;
+}
+/* Registration Button */
+.registration-btn {
+  width: 30%;
+  background-color: #ba68c8;
+  color: whitesmoke;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase !important;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+  transition: 0.2s;
+}
+.registration-btn:hover {
+  transform: scale(1.02);
+  background-color: white;
+  color: black;
+  border: 1px solid #ba68c8;
+}
+.highlighted-registration {
+  color: #ba68c8;
+}
+
+/* For Mobile */
+@media screen and (max-width: 400px) {
+  .mobile-sec {
+    padding: 0 5%;
+  }
+
+  .mobile-label {
+    display: none;
+  }
+}
+@media screen and (max-width: 500px) {
+  .imageClub {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .registration-btn {
+    width: 100%;
+  }
+}
+
+.clubregisterheading1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  /* color: #ba68c8; */
+  margin-bottom: 2rem;
+}

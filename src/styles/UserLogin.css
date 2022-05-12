@@ -1,0 +1,42 @@
+@media screen and (max-width: 800px) {
+	h2 {
+		text-align: center;
+		padding-bottom: 2vw;
+	}
+	form {
+		text-align: center;
+	}
+	label[for="email"] {
+		display: none;
+	}
+	label[for="password"] {
+		display: none;
+	}
+
+	::placeholder {
+		text-align: center;
+	}
+
+	#homeIcon {
+		font-size: 3.5vw;
+	}
+}
+
+/* label[for="check"] {
+	visibility: hidden;
+}
+#check {
+	visibility: hidden;
+} */
+
+#homeIcon {
+	color: #24a0ed;
+	text-decoration: none;
+	font-size: 22px;
+}
+#homeIcon:hover {
+	color: #40a9eb;
+	text-decoration: underline;
+	transition: 0.5s ease-in-out;
+	cursor: pointer;
+}

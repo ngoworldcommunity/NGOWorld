@@ -1,0 +1,191 @@
+.page-footer {
+	background-color: rgb(66, 65, 65);
+	padding: 30px 80px;
+	color: #fff;
+	margin-bottom: 0px;
+	position: relative;
+	width: 100%;
+	top: 45px;
+}
+
+.links {
+	color: rgb(177, 177, 177);
+	text-decoration: none;
+}
+.links:hover {
+	color: rgb(231, 231, 231);
+}
+
+.footer-text {
+	color: rgb(177, 177, 177);
+}
+
+.footer-links {
+    line-height: 25px;
+}
+
+.col2 {
+	position: relative;
+}
+
+.button {
+	background-color: rgb(15, 127, 233);
+	color: #fff;
+}
+
+.footer-copyright,
+.copyright {
+	color: rgb(156, 156, 156);
+	text-decoration: none;
+}
+
+.report {
+	width: 200px;
+	height: 50px;
+	border: none;
+	border-radius: 15px;
+	position: absolute;
+	bottom: 49px;
+	background-color: #27414d;
+	color: #fff;
+	font-family: Mulish;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.report:hover {
+	box-shadow: 0 2px 8px rgb(122, 122, 122);
+}
+
+.report img {
+	width: 20px;
+}
+
+.top-img {
+	height: 25px;
+	position: relative;
+	left: 4%;
+}
+
+.bottom-img {
+	position: relative;
+	right: 5%;
+}
+.col-md-3 {
+	width: 150px;
+}
+.ls {
+	margin-left: 200px;
+}
+
+@media screen and (max-width: 1276px) {
+    .footer-links {
+        line-height: 40px !important;
+    }
+}
+
+@media screen and (max-width: 896px) {
+	.footer-content {
+		flex-direction: column !important;
+	}
+
+    .col1, .col2 {
+        width: 100% !important;
+    }
+
+	.footer-links {
+		display: none;
+	}
+
+	.row2 {
+		margin: 0 !important;
+	}
+
+	.report {
+		position: relative;
+		bottom: 0;
+		margin-top: 20px;
+        margin-bottom: 40px;
+	}
+}
+
+@media screen and (max-width: 680px) {
+    .page-footer {
+        padding: 30px 28px !important;
+    }
+}
+
+/* @media (max-width: 368px) {
+	.report {
+    width: 250px;
+    height: 42px;
+    position: relative;
+    right: 20%;
+    top: 15%;
+    margin-bottom: 20px;
+  }
+} */
+
+.reportModal{
+	position: fixed; 
+	width: 100%; 
+	height: 100%; 
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.8);
+	z-index: 2; 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.reportModalContent{
+	background-color: white;
+	border-radius: 5%;
+	height: fit-content;
+	width: 30vw;
+	min-width: 500px;
+	padding: 1rem;
+	color: black;
+}
+
+.reportModalHeader{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.form-control {
+	margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 526px) {
+	body {
+		overflow: unset;
+	}
+}
+
+@media screen and (max-width: 525px) {
+
+	.reportModalHeader {
+		justify-content: center;
+		align-items: center;
+	}
+
+	.reportModalHeader>h4 {
+		font-size: 1.2em;
+		margin-left: 1.4rem;
+		margin-bottom: 0px;
+		flex: auto;
+	}
+
+	.reportModalContent {
+		width: 89vw;
+		min-width: 220px;
+		text-align: center;
+	}
+
+}
+

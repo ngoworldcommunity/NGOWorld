@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.cards {
+  padding: 6%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 323px));
+  column-gap: 4%;
+  row-gap: 6%;
+  font-family: "Mulish", sans-serif;
+}
+
+.cards::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+@media screen and (max-width: 1217px) {
+  .cards {
+    padding: 8% 4%;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 323px));
+    column-gap: 8%;
+    row-gap: 4%;
+  }
+}
+
+@media screen and (max-width: 815px) {
+  .cards {
+    padding: 6% 5%;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 323px));
+    row-gap: 2%;
+  }
+}
+
+@media screen and (max-width: 535px) {
+  .cards {
+    display: flex;
+    flex-direction: column;
+    padding: 8% 16%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .cards {
+    padding: 10%;
+  }
+}
+
+.clubCard {
+  min-height: 405px;
+  height: fit-content;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 15px;
+}
+
+.clubCard h3 {
+  font-weight: bold;
+  font-family: "Mulish";
+}
+
+@media screen and (max-width: 535px) {
+  .clubCard {
+    margin: 16px 0;
+  }
+}
+
+.club-img {
+  height: 190px;
+  border-radius: 15px 15px 5px 5px;
+}
+
+.club-info {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 6px;
+  color: rgba(0, 0, 0, 0.4);
+  font-family: "Mulish";
+}
+
+.desc {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 23px;
+  font-family: "Mulish";
+  /* height: 100%; */
+}
+
+.seeBtn {
+  cursor: pointer;
+  font-weight: lighter;
+  margin-left: 4px;
+  text-decoration: underline;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .card-title {
+    font-size: 17px;
+  }
+  .desc {
+    font-size: 14px;
+  }
+  .btn {
+    font-size: 14px;
+  }
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+  background-color: #f5f5f5;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: darkgrey;
+}
+
+.eventspageintro_parent {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.eventspageintro_imgdiv img {
+  width: 700px;
+  height: 700px;
+}
+
+.eventspageintro_textdiv p {
+  font-family: "Mulish", sans-serif;
+  width: 600px;
+  font-size: 20px;
+  margin-top: 20px;
+}

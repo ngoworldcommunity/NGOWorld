@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+
+div#about {
+  margin: 68px 128px;
+  font-family: "Mulish", sans-serif;
+}
+
+div.abtCol1 {
+  flex: 3.5;
+}
+
+div.abtCol1 img.abtImg {
+  max-height: 524px;
+  max-width: 756px;
+  width: 90%;
+}
+
+div.abtCol2 {
+  flex: 3.5;
+}
+
+div.abtCol2 h1 {
+  color: #2e8e83;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: bold;
+}
+
+div.abtCol2 p {
+  font-size: 18px;
+  line-height: 25px;
+  font-style: normal;
+  font-weight: normal;
+}
+
+div.abtCol2 img.abtMembers {
+  max-width: 98px;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 1620px) {
+  div#about {
+    margin: 68px !important;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  div.abtCol1 img.abtImg {
+    width: 100%;
+  }
+
+  div.abtCol2 p {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  div#about {
+    margin: 1rem;
+    flex-direction: column;
+  }
+
+  div.abtCol1 {
+    display: flex;
+    justify-content: center;
+    margin: 12px 10px !important;
+  }
+
+  div.abtCol1 img.abtImg {
+    width: 85%;
+  }
+
+  div.abtCol2 {
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center !important;
+    padding-top: 34px;
+    margin: 12px 10px !important;
+  }
+
+  div.abtCol2 h1 {
+    font-size: 32px;
+  }
+
+  div.abtCol2 p {
+    padding: 0 8px;
+  }
+
+  div.abtCol2 div.abtTeam {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  div.abtCol2 img.abtMembers {
+    margin: 6px !important;
+    max-width: 85px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  div#about {
+    margin: 16px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  div.abtCol1 img.abtImg {
+    width: 100%;
+  }
+
+  div.abtCol2 h1 {
+    font-size: 26px;
+  }
+
+  div.abtCol2 p {
+    font-size: 15px;
+  }
+
+  div.abtCol2 div.abtTeam {
+    max-width: 310px;
+  }
+
+  div.abtCol2 img.abtMembers {
+    margin: 10px !important;
+  }
+}
