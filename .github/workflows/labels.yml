@@ -12,8 +12,10 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "14"
-      - uses: EddieHubCommunity/gh-action-open-source-labels@v0.2.2
+      - uses: EddieHubCommunity/gh-action-open-source-labels@main
         with:
-          github-token: ${{ secrets.MILAN_SECRET_TOKEN }}
+          github-token: ${{ secrets.NPM_TOKEN }}
           owner-name: "IAmTamal"
-          repository-name: "IAmTamal/Milan"
+          repository-name: "Milan"
+          force: true
+          # force: true # optional to clear existing labels, default to true
