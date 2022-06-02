@@ -1,45 +1,43 @@
 ---
 name: Custom
 about: Heading
-title: ''
-labels: "JWOC, \U0001F929 Up for Grab"
-assignees: ''
+title: ""
+assignees: ""
+---
+
+## Issue Name here
 
 ---
 
-## I want to <text here>
- 
+## Guidelines 🔐
+
+- **I will follow the [Setup Guidelines](https://github.com/IAmTamal/Milan/blob/main/rules/Setup.md)**
+
+- **I will follow the [Contributing Guidelines](https://github.com/IAmTamal/Milan/blob/main/CONTRIBUTING.md)**
+
+- **I will follow the [Code of Conduct](https://github.com/IAmTamal/Milan/blob/main/CODE_OF_CONDUCT.md)**
+
 ---
- 
-## Guidelines ⚠
 
-### I will follow the [Setup Guidelines](https://github.com/IAmTamal/Milan/blob/main/rules/Setup.md) 
-### I will follow the [Contributing Guidelines](https://github.com/IAmTamal/Milan/blob/main/CONTRIBUTING.md)
-### I will follow the [Code of Conduct](https://github.com/IAmTamal/Milan/blob/main/CODE_OF_CONDUCT.md)
- 
- ---
+## Notice ⛔ (Remove after reading)
 
-## Notice ⛔
- 
-You will make PRs only to **`tamal-milan`** branch. 
-Commit message / PR title--> **`fix: bla bla bla`**
- 
-Please make sure in the `.css` files you are making/using , the styles should be applied to **Unique Class names** 
+**Commit message** : Try and make them as sensible as possible.
+Make sure there are no `bad words` in it.
 
-If there are **images** in your `.jsx` files  give them unique classnames like **registrationImage , clubLoginImage**, then in the `css` files make sure the styles are applied to those unique classnames. Else things are getting messed up.
+**PR Title/ Branch name** : They needs to be about the changes you make.
+Donot name PR Titles, branches after yourself.
+
+**`fixed-about-page-bug` This can be a good name for PR Titles/ Branch names.**
+**`Jonathan` This is a bad name for PR Titles/ Branch names.**
+
+Please make sure in the `.css` files you are making/using , the styles should be applied to **Unique Class names**
+
+If there are **images** in your `.jsx` files give them **unique classnames** like **img-1 , img-mobile**, then in the `.css` files make sure the styles are applied **to those unique classnames**. Else things are getting messed up.
 
 ---
 
 ## FIXES 🛠
-  
-<content>
+
+<tell about changes you suggest>
   
 ---
-  
-## Completed / Doubts ?  🚀
-  
-Once you are done with the code , please tag me in `#milan` with the **Screenshot** of whatever you made so that we can review that there together.
-If you have any **doubts, queries** please tag me in `#milan` so that we can discuss the issue there together.
-Please **Donot DM.**
-  
-### Cheers 🥂
