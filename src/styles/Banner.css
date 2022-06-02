@@ -29,7 +29,8 @@
 
 @media (max-width: 425px) {
 	.banner-container {
-		height: 500px;
+		height: 100vh;
+		height: calc(var(--vh, 1vh) * 100);
 	}
 
 	.banner-content {
