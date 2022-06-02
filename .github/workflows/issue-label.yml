@@ -1,17 +1,19 @@
-name: Issue/Pull Request Label
+name: Import open source standard labels
 
-on: [push]
+on:
+  push:
+    branches: [main]
 
 jobs:
-  build:
+  labels:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v1
-      - name: Label Syncer
-        uses: micnncim/action-label-syncer@v1.3.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
+      - uses: actions/setup-node@v2
         with:
-          manifest: .github/labels.json
-          prune: false
+          node-version: "14"
+      - uses: EddieHubCommunity/gh-action-open-source-labels@v0.2.2
+        with:
+          github-token: ${{ secrets.MILAN_SECRET_TOKEN }}
+          owner-name: "IAmTamal"
+          repository-name: "IAmTamal/Milan"
