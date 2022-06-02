@@ -26,5 +26,5 @@ body:
   - type: markdown
     attributes:
       value: |
-        Follow me on Twitter [here]https://twitter.com/mrTamall)
+        Follow me on Twitter [here](https://twitter.com/mrTamall)
         Feel free to check out other cool repositories [here](https://github.com/IAmTamal)
