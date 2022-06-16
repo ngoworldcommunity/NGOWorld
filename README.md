@@ -5,13 +5,13 @@
 The word ‘Milan’ when literally translated from its colloquial form to English means ‘conjugation’.
 It is often seen that people get scammed and their money is stolen when they were just trying to do good for other people, they were trying to extend their help. Again, it is seen that there are some Clubs or NGOs who do not get enough funds to work for humanitarian causes because of the lack of proper representation.
 
-With Milan we aim at bringing all the various NGOs and donors under one single roof to ease the burden of going to find their appropriate donors and the appropriate communities to donate to. With the help of our search filters and ask platform, it becomes easier for the people to find their right community to serve.
+With Milan we aim to bring all of the various NGOs and donors under one roof to ease the burden of going to find their appropriate donors and the appropriate communities to donate to. With the help of our search filters and ask platform, it becomes easier for the people to find their right community to serve.
 
 ---
 
 ## Willing to help ? 👩🏻‍💻
 
-**A beginner to Open Source, Web Development ?**  
+**A beginner to Open Source, Web Development ?**
 
 <br/>
 
