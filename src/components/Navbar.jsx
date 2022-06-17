@@ -2,8 +2,9 @@ import React from "react";
 import "../styles/Navbar.css";
 import solidarity from "../assets/pictures/solidarity.png";
 import { Link, useNavigate } from "react-router-dom";
+import  ProfilePicture from "../assets/pictures/ProfilePicture.png";
 
-const Navbar = (props) => {
+const Navbar = () => {
   const handleLogout = () => {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("type");
@@ -74,8 +75,7 @@ const Navbar = (props) => {
                 <img
                   onClick={handleNavigate}
                   src={
-                    props.pictureUrl ||
-                    "https://www.shareicon.net/data/512x512/2016/09/15/829452_user_512x512.png"
+                      ProfilePicture
                   }
                   alt="lol"
                   className="nav_user_img"
