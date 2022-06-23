@@ -127,10 +127,10 @@ const Footer = () => {
           </div>
         </div>
       )}
-    <div class="p-5 rounded" style={{backgroundColor:"#fec726"}}>
+    <div class="p-5 rounded" style={{backgroundColor:"#424141"}}>
       <div class="row py-4">
         <div class="col-lg-6 col-md-6 mb-4 mb-lg-0 px-5"><img src="img/logo.png" alt="" width="180" class="mb-3"/>
-          <p class="font-italic text-black" >With Milan we aim at bringing all the various NGOs and donors under one single roof to ease the burden of going to find their appropriate donors and the appropriate communities to donate to. With the help of our search filters and ask platform, it becomes easier for the people to find their right community to serve.</p>
+          <p class="font-italic text-light" >With Milan we aim at bringing all the various NGOs and donors under one single roof to ease the burden of going to find their appropriate donors and the appropriate communities to donate to. With the help of our search filters and ask platform, it becomes easier for the people to find their right community to serve.</p>
           <ul class="list-inline mt-4">
             <li class="list-inline-item"><a href="#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
             <li class="list-inline-item"><a href="#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
@@ -138,15 +138,15 @@ const Footer = () => {
         </div>
 
         <div class="col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
-          <h6 class="text-uppercase font-weight-bold mb-4">Join Us!</h6>
+          <h6 class="text-uppercase text-light font-weight-bold mb-4">Join Us!</h6>
           <ul class="list-unstyled mb-0">
-            <li class="mb-2"><a href="user/register" class="text-muted text-decoration-none">Login</a></li>
-            <li class="mb-2"><a href="user/register" class="text-muted text-decoration-none ">Register</a></li>
+            <li class="mb-2"><a href="user/register" class="text-decoration-none">Login</a></li>
+            <li class="mb-2"><a href="user/register" class="text-decoration-none ">Register</a></li>
           </ul>
         </div>
         <div class="col-lg-4 col-md-6 mb-lg-0">
-          <h6 class="text-uppercase font-weight-bold mb-4 text-center">Want to report?</h6>
-          <p class="text-muted text-center mb-4">You can submit a report to us by filling a form below!</p>
+          <h6 class="text-uppercase text-light font-weight-bold mb-4 text-center">Want to report?</h6>
+          <p class="text-light text-center mb-4">You can submit a report to us by filling a form below!</p>
           <div class="rounded mx-auto bg-light bg-opacity-25" style={{width:"100px"}}>
 
               <button onClick={handleReportModalOpen} class="btn btn-outline-info p-3 d-flex align-items-center">
