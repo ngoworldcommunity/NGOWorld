@@ -1,6 +1,6 @@
-# Issue name 📐
+# Issue  📐
 
-- **I <your name here> have worked for <issue number> under JWOC**
+- **I <your name here> have worked for <issue number>**
 
 [put x to check the boxes]: <> (This is a comment, it will not be included)
 
