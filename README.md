@@ -46,7 +46,7 @@ This might be the debut repo for you, you can contribute to this repo, solve the
 
 ---
 
-## Best Contributors !! 🎭
+## Our Contributors !! 🎭
 
 <a href="https://github.com/IAmTamal/Milan/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=IAmTamal/Milan" />
