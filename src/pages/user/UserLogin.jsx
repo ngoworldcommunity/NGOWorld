@@ -45,7 +45,6 @@ function UserLogin() {
     Data.then((response) => {
       if (response.data.status === true) {
         alert("Logged you in!!");
-        console.log(response.data.token);
         sessionStorage.setItem("token", response.data.token);
         Navigate("/");
       } else if (response.data.status === false) {

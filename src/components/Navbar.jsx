@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles/Navbar.css";
 import solidarity from "../assets/pictures/solidarity.png";
 import { Link, useNavigate } from "react-router-dom";

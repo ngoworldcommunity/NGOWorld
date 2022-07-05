@@ -28,6 +28,7 @@
   margin: auto;
   font-weight: 600;
   margin-right: 30px;
+  justify-content: center;
 }
 
 .shop_icon {
@@ -64,7 +65,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 1000px) {
   .home {
     margin: auto;
     margin-bottom: 10px;

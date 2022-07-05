@@ -21,7 +21,7 @@ export default function SingleClub({ club }) {
 				<h3 className="card-title">{club.name} </h3>
 				<div className="club-info mt-3">
 					<p>{club.email}</p>
-					<p>{club.address}</p>
+					<p style={{lineHeight: 1}}>{club.address}</p>
 				</div>
 
 				<div id={`less${club._id}`} className="desc">
