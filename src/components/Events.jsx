@@ -1,4 +1,5 @@
-import "../styles/Events.css";
+import React from "react";
+import "./styles/Events.css";
 import eventCuate from "../assets/pictures/eventCuate.png";
 import { useNavigate } from "react-router-dom";
 

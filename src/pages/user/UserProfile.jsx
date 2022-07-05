@@ -1,6 +1,6 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import Navbar from "../../components/Navbar"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { UpdateUser } from "../../service/MilanApi"
 
 export default function UserProfile() {

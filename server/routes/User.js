@@ -101,58 +101,58 @@ router.post("/login", async (req, res) => {
 
 //* Route 3  - Report a Problem
 router.post("/userreport", async (req, res) => {
-	try {
-		//fetch previous report from the same user
-		const currentHour = new Date().getMinutes()
-		const previousReports = await ReportProblem.find({ email: req.body.email }).exec()
+  try {
+    //fetch previous report from the same user
+    const currentHour = new Date().getMinutes();
+    const previousReports = await ReportProblem.find({ email: req.body.email }).exec();
 
-		for (let i = 0; i < previousReports.length; i++) {
-			let hourOfThisReport = new Date(previousReports[i].createdAt).getMinutes()
-			//check if the user created a report in the last 2 hours
-			if (hourOfThisReport >= currentHour - 120) {
-				return res.json({
-					success: false,
-					message: "tryagain",
-				})
-			}
-		}
-		//else begin to insert the request in database
-		const data = req.body
+    for (let i = 0; i < previousReports.length; i++) {
+      let hourOfThisReport = new Date(previousReports[i].createdAt).getMinutes()
+      //check if the user created a report in the last 2 hours
+      if (hourOfThisReport >= currentHour - 120) {
+        return res.json({
+          success: false,
+          message: "tryagain"
+        });
+      }
+    }
+    //else begin to insert the request in database
+    const data = req.body;
 
-		const ReportData = ReportProblem({
-			firstname: data.firstname,
-			lastname: data.lastname,
-			email: data.email,
-			reportmessage: data.reportmessage,
-		})
+    const ReportData = ReportProblem({
+      firstname: data.firstname,
+      lastname: data.lastname,
+      email: data.email,
+      reportmessage: data.reportmessage,
+    });
 
-		//saving the data to mongodb
-		ReportData.save()
-		return res.json({ success: true, messsage: "" })
-	} catch (e) {
-		return res.json({ success: false, message: "failed" })
-	}
-})
+    //saving the data to mongodb
+    ReportData.save();
+    return res.json({ success: true, messsage: "" });
+  } catch (e) {
+    return res.json({ success: false, message: "failed" });
+  }
+});
 
 //* Route 4  - Contact Us
 router.post("/contactus", (req, res) => {
-	try {
-		//insert the Sender's Data in database
-		const data = req.body
+  try {    
+    //insert the Sender's Data in database
+    const data = req.body;
 
-		const SenderData = ContactUs({
-			firstname: data.firstname,
-			lastname: data.lastname,
-			email: data.email,
-			message: data.message,
-		})
+    const SenderData = ContactUs({
+      firstname: data.firstname,
+      lastname: data.lastname,
+      email: data.email,
+      message: data.message,
+    });
 
-		//saving the data to mongodb
-		SenderData.save()
-		return res.json({ success: true, messsage: "Thank you for getting in touch!" })
-	} catch (e) {
-		return res.json({ success: false, message: "Error!" })
-	}
-})
+    //saving the data to mongodb
+    SenderData.save();
+    return res.json({ success: true, messsage: "Thank you for getting in touch!" });
+  } catch (e) {
+    return res.json({ success: false, message: "Error!" });
+  }
+});
 
-module.exports = router
+module.exports = router;
