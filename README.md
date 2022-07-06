@@ -1,4 +1,5 @@
-![MILAN](https://i.ibb.co/8jqyhTF/NGOs.png)
+![NGOs](https://user-images.githubusercontent.com/72851613/177592591-86afe7ef-8f2c-4993-895c-74797ee83b21.png)
+
 
 ## What is Milan ? 🤔
 
