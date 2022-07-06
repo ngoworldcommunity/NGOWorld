@@ -7,10 +7,10 @@
 		text-align: center;
 	}
 	label[for="email"] {
-		display: none;
+		/* display: none; */
 	}
 	label[for="password"] {
-		display: none;
+		/* display: none; */
 	}
 
 	::placeholder {

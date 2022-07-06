@@ -5,6 +5,8 @@ import Axios from "axios";
 
 const User_Log = "https://milan-jwoc.herokuapp.com/user/login";
 const User_Reg = "https://milan-jwoc.herokuapp.com/user/register";
+//! const User_Updt = "https://milan-jwoc.herokuapp.com/user/update"    // Uncomment when You push heroku Backend
+const User_Updt = "http://localhost:5000/user/update"  //? Comment out when you push heroku backend
 const Club_Log = "https://milan-jwoc.herokuapp.com/club/login";
 const Club_Reg = "https://milan-jwoc.herokuapp.com/club/register";
 const All_Clubs = "https://milan-jwoc.herokuapp.com/display/allClubs";
@@ -13,6 +15,27 @@ const Report_Log = "https://milan-jwoc.herokuapp.com/user/userreport";
 //* Axios call to login a User
 //* IF sucess we alert user made else we alert user failed
 //* we get the credentials from the Awb.jsx
+
+//* UPDATE USER
+export const UpdateUser = async credentials => {
+	try {
+		const response = await Axios.post(`${User_Updt}`, credentials)
+
+		if (response.data.doesNotExist) {
+			alert("User does not exist, please try again")
+		}
+		if (response.data.invalidPassword) {
+			alert("Invalid Credentials, please try again")
+		}
+		if (response.data.success) {
+			alert("Updating...")
+			return response
+		}
+	} catch (error) {
+		console.log(error)
+		alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER")
+	}
+}
 
 //* LOGIN USER
 export const LoginUser = async (credentials) => {

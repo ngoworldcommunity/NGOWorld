@@ -38,6 +38,40 @@ router.post("/register", async (req, res) => {
     console.log(e);
   }
 });
+//* Route 1a - User Update
+router.post("/update", async (req, res) => {
+	try {
+		const { email, oldPassword, newPassword } = req.body
+		const exists = await User.findOne({
+			email: email,
+		})
+		if (!exists) return res.json({ doesNotExist: true })
+		// User Exists in the database
+
+		const validPassword = await bcrypt.compare(oldPassword, exists.password)
+		if (!validPassword) return res.json({ invalidPassword: true })
+		// Old Password Mathched
+
+		const newHashedPassword = await bcrypt.hash(newPassword, 10)
+		// New Password Hashed
+
+		// Updated User
+		const UserData = {
+			firstname: exists.firstname,
+			lastname: exists.lastname,
+			email: email,
+			password: newHashedPassword,
+			address: exists.address,
+			pincode: exists.pincode,
+		}
+
+		await User.replaceOne({ email: email }, UserData)
+		// User Password Updated
+		return res.json({ success: true })
+	} catch (error) {
+		return res.json({ success: false })
+	}
+})
 
 //* Route 2 - User Login
 router.post("/login", async (req, res) => {
