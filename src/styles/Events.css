@@ -53,6 +53,10 @@ div#eventsCol2 button {
 	background-color: #2e8e83;
 }
 
+.button_animation:hover {
+	box-shadow: 0 2px 8px #7cf8ea;
+  }
+
 @media screen and (max-width: 1200px) {
 	div#eventsCol2 h2 {
 		font-size: 40px;

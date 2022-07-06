@@ -14,7 +14,7 @@ const DonateBanner = () => {
 				<h2 className="mb-4">You can help us too!!</h2>
 				<p>Happiness increases when you share your love.</p>{" "}
 				<p>So why not help millions by sharing your love ?</p>
-				<button className="mt-4">Share your love ❤️</button>
+				<button className="mt-4 button_animation">Share your love ❤️</button>
 			</div>
 			<div id="donateCol2">
 				<img src={donateImg} alt="" className="donateImg" />
