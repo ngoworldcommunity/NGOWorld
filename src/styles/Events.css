@@ -55,6 +55,8 @@ div#eventsCol2 button {
 
 .button_animation:hover {
 	box-shadow: 0 2px 8px #7cf8ea;
+	transition: 0.7s;
+
   }
 
 @media screen and (max-width: 1200px) {
