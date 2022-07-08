@@ -1,12 +1,11 @@
 //This is a demo db , the original files are safe
 
 const mongoose = require("mongoose");
-
-const mongoURI =
-  "mongodb+srv://tamaldas69:tamaldas69@cluster0.g1f0o.mongodb.net/milandatabase?retryWrites=true&w=majority";
+const dotenv = require("dotenv");
+dotenv.config();
 
 const connectToMongo = () => {
-  mongoose.connect(mongoURI, () => {
+  mongoose.connect(process.env.MONGO_URI, () => {
     console.log("CONNECTED TO MONGO DB DATABASE 🌐");
   });
 };
