@@ -5,8 +5,7 @@ import Axios from "axios";
 
 const User_Log = "https://milan-jwoc.herokuapp.com/user/login";
 const User_Reg = "https://milan-jwoc.herokuapp.com/user/register";
-//! const User_Updt = "https://milan-jwoc.herokuapp.com/user/update"    // Uncomment when You push heroku Backend
-const User_Updt = "http://localhost:5000/user/update"  //? Comment out when you push heroku backend
+const User_Updt = "https://milan-jwoc.herokuapp.com/user/update"; // Uncomment when You push heroku Backend
 const Club_Log = "https://milan-jwoc.herokuapp.com/club/login";
 const Club_Reg = "https://milan-jwoc.herokuapp.com/club/register";
 const All_Clubs = "https://milan-jwoc.herokuapp.com/display/allClubs";
@@ -17,25 +16,25 @@ const Report_Log = "https://milan-jwoc.herokuapp.com/user/userreport";
 //* we get the credentials from the Awb.jsx
 
 //* UPDATE USER
-export const UpdateUser = async credentials => {
-	try {
-		const response = await Axios.post(`${User_Updt}`, credentials)
+export const UpdateUser = async (credentials) => {
+  try {
+    const response = await Axios.post(`${User_Updt}`, credentials);
 
-		if (response.data.doesNotExist) {
-			alert("User does not exist, please try again")
-		}
-		if (response.data.invalidPassword) {
-			alert("Invalid Credentials, please try again")
-		}
-		if (response.data.success) {
-			alert("Updating...")
-			return response
-		}
-	} catch (error) {
-		console.log(error)
-		alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER")
-	}
-}
+    if (response.data.doesNotExist) {
+      alert("User does not exist, please try again");
+    }
+    if (response.data.invalidPassword) {
+      alert("Invalid Credentials, please try again");
+    }
+    if (response.data.success) {
+      alert("Updating...");
+      return response;
+    }
+  } catch (error) {
+    console.log(error);
+    alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+  }
+};
 
 //* LOGIN USER
 export const LoginUser = async (credentials) => {
@@ -112,7 +111,7 @@ export const GetAllClubs = async () => {
 export const ReportProblem = async (credentials) => {
   try {
     const response = await Axios.post(
-      "http://localhost:5000/user/userreport",
+      "https://milan-jwoc.herokuapp.com/user/userreport",
       credentials
     );
     // "http://localhost:5000/user/userreport"
@@ -133,7 +132,9 @@ export const ReportProblem = async (credentials) => {
 //* GET ALL EVENTS
 export const GetAllEvents = async () => {
   try {
-    const response = await Axios.get(`http://localhost:5000/display/allevents`);
+    const response = await Axios.get(
+      `https://milan-jwoc.herokuapp.com/display/allevents`
+    );
     return response.data;
   } catch (error) {
     console.log(error);
