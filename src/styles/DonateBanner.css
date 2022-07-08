@@ -38,6 +38,11 @@ div#donateCol1 button {
 	background-color: #2e8e83;
 }
 
+.button_animation:hover {
+	box-shadow: 0 2px 8px #7cf8ea;
+	transition: 0.7s;
+  }
+
 div#donateCol2 {
 	display: flex;
 	justify-content: flex-end;

@@ -31,7 +31,7 @@ const EventsBanner = () => {
 					camps and many more !!
 				</p>
 				<p>Join us at the events, and help the community !! </p>
-				<button className="mt-4" onClick={(e) => { handleNavigate(e) }}>Explore</button>
+				<button className="mt-4 button_animation" onClick={(e) => { handleNavigate(e) }}>Explore 🧭</button>
 			</div>
 		</div>
 	);
