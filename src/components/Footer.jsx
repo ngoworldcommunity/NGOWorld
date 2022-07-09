@@ -207,13 +207,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
-      {/* <!-- Copyrights --> */}
-      <div class="bg-light py-4 m-0" style={{ backgroundColor: "#36474f" }}>
-        <div class="container text-center">
-          <p class="text-muted mb-0 py-2">© Milan All rights reserved</p>
-        </div>
-      </div>
     </footer>
   );
 };
