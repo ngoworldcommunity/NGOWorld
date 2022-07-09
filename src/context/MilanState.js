@@ -21,7 +21,7 @@ const MilanState = (props) => {
         setState,
       }}
     >
-      {props.children};
+      {props.children}
     </MilanContext.Provider>
   );
 };
