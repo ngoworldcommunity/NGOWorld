@@ -61,7 +61,7 @@ const Footer = () => {
   }, [reportModal]);
 
   return (
-    <footer class="bg-white m-0">
+    <footer className="bg-white m-0">
       <ToastContainer />
       {reportModal && (
         <div className="reportModal">
@@ -77,7 +77,7 @@ const Footer = () => {
 
               <button
                 type="button"
-                class="btn-close crossButton"
+                className="btn-close crossButton"
                 aria-label="Close"
                 onClick={handleReportModalClose}
               ></button>
@@ -130,7 +130,7 @@ const Footer = () => {
                   onChange={(e) => setReportIssue(e.target.value)}
                 />
               </div>
-              <div class="text-center">
+              <div className="text-center">
                 <button className="btn-hover" onClick={handleReportSubmit}>
                   SUBMIT
                 </button>
@@ -139,33 +139,33 @@ const Footer = () => {
           </div>
         </div>
       )}
-      <div class="p-5 rounded" style={{ backgroundColor: "#424141" }}>
-        <div class="row py-4">
-          <div class="col-lg-6 col-md-6 mb-4 mb-lg-0 px-5">
-            <img src="img/logo.png" alt="" width="180" class="mb-3" />
-            <p class="font-italic text-light">
+      <div className="p-5 rounded" style={{ backgroundColor: "#424141" }}>
+        <div className="row py-4">
+          <div className="col-lg-6 col-md-6 mb-4 mb-lg-0 px-5">
+            <img src="img/logo.png" alt="" width="180" className="mb-3" />
+            <p className="font-italic text-light">
               With Milan we aim at bringing all the various NGOs and donors
               under one single roof to ease the burden of going to find their
               appropriate donors and the appropriate communities to donate to.
               With the help of our search filters and ask platform, it becomes
               easier for the people to find their right community to serve.
             </p>
-            <ul class="list-inline mt-4">
-              <li class="list-inline-item">
+            <ul className="list-inline mt-4">
+              <li className="list-inline-item">
                 <a href="#" target="_blank" title="twitter">
-                  <i class="fa fa-twitter"></i>
+                  <i className="fa fa-twitter"></i>
                 </a>
               </li>
-              <li class="list-inline-item">
+              <li className="list-inline-item">
                 <a href="#" target="_blank" title="facebook">
-                  <i class="fa fa-facebook"></i>
+                  <i className="fa fa-facebook"></i>
                 </a>
               </li>
             </ul>
           </div>
 
-          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
-            <h6 class="text-uppercase text-light font-weight-bold mb-4">
+          <div className="col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
+            <h6 className="text-uppercase text-light font-weight-bold mb-4">
               Join Us!
             </h6>
             <ul class="list-unstyled mb-0">
@@ -181,20 +181,20 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div class="col-lg-4 col-md-6 mb-lg-0">
-            <h6 class="text-uppercase text-light font-weight-bold mb-4 text-center">
+          <div className="col-lg-4 col-md-6 mb-lg-0">
+            <h6 className="text-uppercase text-light font-weight-bold mb-4 text-center">
               Want to report?
             </h6>
-            <p class="text-light text-center mb-4">
+            <p className="text-light text-center mb-4">
               You can submit a report to us by filling a form below!
             </p>
             <div
-              class="rounded mx-auto bg-light bg-opacity-25"
+              className="rounded mx-auto bg-light bg-opacity-25"
               style={{ width: "100px" }}
             >
               <button
                 onClick={handleReportModalOpen}
-                class="btn btn-outline-info p-3 d-flex align-items-center"
+                className="btn btn-outline-info p-3 d-flex align-items-center"
               >
                 <img
                   className="bottom-img"
@@ -206,13 +206,6 @@ const Footer = () => {
               </button>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* <!-- Copyrights --> */}
-      <div class="bg-light py-4 m-0" style={{ backgroundColor: "#36474f" }}>
-        <div class="container text-center">
-          <p class="text-muted mb-0 py-2">© Milan All rights reserved</p>
         </div>
       </div>
     </footer>
