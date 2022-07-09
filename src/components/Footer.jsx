@@ -3,6 +3,7 @@ import { ReportProblem } from "../service/MilanApi";
 import "../styles/Footer.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [reportModal, setReportModal] = React.useState(false);
@@ -169,14 +170,14 @@ const Footer = () => {
             </h6>
             <ul class="list-unstyled mb-0">
               <li class="mb-2">
-                <a href="user/register" class="text-decoration-none">
+                <Link to="user/register" className='text-decoration-none'>
                   Login
-                </a>
+                </Link>
               </li>
               <li class="mb-2">
-                <a href="user/register" class="text-decoration-none ">
+                <Link to="user/register" className='text-decoration-none'>
                   Register
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
