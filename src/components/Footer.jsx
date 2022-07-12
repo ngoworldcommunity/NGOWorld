@@ -140,7 +140,7 @@ const Footer = () => {
         </div>
       )}
 
-      <div className="p-1 rounded" style={{ backgroundColor: "#424141" }}>
+      <div className="p-5 rounded" style={{ backgroundColor: "#424141" }}>
         <div className="row py-4">
           <div className="col-lg-6 col-md-6 mb-4 mb-lg-0 px-5">
             <img src="img/logo.png" alt="" width="180" className="mb-3" />
@@ -165,7 +165,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="col-lg-2 col-md-2 mb-4 mb-lg-0 px-5">
+          <div className="col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
             <h6 className="text-uppercase text-light font-weight-bold mb-4">
               Join Us!
             </h6>
