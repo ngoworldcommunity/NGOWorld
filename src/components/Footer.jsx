@@ -147,14 +147,16 @@ const Footer = () => {
         <div className="row py-4">
           <div className="col-lg-6 col-md-6 mb-4 mb-lg-0 px-5">
             <img src="img/logo.png" alt="" width="180" className="mb-3" />
-            <p className="font-italic text-light">
+            {/* <p className="font-italic text-light text-center"> */}
+            <p className="footer-text font-italic text-light text-left">
               With Milan we aim at bringing all the various NGOs and donors
               under one single roof to ease the burden of going to find their
               appropriate donors and the appropriate communities to donate to.
               With the help of our search filters and ask platform, it becomes
               easier for the people to find their right community to serve.
             </p>
-            <ul className="list-inline mt-4">
+            {/* <ul className="list-inline mt-5"> */}
+            <ul className="social-icons list-inline mt-5">
               <li className="list-inline-item">
                 <a href="#" target="_blank" title="twitter">
                   <i className="fa fa-twitter"></i>
@@ -168,7 +170,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
+          <div className="join-us col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
             <h6 className="text-uppercase text-light font-weight-bold mb-4">
               Join Us!
             </h6>
@@ -193,16 +195,15 @@ const Footer = () => {
               You can submit a report to us by filling a form below !
             </p>
             <div
-              className="rounded mx-auto bg-light bg-opacity-25"
-              style={{ width: "100px" }}
+              className="d-flex justify-content-center rounded mx-auto"
             >
               <button
                 onClick={handleReportModalOpen}
-                className="btn btn-outline-info p-3 d-flex align-items-center"
+                className="btn btn-outline-info p-3 d-flex align-items-center bg-light bg-opacity-25"
               >
                 <img
                   className="bottom-img"
-                  width="13px"
+                  width="12px"
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAsCAYAAAAacYo8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJqSURBVHgB7ZlNaxNBHMafJq0kKJoUwVpoHasH6SlQj4Jb6FWsh3ptTnqtnyDpJ9CjeEn6CfRaCKRfoNirB+16Ml6SghVKUNp59iVMp7N5adPZDewPnmTnZZdn/vvfmWV2CuNDSJWkCsFxyFEgV+ogOI4VGixL1aQ6UqdD6mtwzjos40h9HtFslA7hD0LgGhFSTVzdbJRGGsDUkP0qUtV+HbK5AmaKAvn5ErL5glcm/0+O0G276HZcnPw6wABcqW2p+qCOg4wL+JFwTI05afLO8kvcWnI8DcPxjz2093fwV/5zMBF8kHrX7zr9jAv4qSH0hptLDubWKkObjaK9X8fvxnbUAHh7VhExC0UZFzCYviFTYWGjdmXDOq1G1RuAgUjzJuMCBtO3l9ex+LrWy91xw6h//7Rqiv4efPPnyBquQdNP1Ip7Mi0WXn1EZjqH64IP9OzTMv5828W/45baJOCvGbtqZUY7n7NHSa2g6bm1KmzAu/nobRP5+yW9aQvaBKGmioC/IPTgQ/j4TRO2iUgbFh6GBTXiFbUXH8TFjRriIJwENAT8VwyPrFJZV3vNv3g/9tljFGi+2/mpL1rM9R0ehBF39JNmV8qIG64VGk6gnvFNtfXusy0kAQbQcNe9CmPEuYwnheLKpl71nD807qi1HCWVFAwR9+ZKGj+3FM4kyDRhELXVmoUHF4wnKdohBk9FGhcDOsUOXwc0ChlMKKlx26TGbZMat01q3Dapcdukxm2TGrdNatw2E2t8Wq/gl4JWA4nCtPF/wTg/dVBJh6kS+wfTy8INltMJ0iFNh/vjAsoWboJhdnyRcs8A1PDl9IzPLdoAAAAASUVORK5CYII="
                   alt="isd"
                 />
