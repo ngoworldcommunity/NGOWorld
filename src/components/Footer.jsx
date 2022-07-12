@@ -63,17 +63,16 @@ const Footer = () => {
   return (
     <footer className="bg-white m-0">
       <ToastContainer />
+
+
+      {/* Report modal starts here  */}
+
       {reportModal && (
         <div className="reportModal">
           <div className="reportModalContent">
             <div className="reportModalHeader">
               <h4>REPORT A PROBLEM</h4>
-              {/* <button
-                className="btn crossButton"
-                onClick={handleReportModalClose}
-              >
-                X
-              </button> */}
+
 
               <button
                 type="button"
@@ -88,6 +87,9 @@ const Footer = () => {
               best.
             </h6>
             <br />
+
+            {/* Report form  */}
+
             <form id="reportForm">
               <div className="form-group">
                 <input
@@ -139,6 +141,8 @@ const Footer = () => {
           </div>
         </div>
       )}
+
+
       <div className="p-5 rounded" style={{ backgroundColor: "#424141" }}>
         <div className="row py-4">
           <div className="col-lg-6 col-md-6 mb-4 mb-lg-0 px-5">
@@ -183,10 +187,10 @@ const Footer = () => {
           </div>
           <div className="col-lg-4 col-md-6 mb-lg-0">
             <h6 className="text-uppercase text-light font-weight-bold mb-4 text-center">
-              Want to report?
+              Got something to report ?
             </h6>
             <p className="text-light text-center mb-4">
-              You can submit a report to us by filling a form below!
+              You can submit a report to us by filling a form below !
             </p>
             <div
               className="rounded mx-auto bg-light bg-opacity-25"
