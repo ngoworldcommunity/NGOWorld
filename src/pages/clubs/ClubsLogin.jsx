@@ -79,7 +79,6 @@ function ClubLogin() {
                 <h2 style={{ letterSpacing: "1px", marginBottom: "20px" }}>Log in</h2>
                 <div className="form-outline mb-4">
 
-
                   <input
                     type="email"
                     className="desktop form-control form-control-lg"
@@ -103,9 +102,9 @@ function ClubLogin() {
                     required
                   />
                 </div>
+
                 <div className="form-outline mb-4">
-
-
+                  
                   <input
                     type="password"
                     className="desktop form-control form-control-lg"
@@ -127,6 +126,8 @@ function ClubLogin() {
                     required
                   />
                 </div>
+
+                {/* RememberMe Tab  */}
                 <div id="rememberMe" className="form-check">
                   <input
                     type="checkbox"
@@ -146,6 +147,7 @@ function ClubLogin() {
                 >
                   Login
                 </button> */}
+                {/* Login Button */}
 
                 <button
                   disabled={credentials.password.length <= 4 || !isEmailValid}
@@ -161,7 +163,7 @@ function ClubLogin() {
                   )}
                 </button>
 
-                <br></br> <br></br>
+                <br></br><br></br>
                 <Anchor
                   para=""
                   details="Forgot password?"

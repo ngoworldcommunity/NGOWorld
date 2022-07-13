@@ -76,57 +76,82 @@ function UserLogin() {
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form style={{ width: "auto" }} onSubmit={handleSubmit}>
-                <h2 style={{ letterSpacing: "1px" }}>Log in</h2>
+            <form style={{ width: "auto" }} onSubmit={handleSubmit}>
+                <h2 style={{ letterSpacing: "1px", marginBottom: "20px" }}>Log in</h2>
                 <div className="form-outline mb-4">
-                  <label
-                    htmlFor="email"
-                    className=" col-form-label col-form-label-lg"
-                  >
-                    Email address
-                  </label>
 
                   <input
                     type="email"
-                    className="form-control form-control-lg"
-                    id="email"
+                    className="desktop form-control form-control-lg"
+                    id="exampleInputEmail1"
                     aria-describedby="emailHelp"
-                    placeholder="Enter email"
+                    placeholder="Enter your email"
+                    name="email"
+                    value={credentials.email}
+                    onChange={handleChange}
+                    required
+                  />
+
+                  <input
+                    type="email"
+                    className="mobile form-control form-control-lg"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
                     name="email"
                     value={credentials.email}
                     onChange={handleChange}
                     required
                   />
                 </div>
+
                 <div className="form-outline mb-4">
-                  <label
-                    htmlFor="password"
-                    className="col-form-label col-form-label-lg"
-                  >
-                    Password
-                  </label>
+                  
+                  <input
+                    type="password"
+                    className="desktop form-control form-control-lg"
+                    id="exampleInputPassword1"
+                    placeholder="Enter your password"
+                    name="password"
+                    value={credentials.password}
+                    onChange={handleChange}
+                    required
+                  />
 
                   <input
                     type="password"
-                    className="form-control form-control-lg"
-                    id="password"
-                    placeholder="Password"
+                    className="mobile form-control form-control-lg"
+                    id="exampleInputPassword1"
                     name="password"
                     value={credentials.password}
                     onChange={handleChange}
                     required
                   />
                 </div>
+
+                {/* RememberMe Tab  */}
+                <div id="rememberMe" className="form-check">
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="exampleCheck1"
+                  />
+                  <label className="form-check-label" htmlFor="exampleCheck1">
+                    Remember me
+                  </label>
+                </div>
                 <br />
+
+                {/* Login Button */}
                 <button
-                  type="submit"
-                  className="btn btn-lg btn-block"
                   disabled={credentials.password.length <= 4 || !isEmailValid}
+                  type="submit"
+                  className="login-btn btn btn-lg btn-block"
                   style={{ backgroundColor: "#89b5f7" }}
                 >
                   Login
                 </button>
-                <br></br> <br></br>
+
+                <br></br><br></br>
                 <Anchor
                   para=""
                   details="Forgot password?"
@@ -136,7 +161,7 @@ function UserLogin() {
                 <Anchor
                   para="Don't have an account? "
                   details="Register here"
-                  link="/user/register"
+                  link="/clubs/register"
                   className="link-info"
                 />
               </form>
