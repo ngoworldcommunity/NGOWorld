@@ -64,7 +64,6 @@ const Footer = () => {
     <footer className="bg-white m-0">
       <ToastContainer />
 
-
       {/* Report modal starts here  */}
 
       {reportModal && (
@@ -72,7 +71,6 @@ const Footer = () => {
           <div className="reportModalContent">
             <div className="reportModalHeader">
               <h4>REPORT A PROBLEM</h4>
-
 
               <button
                 type="button"
@@ -142,7 +140,6 @@ const Footer = () => {
         </div>
       )}
 
-
       <div className="p-5 rounded" style={{ backgroundColor: "#424141" }}>
         <div className="row py-4">
           <div className="col-lg-6 col-md-6 mb-4 mb-lg-0 px-5">
@@ -174,12 +171,12 @@ const Footer = () => {
             </h6>
             <ul class="list-unstyled mb-0">
               <li class="mb-2">
-                <Link to="user/register" className='text-decoration-none'>
+                <Link to="user/register" className="text-decoration-none">
                   Login
                 </Link>
               </li>
               <li class="mb-2">
-                <Link to="user/register" className='text-decoration-none'>
+                <Link to="user/register" className="text-decoration-none">
                   Register
                 </Link>
               </li>

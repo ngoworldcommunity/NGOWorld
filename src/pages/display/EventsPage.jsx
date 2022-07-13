@@ -11,6 +11,7 @@ const EventsPage = () => {
     const [clubData, setClubData] = useState([]);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         const fetchClubData = async () => {
             const response = await GetAllEvents();
             console.log(response);
