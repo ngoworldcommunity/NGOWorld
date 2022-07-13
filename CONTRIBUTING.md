@@ -25,7 +25,7 @@
 - Then create a Pull Request and wait for review.
 - Pull request title : **`fix: bla bla bla`** , important to pass the checks.
 - Don't forget to attach **`Screenshots, Proper Description and Issue Number`**
-- Remember to be respectful to other contributors, mentors, comunnity
+- Remember to be respectful to other contributors, mentors, community
 - Don't raise invalid/spam issues they will be closed !!
 
 <br/>
