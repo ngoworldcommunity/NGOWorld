@@ -157,7 +157,7 @@ function ClubLogin() {
                   {isLoading ? (
                     <TailSpin color="#FFFFFF" height={30} width={30} />
                   ) : (
-                    "Login"
+                    "LOGIN"
                   )}
                 </button>
 
