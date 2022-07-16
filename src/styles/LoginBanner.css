@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap");
 
 #login-banner {
-  padding: 6rem 5rem;
+  padding: 9rem 5rem;
+  height: 100%;
   display: flex;
   justify-content: space-evenly;
   width: 100%;
@@ -42,7 +43,7 @@
 @media only screen and (max-width: 770px) {
   #login-banner {
     flex-direction: column;
-    padding: 6rem 2rem;
+    padding: 4rem 2rem;
   }
   #login-banner > * {
     width: 100%;
