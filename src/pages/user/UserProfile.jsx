@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { UpdateUser } from "../../service/MilanApi"
 
 export default function UserProfile() {
@@ -25,19 +25,15 @@ export default function UserProfile() {
 	}
 
 	const handleSubmit = e => {
-		e.preventDefault()
+		e.preventDefault()	
+	    alert("Updating...")
 		const Data = UpdateUser(credentials)
 
 		Data.then(response => {
-			if (response.data.success) {
-				alert("Update Successful!!")
+			if (response?.data.message) {
 				handleLogout()
 			} else {
-				setCredentials({
-					email: "",
-					oldPassword: "",
-					newPassword: "",
-				})
+				setCredentials({ email: "", oldPassword: "", newPassword: "" })
 			}
 		})
 	}
@@ -98,7 +94,7 @@ export default function UserProfile() {
 									<input
 										type="password"
 										className="form-control form-control-lg"
-										id="newpPssword"
+										id="newpPassword"
 										name="newPassword"
 										placeholder="New Password"
 										value={credentials.newPassword}
