@@ -1,16 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap");
 
-#login-banner {
-  padding: 6rem 5rem;
-  display: flex;
+/* Main Login Container */
+.login-banner-container {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+  background-color: white;
+  padding: 9rem 5rem;
+  height: 110vh;
+	/* height: 600px; */
+	display: flex;
   justify-content: space-evenly;
-  width: 100%;
   font-family: "Mulish", sans-serif;
   font-weight: 700;
   align-items: center;
 }
 
-#login-banner h1 {
+.login-banner-container img {
+  height: 30rem;
+  width: 25rem;
+}
+
+.login-banner-container h1 { 
   font-style: normal;
   font-weight: bold;
   font-size: 48px;
@@ -18,11 +29,13 @@
   color: #2e8e83;
 }
 
-.loginb-content {
+.login-banner-content {
   width: 45%;
+  height: fit-content;
   font-size: 1rem;
 }
-.loginb-content p {
+
+.login-banner-content p{ 
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
@@ -34,29 +47,41 @@
   position: absolute;
 }
 
-#login-banner img {
-  height: 30rem;
-  width: 25rem;
-}
-
 @media only screen and (max-width: 770px) {
-  #login-banner {
+  .login-banner-container {
     flex-direction: column;
-    padding: 6rem 2rem;
+    padding: 4rem 2rem;
   }
-  #login-banner > * {
+
+  .login-banner-container > * {
     width: 100%;
     text-align: center;
   }
-  #login-banner img {
+
+  .login-banner-container img {
     height: 80%;
     width: 80%;
   }
-  #login-banner h1 {
+
+  .login-banner-container h1 {
     font-size: 2rem;
     line-height: 40px;
   }
-  .loginb-content {
+
+  .login-banner-content {
     font-size: 1rem;
   }
+
+/* @media (max-width: 425px) {
+	.banner-container {
+		height: 100vh;
+		height: calc(var(--vh, 1vh) * 100);
+	}
+
+	.banner-content {
+		padding-bottom: 50px;
+	}
+} */
+
 }
+
