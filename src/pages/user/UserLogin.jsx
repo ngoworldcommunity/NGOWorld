@@ -43,17 +43,12 @@ function UserLogin() {
     const Data = LoginUser(credentials);
 
     Data.then((response) => {
-      if (response.data.status === true) {
+      if (response?.data.token) {
         alert("Logged you in!!");
-        console.log(response.data.token);
         sessionStorage.setItem("token", response.data.token);
         Navigate("/");
-      } else if (response.data.status === false) {
-        alert("Please input valid credentials");
-        setCredentials({
-          email: "",
-          password: "",
-        });
+      } else {
+        setCredentials({ email: "", password: "", });
       }
     }).catch((err) => {
       console.log(err);
@@ -161,7 +156,7 @@ function UserLogin() {
                 <Anchor
                   para="Don't have an account? "
                   details="Register here"
-                  link="/clubs/register"
+                  link="/user/register"
                   className="link-info"
                 />
               </form>

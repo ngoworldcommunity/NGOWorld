@@ -44,9 +44,6 @@ function UserRegister() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(credentials);
-    console.log("Form submitted");
-
     await RegisterUser(credentials);
     navigate("/user/login");
   };

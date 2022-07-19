@@ -8,68 +8,76 @@ var jwt = require("jsonwebtoken");
 const ReportProblem = require("../models/ReportProblemSchema");
 const ContactUs = require("../models/ContactUsSchema");
 
+
+const SECRET = "HELLOSECRET123";
+
 //* Route 1  - User Registration
 router.post("/register", async (req, res) => {
   try {
     const data = req.body;
     const { email } = req.body;
-    let exists = await User.findOne({
-      email,
-    });
-    if (exists) {
-      return res.json({ exists: true });
+    const existingUser = await User.findOne({ email });
+
+    if (existingUser) {
+      return res.status(409).json({ message: "User already exists" });
     }
+
+    const hashpassword = await bcrypt.hash(data.password, 10);
     const UserData = User({
       firstname: data.firstname,
       lastname: data.lastname,
       email: data.email,
-      password: data.password,
+      password: hashpassword,
       address: data.address,
       pincode: data.pincode,
     });
 
-    //hashing the data
-    const hashpassword = await bcrypt.hash(data.password, 10);
-    UserData.password = hashpassword;
     //saving the data to mongodb
     UserData.save();
-    return res.json({ success: true });
+    return res.status(201).json({ message: "Registration successful, please login" })
   } catch (e) {
-    console.log(e);
+    return res.status(500).json({ message: "Internal Server Error" })
   }
 });
+
 //* Route 1a - User Update
 router.post("/update", async (req, res) => {
-	try {
-		const { email, oldPassword, newPassword } = req.body
-		const exists = await User.findOne({
-			email: email,
-		})
-		if (!exists) return res.json({ doesNotExist: true })
+  try {
+    const { email, oldPassword, newPassword } = req.body
+		const existingUser = await User.findOne({ email: email, })
+    if (!existingUser) {
+      return res.status(404).json({ message: "User not found" })
+    }
 		// User Exists in the database
-
-		const validPassword = await bcrypt.compare(oldPassword, exists.password)
-		if (!validPassword) return res.json({ invalidPassword: true })
+		const validPassword = await bcrypt.compare(oldPassword, existingUser.password)
+    
+    if (!validPassword) {
+      return res.status(401).json({ message: "Invalid Credentials" })
+    }
 		// Old Password Mathched
-
+    if (newPassword.length < 5) {
+      return res.status(406).json({ message: "Password Length must be greater than 5 characters" })
+    }
+    // Correct Password Length
+    
 		const newHashedPassword = await bcrypt.hash(newPassword, 10)
 		// New Password Hashed
-
+    
 		// Updated User
 		const UserData = {
-			firstname: exists.firstname,
-			lastname: exists.lastname,
+      firstname: existingUser.firstname,
+			lastname: existingUser.lastname,
 			email: email,
 			password: newHashedPassword,
-			address: exists.address,
-			pincode: exists.pincode,
+			address: existingUser.address,
+			pincode: existingUser.pincode,
 		}
-
+    
 		await User.replaceOne({ email: email }, UserData)
-		// User Password Updated
-		return res.json({ success: true })
+		return res.status(201).json({ message: "Password Updated Successfully" })
 	} catch (error) {
-		return res.json({ success: false })
+		// User Password Updated
+    return res.status(500).json({ message: "Internal Server Error" })
 	}
 })
 
@@ -77,24 +85,23 @@ router.post("/update", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
-    let exists = await User.findOne({
-      email,
-    });
-    const validPassword = await bcrypt.compare(password, exists.password);
-    const payload = {
-      User: {
-        id: exists.email,
-      },
-    };
-    if (validPassword) {
-      jwt.sign(payload, "HELLOSECRET123", (err, token) => {
-        return res.json({ status: true, token, isuser: true });
-      });
-    } else {
-      return res.json({ status: false });
+    const existingUser = await User.findOne({email});
+    
+    if (!existingUser) {
+      return res.status(404).json({ message: "User not found" })
     }
+    const validPassword = await bcrypt.compare(password, existingUser.password);
+    if (!validPassword) {
+      return res.status(401).json({ message: "Invalid Credentials" })
+    }
+
+    const payload = { User: { id: existingUser.email } };
+  
+    jwt.sign(payload, SECRET, (err, token) => {
+      return res.status(201).json({ token, isuser: true });
+    });
   } catch (err) {
-    return res.json({ sucess: false });
+    return res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
@@ -127,9 +134,9 @@ router.post("/userreport", async (req, res) => {
 
     //saving the data to mongodb
     ReportData.save();
-    return res.json({ success: true, messsage: "" });
+    return res.json({ success: true});
   } catch (e) {
-    return res.json({ success: false, message: "failed" });
+    return res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
@@ -148,9 +155,9 @@ router.post("/contactus", (req, res) => {
 
     //saving the data to mongodb
     SenderData.save();
-    return res.json({ success: true, messsage: "Thank you for getting in touch!" });
+    return res.status(201).json({ messsage: "Thank you for getting in touch!" });
   } catch (e) {
-    return res.json({ success: false, message: "Error!" });
+    return res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
