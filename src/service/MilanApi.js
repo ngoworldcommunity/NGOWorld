@@ -3,8 +3,8 @@
 
 import Axios from "axios";
 
-const apiURL =  ["https://milan-jwoc.herokuapp.com", "http://localhost:5000"]
-const API = apiURL[1]  // Change this to 0 after pushing changes in Heroku Server
+const apiURL = ["https://milan-jwoc.herokuapp.com", "http://localhost:5000"];
+const API = apiURL[0]; // Change this to 0 after pushing changes in Heroku Server
 
 const User_Log = `${API}/user/login`;
 const User_Reg = `${API}/user/register`;
@@ -13,7 +13,7 @@ const Club_Log = `${API}/club/login`;
 const Club_Reg = `${API}/club/register`;
 const All_Clubs = `${API}/display/allClubs`;
 const Report_Log = `${API}/user/userreport`;
-const All_Events = `${API}/display/allevents`
+const All_Events = `${API}/display/allevents`;
 //^ `````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 //* Axios call to login a User
 //* IF sucess we alert user made else we alert user failed
@@ -23,13 +23,13 @@ const All_Events = `${API}/display/allevents`
 export const UpdateUser = async (credentials) => {
   try {
     const response = await Axios.post(User_Updt, credentials);
-    const success_message = response.data.message
+    const success_message = response.data.message;
     if (success_message) {
-      alert(success_message)
+      alert(success_message);
       return response;
     }
   } catch (error) {
-    alert(error.response.data.message)
+    alert(error.response.data.message);
   }
 };
 
@@ -47,9 +47,9 @@ export const LoginUser = async (credentials) => {
 export const RegisterUser = async (credentials) => {
   try {
     const response = await Axios.post(User_Reg, credentials);
-    alert(response.data.message)
+    alert(response.data.message);
   } catch (error) {
-    alert(error.response.data.message)
+    alert(error.response.data.message);
   }
 };
 
@@ -114,9 +114,7 @@ export const ReportProblem = async (credentials) => {
 //* GET ALL EVENTS
 export const GetAllEvents = async () => {
   try {
-    const response = await Axios.get(
-      All_Events
-    );
+    const response = await Axios.get(All_Events);
     return response.data;
   } catch (error) {
     console.log(error);

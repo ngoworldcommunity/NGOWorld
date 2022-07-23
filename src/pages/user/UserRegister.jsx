@@ -58,19 +58,19 @@ function UserRegister() {
             <div className="col-md-8 col-lg-7 col-xl-6">
               <img
                 src="https://www.getillustrations.com/packs/plastic-illustrations-scene-builder-pack/scenes/_1x/accounts%20_%20man,%20workspace,%20desk,%20laptop,%20login,%20user_md.png"
-                className="img-fluid"
+                className="img-fluid userregister_sideimg"
                 alt="Phone"
               />
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
               <form style={{ width: "auto" }} onSubmit={handleSubmit}>
-                <h2 style={{ letterSpacing: "1px" }}>Join us at Milan !!</h2>
-                {/* //* First name ,last name */}
+                <h2 className="userregister_header">Join us at Milan !!</h2>
+
                 <div className="form-outline mb-2">
                   <label
                     htmlFor="Full Name"
-                    className="col-form-label col-form-label-lg"
+                    className="col-form-label col-form-label-lg regformlabels"
                   >
                     Enter your name
                   </label>
@@ -99,7 +99,7 @@ function UserRegister() {
                 <div className="form-outline mb-4">
                   <label
                     htmlFor="emailInput"
-                    className="col-form-label col-form-label-lg"
+                    className="col-form-label col-form-label-lg regformlabels"
                   >
                     Email address
                   </label>
@@ -119,7 +119,7 @@ function UserRegister() {
                 <div className="form-outline mb-4">
                   <label
                     htmlFor="exampleInputPassword1"
-                    className="col-form-label col-form-label-lg"
+                    className="col-form-label col-form-label-lg regformlabels"
                   >
                     Password
                   </label>
@@ -138,9 +138,9 @@ function UserRegister() {
                 <div className="form-outline mb-4">
                   <label
                     htmlFor="address"
-                    className="col-form-label col-form-label-lg"
+                    className="col-form-label col-form-label-lg regformlabels"
                   >
-                    Address
+                    Address 🏡
                   </label>
 
                   <input
@@ -157,9 +157,9 @@ function UserRegister() {
                 <div className="form-outline mb-4">
                   <label
                     htmlFor="pincode"
-                    className="col-form-label col-form-label-lg"
+                    className="col-form-label col-form-label-lg regformlabels"
                   >
-                    Pincode
+                    Pincode 📍
                   </label>
 
                   <input
@@ -172,19 +172,7 @@ function UserRegister() {
                     required
                   />
                 </div>
-                {/* <div className="form-check">
-									<input
-										type="checkbox"
-										className="form-check-input"
-										id="check"
-									/>
-									<label
-										className="form-check-label"
-										htmlFor="check"
-									>
-										Remember me
-									</label>
-								</div> */}
+
                 <br />
                 <button
                   type="submit"
