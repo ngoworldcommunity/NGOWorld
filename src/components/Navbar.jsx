@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/Navbar.css";
 import solidarity from "../assets/pictures/solidarity.png";
 import { Link, useNavigate } from "react-router-dom";
-import  ProfilePicture from "../assets/pictures/ProfilePicture.png";
+import ProfilePicture from "../assets/pictures/ProfilePicture.png";
 
 const Navbar = () => {
   const handleLogout = () => {
@@ -71,7 +71,10 @@ const Navbar = () => {
                 <Link to={"/contact"}>Contact</Link>
               </li>
 
-              <li className="nav-item home">
+
+              {/* // will be used later after Auth0 */}
+
+              {/* <li className="nav-item home">
                 <img
                   onClick={handleNavigate}
                   src={
@@ -80,7 +83,7 @@ const Navbar = () => {
                   alt="lol"
                   className="nav_user_img"
                 />
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

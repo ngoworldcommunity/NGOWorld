@@ -8,25 +8,23 @@ const Events = require("../models/EventsSchema");
 var jwt = require("jsonwebtoken");
 
 //* Route 1  - Club Registration
+
 router.post("/register", async (req, res) => {
   const { name, email, password, address, pincode, description } = req.body;
 
-  //Checks if the inputted field are empty or not
   if (!email || !password || !name || !address || !pincode || !description) {
     return res.status(422).json({ error: "Please add all the fields" });
   }
 
   Club.findOne({ email: email })
     .then((savedClub) => {
-      //If already club is existing with same email
       if (savedClub) {
         return res.json({ exists: true });
       }
 
-      //then we encrypt the password
       bcrypt
         .hash(password, 12)
-        //hashing the password
+
         .then((hashedpassword) => {
           const club = new Club({
             email,
@@ -37,7 +35,7 @@ router.post("/register", async (req, res) => {
             description,
           });
           club
-            .save() //saving the data to db
+            .save()
             .then((club) => {
               return res.json({ success: true });
             })
@@ -51,6 +49,7 @@ router.post("/register", async (req, res) => {
     });
 });
 
+//* ---------------------------------------------------------------------------------------------------------------------------------------------
 //* Route 2 - Club Login
 
 router.post("/login", async (req, res) => {
@@ -62,7 +61,7 @@ router.post("/login", async (req, res) => {
     const payload = { Club: { id: validEmail.email } };
 
     if (validPassword) {
-      jwt.sign(payload, "HELLOSECRET123", (err, authToken) => {
+      jwt.sign(payload, process.env.JWT_SECRET, (err, authToken) => {
         return res.json({ success: true, authToken, isuser: false });
       });
     } else {
