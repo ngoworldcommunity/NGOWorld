@@ -121,3 +121,5 @@ export const GetAllEvents = async () => {
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
   }
 };
+
+//* CREATE EVENT

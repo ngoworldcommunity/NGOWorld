@@ -49,7 +49,7 @@ function ClubLogin() {
     Data.then((response) => {
       if (response.data.success === true) {
         alert("Logged you in!!");
-        localStorage.setItem("club", response.data.authToken);
+        sessionStorage.setItem("club", response.data.authToken);
         Navigate("/");
       } else if (response.data.success === false) {
         alert("Please input valid credentials");
@@ -104,7 +104,7 @@ function ClubLogin() {
                 </div>
 
                 <div className="form-outline mb-4">
-                  
+
                   <input
                     type="password"
                     className="desktop form-control form-control-lg"
@@ -139,15 +139,7 @@ function ClubLogin() {
                   </label>
                 </div>
                 <br />
-                {/* <button
-                  type="submit"
-                  className="login-btn btn btn-lg btn-block"
-                  disabled={credentials.password.length <= 4 || !isEmailValid}
-                  style={{ backgroundColor: "#C996CC" }}
-                >
-                  Login
-                </button> */}
-                {/* Login Button */}
+
 
                 <button
                   disabled={credentials.password.length <= 4 || !isEmailValid}
