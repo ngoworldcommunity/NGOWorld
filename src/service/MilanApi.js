@@ -3,8 +3,10 @@
 
 import Axios from "axios";
 
-const apiURL = ["https://milan-jwoc.herokuapp.com", "http://localhost:5000"];
-const API = apiURL[0]; // Change this to 0 after pushing changes in Heroku Server
+
+const apiURL =  ["https://milan-jwoc.herokuapp.com", "http://localhost:5000"]
+const API = apiURL[0]  //! Push changes in Heroku Server for Contact_Us route
+
 
 const User_Log = `${API}/user/login`;
 const User_Reg = `${API}/user/register`;
@@ -13,7 +15,10 @@ const Club_Log = `${API}/club/login`;
 const Club_Reg = `${API}/club/register`;
 const All_Clubs = `${API}/display/allClubs`;
 const Report_Log = `${API}/user/userreport`;
-const All_Events = `${API}/display/allevents`;
+
+const All_Events = `${API}/display/allevents`
+const Contact_Us = `${API}/user/contactus`
+
 //^ `````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 //* Axios call to login a User
 //* IF sucess we alert user made else we alert user failed
@@ -121,3 +126,13 @@ export const GetAllEvents = async () => {
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
   }
 };
+
+//* CONTACT 
+export const Contact = async (formData, toast) => {
+  try {
+    const response = await Axios.post(Contact_Us, formData)
+    toast.success(response.data.message)
+  } catch (error) {
+    toast.error(error.response.data.message)
+  }
+}
