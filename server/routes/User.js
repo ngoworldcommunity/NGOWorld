@@ -141,24 +141,37 @@ router.post("/userreport", async (req, res) => {
 });
 
 //* Route 4  - Contact Us
-router.post("/contactus", (req, res) => {
-  try {    
-    //insert the Sender's Data in database
-    const data = req.body;
+router.post("/contactus", async (req, res) => {
+  try {
+		//insert the Sender's Data in database
+		const data = req.body
+		const email = data.email // Primary Key
 
-    const SenderData = ContactUs({
-      firstname: data.firstname,
-      lastname: data.lastname,
-      email: data.email,
-      message: data.message,
-    });
-
-    //saving the data to mongodb
-    SenderData.save();
-    return res.status(201).json({ messsage: "Thank you for getting in touch!" });
+		const SenderData = {
+			firstname: data.firstName,
+			lastname: data.lastName,
+			email: email,
+			message: data.message,
+		}
+		//saving the data to mongodb
+		const existingContact = await ContactUs.findOne({ email })
+		if (existingContact) {
+			await ContactUs.replaceOne({ email: email }, SenderData)
+		} else {
+			const newContact = ContactUs(SenderData)
+			newContact.save()
+    }
+    
+		return res.status(201).json({ message: "Thank you for getting in touch!" })
   } catch (e) {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
 module.exports = router;
+
+
+
+// ContactUs.find().then(
+//   (data) => console.log(data)
+// )
