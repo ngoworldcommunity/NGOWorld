@@ -136,17 +136,38 @@ body::-webkit-scrollbar-thumb {
 .eventspageintro_parent {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-}
-
-.eventspageintro_imgdiv img {
-  width: 700px;
-  height: 700px;
+  justify-content: center;
 }
 
 .eventspageintro_textdiv p {
   font-family: "Mulish", sans-serif;
-  width: 600px;
+  width: 100%;
   font-size: 20px;
   margin-top: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+  .eventspageintro_imgdiv img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .eventspageintro_textdiv {
+    text-align: center;
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .eventspageintro_imgdiv img {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .eventspageintro_imgdiv img {
+    width: 600px;
+    height: 600px;
+  }
 }
