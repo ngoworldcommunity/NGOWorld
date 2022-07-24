@@ -12,6 +12,10 @@ export default function SingleEvent({ club }) {
         document.getElementById(`less${club._id}`).classList.remove("hidden");
     };
 
+    React.useEffect(() => {
+        console.log(club)
+    }, []);
+
     return (
         <div className="card clubCard">
             <img
@@ -26,25 +30,32 @@ export default function SingleEvent({ club }) {
                     <p>{club.Eventlocation}</p>
                 </div>
 
-                <div id={`less${club._id}`} className="desc">
-                    {club.Eventdescription.length > 80
-                        ? club.Eventdescription.slice(0, 80) + "..."
-                        : club.Eventdescription}
-                    {club.Eventdescription.length > 80 ? (
-                        <span className="seeBtn" onClick={expand}>
-                            See more
-                        </span>
-                    ) : (
-                        ""
-                    )}
-                </div>
-                <div id={`more${club._id}`} className="hidden desc">
-                    {club.Eventdescription}
-                    <span className="seeBtn" onClick={contract}>
-                        See less
-                    </span>
 
-                </div>
+
+                {club.Eventdescription && (<>
+
+                    <div id={`less${club._id}`} className="desc">
+                        {club.Eventdescription.length > 80
+                            ? club.Eventdescription.slice(0, 80) + "..."
+                            : club.Eventdescription}
+                        {club.Eventdescription.length > 80 ? (
+                            <span className="seeBtn" onClick={expand}>
+                                See more
+                            </span>
+                        ) : (
+                            ""
+                        )}
+                    </div>
+                    <div id={`more${club._id}`} className="hidden desc">
+                        {club.Eventdescription}
+                        <span className="seeBtn" onClick={contract}>
+                            See less
+                        </span>
+
+                    </div>
+
+                </>)}
+
                 <button className="btn btn-warning attendeventbtn">Attend Event</button>
             </div>
         </div>
