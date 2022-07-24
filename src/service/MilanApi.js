@@ -127,6 +127,7 @@ export const GetAllEvents = async () => {
   }
 };
 
+
 //* CONTACT 
 export const Contact = async (formData, toast) => {
   try {
@@ -136,3 +137,6 @@ export const Contact = async (formData, toast) => {
     toast.error(error.response.data.message)
   }
 }
+
+//* CREATE EVENT
+

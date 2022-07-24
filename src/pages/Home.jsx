@@ -20,7 +20,7 @@ const Home = () => {
       {AuthState() ? <LoginBanner /> : <Banner />}
       <HomeCardsContainer />
       <DonateBanner />
-      {localStorage.getItem("club") ? <ClubBanner /> : <EventsBanner />}
+      {sessionStorage.getItem("club") ? <ClubBanner /> : <EventsBanner />}
       <Footer />
     </>
   );

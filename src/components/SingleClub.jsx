@@ -1,4 +1,7 @@
 import * as React from "react";
+import ClubUpperImage from "../assets/pictures/ClubUpperImage.svg"
+
+
 export default function SingleClub({ club }) {
 	const expand = () => {
 		document.getElementById(`less${club._id}`).classList.add("hidden");
@@ -14,14 +17,14 @@ export default function SingleClub({ club }) {
 		<div className="card clubCard">
 			<img
 				className="card-img-top club-img"
-				src="https://i.ibb.co/0hxWDDD/1.jpg"
+				src={ClubUpperImage}
 				alt={`${club.name} `}
 			/>
 			<div className="card-body text-center">
 				<h3 className="card-title">{club.name} </h3>
 				<div className="club-info mt-3">
 					<p>{club.email}</p>
-					<p style={{lineHeight: 1}}>{club.address}</p>
+					<p style={{ lineHeight: 1 }}>{club.address}</p>
 				</div>
 
 				<div id={`less${club._id}`} className="desc">

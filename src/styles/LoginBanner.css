@@ -2,14 +2,14 @@
 
 /* Main Login Container */
 .login-banner-container {
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   background-color: white;
   padding: 9rem 5rem;
   height: 110vh;
-	/* height: 600px; */
-	display: flex;
+  /* height: 600px; */
+  display: flex;
   justify-content: space-evenly;
   font-family: "Mulish", sans-serif;
   font-weight: 700;
@@ -21,7 +21,7 @@
   width: 25rem;
 }
 
-.login-banner-container h1 { 
+.login-banner-container h1 {
   font-style: normal;
   font-weight: bold;
   font-size: 48px;
@@ -30,12 +30,12 @@
 }
 
 .login-banner-content {
-  width: 45%;
+  width: 50%;
   height: fit-content;
   font-size: 1rem;
 }
 
-.login-banner-content p{ 
+.login-banner-content p {
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
@@ -72,7 +72,7 @@
     font-size: 1rem;
   }
 
-/* @media (max-width: 425px) {
+  /* @media (max-width: 425px) {
 	.banner-container {
 		height: 100vh;
 		height: calc(var(--vh, 1vh) * 100);
@@ -82,6 +82,4 @@
 		padding-bottom: 50px;
 	}
 } */
-
 }
-
