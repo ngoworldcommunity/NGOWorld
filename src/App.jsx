@@ -12,6 +12,7 @@ import AboutUs from "./pages/AboutUs";
 import MilanState from "./context/MilanState";
 import EventCreate from "./pages/clubs/EventCreate";
 import EventsPage from "./pages/display/EventsPage";
+import Donate from "./pages/Donate";
 
 const App = () => {
   return (
@@ -42,6 +43,8 @@ const App = () => {
             <Route exact path='/display/events' element={<EventsPage />} />
 
             {/* //* Donations */}
+            <Route exact path='/donateus' element={<Donate />} />
+
             {/* <Route exact path='/' element={<Home />} />
                     <Route exact path='/' element={<Home />} />
                     <Route exact path='/' element={<Home />} />
