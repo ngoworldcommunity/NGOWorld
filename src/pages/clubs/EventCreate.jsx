@@ -2,9 +2,25 @@ import React, { useState } from 'react';
 import Navbar from '../../components/Navbar';
 import "../../styles/EventCreate.css";
 import Events from "../../assets/pictures/CreateEventsPic.svg";
+import { CreateEvent } from '../../service/MilanApi';
 
 
 export default function EventCreate() {
+
+	const [eventdetails, seteventdetails] = useState({ eventname: "", eventdate: "", eventlocation: "", eventdescription: "" });
+
+	const handleChange = (e) => {
+		seteventdetails({ ...eventdetails, [e.target.name]: e.target.value });
+		console.log(e.target.value)
+	}
+
+	const handleClick = async (e) => {
+		e.preventDefault();
+		await CreateEvent(eventdetails);
+
+	}
+
+
 	return (
 		<>
 			<Navbar />
@@ -24,28 +40,32 @@ export default function EventCreate() {
 								</h2>
 								<div class="form-outline">
 
-									<input type="text" class="eventCreateFormInput form-control " id="eventName" name="eventName" required placeholder="What's your event called?" />
+									<input type="text" class="eventCreateFormInput form-control " id="eventName" name="eventname" required placeholder="What's your event called?" value={eventdetails.eventname} onChange={handleChange} />
 								</div>
 
 								<div class="form-outline">
 
-									<input type="text" class="eventCreateFormInput form-control form-control-md" id="eventPlace" name="eventPlace" required placeholder="Where will the event take place?" />
+									<input type="text" class="eventCreateFormInput form-control form-control-md" id="eventTime" name="eventdate" required placeholder="When will it take place?" value={eventdetails.eventdate} onChange={handleChange} />
 								</div>
 
 								<div class="form-outline">
 
-									<input type="text" class="eventCreateFormInput form-control form-control-md" id="eventTime" name="eventTime" required placeholder="When will it take place?" />
+									<input type="text" class="eventCreateFormInput form-control form-control-md" id="eventlocation" name="eventlocation" required placeholder="Where will the event take place?" value={eventdetails.eventlocation} onChange={handleChange} />
 								</div>
+
 
 								<div class="form-outline">
 
-									<textarea type="text" class="eventCreateFormInput form-control form-control-lg" id="eventTime" name="eventTime" placeholder="Tell us something more about the event" />
+
+
+									<textarea type="text" class="eventCreateFormInput form-control form-control-lg" id="eventTime" name="eventdescription" placeholder="Tell us something more about the event" value={eventdetails.eventdescription} onChange={handleChange} />
 								</div>
 
 
 								<button
-									type="submit"
+									type="button"
 									className="btn  eventCreateSubmit"
+									onClick={(e) => { handleClick(e) }}
 								>
 									Create
 								</button>
