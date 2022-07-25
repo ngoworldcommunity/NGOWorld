@@ -12,9 +12,6 @@ export default function SingleEvent({ club }) {
         document.getElementById(`less${club._id}`).classList.remove("hidden");
     };
 
-    React.useEffect(() => {
-        console.log(club)
-    }, []);
 
     return (
         <div className="card clubCard">

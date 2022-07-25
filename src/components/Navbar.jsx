@@ -58,7 +58,7 @@ const Navbar = () => {
               </li>
 
               <li className="nav-item home">
-                <a href="/display/events">Events</a>
+                <Link to="/display/events">Events</Link>
               </li>
 
               <li className="nav-item home">
@@ -73,20 +73,14 @@ const Navbar = () => {
               {/* Auth0 will be implemented later on*/}
               {/* The basic JWT Auths will be removed to reduce hassle */}
 
-              {(sessionStorage.getItem("token") || sessionStorage.getItem("club")) && <>
-
+              {(sessionStorage.getItem("token") || sessionStorage.getItem("club")) &&
                 <img
                   onClick={handleNavigate}
-                  src={
-                    ProfilePicture
-                  }
+                  src={ProfilePicture}
                   alt="lol"
                   className="nav_user_img"
-
-
                 />
-
-              </>}
+              }
 
 
             </ul>
