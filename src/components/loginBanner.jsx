@@ -9,7 +9,7 @@ const LoginBanner = () => {
       <div className="login-banner-content">
         <h1>Welcome to Milan, a place where help meets need !!</h1>
         <br />
-        <p className="inner">Explore more about us !!</p>
+        <p className="inner">Explore more about us 🚀</p>
         <br />
         <p>
           Join us at the awesome events, help us by sharing some love or explore
