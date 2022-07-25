@@ -5,19 +5,17 @@ import { Link, useNavigate } from "react-router-dom";
 import ProfilePicture from "../assets/pictures/ProfilePicture.png";
 
 const Navbar = () => {
-  const handleLogout = () => {
-    sessionStorage.removeItem("token");
-    sessionStorage.removeItem("type");
-    alert("Logging you out");
-  };
+
 
   const navigate = useNavigate();
 
   const handleNavigate = () => {
     if (sessionStorage.getItem("token")) {
       navigate("/user/profile");
-    } else {
-      navigate("/user/login");
+    }
+
+    if (sessionStorage.getItem("club")) {
+      navigate("/clubs/profile");
     }
   };
 
@@ -72,18 +70,25 @@ const Navbar = () => {
               </li>
 
 
-              {/* // will be used later after Auth0 */}
+              {/* Auth0 will be implemented later on*/}
+              {/* The basic JWT Auths will be removed to reduce hassle */}
 
-              {/* <li className="nav-item home">
+              {(sessionStorage.getItem("token") || sessionStorage.getItem("club")) && <>
+
                 <img
                   onClick={handleNavigate}
                   src={
-                      ProfilePicture
+                    ProfilePicture
                   }
                   alt="lol"
                   className="nav_user_img"
+
+
                 />
-              </li> */}
+
+              </>}
+
+
             </ul>
           </div>
         </div>
