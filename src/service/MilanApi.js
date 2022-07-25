@@ -2,6 +2,10 @@
 //* These functions will be exported and then imported wherever needed
 
 import Axios from "axios";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure();
 
 const apiURL = ["https://milan-jwoc.herokuapp.com", "http://localhost:5000"];
 const API = apiURL[0]; //! Push changes in Heroku Server for Contact_Us route
@@ -43,7 +47,9 @@ export const LoginUser = async (credentials) => {
     const User = await Axios.post(User_Log, credentials);
     return User;
   } catch (error) {
-    alert(error.response.data.message);
+    toast.error(error.response.data.message, {
+      position: toast.POSITION.TOP_RIGHT
+    });
   }
 };
 
@@ -51,9 +57,13 @@ export const LoginUser = async (credentials) => {
 export const RegisterUser = async (credentials) => {
   try {
     const response = await Axios.post(User_Reg, credentials);
-    alert(response.data.message);
+    toast(response.data.message, {
+      position: toast.POSITION.TOP_RIGHT
+    });
   } catch (error) {
-    alert(error.response.data.message);
+    toast.warning(error.response.data.message, {
+      position: toast.POSITION.TOP_RIGHT
+    });
   }
 };
 
@@ -75,11 +85,15 @@ export const RegisterClub = async (credentials) => {
     console.log(response);
 
     if (response.data.exists === true) {
-      alert("Club already present, please login");
+      toast.warning("Club already present, please login", {
+        position: toast.POSITION.TOP_RIGHT
+      });
     }
 
     if (response.data.success === true) {
-      alert("Registration successful, please login");
+      toast("Registration successful, please login", {
+        position: toast.POSITION.TOP_RIGHT
+      });
     }
   } catch (error) {
     console.log(error);
@@ -142,9 +156,14 @@ export const CreateEvent = async (eventdata) => {
   try {
     const response = await Axios.post(Create_Event, eventdata);
     if (response.status === 200) {
-      window.alert("Created Event Successfully");
+      toast("Created Event Successfully", {
+        position: toast.POSITION.TOP_RIGHT
+      });
     }
   } catch (error) {
+    toast.error(error, {
+      position: toast.POSITION.TOP_RIGHT
+    })
     console.log(error);
   }
 };
