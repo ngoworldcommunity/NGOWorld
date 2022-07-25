@@ -170,4 +170,24 @@ body::-webkit-scrollbar-thumb {
     width: 600px;
     height: 600px;
   }
+  .donate_btn {
+    margin-top: 10px;
+  }
+}
+
+.modal-body_amountdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-body_amountdiv h5 {
+  margin-right: 5px;
+  padding-top: 5px;
+}
+.modal-body_amountdiv input {
+  width: 100px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  padding: 0 5px;
 }
