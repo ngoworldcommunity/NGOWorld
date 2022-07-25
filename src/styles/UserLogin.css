@@ -7,7 +7,8 @@
 
 .userregister_sideimg {
   margin-bottom: 100px;
-  width: 80%;
+  max-width: 100%;
+  height: auto;
 }
 
 @media screen and (max-width: 800px) {

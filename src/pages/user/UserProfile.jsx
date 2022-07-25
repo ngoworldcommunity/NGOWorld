@@ -21,12 +21,13 @@ export default function UserProfile() {
 
 	const handleLogout = () => {
 		sessionStorage.removeItem("token")
-		Navigate("/")
+		Navigate("/user/login")
+
 	}
 
 	const handleSubmit = e => {
-		e.preventDefault()	
-	    alert("Updating...")
+		e.preventDefault()
+		alert("Updating...")
 		const Data = UpdateUser(credentials)
 
 		Data.then(response => {
@@ -55,9 +56,9 @@ export default function UserProfile() {
 
 						<div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
 							<form style={{ width: "auto" }} onSubmit={handleSubmit}>
-								<h2 style={{ letterSpacing: "1px" }}>Profile</h2>
+								<h2 style={{ letterSpacing: "1px", marginBottom: "2rem" }}>Update User profile</h2>
 								<div className="form-outline mb-4">
-									<label htmlFor="email" className=" col-form-label col-form-label-lg">
+									<label htmlFor="email" className=" col-form-label col-form-label-lg" style={{ fontFamily: "Open Sans, sans-serif" }}>
 										Enter email address
 									</label>
 									<input
@@ -65,7 +66,7 @@ export default function UserProfile() {
 										className="form-control form-control-lg"
 										id="email"
 										aria-describedby="emailHelp"
-										placeholder="Enter email"
+
 										name="email"
 										value={credentials.email}
 										onChange={handleChange}
@@ -73,7 +74,7 @@ export default function UserProfile() {
 									/>
 								</div>
 								<div className="form-outline mb-4">
-									<label htmlFor="oldPassword" className="col-form-label col-form-label-lg">
+									<label htmlFor="oldPassword" className="col-form-label col-form-label-lg" style={{ fontFamily: "Open Sans, sans-serif" }}>
 										Enter previous password
 									</label>
 									<input
@@ -81,14 +82,14 @@ export default function UserProfile() {
 										className="form-control form-control-lg"
 										id="oldPassword"
 										name="oldPassword"
-										placeholder="Old Password"
+										style={{ fontFamily: "Open Sans, sans-serif" }}
 										value={credentials.oldPassword}
 										onChange={handleChange}
 										required
 									/>
 								</div>
 								<div className="form-outline mb-4">
-									<label htmlFor="newPassword" className="col-form-label col-form-label-lg">
+									<label htmlFor="newPassword" className="col-form-label col-form-label-lg" style={{ fontFamily: "Open Sans, sans-serif" }} >
 										Enter new password
 									</label>
 									<input
@@ -96,7 +97,7 @@ export default function UserProfile() {
 										className="form-control form-control-lg"
 										id="newpPassword"
 										name="newPassword"
-										placeholder="New Password"
+										style={{ fontFamily: "Open Sans, sans-serif" }}
 										value={credentials.newPassword}
 										onChange={handleChange}
 										required
