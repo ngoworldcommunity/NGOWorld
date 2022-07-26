@@ -13,7 +13,6 @@ const EventsPage = () => {
     window.scrollTo(0, 0);
     const fetchClubData = async () => {
       const response = await GetAllEvents();
-      console.log(response);
       setClubData(response);
     };
     fetchClubData();
