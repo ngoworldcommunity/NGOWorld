@@ -9,7 +9,7 @@ const data = [
   {
     "id": 2,
     "club_name": "Maitreya Project",
-    "club_email": "ebeckerleg0@arizona.edu",
+    "club_email": "emairtyleg0@arizona.edu",
     "club_des": "Maitreya Project is based on the belief that inner peace and outer peace share a cause and effect relationship and that loving-kindness leads to peace at every level of society â€” peace for individuals, families, communities and the world. ",
     "club_logo": "https://i.ibb.co/0hxWDDD/1.jpg"
   },

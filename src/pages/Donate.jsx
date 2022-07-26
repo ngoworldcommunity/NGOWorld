@@ -7,6 +7,9 @@ import SingleClub from '../components/SingleClub'
 import { GetAllClubs } from '../service/MilanApi'
 import "../styles/Donate.css"
 
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Donate = () => {
 
     const [clubData, setClubData] = useState([]);
@@ -24,6 +27,18 @@ const Donate = () => {
         <>
 
             <Navbar />
+
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
 
             <div id="donate_banner"
                 className="container"
