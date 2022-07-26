@@ -1,73 +1,96 @@
-.contact-us-container{
-	display:flex;
-	justify-content:center;
-	align-items:center;
+.contact-us-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	height: 80vh;
 }
-.contact-us-form{
-	display:flex;
-	flex-direction:column;
+.contact-us-form {
+	display: flex;
+	flex-direction: column;
 	width: 60%;
 	height: 80%;
 	gap: 5%;
 }
-.text-field-div{
+.text-field-div {
 	display: flex;
 	gap: 5%;
 }
-.text-field-div .text-field-container{
+.text-field-div .text-field-container {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 }
 
-.text-field-div .text-field-container input[type=text] {
-	border: 1px solid #FAFAFA;
-	background-color: #FAFAFA;
+.text-field-div .text-field-container input[type="text"] {
+	border: 1px solid #fafafa;
+	background-color: #fafafa;
 	height: 40px;
 	padding-left: 10px;
 }
-.text-field-div .text-field-container input[type=email] {
-	border: 1px solid #FAFAFA;
-	background-color: #FAFAFA;
+.text-field-div .text-field-container input[type="email"] {
+	border: 1px solid #fafafa;
+	background-color: #fafafa;
 	height: 40px;
 	padding-left: 10px;
 }
-.contact-us-form .text-field-container textarea{
-	border: 1px solid #FAFAFA;
-	background-color: #FAFAFA;
+.contact-us-form .text-field-container textarea {
+	border: 1px solid #fafafa;
+	background-color: #fafafa;
 	padding: 10px 10px;
 }
-.contact-us-form button{
+
+/* Kept for future reference */
+/* .contact-us-form button {
 	width: 40%;
 	background-color: #222222;
-	color:#fff;
+	color: #fff;
 	padding: 0.5rem;
 	border: none;
 	font-size: 18px;
+} */
+
+.submit-btn {
+	width: 100%;
+	background-color: #ff725e;
+	color: whitesmoke;
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-transform: uppercase !important;
+	font-size: 1.25rem;
+	font-weight: 500;
+	letter-spacing: 0.05rem;
+	transition: 0.2s;
+}
+.submit-btn:hover {
+	background-color: #ff482f;
 }
 
 /* Media query for small screens */
 
 @media screen and (max-width: 768px) {
-	.contact-us-container{
+	.contact-us-container {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: flex-start;
 		padding: 1rem;
 	}
-	.text-field-div{
+	.text-field-div {
 		flex-direction: column;
 		gap: 5%;
 	}
-	.contact-us-form{
+	.contact-us-form {
 		width: 100%;
 	}
-	.contact-us-form button{
+	.contact-us-form button {
 		width: 100%;
 	}
-	.text-field-div .text-field-container label{
-		margin:2% 0;
+	.text-field-div .text-field-container label {
+		margin: 2% 0;
+	}
+	.contact-img {
+		display: none;
 	}
 }
