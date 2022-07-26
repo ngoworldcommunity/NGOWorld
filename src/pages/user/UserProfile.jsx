@@ -58,7 +58,7 @@ export default function UserProfile() {
 							<form style={{ width: "auto" }} onSubmit={handleSubmit}>
 								<h2 style={{ letterSpacing: "1px", marginBottom: "2rem" }}>Update User profile</h2>
 								<div className="form-outline mb-4">
-									<label htmlFor="email" className=" col-form-label col-form-label-lg" style={{ fontFamily: "Open Sans, sans-serif" }}>
+									<label htmlFor="email" className="col-form-label col-form-label-lg" style={{ fontFamily: "Open Sans, sans-serif" }}>
 										Enter email address
 									</label>
 									<input
