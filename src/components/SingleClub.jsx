@@ -2,6 +2,9 @@ import * as React from "react";
 import ClubUpperImage from "../assets/pictures/ClubUpperImage.svg"
 import { useLocation, Link } from 'react-router-dom';
 
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function SingleClub({ club }) {
 
@@ -18,6 +21,19 @@ export default function SingleClub({ club }) {
 		document.getElementById(`more${club._id}`).classList.add("hidden");
 		document.getElementById(`less${club._id}`).classList.remove("hidden");
 	};
+
+	const handleDonate = () => {
+		toast('🌈 Thanks for the donation !', {
+			position: "top-right",
+			autoClose: 3000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+
+		});
+	}
 
 	return (
 		<div className="card clubCard">
@@ -58,7 +74,7 @@ export default function SingleClub({ club }) {
 
 					<>
 
-						<button type="button" className="btn btn-warning donate_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick={() => { console.log(club.name) }}  >
+						<button type="button" className="btn btn-warning donate_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"   >
 							Donate
 						</button>
 
@@ -83,7 +99,7 @@ export default function SingleClub({ club }) {
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
 
-										<button type="button" class="btn btn-warning" data-bs-dismiss="modal"> Donate </button>
+										<button type="button" class="btn btn-warning" data-bs-dismiss="modal" onClick={() => { handleDonate() }}> Donate </button>
 
 									</div>
 								</div>

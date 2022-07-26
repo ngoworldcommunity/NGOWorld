@@ -5,10 +5,10 @@ import "../../styles/ClubLogin.css";
 import Pic from "../../assets/pictures/clubs-login.png";
 import { LoginClub } from "../../service/MilanApi";
 import { Audio, Oval, TailSpin } from "react-loader-spinner";
-import {toast} from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-toast.configure()
+
 
 function ClubLogin() {
   const Navigate = useNavigate();
@@ -52,14 +52,32 @@ function ClubLogin() {
 
     Data.then((response) => {
       if (response.data.success === true) {
-        toast.success("Logged you in!!", {
-          position: toast.POSITION.TOP_RIGHT
-        });
+
         sessionStorage.setItem("club", response.data.authToken);
-        Navigate("/");
+
+        toast('🌈 Logged you in !', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          onClose: () => {
+            Navigate("/");
+          }
+        });
+
       } else if (response.data.success === false) {
-        toast.error("Please input valid credentials",{
-          position: toast.POSITION.TOP_RIGHT
+        toast('🌈 Error !', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+
         });
         setCredentials({
           email: "",
@@ -74,6 +92,18 @@ function ClubLogin() {
   return (
     <>
       <Navbar />
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
 
       <section className="vh-100">
         <div className="container py-5 h-100">
