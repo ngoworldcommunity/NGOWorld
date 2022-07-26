@@ -5,6 +5,10 @@ import "../../styles/ClubLogin.css";
 import Pic from "../../assets/pictures/clubs-login.png";
 import { LoginClub } from "../../service/MilanApi";
 import { Audio, Oval, TailSpin } from "react-loader-spinner";
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure()
 
 function ClubLogin() {
   const Navigate = useNavigate();
@@ -48,11 +52,15 @@ function ClubLogin() {
 
     Data.then((response) => {
       if (response.data.success === true) {
-        alert("Logged you in!!");
+        toast.success("Logged you in!!", {
+          position: toast.POSITION.TOP_RIGHT
+        });
         sessionStorage.setItem("club", response.data.authToken);
         Navigate("/");
       } else if (response.data.success === false) {
-        alert("Please input valid credentials");
+        toast.error("Please input valid credentials",{
+          position: toast.POSITION.TOP_RIGHT
+        });
         setCredentials({
           email: "",
           password: "",
