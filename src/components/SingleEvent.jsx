@@ -1,5 +1,6 @@
 import * as React from "react";
 import "../styles/SingleEvent.css"
+import eventsbanner from "../assets/pictures/singleeventsbanner.svg";
 
 export default function SingleEvent({ club }) {
     const expand = () => {
@@ -17,7 +18,7 @@ export default function SingleEvent({ club }) {
         <div className="card clubCard">
             <img
                 className="card-img-top club-img"
-                src="https://i.ibb.co/0hxWDDD/1.jpg"
+                src={eventsbanner}
                 alt={`${club.name} `}
             />
             <div className="card-body text-center">

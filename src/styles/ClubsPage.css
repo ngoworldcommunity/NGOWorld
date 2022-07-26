@@ -103,6 +103,13 @@
 }
 
 @media screen and (max-width: 480px) {
+  .eventsbannerimg {
+    width: 350px !important;
+  }
+
+  .eventspageintro_textdiv {
+    margin-top: 1rem !important;
+  }
   .card-title {
     font-size: 17px;
   }
@@ -139,9 +146,12 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
 }
 
+.eventspageintro_textdiv {
+  margin-top: 10rem;
+}
 .eventspageintro_textdiv p {
   font-family: "Mulish", sans-serif;
-  width: 100%;
+  /* width: 60%; */
   font-size: 20px;
   margin-top: 20px;
 }
