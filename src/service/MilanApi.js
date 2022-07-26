@@ -140,6 +140,7 @@ export const Contact = async (formData, toast) => {
 export const CreateEvent = async (eventdata) => {
   try {
     const response = await Axios.post(Create_Event, eventdata);
+    return response;
   } catch (error) {
     toast.error(error, {
       position: toast.POSITION.TOP_RIGHT,

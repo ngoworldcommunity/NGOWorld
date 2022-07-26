@@ -16,7 +16,7 @@ const LoginBanner = () => {
           more with the hardworking clubs !!!
         </p>
         <br />
-        <p>Also fell free to Contact us, or report any problem !!</p>
+        <p>Also feel free to Contact us, or report any problem !!</p>
       </div>
     </div>
   );

@@ -4,6 +4,9 @@ import "../../styles/EventCreate.css";
 import Events from "../../assets/pictures/CreateEventsPic.svg";
 import { CreateEvent } from '../../service/MilanApi';
 
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function EventCreate() {
 
@@ -16,7 +19,25 @@ export default function EventCreate() {
 
 	const handleClick = async (e) => {
 		e.preventDefault();
-		await CreateEvent(eventdetails);
+		const eventresponse = await CreateEvent(eventdetails);
+
+		if (eventresponse.status === 200) {
+			toast('🌈 Event added !', {
+				position: "top-right",
+				autoClose: 3000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				onClose: () => {
+					seteventdetails({ eventname: "", eventdate: "", eventlocation: "", eventdescription: "" });
+				}
+			});
+		}
+
+
+		console.log(eventresponse);
 
 	}
 
@@ -24,6 +45,18 @@ export default function EventCreate() {
 	return (
 		<>
 			<Navbar />
+
+			<ToastContainer
+				position="top-right"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+			/>
 
 			<section class="vh-100">
 				<div class="container py-5 h-100">
