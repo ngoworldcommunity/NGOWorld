@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import "../../styles/UserLogin.css";
 import { LoginUser } from "../../service/MilanApi";
+
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure();
 
 function UserLogin() {
   const Navigate = useNavigate();
@@ -44,7 +47,10 @@ function UserLogin() {
 
     Data.then((response) => {
       if (response?.data.token) {
-        alert("Logged you in!!");
+        //alert("Logged you in!!");
+        toast.success('Logged you in!!', {
+          position: toast.POSITION.TOP_RIGHT
+        })
         sessionStorage.setItem("token", response.data.token);
         Navigate("/");
       } else {
