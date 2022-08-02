@@ -4,6 +4,7 @@ import "../styles/Footer.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
+import SocialIcons from "./SocialIcons";
 
 const Footer = () => {
   const [reportModal, setReportModal] = React.useState(false);
@@ -152,37 +153,33 @@ const Footer = () => {
               With the help of our search filters and ask platform, it becomes
               easier for the people to find their right community to serve.
             </p>
-            {/* <ul className="list-inline mt-5"> */}
-            <ul className="social-icons list-inline mt-5">
-              <li className="list-inline-item">
-                <a href="#" target="_blank" title="twitter">
-                  <i className="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li className="list-inline-item">
-                <a href="#" target="_blank" title="facebook">
-                  <i className="fa fa-facebook"></i>
-                </a>
-              </li>
-            </ul>
+            <div className="social-icons-desktop">
+              <SocialIcons className="social-icons-desktop" />
+            </div>
           </div>
 
           <div className="join-us col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
-            <h6 className="text-uppercase text-light font-weight-bold mb-4">
-              Join Us!
-            </h6>
-            <ul class="list-unstyled mb-0">
-              <li class="mb-2">
-                <Link to="user/register" className="text-decoration-none">
-                  Login
-                </Link>
-              </li>
-              <li class="mb-2">
-                <Link to="user/register" className="text-decoration-none">
-                  Register
-                </Link>
-              </li>
-            </ul>
+            <div className="social-icons-mobile">
+              <SocialIcons />
+            </div>
+
+            <div>
+              <h6 className="text-uppercase text-light font-weight-bold mb-4">
+                Join Us!
+              </h6>
+              <ul class="join-us-list list-unstyled mb-0">
+                <li class="mb-2">
+                  <Link to="user/register" className="text-decoration-none">
+                    Login
+                  </Link>
+                </li>
+                <li class="mb-2">
+                  <Link to="user/register" className="text-decoration-none">
+                    Register
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
           <div className="col-lg-4 col-md-6 mb-lg-0">
             <h6 className="text-uppercase text-light font-weight-bold mb-4 text-center">
@@ -191,9 +188,7 @@ const Footer = () => {
             <p className="text-light text-center mb-4">
               You can submit a report to us by filling a form below !
             </p>
-            <div
-              className="d-flex justify-content-center rounded mx-auto"
-            >
+            <div className="d-flex justify-content-center rounded mx-auto">
               <button
                 onClick={handleReportModalOpen}
                 className="btn btn-outline-info p-3 d-flex align-items-center bg-light bg-opacity-25"
