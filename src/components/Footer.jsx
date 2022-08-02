@@ -167,7 +167,7 @@ const Footer = () => {
               <h6 className="text-uppercase text-light font-weight-bold mb-4">
                 Join Us!
               </h6>
-              <ul class="list-unstyled mb-0">
+              <ul class="join-us-list list-unstyled mb-0">
                 <li class="mb-2">
                   <Link to="user/register" className="text-decoration-none">
                     Login

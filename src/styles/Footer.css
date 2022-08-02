@@ -291,4 +291,14 @@
     align-items: stretch;
     gap: 30px;
   }
+
+  .join-us h6 {
+    position: relative;
+    left: -30px;
+  }
+
+  .join-us-list {
+    position: relative;
+    top: -10px;
+  }
 }
