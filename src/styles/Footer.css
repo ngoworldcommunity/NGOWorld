@@ -259,16 +259,36 @@
   }
 }
 
-@media only screen and (max-width: 767px){ 
-  .footer-text{ 
-    text-align: center;
-  } 
+@media only screen and (min-width: 767px) {
+  .social-icons-mobile {
+    display: none;
+  }
+}
 
-  .social-icons{ 
+@media only screen and (max-width: 767px) {
+  .footer-text {
+    text-align: center;
+    font-size: 14px;
+    margin: 10px -20px;
+  }
+
+  .social-icons {
     text-align: center;
   }
 
-  .join-us{ 
+  .social-icons-desktop {
+    display: none;
+  }
+
+  .social-icons-mobile {
+    display: block;
+  }
+
+  .join-us {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
   }
 }
