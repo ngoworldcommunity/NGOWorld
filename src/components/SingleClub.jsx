@@ -4,9 +4,12 @@ import { useLocation, Link } from 'react-router-dom';
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import displayRazorpay from "../service/PaymentGateway";
 
 
 export default function SingleClub({ club }) {
+	const [money, setmoney] = React.useState({ donatedmoney: 0 });
+	const [nu, setnu] = React.useState(9);
 
 	const location = useLocation();
 
@@ -33,6 +36,17 @@ export default function SingleClub({ club }) {
 			progress: undefined,
 
 		});
+	}
+
+	const handleChange = (e) => {
+		setmoney({ ...money, [e.target.name]: e.target.value });
+
+	}
+	const handleSubmit = (e) => {
+		e.preventDefault();
+
+		displayRazorpay(money);
+
 	}
 
 	return (
@@ -78,6 +92,8 @@ export default function SingleClub({ club }) {
 							Donate
 						</button>
 
+						{/* <button type="button" class="btn btn-warning donate_btn" onClick={displayRazorpay}> Donate </button> */}
+
 
 
 						<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="false">
@@ -92,14 +108,17 @@ export default function SingleClub({ club }) {
 										<p>All of the money you donate, goes directly to the club</p>
 
 										<div className="modal-body_amountdiv">
-											<h5>$</h5>
-											<input type="number" name="donateamount" id="donateamount" />
+											<h5>₹</h5>
+											<input type="number" name="donatedmoney" id="donateamount" value={money.donatedmoney} onChange={handleChange} />
 										</div>
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
 
-										<button type="button" class="btn btn-warning" data-bs-dismiss="modal" onClick={() => { handleDonate() }}> Donate </button>
+										{/*  */}
+
+										<button type="button" class="btn btn-warning" data-bs-dismiss="modal" onClick={(e) => { handleSubmit(e) }}> Donate </button>
+
 
 									</div>
 								</div>

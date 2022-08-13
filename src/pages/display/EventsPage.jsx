@@ -22,7 +22,7 @@ const EventsPage = () => {
     <>
       <Navbar />
 
-      {/* <div className="eventspageintro_parent d-flex flex-column flex-lg-row justify-lg-content-center">
+      {/* //*  <div className="eventspageintro_parent d-flex flex-column flex-lg-row justify-lg-content-center">
        
         
       </div> */}
