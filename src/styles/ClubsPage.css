@@ -103,7 +103,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  .eventsbannerimg {
+  .event_image {
     width: 350px !important;
   }
 
@@ -200,4 +200,60 @@ body::-webkit-scrollbar-thumb {
   border-radius: 3px;
   border: 1px solid #ccc;
   padding: 0 5px;
+}
+
+/* Banner Portion CSS */
+
+.event_image {
+  /* max-width: 596px;
+  max-height: 500px; */
+  min-width: 470px;
+  width: 100%;
+}
+
+div#event_banner {
+  width: 80%;
+  margin-top: 3rem;
+  font-family: "Mulish", sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#eventCol_1 {
+  margin-left: 20px;
+}
+
+#eventCol_1 h2 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 60px;
+  color: #2e8e83;
+}
+
+#eventCol_1 p {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+}
+
+@media (max-width: 428px) {
+  div#donate_banner {
+    width: 100%;
+    margin-top: 1rem;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .donate_img {
+    min-width: 400px !important;
+    max-width: 400px !important;
+  }
 }
