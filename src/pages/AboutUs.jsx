@@ -32,13 +32,7 @@ export default function AboutUs() {
 						filters and ask platform, it becomes easier for the
 						people to find their right community to serve.
 					</p>
-					<h1 className="mt-5">OUR TEAM</h1>
-					<div className="abtTeam d-flex mt-4">
-						<img src={td} alt="" className="abtMembers me-2" />
-						<img src={parna} alt="" className="abtMembers mx-2" />
-						<img src={deba} alt="" className="abtMembers mx-2" />
-						<img src={roy} alt="" className="abtMembers ms-2" />
-					</div>
+					
 				</div>
 			</div>
 		</div>

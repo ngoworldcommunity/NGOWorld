@@ -2,8 +2,14 @@ import * as React from "react";
 import ClubUpperImage from "../assets/pictures/ClubUpperImage.svg"
 import { useLocation, Link } from 'react-router-dom';
 
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import displayRazorpay from "../service/PaymentGateway";
+
 
 export default function SingleClub({ club }) {
+	const [money, setmoney] = React.useState({ donatedmoney: 0 });
+	const [nu, setnu] = React.useState(9);
 
 	const location = useLocation();
 
@@ -18,6 +24,30 @@ export default function SingleClub({ club }) {
 		document.getElementById(`more${club._id}`).classList.add("hidden");
 		document.getElementById(`less${club._id}`).classList.remove("hidden");
 	};
+
+	const handleDonate = () => {
+		toast('🌈 Thanks for the donation !', {
+			position: "top-right",
+			autoClose: 3000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+
+		});
+	}
+
+	const handleChange = (e) => {
+		setmoney({ ...money, [e.target.name]: e.target.value });
+
+	}
+	const handleSubmit = (e) => {
+		e.preventDefault();
+
+		displayRazorpay(money);
+
+	}
 
 	return (
 		<div className="card clubCard">
@@ -58,9 +88,11 @@ export default function SingleClub({ club }) {
 
 					<>
 
-						<button type="button" className="btn btn-warning donate_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick={() => { console.log(club.name) }}  >
+						<button type="button" className="btn btn-warning donate_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"   >
 							Donate
 						</button>
+
+						{/* <button type="button" class="btn btn-warning donate_btn" onClick={displayRazorpay}> Donate </button> */}
 
 
 
@@ -76,14 +108,17 @@ export default function SingleClub({ club }) {
 										<p>All of the money you donate, goes directly to the club</p>
 
 										<div className="modal-body_amountdiv">
-											<h5>$</h5>
-											<input type="number" name="donateamount" id="donateamount" />
+											<h5>₹</h5>
+											<input type="number" name="donatedmoney" id="donateamount" value={money.donatedmoney} onChange={handleChange} />
 										</div>
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Close </button>
 
-										<button type="button" class="btn btn-warning" data-bs-dismiss="modal"> Donate </button>
+										{/*  */}
+
+										<button type="button" class="btn btn-warning" data-bs-dismiss="modal" onClick={(e) => { handleSubmit(e) }}> Donate </button>
+
 
 									</div>
 								</div>

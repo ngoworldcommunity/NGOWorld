@@ -6,6 +6,8 @@ import { RegisterUser } from "../../service/MilanApi";
 
 //* The styles for Login and Register are essentially same
 import "../../styles/UserLogin.css";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function UserRegister() {
   const navigate = useNavigate();
@@ -45,12 +47,38 @@ function UserRegister() {
     e.preventDefault();
 
     await RegisterUser(credentials);
-    navigate("/user/login");
+
+    toast('🌈 Logged you in !', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      onClose: () => {
+        navigate("/user/login");
+      }
+    });
+
+
   };
 
   return (
     <>
       <Navbar />
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
 
       <section className="vh-100">
         <div className="container py-5 h-100">

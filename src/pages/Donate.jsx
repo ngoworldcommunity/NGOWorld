@@ -7,6 +7,9 @@ import SingleClub from '../components/SingleClub'
 import { GetAllClubs } from '../service/MilanApi'
 import "../styles/Donate.css"
 
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Donate = () => {
 
     const [clubData, setClubData] = useState([]);
@@ -20,10 +23,41 @@ const Donate = () => {
     }, []);
 
 
+    const loadScript = (src) => {
+        return new Promise((resolve) => {
+            const script = document.createElement("script");
+            script.src = src;
+            script.onload = () => {
+                resolve(true);
+            };
+            script.onerror = () => {
+                resolve(false);
+            };
+            document.body.appendChild(script);
+        });
+    };
+
+    useEffect(() => {
+        loadScript("https://checkout.razorpay.com/v1/checkout.js");
+    });
+
+
     return (
         <>
 
             <Navbar />
+
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
 
             <div id="donate_banner"
                 className="container"

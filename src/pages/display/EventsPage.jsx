@@ -23,16 +23,26 @@ const EventsPage = () => {
       <Navbar />
 
       <div className="eventspageintro_parent d-flex flex-column flex-lg-row justify-lg-content-center">
-        <div className="eventspageintro_imgdiv">
-          <img src={Eventspic} alt="events" />
+        {/* No code here for now*/}
+      </div>
+
+      {/* Banner Portion Code  */}
+      
+      <div id="event_banner" className="container">
+        <div id="eventCol_2">
+          <img src={Eventspic} alt="" className="event_image" />
         </div>
-        <div className="eventspageintro_textdiv">
-          <h2>Welcome to the events page</h2>
+
+        <div
+          id="eventCol_1"
+          className="d-flex flex-column justify-content-center align-items-start me-5"
+        >
+          <h2 className="mb-4">Welcome to the events page !!</h2>
           <p>
             All our partnered NGOs , hosts various events be it educational,
             cleaning mother earth, funding events, health camps and many more !!
           </p>
-          <p>Join us at the events, and help the community !! </p>
+          <p>Join us at the events, and help the community !</p>
         </div>
       </div>
 

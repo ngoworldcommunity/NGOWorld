@@ -4,9 +4,9 @@ import Navbar from "../../components/Navbar";
 import "../../styles/UserLogin.css";
 import { LoginUser } from "../../service/MilanApi";
 
-import {toast} from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-toast.configure();
+
 
 function UserLogin() {
   const Navigate = useNavigate();
@@ -48,11 +48,22 @@ function UserLogin() {
     Data.then((response) => {
       if (response?.data.token) {
         //alert("Logged you in!!");
-        toast.success('Logged you in!!', {
-          position: toast.POSITION.TOP_RIGHT
-        })
+
         sessionStorage.setItem("token", response.data.token);
-        Navigate("/");
+
+        toast('🌈 Logged you in !', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          onClose: () => {
+            Navigate("/");
+          }
+        });
+
       } else {
         setCredentials({ email: "", password: "", });
       }
@@ -61,9 +72,23 @@ function UserLogin() {
     });
   };
 
+
+
   return (
     <>
       <Navbar />
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
 
       <section className="vh-100">
         <div className="container py-5 h-100">
@@ -77,7 +102,7 @@ function UserLogin() {
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-            <form style={{ width: "auto" }} onSubmit={handleSubmit}>
+              <form style={{ width: "auto" }} onSubmit={handleSubmit}>
                 <h2 style={{ letterSpacing: "1px", marginBottom: "20px" }}>Log in</h2>
                 <div className="form-outline mb-4">
 
@@ -106,7 +131,7 @@ function UserLogin() {
                 </div>
 
                 <div className="form-outline mb-4">
-                  
+
                   <input
                     type="password"
                     className="desktop form-control form-control-lg"

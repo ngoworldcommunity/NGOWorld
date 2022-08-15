@@ -6,6 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { RegisterClub } from "../../service/MilanApi";
 import "../../styles/ClubsRegister.css";
 
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const ClubLogin = () => {
   document.title = "Register your club | Milan";
   const navigate = useNavigate();
@@ -52,12 +55,39 @@ const ClubLogin = () => {
     setIsLoading(true);
     await RegisterClub(credentials);
     setIsLoading(false);
-    navigate("/clubs/login");
+
+
+    toast('🌈 Registered club !', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      onClose: () => {
+        navigate("/clubs/login");
+      }
+    });
   };
 
   return (
     <>
       <Navbar />
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+
+
       <div className="mobile-sec container py-5 h-100">
         <div className="row d-flex align-items-center justify-content-center h-100">
           <div className="col-md-8 col-lg-7 col-xl-6">
