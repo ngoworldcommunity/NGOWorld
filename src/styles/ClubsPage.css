@@ -22,7 +22,7 @@ div#clubs_banner {
 }
 
 #clubscol_1 {
-  margin-left: 20px;
+  margin-inline: 20px;
 }
 
 #clubscol_1 h2 {
@@ -40,7 +40,6 @@ div#clubs_banner {
   line-height: 30px;
   color: #000000;
 }
-
 
 .cards {
   padding: 6%;
@@ -90,6 +89,16 @@ div#clubs_banner {
     display: flex;
     flex-direction: column;
     padding: 8% 16%;
+  }
+
+  .clubs_img {
+    min-width: 270px !important;
+    max-width: 270px !important;
+    width: 80%;
+  }
+  
+  #clubscol_1 p {
+    margin-inline: 20px;
   }
 }
 

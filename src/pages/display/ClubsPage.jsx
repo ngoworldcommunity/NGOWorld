@@ -26,9 +26,9 @@ const ClubsPage = () => {
 
         <div
           id="clubscol_1"
-          className="d-flex flex-column justify-content-center align-items-start me-5"
+          className="d-flex flex-column justify-content-center align-items-start"
         >
-          <h2 className="mb-4">Clubs and communities !</h2>
+          <h2 className="mb-2">Clubs and communities !</h2>
           <p>
             Here are some clubs you can follow, you can attend club events and
             even get notified about it once you subscribe !
