@@ -6,6 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { RegisterClub } from "../../service/MilanApi";
 import "../../styles/ClubsRegister.css";
 
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const ClubLogin = () => {
   document.title = "Register your club | Milan";
   const navigate = useNavigate();
@@ -52,12 +55,39 @@ const ClubLogin = () => {
     setIsLoading(true);
     await RegisterClub(credentials);
     setIsLoading(false);
-    navigate("/clubs/login");
+
+
+    toast('🌈 Registered club !', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      onClose: () => {
+        navigate("/clubs/login");
+      }
+    });
   };
 
   return (
     <>
       <Navbar />
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+
+
       <div className="mobile-sec container py-5 h-100">
         <div className="row d-flex align-items-center justify-content-center h-100">
           <div className="col-md-8 col-lg-7 col-xl-6">
@@ -71,9 +101,11 @@ const ClubLogin = () => {
 
           <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
             <form onSubmit={handleSubmit}>
-              <h2 className="mobile-txt clubregisterheading1">Club Register</h2>
+              <h2 className="mobile-txt clubregisterheading1">Register your club with Milan !</h2>
 
               <div className="form-outline mb-4">
+
+                <label htmlFor="name" className="col-form-label col-form-label-lg regformlabels">Club name</label>
 
                 <input
                   type="text"
@@ -82,11 +114,18 @@ const ClubLogin = () => {
                   value={credentials.name}
                   onChange={handleChange}
                   required
-                  placeholder="Enter your club name"
+
                 />
               </div>
 
               <div className="form-outline mb-4">
+
+                <label
+                  htmlFor="emailInput"
+                  className="col-form-label col-form-label-lg regformlabels"
+                >
+                  Email address
+                </label>
 
                 <input
                   type="email"
@@ -95,37 +134,52 @@ const ClubLogin = () => {
                   value={credentials.email}
                   onChange={handleChange}
                   required
-                  placeholder="Enter your club email"
+
                 />
               </div>
 
-              <div className="form-outline mb-4">
 
-                <input
-                  type="password"
-                  className="form-control"
-                  name="password"
-                  value={credentials.password}
-                  onChange={handleChange}
-                  required
-                  placeholder="Enter your password"
-                />
+              {/* Password start */}
+              <div className="d-flex flex-column flex-md-row" style={{ justifyContent: "space-between" }}>
+                <div style={{ width: "45%" }}>
+                  <label htmlFor="password" className="col-form-label col-form-label-lg regformlabels" >Password</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    name="password"
+                    value={credentials.password}
+                    onChange={handleChange}
+                    required
+
+                  />
+                </div>
+
+                <div style={{ width: "45%" }}>
+                  <label htmlFor="password" className="col-form-label col-form-label-lg regformlabels" >Confirm Password</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    name="confirmPassword"
+                    value={credentials.confirmPassword}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
+              {/* Password end */}
+
+
+
+
 
               <div className="form-outline mb-4">
 
-                <input
-                  type="password"
-                  className="form-control"
-                  name="confirmPassword"
-                  value={credentials.confirmPassword}
-                  onChange={handleChange}
-                  required
-                  placeholder="Confirm your password"
-                />
-              </div>
-
-              <div className="form-outline mb-4">
+                <label
+                  htmlFor="emailInput"
+                  className="col-form-label col-form-label-lg regformlabels"
+                >
+                  Adress 🏡
+                </label>
 
                 <input
                   type="text"
@@ -134,11 +188,18 @@ const ClubLogin = () => {
                   value={credentials.address}
                   onChange={handleChange}
                   required
-                  placeholder="Enter your address"
+
                 />
               </div>
 
               <div className="form-outline mb-4">
+
+                <label
+                  htmlFor="emailInput"
+                  className="col-form-label col-form-label-lg regformlabels"
+                >
+                  Pincode 📍
+                </label>
 
                 <input
                   type="text"
@@ -148,9 +209,16 @@ const ClubLogin = () => {
                   value={credentials.pincode}
                   onChange={handleChange}
                   required
-                  placeholder="Enter your pincode"
+
                 />
               </div>
+
+              <label
+                htmlFor="emailInput"
+                className="col-form-label col-form-label-lg regformlabels"
+              >
+                Club Description 📝
+              </label>
 
               <textarea
                 type="text"
@@ -161,7 +229,7 @@ const ClubLogin = () => {
                 value={credentials.description}
                 onChange={handleChange}
                 required
-                placeholder="Enter your description"
+
               />
               <small id="textDemo" className="form-text text-muted"></small>
 

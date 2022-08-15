@@ -160,6 +160,13 @@ div#clubs_banner {
 }
 
 @media screen and (max-width: 480px) {
+  .event_image {
+    width: 350px !important;
+  }
+
+  .eventspageintro_textdiv {
+    margin-top: 1rem !important;
+  }
   .card-title {
     font-size: 17px;
   }
@@ -193,17 +200,117 @@ body::-webkit-scrollbar-thumb {
 .eventspageintro_parent {
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.eventspageintro_textdiv {
+  margin-top: 10rem;
+}
+.eventspageintro_textdiv p {
+  font-family: "Mulish", sans-serif;
+  /* width: 60%; */
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+  .eventspageintro_imgdiv img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .eventspageintro_textdiv {
+    text-align: center;
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .eventspageintro_imgdiv img {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .eventspageintro_imgdiv img {
+    width: 600px;
+    height: 600px;
+  }
+  .donate_btn {
+    margin-top: 10px;
+  }
+}
+
+.modal-body_amountdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-body_amountdiv h5 {
+  margin-right: 5px;
+  padding-top: 5px;
+}
+.modal-body_amountdiv input {
+  width: 100px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  padding: 0 5px;
+}
+
+/* Banner Portion CSS */
+
+.event_image {
+  /* max-width: 596px;
+  max-height: 500px; */
+  min-width: 470px;
+  width: 100%;
+}
+
+div#event_banner {
+  width: 80%;
+  margin-top: 3rem;
+  font-family: "Mulish", sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-evenly;
 }
 
-.eventspageintro_imgdiv img {
-  width: 700px;
-  height: 700px;
+#eventCol_1 {
+  margin-left: 20px;
 }
 
-.eventspageintro_textdiv p {
-  font-family: "Mulish", sans-serif;
-  width: 600px;
+#eventCol_1 h2 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 60px;
+  color: #2e8e83;
+}
+
+#eventCol_1 p {
+  font-style: normal;
+  font-weight: bold;
   font-size: 20px;
-  margin-top: 20px;
+  line-height: 30px;
+  color: #000000;
+}
+
+@media (max-width: 428px) {
+  div#donate_banner {
+    width: 100%;
+    margin-top: 1rem;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .donate_img {
+    min-width: 400px !important;
+    max-width: 400px !important;
+  }
 }

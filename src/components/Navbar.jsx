@@ -2,21 +2,20 @@ import React from "react";
 import "../styles/Navbar.css";
 import solidarity from "../assets/pictures/solidarity.png";
 import { Link, useNavigate } from "react-router-dom";
+import ProfilePicture from "../assets/pictures/ProfilePicture.png";
 
-const Navbar = (props) => {
-  const handleLogout = () => {
-    sessionStorage.removeItem("token");
-    sessionStorage.removeItem("type");
-    alert("Logging you out");
-  };
+const Navbar = () => {
+
 
   const navigate = useNavigate();
 
   const handleNavigate = () => {
     if (sessionStorage.getItem("token")) {
       navigate("/user/profile");
-    } else {
-      navigate("/user/login");
+    }
+
+    if (sessionStorage.getItem("club")) {
+      navigate("/clubs/profile");
     }
   };
 
@@ -59,7 +58,7 @@ const Navbar = (props) => {
               </li>
 
               <li className="nav-item home">
-                <a href="/display/events">Events</a>
+                <Link to="/display/events">Events</Link>
               </li>
 
               <li className="nav-item home">
@@ -70,17 +69,20 @@ const Navbar = (props) => {
                 <Link to={"/contact"}>Contact</Link>
               </li>
 
-              <li className="nav-item home">
+
+              {/* Auth0 will be implemented later on*/}
+              {/* The basic JWT Auths will be removed to reduce hassle */}
+
+              {(sessionStorage.getItem("token") || sessionStorage.getItem("club")) &&
                 <img
                   onClick={handleNavigate}
-                  src={
-                    props.pictureUrl ||
-                    "https://www.shareicon.net/data/512x512/2016/09/15/829452_user_512x512.png"
-                  }
+                  src={ProfilePicture}
                   alt="lol"
                   className="nav_user_img"
                 />
-              </li>
+              }
+
+
             </ul>
           </div>
         </div>

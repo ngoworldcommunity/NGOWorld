@@ -62,9 +62,10 @@
   margin-left: 10px;
   object-fit: cover;
   cursor: pointer;
+  align-self: center;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 1000px) {
   .home {
     margin: auto;
     margin-bottom: 10px;

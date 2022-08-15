@@ -5,6 +5,10 @@ import "../../styles/ClubLogin.css";
 import Pic from "../../assets/pictures/clubs-login.png";
 import { LoginClub } from "../../service/MilanApi";
 import { Audio, Oval, TailSpin } from "react-loader-spinner";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 function ClubLogin() {
   const Navigate = useNavigate();
@@ -48,11 +52,33 @@ function ClubLogin() {
 
     Data.then((response) => {
       if (response.data.success === true) {
-        alert("Logged you in!!");
-        localStorage.setItem("club", response.data.authToken);
-        Navigate("/");
+
+        sessionStorage.setItem("club", response.data.authToken);
+
+        toast('🌈 Logged you in !', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          onClose: () => {
+            Navigate("/");
+          }
+        });
+
       } else if (response.data.success === false) {
-        alert("Please input valid credentials");
+        toast('🌈 Error !', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+
+        });
         setCredentials({
           email: "",
           password: "",
@@ -67,6 +93,18 @@ function ClubLogin() {
     <>
       <Navbar />
 
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+
       <section className="vh-100">
         <div className="container py-5 h-100">
           <div className="row d-flex align-items-center justify-content-center h-100">
@@ -78,7 +116,6 @@ function ClubLogin() {
               <form style={{ width: "auto" }} onSubmit={handleSubmit}>
                 <h2 style={{ letterSpacing: "1px", marginBottom: "20px" }}>Log in</h2>
                 <div className="form-outline mb-4">
-
 
                   <input
                     type="email"
@@ -103,8 +140,8 @@ function ClubLogin() {
                     required
                   />
                 </div>
-                <div className="form-outline mb-4">
 
+                <div className="form-outline mb-4">
 
                   <input
                     type="password"
@@ -127,6 +164,8 @@ function ClubLogin() {
                     required
                   />
                 </div>
+
+                {/* RememberMe Tab  */}
                 <div id="rememberMe" className="form-check">
                   <input
                     type="checkbox"
@@ -138,14 +177,7 @@ function ClubLogin() {
                   </label>
                 </div>
                 <br />
-                {/* <button
-                  type="submit"
-                  className="login-btn btn btn-lg btn-block"
-                  disabled={credentials.password.length <= 4 || !isEmailValid}
-                  style={{ backgroundColor: "#C996CC" }}
-                >
-                  Login
-                </button> */}
+
 
                 <button
                   disabled={credentials.password.length <= 4 || !isEmailValid}
@@ -157,11 +189,11 @@ function ClubLogin() {
                   {isLoading ? (
                     <TailSpin color="#FFFFFF" height={30} width={30} />
                   ) : (
-                    "Login"
+                    "LOGIN"
                   )}
                 </button>
 
-                <br></br> <br></br>
+                <br></br><br></br>
                 <Anchor
                   para=""
                   details="Forgot password?"

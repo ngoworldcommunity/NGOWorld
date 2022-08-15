@@ -20,6 +20,7 @@
 }
 .imageClub {
   width: 80%;
+  margin-bottom: 120px;
 }
 /* Registration Button */
 .registration-btn {
@@ -59,6 +60,7 @@
 @media screen and (max-width: 500px) {
   .imageClub {
     width: 100%;
+    margin-bottom: 0px !important;
   }
 }
 @media screen and (max-width: 800px) {
@@ -68,8 +70,14 @@
 }
 
 .clubregisterheading1 {
-  font-size: 2.5rem;
-  font-weight: 500;
+  font-size: 2rem;
+  font-weight: 700;
   /* color: #ba68c8; */
   margin-bottom: 2rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+.regformlabels {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
 }
