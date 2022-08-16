@@ -9,7 +9,8 @@ import "../../styles/UserLogin.css";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function UserRegister() {
+const UserRegister = () => {
+  document.title = "Register | Milan"
   const navigate = useNavigate();
 
   function Anchor(props) {
@@ -91,7 +92,7 @@ function UserRegister() {
               />
             </div>
 
-            <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+            <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1 form">
               <form style={{ width: "auto" }} onSubmit={handleSubmit}>
                 <h2 className="userregister_header">Join us at Milan !!</h2>
 
@@ -136,6 +137,7 @@ function UserRegister() {
                     type="email"
                     className="form-control form-control-lg"
                     id="email"
+                    placeholder="Email"
                     aria-describedby="emailHelp"
                     name="email"
                     value={credentials.email}
@@ -157,6 +159,7 @@ function UserRegister() {
                     className="form-control form-control-lg"
                     id="password"
                     name="password"
+                    placeholder="Password"
                     value={credentials.password}
                     onChange={handleChange}
                     required
@@ -176,6 +179,7 @@ function UserRegister() {
                     className="form-control form-control-lg"
                     id="address"
                     name="address"
+                    placeholder="Address"
                     value={credentials.address}
                     onChange={handleChange}
                     required
@@ -192,9 +196,10 @@ function UserRegister() {
 
                   <input
                     type="text"
-                    className="form-control form-control-lg"
+                    className="form-control form-control-lg form-input"
                     id="pincode"
                     name="pincode"
+                    placeholder="Pin Code"
                     value={credentials.pincode}
                     onChange={handleChange}
                     required
