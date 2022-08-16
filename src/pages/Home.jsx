@@ -7,9 +7,10 @@ import HomeCardsContainer from "../components/HomeCardsContainer";
 import EventsBanner from "../components/Events";
 import LoginBanner from "../components/loginBanner";
 import ClubBanner from "../components/ClubBanner";
+import Cookies from "js-cookie";
 
 const AuthState = () => {
-  const [login, setLogin] = useState(sessionStorage.getItem("token") || sessionStorage.getItem("club"));
+  const [login, setLogin] = useState(Cookies.get("token") || sessionStorage.getItem("club"));
   return login;
 };
 const Home = () => {

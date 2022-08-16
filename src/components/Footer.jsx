@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import SocialIcons from "./SocialIcons";
+import Cookies from 'js-cookie';
 
 const Footer = () => {
   const [reportModal, setReportModal] = React.useState(false);
@@ -22,8 +23,7 @@ const Footer = () => {
 
   const handleReportSubmit = async (e) => {
     e.preventDefault();
-
-    if (sessionStorage.getItem("token") === null) {
+    if (!Cookies.get("token")) {
       toast.error("You must be logged in to report an issue");
       return;
     }

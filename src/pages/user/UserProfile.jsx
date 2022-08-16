@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import { UpdateUser } from "../../service/MilanApi"
+import Cookies from "js-cookie";
 
 export default function UserProfile() {
 	const Navigate = useNavigate()
@@ -20,7 +21,7 @@ export default function UserProfile() {
 	}
 
 	const handleLogout = () => {
-		sessionStorage.removeItem("token")
+		Cookies.remove("token");
 		Navigate("/user/login")
 
 	}
