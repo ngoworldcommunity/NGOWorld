@@ -10,7 +10,7 @@ import ClubBanner from "../components/ClubBanner";
 import Cookies from "js-cookie";
 
 const AuthState = () => {
-  const [login, setLogin] = useState(Cookies.get("token") || sessionStorage.getItem("club"));
+  const [login, setLogin] = useState(Cookies.get("token") || Cookies.get("club"));
   return login;
 };
 const Home = () => {
@@ -21,7 +21,7 @@ const Home = () => {
       {AuthState() ? <LoginBanner /> : <Banner />}
       <HomeCardsContainer />
       <DonateBanner />
-      {sessionStorage.getItem("club") ? <ClubBanner /> : <EventsBanner />}
+      {Cookies.get("club") ? <ClubBanner /> : <EventsBanner />}
       <Footer />
     </>
   );
