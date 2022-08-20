@@ -7,7 +7,7 @@ import { LoginClub } from "../../service/MilanApi";
 import { Audio, Oval, TailSpin } from "react-loader-spinner";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import Cookies from 'js-cookie';
 
 
 function ClubLogin() {
@@ -52,8 +52,8 @@ function ClubLogin() {
 
     Data.then((response) => {
       if (response.data.success === true) {
-
-        sessionStorage.setItem("club", response.data.authToken);
+        
+        Cookies.set("club",response.data.authToken);
 
         toast('🌈 Logged you in !', {
           position: "top-right",

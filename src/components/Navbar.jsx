@@ -15,7 +15,7 @@ const Navbar = () => {
       navigate("/user/profile");
     }
 
-    if (sessionStorage.getItem("club")) {
+    if (Cookies.get("club")) {
       navigate("/clubs/profile");
     }
   };
@@ -74,7 +74,7 @@ const Navbar = () => {
               {/* Auth0 will be implemented later on*/}
               {/* The basic JWT Auths will be removed to reduce hassle */}
 
-              {(Cookies.get("token") || sessionStorage.getItem("club")) &&
+              {(Cookies.get("token") || Cookies.get("club")) &&
                 <img
                   onClick={handleNavigate}
                   src={ProfilePicture}

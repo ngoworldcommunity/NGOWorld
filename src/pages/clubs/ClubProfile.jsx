@@ -2,14 +2,14 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import comingsoon from '../../assets/pictures/comingsoon.svg'
 import Navbar from '../../components/Navbar'
-
+import Cookies from "js-cookie";
 
 const ClubProfile = () => {
     const Navigate = useNavigate()
 
     const handleLogout = () => {
         window.alert("Logout successful !")
-        sessionStorage.removeItem("club")
+        Cookies.remove("club");
         Navigate("/clubs/login")
 
     }
