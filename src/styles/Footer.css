@@ -109,6 +109,10 @@
   text-decoration: none;
 }
 
+.report-btn:hover {
+  color: #ea1111;
+}
+
 .report {
   width: 200px;
   height: 50px;

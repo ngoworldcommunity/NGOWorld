@@ -142,30 +142,30 @@ const Footer = () => {
         </div>
       )}
 
-      <div className="p-5 rounded" style={{ backgroundColor: "#424141" }}>
-        <div className="row py-4">
+      <div className="py-3 px-5  rounded" style={{ backgroundColor: "#424141" }}>
+        <div className="row p-3 pt-md-3 ">
           <div className="col-lg-6 col-md-6 mb-4 mb-lg-0 px-5">
-            <img src="img/logo.png" alt="" width="180" className="mb-3" />
+            <img src="img/logo.png" alt="" width="180" className="mb-2 mb-md-3 " />
             {/* <p className="font-italic text-light text-center"> */}
-            <p className="footer-text font-italic text-light text-left">
+            <p className="footer-text  font-italic text-light text-left">
               With Milan we aim at bringing all the various NGOs and donors
               under one single roof to ease the burden of going to find their
               appropriate donors and the appropriate communities to donate to.
               With the help of our search filters and ask platform, it becomes
               easier for the people to find their right community to serve.
             </p>
-            <div className="social-icons-desktop">
+            <div className="social-icons-desktop ">
               <SocialIcons className="social-icons-desktop" />
             </div>
           </div>
 
-          <div className="join-us col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
+          <div className="join-us col-lg-2  col-md-6 mb-4 mb-lg-0 px-md-5">
             <div className="social-icons-mobile">
               <SocialIcons />
             </div>
 
             <div>
-              <h6 className="text-uppercase text-light font-weight-bold mb-4">
+              <h6 className="text-uppercase text-light font-weight-bold mb-3">
                 Join Us!
               </h6>
               <ul class="join-us-list list-unstyled mb-0">
@@ -192,7 +192,7 @@ const Footer = () => {
             <div className="d-flex justify-content-center rounded mx-auto">
               <button
                 onClick={handleReportModalOpen}
-                className="btn btn-outline-info p-3 d-flex align-items-center bg-light bg-opacity-25"
+                className="btn btn-outline-danger py-1 px-3 d-flex align-items-center bg-transparent report-btn bg-opacity-25"
               >
                 <img
                   className="bottom-img"

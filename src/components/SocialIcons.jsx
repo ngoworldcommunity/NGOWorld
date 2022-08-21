@@ -2,7 +2,7 @@ import React from "react";
 
 const SocialIcons = () => {
   return (
-    <ul className="social-icons list-inline mt-5">
+    <ul className="social-icons list-inline mt-5 mt-md-4">
       <li className="list-inline-item">
         <a href="#" target="_blank" title="twitter">
           <i className="fa fa-twitter"></i>
