@@ -267,7 +267,7 @@
 
 @media only screen and (max-width: 767px) {
   .footer-text {
-    text-align: center;
+    text-align: justify;
     font-size: 14px;
     margin: 10px -20px;
   }
