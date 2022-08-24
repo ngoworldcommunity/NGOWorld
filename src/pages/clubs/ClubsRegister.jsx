@@ -140,7 +140,7 @@ const ClubLogin = () => {
 
 
               {/* Password start */}
-              <div className="d-flex flex-column flex-md-row" style={{ justifyContent: "space-between" }}>
+              <div className="d-flex flex-md-row" style={{ justifyContent: "space-between" }}>
                 <div style={{ width: "45%" }}>
                   <label htmlFor="password" className="col-form-label col-form-label-lg regformlabels" >Password</label>
                   <input

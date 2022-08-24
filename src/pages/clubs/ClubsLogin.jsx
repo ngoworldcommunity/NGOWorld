@@ -132,6 +132,7 @@ function ClubLogin() {
                   <input
                     type="email"
                     className="mobile form-control form-control-lg"
+                    placeholder="Enter your email"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     name="email"
@@ -158,6 +159,7 @@ function ClubLogin() {
                     type="password"
                     className="mobile form-control form-control-lg"
                     id="exampleInputPassword1"
+                    placeholder="Enter your password"
                     name="password"
                     value={credentials.password}
                     onChange={handleChange}

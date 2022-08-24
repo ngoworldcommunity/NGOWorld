@@ -80,4 +80,5 @@
 .regformlabels {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
+  display: block !important;
 }
