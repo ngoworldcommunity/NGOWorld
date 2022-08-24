@@ -133,7 +133,7 @@ const ClubLogin = () => {
 
 
               {/* Password start */}
-              <div className="d-flex flex-column flex-md-row" style={{ justifyContent: "space-between" }}>
+              <div className="d-flex flex-row flex-md-row" style={{ justifyContent: "space-between" }}>
                 <div style={{ width: "45%" }}>
                   
                   <input
