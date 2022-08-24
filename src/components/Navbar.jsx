@@ -3,6 +3,7 @@ import "../styles/Navbar.css";
 import solidarity from "../assets/pictures/solidarity.png";
 import { Link, useNavigate } from "react-router-dom";
 import ProfilePicture from "../assets/pictures/ProfilePicture.png";
+import Cookies from "js-cookie";
 
 const Navbar = () => {
 
@@ -10,11 +11,11 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    if (sessionStorage.getItem("token")) {
+    if (Cookies.get("token")) {
       navigate("/user/profile");
     }
 
-    if (sessionStorage.getItem("club")) {
+    if (Cookies.get("club")) {
       navigate("/clubs/profile");
     }
   };
@@ -73,7 +74,7 @@ const Navbar = () => {
               {/* Auth0 will be implemented later on*/}
               {/* The basic JWT Auths will be removed to reduce hassle */}
 
-              {(sessionStorage.getItem("token") || sessionStorage.getItem("club")) &&
+              {(Cookies.get("token") || Cookies.get("club")) &&
                 <img
                   onClick={handleNavigate}
                   src={ProfilePicture}

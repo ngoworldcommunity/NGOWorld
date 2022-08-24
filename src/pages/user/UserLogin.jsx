@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import "../../styles/UserLogin.css";
 import { LoginUser } from "../../service/MilanApi";
-
+import Cookies from 'js-cookie';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -40,7 +40,7 @@ function UserLogin() {
   };
 
   //* Submit to backend
-  //* If alright we get a session token
+  //* If alright we get a cookie with token
   const handleSubmit = (e) => {
     e.preventDefault();
     const Data = LoginUser(credentials);
@@ -49,7 +49,7 @@ function UserLogin() {
       if (response?.data.token) {
         //alert("Logged you in!!");
 
-        sessionStorage.setItem("token", response.data.token);
+        Cookies.set("token",response.data.token);
 
         toast('🌈 Logged you in !', {
           position: "top-right",
