@@ -125,6 +125,7 @@ function UserLogin() {
                     aria-describedby="emailHelp"
                     name="email"
                     value={credentials.email}
+                    placeholder="Enter your email"
                     onChange={handleChange}
                     required
                   />
@@ -150,6 +151,7 @@ function UserLogin() {
                     name="password"
                     value={credentials.password}
                     onChange={handleChange}
+                    placeholder="Enter your password"
                     required
                   />
                 </div>

@@ -105,13 +105,12 @@ const ClubLogin = () => {
 
               <div className="form-outline mb-4">
 
-                <label htmlFor="name" className="col-form-label col-form-label-lg regformlabels">Club name</label>
-
                 <input
                   type="text"
                   className="form-control "
                   name="name"
                   value={credentials.name}
+                  placeholder="Enter your club name"
                   onChange={handleChange}
                   required
 
@@ -120,17 +119,11 @@ const ClubLogin = () => {
 
               <div className="form-outline mb-4">
 
-                <label
-                  htmlFor="emailInput"
-                  className="col-form-label col-form-label-lg regformlabels"
-                >
-                  Email address
-                </label>
-
                 <input
                   type="email"
                   className="form-control"
                   name="email"
+                  placeholder="Enter your email"
                   value={credentials.email}
                   onChange={handleChange}
                   required
@@ -142,12 +135,13 @@ const ClubLogin = () => {
               {/* Password start */}
               <div className="d-flex flex-column flex-md-row" style={{ justifyContent: "space-between" }}>
                 <div style={{ width: "45%" }}>
-                  <label htmlFor="password" className="col-form-label col-form-label-lg regformlabels" >Password</label>
+                  
                   <input
                     type="password"
                     className="form-control"
                     name="password"
                     value={credentials.password}
+                    placeholder="Enter your password"
                     onChange={handleChange}
                     required
 
@@ -155,11 +149,12 @@ const ClubLogin = () => {
                 </div>
 
                 <div style={{ width: "45%" }}>
-                  <label htmlFor="password" className="col-form-label col-form-label-lg regformlabels" >Confirm Password</label>
+                  
                   <input
                     type="password"
                     className="form-control"
                     name="confirmPassword"
+                    placeholder="Confirm your password"
                     value={credentials.confirmPassword}
                     onChange={handleChange}
                     required
@@ -174,18 +169,12 @@ const ClubLogin = () => {
 
               <div className="form-outline mb-4">
 
-                <label
-                  htmlFor="emailInput"
-                  className="col-form-label col-form-label-lg regformlabels"
-                >
-                  Adress 🏡
-                </label>
-
                 <input
                   type="text"
                   className="form-control"
                   name="address"
                   value={credentials.address}
+                  placeholder="Enter your address"
                   onChange={handleChange}
                   required
 
@@ -194,18 +183,12 @@ const ClubLogin = () => {
 
               <div className="form-outline mb-4">
 
-                <label
-                  htmlFor="emailInput"
-                  className="col-form-label col-form-label-lg regformlabels"
-                >
-                  Pincode 📍
-                </label>
-
                 <input
                   type="text"
                   maxLength="6"
                   className="form-control"
                   name="pincode"
+                  placeholder="Enter your pincode"
                   value={credentials.pincode}
                   onChange={handleChange}
                   required
@@ -213,19 +196,13 @@ const ClubLogin = () => {
                 />
               </div>
 
-              <label
-                htmlFor="emailInput"
-                className="col-form-label col-form-label-lg regformlabels"
-              >
-                Club Description 📝
-              </label>
-
               <textarea
                 type="text"
                 className="form-control"
                 // id="desc"
                 aria-describedby="textDemo"
                 name="description"
+                placeholder="Enter club description"
                 value={credentials.description}
                 onChange={handleChange}
                 required
