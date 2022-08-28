@@ -35,7 +35,7 @@ const EventsPage = () => {
 
         <div
           id="eventCol_1"
-          className="d-flex flex-column justify-content-center me-5"
+          className="d-flex flex-column justify-content-center me-lg-5 ms-lg-3"
         >
           <h2 className="mb-4">Welcome to the events page !!</h2>
           <p>
