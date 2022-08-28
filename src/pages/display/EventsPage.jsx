@@ -28,14 +28,14 @@ const EventsPage = () => {
 
       {/* Banner Portion Code  */}
       
-      <div id="event_banner" className="container">
-        <div id="eventCol_2">
+      <div id="event_banner" className="container d-flex flex-column flex-lg-row text-center text-lg-start">
+        <div id="eventCol_2" className="d-none d-sm-block">
           <img src={Eventspic} alt="" className="event_image" />
         </div>
 
         <div
           id="eventCol_1"
-          className="d-flex flex-column justify-content-center align-items-start me-5"
+          className="d-flex flex-column justify-content-center me-5"
         >
           <h2 className="mb-4">Welcome to the events page !!</h2>
           <p>
