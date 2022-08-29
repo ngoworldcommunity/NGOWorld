@@ -7,8 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 // toast.configure();
 
-const apiURL = ["https://milan-jwoc.herokuapp.com", "http://localhost:5000"];
-const API = apiURL[0]; //! Push changes in Heroku Server for Contact_Us route
+const apiURL = ["https://milan-jwoc.herokuapp.com", "http://localhost:5000", "https://milan-server.vercel.app"];
+const API = apiURL[2]; //! Push changes in Heroku Server for Contact_Us route
 
 const User_Log = `${API}/user/login`;
 const User_Reg = `${API}/user/register`;
