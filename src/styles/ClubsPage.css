@@ -269,8 +269,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 div#event_banner {
-  width: 80%;
-  margin-top: 3rem;
+  margin-top: 1rem;
   font-family: "Mulish", sans-serif;
   display: flex;
   flex-direction: row;
@@ -279,7 +278,7 @@ div#event_banner {
 }
 
 #eventCol_1 {
-  margin-left: 20px;
+  margin-inline: 20px;
 }
 
 #eventCol_1 h2 {

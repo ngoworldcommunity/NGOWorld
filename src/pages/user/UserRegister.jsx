@@ -217,12 +217,6 @@ const UserRegister = () => {
                 </button>
                 <br></br> <br></br>
                 <Anchor
-                  para=""
-                  details="Forgot password?"
-                  link="#"
-                  className="text-muted"
-                />
-                <Anchor
                   para="Already have an account? "
                   details="Login here"
                   link="/user/login"

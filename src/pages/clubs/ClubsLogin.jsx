@@ -135,6 +135,7 @@ function ClubLogin() {
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     name="email"
+                    placeholder="Enter your email"
                     value={credentials.email}
                     onChange={handleChange}
                     required
@@ -160,6 +161,7 @@ function ClubLogin() {
                     id="exampleInputPassword1"
                     name="password"
                     value={credentials.password}
+                    placeholder="Enter your password"
                     onChange={handleChange}
                     required
                   />
