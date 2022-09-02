@@ -1,32 +1,40 @@
-import React, { useState } from "react"
-import "../styles/ContactUs.css"
-import Navbar from "../components/Navbar"
-import contactImage from "../assets/pictures/contactUs.svg"
-import { Contact } from "../service/MilanApi"
-import { ToastContainer, toast } from "react-toastify"
+import React, { useState } from "react";
+import "../styles/ContactUs.css";
+import Navbar from "../components/Navbar";
+import contactImage from "../assets/pictures/contactUs.svg";
+import { Contact } from "../service/MilanApi";
+import { ToastContainer, toast } from "react-toastify";
 
 const ContactUs = () => {
 	document.title = "Milan | Contact Us";
-	const initialState = { firstName: "", lastName: "", email: "", message: "" }
-	const [formData, setFormData] = useState(initialState)
-	const [isEmailValid, setIsEmailValid] = useState(false)
+	const initialState = { firstName: "", lastName: "", email: "", message: "" };
+	const [formData, setFormData] = useState(initialState);
+	const [isEmailValid, setIsEmailValid] = useState(false);
 
-	const handleChange = e => {
-		setFormData({ ...formData, [e.target.id]: e.target.value })
-		if (e.target.id === "email" && e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")) {
-			setIsEmailValid(true)
+	const handleChange = (e) => {
+		setFormData({ ...formData, [e.target.id]: e.target.value });
+		if (
+			e.target.id === "email" &&
+			e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
+		) {
+			setIsEmailValid(true);
 		}
-	}
+	};
 
 	const handleSubmit = () => {
 		// validation
-		if (formData.firstName && formData.lastName && isEmailValid && formData.message) {
-			Contact(formData, toast)
-			setFormData(initialState)
+		if (
+			formData.firstName &&
+			formData.lastName &&
+			isEmailValid &&
+			formData.message
+		) {
+			Contact(formData, toast);
+			setFormData(initialState);
 		} else {
-			toast.warn("Resolve errors in form")
+			toast.warn("Resolve errors in form");
 		}
-	}
+	};
 
 	return (
 		<>
@@ -41,26 +49,79 @@ const ContactUs = () => {
 						<div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
 							<h2 style={{ letterSpacing: "1px" }}>Have something to say?</h2>
 							<div className="inputs">
-								<h2 style={{ letterSpacing: "1px", marginBottom: "2rem" }}>Reach out to us !</h2>
-								<label htmlFor="Full Name" className="col-form-label col-form-label-lg" style={{ fontFamily: "Open Sans, sans-serif" }}>
+								<h2 style={{ letterSpacing: "1px", marginBottom: "2rem" }}>
+									Reach out to us !
+								</h2>
+								<label
+									htmlFor="Full Name"
+									className="col-form-label col-form-label-lg"
+									style={{ fontFamily: "Open Sans, sans-serif" }}
+								>
 									Enter your name
 								</label>
 								<div className="d-flex flex-column flex-md-row name">
-									<input type="text" placeholder="First name" id="firstName" value={formData.firstName} className="form-control form-control-lg me-md-2" onChange={handleChange} />
-									<input type="text" placeholder="Last name" id="lastName" value={formData.lastName} className="form-control form-control-lg ms-md-2" onChange={handleChange} />
+									<input
+										type="text"
+										placeholder="First name"
+										id="firstName"
+										value={formData.firstName}
+										className="form-control form-control-lg me-md-2"
+										onChange={handleChange}
+										autoFocus
+									/>
+									<input
+										type="text"
+										placeholder="Last name"
+										id="lastName"
+										value={formData.lastName}
+										className="form-control form-control-lg ms-md-2"
+										onChange={handleChange}
+									/>
 								</div>
-								<label htmlFor="email" className="col-form-label col-form-label-lg" style={{ fontFamily: "Open Sans, sans-serif" }}>
+								<label
+									htmlFor="email"
+									className="col-form-label col-form-label-lg"
+									style={{ fontFamily: "Open Sans, sans-serif" }}
+								>
 									Email address
 								</label>
-								<input type="email" placeholder="Email" id="email" value={formData.email} onChange={handleChange} className="form-control form-control-lg" />
-								<label htmlFor="message" className="col-form-label col-form-label-lg" style={{ fontFamily: "Open Sans, sans-serif" }}>
+								<input
+									type="email"
+									placeholder="Email"
+									id="email"
+									value={formData.email}
+									onChange={handleChange}
+									className="form-control form-control-lg"
+								/>
+								<label
+									htmlFor="message"
+									className="col-form-label col-form-label-lg"
+									style={{ fontFamily: "Open Sans, sans-serif" }}
+								>
 									Enter your message
 								</label>
-								<textarea type="text" placeholder="Message" id="message" rows="4" cols="50" value={formData.message} onChange={handleChange} className="form-control form-control-lg" />
-								<button type="submit" onClick={handleSubmit} className="submit-btn btn py-2 mb-3">
+								<textarea
+									type="text"
+									placeholder="Message"
+									id="message"
+									rows="4"
+									cols="50"
+									value={formData.message}
+									onChange={handleChange}
+									className="form-control form-control-lg"
+								/>
+								<button
+									type="submit"
+									onClick={handleSubmit}
+									className="submit-btn btn py-2 mb-3"
+								>
 									Just Send
 									<svg
-										style={{ height: "20px", width: "20px", transform: "rotate(-40deg)" }}
+										style={{
+											height: "20px",
+											width: "20px",
+											transform: "rotate(-40deg)",
+										}}
 										xmlns="http://www.w3.org/2000/svg"
 										width="16"
 										height="16"
@@ -81,7 +142,7 @@ const ContactUs = () => {
 				</div>
 			</section>
 		</>
-	)
-}
+	);
+};
 
-export default ContactUs
+export default ContactUs;

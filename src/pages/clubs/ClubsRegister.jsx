@@ -113,7 +113,7 @@ const ClubLogin = () => {
                   placeholder="Enter your club name"
                   onChange={handleChange}
                   required
-
+                  autoFocus
                 />
               </div>
 

@@ -128,6 +128,7 @@ function ClubLogin() {
                     value={credentials.email}
                     onChange={handleChange}
                     required
+                    autoFocus
                   />
 
                   <input
@@ -140,6 +141,7 @@ function ClubLogin() {
                     value={credentials.email}
                     onChange={handleChange}
                     required
+                    autoFocus
                   />
                 </div>
 
@@ -154,6 +156,7 @@ function ClubLogin() {
                     value={credentials.password}
                     onChange={handleChange}
                     required
+
                   />
 
                   <input
@@ -165,6 +168,7 @@ function ClubLogin() {
                     placeholder="Enter your password"
                     onChange={handleChange}
                     required
+
                   />
                 </div>
 
