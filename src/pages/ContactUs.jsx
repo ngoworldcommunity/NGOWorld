@@ -6,7 +6,7 @@ import { Contact } from "../service/MilanApi"
 import { ToastContainer, toast } from "react-toastify"
 
 const ContactUs = () => {
-  	document.title = "Get in touch | Milan"
+	document.title = "Milan | Contact Us";
 	const initialState = { firstName: "", lastName: "", email: "", message: "" }
 	const [formData, setFormData] = useState(initialState)
 	const [isEmailValid, setIsEmailValid] = useState(false)
