@@ -11,6 +11,7 @@ import Cookies from 'js-cookie';
 
 
 function ClubLogin() {
+  document.title = "Milan | Club Login";
   const Navigate = useNavigate();
 
   function Anchor(props) {
@@ -52,8 +53,8 @@ function ClubLogin() {
 
     Data.then((response) => {
       if (response.data.success === true) {
-        
-        Cookies.set("club",response.data.authToken);
+
+        Cookies.set("club", response.data.authToken);
 
         toast('🌈 Logged you in !', {
           position: "top-right",

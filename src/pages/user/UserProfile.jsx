@@ -5,6 +5,7 @@ import { UpdateUser } from "../../service/MilanApi";
 import Cookies from "js-cookie";
 
 export default function UserProfile() {
+	document.title = "Milan | User Profile"
 	const Navigate = useNavigate()
 	const [isEmailValid, setIsEmailValid] = useState(false)
 	const [credentials, setCredentials] = useState({

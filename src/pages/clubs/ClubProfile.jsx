@@ -5,6 +5,7 @@ import Navbar from '../../components/Navbar'
 import Cookies from "js-cookie";
 
 const ClubProfile = () => {
+    document.title = "Milan | Club Profile";
     const Navigate = useNavigate()
 
     const handleLogout = () => {
