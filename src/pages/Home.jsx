@@ -14,6 +14,7 @@ const AuthState = () => {
   return login;
 };
 const Home = () => {
+  document.title = "Milan | Home";
   return (
     <>
       {/* <Navbar /> */}

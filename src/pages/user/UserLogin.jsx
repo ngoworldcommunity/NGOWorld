@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function UserLogin() {
+  document.title = "Milan | User Login"
   const Navigate = useNavigate();
 
   function Anchor(props) {
@@ -49,7 +50,7 @@ function UserLogin() {
       if (response?.data.token) {
         //alert("Logged you in!!");
 
-        Cookies.set("token",response.data.token);
+        Cookies.set("token", response.data.token);
 
         toast('🌈 Logged you in !', {
           position: "top-right",
@@ -116,6 +117,9 @@ function UserLogin() {
                     value={credentials.email}
                     onChange={handleChange}
                     required
+                    aria-required="true"
+                    aria-label="email"
+
                   />
 
                   <input
@@ -128,6 +132,8 @@ function UserLogin() {
                     placeholder="Enter your email"
                     onChange={handleChange}
                     required
+                    aria-required="true"
+                    aria-label="email"
                   />
                 </div>
 
@@ -142,6 +148,7 @@ function UserLogin() {
                     value={credentials.password}
                     onChange={handleChange}
                     required
+                    aria-label="password"
                   />
 
                   <input
@@ -153,6 +160,7 @@ function UserLogin() {
                     onChange={handleChange}
                     placeholder="Enter your password"
                     required
+                    aria-label="password"
                   />
                 </div>
 
@@ -200,5 +208,6 @@ function UserLogin() {
     </>
   );
 }
+
 
 export default UserLogin;

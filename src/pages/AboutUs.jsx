@@ -8,6 +8,7 @@ import roy from "../assets/pictures/roy.png";
 import td from "../assets/pictures/td.png";
 
 export default function AboutUs() {
+	document.title = "Milan | About Us";
 	return (
 		<div>
 			<Navbar />
@@ -32,7 +33,7 @@ export default function AboutUs() {
 						filters and ask platform, it becomes easier for the
 						people to find their right community to serve.
 					</p>
-					
+
 				</div>
 			</div>
 		</div>

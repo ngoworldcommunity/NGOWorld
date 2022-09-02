@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import SingleClub from "../../components/SingleClub";
 import "../../styles/ClubsPage.css";
 import Navbar from "../../components/Navbar";
-import { GetAllClubs, GetAllEvents } from "../../service/MilanApi";
+import { GetAllEvents } from "../../service/MilanApi";
 import SingleEvent from "../../components/SingleEvent";
 import Eventspic from "../../assets/pictures/EventsPagefloating.svg";
 
 const EventsPage = () => {
+  document.title = "Milan | Events";
   const [clubData, setClubData] = useState([]);
 
   useEffect(() => {
@@ -22,12 +22,10 @@ const EventsPage = () => {
     <>
       <Navbar />
 
-      <div className="eventspageintro_parent d-flex flex-column flex-lg-row justify-lg-content-center">
-        {/* No code here for now*/}
-      </div>
+
 
       {/* Banner Portion Code  */}
-      
+
       <div id="event_banner" className="container d-flex flex-column flex-lg-row text-center text-lg-start">
         <div id="eventCol_2" className="d-none d-sm-block">
           <img src={Eventspic} alt="" className="event_image" />

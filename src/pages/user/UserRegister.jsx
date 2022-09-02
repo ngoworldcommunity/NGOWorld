@@ -10,7 +10,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const UserRegister = () => {
-  document.title = "Register | Milan"
+  document.title = "Milan | User Register"
   const navigate = useNavigate();
 
   function Anchor(props) {
