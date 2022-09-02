@@ -103,6 +103,7 @@ const Footer = () => {
                   placeholder="Enter your Email*"
                   value={reportEmail}
                   onChange={(e) => setReportEmail(e.target.value)}
+                  autoFocus
                 />
               </div>
 
@@ -114,6 +115,7 @@ const Footer = () => {
                   placeholder="First Name*"
                   value={reportFirstName}
                   onChange={(e) => setReportFirstName(e.target.value)}
+
                 />
                 <input
                   required

@@ -112,6 +112,7 @@ const UserRegister = () => {
                       value={credentials.firstname}
                       onChange={handleChange}
                       required
+                      autoFocus
                     />
                     <input
                       type="text"
