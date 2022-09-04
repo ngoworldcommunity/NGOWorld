@@ -1,9 +1,18 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BannerBg from "../assets/pictures/milanBg.jpg";
 import "../styles/Banner.css";
 
 const Banner = () => {
+    var nav = useNavigate();
+
+    const handleClub = () => {
+        nav("/clubs/login");
+    }
+    const handleUser = () => {
+        nav("/user/register");
+    }
+
     return <>
         <div className="banner-container" style={{ backGround: BannerBg }}>
             <div className="banner-inner">
@@ -16,12 +25,16 @@ const Banner = () => {
                 </div>
 
                 <div className="banner-Buttons">
-                    <Link to="/clubs/login" className="banner-button">
-                        <button type="button" className="btn btn-primary">Continue as a Club</button>
-                    </Link>
-                    <Link to="/user/register">
-                        <button type="button" className="btn btn-primary">Continue as an User</button>
-                    </Link>
+                    {/* <div className="banner-button">
+                        <Link to="/clubs/login"  >
+                            <button type="button" className="btn btn-primary">Continue as a Club</button>
+                        </Link>
+                    </div> */}
+
+                    <button type="button" className="btn btn-primary banner-Buttons_btn1" onClick={() => { handleClub() }}>Continue as a Club</button>
+                    <button type="button" className="btn btn-primary" onClick={() => { handleUser() }}>Continue as an User</button>
+
+
                 </div>
             </div>
         </div>

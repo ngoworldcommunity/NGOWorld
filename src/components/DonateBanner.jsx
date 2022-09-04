@@ -1,9 +1,14 @@
 import React from "react";
 import "../styles/DonateBanner.css";
 import donateImg from "../assets/pictures/donate-banner.png";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const DonateBanner = () => {
+
+	var nav = useNavigate();
+	const handleDonate = () => {
+		nav("/donateus");
+	}
 	return (
 		<div id="donate-banner"
 			className="d-flex justify-content-evenly"
@@ -15,11 +20,9 @@ const DonateBanner = () => {
 				<h2 className="mb-4">You can help us too !!</h2>
 				<p>Happiness increases when you share your love.</p>{" "}
 				<p>So why not help millions by sharing your love ?</p>
-				<Link to={"/donateus"}>
 
-					<button className="mt-4 button_animation">Share your love ❤️</button>
 
-				</Link>
+				<button type="button" className="mt-4 button_animation" onClick={() => { handleDonate() }} > Share your love ❤️</button>
 			</div>
 			<div id="donateCol2">
 				<img src={donateImg} alt="" className="donateImg" />
