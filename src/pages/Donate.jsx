@@ -11,6 +11,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Donate = () => {
+    document.title = "Milan | Donate the needy";
 
     const [clubData, setClubData] = useState([]);
 

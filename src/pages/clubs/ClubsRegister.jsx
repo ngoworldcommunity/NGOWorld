@@ -10,7 +10,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ClubLogin = () => {
-  document.title = "Register your club | Milan";
+  document.title = "Milan | Club Register";
   const navigate = useNavigate();
 
   function Anchor(props) {
@@ -113,7 +113,7 @@ const ClubLogin = () => {
                   placeholder="Enter your club name"
                   onChange={handleChange}
                   required
-
+                  autoFocus
                 />
               </div>
 
@@ -135,7 +135,7 @@ const ClubLogin = () => {
               {/* Password start */}
               <div className="d-flex flex-row flex-md-row" style={{ justifyContent: "space-between" }}>
                 <div style={{ width: "45%" }}>
-                  
+
                   <input
                     type="password"
                     className="form-control"
@@ -149,7 +149,7 @@ const ClubLogin = () => {
                 </div>
 
                 <div style={{ width: "45%" }}>
-                  
+
                   <input
                     type="password"
                     className="form-control"

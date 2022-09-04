@@ -11,6 +11,7 @@ import Cookies from 'js-cookie';
 
 
 function ClubLogin() {
+  document.title = "Milan | Club Login";
   const Navigate = useNavigate();
 
   function Anchor(props) {
@@ -52,8 +53,8 @@ function ClubLogin() {
 
     Data.then((response) => {
       if (response.data.success === true) {
-        
-        Cookies.set("club",response.data.authToken);
+
+        Cookies.set("club", response.data.authToken);
 
         toast('🌈 Logged you in !', {
           position: "top-right",
@@ -127,6 +128,7 @@ function ClubLogin() {
                     value={credentials.email}
                     onChange={handleChange}
                     required
+                    autoFocus
                   />
 
                   <input
@@ -139,6 +141,7 @@ function ClubLogin() {
                     value={credentials.email}
                     onChange={handleChange}
                     required
+                    autoFocus
                   />
                 </div>
 
@@ -153,6 +156,7 @@ function ClubLogin() {
                     value={credentials.password}
                     onChange={handleChange}
                     required
+
                   />
 
                   <input
@@ -164,6 +168,7 @@ function ClubLogin() {
                     placeholder="Enter your password"
                     onChange={handleChange}
                     required
+
                   />
                 </div>
 

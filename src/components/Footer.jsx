@@ -15,9 +15,13 @@ const Footer = () => {
   const [reportIssue, setReportIssue] = React.useState("");
 
   const handleReportModalOpen = () => {
+    document.previousTitle = document.title;
+    document.title = "Milan | Report an issue";
     setReportModal(true);
   };
   const handleReportModalClose = () => {
+    document.title = document.previousTitle;
+    document.previousTitle = undefined;
     setReportModal(false);
   };
 
@@ -99,6 +103,7 @@ const Footer = () => {
                   placeholder="Enter your Email*"
                   value={reportEmail}
                   onChange={(e) => setReportEmail(e.target.value)}
+                  autoFocus
                 />
               </div>
 
@@ -110,6 +115,7 @@ const Footer = () => {
                   placeholder="First Name*"
                   value={reportFirstName}
                   onChange={(e) => setReportFirstName(e.target.value)}
+
                 />
                 <input
                   required
@@ -145,7 +151,7 @@ const Footer = () => {
       <div className="px-5 py-2 rounded" style={{ backgroundColor: "#424141" }}>
         <div className="row py-4">
           <div className="col-lg-6 col-md-6 mb-4 mb-lg-0 px-5">
-            <img src="img/logo.png" alt="" width="180" className="mb-3"  />
+            <img src="img/logo.png" alt="" width="180" className="mb-3" />
             {/* <p className="font-italic text-light text-center"> */}
             <p className="footer-text font-italic text-light text-left">
               With Milan we aim at bringing all the various NGOs and donors

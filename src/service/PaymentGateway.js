@@ -1,21 +1,22 @@
-import Axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const apiURL = [
+  "https://milan-jwoc.herokuapp.com",
+  "http://localhost:5000",
+  "https://milan-server.vercel.app",
+  "https://milan-server.adaptable.app",
+];
+const API = apiURL[2];
+
 export default async function displayRazorpay(money) {
-  // const data = await Axios.post(
-  //   "http://localhost:5000/payment/razorpay",
-  //   money
-  // );
-  const data = await fetch("http://localhost:5000/payment/razorpay", {
+  const data = await fetch(`${API}/payment/razorpay`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(money),
   }).then((t) => t.json());
-
-  // console.log(data);
 
   const options = {
     key: process.env.RAZORPAY_KEY_ID,

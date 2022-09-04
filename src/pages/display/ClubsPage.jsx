@@ -6,6 +6,7 @@ import Navbar from "../../components/Navbar";
 import { GetAllClubs } from "../../service/MilanApi";
 
 const ClubsPage = () => {
+  document.title = "Milan | Clubs";
   const [clubData, setClubData] = useState([]);
 
   useEffect(() => {
