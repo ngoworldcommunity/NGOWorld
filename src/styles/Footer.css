@@ -233,6 +233,10 @@
   margin-bottom: 1rem;
 }
 
+.footer_auth_text {
+  color: #9ac2fe;
+}
+
 @media screen and (min-width: 526px) {
   body {
     overflow: unset;
