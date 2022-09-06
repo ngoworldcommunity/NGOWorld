@@ -19,7 +19,6 @@ const App = () => {
   return (
     <>
       <MilanState>
-
         <Router>
           <Routes>
             {/* //* Home routes */}
@@ -42,24 +41,14 @@ const App = () => {
             <Route exact path="/display/clubs" element={<ClubsPage />} />
             <Route exact path="/contact" element={<ContactPage />} />
             <Route exact path="/about-us" element={<AboutUs />} />
-            <Route exact path='/clubs/createevent' element={<EventCreate />} />
-            <Route exact path='/display/events' element={<EventsPage />} />
+            <Route exact path="/clubs/createevent" element={<EventCreate />} />
+            <Route exact path="/display/events" element={<EventsPage />} />
 
             {/* //* Donations */}
-            <Route exact path='/donateus' element={<Donate />} />
-
-            {/* <Route exact path='/' element={<Home />} />
-                    <Route exact path='/' element={<Home />} />
-                    <Route exact path='/' element={<Home />} />
-                    <Route exact path='/' element={<Home />} />
-                    <Route exact path='/' element={<Home />} /> */}
-
-
-
+            <Route exact path="/donateus" element={<Donate />} />
           </Routes>
         </Router>
       </MilanState>
-
     </>
   );
 };
