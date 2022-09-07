@@ -262,8 +262,6 @@ body::-webkit-scrollbar-thumb {
 /* Banner Portion CSS */
 
 .event_image {
-  /* max-width: 596px;
-  max-height: 500px; */
   min-width: 470px;
   width: 100%;
 }
