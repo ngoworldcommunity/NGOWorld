@@ -17,7 +17,6 @@ const Home = () => {
   document.title = "Milan | Home";
   return (
     <>
-      {/* <Navbar /> */}
       {AuthState() && <Navbar />}
       {AuthState() ? <LoginBanner /> : <Banner />}
       <HomeCardsContainer />

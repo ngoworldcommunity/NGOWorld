@@ -8,8 +8,6 @@
   top: 45px;
 }
 
-/* Added code for report form */
-
 .ml-1 {
   margin-left: 15px;
 }
@@ -75,8 +73,6 @@
 .btn-hover:focus {
   outline: none;
 }
-
-/* // */
 
 .links {
   color: rgb(177, 177, 177);
@@ -185,17 +181,6 @@
     padding: 30px 28px !important;
   }
 }
-
-/* @media (max-width: 368px) {
-	.report {
-    width: 250px;
-    height: 42px;
-    position: relative;
-    right: 20%;
-    top: 15%;
-    margin-bottom: 20px;
-  }
-} */
 
 .reportModal {
   position: fixed;

@@ -19,12 +19,7 @@
   form {
     text-align: center;
   }
-  label[for="email"] {
-    /* display: none; */
-  }
-  label[for="password"] {
-    /* display: none; */
-  }
+
 
   ::placeholder {
     text-align: center;
@@ -48,6 +43,7 @@
   text-decoration: underline;
   transition: 0.5s ease-in-out;
   cursor: pointer;
+
 }
 
 .userreg_mob_firstname {
@@ -61,4 +57,5 @@
   .userreg_des_firstname {
     display: none;
   }
+
 }

@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import SocialIcons from "./SocialIcons";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 
 const Footer = () => {
   const [reportModal, setReportModal] = React.useState(false);
@@ -115,7 +115,6 @@ const Footer = () => {
                   placeholder="First Name*"
                   value={reportFirstName}
                   onChange={(e) => setReportFirstName(e.target.value)}
-
                 />
                 <input
                   required
@@ -174,14 +173,20 @@ const Footer = () => {
               <h6 className="text-uppercase text-light font-weight-bold mb-4">
                 Join Us!
               </h6>
-              <ul class="join-us-list list-unstyled mb-0">
-                <li class="mb-2">
-                  <Link to="user/register" className="text-decoration-none footer_auth_text">
+              <ul className="join-us-list list-unstyled mb-0">
+                <li className="mb-2">
+                  <Link
+                    to="user/register"
+                    className="text-decoration-none footer_auth_text"
+                  >
                     Login
                   </Link>
                 </li>
-                <li class="mb-2">
-                  <Link to="user/register" className="text-decoration-none footer_auth_text">
+                <li className="mb-2">
+                  <Link
+                    to="user/register"
+                    className="text-decoration-none footer_auth_text"
+                  >
                     Register
                   </Link>
                 </li>

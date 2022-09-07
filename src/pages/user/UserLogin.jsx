@@ -3,13 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import "../../styles/UserLogin.css";
 import { LoginUser } from "../../service/MilanApi";
-import Cookies from 'js-cookie';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import Cookies from "js-cookie";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function UserLogin() {
-  document.title = "Milan | User Login"
+  document.title = "Milan | User Login";
   const Navigate = useNavigate();
 
   function Anchor(props) {
@@ -48,11 +47,9 @@ function UserLogin() {
 
     Data.then((response) => {
       if (response?.data.token) {
-        //alert("Logged you in!!");
-
         Cookies.set("token", response.data.token);
 
-        toast('🌈 Logged you in !', {
+        toast("🌈 Logged you in !", {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
@@ -62,18 +59,15 @@ function UserLogin() {
           progress: undefined,
           onClose: () => {
             Navigate("/");
-          }
+          },
         });
-
       } else {
-        setCredentials({ email: "", password: "", });
+        setCredentials({ email: "", password: "" });
       }
     }).catch((err) => {
       console.log(err);
     });
   };
-
-
 
   return (
     <>
@@ -104,9 +98,10 @@ function UserLogin() {
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
               <form style={{ width: "auto" }} onSubmit={handleSubmit}>
-                <h2 style={{ letterSpacing: "1px", marginBottom: "20px" }}>Log in</h2>
+                <h2 style={{ letterSpacing: "1px", marginBottom: "20px" }}>
+                  Log in
+                </h2>
                 <div className="form-outline mb-4">
-
                   <input
                     type="email"
                     className="desktop form-control form-control-lg"
@@ -139,7 +134,6 @@ function UserLogin() {
                 </div>
 
                 <div className="form-outline mb-4">
-
                   <input
                     type="password"
                     className="desktop form-control form-control-lg"
@@ -188,7 +182,8 @@ function UserLogin() {
                   Login
                 </button>
 
-                <br></br><br></br>
+                <br></br>
+                <br></br>
                 <Anchor
                   para=""
                   details="Forgot password?"
@@ -209,6 +204,5 @@ function UserLogin() {
     </>
   );
 }
-
 
 export default UserLogin;
