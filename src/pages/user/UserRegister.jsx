@@ -106,13 +106,24 @@ const UserRegister = () => {
                   <div className="d-flex flex-column flex-md-row">
                     <input
                       type="text"
-                      className="form-control form-control-lg me-md-2"
+                      className="userreg_des_firstname form-control form-control-lg me-md-2"
                       placeholder="First name"
                       name="firstname"
                       value={credentials.firstname}
                       onChange={handleChange}
                       required
                       autoFocus
+                      aria-label="First name"
+                    />
+                    <input
+                      type="text"
+                      className="userreg_mob_firstname form-control form-control-lg me-md-2"
+                      placeholder="First name"
+                      name="firstname"
+                      value={credentials.firstname}
+                      onChange={handleChange}
+                      required
+                      aria-label="First name"
                     />
                     <input
                       type="text"
@@ -122,6 +133,7 @@ const UserRegister = () => {
                       value={credentials.lastname}
                       onChange={handleChange}
                       required
+                      aria-label="Last name"
                     />
                   </div>
                 </div>
@@ -139,10 +151,11 @@ const UserRegister = () => {
                     className="form-control form-control-lg"
                     id="email"
                     placeholder="Email"
-                    aria-describedby="emailHelp"
+
                     name="email"
                     value={credentials.email}
                     onChange={handleChange}
+                    aria-label="Email Adress"
                     required
                   />
                 </div>
@@ -164,6 +177,7 @@ const UserRegister = () => {
                     value={credentials.password}
                     onChange={handleChange}
                     required
+                    aria-label="Password"
                   />
                 </div>
                 {/* //* Address */}
@@ -184,6 +198,7 @@ const UserRegister = () => {
                     value={credentials.address}
                     onChange={handleChange}
                     required
+                    aria-label="Adress"
                   />
                 </div>
                 {/* //* Pincode */}
@@ -204,6 +219,7 @@ const UserRegister = () => {
                     value={credentials.pincode}
                     onChange={handleChange}
                     required
+                    aria-label="Pincode"
                   />
                 </div>
 

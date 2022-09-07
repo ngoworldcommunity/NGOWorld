@@ -1,51 +1,64 @@
 .userregister_header {
-	font-family: "Open Sans", sans-serif;
-	font-size: 2rem;
-	font-weight: 600;
-	margin-bottom: 2rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
 }
 
 .userregister_sideimg {
-	margin-bottom: 100px;
-	max-width: 100%;
-	height: auto;
+  margin-bottom: 100px;
+  max-width: 100%;
+  height: auto;
 }
 
 @media screen and (max-width: 800px) {
-	h2 {
-		text-align: center;
-		padding-bottom: 2vw;
-	}
-	form {
-		text-align: center;
-	}
-	label[for="email"] {
-		/* display: none; */
-	}
-	label[for="password"] {
-		/* display: none; */
-	}
+  h2 {
+    text-align: center;
+    padding-bottom: 2vw;
+  }
+  form {
+    text-align: center;
+  }
+  label[for="email"] {
+    /* display: none; */
+  }
+  label[for="password"] {
+    /* display: none; */
+  }
 
-	::placeholder {
-		text-align: center;
-	}
+  ::placeholder {
+    text-align: center;
+  }
 
-	#homeIcon {
-		font-size: 3.5vw;
-	}
-	.form {
-		padding: 0 40px 0 40px;
-	}
+  #homeIcon {
+    font-size: 3.5vw;
+  }
+  .form {
+    padding: 0 40px 0 40px;
+  }
 }
 
 #homeIcon {
-	color: #24a0ed;
-	text-decoration: none;
-	font-size: 22px;
+  color: #24a0ed;
+  text-decoration: none;
+  font-size: 22px;
 }
 #homeIcon:hover {
-	color: #40a9eb;
-	text-decoration: underline;
-	transition: 0.5s ease-in-out;
-	cursor: pointer;
+  color: #40a9eb;
+  text-decoration: underline;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.userreg_mob_firstname {
+  display: none;
+}
+
+@media only screen and (max-width: 430px) {
+  .userreg_mob_firstname {
+    display: block;
+  }
+  .userreg_des_firstname {
+    display: none;
+  }
 }

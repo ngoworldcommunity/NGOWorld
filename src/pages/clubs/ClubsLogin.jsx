@@ -141,7 +141,7 @@ function ClubLogin() {
                     value={credentials.email}
                     onChange={handleChange}
                     required
-                    autoFocus
+
                   />
                 </div>
 
