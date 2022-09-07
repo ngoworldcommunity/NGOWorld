@@ -19,6 +19,8 @@
   form {
     text-align: center;
   }
+
+
   ::placeholder {
     text-align: center;
   }
@@ -41,4 +43,19 @@
   text-decoration: underline;
   transition: 0.5s ease-in-out;
   cursor: pointer;
+
+}
+
+.userreg_mob_firstname {
+  display: none;
+}
+
+@media only screen and (max-width: 430px) {
+  .userreg_mob_firstname {
+    display: block;
+  }
+  .userreg_des_firstname {
+    display: none;
+  }
+
 }

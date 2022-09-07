@@ -104,13 +104,25 @@ const ClubLogin = () => {
               <div className="form-outline mb-4">
                 <input
                   type="text"
-                  className="form-control "
+                  className="userreg_des_firstname form-control "
                   name="name"
                   value={credentials.name}
                   placeholder="Enter your club name"
                   onChange={handleChange}
                   required
                   autoFocus
+                  aria-label="Club name"
+                />
+                <input
+                  type="text"
+                  className="userreg_mob_firstname form-control "
+                  name="name"
+                  value={credentials.name}
+                  placeholder="Enter your club name"
+                  onChange={handleChange}
+                  required
+                  aria-label="Club name"
+
                 />
               </div>
 
@@ -123,6 +135,7 @@ const ClubLogin = () => {
                   value={credentials.email}
                   onChange={handleChange}
                   required
+                   aria-label="Club email"
                 />
               </div>
 

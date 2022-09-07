@@ -56,6 +56,7 @@ const ContactUs = () => {
 									htmlFor="Full Name"
 									className="col-form-label col-form-label-lg"
 									style={{ fontFamily: "Open Sans, sans-serif" }}
+
 								>
 									Enter your name
 								</label>
@@ -68,6 +69,16 @@ const ContactUs = () => {
 										className="form-control form-control-lg me-md-2"
 										onChange={handleChange}
 										autoFocus
+									/>
+									<input
+										type="text"
+										placeholder="First name"
+										id="firstName"
+										value={formData.firstName}
+										className="userreg_mob_firstname form-control form-control-lg me-md-2"
+										onChange={handleChange}
+
+
 									/>
 									<input
 										type="text"
@@ -114,6 +125,8 @@ const ContactUs = () => {
 									type="submit"
 									onClick={handleSubmit}
 									className="submit-btn btn py-2 mb-3"
+									aria-label="Submit"
+
 								>
 									Just Send
 									<svg

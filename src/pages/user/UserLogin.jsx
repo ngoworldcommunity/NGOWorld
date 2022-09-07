@@ -129,7 +129,7 @@ function UserLogin() {
                     required
                     aria-required="true"
                     aria-label="email"
-                    autoFocus
+
                   />
                 </div>
 
