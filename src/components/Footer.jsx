@@ -25,6 +25,18 @@ const Footer = () => {
     setReportModal(false);
   };
 
+  React.useEffect(() => {
+    if(reportModal){
+      const closeEvent = (e) => {
+        if(e.key === 'Escape'){
+          handleReportModalClose();
+        }
+      }
+      window.addEventListener('keydown', closeEvent);
+      return () => window.removeEventListener('keydown', closeEvent);
+    }
+  },[reportModal])
+
   const handleReportSubmit = async (e) => {
     e.preventDefault();
 
