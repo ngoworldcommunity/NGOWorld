@@ -32,23 +32,22 @@ Want to contribute ?
 </h1>
 
 <p align="center">
-
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![Node](https://img.shields.io/badge/node.js-%2343853D.svg?style=for-the-badge&logo=node.js&logoColor=white)
-![Express](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge)
-![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
-![Heroku](https://img.shields.io/badge/Heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
-![Netlify](https://img.shields.io/badge/Netlify-%2300C7B7.svg?style=for-the-badge&logo=netlify&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
-![VSCode](https://img.shields.io/badge/VSCode-%23007ACC.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-![Opensource](https://img.shields.io/badge/Open%20Source-%23F05032.svg?style=for-the-badge&logo=open-source-initiative&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![Hacktoberfest](https://img.shields.io/badge/Hacktoberfest-%23F05032.svg?style=for-the-badge&logo=open-source-initiative&logoColor=white)
-![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=canva&logoColor=white)
-![Figma](https://img.shields.io/badge/Figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
-![Auth0](https://img.shields.io/badge/Auth0-%2300C7B7.svg?style=for-the-badge&logo=auth0&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-%232671E5.svg?style=for-the-badge&logo=github-actions&logoColor=white)
+    <img alt="C" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
+    <img alt="C" src="https://img.shields.io/badge/node.js-%2343853D.svg?style=for-the-badge&logo=node.js&logoColor=white">
+    <img alt="C" src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge">
+    <img alt="C" src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white">
+    <img alt="C" src="https://img.shields.io/badge/Bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white">
+    <img alt="C" src="https://img.shields.io/badge/Heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white">
+    <img alt="C" src="https://img.shields.io/badge/Netlify-%2300C7B7.svg?style=for-the-badge&logo=netlify&logoColor=white">
+    <img alt="C" src="https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white">
+    <img alt="C" src="https://img.shields.io/badge/VSCode-%23007ACC.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white">
+    <img alt="C" src="https://img.shields.io/badge/Open%20Source-%23F05032.svg?style=for-the-badge&logo=open-source-initiative&logoColor=white">
+    <img alt="C" src="https://img.shields.io/badge/CSS-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white">
+    <img alt="C" src="https://img.shields.io/badge/Hacktoberfest-%23F05032.svg?style=for-the-badge&logo=open-source-initiative&logoColor=white">
+    <img alt="C" src="https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=canva&logoColor=white">
+    <img alt="C" src="https://img.shields.io/badge/Figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white">
+    <img alt="C" src="https://img.shields.io/badge/Auth0-%2300C7B7.svg?style=for-the-badge&logo=auth0&logoColor=white">
+    <img alt="C" src="https://img.shields.io/badge/GitHub%20Actions-%232671E5.svg?style=for-the-badge&logo=github-actions&logoColor=white">
 
 </p>
 </br>
@@ -66,10 +65,10 @@ Guidelines to be followed 🔐
 We have a set of guidelines to be followed by all the contributors. <br/>
 Take a look below, and try to maintain it while contributing ⤵ <br/><br/>
 
-⭐ **[CONTRIBUTING GUIDELINES TO BE FOLLOWED](https://github.com/IAmTamal/Milan/blob/main/CONTRIBUTING.md)**<br/>
-⭐ **[CODE OF CONDUCT WHICH NEEDS TO BE MAINTAINED](https://github.com/IAmTamal/Milan/blob/main/CODE_OF_CONDUCT.md)**<br/><br/>
-🛠 **[SETTING UP THE FRONTEND LOCALLY](https://github.com/IAmTamal/Milan/blob/main/rules/Setup.md)**<br/>
-🛠 **[SETTING UP THE BACKEND LOCALLY](https://github.com/IAmTamal/Milan/blob/main/CODE_OF_CONDUCT.md)**<br/>
+<a href="https://github.com/IAmTamal/Milan/blob/main/CONTRIBUTING.md" align="center"> <h5 align="center"> ⭐CONTRIBUTING GUIDELINES TO BE FOLLOWED </h5> </a>
+<a href="https://github.com/IAmTamal/Milan/blob/main/CODE_OF_CONDUCT.md" align="center"> <h5 align="center"> ⭐ CODE OF CONDUCT WHICH NEEDS TO BE MAINTAINED </h5> </a><br/>
+<a href="https://github.com/IAmTamal/Milan/blob/main/rules/Setup.md" align="center"> <h5 align="center"> 🛠 SETTING UP THE FRONTEND LOCALLY </h5> </a>
+<a href="https://github.com/IAmTamal/Milan/blob/main/rules/Setup.md" align="center"> <h5 align="center"> 🛠 SETTING UP THE BACKEND LOCALLY </h5> </a>
 
 </p>
 </br>
