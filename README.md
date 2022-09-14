@@ -69,9 +69,9 @@ Take a look below, and try to maintain it while contributing ⤵ <br/><br/>
     
 <a href="https://github.com/IAmTamal/Milan/blob/main/CODE_OF_CONDUCT.md" align="center"> <h5 align="center"> ⭐ CODE OF CONDUCT WHICH NEEDS TO BE MAINTAINED </h5> </a></br>
     
-<a href="https://github.com/IAmTamal/Milan/blob/main/rules/Setup.md" align="center"> <h5 align="center"> 🛠 SETTING UP THE FRONTEND LOCALLY </h5> </a>
+<a href="https://github.com/IAmTamal/Milan/blob/main/rules/FrontendSetup.md" align="center"> <h5 align="center"> 🛠 SETTING UP THE FRONTEND LOCALLY </h5> </a>
     
-<a href="https://github.com/IAmTamal/Milan/blob/main/rules/Setup.md" align="center"> <h5 align="center"> 🛠 SETTING UP THE BACKEND LOCALLY </h5> </a>
+<a href="https://github.com/IAmTamal/Milan/blob/main/rules/BackendSetup.md" align="center"> <h5 align="center"> 🛠 SETTING UP THE BACKEND LOCALLY </h5> </a>
 
 </p>
 </br>
