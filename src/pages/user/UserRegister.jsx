@@ -94,7 +94,7 @@ const UserRegister = () => {
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1 form">
               <form style={{ width: "auto" }} onSubmit={handleSubmit}>
-                <h2 className="userregister_header">Join us at Milan !!</h2>
+                <h1 className="userregister_header">Join us at Milan !!</h1>
 
                 <div className="form-outline mb-2">
                   <label

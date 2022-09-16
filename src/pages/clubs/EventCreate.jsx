@@ -69,9 +69,9 @@ export default function EventCreate() {
 
             <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
               <form style={{ width: "auto" }}>
-                <h2 className="eventCreateWelcome">
+                <h1 className="eventCreateWelcome">
                   Create an event for your club
-                </h2>
+                </h1>
                 <div class="form-outline">
                   <input
                     type="text"

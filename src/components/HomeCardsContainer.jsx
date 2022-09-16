@@ -30,13 +30,13 @@ const HomeCardsContainer = () => {
 				data-aos-duration="500"
 			>
 				<div className="container">
-					<h2 className="content_head">WHAT DO WE DO ? </h2>
+					<h1 className="content_head">WHAT DO WE DO ? </h1>
 
 					<hr className="new1" />
 
-					<h3 className="content_head2">
+					<h2 className="content_head2">
 						We conjugate help and need{" "}
-					</h3>
+					</h2>
 
 					<p className="content_p">
 						It is a platform where we try and bring together all the
@@ -54,13 +54,13 @@ const HomeCardsContainer = () => {
 				data-aos-duration="500"
 			>
 				<div className="container">
-					<h2 className="content_head">WE CONNECT PEOPLE</h2>
+					<h1 className="content_head">WE CONNECT PEOPLE</h1>
 
 					<hr className="new1" />
 
-					<h3 className="content_head2">
+					<h2 className="content_head2">
 						Milan unites more than a million people
-					</h3>
+					</h2>
 
 					<p className="content_p">
 						Together, we see a world where people unite and take

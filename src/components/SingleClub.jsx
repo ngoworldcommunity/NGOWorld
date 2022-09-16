@@ -36,7 +36,7 @@ export default function SingleClub({ club }) {
         alt={`${club.name} `}
       />
       <div className="card-body text-center">
-        <h3 className="card-title">{club.name} </h3>
+        <h1 className="card-title">{club.name} </h1>
         <div className="club-info mt-3">
           <p>{club.email}</p>
           <p style={{ lineHeight: 1 }}>{club.address}</p>
@@ -84,9 +84,9 @@ export default function SingleClub({ club }) {
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">
+                    <h2 class="modal-title" id="staticBackdropLabel">
                       Select any amount that you would donate !
-                    </h5>
+                    </h2>
 
                     <button
                       type="button"
@@ -101,7 +101,7 @@ export default function SingleClub({ club }) {
                     </p>
 
                     <div className="modal-body_amountdiv">
-                      <h5>₹</h5>
+                      <h2>₹</h2>
                       <input
                         type="number"
                         name="donatedmoney"

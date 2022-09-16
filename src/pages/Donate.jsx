@@ -73,7 +73,7 @@ const Donate = () => {
                     id="donatecol_1"
                     className="d-flex flex-column justify-content-center align-items-start me-5"
                 >
-                    <h2 className="mb-4">Yes, you help live !!</h2>
+                    <h1 className="mb-4">Yes, you help live !!</h1>
                     <p>Donations does play an important part as our annual funds, donations from your ends helps thousands of unfortunate people live their lives. </p>{" "}
 
                     <p>Choose any club, donate whatever you want, even 5 rupees helps !</p>
