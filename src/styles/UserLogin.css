@@ -20,7 +20,6 @@
     text-align: center;
   }
 
-
   ::placeholder {
     text-align: center;
   }
@@ -43,10 +42,12 @@
   text-decoration: underline;
   transition: 0.5s ease-in-out;
   cursor: pointer;
-
 }
 
 .userreg_mob_firstname {
+  display: none;
+}
+.clubreg_mob {
   display: none;
 }
 
@@ -57,5 +58,10 @@
   .userreg_des_firstname {
     display: none;
   }
-
+  .clubreg_mob {
+    display: block;
+  }
+  .clubreg_des {
+    display: none;
+  }
 }
