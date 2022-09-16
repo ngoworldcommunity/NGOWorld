@@ -19,7 +19,7 @@ const EventsBanner = () => {
         id="eventsCol2"
         className="d-flex flex-column justify-content-center"
       >
-        <h2 className="mb-4">Check out our events!!</h2>
+        <h1 className="mb-4">Check out our events!!</h1>
         <p>
           All our partnered NGOs , hosts various events be it educational,
           cleaning mother earth, funding events, health camps and many more !!
