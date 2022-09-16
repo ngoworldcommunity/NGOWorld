@@ -20,7 +20,7 @@ export default function ClubBanner() {
         id="eventsCol2"
         className="d-flex flex-column justify-content-center"
       >
-        <h2 className="mb-4">Create an event !!</h2>
+        <h1 className="mb-4">Create an event !!</h1>
         <p>Hello club !!</p>
         <p>Go ahead and create an event !!</p>
         <p>
