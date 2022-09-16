@@ -148,7 +148,7 @@ const UserRegister = () => {
 
                   <input
                     type="email"
-                    className="form-control form-control-lg"
+                    className="form-control form-control-lg remove_placeholder_desktop"
                     id="email"
                     placeholder="Email"
 
@@ -170,7 +170,7 @@ const UserRegister = () => {
 
                   <input
                     type="password"
-                    className="form-control form-control-lg"
+                    className="form-control form-control-lg remove_placeholder_desktop"
                     id="password"
                     name="password"
                     placeholder="Password"
@@ -191,7 +191,7 @@ const UserRegister = () => {
 
                   <input
                     type="text"
-                    className="form-control form-control-lg"
+                    className="form-control form-control-lg remove_placeholder_desktop"
                     id="address"
                     name="address"
                     placeholder="Address"
@@ -212,7 +212,7 @@ const UserRegister = () => {
 
                   <input
                     type="text"
-                    className="form-control form-control-lg form-input"
+                    className="form-control form-control-lg form-input remove_placeholder_desktop"
                     id="pincode"
                     name="pincode"
                     placeholder="Pin Code"
