@@ -18,8 +18,8 @@ const Banner = () => {
       <div className="banner-container" style={{ backGround: BannerBg }}>
         <div className="banner-inner">
           <div className="banner-content">
-            <h3 className="banner-header1">MILAN</h3>
-            <h1 className="banner-subtitle">Where HELP meets NEED</h1>
+            <h1 className="banner-header1">MILAN</h1>
+            <h2 className="banner-subtitle">Where HELP meets NEED</h2>
           </div>
 
           <div className="banner-Buttons">
