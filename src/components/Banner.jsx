@@ -7,7 +7,7 @@ const Banner = () => {
   var nav = useNavigate();
 
   const handleClub = () => {
-    nav("/clubs/login");
+    nav("/clubs/register");
   };
   const handleUser = () => {
     nav("/user/register");
