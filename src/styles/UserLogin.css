@@ -57,5 +57,10 @@
   .userreg_des_firstname {
     display: none;
   }
+}
 
+@media (min-width: 768px) { 
+  .remove_placeholder_desktop::placeholder {
+    color: transparent;
+  }
 }
