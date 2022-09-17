@@ -10,9 +10,13 @@
 }
 
 .nav-item a {
-  color: black;
+  color: rgba(0, 0, 0, 0.5);
   text-decoration: none;
   cursor: pointer;
+}
+
+.active-link {
+  background-color: #2e8e83;
 }
 
 .shop_tag {
@@ -26,6 +30,7 @@
   margin: auto;
   font-weight: 600;
   margin-right: 30px;
+  padding: 3px 13px;
 }
 
 .shop_icon {
@@ -39,8 +44,8 @@
   }
 
   .nav-item {
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 8px;
+    margin-right: 8px;
   }
 }
 

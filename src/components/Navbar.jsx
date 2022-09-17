@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Navbar.css";
 import solidarity from "../assets/pictures/solidarity.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import ProfilePicture from "../assets/pictures/ProfilePicture.png";
 import Cookies from "js-cookie";
 
@@ -9,7 +9,7 @@ const Navbar = () => {
 
 
   const navigate = useNavigate();
-
+  const location = useLocation();
   const handleNavigate = () => {
     if (Cookies.get("token")) {
       navigate("/user/profile");
@@ -50,23 +50,23 @@ const Navbar = () => {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li className="nav-item home">
+              <li className={"nav-item home " + (location.pathname === '/' ? "active-link" : "")}>
                 <Link to={"/"}>Home</Link>
               </li>
 
-              <li className="nav-item home">
+              <li className={"nav-item home " + (location.pathname === '/display/clubs' ? "active-link" : "")}>
                 <Link to={"/display/clubs"}>Clubs</Link>
               </li>
 
-              <li className="nav-item home">
+              <li className={"nav-item home " + (location.pathname === '/display/events' ? "active-link" : "")}>
                 <Link to="/display/events">Events</Link>
               </li>
 
-              <li className="nav-item home">
+              <li className={"nav-item home " + (location.pathname === '/about-us' ? "active-link" : "")}>
                 <Link to={"/about-us"}>About Us</Link>
               </li>
 
-              <li className="nav-item home">
+              <li className={"nav-item home " + (location.pathname === '/contact' ? "active-link" : "")}>
                 <Link to={"/contact"}>Contact</Link>
               </li>
 
