@@ -32,7 +32,7 @@ const Navbar = () => {
               "https://www.shareicon.net/data/512x512/2016/09/15/829452_user_512x512.png"
             }
             onClick={() => window.location.replace("/")}
-            alt="lol"
+            alt="Milan-logo"
             className="nav_bramhin_img"
           />
 
