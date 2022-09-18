@@ -50,24 +50,29 @@ const Navbar = () => {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li className={"nav-item home " + (location.pathname === '/' ? "active-link" : "")}>
+              <li className="nav-item home">
                 <Link to={"/"}>Home</Link>
+                <div className={"" + (location.pathname === '/' ? "active-link" : "")}></div>
               </li>
 
-              <li className={"nav-item home " + (location.pathname === '/display/clubs' ? "active-link" : "")}>
+              <li className="nav-item home">
                 <Link to={"/display/clubs"}>Clubs</Link>
+                <div className={"" + (location.pathname === '/display/clubs' ? "active-link" : "")}></div>
               </li>
 
-              <li className={"nav-item home " + (location.pathname === '/display/events' ? "active-link" : "")}>
+              <li className="nav-item home">
                 <Link to="/display/events">Events</Link>
+                <div className={"" + (location.pathname === '/display/events' ? "active-link" : "")}></div>
               </li>
 
-              <li className={"nav-item home " + (location.pathname === '/about-us' ? "active-link" : "")}>
+              <li className="nav-item home">
                 <Link to={"/about-us"}>About Us</Link>
+                <div className={"" + (location.pathname === '/about-us' ? "active-link" : "")}></div>
               </li>
 
-              <li className={"nav-item home " + (location.pathname === '/contact' ? "active-link" : "")}>
+              <li className="nav-item home">
                 <Link to={"/contact"}>Contact</Link>
+                <div className={"" + (location.pathname === '/contact' ? "active-link" : "")}></div>
               </li>
 
 
