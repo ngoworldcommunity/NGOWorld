@@ -39,7 +39,7 @@ const Banner = () => {
                 handleUser();
               }}
             >
-              Continue as an User
+              Continue as a User
             </button>
           </div>
         </div>
