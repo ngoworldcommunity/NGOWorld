@@ -10,9 +10,16 @@
 }
 
 .nav-item a {
-  color: black;
+  color: rgba(0, 0, 0, 1);
   text-decoration: none;
   cursor: pointer;
+}
+
+.active-link {
+  border-bottom: 4px solid grey;
+  width: 50%;
+  border-radius: 20%;
+  margin: auto;
 }
 
 .shop_tag {
