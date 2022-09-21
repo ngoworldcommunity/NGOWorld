@@ -116,8 +116,9 @@ div#clubs_banner {
   border-radius: 15px;
 }
 
-.clubCard h2 {
-  font-weight: bold;
+.clubCard h1 {
+  font-weight: 700;
+  font-size: 1.75rem;
   font-family: "Mulish";
 }
 
@@ -168,8 +169,7 @@ div#clubs_banner {
     margin-top: 1rem !important;
   }
   .card-title {
-    font-family: Mulish;
-    font-weight: 700;
+    font-size: 17px;
   }
   .desc {
     font-size: 14px;
