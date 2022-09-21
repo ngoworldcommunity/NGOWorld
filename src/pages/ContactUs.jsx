@@ -47,9 +47,9 @@ const ContactUs = () => {
 							<img src={contactImage} className="img-fluid" alt="Contact-Us" />
 						</div>
 						<div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-							<h1 style={{ letterSpacing: "1px" }}>Have something to say?</h1>
+							<h1 style={{ letterSpacing: "1px", fontSize: "2rem" }}>Have something to say?</h1>
 							<div className="inputs">
-								<h1 style={{ letterSpacing: "1px", marginBottom: "2rem" }}>
+								<h1 style={{ letterSpacing: "1px", marginBottom: "2rem", fontSize: "2rem" }}>
 									Reach out to us !
 								</h1>
 								<label
