@@ -22,6 +22,10 @@ const Footer = () => {
   const handleReportModalClose = () => {
     document.title = document.previousTitle;
     document.previousTitle = undefined;
+    setReportEmail("");
+    setReportFirstName("");
+    setReportLastName("");
+    setReportIssue("");
     setReportModal(false);
   };
 
