@@ -168,7 +168,8 @@ div#clubs_banner {
     margin-top: 1rem !important;
   }
   .card-title {
-    font-size: 17px;
+    font-family: Mulish;
+    font-weight: 700;
   }
   .desc {
     font-size: 14px;
