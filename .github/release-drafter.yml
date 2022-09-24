@@ -3,11 +3,11 @@ tag-template: "v$RESOLVED_VERSION"
 categories:
   - title: "🚀 Features"
     labels:
-      - "feature"
+      - "⭐ goal: addition"
       - "enhancement"
   - title: "🐛 Bug Fixes"
     labels:
-      - "fix"
+      - "🛠 goal: fix"
       - "bugfix"
       - "bug"
   - title: "🧰 Maintenance"
