@@ -186,7 +186,7 @@ const Footer = () => {
             </div>
 
             <div>
-              <h1 className="text-uppercase text-light font-weight-bold mb-4">
+              <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4">
                 Join Us!
               </h1>
               <ul className="join-us-list list-unstyled mb-0">
@@ -210,7 +210,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="col-lg-4 col-md-6 mb-lg-0">
-            <h1 className="text-uppercase text-light font-weight-bold mb-4 text-center">
+            <h1 className="h6 text-uppercase text-light font-weight-bold mb-4 text-center">
               Got something to report ?
             </h1>
             <p className="text-light text-center mb-4">
