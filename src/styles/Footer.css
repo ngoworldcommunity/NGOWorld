@@ -275,6 +275,7 @@
   }
 
   .join-us {
+    font-size: 1rem;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -282,7 +283,7 @@
     gap: 30px;
   }
 
-  .join-us h6 {
+ .join-us h1 {
     position: relative;
     left: -30px;
   }
