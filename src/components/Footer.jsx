@@ -92,7 +92,7 @@ const Footer = () => {
         <div className="reportModal">
           <div className="reportModalContent">
             <div className="reportModalHeader">
-              <h4>REPORT A PROBLEM</h4>
+              <h1>REPORT A PROBLEM</h1>
 
               <button
                 type="button"
@@ -102,10 +102,10 @@ const Footer = () => {
               ></button>
             </div>
 
-            <h6>
+            <h2>
               We are trying our best. We give in the best shot and hope for the
               best.
-            </h6>
+            </h2>
             <br />
 
             {/* Report form  */}
@@ -186,9 +186,9 @@ const Footer = () => {
             </div>
 
             <div>
-              <h6 className="text-uppercase text-light font-weight-bold mb-4">
+              <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4">
                 Join Us!
-              </h6>
+              </h1>
               <ul className="join-us-list list-unstyled mb-0">
                 <li className="mb-2">
                   <Link
@@ -210,9 +210,9 @@ const Footer = () => {
             </div>
           </div>
           <div className="col-lg-4 col-md-6 mb-lg-0">
-            <h6 className="text-uppercase text-light font-weight-bold mb-4 text-center">
+            <h1 className="h6 text-uppercase text-light font-weight-bold mb-4 text-center">
               Got something to report ?
-            </h6>
+            </h1>
             <p className="text-light text-center mb-4">
               You can submit a report to us by filling a form below !
             </p>

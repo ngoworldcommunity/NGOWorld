@@ -22,7 +22,7 @@ export default function SingleEvent({ club }) {
                 alt={`${club.name} `}
             />
             <div className="card-body text-center">
-                <h3 className="card-title">{club.Eventname} </h3>
+                <h1 className="card-title">{club.Eventname} </h1>
                 <div className="club-info mt-3">
                     <p>{club.Eventdate}</p>
                     <p>{club.Eventlocation}</p>

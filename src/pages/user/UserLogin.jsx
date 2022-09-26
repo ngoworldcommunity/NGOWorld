@@ -98,9 +98,9 @@ function UserLogin() {
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
               <form style={{ width: "auto" }} onSubmit={handleSubmit}>
-                <h2 style={{ letterSpacing: "1px", marginBottom: "20px" }}>
+                <h1 style={{ letterSpacing: "1px", marginBottom: "20px" }}>
                   Log in
-                </h2>
+                </h1>
                 <div className="form-outline mb-4">
                   <input
                     type="email"

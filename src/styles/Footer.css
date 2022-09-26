@@ -12,11 +12,12 @@
   margin-left: 15px;
 }
 
-.reportModalHeader > h4 {
+.reportModalHeader > h1 {
   color: #4e4e4e;
+  font-size: 1.5rem;
 }
 
-.reportModalContent > h6 {
+.reportModalContent > h2 {
   color: #4e4e4e;
   font-size: 0.9rem;
 }
@@ -234,8 +235,8 @@
     align-items: center;
   }
 
-  .reportModalHeader > h4 {
-    font-size: 1.2em;
+  .reportModalHeader > h1 {
+    font-size: 1.2rem;
     margin-left: 1.4rem;
     margin-bottom: 0px;
     flex: auto;
@@ -281,7 +282,7 @@
     gap: 30px;
   }
 
-  .join-us h6 {
+ .join-us h1 {
     position: relative;
     left: -30px;
   }
