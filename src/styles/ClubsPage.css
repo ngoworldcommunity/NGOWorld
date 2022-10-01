@@ -96,7 +96,7 @@ div#clubs_banner {
     max-width: 270px !important;
     width: 80%;
   }
-  
+
   #clubscol_1 p {
     margin-inline: 20px;
   }
@@ -280,20 +280,33 @@ div#event_banner {
   margin-inline: 20px;
 }
 
-#eventCol_1 h1 {
+h1.hero-heading {
   font-style: normal;
   font-weight: bold;
-  font-size: 48px;
-  line-height: 60px;
+  font-size: 46px;
   color: #2e8e83;
 }
-
-#eventCol_1 p {
+.hero-para {
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
   line-height: 30px;
   color: #000000;
+}
+@media (max-width: 768px) {
+  h1.hero-heading {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    color: #2e8e83;
+  }
+  .hero-para {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 30px;
+    color: #000000;
+  }
 }
 
 @media (max-width: 428px) {

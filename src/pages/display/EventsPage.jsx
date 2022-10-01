@@ -22,11 +22,12 @@ const EventsPage = () => {
     <>
       <Navbar />
 
-
-
       {/* Banner Portion Code  */}
 
-      <div id="event_banner" className="container d-flex flex-column flex-lg-row text-center text-lg-start">
+      <div
+        id="event_banner"
+        className="container d-flex flex-column flex-lg-row text-center text-lg-start"
+      >
         <div id="eventCol_2" className="d-none d-sm-block">
           <img src={Eventspic} alt="" className="event_image" />
         </div>
@@ -35,8 +36,8 @@ const EventsPage = () => {
           id="eventCol_1"
           className="d-flex flex-column justify-content-center me-lg-5 ms-lg-3"
         >
-          <h1 className="mb-4">Welcome to the events page !!</h1>
-          <p>
+          <h1 className="mb-4 hero-heading">Welcome to the events page !!</h1>
+          <p className="hero-para">
             All our partnered NGOs , hosts various events be it educational,
             cleaning mother earth, funding events, health camps and many more !!
           </p>
