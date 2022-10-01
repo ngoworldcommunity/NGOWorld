@@ -1,6 +1,28 @@
+
+
+.light-theme{
+  --background:url("../assets/pictures/milanBg.jpg") ;
+  --buttoncolor: #0d6efd;
+  --fontcolor:#fff;
+  --subtitle:rgb(0, 89, 205);
+  --heading:black;
+  --buttonhover:#1f1f1f;
+}
+.dark-theme{
+  --background:url("../assets/pictures/milan.jpg");
+  --buttoncolor: #1d8aff;
+  --fontcolor:rgb(255, 255, 255);
+  --subtitle:rgb(255, 255, 255);
+  --heading:#0d6efd;
+  --buttonhover:#949600;
+}
+
+
+
+
 /* // Home Banner */
 .banner-container {
-  background: url("../assets/pictures/milanBg.jpg");
+  background:var(--background);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -11,6 +33,7 @@
 }
 
 .banner-inner {
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,7 +61,7 @@
 }
 
 .banner-header1 {
-  color: black;
+  color:var(--heading);
   text-transform: uppercase;
   font-size: 80px;
   font-family: "Mulish";
@@ -46,7 +69,7 @@
 }
 
 .banner-subtitle {
-  color: rgb(111, 106, 106);
+  color:var(--subtitle);
   font-size: 30px;
   margin: 0;
   font-family: "Mulish";
@@ -62,7 +85,6 @@
     font-size: 20px;
     font-weight: bolder;
   }
-
   .banner-header1 {
     font-size: 48px;
   }
@@ -75,12 +97,12 @@
   margin-right: 10px;
 }
 .banner-Buttons button {
-  background-color: #0d6efd;
+  background-color:var(--buttoncolor);
   border-radius: 5px;
   padding: 10px;
   font-size: 16px;
   font-weight: bold;
-  color: #fff;
+  color:var(--fontcolor);
 
   cursor: pointer;
   width: auto;
@@ -109,10 +131,38 @@
     margin: 0 !important;
     margin-top: 10px !important;
   }
+  .dark-mode{
+    margin-bottom: 50px;
+    margin-left: 50px;
+  }
 }
 
 @media (max-width: 343px) {
   .banner-Buttons {
     bottom: 0;
   }
+}
+@media (max-width: 1080px) {
+  .dark-mode{
+    margin-bottom: 850px;
+    margin-left: 1250px;
+  }
+}
+.dark-mode{
+  margin-bottom: 850px;
+  margin-left: 1250px;
+}
+.darkmode{
+  position: static;
+  padding:5px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-family:Arial, Helvetica, sans-serif;
+  color: var(--fontcolor);
+  background-color:var(--buttoncolor);
+  border: none;
+}
+.darkmode:hover{
+  color:var(--fontcolor);
+  background-color:var(--buttonhover);
 }

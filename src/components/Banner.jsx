@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import BannerBg from "../assets/pictures/milanBg.jpg";
 import "../styles/Banner.css";
@@ -12,10 +14,29 @@ const Banner = () => {
   const handleUser = () => {
     nav("/user/register");
   };
+  const [theme , setTheme] = useState("light-theme");
+  const toggleTheam = () => {
+    if (theme === "dark-theme"){
+      setTheme("light-theme");
+    }else{
+      setTheme("dark-theme");
+    }
+  };
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   return (
     <>
       <div className="banner-container" style={{ backGround: BannerBg }}>
+        <div className="dark-mode">
+        <button
+            type="button"
+            className="darkmode" onClick={() => toggleTheam()}>
+            Dark Mode
+        </button>
+        </div>
         <div className="banner-inner">
           <div className="banner-content">
             <h1 className="banner-header1">MILAN</h1>
@@ -47,5 +68,4 @@ const Banner = () => {
     </>
   );
 };
-
 export default Banner;
