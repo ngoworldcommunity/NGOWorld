@@ -90,8 +90,8 @@ Most active contributors 🚀
 </br>
 
 <h1 align="center">
-Thankyou all 💚
+Thank you All 💚
 </h1>
 
 <p align="center">
-Thankyou all to those who have contributed to this project. We are really grateful to you all. <br/> You all are amazing, Opensource for the win 🚀 </p>
+Thank you all to those who have contributed to this project. We are really grateful to you all. <br/> You all are amazing, Opensource for the win 🚀 </p>
