@@ -99,13 +99,16 @@ Most active contributors 🚀
 <h1 align="center">
 Thank you everyone! 💚
 </h1>
+<br>
 
 <p align="center">
 A heartfelt thank you to those who have contributed to this project. We are really grateful towards yoyr contribution. <br/> You all are amazing. Opensource for the win 🚀 </p>
+<br>
 
 <h1 align="center">
 License
 </h1>
+<br>
 
 <p align="center">
 Milan is Licensed under the <a href="./LICENSE">MIT License</a>. Please go through the License atleast once before contributing. </p>
