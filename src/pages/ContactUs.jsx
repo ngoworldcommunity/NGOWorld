@@ -24,16 +24,20 @@ const ContactUs = () => {
 	const handleSubmit = () => {
 		// validation
 		if (
-			formData.firstName &&
-			formData.lastName &&
-			isEmailValid &&
-			formData.message
+			!formData.firstName || 
+			!formData.lastName || 
+			!formData.message
 		) {
-			Contact(formData, toast);
-			setFormData(initialState);
-		} else {
-			toast.warn("Resolve errors in form");
-		}
+      			toast.warn("Please fill out all the fields.");
+   		 } 
+		else if ( 
+			!isEmailValid 
+		) {
+      			toast.warn("Please provide a correct email.");
+    		} else {
+		      Contact(formData, toast);
+		      setFormData(initialState);
+    		}
 	};
 
 	return (
