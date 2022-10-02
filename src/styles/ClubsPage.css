@@ -276,10 +276,6 @@ div#event_banner {
   justify-content: space-evenly;
 }
 
-#eventCol_1 {
-  margin-inline: 20px;
-}
-
 h1.hero-heading {
   font-style: normal;
   font-weight: bold;
@@ -287,6 +283,7 @@ h1.hero-heading {
   color: #2e8e83;
 }
 .hero-para {
+  font-family: "Mulish", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
@@ -297,16 +294,52 @@ h1.hero-heading {
   h1.hero-heading {
     font-style: normal;
     font-weight: bold;
+    font-size: 28px;
+    color: #2e8e83;
+  }
+  .hero-para {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 26px;
+    color: #000000;
+  }
+}
+@media (max-width: 640px) {
+  h1.hero-heading {
+    font-style: normal;
+    font-weight: bold;
     font-size: 24px;
     color: #2e8e83;
   }
   .hero-para {
     font-style: normal;
     font-weight: bold;
-    font-size: 16px;
-    line-height: 30px;
+    font-size: 14px;
+    line-height: 26px;
     color: #000000;
   }
+}
+@media (max-width: 428px) {
+  h1.hero-heading {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: #2e8e83;
+  }
+  .hero-para {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 24px;
+    color: #000000;
+  }
+  #eventpage_jointext {
+    font-size: 13px;
+  }
+}
+#eventpage_jointext {
+  font-family: "Mulish", sans-serif;
 }
 
 @media (max-width: 428px) {

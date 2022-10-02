@@ -36,12 +36,14 @@ const EventsPage = () => {
           id="eventCol_1"
           className="d-flex flex-column justify-content-center me-lg-5 ms-lg-3"
         >
-          <h1 className="mb-4 hero-heading">Welcome to the events page !!</h1>
+          <h1 className="mb-4 hero-heading">Welcome to the events page!</h1>
           <p className="hero-para">
             All our partnered NGOs , hosts various events be it educational,
             cleaning mother earth, funding events, health camps and many more !!
           </p>
-          <p>Join us at the events, and help the community !</p>
+          <p id="eventpage_jointext">
+            Join us at the events, and help the community !
+          </p>
         </div>
       </div>
 
