@@ -102,7 +102,7 @@ Thank you everyone! 💚
 <br>
 
 <p align="center">
-A heartfelt thank you to those who have contributed to this project. We are really grateful towards yoyr contribution. <br/> You all are amazing. Opensource for the win 🚀 </p>
+A heartfelt thank you to those who have contributed to this project. We are really grateful towards your contribution. <br/> You all are amazing. Opensource for the win 🚀 </p>
 <br>
 
 <h1 align="center">
