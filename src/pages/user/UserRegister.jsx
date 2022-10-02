@@ -94,7 +94,7 @@ const UserRegister = () => {
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1 form">
               <form style={{ width: "auto" }} onSubmit={handleSubmit}>
-                <h2 className="userregister_header">Join us at Milan !!</h2>
+                <h1 className="userregister_header">Join us at Milan !!</h1>
 
                 <div className="form-outline mb-2">
                   <label
@@ -106,13 +106,24 @@ const UserRegister = () => {
                   <div className="d-flex flex-column flex-md-row">
                     <input
                       type="text"
-                      className="form-control form-control-lg me-md-2"
+                      className="userreg_des_firstname form-control form-control-lg me-md-2"
                       placeholder="First name"
                       name="firstname"
                       value={credentials.firstname}
                       onChange={handleChange}
                       required
                       autoFocus
+                      aria-label="First name"
+                    />
+                    <input
+                      type="text"
+                      className="userreg_mob_firstname form-control form-control-lg me-md-2"
+                      placeholder="First name"
+                      name="firstname"
+                      value={credentials.firstname}
+                      onChange={handleChange}
+                      required
+                      aria-label="First name"
                     />
                     <input
                       type="text"
@@ -122,6 +133,7 @@ const UserRegister = () => {
                       value={credentials.lastname}
                       onChange={handleChange}
                       required
+                      aria-label="Last name"
                     />
                   </div>
                 </div>
@@ -136,13 +148,14 @@ const UserRegister = () => {
 
                   <input
                     type="email"
-                    className="form-control form-control-lg"
+                    className="form-control form-control-lg remove_placeholder_desktop"
                     id="email"
                     placeholder="Email"
-                    aria-describedby="emailHelp"
+
                     name="email"
                     value={credentials.email}
                     onChange={handleChange}
+                    aria-label="Email Adress"
                     required
                   />
                 </div>
@@ -157,13 +170,14 @@ const UserRegister = () => {
 
                   <input
                     type="password"
-                    className="form-control form-control-lg"
+                    className="form-control form-control-lg remove_placeholder_desktop"
                     id="password"
                     name="password"
                     placeholder="Password"
                     value={credentials.password}
                     onChange={handleChange}
                     required
+                    aria-label="Password"
                   />
                 </div>
                 {/* //* Address */}
@@ -177,13 +191,14 @@ const UserRegister = () => {
 
                   <input
                     type="text"
-                    className="form-control form-control-lg"
+                    className="form-control form-control-lg remove_placeholder_desktop"
                     id="address"
                     name="address"
                     placeholder="Address"
                     value={credentials.address}
                     onChange={handleChange}
                     required
+                    aria-label="Adress"
                   />
                 </div>
                 {/* //* Pincode */}
@@ -197,13 +212,14 @@ const UserRegister = () => {
 
                   <input
                     type="text"
-                    className="form-control form-control-lg form-input"
+                    className="form-control form-control-lg form-input remove_placeholder_desktop"
                     id="pincode"
                     name="pincode"
                     placeholder="Pin Code"
                     value={credentials.pincode}
                     onChange={handleChange}
                     required
+                    aria-label="Pincode"
                   />
                 </div>
 

@@ -1,11 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Alike+Angular&display=swap");
 
 .eventCreateSubmit {
-  /* border-radius: 15px; */
   width: auto;
   font-weight: 600;
   border-radius: 5px;
-  background-color: #2e8e83;
+  background-color: #297f75;
   color: white;
 }
 
@@ -23,9 +22,7 @@ label {
 
 .eventCreateWelcome {
   font-weight: bold;
-  color: #2e8e83;
-  /* font-size: 2.5rem; */
-  /* top: -10px; */
+  color: #297f75;
   font-family: "Mulish", sans-serif;
   margin-bottom: 20px;
 }

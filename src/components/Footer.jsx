@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import SocialIcons from "./SocialIcons";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 
 const Footer = () => {
   const [reportModal, setReportModal] = React.useState(false);
@@ -22,8 +22,24 @@ const Footer = () => {
   const handleReportModalClose = () => {
     document.title = document.previousTitle;
     document.previousTitle = undefined;
+    setReportEmail("");
+    setReportFirstName("");
+    setReportLastName("");
+    setReportIssue("");
     setReportModal(false);
   };
+
+  React.useEffect(() => {
+    if(reportModal){
+      const closeEvent = (e) => {
+        if(e.key === 'Escape'){
+          handleReportModalClose();
+        }
+      }
+      window.addEventListener('keydown', closeEvent);
+      return () => window.removeEventListener('keydown', closeEvent);
+    }
+  },[reportModal])
 
   const handleReportSubmit = async (e) => {
     e.preventDefault();
@@ -76,7 +92,7 @@ const Footer = () => {
         <div className="reportModal">
           <div className="reportModalContent">
             <div className="reportModalHeader">
-              <h4>REPORT A PROBLEM</h4>
+              <h1>REPORT A PROBLEM</h1>
 
               <button
                 type="button"
@@ -86,10 +102,10 @@ const Footer = () => {
               ></button>
             </div>
 
-            <h6>
+            <h2>
               We are trying our best. We give in the best shot and hope for the
               best.
-            </h6>
+            </h2>
             <br />
 
             {/* Report form  */}
@@ -115,7 +131,6 @@ const Footer = () => {
                   placeholder="First Name*"
                   value={reportFirstName}
                   onChange={(e) => setReportFirstName(e.target.value)}
-
                 />
                 <input
                   required
@@ -171,17 +186,23 @@ const Footer = () => {
             </div>
 
             <div>
-              <h6 className="text-uppercase text-light font-weight-bold mb-4">
+              <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4">
                 Join Us!
-              </h6>
-              <ul class="join-us-list list-unstyled mb-0">
-                <li class="mb-2">
-                  <Link to="user/register" className="text-decoration-none">
+              </h1>
+              <ul className="join-us-list list-unstyled mb-0">
+                <li className="mb-2">
+                  <Link
+                    to="user/register"
+                    className="text-decoration-none footer_auth_text"
+                  >
                     Login
                   </Link>
                 </li>
-                <li class="mb-2">
-                  <Link to="user/register" className="text-decoration-none">
+                <li className="mb-2">
+                  <Link
+                    to="user/register"
+                    className="text-decoration-none footer_auth_text"
+                  >
                     Register
                   </Link>
                 </li>
@@ -189,9 +210,9 @@ const Footer = () => {
             </div>
           </div>
           <div className="col-lg-4 col-md-6 mb-lg-0">
-            <h6 className="text-uppercase text-light font-weight-bold mb-4 text-center">
+            <h1 className="h6 text-uppercase text-light font-weight-bold mb-4 text-center">
               Got something to report ?
-            </h6>
+            </h1>
             <p className="text-light text-center mb-4">
               You can submit a report to us by filling a form below !
             </p>
@@ -204,7 +225,7 @@ const Footer = () => {
                   className="bottom-img"
                   width="12px"
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAsCAYAAAAacYo8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJqSURBVHgB7ZlNaxNBHMafJq0kKJoUwVpoHasH6SlQj4Jb6FWsh3ptTnqtnyDpJ9CjeEn6CfRaCKRfoNirB+16Ml6SghVKUNp59iVMp7N5adPZDewPnmTnZZdn/vvfmWV2CuNDSJWkCsFxyFEgV+ogOI4VGixL1aQ6UqdD6mtwzjos40h9HtFslA7hD0LgGhFSTVzdbJRGGsDUkP0qUtV+HbK5AmaKAvn5ErL5glcm/0+O0G276HZcnPw6wABcqW2p+qCOg4wL+JFwTI05afLO8kvcWnI8DcPxjz2093fwV/5zMBF8kHrX7zr9jAv4qSH0hptLDubWKkObjaK9X8fvxnbUAHh7VhExC0UZFzCYviFTYWGjdmXDOq1G1RuAgUjzJuMCBtO3l9ex+LrWy91xw6h//7Rqiv4efPPnyBquQdNP1Ip7Mi0WXn1EZjqH64IP9OzTMv5828W/45baJOCvGbtqZUY7n7NHSa2g6bm1KmzAu/nobRP5+yW9aQvaBKGmioC/IPTgQ/j4TRO2iUgbFh6GBTXiFbUXH8TFjRriIJwENAT8VwyPrFJZV3vNv3g/9tljFGi+2/mpL1rM9R0ehBF39JNmV8qIG64VGk6gnvFNtfXusy0kAQbQcNe9CmPEuYwnheLKpl71nD807qi1HCWVFAwR9+ZKGj+3FM4kyDRhELXVmoUHF4wnKdohBk9FGhcDOsUOXwc0ChlMKKlx26TGbZMat01q3Dapcdukxm2TGrdNatw2E2t8Wq/gl4JWA4nCtPF/wTg/dVBJh6kS+wfTy8INltMJ0iFNh/vjAsoWboJhdnyRcs8A1PDl9IzPLdoAAAAASUVORK5CYII="
-                  alt="isd"
+                  alt="blue-siren"
                 />
                 Report!
               </button>

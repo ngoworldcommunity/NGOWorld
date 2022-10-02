@@ -35,7 +35,7 @@ const EventsPage = () => {
           id="eventCol_1"
           className="d-flex flex-column justify-content-center me-lg-5 ms-lg-3"
         >
-          <h2 className="mb-4">Welcome to the events page !!</h2>
+          <h1 className="mb-4">Welcome to the events page !!</h1>
           <p>
             All our partnered NGOs , hosts various events be it educational,
             cleaning mother earth, funding events, health camps and many more !!

@@ -29,14 +29,6 @@
     transition: 0.2s;
 }
 
-/* Removing LOGIN button bug !
-.login-btn:hover{
-    transform: scale(1.02);
-    background-color: white;
-    color:black;
-    border:1px solid #7ED957;
-} */
-
 .highlighted {
     color:#7ED957;
 }

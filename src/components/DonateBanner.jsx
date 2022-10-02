@@ -17,7 +17,7 @@ const DonateBanner = () => {
 				id="donateCol1"
 				className="d-flex flex-column justify-content-center align-items-start me-5"
 			>
-				<h2 className="mb-4">You can help us too !!</h2>
+				<h1 className="mb-4">You can help us too !!</h1>
 				<p>Happiness increases when you share your love.</p>{" "}
 				<p>So why not help millions by sharing your love ?</p>
 

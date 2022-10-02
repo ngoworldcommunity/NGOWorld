@@ -47,15 +47,16 @@ const ContactUs = () => {
 							<img src={contactImage} className="img-fluid" alt="Contact-Us" />
 						</div>
 						<div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-							<h2 style={{ letterSpacing: "1px" }}>Have something to say?</h2>
+							<h1 style={{ letterSpacing: "1px", fontSize: "2rem" }}>Have something to say?</h1>
 							<div className="inputs">
-								<h2 style={{ letterSpacing: "1px", marginBottom: "2rem" }}>
+								<h1 style={{ letterSpacing: "1px", marginBottom: "2rem", fontSize: "2rem" }}>
 									Reach out to us !
-								</h2>
+								</h1>
 								<label
 									htmlFor="Full Name"
 									className="col-form-label col-form-label-lg"
 									style={{ fontFamily: "Open Sans, sans-serif" }}
+
 								>
 									Enter your name
 								</label>
@@ -68,6 +69,16 @@ const ContactUs = () => {
 										className="form-control form-control-lg me-md-2"
 										onChange={handleChange}
 										autoFocus
+									/>
+									<input
+										type="text"
+										placeholder="First name"
+										id="firstName"
+										value={formData.firstName}
+										className="userreg_mob_firstname form-control form-control-lg me-md-2"
+										onChange={handleChange}
+
+
 									/>
 									<input
 										type="text"
@@ -114,6 +125,8 @@ const ContactUs = () => {
 									type="submit"
 									onClick={handleSubmit}
 									className="submit-btn btn py-2 mb-3"
+									aria-label="Submit"
+
 								>
 									Just Send
 									<svg

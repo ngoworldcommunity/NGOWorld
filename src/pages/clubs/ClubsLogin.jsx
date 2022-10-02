@@ -4,11 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import "../../styles/ClubLogin.css";
 import Pic from "../../assets/pictures/clubs-login.png";
 import { LoginClub } from "../../service/MilanApi";
-import { Audio, Oval, TailSpin } from "react-loader-spinner";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Cookies from 'js-cookie';
-
+import { TailSpin } from "react-loader-spinner";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Cookies from "js-cookie";
 
 function ClubLogin() {
   document.title = "Milan | Club Login";
@@ -42,8 +41,7 @@ function ClubLogin() {
       setIsEmailValid(true);
   };
 
-
-  //* SUBMIT 
+  //* SUBMIT
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -53,10 +51,9 @@ function ClubLogin() {
 
     Data.then((response) => {
       if (response.data.success === true) {
-
         Cookies.set("club", response.data.authToken);
 
-        toast('🌈 Logged you in !', {
+        toast("🌈 Logged you in !", {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
@@ -66,11 +63,10 @@ function ClubLogin() {
           progress: undefined,
           onClose: () => {
             Navigate("/");
-          }
+          },
         });
-
       } else if (response.data.success === false) {
-        toast('🌈 Error !', {
+        toast("🌈 Error !", {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
@@ -78,7 +74,6 @@ function ClubLogin() {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-
         });
         setCredentials({
           email: "",
@@ -115,9 +110,10 @@ function ClubLogin() {
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
               <form style={{ width: "auto" }} onSubmit={handleSubmit}>
-                <h2 style={{ letterSpacing: "1px", marginBottom: "20px" }}>Log in</h2>
+                <h1 style={{ letterSpacing: "1px", marginBottom: "20px" }}>
+                  Log in
+                </h1>
                 <div className="form-outline mb-4">
-
                   <input
                     type="email"
                     className="desktop form-control form-control-lg"
@@ -141,12 +137,11 @@ function ClubLogin() {
                     value={credentials.email}
                     onChange={handleChange}
                     required
-                    autoFocus
+
                   />
                 </div>
 
                 <div className="form-outline mb-4">
-
                   <input
                     type="password"
                     className="desktop form-control form-control-lg"
@@ -156,7 +151,6 @@ function ClubLogin() {
                     value={credentials.password}
                     onChange={handleChange}
                     required
-
                   />
 
                   <input
@@ -168,7 +162,6 @@ function ClubLogin() {
                     placeholder="Enter your password"
                     onChange={handleChange}
                     required
-
                   />
                 </div>
 
@@ -185,14 +178,12 @@ function ClubLogin() {
                 </div>
                 <br />
 
-
                 <button
                   disabled={credentials.password.length <= 4 || !isEmailValid}
                   type="submit"
                   className="login-btn btn btn-lg btn-block"
                   style={{ backgroundColor: "#C996CC" }}
                 >
-
                   {isLoading ? (
                     <TailSpin color="#FFFFFF" height={30} width={30} />
                   ) : (
@@ -200,7 +191,8 @@ function ClubLogin() {
                   )}
                 </button>
 
-                <br></br><br></br>
+                <br></br>
+                <br></br>
                 <Anchor
                   para=""
                   details="Forgot password?"

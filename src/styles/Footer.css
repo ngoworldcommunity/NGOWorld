@@ -8,17 +8,16 @@
   top: 45px;
 }
 
-/* Added code for report form */
-
 .ml-1 {
   margin-left: 15px;
 }
 
-.reportModalHeader > h4 {
+.reportModalHeader > h1 {
   color: #4e4e4e;
+  font-size: 1.5rem;
 }
 
-.reportModalContent > h6 {
+.reportModalContent > h2 {
   color: #4e4e4e;
   font-size: 0.9rem;
 }
@@ -75,8 +74,6 @@
 .btn-hover:focus {
   outline: none;
 }
-
-/* // */
 
 .links {
   color: rgb(177, 177, 177);
@@ -186,17 +183,6 @@
   }
 }
 
-/* @media (max-width: 368px) {
-	.report {
-    width: 250px;
-    height: 42px;
-    position: relative;
-    right: 20%;
-    top: 15%;
-    margin-bottom: 20px;
-  }
-} */
-
 .reportModal {
   position: fixed;
   width: 100%;
@@ -233,6 +219,10 @@
   margin-bottom: 1rem;
 }
 
+.footer_auth_text {
+  color: #9ac2fe;
+}
+
 @media screen and (min-width: 526px) {
   body {
     overflow: unset;
@@ -245,8 +235,8 @@
     align-items: center;
   }
 
-  .reportModalHeader > h4 {
-    font-size: 1.2em;
+  .reportModalHeader > h1 {
+    font-size: 1.2rem;
     margin-left: 1.4rem;
     margin-bottom: 0px;
     flex: auto;
@@ -292,7 +282,7 @@
     gap: 30px;
   }
 
-  .join-us h6 {
+ .join-us h1 {
     position: relative;
     left: -30px;
   }

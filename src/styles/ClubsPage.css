@@ -25,7 +25,7 @@ div#clubs_banner {
   margin-inline: 20px;
 }
 
-#clubscol_1 h2 {
+#clubscol_1 h1 {
   font-style: normal;
   font-weight: bold;
   font-size: 48px;
@@ -116,8 +116,9 @@ div#clubs_banner {
   border-radius: 15px;
 }
 
-.clubCard h3 {
-  font-weight: bold;
+.clubCard h1 {
+  font-weight: 700;
+  font-size: 1.75rem;
   font-family: "Mulish";
 }
 
@@ -262,8 +263,6 @@ body::-webkit-scrollbar-thumb {
 /* Banner Portion CSS */
 
 .event_image {
-  /* max-width: 596px;
-  max-height: 500px; */
   min-width: 470px;
   width: 100%;
 }
@@ -281,7 +280,7 @@ div#event_banner {
   margin-inline: 20px;
 }
 
-#eventCol_1 h2 {
+#eventCol_1 h1 {
   font-style: normal;
   font-weight: bold;
   font-size: 48px;
