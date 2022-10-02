@@ -3,33 +3,34 @@
 <br/>
 
 <h1 align="center">
-✨ A hub for help to meet need ✨ <br/>
+✨ A hub for help to meet the needs ✨ <br/>
 </h1>
 <h3 align="center">
 With Milan we help users, NGOs, Clubs and charities to meet their needs. <br/>
 </h3>
+<br>
 <p align="center">
-Join as an User, NGO, Club or Charity and help us to make the world a better place. You can donate, buy, sell, volunteer, help, and more. We also have events tab for orgs to post their events and for users to attend those without much hassle. Milan is Opensource too, come, contribute 🚀 <br/>
+Join as a User, NGO, Club or Charity and help us make the world a better place. You can donate, buy, sell, volunteer, and help us in multiple ways. We also have events tab for organizations to post their events for users to attend those without a lot of hassle. <br> Milan is Opensource too, come, contribute 🚀 
 </p>
-<br/>
-<br/>
+<br>
 
 <h1 align="center">
-Why the name Milan ?
+Why the name - 'Milan' ?
 </h1>
-
+<br>
 <p align="center">
-The word ‘Milan’ when literally translated from its colloquial form to English means ‘conjugation’.
-It is often seen that people get scammed and their money is stolen when they were just trying to do good for other people, they were trying to extend their help. Again, it is seen that there are some Clubs or NGOs who do not get enough funds to work for humanitarian causes because of the lack of proper representation.
+The word ‘Milan’ when translated from its colloquial form into English means ‘conjugation’.
+It is often seen that people get scammed when their intentions are in liue they were just trying to do good for other people, they were trying to extend their help. Again, it is seen that there are some Clubs or NGOs who do not get enough funds to work for humanitarian causes because of the lack of proper representation.
 </p>
 <br/>
-<br/>
+
 
 <!-- //* CONTRIBUTE  -->
 
 <h1 align="center">
-Want to contribute ? 
+Contributing to the Project
 </h1>
+<br>
 
 <p align="center">
     <img alt="C" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
@@ -53,21 +54,25 @@ Want to contribute ?
 </br>
 
 <p align="center">
-We are built with MERN Stack, with designings done in Canva, Figma and so much more. You can surely make a NEW ISSUE, or solve AN EXISTING ISSUE - the choice is yours. Apart from code, you can also help us with DOCS, Automations , UI/UX 🚀 </p>
-</br>
+Milan is built using MERN Stack. The designing has been done in Canva, Figma and using other tools. You can surely make a NEW ISSUE, or solve AN EXISTING ISSUE - the choice is yours. Apart from code, you can also help us with documentation, Automations or/and UI/UX. 🚀 </p>
+
+<p align="center">
+It is always recommended that you *open an issue and get it assined to you* before working on any feature which would bring clarity in working as well as it ensures that no two people are working on the same thing.  
+</p>
+
 </br>
 
 <h1 align="center">
 Guidelines to be followed 🔐
 </h1>
+<br>
 
 <p align="center">
-We have a set of guidelines to be followed by all the contributors. <br/>
-Take a look below, and try to maintain it while contributing ⤵ <br/><br/>
+We request all the people who wish to contribute to follow the set of guidelines that have been defined to maintain smooth working of contributions. Take a look below, and try to maintain it while contributing ⤵ <br/> 
 
 <a href="https://github.com/IAmTamal/Milan/blob/main/CONTRIBUTING.md" align="center"> <h5 align="center"> ⭐CONTRIBUTING GUIDELINES TO BE FOLLOWED </h5> </a>
     
-<a href="https://github.com/IAmTamal/Milan/blob/main/CODE_OF_CONDUCT.md" align="center"> <h5 align="center"> ⭐ CODE OF CONDUCT WHICH NEEDS TO BE MAINTAINED </h5> </a></br>
+<a href="https://github.com/IAmTamal/Milan/blob/main/CODE_OF_CONDUCT.md" align="center"> <h5 align="center"> ⭐ CODE OF CONDUCT THAT NEEDS TO BE MAINTAINED </h5> </a></br>
     
 <a href="https://github.com/IAmTamal/Milan/blob/main/rules/FrontendSetup.md" align="center"> <h5 align="center"> 🛠 SETTING UP THE FRONTEND LOCALLY </h5> </a>
     
@@ -75,11 +80,13 @@ Take a look below, and try to maintain it while contributing ⤵ <br/><br/>
 
 </p>
 </br>
-</br>
+
 
 <h1 align="center">
 Most active contributors 🚀
 </h1>
+
+<br>
 
 <p align="center">
 <a  href="https://github.com/IAmTamal/Milan/graphs/contributors">
@@ -87,11 +94,20 @@ Most active contributors 🚀
 </a>
 </p>
 </br>
-</br>
+
 
 <h1 align="center">
-Thankyou all 💚
+Thank you everyone! 💚
 </h1>
 
 <p align="center">
-Thankyou all to those who have contributed to this project. We are really grateful to you all. <br/> You all are amazing, Opensource for the win 🚀 </p>
+A heartfelt thank you to those who have contributed to this project. We are really grateful towards yoyr contribution. <br/> You all are amazing. Opensource for the win 🚀 </p>
+
+<h1 align="center">
+License
+</h1>
+
+<p align="center">
+Milan is Licensed under the <a href="./LICENSE">MIT License</a>. Please go through the License atleast once before contributing. </p>
+
+
