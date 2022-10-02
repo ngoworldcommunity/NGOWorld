@@ -4,7 +4,7 @@
 
 <br/>
 
-- Issues will be assigned on a First-Come-First-Serve basis and are applicable only when they are opted through GitHub.
+- Issues will be assigned on a **First-Come-First-Serve** basis and are applicable only when they are opted through GitHub.
 - Each issue needs to be completed within a specific time limit according to its difficulty level ( **`Easy`: 1 day, `Medium`: 2-3 days and `Hard`: 4 days )**.
 - If a mentee is unable to solve the allotted issue within the given period, the issue needs to be passed to other contenders on the discretion of the mentor.
 
@@ -32,4 +32,4 @@
 
 <br/>
 
-**You'll be needing to follow the [Setup Guidelines](https://github.com/IAmTamal/Milan/blob/main/rules/Setup.md) for more details on setting up the code in your local machine**
+**You'll be needing to follow the [Setup Guidelines](https://github.com/IAmTamal/Milan/blob/main/rules/) for more details on setting up the code in your local machine**
