@@ -27,6 +27,4 @@ app.use("/display", require("./routes/Display"));
 //* Payment routes
 app.use("/payment", require("./routes/Payment"));
 
-app.listen(port, () => {
-  console.log("API IS RUNNING 🚀");
-});
+app.listen(port, () => console.log("API IS RUNNING 🚀"));
