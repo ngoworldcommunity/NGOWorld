@@ -6,7 +6,7 @@
   --fontcolor:#fff;
   --subtitle:rgb(0, 89, 205);
   --heading:black;
-  --buttonhover:#1f1f1f;
+  --buttonhover:#ffffff;
 }
 .dark-theme{
   --background:url("../assets/pictures/milan.jpg");
@@ -14,7 +14,7 @@
   --fontcolor:rgb(255, 255, 255);
   --subtitle:rgb(255, 255, 255);
   --heading:#0d6efd;
-  --buttonhover:#949600;
+  --buttonhover:#ffffff;
 }
 
 
@@ -132,8 +132,8 @@
     margin-top: 10px !important;
   }
   .dark-mode{
-    margin-bottom: 50px;
-    margin-left: 50px;
+    margin-bottom:850px;
+    margin-left: 250px;
   }
 }
 
@@ -142,22 +142,16 @@
     bottom: 0;
   }
 }
-@media (max-width: 1080px) {
-  .dark-mode{
-    margin-bottom: 850px;
-    margin-left: 1250px;
-  }
+.moon{
+  width: 30px;
 }
 .dark-mode{
-  margin-bottom: 850px;
-  margin-left: 1250px;
+  margin-left: 85%;
+  margin-bottom:850px;
 }
 .darkmode{
-  position: static;
-  padding:5px;
-  border-radius: 20px;
-  font-size: 15px;
-  font-family:Arial, Helvetica, sans-serif;
+  padding:10px;
+  border-radius: 50px;
   color: var(--fontcolor);
   background-color:var(--buttoncolor);
   border: none;

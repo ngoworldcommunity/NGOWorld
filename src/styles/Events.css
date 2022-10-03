@@ -1,12 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200;400;500;700;800&display=swap");
 
+.light-theme{
+  --eventbackground:white;
+  --font:black;
+}
+.dark-theme{
+  --eventbackground:black;
+  --font:white;
+}
+#events-banner{
+  background-color:var(--eventbackground);
+}
 div#events-banner {
-  width: 85%;
-  margin: 64px auto;
+  width: 100%;
+  padding: 64px auto;
   font-family: "Mulish", sans-serif;
 }
 
 div#eventsCol1 {
+  padding-top: 10%;
+  padding-bottom: 10%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -36,7 +49,7 @@ div#eventsCol2 p {
   font-weight: bold;
   font-size: 20px;
   line-height: 30px;
-  color: #000000;
+  color:var(--font);
 }
 
 div#eventsCol2 button {

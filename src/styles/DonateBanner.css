@@ -1,8 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200;400;500;700;800&display=swap");
 
+.light-theme{
+  --bodybackground:#fff;
+  --font:#000000;
+}
+.dark-theme{
+  --bodybackground:rgb(21, 21, 21);
+  --font:rgb(255, 255, 255);
+}
+.donate{
+  background-color:var(--bodybackground);
+}
 div#donate-banner {
   width: 80%;
-  margin: 64px auto;
+  margin:auto;
   font-family: "Mulish", sans-serif;
 }
 
@@ -21,7 +32,7 @@ div#donateCol1 p {
   font-size: 20px;
   line-height: 30px;
 
-  color: #000000;
+  color:var(--font);
 }
 
 div#donateCol1 button {
@@ -44,6 +55,8 @@ div#donateCol1 button {
 }
 
 div#donateCol2 {
+  padding-top: 5%;
+  padding-bottom: 5%;
   display: flex;
   justify-content: flex-end;
   align-items: center;

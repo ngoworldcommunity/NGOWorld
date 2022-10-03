@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import BannerBg from "../assets/pictures/milanBg.jpg";
+import moon from "../assets/pictures/moon.png";
 import "../styles/Banner.css";
 
 const Banner = () => {
@@ -31,11 +32,11 @@ const Banner = () => {
     <>
       <div className="banner-container" style={{ backGround: BannerBg }}>
         <div className="dark-mode">
-        <button
-            type="button"
-            className="darkmode" onClick={() => toggleTheam()}>
-            Dark Mode
-        </button>
+          <button
+              type="button"
+              className="darkmode" onClick={() => toggleTheam()}>
+                <img class="moon"src={moon}/>
+          </button>
         </div>
         <div className="banner-inner">
           <div className="banner-content">

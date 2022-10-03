@@ -5,10 +5,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+.light-theme{
+  --bodycolor:white;
+}
+.dark-theme{
+  --bodycolor:black;
+}
+.bodysection{
+  background-color:var(--bodycolor);
+}
 
 #body-section {
   position: relative;
-  background-color: #efefef;
   width: 100%;
   height: 1080px;
   left: 0px;
