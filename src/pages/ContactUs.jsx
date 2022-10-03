@@ -9,18 +9,22 @@ const ContactUs = () => {
 	document.title = "Milan | Contact Us";
 	const initialState = { firstName: "", lastName: "", email: "", message: "" };
 	const [formData, setFormData] = useState(initialState);
-	const [isEmailValid, setIsEmailValid] = useState(false);
+	
 
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.id]: e.target.value });
-		if (
-			e.target.id === "email" &&
-			e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
-		) {
-			setIsEmailValid(true);
-		}
 	};
-
+	
+	const isEmailValid = (email) => {
+    		const regex =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; 
+    		if (
+			regex.test(email)
+		) {
+      			return true;
+    		 }
+    			return false;
+  	};
+	
 	const handleSubmit = () => {
 		// validation
 		if (
@@ -31,8 +35,9 @@ const ContactUs = () => {
       			toast.warn("Please fill out all the fields.");
    		 } 
 		else if ( 
-			!isEmailValid 
-		) {
+			!isEmailValid(formData.email) 
+		) {	
+			// Email Validation
       			toast.warn("Please provide a correct email.");
     		} else {
 		      Contact(formData, toast);
