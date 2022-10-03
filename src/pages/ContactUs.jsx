@@ -10,7 +10,6 @@ const ContactUs = () => {
 	const initialState = { firstName: "", lastName: "", email: "", message: "" };
 	const [formData, setFormData] = useState(initialState);
 	
-
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.id]: e.target.value });
 	};
