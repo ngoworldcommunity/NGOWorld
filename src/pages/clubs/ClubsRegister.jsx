@@ -51,7 +51,7 @@ const ClubLogin = () => {
     e.preventDefault();
 
     setIsLoading(true);
-    await RegisterClub(credentials);
+    await RegisterClub({ ...credentials, tagLine: "This is a testing Tagline" })
     setIsLoading(false);
 
     toast("🌈 Registered club !", {
@@ -317,11 +317,11 @@ const ClubLogin = () => {
 
               <div className="d-grid gap-2 py-4">
                 <button
-                  disabled={
-                    credentials.description.trim().length < 20 ||
-                    credentials.password.length <= 4 ||
-                    !isEmailValid
-                  }
+                  // disabled={
+                  //   credentials.description.trim().length < 20 ||
+                  //   credentials.password.length <= 4 ||
+                  //   !isEmailValid
+                  // }
                   type="submit"
                   className="registration-btn btn btn-primary py-2"
                 >

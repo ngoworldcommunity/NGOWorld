@@ -15,6 +15,10 @@
   cursor: pointer;
 }
 
+.nav-item a:hover {
+  color: #297f75;
+}
+
 .active-link {
   border-bottom: 4px solid grey;
   width: 50%;
