@@ -199,7 +199,6 @@ const UserRegister = () => {
                     required
                     aria-label="Adress"
                     </textarea>
-                
                 </div>
                 {/* //* Pincode */}
                 <div className="form-outline mb-4">
