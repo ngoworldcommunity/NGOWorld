@@ -4,13 +4,13 @@ const SocialIcons = () => {
   return (
     <ul className="social-icons list-inline mt-5">
       <li className="list-inline-item">
-        <a href="#" target="_blank" title="twitter">
-          <i className="fa fa-twitter"></i>
+        <a href="https://twitter.com/mrTamall" target="_blank" title="twitter">
+          <i className="fa fa-twitter" style={{color:"#9ac2fe"}}></i>
         </a>
       </li>
       <li className="list-inline-item">
-        <a href="#" target="_blank" title="facebook">
-          <i className="fa fa-facebook"></i>
+        <a href="https://github.com/IAmTamal/Milan" target="_blank" title="github">
+          <i className="fa fa-github"  style={{color:"#9ac2fe"}}></i>
         </a>
       </li>
     </ul>
