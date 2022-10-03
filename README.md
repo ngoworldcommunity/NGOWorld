@@ -78,6 +78,8 @@ We request all the people who wish to contribute to follow the set of guidelines
     
 <a href="https://github.com/IAmTamal/Milan/blob/main/rules/BackendSetup.md" align="center"> <h5 align="center"> 🛠 SETTING UP THE BACKEND LOCALLY </h5> </a>
 
+<a href="https://github.com/IAmTamal/Milan/blob/main/rules/DockerSetup.md" align="center"> <h5 align="center"> 🛠 SETTING UP THE APP WITH DOCKER </h5> </a>
+
 </p>
 </br>
 
