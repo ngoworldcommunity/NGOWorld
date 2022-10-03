@@ -104,10 +104,10 @@
 }
 
 @media only screen and (max-width: 430px) {
-  .userreg_des_firstname {
-    display: none;
-  }
-  .userreg_mob_firstname {
-    display: block;
-  }
+	 .userreg_des_firstname {
+	    	display: none;
+	 }
+	 .userreg_mob_firstname {
+		display: block;
+	 }
 }
