@@ -193,11 +193,11 @@ const UserRegister = () => {
               
                     //className="form-control form-control-lg remove_placeholder_desktop"
                     } */}
-                    <textarea cols= "80" rows= "5" value={credentials.address} id="address"
-                    name="address" >
+                    <textarea  name="address"  cols= "80" rows= "5" id="address">
+                    value={credentials.address} 
                     onChange={handleChange}
                     required
-                    aria-label="Adress"
+                    {/* aria-label="Adress" */}
                     </textarea>
                 </div>
                 {/* //* Pincode */}

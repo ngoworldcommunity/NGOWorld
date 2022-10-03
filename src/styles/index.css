@@ -13,13 +13,13 @@ code {
     monospace;
 }
  footer{
-  background-color: black;
+  background-color:  rgb(66, 65, 65);
   position: relative; 
   font-family:"Open Sans";
-  padding-top: 10px ;
-  padding-bottom: 1px; 
+  /* padding-top: 10px ;
+  padding-bottom: 1px;  */
   color: white;
-  box-shadow: rgb(0 0 0 / 15%) 0px 0px 16px 9px;
+  /* box-shadow: rgb(0 0 0 / 15%) 0px 0px 16px 9px; */
   text-align: center;
  }
  .footer-content{
