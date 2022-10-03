@@ -11,6 +11,7 @@ export default function EventCreate() {
   const [eventdetails, seteventdetails] = useState({
     eventname: "",
     eventdate: "",
+    eventtime: "",
     eventlocation: "",
     eventdescription: "",
   });
@@ -36,6 +37,7 @@ export default function EventCreate() {
           seteventdetails({
             eventname: "",
             eventdate: "",
+            eventtime: "",
             eventlocation: "",
             eventdescription: "",
           });
@@ -84,15 +86,29 @@ export default function EventCreate() {
                     onChange={handleChange}
                   />
                 </div>
+
                 <div class="form-outline">
                   <input
                     type="text"
                     class="eventCreateFormInput form-control form-control-md"
-                    id="eventTime"
+                    id="eventdate"
                     name="eventdate"
                     required
-                    placeholder="When will it take place?"
+                    placeholder="Date of the event?"
                     value={eventdetails.eventdate}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div class="form-outline">
+                  <input
+                    type="text"
+                    class="eventCreateFormInput form-control form-control-md"
+                    id="eventtime"
+                    name="eventtime"
+                    required
+                    placeholder="Time of the event? (24 Hours format, IST)"
+                    value={eventdetails.eventtime}
                     onChange={handleChange}
                   />
                 </div>
