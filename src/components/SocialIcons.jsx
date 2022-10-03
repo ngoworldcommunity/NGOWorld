@@ -8,11 +8,11 @@ const SocialIcons = () => {
           <i className="fa fa-twitter" style={{color:"#9ac2fe"}}></i>
         </a>
       </li>
-      {/* <li className="list-inline-item">
-        <a href="#" target="_blank" title="facebook">
-          <i className="fa fa-facebook"></i>
+      <li className="list-inline-item">
+        <a href="https://github.com/IAmTamal/Milan" target="_blank" title="github">
+          <i className="fa fa-github"  style={{color:"#9ac2fe"}}></i>
         </a>
-      </li> */}
+      </li>
     </ul>
   );
 };
