@@ -1,5 +1,7 @@
 import React from "react";
 import '../styles/Products.css'
+import star from '../assets/pictures/star.png'
+
 
 const Products = () => {
     return (
@@ -12,9 +14,9 @@ const Products = () => {
 
 const Cards = (props) =>{
     return(
-        <div className="card">
-            <img src={props.image} />
-            <div className="stars">{props.stars}</div>
+        <div className="card" key={props.id}>
+            <img src={`../../assets/pictures/${props.image}`} className="art" />
+            <img src={star} className='star' />
             <h6>Art:{props.title}</h6>
             <h6>${props.price}</h6>
         </div>

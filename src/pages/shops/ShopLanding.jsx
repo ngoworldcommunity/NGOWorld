@@ -4,13 +4,15 @@ import Navbar from "../../components/Navbar";
 import data from "./SHOP_DATA";
 import { Products, Cards } from "../../components/Products";
 
+
+
 const ShopLanding = () => {
 
     const cards = data.map(item => {
         return (
          <Cards
+            key = {item.id}
             image = {item.image}
-            stars = {item.stars}
             title = {item.title}
             price = {item.price}
           />   

@@ -25,3 +25,16 @@
     height: 1px;
     width: 85%;
 }
+
+.card{
+    border: 5px solid salmon;
+    width: 400px;
+}
+
+.art{
+    width: 200px;
+}
+
+.star{
+    width:5%;
+}
