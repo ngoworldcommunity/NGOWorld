@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/ClubsPage.css";
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import { GetAllEvents } from "../../service/MilanApi";
 import SingleEvent from "../../components/SingleEvent";
 import Eventspic from "../../assets/pictures/EventsPagefloating.svg";
@@ -51,6 +52,7 @@ const EventsPage = () => {
           return <SingleEvent key={club._id} club={club} />;
         })}
       </div>
+      <Footer />
     </>
   );
 };
