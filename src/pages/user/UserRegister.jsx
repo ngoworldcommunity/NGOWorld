@@ -193,7 +193,7 @@ const UserRegister = () => {
               
                     //className="form-control form-control-lg remove_placeholder_desktop"
                     } */}
-                    <textarea  name="address"  cols= "80" rows= "5" id="address">
+                    <textarea name="address" cols= "80" rows= "5" id="address">
                     value={credentials.address} 
                     onChange={handleChange}
                     required

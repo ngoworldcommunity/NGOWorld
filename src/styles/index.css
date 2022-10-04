@@ -12,28 +12,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
- footer{
-  background-color:  rgb(66, 65, 65);
-  position: relative; 
-  font-family:"Open Sans";
-  /* padding-top: 10px ;
-  padding-bottom: 1px;  */
-  color: white;
-  /* box-shadow: rgb(0 0 0 / 15%) 0px 0px 16px 9px; */
-  text-align: center;
- }
- .footer-content{
-  display: flex;
-  justify-content: center;
-  flex-direction: column; 
-  align-items: center;
- }
- .footer-content p{
-   max-width: 500px;
-   margin: 100px auto;
-   line-height: 28px;
-   font-size: 30px;
-   align-items: center;
-   justify-items: center;
-   margin: 0; 
- }
+ 

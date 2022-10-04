@@ -292,3 +292,18 @@
     top: -10px;
   }
 }
+footer{
+  background-color:  rgb(66, 65, 65);
+  position: absolute;  
+  font-family:"Open Sans";
+  color: white; 
+  text-align: center;
+ }
+ .footer-content{
+  display: flex;
+  justify-content: center;
+  flex-direction: column; 
+  align-items: center;
+  max-width: 200px; 
+ }
+
