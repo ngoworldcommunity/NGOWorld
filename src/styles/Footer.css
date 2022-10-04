@@ -298,12 +298,15 @@ footer{
   font-family:"Open Sans";
   color: white; 
   text-align: center;
+   
  }
  .footer-content{
   display: flex;
   justify-content: center;
   flex-direction: column; 
   align-items: center;
-  max-width: 200px; 
+  max-width: 200px;
+  margin-top: 15px; 
+ 
  }
 
