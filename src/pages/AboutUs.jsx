@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/AboutUs.css";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import abtImg from "../assets/pictures/about-pana.png";
 
 export default function AboutUs() {
@@ -30,6 +31,7 @@ export default function AboutUs() {
           </p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

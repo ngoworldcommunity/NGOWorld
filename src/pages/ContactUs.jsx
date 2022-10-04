@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/ContactUs.css";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import contactImage from "../assets/pictures/contactUs.svg";
 import { Contact } from "../service/MilanApi";
 import { ToastContainer, toast } from "react-toastify";
@@ -162,6 +163,7 @@ const ContactUs = () => {
 					</div>
 				</div>
 			</section>
+			<Footer />
 		</>
 	);
 };
