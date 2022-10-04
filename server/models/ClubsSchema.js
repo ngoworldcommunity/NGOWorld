@@ -21,7 +21,7 @@ const ClubsSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
-  tagline: {
+  tagLine: {
     type: String,
     required: true,
   },
