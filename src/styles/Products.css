@@ -1,0 +1,27 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.group {
+    margin-top: 8em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.group h1{
+  color:#474747;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 60px;
+}
+
+.group hr{
+    background-color: #474747;
+    height: 1px;
+    width: 85%;
+}

@@ -13,10 +13,13 @@
     font-family: "Mulish", sans-serif;
 }
 
-.store div{
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-h1{
+.info h1{
   font-style: normal;
   font-weight: bold;
   font-size: 48px;
@@ -25,7 +28,7 @@ h1{
   width: 50%;
 }
 
-p{
+.info p{
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
@@ -34,8 +37,22 @@ p{
     width: 50%;
 }
 
+.info button {
+  width: 196px;
+  padding: 8px;
+  border: none;
+  border-radius: 12px;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #297f75;
+}
+
 
 .ShopImg{
     min-width: 470px;
-    width: 50%; 
+    width: 40%; 
 }

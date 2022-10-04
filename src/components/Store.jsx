@@ -1,13 +1,13 @@
 import React from "react";
 import Landing from '../assets/pictures/shoplanding.svg'
-import "../styles/Top.css"
+import "../styles/Store.css"
 
-const Top = () => {
+const Store = () => {
 
     return (
             <div className="store">
                 <img src={Landing} alt="shops" className="ShopImg" />
-                <div>
+                <div className="info">
                     <h1>Welcome to our store !</h1>
                     <p>We aim at selling you fine artworks, products that would support the local community ! </p>
                     <button>Shop Now</button> 
@@ -17,4 +17,4 @@ const Top = () => {
 }
  
 
-export default Top
+export default Store
