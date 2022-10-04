@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.store{
+    margin-top: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Mulish", sans-serif;
+}
+
+.store div{
+}
+
+h1{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 60px;
+  color: #2e8e83;
+  width: 50%;
+}
+
+p{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+    color: #000000;
+    width: 50%;
+}
+
+
+.ShopImg{
+    min-width: 470px;
+    width: 50%; 
+}
