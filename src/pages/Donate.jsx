@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import donate_image1 from "../assets/pictures/donate_image1.svg"
 import Navbar from "../components/Navbar"
+import Footer from "../components/Footer";
 import SingleClub from '../components/SingleClub'
 import { GetAllClubs } from '../service/MilanApi'
 import "../styles/Donate.css"
@@ -91,6 +92,7 @@ const Donate = () => {
                     return <SingleClub key={club._id} club={club} />;
                 })}
             </div>
+            <Footer />
         </>
     )
 }
