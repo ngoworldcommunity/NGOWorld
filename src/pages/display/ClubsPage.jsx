@@ -3,6 +3,7 @@ import SingleClub from "../../components/SingleClub";
 import "../../styles/ClubsPage.css";
 import clubs_banner from "../../assets/pictures/clubs-banner.svg";
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import { GetAllClubs } from "../../service/MilanApi";
 
 const ClubsPage = () => {
@@ -43,6 +44,7 @@ const ClubsPage = () => {
           return <SingleClub key={club._id} club={club} />;
         })}
       </div>
+      <Footer />
     </>
   );
 };
