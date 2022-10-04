@@ -75,7 +75,7 @@ const ContactUs = () => {
 										placeholder="First name"
 										id="firstName"
 										value={formData.firstName}
-										className="form-control form-control-lg me-md-2"
+										className="userreg_des_firstname form-control form-control-lg me-md-2"
 										onChange={handleChange}
 										autoFocus
 									/>
