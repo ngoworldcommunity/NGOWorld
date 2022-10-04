@@ -77,7 +77,7 @@ router.post("/login", async (req, res) => {
 
 router.post("/createevent", async (req, res) => {
   try {
-    const { eventname, eventlocation, eventdate, eventdescription } = req.body;
+    // const { eventname, eventlocation, eventdate, eventdescription } = req.body;
     const eventData = Events({
       Eventname: eventname,
       Eventdate: eventdate,
