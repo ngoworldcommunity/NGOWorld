@@ -14,6 +14,8 @@ import EventCreate from "./pages/clubs/EventCreate";
 import EventsPage from "./pages/display/EventsPage";
 import Donate from "./pages/Donate";
 import ClubProfile from "./pages/clubs/ClubProfile";
+import ShopLanding from "./pages/shops/ShopLanding";
+
 
 const App = () => {
   return (
@@ -43,6 +45,7 @@ const App = () => {
             <Route exact path="/about-us" element={<AboutUs />} />
             <Route exact path="/clubs/createevent" element={<EventCreate />} />
             <Route exact path="/display/events" element={<EventsPage />} />
+            <Route exact path="/shops/shop" element={<ShopLanding />} />
 
             {/* //* Donations */}
             <Route exact path="/donateus" element={<Donate />} />
