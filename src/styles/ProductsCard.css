@@ -1,0 +1,16 @@
+
+.card-group{
+    width: 80%;
+    justify-content: space-evenly;
+    margin-bottom: 6em;
+    margin-top: 3em;
+}
+
+.art{
+    width: 200px;
+}
+
+.star{
+    width:50px;
+}
+
