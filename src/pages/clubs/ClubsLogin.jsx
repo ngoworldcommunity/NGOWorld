@@ -68,12 +68,13 @@ function ClubLogin() {
       } else if (response.data.success === false) {
         toast("🌈 Error !", {
           position: "top-right",
-          autoClose: 3000,
+          autoClose: 1500,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
+          closeButton:false,
         });
         setCredentials({
           email: "",
