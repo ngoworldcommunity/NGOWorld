@@ -8,10 +8,10 @@
 - `git clone` to clone the repo
 
 - Now you have the repo in your **local storage**
-
-- Next to setup the react app `npm install`
+- Make sure you have **Node.js** on your local device, click [here](https://nodejs.org/en/download/) & download the **LTS version** of it. 
+- Next to setup the *react app* `npm install`
 - Once the node modules and other stuffs are installed , `npm start` to start the app in `http://localhost:3000/`
-- To setup the backend, You can refer <a href="https://github.com/IAmTamal/Milan/blob/main/rules/BackendSetup.md">BackendSetup.md</a>
+- To setup the **backend**, You can refer <a href="https://github.com/IAmTamal/Milan/blob/main/rules/BackendSetup.md">BackendSetup.md</a>
 - Make changes **according** to the Tasks assigned to you
 - Maintain the folder structure , keep small components like **Navbar, Footer** in `src\components` folder
 - Keep big Pages like **Login page, home page** in the `src\pages` folder

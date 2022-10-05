@@ -32,6 +32,7 @@ const ClubLogin = () => {
     address: "",
     pincode: "",
     description: "",
+    tagLine: ""
   });
 
   const [isEmailValid, setIsEmailValid] = useState(false);
@@ -51,7 +52,7 @@ const ClubLogin = () => {
     e.preventDefault();
 
     setIsLoading(true);
-    await RegisterClub(credentials);
+    await RegisterClub({ ...credentials})
     setIsLoading(false);
 
     toast("🌈 Registered club !", {
@@ -62,9 +63,7 @@ const ClubLogin = () => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      onClose: () => {
-        navigate("/clubs/login");
-      },
+      onClose: () => navigate("/clubs/login"),
     });
   };
 
@@ -128,6 +127,37 @@ const ClubLogin = () => {
                   onChange={handleChange}
                   required
                   aria-label="Club name"
+                />
+              </div>
+              <div className="form-outline mb-4">
+                <label
+                  htmlFor="club-tagLine"
+                  className="col-form-label col-form-label-lg regformlabels"
+                >
+                  Club Tagline 🏷️ (Max 50 Chars.)
+                </label>
+                <input
+                  type="text"
+                  className="clubreg_des form-control "
+                  name="tagLine"
+                  value={credentials.tagLine}
+                  onChange={handleChange}
+                  required
+                  autoFocus
+                  aria-label="Club Tagline"
+                  id="club-tagLine"
+                  maxLength={50}
+                />
+                <input
+                  type="text"
+                  className="clubreg_mob form-control "
+                  name="tagLine"
+                  value={credentials.tagLine}
+                  placeholder="Enter your club Tagline (Max. 50 Characters)"
+                  onChange={handleChange}
+                  required
+                  aria-label="Club TagLine"
+                  maxLength={50}
                 />
               </div>
 
