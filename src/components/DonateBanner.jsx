@@ -22,7 +22,7 @@ const DonateBanner = () => {
 				<p>So why not help millions by sharing your love ?</p>
 
 
-				<button type="button" className="mt-4 button_animation" onClick={() => { handleDonate() }} > Share your love ❤️</button>
+				<button type="button" className="mt-4 button_animation btn" onClick={() => { handleDonate() }} > Share your love ❤️</button>
 			</div>
 			<div id="donateCol2">
 				<img src={donateImg} alt="" className="donateImg" />
