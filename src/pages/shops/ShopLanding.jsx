@@ -1,5 +1,5 @@
 import React from "react";
-import ShopHeader from "../../components/Store";
+import ShopHeader from "../../components/ShopHeader";
 import Navbar from "../../components/Navbar";
 import Products from "../../components/Products";
 
