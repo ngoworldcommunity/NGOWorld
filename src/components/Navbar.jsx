@@ -71,7 +71,9 @@ const Navbar = () => {
               </li>
               {/* Render Contact Us in Navabr only for Login and Register Pages */}
               {(location.pathname === "/user/login" ||
-                location.pathname === "/user/register") && (
+                location.pathname === "/user/register" ||
+                location.pathname === "/clubs/login" ||
+                location.pathname === "/clubs/register" ) && (
                 <li className="nav-item home">
                   <Link to={"/contact"}>Contact</Link>
                   <div
