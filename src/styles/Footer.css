@@ -157,6 +157,18 @@
   margin-left: 200px;
 }
 
+.btn-contact {
+  border-radius: 5px;
+  background-color: #9ac2fe;
+  border: none;
+  color: #424141;
+}
+
+.btn-contact:hover {
+  transition-duration: 0.5s;
+  color: #000000;
+}
+
 @media screen and (max-width: 1276px) {
   .footer-links {
     line-height: 40px !important;
