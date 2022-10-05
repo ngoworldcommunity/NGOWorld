@@ -189,16 +189,17 @@ const UserRegister = () => {
                     Address 🏡
                   </label>
 
-                  {/* { <input
-              
-                    //className="form-control form-control-lg remove_placeholder_desktop"
-                    } */}
-                    <textarea name="address" cols= "80" rows= "5" id="address">
-                    value={credentials.address} 
+                  <input
+                    type="text"
+                    className="form-control form-control-lg remove_placeholder_desktop"
+                    id="address"
+                    name="address"
+                    placeholder="Address"
+                    value={credentials.address}
                     onChange={handleChange}
                     required
-                    {/* aria-label="Adress" */}
-                    </textarea>
+                    aria-label="Adress"
+                  />
                 </div>
                 {/* //* Pincode */}
                 <div className="form-outline mb-4">
