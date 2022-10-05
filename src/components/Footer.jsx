@@ -217,9 +217,10 @@ const Footer = () => {
               You can submit a report to us by filling a form below !
             </p>
             <div className="d-flex justify-content-center rounded mx-auto">
-              <button
+            <button
                 onClick={handleReportModalOpen}
-                className="btn btn-outline-danger p-3 d-flex align-items-center bg-light bg-opacity-25 text-black"
+                className=" btn-report p-3 d-flex align-items-center text-black"
+              
               >
                 <img
                   className="bottom-img"
