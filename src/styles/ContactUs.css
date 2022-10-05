@@ -38,7 +38,9 @@
 	background-color: #fafafa;
 	padding: 10px 10px;
 }
-
+.userreg_mob_firstname {
+  	display: none;
+}
 /* Kept for future reference */
 /* .contact-us-form button {
 	width: 40%;
@@ -99,4 +101,13 @@
 	.inputs {
 		padding: 0 30px 0 30px;
 	}
+}
+
+@media only screen and (max-width: 430px) {
+	 .userreg_des_firstname {
+	    	display: none;
+	 }
+	 .userreg_mob_firstname {
+		display: block;
+	 }
 }
