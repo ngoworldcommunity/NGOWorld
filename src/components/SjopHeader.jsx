@@ -1,8 +1,8 @@
 import React from "react";
 import Landing from '../assets/pictures/shoplanding.svg'
-import "../styles/Store.css"
+import "../styles/ShopHeader.css"
 
-const Store = () => {
+const ShopHeader = () => {
 
     return (
             <div className="store">
@@ -17,4 +17,4 @@ const Store = () => {
 }
  
 
-export default Store
+export default ShopHeader
