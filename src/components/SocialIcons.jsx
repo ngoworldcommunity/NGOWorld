@@ -14,7 +14,7 @@ const SocialIcons = () => {
         </a>
       </li>
       <li className="list-inline-item">
-        <a href="/contact" className="btn-contact text-decoration-none" title="contact">
+        <a href="/contact" className="btn-contact text-decoration-none p-1" title="contact">
           Contact
         </a>
       </li>
