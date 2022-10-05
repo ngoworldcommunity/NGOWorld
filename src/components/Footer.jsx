@@ -30,16 +30,16 @@ const Footer = () => {
   };
 
   React.useEffect(() => {
-    if(reportModal){
+    if (reportModal) {
       const closeEvent = (e) => {
-        if(e.key === 'Escape'){
+        if (e.key === "Escape") {
           handleReportModalClose();
         }
-      }
-      window.addEventListener('keydown', closeEvent);
-      return () => window.removeEventListener('keydown', closeEvent);
+      };
+      window.addEventListener("keydown", closeEvent);
+      return () => window.removeEventListener("keydown", closeEvent);
     }
-  },[reportModal])
+  }, [reportModal]);
 
   const handleReportSubmit = async (e) => {
     e.preventDefault();
@@ -163,7 +163,7 @@ const Footer = () => {
         </div>
       )}
 
-      <div className="px-5 py-2 rounded" style={{ backgroundColor: "#424141" }}>
+      <div className="px-5 py-2" style={{ backgroundColor: "#424141" }}>
         <div className="row py-4">
           <div className="col-lg-6 col-md-6 mb-4 mb-lg-0 px-5">
             <img src="img/logo.png" alt="" width="180" className="mb-3" />
@@ -176,16 +176,24 @@ const Footer = () => {
               easier for the people to find their right community to serve.
             </p>
             <div className="social-icons-desktop">
-              <SocialIcons className="social-icons-desktop" />
+              <div className="twitter social-btn">
+                <i class="fa-brands fa-twitter"></i>
+              </div>
+              <div className="github social-btn">
+                <i class="fa-brands fa-github"></i>
+              </div>
+              <div className="cont social-btn">
+              <i class="cont-icon fa-solid fa-message"></i>
+              </div>
             </div>
           </div>
-
+          
           <div className="join-us col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
             <div className="social-icons-mobile">
               <SocialIcons />
             </div>
 
-            <div>
+            <div className="join">
               <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4">
                 Join Us!
               </h1>
@@ -195,7 +203,7 @@ const Footer = () => {
                     to="/user/login"
                     className="text-decoration-none footer_auth_text"
                   >
-                    Login
+                    <span>Login </span> <i class="fa-solid fa-right-to-bracket"></i>
                   </Link>
                 </li>
                 <li className="mb-2">
@@ -203,32 +211,25 @@ const Footer = () => {
                     to="/user/register"
                     className="text-decoration-none footer_auth_text"
                   >
-                    Register
+                    <span>Register </span> <i class="fa-solid fa-user"></i>
                   </Link>
                 </li>
               </ul>
             </div>
           </div>
-          <div className="col-lg-4 col-md-6 mb-lg-0">
-            <h1 className="h6 text-uppercase text-light font-weight-bold mb-4 text-center">
+          <div className="rep col-lg-4 col-md-6 mb-lg-0">
+            <h1 className="h6 text-uppercase text-light font-weight-bold mb-2 text-center">
               Got something to report ?
             </h1>
             <p className="text-light text-center mb-4">
               You can submit a report to us by filling a form below !
             </p>
             <div className="d-flex justify-content-center rounded mx-auto">
-            <button
+              <button
                 onClick={handleReportModalOpen}
-                className=" btn-report p-3 d-flex align-items-center text-black"
-              
+                className=" btn-report d-flex align-items-center text-black"
               >
-                <img
-                  className="bottom-img"
-                  width="12px"
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAsCAYAAAAacYo8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJqSURBVHgB7ZlNaxNBHMafJq0kKJoUwVpoHasH6SlQj4Jb6FWsh3ptTnqtnyDpJ9CjeEn6CfRaCKRfoNirB+16Ml6SghVKUNp59iVMp7N5adPZDewPnmTnZZdn/vvfmWV2CuNDSJWkCsFxyFEgV+ogOI4VGixL1aQ6UqdD6mtwzjos40h9HtFslA7hD0LgGhFSTVzdbJRGGsDUkP0qUtV+HbK5AmaKAvn5ErL5glcm/0+O0G276HZcnPw6wABcqW2p+qCOg4wL+JFwTI05afLO8kvcWnI8DcPxjz2093fwV/5zMBF8kHrX7zr9jAv4qSH0hptLDubWKkObjaK9X8fvxnbUAHh7VhExC0UZFzCYviFTYWGjdmXDOq1G1RuAgUjzJuMCBtO3l9ex+LrWy91xw6h//7Rqiv4efPPnyBquQdNP1Ip7Mi0WXn1EZjqH64IP9OzTMv5828W/45baJOCvGbtqZUY7n7NHSa2g6bm1KmzAu/nobRP5+yW9aQvaBKGmioC/IPTgQ/j4TRO2iUgbFh6GBTXiFbUXH8TFjRriIJwENAT8VwyPrFJZV3vNv3g/9tljFGi+2/mpL1rM9R0ehBF39JNmV8qIG64VGk6gnvFNtfXusy0kAQbQcNe9CmPEuYwnheLKpl71nD807qi1HCWVFAwR9+ZKGj+3FM4kyDRhELXVmoUHF4wnKdohBk9FGhcDOsUOXwc0ChlMKKlx26TGbZMat01q3Dapcdukxm2TGrdNatw2E2t8Wq/gl4JWA4nCtPF/wTg/dVBJh6kS+wfTy8INltMJ0iFNh/vjAsoWboJhdnyRcs8A1PDl9IzPLdoAAAAASUVORK5CYII="
-                  alt="blue-siren"
-                />
-                Report!
+                <span>Report! <i class="fa-solid fa-bug"></i></span>
               </button>
             </div>
           </div>

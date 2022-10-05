@@ -106,6 +106,95 @@
   text-decoration: none;
 }
 
+.social-icons-desktop {
+  display: flex;
+}
+
+.social-btn {
+  margin: 0 5px;
+  padding: 5px 5px;
+  background-color: white;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.twitter:hover {
+  background-color: #00acee;
+}
+.github:hover {
+  background-color: black;
+}
+
+.fa-brands {
+  font-size: 30px;
+}
+
+.cont-icon {
+  position: relative;
+  top: 3px;
+  font-size: 25px;
+  padding: 0px 3px;
+  color: #ff725e;
+  transition: all 0.3s ease-in;
+}
+
+.cont:hover {
+  background-color: #ff725e;
+}
+
+.cont i {
+  transition: all 0.3s ease-in;
+}
+
+.cont:hover i {
+  color: white;
+}
+
+.fa-twitter {
+  color: #00acee;
+  transition: all 0.3s ease-in;
+}
+
+.fa-brands:hover {
+  color: white;
+}
+
+.join {
+  margin-top: 27px;
+}
+
+.join-us ul li {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #297f75;
+  border-radius: 8px;
+  padding: 7px 0px;
+  transition: all 0.3s ease-in;
+}
+
+.join-us ul li:hover {
+  background: transparent;
+  border: 2px solid #297f75;
+  transition: all 0.3s ease-in;
+  box-shadow: 2px 2px 5px #297f75;
+}
+
+.join-us ul li:hover i {
+  transform: translate(10px);
+}
+
+.footer_auth_text span {
+  color: #fff;
+}
+
+.footer_auth_text i {
+  color: #fff;
+  transition: all 0.3s ease-in;
+}
+
 .report {
   width: 200px;
   height: 50px;
@@ -124,16 +213,34 @@
   box-shadow: 0 2px 8px rgb(122, 122, 122);
 }
 
+.rep {
+  margin-top: 23px;
+}
+
 .btn-report {
-  transition-duration: 0.4s;
-  border-radius: 5px;
+  border-radius: 8px;
   border: none;
-  background-color: #9ac2fe;
+  background-color: #297f75;
+  padding: 10px 20px;
 }
 
 .btn-report:hover {
-  transform: scale(1.2);
-  transition-duration: 0.5s;
+  background: transparent;
+  border: 2px solid #297f75;
+  transition: all 0.3s ease-in;
+  box-shadow: 2px 2px 5px #297f75;
+}
+
+.btn-report span {
+  color: #fff;
+}
+
+.btn-report i {
+  transition: all 0.3s ease-in;
+}
+
+.btn-report:hover i{
+  transform: rotate(90deg);
 }
 
 .report img {
