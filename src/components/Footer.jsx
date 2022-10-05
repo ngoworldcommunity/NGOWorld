@@ -192,7 +192,7 @@ const Footer = () => {
               <ul className="join-us-list list-unstyled mb-0">
                 <li className="mb-2">
                   <Link
-                    to="user/register"
+                    to="/user/login"
                     className="text-decoration-none footer_auth_text"
                   >
                     Login
@@ -200,7 +200,7 @@ const Footer = () => {
                 </li>
                 <li className="mb-2">
                   <Link
-                    to="user/register"
+                    to="/user/register"
                     className="text-decoration-none footer_auth_text"
                   >
                     Register
@@ -217,9 +217,10 @@ const Footer = () => {
               You can submit a report to us by filling a form below !
             </p>
             <div className="d-flex justify-content-center rounded mx-auto">
-              <button
+            <button
                 onClick={handleReportModalOpen}
-                className="btn btn-outline-danger p-3 d-flex align-items-center bg-light bg-opacity-25 text-black"
+                className=" btn-report p-3 d-flex align-items-center text-black"
+              
               >
                 <img
                   className="bottom-img"

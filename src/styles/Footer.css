@@ -124,6 +124,18 @@
   box-shadow: 0 2px 8px rgb(122, 122, 122);
 }
 
+.btn-report {
+  transition-duration: 0.4s;
+  border-radius: 5px;
+  border: none;
+  background-color: #9ac2fe;
+}
+
+.btn-report:hover {
+  transform: scale(1.2);
+  transition-duration: 0.5s;
+}
+
 .report img {
   width: 20px;
 }
