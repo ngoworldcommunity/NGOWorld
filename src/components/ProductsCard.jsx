@@ -2,10 +2,10 @@ import React from "react";
 import star from '../assets/pictures/star.png'
 import face from '../assets/pictures/girlface.svg'
 import art from '../assets/pictures/artpiece.svg'
-import '../styles/Card.css'
+import '../styles/ProductsCard.css'
 
 
-const Cards = () =>{
+const ProductsCard = () =>{
     return(
     <div className="card-group">
         <div className="cardart">
@@ -39,4 +39,4 @@ const Cards = () =>{
     )
 }
 
-export default Cards
+export default ProductsCard
