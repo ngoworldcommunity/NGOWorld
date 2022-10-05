@@ -13,6 +13,11 @@ const SocialIcons = () => {
           <i className="fa fa-github"  style={{color:"#9ac2fe"}}></i>
         </a>
       </li>
+      <li className="list-inline-item">
+        <a href="/contact" className="btn-contact text-decoration-none" title="contact">
+          Contact
+        </a>
+      </li>
     </ul>
   );
 };
