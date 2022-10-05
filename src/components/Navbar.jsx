@@ -7,7 +7,6 @@ import Cookies from "js-cookie";
 
 const Navbar = () => {
 
-
   const navigate = useNavigate();
   const location = useLocation();
   const handleNavigate = () => {
@@ -69,6 +68,7 @@ const Navbar = () => {
                 <Link to={"/about-us"}>About Us</Link>
                 <div className={"" + (location.pathname === '/about-us' ? "active-link" : "")}></div>
               </li>
+
               {/* Render Contact Us in Navabr only for Login and Register Pages */}
               {(location.pathname === "/user/login" ||
                 location.pathname === "/user/register") && (
@@ -94,7 +94,6 @@ const Navbar = () => {
                   className="nav_user_img"
                 />
               }
-
 
             </ul>
           </div>
