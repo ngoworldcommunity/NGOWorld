@@ -231,10 +231,16 @@ const Footer = () => {
                 Report!
               </button>
             </div>
-          </div>
+            </div>
+            <div className="footer-content">
+           </div>
+          <p> © 2022 Copyright Milan.
+          All Rights Reserved.
+          </p>
+          
+       </div>
         </div>
-      </div>
-    </footer>
+    </footer> 
   );
 };
 
