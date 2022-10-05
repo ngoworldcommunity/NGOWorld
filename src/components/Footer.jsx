@@ -192,7 +192,7 @@ const Footer = () => {
               <ul className="join-us-list list-unstyled mb-0">
                 <li className="mb-2">
                   <Link
-                    to="user/register"
+                    to="/user/login"
                     className="text-decoration-none footer_auth_text"
                   >
                     Login
@@ -200,7 +200,7 @@ const Footer = () => {
                 </li>
                 <li className="mb-2">
                   <Link
-                    to="user/register"
+                    to="/user/register"
                     className="text-decoration-none footer_auth_text"
                   >
                     Register
