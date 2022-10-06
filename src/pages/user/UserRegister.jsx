@@ -49,14 +49,15 @@ const UserRegister = () => {
 
     await RegisterUser(credentials);
 
-    toast('🌈 Logged you in !', {
+    toast('🌈 Logging you in !', {
       position: "top-right",
-      autoClose: 3000,
+      autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
+      closeButton:false,
       onClose: () => {
         navigate("/user/login");
       }
@@ -71,7 +72,7 @@ const UserRegister = () => {
 
       <ToastContainer
         position="top-right"
-        autoClose={5000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -79,6 +80,7 @@ const UserRegister = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
+        closeButton={false}
       />
 
       <section className="vh-100">
