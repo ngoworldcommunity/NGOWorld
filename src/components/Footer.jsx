@@ -175,24 +175,20 @@ const Footer = () => {
               With the help of our search filters and ask platform, it becomes
               easier for the people to find their right community to serve.
             </p>
-            <div className="social-icons-desktop">
+            <div className="socials">
               <div className="twitter social-btn">
-                <i class="fa-brands fa-twitter"></i>
+              <a href="https://twitter.com/mrTamall" rel="noreferrer" target="_blank"><i class="fa-brands fa-twitter"></i></a>
               </div>
               <div className="github social-btn">
-                <i class="fa-brands fa-github"></i>
+              <a href="https://github.com/IAmTamal/Milan" rel="noreferrer" target="_blank"><i class="fa-brands fa-github"></i></a>
               </div>
               <div className="cont social-btn">
-              <i class="cont-icon fa-solid fa-message"></i>
+              <a href="https://milaan.vercel.app/contact"><i class="cont-icon fa-solid fa-message"></i></a>
               </div>
             </div>
           </div>
           
           <div className="join-us col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
-            <div className="social-icons-mobile">
-              <SocialIcons />
-            </div>
-
             <div className="join">
               <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4">
                 Join Us!
@@ -203,7 +199,7 @@ const Footer = () => {
                     to="/user/login"
                     className="text-decoration-none footer_auth_text"
                   >
-                    <span>Login </span> <i class="fa-solid fa-right-to-bracket"></i>
+                    Login
                   </Link>
                 </li>
                 <li className="mb-2">
@@ -211,7 +207,7 @@ const Footer = () => {
                     to="/user/register"
                     className="text-decoration-none footer_auth_text"
                   >
-                    <span>Register </span> <i class="fa-solid fa-user"></i>
+                    Register
                   </Link>
                 </li>
               </ul>
