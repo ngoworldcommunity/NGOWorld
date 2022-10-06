@@ -40,19 +40,25 @@
 }
 
 .info button {
-  width: 196px;
-  padding: 8px;
-  border: none;
-  border-radius: 12px;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 18px;
-  line-height: 30px;
-  text-align: center;
-  color: #ffffff;
-  background-color: #297f75;
+    width: 196px;
+    padding: 8px;
+    border: none;
+    border-radius: 12px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #297f75;
+    color: whitesmoke;
+    transition: 0.2s;
 }
 
+.info button:hover {
+  background-color: #0a3f39;
+  box-shadow: 0 2px 8px #000000;
+    transition: 0.2s;
+}
 
 .ShopImg{
     min-width: 470px;

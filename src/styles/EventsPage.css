@@ -1,0 +1,9 @@
+@media screen and (max-width: 600px) {
+	div#eventCol_1 h1 {
+		width: 90vw;
+		font-size: 15vw;
+	}
+	div#eventCol_1 p {
+		padding: 0.5rem;
+	}
+}
