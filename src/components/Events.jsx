@@ -26,7 +26,7 @@ const EventsBanner = () => {
         </p>
         <p>Join us at the events, and help the community !! </p>
         <button
-          className="mt-4 button_animation"
+          className="mt-4 button_animation btn"
           onClick={(e) => {
             handleNavigate(e);
           }}
