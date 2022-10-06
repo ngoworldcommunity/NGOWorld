@@ -55,14 +55,15 @@ const ClubLogin = () => {
     await RegisterClub({ ...credentials });
     setIsLoading(false);
 
-    toast("🌈 Registered club !", {
+    toast("🌈 Registering your club !", {
       position: "top-right",
-      autoClose: 3000,
+      autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
+      closeButton : false,
       onClose: () => navigate("/clubs/login"),
     });
   };
@@ -73,7 +74,7 @@ const ClubLogin = () => {
 
       <ToastContainer
         position="top-right"
-        autoClose={5000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -81,6 +82,7 @@ const ClubLogin = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
+        closeButton={false}
       />
 
       <div className="mobile-sec container py-5 h-100">

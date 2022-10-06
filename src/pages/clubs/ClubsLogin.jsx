@@ -53,14 +53,15 @@ function ClubLogin() {
       if (response.data.success === true) {
         Cookies.set("club", response.data.authToken);
 
-        toast("🌈 Logged you in !", {
+        toast("🌈 Logging you in !", {
           position: "top-right",
-          autoClose: 3000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
+          closeButton:false,
           onClose: () => {
             Navigate("/");
           },
@@ -68,12 +69,13 @@ function ClubLogin() {
       } else if (response.data.success === false) {
         toast("🌈 Error !", {
           position: "top-right",
-          autoClose: 3000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
+          closeButton:false,
         });
         setCredentials({
           email: "",
@@ -91,7 +93,7 @@ function ClubLogin() {
 
       <ToastContainer
         position="top-right"
-        autoClose={5000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -99,6 +101,7 @@ function ClubLogin() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
+        closeButton={false}
       />
 
       <section className="vh-100">
