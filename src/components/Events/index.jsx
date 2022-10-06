@@ -1,5 +1,5 @@
-import "../styles/Events.css";
-import eventCuate from "../assets/pictures/eventCuate.png";
+import "../../styles/Events.css";
+import eventCuate from "../../assets/pictures/eventCuate.png";
 import { useNavigate } from "react-router-dom";
 
 const EventsBanner = () => {
@@ -20,7 +20,7 @@ const EventsBanner = () => {
         className="d-flex flex-column justify-content-center"
       >
         <h1 className="mb-4">Check out our events!!</h1>
-        <p>
+        <p className="donate-details">
           All our partnered NGOs , hosts various events be it educational,
           cleaning mother earth, funding events, health camps and many more !!
         </p>

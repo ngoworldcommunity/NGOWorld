@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200;400;500;700;800&display=swap");
 
 div#events-banner {
-  width: 85%;
+  width: 80%;
   margin: 64px auto;
   font-family: "Mulish", sans-serif;
 }
@@ -19,42 +19,37 @@ div#eventsCol1 img.eventsImg {
 }
 
 div#eventsCol2 {
-  width: 40%;
+  width: 60%;
 }
 
 div#eventsCol2 h1 {
   font-style: normal;
   font-weight: bold;
   font-size: 48px;
-  line-height: 60px;
-
   color: #2e8e83;
 }
 
 div#eventsCol2 p {
   font-style: normal;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 30px;
+  font-weight: normal;
+  font-size: 18px;
   color: #000000;
+  max-width: 90%;
 }
 
 div#eventsCol2 button {
-  width: 156px;
-  padding: 8px;
+  max-width: fit-content;
+  padding: 8px 12px;
   border: none;
   border-radius: 12px;
-  font-style: normal;
-  font-weight: 800;
+  font-weight: 600;
   font-size: 18px;
-  line-height: 30px;
-  text-align: center;
-  color: whitesmoke;
+  color: #ffffff;
   background-color: #297f75;
-  transition: 0.2s;
+  transition: background-color 0.5 ease-in-out;
 }
 div#eventsCol2 button:hover {
-  background-color: #0a3f39;
+  background-color: #22756b;
 }
 
 .button_animation:hover {

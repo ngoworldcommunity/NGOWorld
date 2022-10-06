@@ -9,6 +9,10 @@
   margin-left: 30px;
 }
 
+.container-fluid {
+  padding: 1rem 3rem;
+}
+
 .nav-item a {
   color: rgba(0, 0, 0, 1);
   text-decoration: none;

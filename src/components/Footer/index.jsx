@@ -1,18 +1,17 @@
-import React from "react";
-import { ReportProblem } from "../service/MilanApi";
-import "../styles/Footer.css";
+import { useState, useEffect } from "react";
+import { ReportProblem } from "../../service/MilanApi";
+import "../../styles/Footer.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
-import SocialIcons from "./SocialIcons";
 import Cookies from "js-cookie";
 
 const Footer = () => {
-  const [reportModal, setReportModal] = React.useState(false);
-  const [reportEmail, setReportEmail] = React.useState("");
-  const [reportFirstName, setReportFirstName] = React.useState("");
-  const [reportLastName, setReportLastName] = React.useState("");
-  const [reportIssue, setReportIssue] = React.useState("");
+  const [reportModal, setReportModal] = useState(false);
+  const [reportEmail, setReportEmail] = useState("");
+  const [reportFirstName, setReportFirstName] = useState("");
+  const [reportLastName, setReportLastName] = useState("");
+  const [reportIssue, setReportIssue] = useState("");
 
   const handleReportModalOpen = () => {
     document.previousTitle = document.title;
@@ -29,7 +28,7 @@ const Footer = () => {
     setReportModal(false);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (reportModal) {
       const closeEvent = (e) => {
         if (e.key === "Escape") {
@@ -76,7 +75,7 @@ const Footer = () => {
     }, 2000);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     reportModal
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "unset");
@@ -177,17 +176,31 @@ const Footer = () => {
             </p>
             <div className="socials">
               <div className="twitter social-btn">
-              <a href="https://twitter.com/mrTamall" rel="noreferrer" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a
+                  href="https://twitter.com/mrTamall"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <i class="fa-brands fa-twitter"></i>
+                </a>
               </div>
               <div className="github social-btn">
-              <a href="https://github.com/IAmTamal/Milan" rel="noreferrer" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a
+                  href="https://github.com/IAmTamal/Milan"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <i class="fa-brands fa-github"></i>
+                </a>
               </div>
               <div className="cont social-btn">
-              <a href="https://milaan.vercel.app/contact"><i class="cont-icon fa-solid fa-message"></i></a>
+                <a href="https://milaan.vercel.app/contact">
+                  <i class="cont-icon fa-solid fa-message"></i>
+                </a>
               </div>
             </div>
           </div>
-          
+
           <div className="join-us col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
             <div className="join">
               <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4">
@@ -225,7 +238,9 @@ const Footer = () => {
                 onClick={handleReportModalOpen}
                 className=" btn-report d-flex align-items-center text-black"
               >
-                <span>Report! <i class="fa-solid fa-bug"></i></span>
+                <span>
+                  Report! <i class="fa-solid fa-bug"></i>
+                </span>
               </button>
             </div>
           </div>

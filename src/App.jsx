@@ -1,21 +1,21 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import ClubLogin from "./pages/clubs/ClubsLogin";
-import ClubRegister from "./pages/clubs/ClubsRegister";
-import UserRegister from "./pages/user/UserRegister";
-import UserProfile from "./pages/user/UserProfile";
-import ClubsPage from "./pages/display/ClubsPage";
-import UserLogin from "./pages/user/UserLogin";
-import ContactPage from "./pages/ContactUs";
-import AboutUs from "./pages/AboutUs";
+import {
+  Home,
+  ClubLogin,
+  ClubProfile,
+  ShopLanding,
+  ClubRegister,
+  ClubsPage,
+  UserRegister,
+  UserLogin,
+  UserProfile,
+  ContactPage,
+  AboutUs,
+  EventCreate,
+  EventsPage,
+  Donate,
+} from "./pages";
 import MilanState from "./context/MilanState";
-import EventCreate from "./pages/clubs/EventCreate";
-import EventsPage from "./pages/display/EventsPage";
-import Donate from "./pages/Donate";
-import ClubProfile from "./pages/clubs/ClubProfile";
-import ShopLanding from "./pages/shops/ShopLanding";
-
 
 const App = () => {
   return (
