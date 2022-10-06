@@ -124,6 +124,18 @@
   box-shadow: 0 2px 8px rgb(122, 122, 122);
 }
 
+.btn-report {
+  transition-duration: 0.4s;
+  border-radius: 5px;
+  border: none;
+  background-color: #9ac2fe;
+}
+
+.btn-report:hover {
+  transform: scale(1.2);
+  transition-duration: 0.5s;
+}
+
 .report img {
   width: 20px;
 }
@@ -143,6 +155,18 @@
 }
 .ls {
   margin-left: 200px;
+}
+
+.btn-contact {
+  border-radius: 5px;
+  background-color: #9ac2fe;
+  border: none;
+  color: #424141;
+}
+
+.btn-contact:hover {
+  transition-duration: 0.5s;
+  color: #000000;
 }
 
 @media screen and (max-width: 1276px) {

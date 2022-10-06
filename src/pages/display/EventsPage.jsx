@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import { GetAllEvents } from "../../service/MilanApi";
 import SingleEvent from "../../components/SingleEvent";
 import Eventspic from "../../assets/pictures/EventsPagefloating.svg";
+import '../../styles/EventsPage.css';
 
 const EventsPage = () => {
   document.title = "Milan | Events";
