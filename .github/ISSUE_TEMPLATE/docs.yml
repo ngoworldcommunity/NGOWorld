@@ -7,6 +7,7 @@ labels:
     "🛠 status : under development",
     "🟨 priority: medium",
     "📄 aspect: text",
+    "hacktoberfest",
   ]
 body:
   - type: textarea

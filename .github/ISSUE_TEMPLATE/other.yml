@@ -6,6 +6,7 @@ labels:
     "✨ goal: improvement",
     "🛠 status : under development",
     "🟨 priority: medium",
+    "hacktoberfest",
   ]
 body:
   - type: markdown
