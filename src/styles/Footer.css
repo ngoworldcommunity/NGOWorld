@@ -111,10 +111,14 @@
 }
 
 .social-btn {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
   width: 25px;
   height: 25px;
   margin: 5px 5px;
-  padding: 2px 2.5px;
+  padding: 15px;
   border-radius: 100%;
   cursor: pointer;
   transition: all 0.3s ease-in;
