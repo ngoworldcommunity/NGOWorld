@@ -1,26 +1,38 @@
-# Issue  📐
+<!-- If your PR fixes an open issue, use `Closes #999` to link your PR with the issue. #999 stands for the issue number you are fixing -->
 
-- **I <your name here> have worked for <issue number>**
+# Fixes Issue
 
-[put x to check the boxes]: <> (This is a comment, it will not be included)
+<!-- Example: Closes #31 -->
 
-## Guidelines 🔐
+**My PR closes #issue_number_here**
 
-**I accept the fact that i have followed the guidelines and have not copied the codes from around the internet**
+# Changes proposed
 
-- [x] **Contribution Guidelines**
-- [x] **Code of Conduct**
+## What were you told to do ?
 
-## Issue to be closed 🛅
+<!-- Talk about the things you were told to do -->
 
-- **My pull request closes <hashtag issuenumber>**
+## What did you do ?
 
-## Screenshots 📷
+<!-- Talk about the things you did -->
 
-**Here are the pictures of changes that i have made 🔽**
-
-<attach screenshots here>
-  
-  
-  
 ---
+
+# Check List (Check all the applicable boxes)
+
+<!-- Mark all the applicable boxes. To mark the box as done follow the following conventions -->
+
+<!--
+[x] - Correct; marked as done
+[X] - Correct; marked as done
+
+[ ] - Not correct; marked as **not** done
+-->
+
+- [ ] My code follows the code style of this project.
+- [ ] This PR does not contain plagiarized content.
+- [ ] The title and description of the PR is clear and explains the approach.
+
+# Screenshots
+
+<!-- Add all the screenshots which support your changes -->
