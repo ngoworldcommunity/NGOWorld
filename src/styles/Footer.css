@@ -106,6 +106,73 @@
   text-decoration: none;
 }
 
+.socials {
+  display: flex;
+}
+
+.social-btn {
+  width: 25px;
+  height: 25px;
+  margin: 5px 5px;
+  padding: 2px 2.5px;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.twitter:hover {
+  background-color: #00acee;
+}
+.github:hover {
+  background-color: black;
+}
+
+.fa-brands {
+  font-size: 20px;
+  border-radius: 100%;
+}
+
+.cont-icon {
+  font-size: 17px;
+  padding-left: 2px;
+  color: #ff725e;
+  transition: all 0.3s ease-in;
+}
+
+.cont:hover {
+  background-color: #ff725e;
+}
+
+.cont i {
+  transition: all 0.3s ease-in;
+}
+
+.cont:hover i {
+  color: white;
+}
+
+.fa-twitter {
+  color: #00acee;
+  transition: all 0.3s ease-in;
+}
+
+.fa-github {
+  color: black;
+  transition: all 0.3s ease-in;
+}
+
+.social-btn:hover i {
+  color: white;
+}
+
+.join {
+  margin-top: 27px;
+}
+
+.join-us ul li a {
+  transition: all 0.3s ease-in;
+}
+
 .report {
   width: 200px;
   height: 50px;
@@ -124,16 +191,39 @@
   box-shadow: 0 2px 8px rgb(122, 122, 122);
 }
 
+.rep {
+  margin-top: 23px;
+}
+
 .btn-report {
-  transition-duration: 0.4s;
-  border-radius: 5px;
+  border-radius: 8px;
   border: none;
   background-color: #9ac2fe;
+  padding: 10px 20px;
+  transition: all 0.3s ease-in;
 }
 
 .btn-report:hover {
-  transform: scale(1.2);
-  transition-duration: 0.5s;
+  background-color: #3663a6;
+  transform: scale(1.1);
+}
+
+.btn-report span {
+  color: black;
+}
+
+.btn-report:hover span {
+  color: #fff;
+}
+
+.btn-report i {
+  transition: all 0.3s ease-in;
+  color: black;
+}
+
+.btn-report:hover i{
+  transform: rotate(90deg);
+  color: #fff;
 }
 
 .report img {
@@ -286,16 +376,12 @@
     margin: 10px -20px;
   }
 
+  .socials {
+    margin-left: -20px;
+  }
+
   .social-icons {
     text-align: center;
-  }
-
-  .social-icons-desktop {
-    display: none;
-  }
-
-  .social-icons-mobile {
-    display: block;
   }
 
   .join-us {
@@ -304,11 +390,6 @@
     justify-content: center;
     align-items: stretch;
     gap: 30px;
-  }
-
- .join-us h1 {
-    position: relative;
-    left: -30px;
   }
 
   .join-us-list {
