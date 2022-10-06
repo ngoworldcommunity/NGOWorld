@@ -36,6 +36,11 @@ div#donateCol1 button {
   text-align: center;
   color: #ffffff;
   background-color: #297f75;
+  transition: 0.2s;
+}
+
+div#donateCol1 button:hover {
+  background-color: #0a3f39;
 }
 
 .button_animation:hover {
