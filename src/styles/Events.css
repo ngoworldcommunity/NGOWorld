@@ -59,7 +59,7 @@ div#eventsCol2 button:hover {
 
 .button_animation:hover {
   box-shadow: 0 2px 8px #000000;
-  transition: 0.7s;
+  transition: 0.2s;
   color: black;
 }
 
