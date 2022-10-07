@@ -34,6 +34,8 @@ const UserRegister = () => {
   });
 
   const [isEmailValid, setIsEmailValid] = useState(false);
+  const [isfirstnameValid, setIsfirstnameValid] = useState(false);
+  const [islastnameValid, setIslastnameValid] = useState(false);
 
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -42,28 +44,52 @@ const UserRegister = () => {
       e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
     )
       setIsEmailValid(true);
+    if(e.target.name === "firstname"){
+      const name = e.target.value;
+      (/^[a-zA-Z]+$/.test(name) && name)? setIsfirstnameValid(true):setIsfirstnameValid(false);
+    }
+
+    if(e.target.name === "lastname"){
+      const name = e.target.value;
+      (/^[a-zA-Z]+$/.test(name) && name)? setIslastnameValid(true):setIslastnameValid(false);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await RegisterUser(credentials);
+    console.log(islastnameValid,isfirstnameValid);
 
-    toast('🌈 Logging you in !', {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      closeButton:false,
-      onClose: () => {
-        navigate("/user/login");
-      }
+    if(islastnameValid && isfirstnameValid){
+      await RegisterUser(credentials);
+
+      toast('🌈 Logged you in !', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        onClose: () => {
+          navigate("/user/login");
+        }
     });
-
-
+    }
+    else{
+      toast('Please fill all the fields', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        onClose: () => {
+        }
+      });
+      return;
+    }
   };
 
   return (
@@ -72,7 +98,7 @@ const UserRegister = () => {
 
       <ToastContainer
         position="top-right"
-        autoClose={1000}
+        autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -80,7 +106,6 @@ const UserRegister = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        closeButton={false}
       />
 
       <section className="vh-100">
@@ -111,7 +136,7 @@ const UserRegister = () => {
                       className="userreg_des_firstname form-control form-control-lg me-md-2"
                       placeholder="First name"
                       name="firstname"
-                      value={credentials.firstname}
+                      value={credentials.firstname.trim()}
                       onChange={handleChange}
                       required
                       autoFocus
@@ -122,7 +147,7 @@ const UserRegister = () => {
                       className="userreg_mob_firstname form-control form-control-lg me-md-2"
                       placeholder="First name"
                       name="firstname"
-                      value={credentials.firstname}
+                      value={credentials.firstname.trim()}
                       onChange={handleChange}
                       required
                       aria-label="First name"
@@ -132,7 +157,7 @@ const UserRegister = () => {
                       className="form-control form-control-lg ms-md-2"
                       placeholder="Last name"
                       name="lastname"
-                      value={credentials.lastname}
+                      value={credentials.lastname.trim()}
                       onChange={handleChange}
                       required
                       aria-label="Last name"
