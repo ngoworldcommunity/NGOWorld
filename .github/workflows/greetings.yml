@@ -15,6 +15,6 @@ jobs:
       - uses: EddieHubCommunity/gh-action-community/src/welcome@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          issue-message: "<h3>Hey! contributor, thank you for opening an Issue 🎉.</h3>"
-          pr-message: "<h3>Hey! contributor, thank you for opening a Pull Request 🎉.</h3>"
-          footer: "Soon the maintainers/owner will review it and provide you with feedback/suggestions. If you think it's something urgent, feel free to reach out <a href='https://twitter.com/mrTamall'>Tamal Das</a> on <b>Twitter</b>. Star ⭐ this repo to show us support.</b><br><br><b>Happy, Open Source!</b>"
+          issue-message: "<h1>Hello contributor, thank you for opening an Issue 🎉.</h1>"
+          pr-message: "<h1>Hello contributor, thank you for opening a Pull Request 🎉.</h1>"
+          footer: "Soon the maintainers/owner will review it and provide you with feedback/suggestions.<br>If you think it's something urgent, feel free to reach out <a href='https://twitter.com/mrTamall'>Tamal Das</a> on <b>Twitter</b>.<br><b>Star ⭐ this repo to show us support.</b><br><br><b>Happy, Open Source!</b>"

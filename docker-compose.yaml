@@ -5,7 +5,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    image: react-app
+    image: milan-react-app
     stdin_open: true
     ports:
       - "3000:3000"
@@ -20,7 +20,7 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile
-    image: api-server
+    image: milan-api-server
     ports:
       - "5000:5000"
     networks:
