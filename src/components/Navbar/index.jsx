@@ -1,13 +1,11 @@
 import React from "react";
-import "../styles/Navbar.css";
-import solidarity from "../assets/pictures/solidarity.png";
+import "../../styles/Navbar.css";
+import solidarity from "../../assets/pictures/solidarity.png";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import ProfilePicture from "../assets/pictures/ProfilePicture.png";
+import ProfilePicture from "../../assets/pictures/ProfilePicture.png";
 import Cookies from "js-cookie";
 
 const Navbar = () => {
-
-
   const navigate = useNavigate();
   const location = useLocation();
   const handleNavigate = () => {
@@ -52,34 +50,60 @@ const Navbar = () => {
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item home">
                 <Link to={"/"}>Home</Link>
-                <div className={"" + (location.pathname === '/' ? "active-link" : "")}></div>
+                <div
+                  className={
+                    "" + (location.pathname === "/" ? "active-link" : "")
+                  }
+                ></div>
               </li>
 
               <li className="nav-item home">
                 <Link to={"/display/clubs"}>Clubs</Link>
-                <div className={"" + (location.pathname === '/display/clubs' ? "active-link" : "")}></div>
+                <div
+                  className={
+                    "" +
+                    (location.pathname === "/display/clubs"
+                      ? "active-link"
+                      : "")
+                  }
+                ></div>
               </li>
 
               <li className="nav-item home">
                 <Link to="/display/events">Events</Link>
-                <div className={"" + (location.pathname === '/display/events' ? "active-link" : "")}></div>
+                <div
+                  className={
+                    "" +
+                    (location.pathname === "/display/events"
+                      ? "active-link"
+                      : "")
+                  }
+                ></div>
               </li>
 
               <li className="nav-item home">
                 <Link to="/shops/shop">Shop</Link>
-                <div className={"" + (location.pathname === '/shops' ? "active-link" : "")}></div>
+                <div
+                  className={
+                    "" + (location.pathname === "/shops" ? "active-link" : "")
+                  }
+                ></div>
               </li>
-
 
               <li className="nav-item home">
                 <Link to={"/about-us"}>About Us</Link>
-                <div className={"" + (location.pathname === '/about-us' ? "active-link" : "")}></div>
+                <div
+                  className={
+                    "" +
+                    (location.pathname === "/about-us" ? "active-link" : "")
+                  }
+                ></div>
               </li>
               {/* Render Contact Us in Navabr only for Login and Register Pages */}
               {(location.pathname === "/user/login" ||
                 location.pathname === "/user/register" ||
                 location.pathname === "/clubs/login" ||
-                location.pathname === "/clubs/register" ) && (
+                location.pathname === "/clubs/register") && (
                 <li className="nav-item home">
                   <Link to={"/contact"}>Contact</Link>
                   <div
@@ -94,16 +118,14 @@ const Navbar = () => {
               {/* Auth0 will be implemented later on*/}
               {/* The basic JWT Auths will be removed to reduce hassle */}
 
-              {(Cookies.get("token") || Cookies.get("club")) &&
+              {(Cookies.get("token") || Cookies.get("club")) && (
                 <img
                   onClick={handleNavigate}
                   src={ProfilePicture}
                   alt="lol"
                   className="nav_user_img"
                 />
-              }
-
-
+              )}
             </ul>
           </div>
         </div>

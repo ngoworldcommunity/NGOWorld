@@ -1,16 +1,20 @@
 import React, { useState } from "react";
-import Banner from "../components/Banner";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import DonateBanner from "../components/DonateBanner";
-import HomeCardsContainer from "../components/HomeCardsContainer";
-import EventsBanner from "../components/Events";
-import LoginBanner from "../components/loginBanner";
-import ClubBanner from "../components/ClubBanner";
+import {
+  Banner,
+  Navbar,
+  Footer,
+  DonateBanner,
+  HomeCardsContainer,
+  EventsBanner,
+  LoginBanner,
+  ClubBanner,
+} from "../components";
 import Cookies from "js-cookie";
 
 const AuthState = () => {
-  const [login, setLogin] = useState(Cookies.get("token") || Cookies.get("club"));
+  const [login, setLogin] = useState(
+    Cookies.get("token") || Cookies.get("club")
+  );
   return login;
 };
 const Home = () => {

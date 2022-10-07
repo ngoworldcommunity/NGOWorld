@@ -1,5 +1,5 @@
-import "../styles/LoginBanner.css";
-import picture from "../assets/pictures/loginBanner.svg";
+import "../../styles/LoginBanner.css";
+import picture from "../../assets/pictures/loginBanner.svg";
 
 const LoginBanner = () => {
   return (
