@@ -29,9 +29,9 @@
 [ ] - Not correct; marked as **not** done
 -->
 
-- [ ] My code follows the code style of this project.
-- [ ] This PR does not contain plagiarized content.
-- [ ] The title and description of the PR is clear and explains the approach.
+- [] My code follows the code style of this project.
+- [] This PR does not contain plagiarized content.
+- [] The title and description of the PR is clear and explains the approach.
 
 # Screenshots
 

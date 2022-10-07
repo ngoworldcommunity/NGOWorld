@@ -80,3 +80,9 @@
     margin-bottom: 10px;
   }
 }
+
+@media (min-width: 769px) {
+  .container-fluid {
+    padding: 1rem 3rem;
+  }
+}
