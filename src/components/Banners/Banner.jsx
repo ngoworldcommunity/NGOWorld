@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import BannerBg from "../assets/pictures/milanBg.jpg";
-import "../styles/Banner.css";
+import BannerBg from "../../assets/pictures/milanBg.jpg";
+import "../../styles/Banner.css";
 
 const Banner = () => {
   var nav = useNavigate();
@@ -19,7 +19,7 @@ const Banner = () => {
         <div className="banner-inner">
           <div className="banner-content">
             <h1 className="banner-header1">MILAN</h1>
-            <h2 className="banner-subtitle">Where HELP meets NEED</h2>
+            <h2 className="banner-subtitle">Where HELP meets NEED.</h2>
           </div>
 
           <div className="banner-Buttons">

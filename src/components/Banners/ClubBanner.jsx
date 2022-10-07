@@ -1,9 +1,8 @@
 import React from "react";
-import clubCuate from "../assets/pictures/clubCuate.svg";
+import clubCuate from "../../assets/pictures/clubCuate.svg";
 import { useNavigate } from "react-router-dom";
 
 export default function ClubBanner() {
-
   const navigate = useNavigate();
 
   const handleNavigate = (e) => {
@@ -28,7 +27,14 @@ export default function ClubBanner() {
           educational, cleaning mother earth, funding events, health camps and
           many more !!
         </p>
-        <button className="mt-4" onClick={(e) => { handleNavigate(e) }}>Create</button>
+        <button
+          className="mt-4"
+          onClick={(e) => {
+            handleNavigate(e);
+          }}
+        >
+          Create
+        </button>
       </div>
     </div>
   );

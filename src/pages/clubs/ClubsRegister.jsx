@@ -32,7 +32,7 @@ const ClubLogin = () => {
     address: "",
     pincode: "",
     description: "",
-    tagLine: ""
+    tagLine: "",
   });
 
   const [isEmailValid, setIsEmailValid] = useState(false);
@@ -52,7 +52,7 @@ const ClubLogin = () => {
     e.preventDefault();
 
     setIsLoading(true);
-    await RegisterClub({ ...credentials})
+    await RegisterClub({ ...credentials });
     setIsLoading(false);
 
     toast("🌈 Registering your club !", {
@@ -145,7 +145,6 @@ const ClubLogin = () => {
                   value={credentials.tagLine}
                   onChange={handleChange}
                   required
-                  autoFocus
                   aria-label="Club Tagline"
                   id="club-tagLine"
                   maxLength={50}
@@ -177,7 +176,6 @@ const ClubLogin = () => {
                   value={credentials.email}
                   onChange={handleChange}
                   required
-                  autoFocus
                   aria-label="Club email"
                   id="email-des"
                 />
@@ -214,7 +212,6 @@ const ClubLogin = () => {
                     value={credentials.password}
                     onChange={handleChange}
                     required
-                    autoFocus
                     id="password-des"
                   />
                   <input
@@ -243,7 +240,6 @@ const ClubLogin = () => {
                     value={credentials.confirmPassword}
                     onChange={handleChange}
                     required
-                    autoFocus
                     id="confirm-password-des"
                   />
 
