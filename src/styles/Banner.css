@@ -90,9 +90,9 @@
   margin-right: 10px;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 684px) {
   .banner-inner {
-    position: relative;
+    position: absolute;
   }
 
   .banner-Buttons {
