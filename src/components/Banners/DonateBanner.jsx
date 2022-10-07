@@ -16,9 +16,9 @@ const DonateBanner = () => {
       >
         <h1 className="mb-4">You can help us too !!</h1>
         <p className="donate-details">
-          Happiness increases when you share your love. So why not help millions
-          by sharing your love ?
+          Happiness increases when you share your love.
         </p>
+        <p>So why not help millions by sharing your love ?</p>
         <button
           type="button"
           className="mt-4 button_animation btn"
