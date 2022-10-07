@@ -355,7 +355,8 @@ const ClubLogin = () => {
                     !isEmailValid
                   }
                   type="submit"
-                  className="registration-btn btn btn-primary py-2"
+                  className="registration-btn btn  py-2"
+                  style={{backgroundColor: "#C996CC"}}
                 >
                   {isLoading ? (
                     <TailSpin color="#FFFFFF" height={30} width={30} />

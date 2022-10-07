@@ -113,10 +113,16 @@ function ClubLogin() {
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
               <form style={{ width: "auto" }} onSubmit={handleSubmit}>
-                <h1 style={{ letterSpacing: "1px", marginBottom: "20px" }}>
-                  Log in
+                <h1 style={{ letterSpacing: "1px", marginBottom: "25px" }}>
+                  Log in with your Club
                 </h1>
                 <div className="form-outline mb-4">
+                <label
+                  htmlFor="exampleInputEmail1"
+                  className="col-form-label col-form-label-lg regformlabels"
+                >
+                  Email address 📨
+                </label>
                   <input
                     type="email"
                     className="desktop form-control form-control-lg"
@@ -127,7 +133,6 @@ function ClubLogin() {
                     value={credentials.email}
                     onChange={handleChange}
                     required
-                    autoFocus
                   />
 
                   <input
@@ -145,6 +150,12 @@ function ClubLogin() {
                 </div>
 
                 <div className="form-outline mb-4">
+                <label
+                    htmlFor="exampleInputPassword1"
+                    className="col-form-label col-form-label-lg regformlabels"
+                  >
+                    Password 🔑
+                  </label>
                   <input
                     type="password"
                     className="desktop form-control form-control-lg"
@@ -155,7 +166,7 @@ function ClubLogin() {
                     onChange={handleChange}
                     required
                   />
-
+                  
                   <input
                     type="password"
                     className="mobile form-control form-control-lg"
