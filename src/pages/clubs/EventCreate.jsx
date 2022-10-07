@@ -25,14 +25,15 @@ export default function EventCreate() {
     const eventresponse = await CreateEvent(eventdetails);
 
     if (eventresponse.status === 200) {
-      toast("🌈 Event added !", {
+      toast("🌈 Adding your Event !", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
+        closeButton:false,
         onClose: () => {
           seteventdetails({
             eventname: "",
@@ -52,7 +53,7 @@ export default function EventCreate() {
 
       <ToastContainer
         position="top-right"
-        autoClose={5000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -60,6 +61,7 @@ export default function EventCreate() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
+        closeButton={false}
       />
 
       <section class="vh-100">
