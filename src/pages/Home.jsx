@@ -10,7 +10,9 @@ import ClubBanner from "../components/ClubBanner";
 import Cookies from "js-cookie";
 
 const AuthState = () => {
-  const [login, setLogin] = useState(Cookies.get("token") || Cookies.get("club"));
+  const [login, setLogin] = useState(
+    Cookies.get("token") || Cookies.get("club")
+  );
   return login;
 };
 const Home = () => {

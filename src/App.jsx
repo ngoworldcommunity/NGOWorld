@@ -16,7 +16,6 @@ import Donate from "./pages/Donate";
 import ClubProfile from "./pages/clubs/ClubProfile";
 import ShopLanding from "./pages/shops/ShopLanding";
 
-
 const App = () => {
   return (
     <>
