@@ -20,4 +20,11 @@ describe("All Basic Tests", () => {
     cy.contains("button", "Explore");
     cy.contains("button", "Report");
   });
+
+  it("Check for Social icons", () => {
+    cy.visit("https://milaan.vercel.app/");
+    cy.get(".fa-twitter").should("be.visible");
+    cy.get(".fa-github").should("be.visible");
+    cy.get(".fa-message").should("be.visible");
+  });
 });
