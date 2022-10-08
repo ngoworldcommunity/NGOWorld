@@ -116,3 +116,27 @@
     bottom: 0;
   }
 }
+
+.banner-outer{
+  z-index: 2;
+  position: fixed;
+  bottom: 5%;
+  right: 3%;
+}
+
+.banner-outer a{
+  font-size: 2rem;
+  padding:  0.25rem 1.25rem;
+  color: black;
+  text-decoration: none;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.banner-outer a:hover,
+.banner-outer a:active{
+  background-color: aliceblue;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
