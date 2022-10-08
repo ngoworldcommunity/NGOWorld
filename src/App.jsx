@@ -16,7 +16,8 @@ import {
   Donate,
 } from "./pages";
 import MilanState from "./context/MilanState";
-
+import ForgotPasswordClub from "./pages/clubs/ForgotPasswordClub";
+import UserForgotPassword from "./pages/user/UserForgotPassword";
 const App = () => {
   return (
     <>
@@ -32,12 +33,14 @@ const App = () => {
             <Route exact path="/user/register" element={<UserRegister />} />
             <Route exact path="/user/login" element={<UserLogin />} />
             <Route exact path="/user/profile" element={<UserProfile />} />
+            <Route exact path="/user/forgotpass" element={<UserForgotPassword />} />
 
             {/* //* Auth routes - CLUBS*/}
 
             <Route exact path="/clubs/login" element={<ClubLogin />} />
             <Route exact path="/clubs/register" element={<ClubRegister />} />
             <Route exact path="/clubs/profile" element={<ClubProfile />} />
+            <Route exact path="/clubs/forgotpass" element={<ForgotPasswordClub />} />
 
             {/* //* Display Routes */}
             <Route exact path="/display/clubs" element={<ClubsPage />} />
