@@ -57,7 +57,7 @@ function UserLogin() {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          closeButton:false,
+          closeButton: false,
           onClose: () => {
             Navigate("/");
           },
@@ -107,7 +107,7 @@ function UserLogin() {
                   <input
                     type="email"
                     className="desktop form-control form-control-lg"
-                    id="exampleInputEmail1"
+                    id="desktop_userEmail"
                     aria-describedby="emailHelp"
                     placeholder="Enter your email"
                     name="email"
@@ -122,7 +122,7 @@ function UserLogin() {
                   <input
                     type="email"
                     className="mobile form-control form-control-lg"
-                    id="exampleInputEmail1"
+                    id="mobile_userEmail"
                     aria-describedby="emailHelp"
                     name="email"
                     value={credentials.email}
@@ -139,7 +139,7 @@ function UserLogin() {
                   <input
                     type="password"
                     className="desktop form-control form-control-lg"
-                    id="exampleInputPassword1"
+                    id="desktop_userPassword"
                     placeholder="Enter your password"
                     name="password"
                     value={credentials.password}
@@ -151,7 +151,7 @@ function UserLogin() {
                   <input
                     type="password"
                     className="mobile form-control form-control-lg"
-                    id="exampleInputPassword1"
+                    id="mobile_userPassword"
                     name="password"
                     value={credentials.password}
                     onChange={handleChange}

@@ -55,13 +55,13 @@ function ClubLogin() {
 
         toast("🌈 Logging you in !", {
           position: "top-right",
-          autoClose: 1000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          closeButton:false,
+          closeButton: false,
           onClose: () => {
             Navigate("/");
           },
@@ -75,7 +75,7 @@ function ClubLogin() {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          closeButton:false,
+          closeButton: false,
         });
         setCredentials({
           email: "",
@@ -102,6 +102,7 @@ function ClubLogin() {
         draggable
         pauseOnHover
         closeButton={false}
+        id="LoginToast"
       />
 
       <section className="vh-100">
@@ -116,11 +117,14 @@ function ClubLogin() {
                 <h1 style={{ letterSpacing: "1px", marginBottom: "20px" }}>
                   Log in
                 </h1>
+
+                {/* //* email for desktops */}
+
                 <div className="form-outline mb-4">
                   <input
                     type="email"
                     className="desktop form-control form-control-lg"
-                    id="exampleInputEmail1"
+                    id="desktop_clubEmail"
                     aria-describedby="emailHelp"
                     placeholder="Enter your email"
                     name="email"
@@ -130,10 +134,11 @@ function ClubLogin() {
                     autoFocus
                   />
 
+                  {/* //* email for mobiles */}
                   <input
                     type="email"
                     className="mobile form-control form-control-lg"
-                    id="exampleInputEmail1"
+                    id="mobile_clubEmail"
                     aria-describedby="emailHelp"
                     name="email"
                     placeholder="Enter your email"
@@ -144,11 +149,12 @@ function ClubLogin() {
                   />
                 </div>
 
+                {/* //* password for desktops */}
                 <div className="form-outline mb-4">
                   <input
                     type="password"
                     className="desktop form-control form-control-lg"
-                    id="exampleInputPassword1"
+                    id="desktop_clubPassword"
                     placeholder="Enter your password"
                     name="password"
                     value={credentials.password}
@@ -156,10 +162,11 @@ function ClubLogin() {
                     required
                   />
 
+                  {/* //* password for mobiles */}
                   <input
                     type="password"
                     className="mobile form-control form-control-lg"
-                    id="exampleInputPassword1"
+                    id="mobile_clubPassword"
                     name="password"
                     value={credentials.password}
                     placeholder="Enter your password"
