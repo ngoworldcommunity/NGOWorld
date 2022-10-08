@@ -1,65 +1,60 @@
 // This is the donate page where we come and select clubs to donate an amount !
 
-import React, { useEffect, useState } from "react";
-import donate_image1 from "../assets/pictures/donate_image1.svg";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import SingleClub from "../components/SingleClub";
+import UserLogin from "../pages/user/UserLogin";
 import DonateUs from "../components/DonateUs";
-import { GetAllClubs } from "../service/MilanApi";
 import "../styles/Donate.css";
-
+import { toast, ToastContainer } from "react-toastify";
 import Cookies from "js-cookie";
-import Banner from "../components/Banner";
-
 import "react-toastify/dist/ReactToastify.css";
 
 const Donate = () => {
   document.title = "Milan | Donate the needy";
 
-  const [clubData, setClubData] = useState([]);
-
-  useEffect(() => {
-    const fetchClubData = async () => {
-      const response = await GetAllClubs();
-      setClubData(response);
-    };
-    fetchClubData();
-  }, []);
-
-  //   Authentication state check !
+  // Authentication state check !
   const AuthState = () => {
     const [login, setLogin] = useState(
-      Cookies.get("token") || Cookies.get("club")
+      Cookies.get("token") || Cookies.get("user")
     );
     return login;
   };
 
-  const loadScript = (src) => {
-    return new Promise((resolve) => {
-      const script = document.createElement("script");
-      script.src = src;
-      script.onload = () => {
-        resolve(true);
-      };
-      script.onerror = () => {
-        resolve(false);
-      };
-      document.body.appendChild(script);
+  // Assigning an Id for restricting multiple toast display
+  const toastId = "loginBeforeDonating";
+  if (!AuthState()) {
+    toast("🌈 Please login before supporting the clubs", {
+      toastId: toastId,
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      closeButton: false,
     });
-  };
-
-  useEffect(() => {
-    loadScript("https://checkout.razorpay.com/v1/checkout.js");
-  });
+  }
 
   return (
     <>
+      <ToastContainer
+        limit={1}
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        closeButton={false}
+      />
       {AuthState() && <Navbar />}
-
-      {AuthState() ? <DonateUs /> : <Banner />}
-
-      <Footer />
+      {AuthState() ? <DonateUs /> : <UserLogin />}
+      {AuthState() && <Footer />}
     </>
   );
 };

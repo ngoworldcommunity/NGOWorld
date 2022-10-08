@@ -5,7 +5,6 @@ import donate_image1 from "../assets/pictures/donate_image1.svg";
 import SingleClub from "../components/SingleClub";
 import { GetAllClubs } from "../service/MilanApi";
 import "../styles/Donate.css";
-import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const DonateUs = () => {
@@ -39,19 +38,6 @@ const DonateUs = () => {
 
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        closeButton={false}
-      />
-
       <div id="donate_banner" className="container">
         <div id="donateCol2">
           <img src={donate_image1} alt="" className="donate_img" />
