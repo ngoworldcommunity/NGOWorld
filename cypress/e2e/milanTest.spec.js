@@ -5,6 +5,10 @@
 Cypress.config("viewportWidth", 1280);
 Cypress.config("viewportHeight", 720);
 
+// set a new env for cypress
+// https://on.cypress.io/environment-variables
+Cypress.env("CI", false);
+
 describe("All Basic Tests", () => {
   it("Check header texts in homepage", () => {
     cy.visit("http://localhost:3000/");
