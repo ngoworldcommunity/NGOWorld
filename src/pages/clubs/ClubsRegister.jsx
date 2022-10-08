@@ -97,7 +97,7 @@ const ClubLogin = () => {
           </div>
 
           <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} >
               <h1 className="mobile-txt clubregisterheading1">
                 Register your club with Milan !
               </h1>
@@ -111,7 +111,7 @@ const ClubLogin = () => {
                 </label>
                 <input
                   type="text"
-                  className="clubreg_des form-control "
+                  className="clubreg_des form-control color"
                   name="name"
                   value={credentials.name}
                   onChange={handleChange}
@@ -122,7 +122,7 @@ const ClubLogin = () => {
                 />
                 <input
                   type="text"
-                  className="clubreg_mob form-control "
+                  className="clubreg_mob form-control color"
                   name="name"
                   value={credentials.name}
                   placeholder="Enter your club name"
@@ -140,7 +140,7 @@ const ClubLogin = () => {
                 </label>
                 <input
                   type="text"
-                  className="clubreg_des form-control "
+                  className="clubreg_des form-control color"
                   name="tagLine"
                   value={credentials.tagLine}
                   onChange={handleChange}
@@ -151,7 +151,7 @@ const ClubLogin = () => {
                 />
                 <input
                   type="text"
-                  className="clubreg_mob form-control "
+                  className="clubreg_mob form-control color"
                   name="tagLine"
                   value={credentials.tagLine}
                   placeholder="Enter your club Tagline (Max. 50 Characters)"
@@ -171,7 +171,7 @@ const ClubLogin = () => {
                 </label>
                 <input
                   type="email"
-                  className="clubreg_des form-control "
+                  className="clubreg_des form-control color"
                   name="email"
                   value={credentials.email}
                   onChange={handleChange}
@@ -181,7 +181,7 @@ const ClubLogin = () => {
                 />
                 <input
                   type="email"
-                  className="clubreg_mob form-control "
+                  className="clubreg_mob form-control color"
                   name="email"
                   value={credentials.email}
                   placeholder="Enter your club email"
@@ -207,7 +207,7 @@ const ClubLogin = () => {
                   </label>
                   <input
                     type="password"
-                    className="clubreg_des form-control "
+                    className="clubreg_des form-control color"
                     name="password"
                     value={credentials.password}
                     onChange={handleChange}
@@ -216,7 +216,7 @@ const ClubLogin = () => {
                   />
                   <input
                     type="password"
-                    className="clubreg_mob form-control "
+                    className="clubreg_mob form-control color"
                     name="password"
                     value={credentials.password}
                     placeholder="Enter password"
@@ -235,7 +235,7 @@ const ClubLogin = () => {
                   </label>
                   <input
                     type="password"
-                    className="clubreg_des form-control "
+                    className="clubreg_des form-control color"
                     name="confirmPassword"
                     value={credentials.confirmPassword}
                     onChange={handleChange}
@@ -245,7 +245,7 @@ const ClubLogin = () => {
 
                   <input
                     type="password"
-                    className="clubreg_mob form-control "
+                    className="clubreg_mob form-control color"
                     name="confirmPassword"
                     value={credentials.confirmPassword}
                     placeholder="Confirm password"
@@ -266,7 +266,7 @@ const ClubLogin = () => {
                 </label>
                 {/* textarea for address */}
                 <textarea
-                  className="clubreg_des form-control "
+                  className="clubreg_des form-control color"
                   name="address"
                   value={credentials.address}
                   onChange={handleChange}
@@ -275,7 +275,7 @@ const ClubLogin = () => {
                   id="address-des"
                 />
                 <textarea
-                  className="clubreg_mob form-control "
+                  className="clubreg_mob form-control color"
                   name="address"
                   value={credentials.address}
                   placeholder="Enter your address"
@@ -295,7 +295,7 @@ const ClubLogin = () => {
                 <input
                   type="text"
                   maxLength="6"
-                  className="clubreg_des form-control "
+                  className="clubreg_des form-control color"
                   name="pincode"
                   value={credentials.pincode}
                   onChange={handleChange}
@@ -305,7 +305,7 @@ const ClubLogin = () => {
                 <input
                   type="text"
                   maxLength="6"
-                  className="clubreg_mob form-control "
+                  className="clubreg_mob form-control color"
                   name="pincode"
                   placeholder="Enter your pincode"
                   value={credentials.pincode}
@@ -322,7 +322,7 @@ const ClubLogin = () => {
               </label>
               <textarea
                 type="text"
-                className="clubreg_des form-control "
+                className="clubreg_des form-control color"
                 aria-describedby="textDemo"
                 name="description"
                 value={credentials.description}
@@ -332,7 +332,7 @@ const ClubLogin = () => {
               />
               <textarea
                 type="text"
-                className="clubreg_mob form-control "
+                className="clubreg_mob form-control color"
                 aria-describedby="textDemo"
                 name="description"
                 placeholder="Enter club description"
@@ -351,7 +351,8 @@ const ClubLogin = () => {
                     !isEmailValid
                   }
                   type="submit"
-                  className="registration-btn btn btn-primary py-2"
+                  className="registration-btn btn  py-2"
+                  style={{backgroundColor: "#C996CC"}}
                 >
                   {isLoading ? (
                     <TailSpin color="#FFFFFF" height={30} width={30} />

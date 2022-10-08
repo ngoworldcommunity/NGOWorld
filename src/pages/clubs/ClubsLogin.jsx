@@ -112,14 +112,20 @@ function ClubLogin() {
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form style={{ width: "auto" }} onSubmit={handleSubmit}>
-                <h1 style={{ letterSpacing: "1px", marginBottom: "20px" }}>
-                  Log in
+              <form style={{ width: "auto" }} onSubmit={handleSubmit} >
+                <h1 style={{ letterSpacing: "1px", marginBottom: "25px" }}>
+                  Log in with your Club!
                 </h1>
                 <div className="form-outline mb-4">
+                <label
+                  htmlFor="exampleInputEmail1"
+                  className="col-form-label col-form-label-lg regformlabels"
+                >
+                  Email address 📨
+                </label>
                   <input
                     type="email"
-                    className="desktop form-control form-control-lg"
+                    className="desktop form-control form-control-lg color"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="Enter your email"
@@ -127,12 +133,11 @@ function ClubLogin() {
                     value={credentials.email}
                     onChange={handleChange}
                     required
-                    autoFocus
                   />
 
                   <input
                     type="email"
-                    className="mobile form-control form-control-lg"
+                    className="mobile form-control form-control-lg color"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     name="email"
@@ -145,9 +150,15 @@ function ClubLogin() {
                 </div>
 
                 <div className="form-outline mb-4">
+                <label
+                    htmlFor="exampleInputPassword1"
+                    className="col-form-label col-form-label-lg regformlabels color"
+                  >
+                    Password 🔑
+                  </label>
                   <input
                     type="password"
-                    className="desktop form-control form-control-lg"
+                    className="desktop form-control form-control-lg color"
                     id="exampleInputPassword1"
                     placeholder="Enter your password"
                     name="password"
@@ -155,10 +166,10 @@ function ClubLogin() {
                     onChange={handleChange}
                     required
                   />
-
+                  
                   <input
                     type="password"
-                    className="mobile form-control form-control-lg"
+                    className="mobile form-control form-control-lg color"
                     id="exampleInputPassword1"
                     name="password"
                     value={credentials.password}
@@ -169,10 +180,10 @@ function ClubLogin() {
                 </div>
 
                 {/* RememberMe Tab  */}
-                <div id="rememberMe" className="form-check">
+                <div id="rememberMe" className="form-check color-change">
                   <input
                     type="checkbox"
-                    className="form-check-input"
+                    className="form-check-input color-change-input"
                     id="exampleCheck1"
                   />
                   <label className="form-check-label" htmlFor="exampleCheck1">
