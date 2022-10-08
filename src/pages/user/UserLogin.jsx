@@ -104,6 +104,12 @@ function UserLogin() {
                   Log in
                 </h1>
                 <div className="form-outline mb-4">
+                <label
+                  htmlFor="exampleInputEmail1"
+                  className="col-form-label col-form-label-lg regformlabels"
+                >
+                  Email address 📨
+                </label>
                   <input
                     type="email"
                     className="desktop form-control form-control-lg"
@@ -118,7 +124,7 @@ function UserLogin() {
                     aria-label="email"
                     autoFocus
                   />
-
+                  
                   <input
                     type="email"
                     className="mobile form-control form-control-lg"
@@ -134,7 +140,12 @@ function UserLogin() {
 
                   />
                 </div>
-
+                <label
+                    htmlFor="exampleInputPassword1"
+                    className="col-form-label col-form-label-lg regformlabels color"
+                  >
+                    Password 🔑
+                  </label>
                 <div className="form-outline mb-4">
                   <input
                     type="password"

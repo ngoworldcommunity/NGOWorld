@@ -145,7 +145,7 @@ const UserRegister = () => {
                     htmlFor="emailInput"
                     className="col-form-label col-form-label-lg regformlabels"
                   >
-                    Email address
+                    Email address 📨
                   </label>
 
                   <input
@@ -167,7 +167,7 @@ const UserRegister = () => {
                     htmlFor="exampleInputPassword1"
                     className="col-form-label col-form-label-lg regformlabels"
                   >
-                    Password
+                    Password 🔑
                   </label>
 
                   <input
