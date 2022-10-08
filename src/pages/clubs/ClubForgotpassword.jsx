@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar";
 //import "../../styles/ClubLogin.css";
 import "react-toastify/dist/ReactToastify.css";
 
-const ForgotPasswordClub = () => {
+const ClubForgotpassword = () => {
 
   document.title = "Milan | Reset Password";
 
@@ -13,8 +13,8 @@ return(
 
     <>
     <Navbar />
-    <section className="vh-100">
-        <div className="container py-5 h-100">
+    <section className="vh-80">
+        <div className="container  h-80">
           <div className="row d-flex align-items-center justify-content-center h-100">
             <div className="col-md-8 col-lg-7 col-xl-6 d-flex justify-content-center">
               <img src={forgotpassword} className="mobile-img" alt="profile-img"></img>
@@ -34,7 +34,7 @@ return(
                 </label>
                   <input
                     type="email"
-                    className="desktop form-control form-control-lg color"
+                    className="desktop form-control form-control-lg color p-1"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="Enter your email"
@@ -56,7 +56,7 @@ return(
 
                 
                 <button
-                  style={{ backgroundColor: "#C996CC" }}
+                  style={{ backgroundColor: "#C996CC",color:"grey" }}
                   className="login-btn btn btn-lg btn-block"
                 > Forgot Password
                 </button>
@@ -72,4 +72,4 @@ return(
 );
 }
 
-export default ForgotPasswordClub;
+export default ClubForgotpassword;

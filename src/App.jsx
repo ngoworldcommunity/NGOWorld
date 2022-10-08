@@ -16,8 +16,8 @@ import {
   Donate,
 } from "./pages";
 import MilanState from "./context/MilanState";
-import ForgotPasswordClub from "./pages/clubs/ForgotPasswordClub";
-import UserForgotPassword from "./pages/user/UserForgotPassword";
+import ClubForgotpassword from "./pages/clubs/ClubForgotpassword";
+import UserForgotpassword from "./pages/user/UserForgotpassword";
 const App = () => {
   return (
     <>
@@ -33,14 +33,14 @@ const App = () => {
             <Route exact path="/user/register" element={<UserRegister />} />
             <Route exact path="/user/login" element={<UserLogin />} />
             <Route exact path="/user/profile" element={<UserProfile />} />
-            <Route exact path="/user/forgotpass" element={<UserForgotPassword />} />
+            <Route exact path="/user/forgotpass" element={<UserForgotpassword />} />
 
             {/* //* Auth routes - CLUBS*/}
 
             <Route exact path="/clubs/login" element={<ClubLogin />} />
             <Route exact path="/clubs/register" element={<ClubRegister />} />
             <Route exact path="/clubs/profile" element={<ClubProfile />} />
-            <Route exact path="/clubs/forgotpass" element={<ForgotPasswordClub />} />
+            <Route exact path="/clubs/forgotpass" element={<ClubForgotpassword />} />
 
             {/* //* Display Routes */}
             <Route exact path="/display/clubs" element={<ClubsPage />} />
