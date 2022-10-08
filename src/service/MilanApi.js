@@ -13,7 +13,7 @@ const apiURL = [
   "https://milan-server.vercel.app",
   "https://milan-server.adaptable.app",
 ];
-const API = apiURL[2];
+const API = apiURL[1];
 
 const User_Log = `${API}/user/login`;
 const User_Reg = `${API}/user/register`;
@@ -61,7 +61,8 @@ export const LoginUser = async (credentials) => {
 //* REGISTER USER
 export const RegisterUser = async (credentials) => {
   try {
-    const response = await Axios.post(User_Reg, credentials);
+    const User = await Axios.post(User_Reg, credentials);
+    return User;
   } catch (error) {
     toast.warning(error.response.data.message, {
       position: toast.POSITION.TOP_RIGHT,

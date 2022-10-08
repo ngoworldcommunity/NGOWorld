@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { RegisterUser } from "../../service/MilanApi";
-
+import Cookies from "js-cookie";
 //* The styles for Login and Register are essentially same
 import "../../styles/UserLogin.css";
 import { toast, ToastContainer } from 'react-toastify';
@@ -44,25 +44,30 @@ const UserRegister = () => {
       setIsEmailValid(true);
   };
 
+
+  //* Submit to backend
+  //* If alright we set a cookie with token and redirect to home page
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await RegisterUser(credentials);
-
-    toast('🌈 Logging you in !', {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      closeButton:false,
-      onClose: () => {
-        navigate("/user/login");
+    RegisterUser(credentials).then((response)=>{
+      if(response?.data.token){
+        Cookies.set("token", response.data.token);
+        toast('🌈 Registered your account!', {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          closeButton:false,
+          onClose: () => {
+            navigate("/");
+          }
+        });
       }
     });
-
 
   };
 
