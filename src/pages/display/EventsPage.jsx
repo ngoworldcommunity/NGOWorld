@@ -8,12 +8,14 @@ import "../../styles/EventsPage.css";
 const EventsPage = () => {
   document.title = "Milan | Events";
   const [clubData, setClubData] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     window.scrollTo(0, 0);
     const fetchClubData = async () => {
+      setLoading(true);
       const response = await GetAllEvents();
       setClubData(response);
+      setLoading(false);
     };
     fetchClubData();
   }, []);
@@ -46,12 +48,22 @@ const EventsPage = () => {
       </div>
 
       <hr className="container" />
+      {loading == true && (
+        <div className="w-100">
+          <div className="text-center">
+            <div class="spinner-border text-primary" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="cards justify-content-center">
         {clubData.map((club) => {
           return <SingleEvent key={club._id} club={club} />;
         })}
       </div>
+
       <Footer />
     </>
   );
