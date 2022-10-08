@@ -1,9 +1,14 @@
 /* Forgot password, create new account styling */
+.anchor-container {
+    text-align: center;
+}
+
 .login-link {
     text-decoration: none !important;
     color: grey;
     font-weight: 550;
 }
+
 .login-link:hover {
     color: #7ed957;
 }
@@ -27,6 +32,10 @@
     font-weight: 500;
     letter-spacing: 0.05rem;
     transition: 0.2s;
+}
+
+.btn-container {
+    text-align: center;
 }
 
 .highlighted {
@@ -73,6 +82,7 @@
     #remember-me {
         font-family: "Open Sans", sans-serif;
     }
+
     .login-btn {
         width: 6rem;
     }
