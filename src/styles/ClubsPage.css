@@ -6,6 +6,7 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
 .clubs_img {
   min-width: 470px;
   width: 100%;
@@ -69,6 +70,7 @@ div#clubs_banner {
     grid-template-columns: repeat(auto-fill, minmax(300px, 323px));
     row-gap: 2%;
   }
+
   div#clubs_banner {
     width: 100%;
     margin-top: 1rem;
@@ -114,6 +116,13 @@ div#clubs_banner {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   border-radius: 15px;
+}
+
+.clubCard:hover {
+  /* border: 2px solid red; */
+  box-shadow: rgba(255, 212, 206, 0.8) 0px 2px 4px 2px,
+    rgba(0, 0, 0, 0.5) 0px 3px 7px -3px;
+  transition: box-shadow 0.3s 0s ease-in-out;
 }
 
 .clubCard h1 {
@@ -168,12 +177,15 @@ div#clubs_banner {
   .eventspageintro_textdiv {
     margin-top: 1rem !important;
   }
+
   .card-title {
     font-size: 17px;
   }
+
   .desc {
     font-size: 14px;
   }
+
   .btn {
     font-size: 14px;
   }
@@ -192,6 +204,7 @@ body::-webkit-scrollbar {
 .eventspageintro_textdiv {
   margin-top: 10rem;
 }
+
 .eventspageintro_textdiv p {
   font-family: "Mulish", sans-serif;
   /* width: 60%; */
@@ -223,6 +236,7 @@ body::-webkit-scrollbar {
     width: 600px;
     height: 600px;
   }
+
   .donate_btn {
     margin-top: 10px;
   }
@@ -238,6 +252,7 @@ body::-webkit-scrollbar {
   margin-right: 5px;
   padding-top: 5px;
 }
+
 .modal-body_amountdiv input {
   width: 100px;
   border-radius: 3px;
