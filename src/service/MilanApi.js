@@ -13,7 +13,7 @@ const apiURL = [
   "https://milan-server.vercel.app",
   "https://milan-server.adaptable.app",
 ];
-const API = apiURL[2];
+const API = apiURL[1];
 
 const User_Log = `${API}/user/login`;
 const User_Reg = `${API}/user/register`;
