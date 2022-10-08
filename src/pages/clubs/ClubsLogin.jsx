@@ -192,45 +192,32 @@ function ClubLogin() {
                                 </div>
 
                                 {/* RememberMe Tab  */}
-                                <div
-                                    id="rememberMe"
-                                    className="form-check color-change"
-                                >
+                                <div id="rememberMe" className="form-check color-change">
                                     <input
                                         type="checkbox"
                                         className="form-check-input color-change-input"
                                         id="exampleCheck1"
                                     />
-                                    <label
-                                        id="remember-me"
-                                        className="form-check-label"
-                                        htmlFor="exampleCheck1"
-                                    >
+                                    <label id="remember-me" className="form-check-label" htmlFor="exampleCheck1">
                                         Remember me
                                     </label>
                                 </div>
                                 <br />
-
                                 <div className="btn-container">
                                     <button
-                                        disabled={
-                                            credentials.password.length <= 4 ||
-                                            !isEmailValid
-                                        }
+                                        disabled={credentials.password.length <= 4 || !isEmailValid}
                                         type="submit"
                                         className="login-btn btn btn-lg btn-block"
                                         style={{ backgroundColor: "#C996CC" }}
                                     >
                                         {isLoading ? (
-                                            <TailSpin
-                                                color="#FFFFFF"
-                                                height={30}
-                                                width={30}
-                                            />
+                                            <TailSpin color="#FFFFFF" height={30} width={30} />
                                         ) : (
                                             "LOGIN"
                                         )}
                                     </button>
+
+
                                 </div>
                                 <br></br>
                                 <br></br>
@@ -238,7 +225,7 @@ function ClubLogin() {
                                     <Anchor
                                         para=""
                                         details="Forgot password?"
-                                        link="#"
+                                        link="/clubs/forgotpass"
                                         className="text-muted"
                                     />
                                     <Anchor
@@ -247,8 +234,8 @@ function ClubLogin() {
                                         link="/clubs/register"
                                         className="link-info"
                                     />
-                                </div>
 
+                                </div>
                             </form>
                         </div>
                     </div>

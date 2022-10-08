@@ -140,6 +140,7 @@ function UserLogin() {
 
                                     />
                                 </div>
+
                                 <label
                                     htmlFor="exampleInputPassword1"
                                     className="col-form-label col-form-label-lg regformlabels color"
@@ -196,14 +197,13 @@ function UserLogin() {
                                         Login
                                     </button>
                                 </div>
-
                                 <br></br>
                                 <br></br>
                                 <div className="anchor-container">
                                     <Anchor
                                         para=""
                                         details="Forgot password?"
-                                        link="#"
+                                        link="/user/forgotpass"
                                         className="text-muted"
                                     />
                                     <Anchor
@@ -213,6 +213,7 @@ function UserLogin() {
                                         className="link-info"
                                     />
                                 </div>
+
                             </form>
                         </div>
                     </div>
