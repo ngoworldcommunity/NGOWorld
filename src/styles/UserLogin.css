@@ -13,22 +13,21 @@
 
 @media screen and (max-width: 800px) {
     h2 {
-        text-align: center;
         padding-bottom: 2vw;
-    }
-    form {
-        text-align: center;
     }
 
     ::placeholder {
-        text-align: center;
     }
 
     #homeIcon {
         font-size: 3.5vw;
     }
     .form {
-        padding: 0 40px 0 40px;
+        padding: 0 4rem 0 4rem;
+    }
+
+    .login-btn {
+        width: 10rem;
     }
 }
 

@@ -186,7 +186,7 @@ function ClubLogin() {
                     className="form-check-input color-change-input"
                     id="exampleCheck1"
                   />
-                  <label className="form-check-label" htmlFor="exampleCheck1">
+                  <label id="remember-me"className="form-check-label" htmlFor="exampleCheck1">
                     Remember me
                   </label>
                 </div>
