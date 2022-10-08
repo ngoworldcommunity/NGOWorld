@@ -210,7 +210,7 @@ function ClubLogin() {
                 <Anchor
                   para=""
                   details="Forgot password?"
-                  link="#"
+                  link="/clubs/forgotpass"
                   className="text-muted"
                 />
                 <Anchor

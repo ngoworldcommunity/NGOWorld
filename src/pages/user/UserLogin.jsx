@@ -200,7 +200,7 @@ function UserLogin() {
                 <Anchor
                   para=""
                   details="Forgot password?"
-                  link="#"
+                  link="/user/forgotpass"
                   className="text-muted"
                 />
                 <Anchor
