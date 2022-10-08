@@ -7,13 +7,13 @@ Cypress.config("viewportHeight", 720);
 
 describe("All Basic Tests", () => {
   it("Check header texts in homepage", () => {
-    cy.visit("https://milaan.vercel.app/");
+    cy.visit("http://localhost:3000/");
     cy.contains("h1", "MILAN");
     cy.contains("h2", "Where HELP meets NEED");
   });
 
   it("Check for all homepage buttons", () => {
-    cy.visit("https://milaan.vercel.app/");
+    cy.visit("http://localhost:3000/");
     cy.contains("button", "Continue as a Club");
     cy.contains("button", "Continue as a User");
     cy.contains("button", "Share your love");
@@ -22,7 +22,7 @@ describe("All Basic Tests", () => {
   });
 
   it("Check for Social icons", () => {
-    cy.visit("https://milaan.vercel.app/");
+    cy.visit("http://localhost:3000/");
     cy.get(".fa-twitter").should("be.visible");
     cy.get(".fa-github").should("be.visible");
     cy.get(".fa-message").should("be.visible");
