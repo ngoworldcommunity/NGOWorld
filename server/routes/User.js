@@ -34,7 +34,12 @@ router.post("/register", async (req, res) => {
 
     //saving the data to mongodb
     UserData.save();
-    return res.status(201).json({ message: "Registration successful, please login" })
+    const payload = { User: { id: UserData.email } };
+    
+    jwt.sign(payload, SECRET, (err, token) => {
+      return res.status(201).json({ token, isuser: true });
+    });
+
   } catch (e) {
     return res.status(500).json({ message: "Internal Server Error" })
   }
