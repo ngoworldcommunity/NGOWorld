@@ -11,6 +11,10 @@
     height: auto;
 }
 
+.anchor-container {
+    text-align: center;
+}
+
 @media screen and (max-width: 800px) {
     h2 {
         padding-bottom: 2vw;
