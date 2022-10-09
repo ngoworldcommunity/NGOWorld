@@ -49,7 +49,7 @@ const UserRegister = () => {
 
     await RegisterUser(credentials);
 
-    toast('🌈 Logging you in !', {
+    toast('🌈Registered your account !', {
       position: "top-right",
       autoClose: 1000,
       hideProgressBar: false,
