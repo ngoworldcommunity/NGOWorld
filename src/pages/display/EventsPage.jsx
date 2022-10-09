@@ -4,16 +4,20 @@ import { Navbar, Footer, SingleEvent } from "../../components";
 import { GetAllEvents } from "../../service/MilanApi";
 import Eventspic from "../../assets/pictures/EventsPagefloating.svg";
 import "../../styles/EventsPage.css";
+import Loading from "../../components/Loading";
 
 const EventsPage = () => {
   document.title = "Milan | Events";
   const [clubData, setClubData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     const fetchClubData = async () => {
+      setLoading(true);
       const response = await GetAllEvents();
       setClubData(response);
+      setLoading(false);
     };
     fetchClubData();
   }, []);
@@ -48,9 +52,16 @@ const EventsPage = () => {
       <hr className="container" />
 
       <div className="cards justify-content-center">
-        {clubData.map((club) => {
-          return <SingleEvent key={club._id} club={club} />;
-        })}
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
+            {" "}
+            {clubData.map((club) => {
+              return <SingleEvent key={club._id} club={club} />;
+            })}
+          </>
+        )}
       </div>
       <Footer />
     </>
