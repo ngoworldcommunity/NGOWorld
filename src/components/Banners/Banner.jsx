@@ -19,7 +19,7 @@ const Banner = () => {
     <>
       <div className="banner-container" style={{ backGround: BannerBg }}>
         <div className="banner-outer" data-aos="fade-up" data-aos-anchor=".banner-content" data-aos-anchor-placement="bottom-top" data-aos-duration="1000" data-aos-easing="ease">
-           <a href="#top">↑</a>
+           <button className="up-btn"><a href="#top">↑</a></button>
         </div>
         <div id="top" className="banner-inner">
           <div className="banner-content">
