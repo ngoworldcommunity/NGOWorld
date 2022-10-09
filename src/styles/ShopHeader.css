@@ -73,20 +73,28 @@
   }
   .info {
     width: 100%;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-  }
-  .info h1 {
-    font-size: 30px;
   }
   .info p {
     text-align: center;
   }
   .ShopImg {
-    min-width: 400px;
+    min-width: 350px;
+    width: 100%;
   }
   .info button {
     width: 170px;
     padding: 6px;
   }
+  .Header-text{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+  }
+  .Header-text h1{
+     width: 100%;
+     font-size: 30px;
+
+  } 
 }
