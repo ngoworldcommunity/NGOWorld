@@ -20,7 +20,7 @@ Why the name - 'Milan' ?
 <br>
 <p align="center">
 The word ‘Milan’ when translated from its colloquial form into English means ‘conjugation’.
-It is often seen that people get scammed when their intentions are in liue they were just trying to do good for other people, they were trying to extend their help. Again, it is seen that there are some Clubs or NGOs who do not get enough funds to work for humanitarian causes because of the lack of proper representation.
+It is often seen that people get scammed when their intentions are in lieu they were just trying to do good for other people, they were trying to extend their help. Again, it is seen that there are some Clubs or NGOs who do not get enough funds to work for humanitarian causes because of the lack of proper representation.
 </p>
 <br/>
 
@@ -54,7 +54,7 @@ Contributing to the Project
 </br>
 
 <p align="center">
-Milan is built using MERN Stack. The designing has been done in Canva, Figma and using other tools. You can surely make a NEW ISSUE, or solve AN EXISTING ISSUE - the choice is yours. Apart from code, you can also help us with documentation, Automations or/and UI/UX. 🚀 </p>
+Milan is built using the MERN Stack. The designing has been done using Canva, Figma and some other tools. You can surely make a NEW ISSUE, or solve AN EXISTING ISSUE - the choice is yours. Apart from code, you can also help us with documentation, Automations or/and UI/UX. 🚀 </p>
 
 <p align="center">
 It is always recommended that you *open an issue and get it assined to you* before working on any feature which would bring clarity in working as well as it ensures that no two people are working on the same thing.  

@@ -8,9 +8,6 @@ var jwt = require("jsonwebtoken");
 const ReportProblem = require("../models/ReportProblemSchema");
 const ContactUs = require("../models/ContactUsSchema");
 
-
-const SECRET = "HELLOSECRET123";
-
 //* Route 1  - User Registration
 router.post("/register", async (req, res) => {
   try {
@@ -97,7 +94,7 @@ router.post("/login", async (req, res) => {
 
     const payload = { User: { id: existingUser.email } };
   
-    jwt.sign(payload, SECRET, (err, token) => {
+    jwt.sign(payload,process.env.JWT_SECRET, (err, token) => {
       return res.status(201).json({ token, isuser: true });
     });
   } catch (err) {

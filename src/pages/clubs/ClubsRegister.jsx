@@ -55,7 +55,7 @@ const ClubLogin = () => {
     await RegisterClub({ ...credentials });
     setIsLoading(false);
 
-    toast("🌈 Registering your club !", {
+    toast("🌈 Registered your club !", {
       position: "top-right",
       autoClose: 1000,
       hideProgressBar: false,
