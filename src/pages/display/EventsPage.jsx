@@ -5,15 +5,31 @@ import { GetAllEvents } from "../../service/MilanApi";
 import Eventspic from "../../assets/pictures/EventsPagefloating.svg";
 import "../../styles/EventsPage.css";
 
+const LoaderSpinner = () => {
+  return (
+    <div id="spinner-wrapper" className="w-100 text-center">
+      <div
+        id="spinner"
+        className="spinner-border text-primary m-5"
+        role="status"
+      ></div>
+      <span className="visually-hidden">Loading...</span>
+    </div>
+  );
+};
+
 const EventsPage = () => {
   document.title = "Milan | Events";
   const [clubData, setClubData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     const fetchClubData = async () => {
+      setLoading(true);
       const response = await GetAllEvents();
       setClubData(response);
+      setLoading(false);
     };
     fetchClubData();
   }, []);
@@ -48,9 +64,16 @@ const EventsPage = () => {
       <hr className="container" />
 
       <div className="cards justify-content-center">
-        {clubData.map((club) => {
-          return <SingleEvent key={club._id} club={club} />;
-        })}
+        {loading ? (
+          <LoaderSpinner />
+        ) : (
+          <>
+            {" "}
+            {clubData.map((club) => {
+              return <SingleEvent key={club._id} club={club} />;
+            })}
+          </>
+        )}
       </div>
       <Footer />
     </>
