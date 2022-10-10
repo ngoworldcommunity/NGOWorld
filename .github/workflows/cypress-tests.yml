@@ -43,12 +43,11 @@ jobs:
         with:
           # we have already installed all dependencies above
           install: false
-          start: npm run start:ci
+          start: npm run start
           wait-on: "http://localhost:3000"
           wait-on-timeout: 120
           browser: chrome
           record: true
-          parallel: true
           group: "UI - Chrome"
           spec: cypress/e2e/*
         # env:
