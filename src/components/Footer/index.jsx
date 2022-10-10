@@ -12,6 +12,7 @@ const Footer = () => {
   const [reportFirstName, setReportFirstName] = useState("");
   const [reportLastName, setReportLastName] = useState("");
   const [reportIssue, setReportIssue] = useState("");
+  const [logged, setLogged] = useState(false);
 
   const handleReportModalOpen = () => {
     document.previousTitle = document.title;
@@ -27,6 +28,10 @@ const Footer = () => {
     setReportIssue("");
     setReportModal(false);
   };
+
+  useEffect(() => {
+    if(Cookies.get("token")) setLogged(true); 
+  })
 
   useEffect(() => {
     if (reportModal) {
@@ -204,24 +209,39 @@ const Footer = () => {
           <div className="join-us col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
             <div className="join">
               <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4">
-                Join Us!
+                { logged ? "Explore!" : 'Join Us!'}
               </h1>
               <ul className="join-us-list list-unstyled mb-0">
                 <li className="mb-2">
+                  {logged ?
+                  <Link
+                    to="/display/events"
+                    className="text-decoration-none footer_auth_text"
+                  >
+                    Events
+                  </Link>
+                  :
                   <Link
                     to="/user/login"
                     className="text-decoration-none footer_auth_text"
                   >
                     Login
-                  </Link>
+                  </Link>}
                 </li>
                 <li className="mb-2">
+                  {logged ? <Link
+                    to="/shops/shop"
+                    className="text-decoration-none footer_auth_text"
+                  >
+                    Shop
+                  </Link>
+                  :
                   <Link
                     to="/user/register"
                     className="text-decoration-none footer_auth_text"
                   >
                     Register
-                  </Link>
+                  </Link>}
                 </li>
               </ul>
             </div>
