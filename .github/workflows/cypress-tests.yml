@@ -1,12 +1,18 @@
 name: E2E on Chrome
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
 
 jobs:
   cypress-run:
+    timeout-minutes: 10
     runs-on: ubuntu-latest
-    # making sure our tests run on chrome
-    name: E2E on Chrome
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -19,7 +25,7 @@ jobs:
           browser: chrome
           build: npm run build #Install npm dependencies and build the project
           start: npm start #Start the project web server
-          wait-on: "http://localhost:3000"
+          # wait-on: "http://localhost:3000"
           record: true
           spec: cypress/e2e/milanTest.spec.js
           # working-directory: cypress/e2e
