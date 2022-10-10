@@ -47,7 +47,6 @@ jobs:
           wait-on: "http://localhost:3000"
           wait-on-timeout: 120
           browser: chrome
-          record: true
           group: "UI - Chrome"
           spec: cypress/e2e/*
         # env:
