@@ -1,31 +1,45 @@
-name: E2E on Chrome
+name: Cypress Tests with Install Job and UI Chrome Job x 5
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    types: [opened, synchronize, reopened]
-    branches:
-      - main
+on: [push, pull_request]
 
 jobs:
-  cypress-run:
-    timeout-minutes: 10
+  install:
+  # ...
+
+  ui-chrome-tests:
     runs-on: ubuntu-latest
+    container: cypress/browsers:node12.18.3-chrome87-ff82
+    needs: install
+    strategy:
+      fail-fast: false
+      matrix:
+        # run copies of the current job in parallel
+        containers: [1, 2, 3, 4, 5]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run # Run the Cypress tests within our GitHub repository within Electron.
-        uses: cypress-io/github-action@v2
+      - name: Download the build folders
+        uses: actions/download-artifact@v2
         with:
+          name: build
+          path: build
+
+      - name: "UI Tests - Chrome"
+        uses: cypress-io/github-action@v4.x.x # use the explicit version number
+        with:
+          # we have already installed all dependencies above
+          install: false
+          start: npm start:ci
+          wait-on: "http://localhost:3000"
+          wait-on-timeout: 120
           browser: chrome
-          build: npm run build #Install npm dependencies and build the project
-          start: npm start #Start the project web server
-          # wait-on: "http://localhost:3000"
           record: true
-          spec: cypress/e2e/milanTest.spec.js
-          # working-directory: cypress/e2e
+          parallel: true
+          group: "UI - Chrome"
+          spec: cypress/e2e/*
+        # env:
+        #   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+        #   # Recommended: pass the GitHub token lets this action correctly
+        #   # determine the unique run id necessary to re-run the checks
+        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
