@@ -1,153 +1,173 @@
 /* // Home Banner */
 .banner-container {
-  background: url("../assets/pictures/milanBg.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background: url("../assets/pictures/milanBg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .banner-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 50%;
-  height: 80%;
-  padding-bottom: 65px;
-  max-width: 974px;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+    height: 80%;
+    padding-bottom: 65px;
+    max-width: 974px;
+    text-align: center;
 }
 
 .banner-content {
-  padding-bottom: 120px;
+    padding-bottom: 120px;
 }
 
 @media (max-width: 425px) {
-  .banner-container {
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
-  }
+    .banner-container {
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
+    }
 
-  .banner-content {
-    padding-bottom: 50px;
-  }
+    .banner-content {
+        padding-bottom: 50px;
+    }
 }
 
 .banner-header1 {
-  color: black;
-  text-transform: uppercase;
-  font-size: 80px;
-  font-family: "Mulish";
-  font-weight: 600;
+    color: black;
+    text-transform: uppercase;
+    font-size: 80px;
+    font-family: "Mulish";
+    font-weight: 600;
 }
 
 .banner-subtitle {
-  color: rgb(111, 106, 106);
-  font-size: 30px;
-  margin: 0;
-  font-family: "Mulish";
-  font-weight: bold;
+    color: rgb(111, 106, 106);
+    font-size: 30px;
+    margin: 0;
+    font-family: "Mulish";
+    font-weight: bold;
 }
 @media (min-width: 768px) {
-  .banner-subtitle {
-    font-size: 30px;
-  }
+    .banner-subtitle {
+        font-size: 30px;
+    }
 }
 @media (max-width: 600px) {
-  .banner-subtitle {
-    font-size: 20px;
-    font-weight: bolder;
-  }
+    .banner-subtitle {
+        font-size: 20px;
+        font-weight: bolder;
+    }
 
-  .banner-header1 {
-    font-size: 48px;
-  }
+    .banner-header1 {
+        font-size: 48px;
+    }
 }
 
 .banner-Buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
 }
 .banner-Buttons button {
-  background-color: #0d6efd;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-
-  cursor: pointer;
-  width: auto;
+    background-color: #0d6efd;
+    padding: 0.5rem 1rem;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: auto;
+    font-family: "Open Sans", sans-serif;
 }
 
 .banner-Buttons_btn1 {
-  margin-right: 10px;
+    margin-right: 10px;
+}
+
+#btn-1 {
+    background-color: var(--bs-pink);
+    color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+#btn-2 {
+    background-color: var(--bs-blue);
+    color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+#btn-1:hover,
+#btn-2:hover {
+    background-color: white;
+    color: black;
 }
 
 @media (max-width: 684px) {
-  .banner-inner {
-    position: absolute;
-  }
+    .banner-inner {
+        position: absolute;
+    }
 
-  .banner-Buttons {
-    position: absolute;
-    bottom: 34px;
-    margin: 0 !important;
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
+    .banner-Buttons {
+        position: absolute;
+        bottom: 34px;
+        margin: 0 !important;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
 
-  .banner-Buttons button {
-    font-size: 14px;
-    padding: 8px;
-    margin: 0 !important;
-    margin-top: 10px !important;
-  }
+    .banner-Buttons button {
+        font-size: 14px;
+        padding: 8px;
+        margin: 0 !important;
+        margin-top: 10px !important;
+    }
 }
 
 @media (max-width: 343px) {
-  .banner-Buttons {
-    bottom: 0;
-  }
+    .banner-Buttons {
+        bottom: 0;
+    }
 }
 
 .banner-outer {
-  z-index: 2;
-  position: fixed;
-  bottom: 5%;
-  right: 3%;
+    z-index: 2;
+    position: fixed;
+    bottom: 5%;
+    right: 3%;
 }
 
 .up-btn {
-  font-size: 1.85rem;
-  display: block;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 35px;
-  width: 35px;
-  padding: 0.25rem 1rem 0.5rem 1rem;
-  background-color: white;
-  border-radius: 50%;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.2s ease;
+    font-size: 1.85rem;
+    display: block;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    width: 35px;
+    padding: 0.25rem 1rem 0.5rem 1rem;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
 }
 
 .up-btn a {
-  color: #297f75;
-  text-decoration: none;
+    color: #297f75;
+    text-decoration: none;
 }
 
 .up-btn:hover,
 .up-btn:active {
-  background-color: aliceblue;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    background-color: aliceblue;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
 }
