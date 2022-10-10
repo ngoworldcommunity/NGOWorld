@@ -7,7 +7,9 @@ const ShopHeader = () => {
     <div className="store">
       <img src={Landing} alt="shops" className="ShopImg" />
       <div className="info">
-        <h1>Welcome to our store !</h1>
+        <div className="Header-text">
+          <h1>Welcome to our store !</h1>
+        </div>
         <p>
           We aim at selling you fine artworks, products that would support the
           local community !{" "}
