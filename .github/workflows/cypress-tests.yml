@@ -14,7 +14,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - run: CI=false # temporary fix for eslint warnings being treated as errors
 
       - name: "Cypress Tests - Chrome"
         uses: cypress-io/github-action@v4.2.0 # use the explicit version number
@@ -26,3 +25,5 @@ jobs:
           wait-on-timeout: 120 # amount of time to wait on server to start
           browser: chrome #specify browser to run tests on
           spec: cypress/e2e/* #Specify the test files you'd like to run
+        env:
+          CI: false # temporary fix for eslint warnings being treated as errors
