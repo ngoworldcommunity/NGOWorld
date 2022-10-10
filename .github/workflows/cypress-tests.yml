@@ -14,7 +14,7 @@ jobs:
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run # Run the Cypress tests within our GitHub repository within Electron.
-        uses: cypress-io/github-action@vz
+        uses: cypress-io/github-action@v2
         with:
           browser: chrome
           build: npm run build #Install npm dependencies and build the project
