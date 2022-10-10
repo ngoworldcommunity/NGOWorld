@@ -19,7 +19,7 @@ jobs:
         uses: cypress-io/github-action@v4.2.0 # use the explicit version number
         with:
           install: true # Install project dependencies
-          build: CI=false npm run build # create production build for testing # temporary fix for eslint warnings being treated as errors
+          build: CI=false && npm run build # create production build for testing # temporary fix for eslint warnings being treated as errors
           start: npm run start # start development server on docker container
           wait-on: "http://localhost:3000" # wait on the project to start before running tests
           wait-on-timeout: 120 # amount of time to wait on server to start
