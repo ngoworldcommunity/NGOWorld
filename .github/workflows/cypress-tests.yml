@@ -1,4 +1,4 @@
-name: E2E on Chrome
+name: E2E Tests on Chrome
 
 on:
   push:
@@ -19,11 +19,14 @@ jobs:
         uses: cypress-io/github-action@v4.2.0 # use the explicit version number
         with:
           install: true # Install project dependencies
-          build: npm build # create production build for testing # temporary fix for eslint warnings being treated as errors
-          start: npm start # start development server on docker container
+          build: npm build # Create production build for testing
+          start: npm start # Start development server on docker container
           wait-on: "http://localhost:3000" # wait on the project to start before running tests
           wait-on-timeout: 120 # amount of time to wait on server to start
-          browser: chrome #specify browser to run tests on
-          spec: cypress/e2e/* #Specify the test files you'd like to run
+          browser: chrome # Specify browser to run tests on
+          spec: cypress/e2e/* # Specify the test files you'd like to run
         env:
+          # temporary fix for eslint warnings being treated as errors.
+          # This works for "react": "^17.0.2" and "react-scripts": "^5.0.1". Upgrading any of these packages
+          # means that you will have to change this to CI=false
           CI: ""
