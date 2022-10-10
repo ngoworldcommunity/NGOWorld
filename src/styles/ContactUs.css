@@ -96,7 +96,7 @@
 		display: none;
 	}
 	.col-form-label {
-		display: none;
+		font-size: large;
 	}
 	.inputs {
 		padding: 0 30px 0 30px;

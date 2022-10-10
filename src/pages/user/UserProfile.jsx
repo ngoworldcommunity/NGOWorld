@@ -68,7 +68,7 @@ export default function UserProfile() {
 										className="form-control form-control-lg"
 										id="email"
 										aria-describedby="emailHelp"
-
+										placeholder="Email"
 										name="email"
 										value={credentials.email}
 										onChange={handleChange}
@@ -84,6 +84,7 @@ export default function UserProfile() {
 										className="form-control form-control-lg"
 										id="oldPassword"
 										name="oldPassword"
+										placeholder="Previous Password"
 										style={{ fontFamily: "Open Sans, sans-serif" }}
 										value={credentials.oldPassword}
 										onChange={handleChange}
@@ -99,6 +100,7 @@ export default function UserProfile() {
 										className="form-control form-control-lg"
 										id="newpPassword"
 										name="newPassword"
+										placeholder="New Password"
 										style={{ fontFamily: "Open Sans, sans-serif" }}
 										value={credentials.newPassword}
 										onChange={handleChange}
