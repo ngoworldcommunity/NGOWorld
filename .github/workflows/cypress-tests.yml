@@ -1,10 +1,15 @@
-name: Cypress Tests with Install Job and UI Chrome Job x 5
+name: E2E on Chrome
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    # use docker container to run tests
     container: cypress/browsers:node12.18.3-chrome87-ff82
     steps:
       - name: Checkout
@@ -13,10 +18,10 @@ jobs:
       - name: "Cypress Tests - Chrome"
         uses: cypress-io/github-action@v4.2.0 # use the explicit version number
         with:
-          install: true
-          build: npm run build
-          start: npm run start
-          wait-on: "http://localhost:3000"
+          install: true # Install project dependencies
+          build: npm run build # create production build fro testing
+          start: npm run start # start development server on docker container
+          wait-on: "http://localhost:3000" # wait on the projec to start before running tests
           wait-on-timeout: 120
           browser: chrome
-          spec: cypress/e2e/milanTest.spec.js
+          spec: cypress/e2e/*
