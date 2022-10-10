@@ -42,7 +42,7 @@ jobs:
         uses: cypress-io/github-action@v4.2.0 # use the explicit version number
         with:
           # we have already installed all dependencies above
-          install: false
+          install: true
           start: npm run start
           wait-on: "http://localhost:3000"
           wait-on-timeout: 120
