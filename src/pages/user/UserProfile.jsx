@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import { UpdateUser } from "../../service/MilanApi";
 import Cookies from "js-cookie";
+import "../../styles/UserLogin.css"
 
 export default function UserProfile() {
 	document.title = "Milan | User Profile"
@@ -65,10 +66,10 @@ export default function UserProfile() {
 									</label>
 									<input
 										type="email"
-										className="form-control form-control-lg"
+										className="form-control form-control-lg remove_placeholder_desktop"
 										id="email"
 										aria-describedby="emailHelp"
-
+										placeholder="Email"
 										name="email"
 										value={credentials.email}
 										onChange={handleChange}
@@ -81,9 +82,10 @@ export default function UserProfile() {
 									</label>
 									<input
 										type="password"
-										className="form-control form-control-lg"
+										className="form-control form-control-lg remove_placeholder_desktop"
 										id="oldPassword"
 										name="oldPassword"
+										placeholder="Previous Password"
 										style={{ fontFamily: "Open Sans, sans-serif" }}
 										value={credentials.oldPassword}
 										onChange={handleChange}
@@ -96,9 +98,10 @@ export default function UserProfile() {
 									</label>
 									<input
 										type="password"
-										className="form-control form-control-lg"
+										className="form-control form-control-lg remove_placeholder_desktop"
 										id="newpPassword"
 										name="newPassword"
+										placeholder="New Password"
 										style={{ fontFamily: "Open Sans, sans-serif" }}
 										value={credentials.newPassword}
 										onChange={handleChange}
