@@ -1,27 +1,32 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-
 
 .group {
-    margin-top: 8em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin-top: 8em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.group h1{
-  color:#474747;
+.group h1 {
+  color: #474747;
   font-style: normal;
   font-weight: bold;
   font-size: 48px;
   line-height: 60px;
 }
 
-.group hr{
-    background-color: #474747;
-    height: 1px;
-    width: 75%;
+.group hr {
+  background-color: #474747;
+  height: 1px;
+  width: 75%;
+}
+
+@media (max-width: 684px) {
+  .group h1 {
+    font-size: 35px;
+  }
 }
