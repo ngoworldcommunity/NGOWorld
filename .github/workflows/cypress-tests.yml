@@ -8,7 +8,7 @@ on:
 
 jobs:
   cypress-run:
-  timeout-minutes: 10
+    timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
       - name: Get npm cache
@@ -18,14 +18,13 @@ jobs:
 
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
-      - name: Install dependencies 
+      - name: Install dependencies
         uses: cypress-io/github-action@v2
         with:
           runTests: false
 
       - name: Prepare UI step
         run: npm run build #Install npm dependencies and build the project
-
 
       - name: run tests # Run the Cypress tests within our GitHub repository within Electron.
         uses: cypress-io/github-action@v2
