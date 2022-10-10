@@ -1,0 +1,26 @@
+name: E2E on Chrome
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run # Run the Cypress tests within our GitHub repository within Electron.
+        uses: cypress-io/github-action@v4.2.0
+        with:
+          browser: chrome
+          build: npm run build #Install npm dependencies and build the project
+          start: npm start #Start the project web server
+          wait-on: "http://localhost:3000"
+          record: true
+          spec: cypress/e2e/milanTest.spec.js
