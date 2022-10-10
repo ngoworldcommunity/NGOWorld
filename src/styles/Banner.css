@@ -4,7 +4,8 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 131vh;
+  background-attachment: fixed;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,4 +116,38 @@
   .banner-Buttons {
     bottom: 0;
   }
+}
+
+.banner-outer {
+  z-index: 2;
+  position: fixed;
+  bottom: 5%;
+  right: 3%;
+}
+
+.up-btn {
+  font-size: 1.85rem;
+  display: block;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  padding: 0.25rem 1rem 0.5rem 1rem;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.up-btn a {
+  color: #297f75;
+  text-decoration: none;
+}
+
+.up-btn:hover,
+.up-btn:active {
+  background-color: aliceblue;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
 }
