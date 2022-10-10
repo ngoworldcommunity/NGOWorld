@@ -21,5 +21,5 @@ jobs:
           start: npm start #Start the project web server
           wait-on: "http://localhost:3000"
           record: true
-          # spec: cypress/e2e/milanTest.spec.js
-          working-directory: cypress/e2e
+          spec: cypress/e2e/milanTest.spec.js
+          # working-directory: cypress/e2e
