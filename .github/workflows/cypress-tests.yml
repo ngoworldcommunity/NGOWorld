@@ -1,40 +1,25 @@
 name: E2E on Chrome
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+on: [push, pull_request]
 
 jobs:
   cypress-run:
-    timeout-minutes: 10
     runs-on: ubuntu-latest
+    # making sure our tests run on chrome
+    name: E2E on Chrome
     steps:
-      - name: Get npm cache
+      - name: Checkout
         uses: actions/checkout@v2
-        id: npm-cache-dir-path
-        run: echo "::set-output name=dir::$(npm cache dir)"
 
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
-      - name: Install dependencies
-        uses: cypress-io/github-action@v2
+      - name: Cypress run # Run the Cypress tests within our GitHub repository within Electron.
+        uses: cypress-io/github-action@vz
         with:
-          runTests: false
-
-      - name: Prepare UI step
-        run: npm run build #Install npm dependencies and build the project
-
-      - name: run tests # Run the Cypress tests within our GitHub repository within Electron.
-        uses: cypress-io/github-action@v2
-        env:
-          CI: true
-        with:
-          install: false
           browser: chrome
+          build: npm run build #Install npm dependencies and build the project
           start: npm start #Start the project web server
           wait-on: "http://localhost:3000"
           record: true
-          working-directory: cypress/e2e
           # spec: cypress/e2e/milanTest.spec.js
+          working-directory: cypress/e2e
