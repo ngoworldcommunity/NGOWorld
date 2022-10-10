@@ -111,7 +111,7 @@ div#clubs_banner {
 }
 
 .clubCard {
-  min-height: 405px;
+  min-height: 422px;
   height: fit-content;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 0px 5px 0px;
   transition: box-shadow 0.5s ease-out 0s;
