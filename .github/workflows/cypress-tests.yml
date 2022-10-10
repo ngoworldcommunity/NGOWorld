@@ -15,7 +15,7 @@ jobs:
         with:
           # Disable running of tests within install job
           runTests: false
-          build: yarn build
+          build: npm run build
 
       - name: Save build folder
         uses: actions/upload-artifact@v2
@@ -32,7 +32,7 @@ jobs:
       fail-fast: false
       matrix:
         # run copies of the current job in parallel
-        containers: [1, 2, 3, 4, 5]
+        containers: [1, 2]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
