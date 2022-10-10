@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // This is the donate page where we come and select clubs to donate an amount !
 
 import React, { useState } from "react";
