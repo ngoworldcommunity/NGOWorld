@@ -26,11 +26,11 @@ const Banner = () => {
           data-aos-duration="1000"
           data-aos-easing="ease"
         >
-          <button className="up-btn">
-            <a href="#top">↑</a>
+          <button className="up-btn" onClick={() => window.scrollTo(0, 0)}>
+            <div>↑</div>
           </button>
         </div>
-        <div id="top" className="banner-inner">
+        <div className="banner-inner">
           <div className="banner-content">
             <h1 className="banner-header1">MILAN</h1>
             <h2 className="banner-subtitle">Where HELP meets NEED.</h2>
