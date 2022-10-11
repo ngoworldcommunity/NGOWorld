@@ -72,8 +72,21 @@ const ClubLogin = () => {
       closeButton: false,
       onClose: () => navigate("/clubs/login"),
     });
-  };
-
+  }else{
+    toast("Please fill all the fields !", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      closeButton : false,
+      onClose: () => {
+      }
+    });
+  }
+}
 
   return (
     <>
