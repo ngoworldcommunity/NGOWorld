@@ -5,6 +5,8 @@ import "../../styles/UserLogin.css";
 import { LoginUser } from "../../service/MilanApi";
 import Cookies from "js-cookie";
 import { toast, ToastContainer } from "react-toastify";
+
+import SchemaValidator ,{ msgLocalise} from "../../utils/validation";
 import "react-toastify/dist/ReactToastify.css";
 
 function UserLogin() {
@@ -27,29 +29,79 @@ function UserLogin() {
         password: "",
     });
 
-    const [isEmailValid, setIsEmailValid] = useState(false);
-
+    const FormDataProto = {
+        id: "/LoginForm",
+        type: "object",
+        properties: {
+            email:{type:"string" , format:"email"},
+            password:{type:"string" , minLength:4 },
+        },
+        required:["email" , "password"]
+    }
+    
     //* To set the value as soon as we input
     const handleChange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
-        if (
-            e.target.name === "email" &&
-            e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
-        )
-            setIsEmailValid(true);
     };
+
+    const handleValidate = (e) => {
+    
+        var validator = SchemaValidator(FormDataProto.properties[e.target.name], e.target.value)
+        
+        if(!validator.valid)
+        {
+          toast(`${e.target.name} : ${msgLocalise(validator.errors[0])}`, {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            closeButton:false
+          });
+        }
+      }
 
     //* Submit to backend
     //* If alright we get a cookie with token
     const handleSubmit = (e) => {
         e.preventDefault();
-        const Data = LoginUser(credentials);
+        var validator = SchemaValidator(FormDataProto,{ ...credentials })
+        
+        if(validator.valid)
+        { 
+            const Data = LoginUser(credentials);
 
-        Data.then((response) => {
-            if (response?.data.token) {
-                Cookies.set("token", response.data.token);
+            Data.then((response) => {
+                if (response?.data.token) {
+                    Cookies.set("token", response.data.token);
 
-                toast("🦄 Logging you in !", {
+                    toast("🦄 Logging you in !", {
+                        position: "top-right",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        closeButton: false,
+                        onClose: () => {
+                            Navigate("/");
+                        },
+                    });
+                } else {
+
+                    setCredentials({ email: "", password: "" });
+                }
+            }).catch((err) => {
+                console.log(err);
+            });
+        }
+        else { 
+            validator.errors.map(
+                function (e , i){
+                return  toast(`${e.path[0]} : ${msgLocalise(e)}`, {
                     position: "top-right",
                     autoClose: 1000,
                     hideProgressBar: false,
@@ -58,17 +110,10 @@ function UserLogin() {
                     draggable: true,
                     progress: undefined,
                     closeButton: false,
-                    onClose: () => {
-                        Navigate("/");
-                    },
-                });
-            } else {
-
-                setCredentials({ email: "", password: "" });
-            }
-        }).catch((err) => {
-            console.log(err);
-        });
+                    
+                  });
+                })
+         }
     };
 
     return (
@@ -118,6 +163,7 @@ function UserLogin() {
                                         aria-describedby="emailHelp"
                                         placeholder="Enter your email"
                                         name="email"
+                                        onBlur={handleValidate}
                                         value={credentials.email}
                                         onChange={handleChange}
                                         required
@@ -132,6 +178,7 @@ function UserLogin() {
                                         id="mobileUserEmail"
                                         aria-describedby="emailHelp"
                                         name="email"
+                                        onBlur={handleValidate}
                                         value={credentials.email}
                                         placeholder="Enter your email"
                                         onChange={handleChange}
@@ -155,6 +202,7 @@ function UserLogin() {
                                         id="desktopUserPassword"
                                         placeholder="Enter your password"
                                         name="password"
+                                        onBlur={handleValidate}
                                         value={credentials.password}
                                         onChange={handleChange}
                                         required
@@ -166,6 +214,7 @@ function UserLogin() {
                                         className="mobile form-control form-control-lg"
                                         id="mobileUserPassword"
                                         name="password"
+                                        onBlur={handleValidate}
                                         value={credentials.password}
                                         onChange={handleChange}
                                         placeholder="Enter your password"
@@ -190,7 +239,6 @@ function UserLogin() {
                                 {/* Login Button */}
                                 <div className="btn-container">
                                     <button
-                                        disabled={credentials.password.length <= 4 || !isEmailValid}
                                         type="submit"
                                         className="login-btn btn btn-lg btn-block"
                                         style={{ backgroundColor: "#89b5f7" }}

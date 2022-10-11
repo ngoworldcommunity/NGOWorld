@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { RegisterUser } from "../../service/MilanApi";
 
+import SchemaValidator ,{ msgLocalise} from "../../utils/validation";
+
 //* The styles for Login and Register are essentially same
 import "../../styles/UserLogin.css";
 import { toast, ToastContainer } from 'react-toastify';
@@ -33,35 +35,83 @@ const UserRegister = () => {
     pincode: "",
   });
 
-  const [isEmailValid, setIsEmailValid] = useState(false);
+  const FormDataProto = {
+    id: "/SignUpForm",
+    type: "object",
+    properties: {
+      firstname: {type:"string" },
+      lastname: {type:"string" },
+      email: {type:"string" , format:"email"},
+      password: {type:"string" , minLength:8 },
+      address: {type:"string" },
+      pincode: {pattern:"[0-9]+", minLength:6 },
+    },
+    required:["firstname", "lastname","email", "password", "address", "pincode"]
+  }
 
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
-    if (
-      e.target.name === "email" &&
-      e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
-    )
-      setIsEmailValid(true);
   };
+
+  const handleValidate = (e) => {
+    
+    var validator = SchemaValidator(FormDataProto.properties[e.target.name], e.target.value)
+    
+    if(!validator.valid)
+    {
+      console.log(validator.errors[0])
+      toast(`${e.target.name} : ${msgLocalise(validator.errors[0])}`, {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        closeButton:false
+      });
+    }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    var validator = SchemaValidator(FormDataProto,{ ...credentials })
+        
+    if(validator.valid)
+    { 
+      await RegisterUser(credentials);
 
-    await RegisterUser(credentials);
-
-    toast('🦄 Registered your account !', {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      closeButton: false,
-      onClose: () => {
-        navigate("/user/login");
-      }
-    });
+      toast('🦄 Registered your account !', {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        closeButton: false,
+        onClose: () => {
+          navigate("/user/login");
+        }
+      });
+    }
+    else {
+      validator.errors.map(
+        function (e , i){
+        return  toast(`${e.path[0]} : ${msgLocalise(e)}`, {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            closeButton: false,
+            
+          });
+        }
+      )
+    }
 
 
   };
@@ -111,6 +161,7 @@ const UserRegister = () => {
                       className="userreg_des_firstname form-control form-control-lg me-md-2"
                       placeholder="First name"
                       name="firstname"
+                      onBlur={handleValidate}
                       value={credentials.firstname}
                       onChange={handleChange}
                       required
@@ -122,6 +173,7 @@ const UserRegister = () => {
                       className="userreg_mob_firstname form-control form-control-lg me-md-2"
                       placeholder="First name"
                       name="firstname"
+                      onBlur={handleValidate}
                       value={credentials.firstname}
                       onChange={handleChange}
                       required
@@ -132,6 +184,7 @@ const UserRegister = () => {
                       className="form-control form-control-lg ms-md-2"
                       placeholder="Last name"
                       name="lastname"
+                      onBlur={handleValidate}
                       value={credentials.lastname}
                       onChange={handleChange}
                       required
@@ -155,6 +208,7 @@ const UserRegister = () => {
                     placeholder="Email"
 
                     name="email"
+                    onBlur={handleValidate}
                     value={credentials.email}
                     onChange={handleChange}
                     aria-label="Email Adress"
@@ -176,6 +230,7 @@ const UserRegister = () => {
                     id="password"
                     name="password"
                     placeholder="Password"
+                    onBlur={handleValidate}
                     value={credentials.password}
                     onChange={handleChange}
                     required
@@ -197,6 +252,7 @@ const UserRegister = () => {
                     id="address"
                     name="address"
                     placeholder="Address"
+                    onBlur={handleValidate}
                     value={credentials.address}
                     onChange={handleChange}
                     required
@@ -213,11 +269,12 @@ const UserRegister = () => {
                   </label>
 
                   <input
-                    type="text"
+                    type="number"
                     className="form-control form-control-lg form-input remove_placeholder_desktop"
                     id="pincode"
                     name="pincode"
                     placeholder="Pin Code"
+                    onBlur={handleValidate}
                     value={credentials.pincode}
                     onChange={handleChange}
                     required
@@ -229,7 +286,6 @@ const UserRegister = () => {
                 <button
                   type="submit"
                   className="btn btn-lg btn-block"
-                  disabled={credentials.password.length <= 4 || !isEmailValid}
                   style={{ backgroundColor: "#89b5f7" }}
                 >
                   Register
