@@ -10,44 +10,36 @@ var jwt = require("jsonwebtoken");
 //* Route 1  - Club Registration
 
 router.post("/register", async (req, res) => {
-  const { name, email, password, address, pincode, description, tagLine } = req.body;
+  try {
+    const data = req.body;
+    const { email } = req.body;
+    // const { name, email, password, address, pincode, description, tagLine } =
+    //   req.body;
 
-  if (!email || !password || !name || !address || !pincode || !description || !tagLine) {
-    return res.status(422).json({ error: "Please add all the fields" });
-  }
+    const existingUser = await Club.findOne({ email: email });
+    if (existingUser) {
+      return res.status(409).json({ message: "Account already exists" });
+    }
 
-  Club.findOne({ email: email })
-    .then((savedClub) => {
-      if (savedClub) {
-        return res.json({ exists: true });
-      }
+    const hashpassword = await bcrypt.hash(data.password, 10);
 
-      bcrypt
-        .hash(password, 12)
-
-        .then((hashedpassword) => {
-          const club = new Club({
-            email,
-            password: hashedpassword,
-            name,
-            address,
-            pincode,
-            description,
-            tagLine
-          });
-          club
-            .save()
-            .then((club) => {
-              return res.json({ success: true });
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        });
-    })
-    .catch((err) => {
-      console.log(err);
+    const ClubData = Club({
+      name: data.name,
+      email: data.email,
+      password: hashpassword,
+      address: data.address,
+      pincode: data.pincode,
+      description: data.description,
+      tagLine: data.tagLine,
     });
+
+    ClubData.save();
+    return res
+      .status(201)
+      .json({ message: "Registration successful, please login" });
+  } catch (error) {
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
 });
 
 //* ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -56,18 +48,23 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
-    const validEmail = await Club.findOne({ email });
-    const validPassword = await bcrypt.compare(password, validEmail.password);
 
-    const payload = { Club: { id: validEmail.email } };
-
-    if (validPassword) {
-      jwt.sign(payload, process.env.JWT_SECRET, (err, authToken) => {
-        return res.json({ success: true, authToken, isuser: false });
-      });
-    } else {
-      return res.json({ success: false });
+    const existingUser = await Club.findOne({ email });
+    if (!existingUser) {
+      return res.status(404).json({ message: "User not found" });
     }
+
+    const validPassword = await bcrypt.compare(password, existingUser.password);
+    if (!validPassword) {
+      return res.status(401).json({ message: "Invalid Credentials" });
+    }
+
+    const payload = { Club: { id: existingUser.email } };
+
+    jwt.sign(payload, process.env.JWT_SECRET, (err, token) => {
+      console.log(token);
+      return res.status(201).json({ token, isuser: false });
+    });
   } catch (e) {
     return res.json({ success: false });
   }

@@ -23,6 +23,7 @@ export default function UserProfile() {
 
 	const handleLogout = () => {
 		Cookies.remove("token");
+
 		Navigate("/user/login")
 
 	}
