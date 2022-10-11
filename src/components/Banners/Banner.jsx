@@ -38,6 +38,7 @@ const Banner = () => {
 
           <div className="banner-Buttons">
             <button
+              id="btn-1"
               type="button"
               className="btn btn-primary banner-Buttons_btn1"
               onClick={() => {
@@ -47,6 +48,7 @@ const Banner = () => {
               Continue as a Club
             </button>
             <button
+              id="btn-2"
               type="button"
               className="btn btn-primary"
               onClick={() => {
