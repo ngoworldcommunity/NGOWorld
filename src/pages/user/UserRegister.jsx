@@ -63,7 +63,7 @@ const UserRegister = () => {
     if(islastnameValid && isfirstnameValid && credentials.address.trim() && credentials.pincode.trim()){
       await RegisterUser(credentials);
 
-    toast('🌈 Logging you in !', {
+    toast('🦄 Registered your account !', {
       position: "top-right",
       autoClose: 1000,
       hideProgressBar: false,
@@ -71,7 +71,7 @@ const UserRegister = () => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      closeButton:false,
+      closeButton: false,
       onClose: () => {
         navigate("/user/login");
       }
