@@ -49,7 +49,7 @@ const UserRegister = () => {
 
     await RegisterUser(credentials);
 
-    toast('🌈Registered your account !', {
+    toast('🦄 Registered your account !', {
       position: "top-right",
       autoClose: 1000,
       hideProgressBar: false,
@@ -57,7 +57,7 @@ const UserRegister = () => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      closeButton:false,
+      closeButton: false,
       onClose: () => {
         navigate("/user/login");
       }

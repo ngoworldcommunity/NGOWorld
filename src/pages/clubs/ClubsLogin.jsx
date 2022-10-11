@@ -50,10 +50,11 @@ function ClubLogin() {
         setIsLoading(false);
 
         Data.then((response) => {
-            if (response.data.success === true) {
-                Cookies.set("club", response.data.authToken);
+            if (response?.data.token) {
 
-                toast("🌈 Logging you in !", {
+                Cookies.set("club", response.data.token);
+
+                toast("🦄 Logging you in !", {
                     position: "top-right",
                     autoClose: 1000,
                     hideProgressBar: false,
@@ -66,17 +67,8 @@ function ClubLogin() {
                         Navigate("/");
                     },
                 });
-            } else if (response.data.success === false) {
-                toast("🌈 Error !", {
-                    position: "top-right",
-                    autoClose: 1000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    closeButton: false,
-                });
+            } else {
+
                 setCredentials({
                     email: "",
                     password: "",
@@ -102,6 +94,7 @@ function ClubLogin() {
                 draggable
                 pauseOnHover
                 closeButton={false}
+                id="Clubtoast"
             />
 
             <section className="vh-100">
@@ -139,7 +132,7 @@ function ClubLogin() {
                                     <input
                                         type="email"
                                         className="desktop form-control form-control-lg color"
-                                        id="exampleInputEmail1"
+                                        id="desktopClubEmail"
                                         aria-describedby="emailHelp"
                                         placeholder="Enter your email"
                                         name="email"
@@ -151,7 +144,7 @@ function ClubLogin() {
                                     <input
                                         type="email"
                                         className="mobile form-control form-control-lg color"
-                                        id="exampleInputEmail1"
+                                        id="mobileClubEmail"
                                         aria-describedby="emailHelp"
                                         name="email"
                                         placeholder="Enter your email"
@@ -171,7 +164,7 @@ function ClubLogin() {
                                     <input
                                         type="password"
                                         className="desktop form-control form-control-lg color"
-                                        id="exampleInputPassword1"
+                                        id="desktopClubPassword"
                                         placeholder="Enter your password"
                                         name="password"
                                         value={credentials.password}
@@ -182,7 +175,7 @@ function ClubLogin() {
                                     <input
                                         type="password"
                                         className="mobile form-control form-control-lg color"
-                                        id="exampleInputPassword1"
+                                        id="mobileClubPassword"
                                         name="password"
                                         value={credentials.password}
                                         placeholder="Enter your password"
