@@ -36,6 +36,7 @@ const ClubLogin = () => {
   });
 
   const [isEmailValid, setIsEmailValid] = useState(false);
+  const [isnameValid, setIsnameValid] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -45,28 +46,50 @@ const ClubLogin = () => {
       e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
     )
       setIsEmailValid(true);
+      if(e.target.name === "name"){
+        const name = e.target.value;
+        (/^[a-zA-Z]+$/.test(name) && name)? setIsnameValid(true): setIsnameValid(false);
+      }
   };
 
   //* Submitting form
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setIsLoading(true);
-    await RegisterClub({ ...credentials });
-    setIsLoading(false);
+    if(isnameValid && credentials.address.trim() && credentials.pincode.trim() && credentials.description.trim() && credentials.tagLine.trim()){
+      setIsLoading(true);
+      await RegisterClub({ ...credentials });
+      setIsLoading(false);
 
-    toast("🌈 Registered your club !", {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      closeButton : false,
-      onClose: () => navigate("/clubs/login"),
-    });
+      toast("🌈 Registered your club !", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        closeButton : false,
+        onClose: () => navigate("/clubs/login"),
+      });
+    }
+    else{
+      toast("Please fill all the fields !", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        closeButton : false,
+        onClose: () => {
+        }
+      }); 
+      return;
+    };
   };
+
 
   return (
     <>
