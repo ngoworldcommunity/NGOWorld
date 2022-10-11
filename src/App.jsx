@@ -19,7 +19,6 @@ import MilanState from './context/MilanState';
 import ClubForgotpassword from './pages/clubs/ClubForgotpassword';
 import UserForgotpassword from './pages/user/UserForgotpassword';
 const App = () => {
-  console.log('hello world');
   return (
     <>
       <MilanState>
