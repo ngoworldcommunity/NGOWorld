@@ -32,3 +32,23 @@ describe("All Basic Tests", () => {
     cy.get(".fa-message").should("be.visible");
   });
 });
+
+describe("All auth checks", () => {
+  it("Checking Club logins", () => {
+    cy.visit("http://localhost:3000/clubs/login");
+    cy.get("#desktopClubEmail").type("rotary@gmail.com");
+    cy.get("#desktopClubPassword").type("rotary");
+    cy.get(".login-btn").click();
+    cy.contains("Logging you in");
+    cy.getCookie("clubToken");
+  });
+
+  it("Checking User logins", () => {
+    cy.visit("http://localhost:3000/user/login");
+    cy.get("#desktopUserEmail").type("gyansujan69@gmail.com");
+    cy.get("#desktopUserPassword").type("tamaldas69");
+    cy.get(".login-btn").click();
+    cy.contains("Logging you in");
+    cy.getCookie("token ");
+  });
+});

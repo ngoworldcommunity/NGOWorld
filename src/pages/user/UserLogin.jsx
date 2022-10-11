@@ -49,7 +49,7 @@ function UserLogin() {
             if (response?.data.token) {
                 Cookies.set("token", response.data.token);
 
-                toast("🌈 Logging you in !", {
+                toast("🦄 Logging you in !", {
                     position: "top-right",
                     autoClose: 1000,
                     hideProgressBar: false,
@@ -63,6 +63,7 @@ function UserLogin() {
                     },
                 });
             } else {
+
                 setCredentials({ email: "", password: "" });
             }
         }).catch((err) => {
@@ -113,7 +114,7 @@ function UserLogin() {
                                     <input
                                         type="email"
                                         className="desktop form-control form-control-lg"
-                                        id="exampleInputEmail1"
+                                        id="desktopUserEmail"
                                         aria-describedby="emailHelp"
                                         placeholder="Enter your email"
                                         name="email"
@@ -128,7 +129,7 @@ function UserLogin() {
                                     <input
                                         type="email"
                                         className="mobile form-control form-control-lg"
-                                        id="exampleInputEmail1"
+                                        id="mobileUserEmail"
                                         aria-describedby="emailHelp"
                                         name="email"
                                         value={credentials.email}
@@ -151,7 +152,7 @@ function UserLogin() {
                                     <input
                                         type="password"
                                         className="desktop form-control form-control-lg"
-                                        id="exampleInputPassword1"
+                                        id="desktopUserPassword"
                                         placeholder="Enter your password"
                                         name="password"
                                         value={credentials.password}
@@ -163,7 +164,7 @@ function UserLogin() {
                                     <input
                                         type="password"
                                         className="mobile form-control form-control-lg"
-                                        id="exampleInputPassword1"
+                                        id="mobileUserPassword"
                                         name="password"
                                         value={credentials.password}
                                         onChange={handleChange}
