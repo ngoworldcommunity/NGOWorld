@@ -75,8 +75,9 @@ export const LoginClub = async (credentials) => {
     const Post = await Axios.post(Club_Log, credentials);
     return Post;
   } catch (error) {
-    console.log(error);
-    alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+    toast.error(error.response.data.message, {
+      position: toast.POSITION.TOP_RIGHT,
+    });
   }
 };
 
