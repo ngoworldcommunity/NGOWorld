@@ -30,8 +30,8 @@ const Footer = () => {
   };
 
   useEffect(() => {
-    if(Cookies.get("token")) setLogged(true); 
-  })
+    if (Cookies.get("token")) setLogged(true);
+  }, []);
 
   useEffect(() => {
     if (reportModal) {
@@ -209,39 +209,42 @@ const Footer = () => {
           <div className="join-us col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
             <div className="join">
               <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4">
-                { logged ? "Explore!" : 'Join Us!'}
+                {logged ? "Explore!" : "Join Us!"}
               </h1>
               <ul className="join-us-list list-unstyled mb-0">
                 <li className="mb-2">
-                  {logged ?
-                  <Link
-                    to="/display/events"
-                    className="text-decoration-none footer_auth_text"
-                  >
-                    Events
-                  </Link>
-                  :
-                  <Link
-                    to="/user/login"
-                    className="text-decoration-none footer_auth_text"
-                  >
-                    Login
-                  </Link>}
+                  {logged ? (
+                    <Link
+                      to="/display/events"
+                      className="text-decoration-none footer_auth_text"
+                    >
+                      Events
+                    </Link>
+                  ) : (
+                    <Link
+                      to="/user/login"
+                      className="text-decoration-none footer_auth_text"
+                    >
+                      Login
+                    </Link>
+                  )}
                 </li>
                 <li className="mb-2">
-                  {logged ? <Link
-                    to="/shops/shop"
-                    className="text-decoration-none footer_auth_text"
-                  >
-                    Shop
-                  </Link>
-                  :
-                  <Link
-                    to="/user/register"
-                    className="text-decoration-none footer_auth_text"
-                  >
-                    Register
-                  </Link>}
+                  {logged ? (
+                    <Link
+                      to="/shops/shop"
+                      className="text-decoration-none footer_auth_text"
+                    >
+                      Shop
+                    </Link>
+                  ) : (
+                    <Link
+                      to="/user/register"
+                      className="text-decoration-none footer_auth_text"
+                    >
+                      Register
+                    </Link>
+                  )}
                 </li>
               </ul>
             </div>
