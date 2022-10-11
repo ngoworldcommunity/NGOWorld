@@ -50,10 +50,13 @@ const ClubsPage = () => {
           <>
             {clubData.map((club) => {
               return <SingleClub key={club._id} club={club} />;
+              
             })}
+            <br></br><br></br>
           </>
         )}
       </div>
+      <br></br><br></br>
       <Footer />
     </>
   );
