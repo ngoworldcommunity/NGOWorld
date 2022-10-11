@@ -47,6 +47,8 @@ const UserRegister = () => {
       if (e.target.name === 'password' && e.target.value.length < 5){
         setText('password should be more than four characters')
       }
+      else(e.target.name === 'password' && e.target.value.length >= 5)
+        setText('');
   };
 
   const handleSubmit = async (e) => {
