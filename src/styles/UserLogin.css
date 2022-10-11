@@ -15,6 +15,12 @@
     text-align: center;
 }
 
+.password-error{
+    color:red;
+    padding-top:2px;
+    padding-bottom:2px;
+}
+
 @media screen and (max-width: 800px) {
     h2 {
         padding-bottom: 2vw;
