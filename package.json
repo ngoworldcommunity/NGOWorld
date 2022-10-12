@@ -28,7 +28,26 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "prepare": "husky install",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix && npm format",
+    "format": "prettier --write src"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "eslint . --fix",
+      "prettier --write"
+    ],
+    "src/**/*.html": [
+    "prettier --write"
+    ],
+    "src/**/*.{json,css,scss,md}": ["prettier --write"]
+    },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx lint-staged"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +69,9 @@
   },
   "devDependencies": {
     "eslint-plugin-cypress": "^2.12.1",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
     "semantic-release": "^19.0.2"
   }
 }
