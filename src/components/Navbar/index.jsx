@@ -1,20 +1,20 @@
-import React from "react";
-import "../../styles/Navbar.css";
-import solidarity from "../../assets/pictures/solidarity.png";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import ProfilePicture from "../../assets/pictures/ProfilePicture.png";
-import Cookies from "js-cookie";
+import React from 'react';
+import '../../styles/Navbar.css';
+import solidarity from '../../assets/pictures/solidarity.png';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import ProfilePicture from '../../assets/pictures/ProfilePicture.png';
+import Cookies from 'js-cookie';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const handleNavigate = () => {
-    if (Cookies.get("token")) {
-      navigate("/user/profile");
+    if (Cookies.get('token')) {
+      navigate('/user/profile');
     }
 
-    if (Cookies.get("club")) {
-      navigate("/clubs/profile");
+    if (Cookies.get('club')) {
+      navigate('/clubs/profile');
     }
   };
 
@@ -27,9 +27,9 @@ const Navbar = () => {
           <img
             src={
               solidarity ||
-              "https://www.shareicon.net/data/512x512/2016/09/15/829452_user_512x512.png"
+              'https://www.shareicon.net/data/512x512/2016/09/15/829452_user_512x512.png'
             }
-            onClick={() => window.location.replace("/")}
+            onClick={() => window.location.replace('/')}
             alt="Milan-logo"
             className="nav_bramhin_img"
           />
@@ -49,22 +49,22 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item home">
-                <Link to={"/"}>Home</Link>
+                <Link to={'/'}>Home</Link>
                 <div
                   className={
-                    "" + (location.pathname === "/" ? "active-link" : "")
+                    '' + (location.pathname === '/' ? 'active-link' : '')
                   }
                 ></div>
               </li>
 
               <li className="nav-item home">
-                <Link to={"/display/clubs"}>Clubs</Link>
+                <Link to={'/display/clubs'}>Clubs</Link>
                 <div
                   className={
-                    "" +
-                    (location.pathname === "/display/clubs"
-                      ? "active-link"
-                      : "")
+                    '' +
+                    (location.pathname === '/display/clubs'
+                      ? 'active-link'
+                      : '')
                   }
                 ></div>
               </li>
@@ -73,10 +73,10 @@ const Navbar = () => {
                 <Link to="/display/events">Events</Link>
                 <div
                   className={
-                    "" +
-                    (location.pathname === "/display/events"
-                      ? "active-link"
-                      : "")
+                    '' +
+                    (location.pathname === '/display/events'
+                      ? 'active-link'
+                      : '')
                   }
                 ></div>
               </li>
@@ -85,32 +85,32 @@ const Navbar = () => {
                 <Link to="/shops/shop">Shop</Link>
                 <div
                   className={
-                    "" +
-                    (location.pathname === "/shops/shop" ? "active-link" : "")
+                    '' +
+                    (location.pathname === '/shops/shop' ? 'active-link' : '')
                   }
                 ></div>
               </li>
 
               <li className="nav-item home">
-                <Link to={"/about-us"}>About Us</Link>
+                <Link to={'/about-us'}>About Us</Link>
                 <div
                   className={
-                    "" +
-                    (location.pathname === "/about-us" ? "active-link" : "")
+                    '' +
+                    (location.pathname === '/about-us' ? 'active-link' : '')
                   }
                 ></div>
               </li>
               {/* Render Contact Us in Navabr only for Login and Register Pages */}
-              {(location.pathname === "/user/login" ||
-                location.pathname === "/user/register" ||
-                location.pathname === "/clubs/login" ||
-                location.pathname === "/clubs/register") && (
+              {(location.pathname === '/user/login' ||
+                location.pathname === '/user/register' ||
+                location.pathname === '/clubs/login' ||
+                location.pathname === '/clubs/register') && (
                 <li className="nav-item home">
-                  <Link to={"/contact"}>Contact</Link>
+                  <Link to={'/contact'}>Contact</Link>
                   <div
                     className={
-                      "" +
-                      (location.pathname === "/contact" ? "active-link" : "")
+                      '' +
+                      (location.pathname === '/contact' ? 'active-link' : '')
                     }
                   ></div>
                 </li>
@@ -119,7 +119,7 @@ const Navbar = () => {
               {/* Auth0 will be implemented later on*/}
               {/* The basic JWT Auths will be removed to reduce hassle */}
 
-              {(Cookies.get("token") || Cookies.get("club")) && (
+              {(Cookies.get('token') || Cookies.get('club')) && (
                 <img
                   onClick={handleNavigate}
                   src={ProfilePicture}

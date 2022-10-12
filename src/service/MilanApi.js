@@ -1,17 +1,17 @@
 //* All the AXIOS API calls will be made from here to the backend
 //* These functions will be exported and then imported wherever needed
 
-import Axios from "axios";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // toast.configure();
 
 const apiURL = [
-  "https://milan-jwoc.herokuapp.com",
-  "http://localhost:5000",
-  "https://milan-server.vercel.app",
-  "https://milan-server.adaptable.app",
+  'https://milan-jwoc.herokuapp.com',
+  'http://localhost:5000',
+  'https://milan-server.vercel.app',
+  'https://milan-server.adaptable.app',
 ];
 const API = apiURL[2];
 
@@ -62,6 +62,10 @@ export const LoginUser = async (credentials) => {
 export const RegisterUser = async (credentials) => {
   try {
     const response = await Axios.post(User_Reg, credentials);
+    var message = response.data.message;
+    if (response.status === 201) {
+      return true;
+    }
   } catch (error) {
     toast.warning(error.response.data.message, {
       position: toast.POSITION.TOP_RIGHT,
@@ -88,7 +92,7 @@ export const RegisterClub = async (credentials) => {
     console.log(response);
   } catch (error) {
     console.log(error);
-    alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+    alert('INTERNAL ERROR, PLEASE TRY AGAIN LATER');
   }
 };
 
@@ -99,7 +103,7 @@ export const GetAllClubs = async () => {
     return response.data;
   } catch (error) {
     console.log(error);
-    alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+    alert('INTERNAL ERROR, PLEASE TRY AGAIN LATER');
   }
 };
 
@@ -109,14 +113,14 @@ export const ReportProblem = async (credentials) => {
     const response = await Axios.post(Report_Log, credentials);
     if (response.data.success === true) {
       return true;
-    } else if (response.data.message === "tryagain") {
-      return "tryagain";
+    } else if (response.data.message === 'tryagain') {
+      return 'tryagain';
     } else {
       return false;
     }
   } catch (error) {
     console.log(error);
-    alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+    alert('INTERNAL ERROR, PLEASE TRY AGAIN LATER');
   }
 };
 
@@ -127,7 +131,7 @@ export const GetAllEvents = async () => {
     return response.data;
   } catch (error) {
     console.log(error);
-    alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+    alert('INTERNAL ERROR, PLEASE TRY AGAIN LATER');
   }
 };
 
