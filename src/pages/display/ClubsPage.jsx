@@ -52,11 +52,11 @@ const ClubsPage = () => {
               return <SingleClub key={club._id} club={club} />;
               
             })}
-            <br></br><br></br>
+            
           </>
         )}
       </div>
-      <br></br><br></br>
+    
       <Footer />
     </>
   );
