@@ -44,25 +44,6 @@ function UserLogin() {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
     };
 
-    const handleValidate = (e) => {
-    
-        var validator = SchemaValidator(FormDataProto.properties[e.target.name], e.target.value)
-        
-        if(!validator.valid)
-        {
-          toast(`${e.target.name} : ${msgLocalise(validator.errors[0])}`, {
-            position: "top-right",
-            autoClose: 1000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            closeButton:false
-          });
-        }
-      }
-
     //* Submit to backend
     //* If alright we get a cookie with token
     const handleSubmit = (e) => {
@@ -163,7 +144,6 @@ function UserLogin() {
                                         aria-describedby="emailHelp"
                                         placeholder="Enter your email"
                                         name="email"
-                                        onBlur={handleValidate}
                                         value={credentials.email}
                                         onChange={handleChange}
                                         required
@@ -178,7 +158,6 @@ function UserLogin() {
                                         id="mobileUserEmail"
                                         aria-describedby="emailHelp"
                                         name="email"
-                                        onBlur={handleValidate}
                                         value={credentials.email}
                                         placeholder="Enter your email"
                                         onChange={handleChange}
@@ -202,7 +181,6 @@ function UserLogin() {
                                         id="desktopUserPassword"
                                         placeholder="Enter your password"
                                         name="password"
-                                        onBlur={handleValidate}
                                         value={credentials.password}
                                         onChange={handleChange}
                                         required
@@ -214,7 +192,6 @@ function UserLogin() {
                                         className="mobile form-control form-control-lg"
                                         id="mobileUserPassword"
                                         name="password"
-                                        onBlur={handleValidate}
                                         value={credentials.password}
                                         onChange={handleChange}
                                         placeholder="Enter your password"
