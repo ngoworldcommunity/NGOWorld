@@ -53,26 +53,6 @@ const UserRegister = () => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
-  const handleValidate = (e) => {
-    
-    var validator = SchemaValidator(FormDataProto.properties[e.target.name], e.target.value)
-    
-    if(!validator.valid)
-    {
-      console.log(validator.errors[0])
-      toast(`${e.target.name} : ${msgLocalise(validator.errors[0])}`, {
-        position: "top-right",
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        closeButton:false
-      });
-    }
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     var validator = SchemaValidator(FormDataProto,{ ...credentials })
@@ -161,7 +141,6 @@ const UserRegister = () => {
                       className="userreg_des_firstname form-control form-control-lg me-md-2"
                       placeholder="First name"
                       name="firstname"
-                      onBlur={handleValidate}
                       value={credentials.firstname}
                       onChange={handleChange}
                       required
@@ -173,7 +152,6 @@ const UserRegister = () => {
                       className="userreg_mob_firstname form-control form-control-lg me-md-2"
                       placeholder="First name"
                       name="firstname"
-                      onBlur={handleValidate}
                       value={credentials.firstname}
                       onChange={handleChange}
                       required
@@ -184,7 +162,6 @@ const UserRegister = () => {
                       className="form-control form-control-lg ms-md-2"
                       placeholder="Last name"
                       name="lastname"
-                      onBlur={handleValidate}
                       value={credentials.lastname}
                       onChange={handleChange}
                       required
@@ -208,7 +185,6 @@ const UserRegister = () => {
                     placeholder="Email"
 
                     name="email"
-                    onBlur={handleValidate}
                     value={credentials.email}
                     onChange={handleChange}
                     aria-label="Email Adress"
@@ -230,7 +206,6 @@ const UserRegister = () => {
                     id="password"
                     name="password"
                     placeholder="Password"
-                    onBlur={handleValidate}
                     value={credentials.password}
                     onChange={handleChange}
                     required
@@ -252,7 +227,6 @@ const UserRegister = () => {
                     id="address"
                     name="address"
                     placeholder="Address"
-                    onBlur={handleValidate}
                     value={credentials.address}
                     onChange={handleChange}
                     required
@@ -274,7 +248,6 @@ const UserRegister = () => {
                     id="pincode"
                     name="pincode"
                     placeholder="Pin Code"
-                    onBlur={handleValidate}
                     value={credentials.pincode}
                     onChange={handleChange}
                     required
