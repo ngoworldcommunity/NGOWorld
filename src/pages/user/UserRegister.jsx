@@ -49,8 +49,14 @@ const UserRegister = () => {
     required:["firstname", "lastname","email", "password", "address", "pincode"]
   }
 
+  const [passwordText, setText] = useState('')
+
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
+    if (e.target.name === 'password' && e.target.value.length < 5){
+      setText('password should be more than four characters')
+    }else if(e.target.name === 'password' && e.target.value.length >= 5)
+      setText('');
   };
 
   const handleSubmit = async (e) => {
@@ -211,6 +217,7 @@ const UserRegister = () => {
                     required
                     aria-label="Password"
                   />
+                  <p className='password-error'>{passwordText}</p>
                 </div>
                 {/* //* Address */}
                 <div className="form-outline mb-4">
