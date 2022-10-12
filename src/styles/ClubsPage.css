@@ -48,6 +48,7 @@ div#clubs_banner {
   grid-template-columns: repeat(auto-fill, minmax(300px, 323px));
   column-gap: 4%;
   row-gap: 6%;
+  padding-bottom: 200px;
   font-family: "Mulish", sans-serif;
 }
 
