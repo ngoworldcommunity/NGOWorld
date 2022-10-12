@@ -58,7 +58,7 @@
     font-size: 30px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 750px) {
   .banner-subtitle {
     font-size: 20px;
     font-weight: bolder;
@@ -111,7 +111,7 @@
   color: black;
 }
 
-@media (max-width: 684px) {
+@media (max-width: 750px) {
   .banner-inner {
     position: absolute;
   }

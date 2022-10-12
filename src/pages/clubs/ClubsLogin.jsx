@@ -201,7 +201,7 @@ function ClubLogin() {
                                         disabled={credentials.password.length <= 4 || !isEmailValid}
                                         type="submit"
                                         className="login-btn btn btn-lg btn-block"
-                                        style={{ backgroundColor: "#C996CC" }}
+                                        style={{ backgroundColor: "#C996CC", color: "white", opacity: 0.8 }}
                                     >
                                         {isLoading ? (
                                             <TailSpin color="#FFFFFF" height={30} width={30} />
