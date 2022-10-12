@@ -32,16 +32,15 @@
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
   }
-
-  .banner-content {
-    padding-bottom: 50px;
+  .banner-Buttons{
+    transform: translateY(-50px);
   }
 }
 
 .banner-header1 {
   color: black;
   text-transform: uppercase;
-  font-size: 80px;
+  font-size: 70px;
   font-family: "Mulish";
   font-weight: 600;
 }
@@ -64,9 +63,9 @@
     font-weight: bolder;
   }
 
-  .banner-header1 {
+  /* .banner-header1 {
     font-size: 48px;
-  }
+  } */
 }
 
 .banner-Buttons {
@@ -113,6 +112,7 @@
 }
 
 @media (max-width: 343px) {
+  
   .banner-Buttons {
     bottom: 0;
   }

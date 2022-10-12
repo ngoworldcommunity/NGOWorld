@@ -112,7 +112,7 @@ function UserLogin() {
                                     </label>
                                     <input
                                         type="email"
-                                        className="desktop form-control form-control-lg"
+                                        className="desktop form-control form-control-lg remove_placeholder_desktop"
                                         id="exampleInputEmail1"
                                         aria-describedby="emailHelp"
                                         placeholder="Enter your email"
@@ -150,7 +150,7 @@ function UserLogin() {
                                 <div className="form-outline mb-4">
                                     <input
                                         type="password"
-                                        className="desktop form-control form-control-lg"
+                                        className="desktop form-control form-control-lg remove_placeholder_desktop"
                                         id="exampleInputPassword1"
                                         placeholder="Enter your password"
                                         name="password"

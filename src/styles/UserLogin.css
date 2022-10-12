@@ -12,7 +12,10 @@
 }
 
 .anchor-container {
-    text-align: center;
+    text-align: left;
+}
+.btn-container{
+    text-align: left;
 }
 
 @media screen and (max-width: 800px) {
@@ -27,7 +30,7 @@
         font-size: 3.5vw;
     }
     .form {
-        padding: 0 4rem 0 4rem;
+        padding: 0 2rem 0 2rem;
     }
 
     .login-btn {

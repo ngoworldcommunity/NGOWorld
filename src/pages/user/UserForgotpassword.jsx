@@ -2,7 +2,7 @@ import React from "react";
 import forgotpassworduser from "../../assets/pictures/forgotpassworduser.svg";
 import Navbar from "../../components/Navbar";
 // import { Link, useNavigate } from "react-router-dom";
-//import "../../styles/ClubLogin.css";
+import "../../styles/UserLogin.css";
 import "react-toastify/dist/ReactToastify.css";
 
 const UserForgotpassword = () => {
@@ -33,7 +33,7 @@ return(
                 </label>
                   <input
                     type="email"
-                    className="desktop form-control form-control-lg"
+                    className="desktop form-control form-control-lg remove_placeholder_desktop"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="Enter your email"

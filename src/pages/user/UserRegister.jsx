@@ -94,8 +94,8 @@ const UserRegister = () => {
               />
             </div>
 
-            <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1 form">
-              <form style={{ width: "auto" }} onSubmit={handleSubmit}>
+            <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+              <form  className="form" onSubmit={handleSubmit}>
                 <h1 className="userregister_header">Join us at Milan !!</h1>
 
                 <div className="form-outline mb-2">
@@ -108,7 +108,7 @@ const UserRegister = () => {
                   <div className="d-flex flex-column flex-md-row">
                     <input
                       type="text"
-                      className="userreg_des_firstname form-control form-control-lg me-md-2"
+                      className="userreg_des_firstname form-control form-control-lg me-md-2 remove_placeholder_desktop"
                       placeholder="First name"
                       name="firstname"
                       value={credentials.firstname}
@@ -119,7 +119,7 @@ const UserRegister = () => {
                     />
                     <input
                       type="text"
-                      className="userreg_mob_firstname form-control form-control-lg me-md-2"
+                      className="userreg_mob_firstname form-control form-control-lg me-md-2 remove_placeholder_desktop"
                       placeholder="First name"
                       name="firstname"
                       value={credentials.firstname}
@@ -129,7 +129,7 @@ const UserRegister = () => {
                     />
                     <input
                       type="text"
-                      className="form-control form-control-lg ms-md-2"
+                      className="form-control form-control-lg ms-md-2 remove_placeholder_desktop"
                       placeholder="Last name"
                       name="lastname"
                       value={credentials.lastname}
