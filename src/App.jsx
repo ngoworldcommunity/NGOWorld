@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   Home,
   ClubLogin,
@@ -14,10 +14,10 @@ import {
   EventCreate,
   EventsPage,
   Donate,
-} from "./pages";
-import MilanState from "./context/MilanState";
-import ClubForgotpassword from "./pages/clubs/ClubForgotpassword";
-import UserForgotpassword from "./pages/user/UserForgotpassword";
+} from './pages';
+import MilanState from './context/MilanState';
+import ClubForgotpassword from './pages/clubs/ClubForgotpassword';
+import UserForgotpassword from './pages/user/UserForgotpassword';
 const App = () => {
   return (
     <>
@@ -33,14 +33,22 @@ const App = () => {
             <Route exact path="/user/register" element={<UserRegister />} />
             <Route exact path="/user/login" element={<UserLogin />} />
             <Route exact path="/user/profile" element={<UserProfile />} />
-            <Route exact path="/user/forgotpass" element={<UserForgotpassword />} />
+            <Route
+              exact
+              path="/user/forgotpass"
+              element={<UserForgotpassword />}
+            />
 
             {/* //* Auth routes - CLUBS*/}
 
             <Route exact path="/clubs/login" element={<ClubLogin />} />
             <Route exact path="/clubs/register" element={<ClubRegister />} />
             <Route exact path="/clubs/profile" element={<ClubProfile />} />
-            <Route exact path="/clubs/forgotpass" element={<ClubForgotpassword />} />
+            <Route
+              exact
+              path="/clubs/forgotpass"
+              element={<ClubForgotpassword />}
+            />
 
             {/* //* Display Routes */}
             <Route exact path="/display/clubs" element={<ClubsPage />} />
