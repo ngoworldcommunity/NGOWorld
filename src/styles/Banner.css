@@ -77,18 +77,38 @@
 }
 .banner-Buttons button {
   background-color: #0d6efd;
-  border-radius: 5px;
-  padding: 10px;
+  padding: 0.5rem 1rem;
   font-size: 16px;
   font-weight: bold;
   color: #fff;
-
+  border: none;
   cursor: pointer;
   width: auto;
+  font-family: "Open Sans", sans-serif;
 }
 
 .banner-Buttons_btn1 {
   margin-right: 10px;
+}
+
+#btn-1 {
+  background-color: #ba68c8;
+  color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+#btn-2 {
+  background-color: var(--bs-blue);
+  color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+#btn-1:hover,
+#btn-2:hover {
+  background-color: white;
+  color: black;
 }
 
 @media (max-width: 684px) {
@@ -141,7 +161,7 @@
   transition: all 0.2s ease;
 }
 
-.up-btn a {
+.up-btn div {
   color: #297f75;
   text-decoration: none;
 }

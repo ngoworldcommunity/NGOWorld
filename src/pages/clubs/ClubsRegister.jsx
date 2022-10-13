@@ -55,7 +55,7 @@ const ClubLogin = () => {
     await RegisterClub({ ...credentials });
     setIsLoading(false);
 
-    toast("🌈 Registered your club !", {
+    toast("🦄 Registered your club !", {
       position: "top-right",
       autoClose: 1000,
       hideProgressBar: false,
@@ -63,7 +63,7 @@ const ClubLogin = () => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      closeButton : false,
+      closeButton: false,
       onClose: () => navigate("/clubs/login"),
     });
   };
@@ -352,7 +352,7 @@ const ClubLogin = () => {
                   }
                   type="submit"
                   className="registration-btn btn  py-2"
-                  style={{backgroundColor: "#C996CC"}}
+                  style={{ backgroundColor: "#C996CC" }}
                 >
                   {isLoading ? (
                     <TailSpin color="#FFFFFF" height={30} width={30} />
