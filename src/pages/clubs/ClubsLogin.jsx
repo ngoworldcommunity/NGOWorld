@@ -8,9 +8,10 @@ import { TailSpin } from "react-loader-spinner";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Cookies from "js-cookie";
+import { Helmet } from "react-helmet-async";
 
 function ClubLogin() {
-    document.title = "Milan | Club Login";
+
     const Navigate = useNavigate();
 
     function Anchor(props) {
@@ -81,6 +82,12 @@ function ClubLogin() {
 
     return (
         <>
+            <Helmet>
+
+                <title>Milan | Clubs login</title>
+                <meta name="description" content="Welcome to the Club's login page. Login to Milan with your email and password." />
+                <link rel="canonical" href="/" />
+            </Helmet>
             <Navbar />
 
             <ToastContainer
