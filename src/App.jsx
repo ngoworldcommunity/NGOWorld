@@ -18,6 +18,7 @@ import {
 import MilanState from "./context/MilanState";
 import ClubForgotpassword from "./pages/clubs/ClubForgotpassword";
 import UserForgotpassword from "./pages/user/UserForgotpassword";
+import { HelmetProvider } from "react-helmet-async";
 const App = () => {
   return (
     <>
