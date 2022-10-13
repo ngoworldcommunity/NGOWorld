@@ -5,9 +5,10 @@ import Footer from "../components/Footer";
 import contactImage from "../assets/pictures/contactUs.svg";
 import { Contact } from "../service/MilanApi";
 import { ToastContainer, toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const ContactUs = () => {
-  document.title = "Milan | Contact Us";
+
   const initialState = { firstName: "", lastName: "", email: "", message: "" };
   const [formData, setFormData] = useState(initialState);
 
@@ -38,6 +39,12 @@ const ContactUs = () => {
 
   return (
     <>
+      <Helmet>
+
+        <title>Milan | Contact Us</title>
+        <meta name="description" content="Welcome to the contact us page, feel free to reach out to us for collaborations and more." />
+        <link rel="canonical" href="/" />
+      </Helmet>
       <Navbar />
       <ToastContainer />
       <section className="vh-100">
