@@ -9,9 +9,10 @@ import "../styles/Donate.css";
 import { toast, ToastContainer } from "react-toastify";
 import Cookies from "js-cookie";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet-async";
 
 const Donate = () => {
-  document.title = "Milan | Donate the needy";
+
 
   // Authentication state check !
   const AuthState = () => {
@@ -39,6 +40,12 @@ const Donate = () => {
 
   return (
     <>
+      <Helmet>
+
+        <title>Milan | Donations</title>
+        <meta name="description" content="Welcome to the donations page, even a small amount can help folks struggling out there." />
+        <link rel="canonical" href="/" />
+      </Helmet>
       <ToastContainer
         limit={1}
         position="top-right"

@@ -8,6 +8,7 @@ import "../../styles/ClubsRegister.css";
 
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet-async";
 
 const ClubLogin = () => {
   document.title = "Milan | Club Register";
@@ -70,6 +71,13 @@ const ClubLogin = () => {
 
   return (
     <>
+      <Helmet>
+
+        <title>Milan | Club Register</title>
+        <meta name="description" content="Welcome to the Club's registration page. Provide all the needed credentials and join us." />
+        <link rel="canonical" href="/" />
+      </Helmet>
+
       <Navbar />
 
       <ToastContainer

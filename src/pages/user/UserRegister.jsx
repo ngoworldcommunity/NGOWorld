@@ -4,15 +4,16 @@ import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { RegisterUser } from "../../service/MilanApi";
 
-import SchemaValidator ,{ msgLocalise} from "../../utils/validation";
+import SchemaValidator, { msgLocalise } from "../../utils/validation";
 
 //* The styles for Login and Register are essentially same
 import "../../styles/UserLogin.css";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet-async";
 
 const UserRegister = () => {
-  document.title = "Milan | User Register"
+
   const navigate = useNavigate();
 
   function Anchor(props) {
@@ -39,14 +40,14 @@ const UserRegister = () => {
     id: "/SignUpForm",
     type: "object",
     properties: {
-      firstname: {type:"string" },
-      lastname: {type:"string" },
-      email: {type:"string" , format:"email"},
-      password: {type:"string" , minLength:8 },
-      address: {type:"string" },
-      pincode: {pattern:"[0-9]+", minLength:6 },
+      firstname: { type: "string" },
+      lastname: { type: "string" },
+      email: { type: "string", format: "email" },
+      password: { type: "string", minLength: 8 },
+      address: { type: "string" },
+      pincode: { pattern: "[0-9]+", minLength: 6 },
     },
-    required:["firstname", "lastname","email", "password", "address", "pincode"]
+    required: ["firstname", "lastname", "email", "password", "address", "pincode"]
   }
 
   const handleChange = (e) => {
@@ -55,10 +56,9 @@ const UserRegister = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    var validator = SchemaValidator(FormDataProto,{ ...credentials })
-        
-    if(validator.valid)
-    { 
+    var validator = SchemaValidator(FormDataProto, { ...credentials })
+
+    if (validator.valid) {
       await RegisterUser(credentials);
 
       toast('🦄 Registered your account !', {
@@ -77,8 +77,8 @@ const UserRegister = () => {
     }
     else {
       validator.errors.map(
-        function (e , i){
-        return  toast(`${e.path[0]} : ${msgLocalise(e)}`, {
+        function (e, i) {
+          return toast(`${e.path[0]} : ${msgLocalise(e)}`, {
             position: "top-right",
             autoClose: 1000,
             hideProgressBar: false,
@@ -87,7 +87,7 @@ const UserRegister = () => {
             draggable: true,
             progress: undefined,
             closeButton: false,
-            
+
           });
         }
       )
@@ -98,6 +98,13 @@ const UserRegister = () => {
 
   return (
     <>
+      <Helmet>
+
+        <title>Milan | User Register</title>
+        <meta name="description" content="Welcome to the User's registration page. Provide all the needed credentials and join us." />
+        <link rel="canonical" href="/" />
+      </Helmet>
+
       <Navbar />
 
       <ToastContainer
