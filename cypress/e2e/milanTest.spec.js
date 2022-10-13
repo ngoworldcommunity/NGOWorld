@@ -39,7 +39,6 @@ describe("All auth checks", () => {
     cy.get("#desktopClubEmail").type("rotary@gmail.com");
     cy.get("#desktopClubPassword").type("rotary");
     cy.get(".login-btn").click();
-    cy.contains("Logging you in");
     cy.getCookie("clubToken");
   });
 
@@ -48,7 +47,6 @@ describe("All auth checks", () => {
     cy.get("#desktopUserEmail").type("gyansujan69@gmail.com");
     cy.get("#desktopUserPassword").type("tamaldas69");
     cy.get(".login-btn").click();
-    cy.contains("Logging you in");
     cy.getCookie("token ");
   });
 });
