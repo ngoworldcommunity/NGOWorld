@@ -5,10 +5,21 @@
   margin-top: 3em;
 }
 
-.cardart img:hover
-{
 
-  box-shadow: 0 0 15px 1px #297f75;
+
+.cardart
+{
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+}
+
+
+
+.cardart:hover
+{
+  box-shadow: #297f75 0px 5px 15px;
+
   cursor: pointer;
    
 }
