@@ -58,7 +58,7 @@ const ClubForgotpassword = () => {
                                 <button
                                     style={{ backgroundColor: "#C996CC", color: "white", opacity: 0.8 }}
                                     className="login-btn btn btn-lg btn-block"
-                                > Reset
+                                > Reset Password
                                 </button>
 
                                 <br></br>
