@@ -6,11 +6,12 @@ import { LoginUser } from "../../service/MilanApi";
 import Cookies from "js-cookie";
 import { toast, ToastContainer } from "react-toastify";
 
-import SchemaValidator ,{ msgLocalise} from "../../utils/validation";
+import SchemaValidator, { msgLocalise } from "../../utils/validation";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet-async";
 
 function UserLogin() {
-    document.title = "Milan | User Login";
+
     const Navigate = useNavigate();
 
     function Anchor(props) {
@@ -33,12 +34,12 @@ function UserLogin() {
         id: "/LoginForm",
         type: "object",
         properties: {
-            email:{type:"string" , format:"email"},
-            password:{type:"string" , minLength:4 },
+            email: { type: "string", format: "email" },
+            password: { type: "string", minLength: 4 },
         },
-        required:["email" , "password"]
+        required: ["email", "password"]
     }
-    
+
     //* To set the value as soon as we input
     const handleChange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -48,10 +49,9 @@ function UserLogin() {
     //* If alright we get a cookie with token
     const handleSubmit = (e) => {
         e.preventDefault();
-        var validator = SchemaValidator(FormDataProto,{ ...credentials })
-        
-        if(validator.valid)
-        { 
+        var validator = SchemaValidator(FormDataProto, { ...credentials })
+
+        if (validator.valid) {
             const Data = LoginUser(credentials);
 
             Data.then((response) => {
@@ -79,26 +79,32 @@ function UserLogin() {
                 console.log(err);
             });
         }
-        else { 
+        else {
             validator.errors.map(
-                function (e , i){
-                return  toast(`${e.path[0]} : ${msgLocalise(e)}`, {
-                    position: "top-right",
-                    autoClose: 1000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    closeButton: false,
-                    
-                  });
+                function (e, i) {
+                    return toast(`${e.path[0]} : ${msgLocalise(e)}`, {
+                        position: "top-right",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        closeButton: false,
+
+                    });
                 })
-         }
+        }
     };
 
     return (
         <>
+            <Helmet>
+
+                <title>Milan | User login</title>
+                <meta name="description" content="Welcome to the User's login page. Login to Milan with your email and password." />
+                <link rel="canonical" href="/" />
+            </Helmet>
             <Navbar />
 
             <ToastContainer

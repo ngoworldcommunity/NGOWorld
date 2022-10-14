@@ -10,9 +10,9 @@ import SchemaValidator, { msgLocalise } from '../../utils/validation';
 import '../../styles/UserLogin.css';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from 'react-helmet-async';
 
 const UserRegister = () => {
-  document.title = 'Milan | User Register';
   const navigate = useNavigate();
 
   function Anchor(props) {
@@ -98,6 +98,15 @@ const UserRegister = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Milan | User Register</title>
+        <meta
+          name="description"
+          content="Welcome to the User's registration page. Provide all the needed credentials and join us."
+        />
+        <link rel="canonical" href="/" />
+      </Helmet>
+
       <Navbar />
 
       <ToastContainer
