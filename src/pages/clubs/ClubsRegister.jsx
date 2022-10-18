@@ -8,6 +8,7 @@ import "../../styles/ClubsRegister.css";
 
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet-async";
 
 const ClubLogin = () => {
   document.title = "Milan | Club Register";
@@ -55,7 +56,7 @@ const ClubLogin = () => {
     await RegisterClub({ ...credentials });
     setIsLoading(false);
 
-    toast("🌈 Registered your club !", {
+    toast("🦄 Registered your club !", {
       position: "top-right",
       autoClose: 1000,
       hideProgressBar: false,
@@ -63,13 +64,20 @@ const ClubLogin = () => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      closeButton : false,
+      closeButton: false,
       onClose: () => navigate("/clubs/login"),
     });
   };
 
   return (
     <>
+      <Helmet>
+
+        <title>Milan | Club Register</title>
+        <meta name="description" content="Welcome to the Club's registration page. Provide all the needed credentials and join us." />
+        <link rel="canonical" href="/" />
+      </Helmet>
+
       <Navbar />
 
       <ToastContainer
@@ -352,7 +360,7 @@ const ClubLogin = () => {
                   }
                   type="submit"
                   className="registration-btn btn  py-2"
-                  style={{backgroundColor: "#C996CC"}}
+                  style={{ backgroundColor: "#C996CC" }}
                 >
                   {isLoading ? (
                     <TailSpin color="#FFFFFF" height={30} width={30} />

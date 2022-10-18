@@ -85,7 +85,8 @@ const Navbar = () => {
                 <Link to="/shops/shop">Shop</Link>
                 <div
                   className={
-                    "" + (location.pathname === "/shops" ? "active-link" : "")
+                    "" +
+                    (location.pathname === "/shops/shop" ? "active-link" : "")
                   }
                 ></div>
               </li>

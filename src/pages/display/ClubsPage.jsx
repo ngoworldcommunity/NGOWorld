@@ -5,15 +5,19 @@ import clubs_banner from "../../assets/pictures/clubs-banner.svg";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { GetAllClubs } from "../../service/MilanApi";
+import Loading from "../../components/Loading";
 
 const ClubsPage = () => {
   document.title = "Milan | Clubs";
   const [clubData, setClubData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchClubData = async () => {
+      setLoading(true);
       const response = await GetAllClubs();
       setClubData(response);
+      setLoading(false);
     };
     fetchClubData();
   }, []);
@@ -40,9 +44,15 @@ const ClubsPage = () => {
 
       <hr className="container" />
       <div className="cards justify-content-center">
-        {clubData.map((club) => {
-          return <SingleClub key={club._id} club={club} />;
-        })}
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
+            {clubData.map((club) => {
+              return <SingleClub key={club._id} club={club} />;
+            })}
+          </>
+        )}
       </div>
       <Footer />
     </>

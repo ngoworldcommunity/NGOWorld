@@ -4,13 +4,16 @@ import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { RegisterUser } from "../../service/MilanApi";
 
+import SchemaValidator, { msgLocalise } from "../../utils/validation";
+
 //* The styles for Login and Register are essentially same
 import "../../styles/UserLogin.css";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from "react-helmet-async";
 
 const UserRegister = () => {
-  document.title = "Milan | User Register"
+
   const navigate = useNavigate();
 
   function Anchor(props) {
@@ -33,41 +36,75 @@ const UserRegister = () => {
     pincode: "",
   });
 
-  const [isEmailValid, setIsEmailValid] = useState(false);
+  const FormDataProto = {
+    id: "/SignUpForm",
+    type: "object",
+    properties: {
+      firstname: { type: "string" },
+      lastname: { type: "string" },
+      email: { type: "string", format: "email" },
+      password: { type: "string", minLength: 8 },
+      address: { type: "string" },
+      pincode: { pattern: "[0-9]+", minLength: 6 },
+    },
+    required: ["firstname", "lastname", "email", "password", "address", "pincode"]
+  }
 
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
-    if (
-      e.target.name === "email" &&
-      e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
-    )
-      setIsEmailValid(true);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    var validator = SchemaValidator(FormDataProto, { ...credentials })
 
-    await RegisterUser(credentials);
+    if (validator.valid) {
+      await RegisterUser(credentials);
 
-    toast('🌈Registered your account !', {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      closeButton:false,
-      onClose: () => {
-        navigate("/user/login");
-      }
-    });
+      toast('🦄 Registered your account !', {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        closeButton: false,
+        onClose: () => {
+          navigate("/user/login");
+        }
+      });
+    }
+    else {
+      validator.errors.map(
+        function (e, i) {
+          return toast(`${e.path[0]} : ${msgLocalise(e)}`, {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            closeButton: false,
+
+          });
+        }
+      )
+    }
 
 
   };
 
   return (
     <>
+      <Helmet>
+
+        <title>Milan | User Register</title>
+        <meta name="description" content="Welcome to the User's registration page. Provide all the needed credentials and join us." />
+        <link rel="canonical" href="/" />
+      </Helmet>
+
       <Navbar />
 
       <ToastContainer
@@ -213,7 +250,7 @@ const UserRegister = () => {
                   </label>
 
                   <input
-                    type="text"
+                    type="number"
                     className="form-control form-control-lg form-input remove_placeholder_desktop"
                     id="pincode"
                     name="pincode"
@@ -229,7 +266,6 @@ const UserRegister = () => {
                 <button
                   type="submit"
                   className="btn btn-lg btn-block"
-                  disabled={credentials.password.length <= 4 || !isEmailValid}
                   style={{ backgroundColor: "#89b5f7" }}
                 >
                   Register
