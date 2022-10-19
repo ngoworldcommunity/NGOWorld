@@ -70,15 +70,15 @@ Guidelines to be followed 🔐
 <p align="center">
 We request all the people who wish to contribute to follow the set of guidelines that have been defined to maintain smooth working of contributions. Take a look below, and try to maintain it while contributing ⤵ <br/> </p>
 
-<a><h5 align="center">[⭐CONTRIBUTING GUIDELINES TO BE FOLLOWED](https://github.com/IAmTamal/Milan/blob/main/CONTRIBUTING.md)</h5></a>
+<h5 align="center"><a href="https://github.com/IAmTamal/Milan/blob/main/CONTRIBUTING.md">⭐CONTRIBUTING GUIDELINES TO BE FOLLOWED</a></h5>
     
-<a><h5 align="center">[⭐ CODE OF CONDUCT THAT NEEDS TO BE MAINTAINED ](https://github.com/IAmTamal/Milan/blob/main/CONTRIBUTING.md)</h5></a></br>
+<h5 align="center"><a href="https://github.com/IAmTamal/Milan/blob/main/CONTRIBUTING.md">⭐ CODE OF CONDUCT THAT NEEDS TO BE MAINTAINED</a></h5></br>
     
-<a><h5 align="center">[🛠 SETTING UP THE FRONTEND LOCALLY](https://github.com/IAmTamal/Milan/blob/main/rules/FrontendSetup.md)</h5></a>
+<h5 align="center"><a href="https://github.com/IAmTamal/Milan/blob/main/rules/FrontendSetup.md">🛠 SETTING UP THE FRONTEND LOCALLY</a></h5>
     
-<a><h5 align="center">[🛠 SETTING UP THE BACKEND LOCALLY](https://github.com/IAmTamal/Milan/blob/main/rules/BackendSetup.md)</h5></a>
+<h5 align="center"><a href="https://github.com/IAmTamal/Milan/blob/main/rules/BackendSetup.md">🛠 SETTING UP THE BACKEND LOCALLY</a></h5>
 
-<a><h5 align="center">[🛠 SETTING UP THE APP WITH DOCKER](https://github.com/IAmTamal/Milan/blob/main/rules/DockerSetup.md)</h5></a>
+<h5 align="center"><a href="https://github.com/IAmTamal/Milan/blob/main/rules/DockerSetup.md">🛠 SETTING UP THE APP WITH DOCKER</a></h5>
 
 
 </br>
