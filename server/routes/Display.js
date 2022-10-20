@@ -10,9 +10,9 @@ const router = express.Router();
 router.get('/allusers', async (req, res) => {
   try {
     const allusers = await User.find({});
-    return res.status(200).json(allusers);
+    res.status(200).json(allusers);
   } catch (error) {
-    return res.status(500);
+    res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
@@ -20,9 +20,9 @@ router.get('/allusers', async (req, res) => {
 router.get('/allclubs', async (req, res) => {
   try {
     const allClubs = await Club.find({});
-    return res.json(allClubs);
+     res.json(allClubs);
   } catch (error) {
-    return res.status(500);
+     res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
@@ -30,9 +30,9 @@ router.get('/allclubs', async (req, res) => {
 router.get('/allevents', async (req, res) => {
   try {
     const allEvents = await Events.find({});
-    return res.json(allEvents);
+     res.json(allEvents);
   } catch (error) {
-    return res.status(500);
+     res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
