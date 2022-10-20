@@ -40,8 +40,8 @@
 }
 
 .btn-hover {
-  width: 20%;
   font-size: 16px;
+  padding: 5px 5px;
   font-weight: 600;
   color: #fff;
   cursor: pointer;
