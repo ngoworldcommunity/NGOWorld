@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
-import "../../styles/EventCreate.css";
-import Events from "../../assets/pictures/CreateEventsPic.svg";
-import { CreateEvent } from "../../service/MilanApi";
+import React, { useState } from 'react';
+import Navbar from '../../components/Navbar';
+import '../../styles/EventCreate.css';
+import Events from '../../assets/pictures/CreateEventsPic.svg';
+import { CreateEvent } from '../../service/MilanApi';
 
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function EventCreate() {
   const [eventdetails, seteventdetails] = useState({
-    eventname: "",
-    eventdate: "",
-    eventtime: "",
-    eventlocation: "",
-    eventdescription: "",
+    eventname: '',
+    eventdate: '',
+    eventtime: '',
+    eventlocation: '',
+    eventdescription: '',
   });
 
   const handleChange = (e) => {
@@ -25,22 +25,22 @@ export default function EventCreate() {
     const eventresponse = await CreateEvent(eventdetails);
 
     if (eventresponse.status === 200) {
-      toast("🌈 Adding your Event !", {
-        position: "top-right",
+      toast('🌈 Adding your Event !', {
+        position: 'top-right',
         autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        closeButton:false,
+        closeButton: false,
         onClose: () => {
           seteventdetails({
-            eventname: "",
-            eventdate: "",
-            eventtime: "",
-            eventlocation: "",
-            eventdescription: "",
+            eventname: '',
+            eventdate: '',
+            eventtime: '',
+            eventlocation: '',
+            eventdescription: '',
           });
         },
       });
@@ -64,22 +64,22 @@ export default function EventCreate() {
         closeButton={false}
       />
 
-      <section class="vh-100">
-        <div class="container py-5 h-100">
-          <div class="row d-flex align-items-center justify-content-center h-100">
-            <div class="col-md-8 col-lg-7 col-xl-6">
+      <section className="vh-100">
+        <div className="container py-5 h-100">
+          <div className="row d-flex align-items-center justify-content-center h-100">
+            <div className="col-md-8 col-lg-7 col-xl-6">
               <img src={Events} width="90%" alt="profile-img"></img>
             </div>
 
-            <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form style={{ width: "auto" }}>
+            <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+              <form style={{ width: 'auto' }}>
                 <h1 className="eventCreateWelcome">
                   Create an event for your club
                 </h1>
-                <div class="form-outline">
+                <div className="form-outline">
                   <input
                     type="text"
-                    class="eventCreateFormInput form-control "
+                    className="eventCreateFormInput form-control "
                     id="eventName"
                     name="eventname"
                     required
@@ -88,11 +88,10 @@ export default function EventCreate() {
                     onChange={handleChange}
                   />
                 </div>
-
-                <div class="form-outline">
+                <div className="form-outline">
                   <input
                     type="text"
-                    class="eventCreateFormInput form-control form-control-md"
+                    className="eventCreateFormInput form-control form-control-md"
                     id="eventdate"
                     name="eventdate"
                     required
@@ -101,11 +100,10 @@ export default function EventCreate() {
                     onChange={handleChange}
                   />
                 </div>
-
-                <div class="form-outline">
+                <div className="form-outline">
                   <input
                     type="text"
-                    class="eventCreateFormInput form-control form-control-md"
+                    className="eventCreateFormInput form-control form-control-md"
                     id="eventtime"
                     name="eventtime"
                     required
@@ -114,10 +112,10 @@ export default function EventCreate() {
                     onChange={handleChange}
                   />
                 </div>
-                <div class="form-outline">
+                <div className="form-outline">
                   <input
                     type="text"
-                    class="eventCreateFormInput form-control form-control-md"
+                    className="eventCreateFormInput form-control form-control-md"
                     id="eventlocation"
                     name="eventlocation"
                     required
@@ -126,10 +124,10 @@ export default function EventCreate() {
                     onChange={handleChange}
                   />
                 </div>
-                <div class="form-outline">
+                <div className="form-outline">
                   <textarea
                     type="text"
-                    class="eventCreateFormInput form-control form-control-lg"
+                    className="eventCreateFormInput form-control form-control-lg"
                     id="eventTime"
                     name="eventdescription"
                     placeholder="Tell us something more about the event"

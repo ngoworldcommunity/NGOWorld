@@ -1,8 +1,8 @@
-import * as React from "react";
-import ClubUpperImage from "../../assets/pictures/ClubUpperImage.svg";
-import { useLocation } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
-import displayRazorpay from "../../service/PaymentGateway";
+import * as React from 'react';
+import ClubUpperImage from '../../assets/pictures/ClubUpperImage.svg';
+import { useLocation } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
+import displayRazorpay from '../../service/PaymentGateway';
 
 export default function SingleClub({ club }) {
   const [money, setmoney] = React.useState({ donatedmoney: 0 });
@@ -10,13 +10,13 @@ export default function SingleClub({ club }) {
   const location = useLocation();
 
   const expand = () => {
-    document.getElementById(`less${club._id}`).classList.add("hidden");
-    document.getElementById(`more${club._id}`).classList.remove("hidden");
+    document.getElementById(`less${club._id}`).classList.add('hidden');
+    document.getElementById(`more${club._id}`).classList.remove('hidden');
   };
 
   const contract = () => {
-    document.getElementById(`more${club._id}`).classList.add("hidden");
-    document.getElementById(`less${club._id}`).classList.remove("hidden");
+    document.getElementById(`more${club._id}`).classList.add('hidden');
+    document.getElementById(`less${club._id}`).classList.remove('hidden');
   };
 
   const handleChange = (e) => {
@@ -44,14 +44,14 @@ export default function SingleClub({ club }) {
 
         <div id={`less${club._id}`} className="desc">
           {club.description.length > 80
-            ? club.description.slice(0, 80) + "..."
+            ? club.description.slice(0, 80) + '...'
             : club.description}
           {club.description.length > 80 ? (
             <span className="seeBtn" onClick={expand}>
               See more
             </span>
           ) : (
-            ""
+            ''
           )}
         </div>
         <div id={`more${club._id}`} className="hidden desc">
@@ -61,7 +61,7 @@ export default function SingleClub({ club }) {
           </span>
         </div>
 
-        {location.pathname === "/donateus" && (
+        {location.pathname === '/donateus' && (
           <>
             <button
               type="button"
@@ -71,9 +71,9 @@ export default function SingleClub({ club }) {
             >
               Donate
             </button>
-            {/* <button type="button" class="btn btn-warning donate_btn" onClick={displayRazorpay}> Donate </button> */}
+            {/* <button type="button" className="btn btn-warning donate_btn" onClick={displayRazorpay}> Donate </button> */}
             <div
-              class="modal fade"
+              className="modal fade"
               id="staticBackdrop"
               data-bs-backdrop="static"
               data-bs-keyboard="false"
@@ -81,21 +81,21 @@ export default function SingleClub({ club }) {
               aria-labelledby="staticBackdropLabel"
               aria-hidden="false"
             >
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h2 class="modal-title" id="staticBackdropLabel">
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h2 className="modal-title" id="staticBackdropLabel">
                       Select any amount that you would donate !
                     </h2>
 
                     <button
                       type="button"
-                      class="btn-close"
+                      className="btn-close"
                       data-bs-dismiss="modal"
                       aria-label="Close"
                     ></button>
                   </div>
-                  <div class="modal-body">
+                  <div className="modal-body">
                     <p>
                       All of the money you donate, goes directly to the club
                     </p>
@@ -111,17 +111,17 @@ export default function SingleClub({ club }) {
                       />
                     </div>
                   </div>
-                  <div class="modal-footer">
+                  <div className="modal-footer">
                     <button
                       type="button"
-                      class="btn btn-secondary"
+                      className="btn btn-secondary"
                       data-bs-dismiss="modal"
                     >
                       Close
                     </button>
                     <button
                       type="button"
-                      class="btn btn-warning"
+                      className="btn btn-warning"
                       data-bs-dismiss="modal"
                       onClick={(e) => {
                         handleSubmit(e);
