@@ -11,6 +11,7 @@
 {
 
   transition: all .5s;
+  background-color: lightgray;
 }
 
 
@@ -22,7 +23,7 @@
 
 
   cursor: pointer;
-   
+
 }
 
 .art {
