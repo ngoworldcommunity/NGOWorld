@@ -1,64 +1,64 @@
-import { useState, useEffect } from "react";
-import { ReportProblem } from "../../service/MilanApi";
-import "../../styles/Footer.css";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { Link } from "react-router-dom";
-import Cookies from "js-cookie";
+import { useState, useEffect } from 'react';
+import { ReportProblem } from '../../service/MilanApi';
+import '../../styles/Footer.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 const Footer = () => {
   const [reportModal, setReportModal] = useState(false);
-  const [reportEmail, setReportEmail] = useState("");
-  const [reportFirstName, setReportFirstName] = useState("");
-  const [reportLastName, setReportLastName] = useState("");
-  const [reportIssue, setReportIssue] = useState("");
+  const [reportEmail, setReportEmail] = useState('');
+  const [reportFirstName, setReportFirstName] = useState('');
+  const [reportLastName, setReportLastName] = useState('');
+  const [reportIssue, setReportIssue] = useState('');
   const [logged, setLogged] = useState(false);
 
   const handleReportModalOpen = () => {
     document.previousTitle = document.title;
-    document.title = "Milan | Report an issue";
+    document.title = 'Milan | Report an issue';
     setReportModal(true);
   };
   const handleReportModalClose = () => {
     document.title = document.previousTitle;
     document.previousTitle = undefined;
-    setReportEmail("");
-    setReportFirstName("");
-    setReportLastName("");
-    setReportIssue("");
+    setReportEmail('');
+    setReportFirstName('');
+    setReportLastName('');
+    setReportIssue('');
     setReportModal(false);
   };
 
   useEffect(() => {
-    if (Cookies.get("token")) setLogged(true);
+    if (Cookies.get('token')) setLogged(true);
   }, []);
 
   useEffect(() => {
     if (reportModal) {
       const closeEvent = (e) => {
-        if (e.key === "Escape") {
+        if (e.key === 'Escape') {
           handleReportModalClose();
         }
       };
-      window.addEventListener("keydown", closeEvent);
-      return () => window.removeEventListener("keydown", closeEvent);
+      window.addEventListener('keydown', closeEvent);
+      return () => window.removeEventListener('keydown', closeEvent);
     }
   }, [reportModal]);
 
   const handleReportSubmit = async (e) => {
     e.preventDefault();
 
-    if (!Cookies.get("token")) {
-      toast.error("You must be logged in to report an issue");
+    if (!Cookies.get('token')) {
+      toast.error('You must be logged in to report an issue');
       return;
     }
     if (
-      reportFirstName === "" ||
-      reportLastName === "" ||
-      reportEmail === "" ||
-      reportIssue === ""
+      reportFirstName === '' ||
+      reportLastName === '' ||
+      reportEmail === '' ||
+      reportIssue === ''
     ) {
-      toast.error("Please fill out all fields");
+      toast.error('Please fill out all fields');
       return;
     }
     const success = await ReportProblem({
@@ -69,11 +69,11 @@ const Footer = () => {
     });
 
     if (success === true) {
-      toast.success("Report submitted successfully");
-    } else if (success === "tryagain") {
-      toast.error("You can only submit once in 2 hours");
+      toast.success('Report submitted successfully');
+    } else if (success === 'tryagain') {
+      toast.error('You can only submit once in 2 hours');
     } else {
-      toast.error("Some error occured");
+      toast.error('Some error occured');
     }
     setTimeout(() => {
       handleReportModalClose();
@@ -82,8 +82,8 @@ const Footer = () => {
 
   useEffect(() => {
     reportModal
-      ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = "unset");
+      ? (document.body.style.overflow = 'hidden')
+      : (document.body.style.overflow = 'unset');
   }, [reportModal]);
 
   return (
@@ -167,7 +167,7 @@ const Footer = () => {
         </div>
       )}
 
-      <div className="px-5 py-2" style={{ backgroundColor: "#424141" }}>
+      <div className="px-5 py-2" style={{ backgroundColor: '#424141' }}>
         <div className="row py-4">
           <div className="col-lg-6 col-md-6 mb-4 mb-lg-0 px-5">
             <img src="img/logo.png" alt="" width="180" className="mb-3" />
@@ -186,7 +186,7 @@ const Footer = () => {
                   rel="noreferrer"
                   target="_blank"
                 >
-                  <i class="fa-brands fa-twitter"></i>
+                  <i className="fa-brands fa-twitter"></i>
                 </a>
               </div>
               <div className="github social-btn">
@@ -195,12 +195,12 @@ const Footer = () => {
                   rel="noreferrer"
                   target="_blank"
                 >
-                  <i class="fa-brands fa-github"></i>
+                  <i className="fa-brands fa-github"></i>
                 </a>
               </div>
               <div className="cont social-btn">
                 <a href="https://milaan.vercel.app/contact">
-                  <i class="cont-icon fa-solid fa-message"></i>
+                  <i className="cont-icon fa-solid fa-message"></i>
                 </a>
               </div>
             </div>
@@ -209,7 +209,7 @@ const Footer = () => {
           <div className="join-us col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
             <div className="join">
               <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4">
-                {logged ? "Explore!" : "Join Us!"}
+                {logged ? 'Explore!' : 'Join Us!'}
               </h1>
               <ul className="join-us-list list-unstyled mb-0">
                 <li className="mb-2">
@@ -262,7 +262,7 @@ const Footer = () => {
                 className=" btn-report d-flex align-items-center text-black"
               >
                 <span>
-                  Report! <i class="fa-solid fa-bug"></i>
+                  Report! <i className="fa-solid fa-bug"></i>
                 </span>
               </button>
             </div>
