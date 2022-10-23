@@ -13,6 +13,7 @@ const Footer = () => {
   const [reportLastName, setReportLastName] = useState('');
   const [reportIssue, setReportIssue] = useState('');
   const [logged, setLogged] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleReportModalOpen = () => {
     document.previousTitle = document.title;
@@ -85,6 +86,24 @@ const Footer = () => {
       ? (document.body.style.overflow = 'hidden')
       : (document.body.style.overflow = 'unset');
   }, [reportModal]);
+
+  useEffect(() => {
+    if (window.innerWidth > 767) {
+      setIsMobile(false);
+    } else {
+      setIsMobile(true);
+    }
+
+    const updateMedia = () => {
+      if (window.innerWidth > 767) {
+        setIsMobile(false);
+      } else {
+        setIsMobile(true);
+      }
+    };
+    window.addEventListener('resize', updateMedia);
+    return () => window.removeEventListener('resize', updateMedia);
+  }, []);
 
   return (
     <footer className="bg-white m-0">
@@ -172,14 +191,20 @@ const Footer = () => {
           <div className="col-lg-6 col-md-6 mb-4 mb-lg-0 px-5">
             <img src="img/logo.png" alt="" width="180" className="mb-3" />
             {/* <p className="font-italic text-light text-center"> */}
-            <p className="footer-text font-italic text-light text-left">
-              With Milan we aim at bringing all the various NGOs and donors
-              under one single roof to ease the burden of going to find their
-              appropriate donors and the appropriate communities to donate to.
-              With the help of our search filters and ask platform, it becomes
-              easier for the people to find their right community to serve.
-            </p>
-            <div className="socials">
+            {isMobile ? (
+              <h1 class="h6 join-us text-uppercase text-light font-weight-bold mb-4">
+                Check out our socials
+              </h1>
+            ) : (
+              <p className="footer-text font-italic text-light text-left">
+                With Milan we aim at bringing all the various NGOs and donors
+                under one single roof to ease the burden of going to find their
+                appropriate donors and the appropriate communities to donate to.
+                With the help of our search filters and ask platform, it becomes
+                easier for the people to find their right community to serve.
+              </p>
+            )}
+            <div className="socials justify-content-center">
               <div className="twitter social-btn">
                 <a
                   href="https://twitter.com/mrTamall"
