@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import SingleClub from "../../components/SingleClub";
-import "../../styles/ClubsPage.css";
-import clubs_banner from "../../assets/pictures/clubs-banner.svg";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import { GetAllClubs } from "../../service/MilanApi";
-import Loading from "../../components/Loading";
+import React, { useEffect, useState } from 'react';
+import SingleClub from '../../components/SingleClub';
+import '../../styles/ClubsPage.css';
+import clubs_banner from '../../assets/pictures/clubs-banner.svg';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import { GetAllClubs } from '../../service/MilanApi';
+import Loading from '../../components/Loading';
 
 const ClubsPage = () => {
-  document.title = "Milan | Clubs";
+  document.title = 'Milan | Clubs';
   const [clubData, setClubData] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -43,16 +43,19 @@ const ClubsPage = () => {
       </div>
 
       <hr className="container" />
-      <div className="cards justify-content-center">
-        {loading ? (
-          <Loading />
-        ) : (
-          <>
-            {clubData.map((club) => {
-              return <SingleClub key={club._id} club={club} />;
-            })}
-          </>
-        )}
+
+      <div className="container main-card-container">
+        <div className="cards">
+          {loading ? (
+            <Loading />
+          ) : (
+            <>
+              {clubData.map((club) => {
+                return <SingleClub key={club._id} club={club} />;
+              })}
+            </>
+          )}
+        </div>
       </div>
       <Footer />
     </>

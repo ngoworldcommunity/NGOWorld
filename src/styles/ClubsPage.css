@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
 
 * {
   margin: 0;
@@ -15,7 +15,7 @@
 div#clubs_banner {
   width: 80%;
   margin-top: 3rem;
-  font-family: "Mulish", sans-serif;
+  font-family: 'Mulish', sans-serif;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -42,13 +42,19 @@ div#clubs_banner {
   color: #000000;
 }
 
+.main-card-container {
+  padding-top: 6%;
+  padding-bottom: 6%;
+}
+
 .cards {
-  padding: 6%;
+  padding: 0;
+  position: relative;
+  justify-content: center;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 323px));
-  column-gap: 4%;
-  row-gap: 6%;
-  font-family: "Mulish", sans-serif;
+  gap: 50px;
+  font-family: 'Mulish', sans-serif;
 }
 
 .cards::-webkit-scrollbar {
@@ -57,18 +63,18 @@ div#clubs_banner {
 
 @media screen and (max-width: 1217px) {
   .cards {
-    padding: 8% 4%;
+    /* padding: 8% 4%; */
     grid-template-columns: repeat(auto-fill, minmax(300px, 323px));
     column-gap: 8%;
-    row-gap: 4%;
+    row-gap: 50px;
   }
 }
 
 @media screen and (max-width: 815px) {
   .cards {
-    padding: 6% 5%;
+    /* padding: 6% 5%; */
     grid-template-columns: repeat(auto-fill, minmax(300px, 323px));
-    row-gap: 2%;
+    row-gap: 50px;
   }
 
   div#clubs_banner {
@@ -91,6 +97,7 @@ div#clubs_banner {
     display: flex;
     flex-direction: column;
     padding: 8% 16%;
+    row-gap: 20px;
   }
 
   .clubs_img {
@@ -107,6 +114,10 @@ div#clubs_banner {
 @media screen and (max-width: 400px) {
   .cards {
     padding: 10%;
+  }
+
+  .main-card-container {
+    padding: 0;
   }
 }
 
@@ -125,7 +136,7 @@ div#clubs_banner {
 .clubCard h1 {
   font-weight: 700;
   font-size: 1.75rem;
-  font-family: "Mulish";
+  font-family: 'Mulish';
 }
 
 @media screen and (max-width: 535px) {
@@ -144,14 +155,14 @@ div#clubs_banner {
   font-weight: 600;
   line-height: 6px;
   color: rgba(0, 0, 0, 0.4);
-  font-family: "Mulish";
+  font-family: 'Mulish';
 }
 
 .desc {
   font-size: 16px;
   font-weight: 600;
   line-height: 23px;
-  font-family: "Mulish";
+  font-family: 'Mulish';
   /* height: 100%; */
 }
 
@@ -203,7 +214,7 @@ body::-webkit-scrollbar {
 }
 
 .eventspageintro_textdiv p {
-  font-family: "Mulish", sans-serif;
+  font-family: 'Mulish', sans-serif;
   /* width: 60%; */
   font-size: 20px;
   margin-top: 20px;
@@ -266,7 +277,7 @@ body::-webkit-scrollbar {
 
 div#event_banner {
   margin-top: 1rem;
-  font-family: "Mulish", sans-serif;
+  font-family: 'Mulish', sans-serif;
   display: flex;
   flex-direction: row;
   align-items: center;
