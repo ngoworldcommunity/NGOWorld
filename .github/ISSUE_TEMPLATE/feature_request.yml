@@ -49,7 +49,7 @@ body:
   - type: checkboxes
     id: no-duplicate-issues
     attributes:
-      label: "👀 Have you checked if this issue has been raised before?"
+      label: "👀 Have you checked for similar open issues?"
       options:
         - label: "I checked and didn't find similar issue"
           required: true
@@ -68,6 +68,7 @@ body:
       description: This is absolutely not required, but we are happy to guide you in the contribution process.
       options:
         - "Yes I am willing to submit a PR!"
+        - "No, someone else can work on it"
 
   - type: markdown
     attributes:
