@@ -186,7 +186,10 @@ const Footer = () => {
         </div>
       )}
 
-      <div className="px-5 py-2" style={{ backgroundColor: '#424141' }}>
+      <div
+        className="px-5 py-2 main-footer"
+        style={{ backgroundColor: '#424141' }}
+      >
         <div className="row py-4">
           <div className="col-lg-6 col-md-6 mb-4 mb-lg-0 px-5">
             <img src="img/logo.png" alt="" width="180" className="mb-3" />
