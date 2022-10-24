@@ -1,3 +1,11 @@
+.main-footer {
+  position: relative;
+  left: 0;
+  width: 100%;
+  overflow: visible;
+  clear: both;
+}
+
 .page-footer {
   background-color: rgb(66, 65, 65);
   padding: 30px 80px;
@@ -223,7 +231,7 @@
   color: black;
 }
 
-.btn-report:hover i{
+.btn-report:hover i {
   transform: rotate(90deg);
   color: #fff;
 }
