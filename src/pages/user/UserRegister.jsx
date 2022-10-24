@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../../components/Navbar";
-import { RegisterUser } from "../../service/MilanApi";
+import { Link, useNavigate } from 'react-router-dom';
+import Navbar from '../../components/Navbar';
+import { RegisterUser } from '../../service/MilanApi';
 
-import SchemaValidator, { msgLocalise } from "../../utils/validation";
+import SchemaValidator, { msgLocalise } from '../../utils/validation';
 
 //* The styles for Login and Register are essentially same
-import "../../styles/UserLogin.css";
+import '../../styles/UserLogin.css';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Helmet } from "react-helmet-async";
+import { Helmet } from 'react-helmet-async';
 
 const UserRegister = () => {
-
   const navigate = useNavigate();
 
   function Anchor(props) {
@@ -28,27 +27,34 @@ const UserRegister = () => {
   }
 
   const [credentials, setCredentials] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    address: "",
-    pincode: "",
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    address: '',
+    pincode: '',
   });
 
   const FormDataProto = {
-    id: "/SignUpForm",
-    type: "object",
+    id: '/SignUpForm',
+    type: 'object',
     properties: {
-      firstname: { type: "string" },
-      lastname: { type: "string" },
-      email: { type: "string", format: "email" },
-      password: { type: "string", minLength: 8 },
-      address: { type: "string" },
-      pincode: { pattern: "[0-9]+", minLength: 6 },
+      firstname: { type: 'string' },
+      lastname: { type: 'string' },
+      email: { type: 'string', format: 'email' },
+      password: { type: 'string', minLength: 8 },
+      address: { type: 'string' },
+      pincode: { pattern: '[0-9]+', minLength: 6 },
     },
-    required: ["firstname", "lastname", "email", "password", "address", "pincode"]
-  }
+    required: [
+      'firstname',
+      'lastname',
+      'email',
+      'password',
+      'address',
+      'pincode',
+    ],
+  };
 
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -56,13 +62,13 @@ const UserRegister = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    var validator = SchemaValidator(FormDataProto, { ...credentials })
+    var validator = SchemaValidator(FormDataProto, { ...credentials });
 
     if (validator.valid) {
       await RegisterUser(credentials);
 
       toast('🦄 Registered your account !', {
-        position: "top-right",
+        position: 'top-right',
         autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -71,37 +77,33 @@ const UserRegister = () => {
         progress: undefined,
         closeButton: false,
         onClose: () => {
-          navigate("/user/login");
-        }
+          navigate('/user/login');
+        },
+      });
+    } else {
+      validator.errors.map(function (e, i) {
+        return toast(`${e.path[0]} : ${msgLocalise(e)}`, {
+          position: 'top-right',
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          closeButton: false,
+        });
       });
     }
-    else {
-      validator.errors.map(
-        function (e, i) {
-          return toast(`${e.path[0]} : ${msgLocalise(e)}`, {
-            position: "top-right",
-            autoClose: 1000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            closeButton: false,
-
-          });
-        }
-      )
-    }
-
-
   };
 
   return (
     <>
       <Helmet>
-
         <title>Milan | User Register</title>
-        <meta name="description" content="Welcome to the User's registration page. Provide all the needed credentials and join us." />
+        <meta
+          name="description"
+          content="Welcome to the User's registration page. Provide all the needed credentials and join us."
+        />
         <link rel="canonical" href="/" />
       </Helmet>
 
@@ -132,9 +134,8 @@ const UserRegister = () => {
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1 form">
-              <form style={{ width: "auto" }} onSubmit={handleSubmit}>
+              <form style={{ width: 'auto' }} onSubmit={handleSubmit}>
                 <h1 className="userregister_header">Join us at Milan !!</h1>
-
                 <div className="form-outline mb-2">
                   <label
                     htmlFor="Full Name"
@@ -190,7 +191,6 @@ const UserRegister = () => {
                     className="form-control form-control-lg remove_placeholder_desktop"
                     id="email"
                     placeholder="Email"
-
                     name="email"
                     value={credentials.email}
                     onChange={handleChange}
@@ -261,12 +261,11 @@ const UserRegister = () => {
                     aria-label="Pincode"
                   />
                 </div>
-
                 <br />
                 <button
                   type="submit"
-                  className="btn btn-lg btn-block"
-                  style={{ backgroundColor: "#89b5f7" }}
+                  className="btn btn-lg btn-block register-btn btn-container-desktop"
+                  style={{ backgroundColor: '#89b5f7' }}
                 >
                   Register
                 </button>
@@ -275,7 +274,7 @@ const UserRegister = () => {
                   para="Already have an account? "
                   details="Login here"
                   link="/user/login"
-                  className="link-info"
+                  className="link-info anchor-container-desktop"
                 />
               </form>
             </div>
@@ -284,6 +283,6 @@ const UserRegister = () => {
       </section>
     </>
   );
-}
+};
 
 export default UserRegister;
