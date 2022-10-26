@@ -1,6 +1,6 @@
 /* // Home Banner */
 .banner-container {
-  background: url("../assets/pictures/milanBg.jpg");
+  background: url('../assets/pictures/milanBg.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -34,15 +34,15 @@
   }
 
   .banner-content {
-    padding-bottom: 50px;
+    padding-bottom: 250px;
   }
 }
 
 .banner-header1 {
   color: black;
   text-transform: uppercase;
-  font-size: 80px;
-  font-family: "Mulish";
+  font-size: 5rem;
+  font-family: 'Mulish';
   font-weight: 600;
 }
 
@@ -50,7 +50,7 @@
   color: rgb(111, 106, 106);
   font-size: 30px;
   margin: 0;
-  font-family: "Mulish";
+  font-family: 'Mulish';
   font-weight: bold;
 }
 @media (min-width: 768px) {
@@ -59,13 +59,12 @@
   }
 }
 @media (max-width: 600px) {
-  .banner-subtitle {
-    font-size: 20px;
-    font-weight: bolder;
-  }
-
   .banner-header1 {
-    font-size: 48px;
+    font-size: 4rem;
+  }
+  .banner-subtitle {
+    font-size: 1.75rem;
+    font-weight: bolder;
   }
 }
 
@@ -84,7 +83,7 @@
   border: none;
   cursor: pointer;
   width: auto;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .banner-Buttons_btn1 {
@@ -118,7 +117,7 @@
 
   .banner-Buttons {
     position: absolute;
-    bottom: 34px;
+    bottom: 110px;
     margin: 0 !important;
     flex-direction: column;
     justify-content: space-evenly;
@@ -130,11 +129,14 @@
     margin: 0 !important;
     margin-top: 10px !important;
   }
+  .banner-content {
+    padding-bottom: 250px;
+  }
 }
 
 @media (max-width: 343px) {
   .banner-Buttons {
-    bottom: 0;
+    bottom: 110px;
   }
 }
 
