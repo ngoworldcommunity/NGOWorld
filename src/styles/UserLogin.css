@@ -26,6 +26,14 @@ form .btn-container-desktop {
   justify-content: left;
 }
 
+.register-btn {
+  text-transform: uppercase !important;
+  font-size: 1.25rem !important;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+  transition: 0.2s;
+}
+
 @media screen and (max-width: 800px) {
   h1 {
     text-align: center;
@@ -45,7 +53,7 @@ form .btn-container-desktop {
     width: 100%;
   }
   form .register-btn {
-    width: 6rem;
+    width: 100%;
     text-align: center;
   }
   form .btn-container {
