@@ -47,6 +47,7 @@ function UserLogin() {
   //* Submit to backend
   //* If alright we get a cookie with token
   const handleSubmit = (e) => {
+    toast.clearWaitingQueue();
     e.preventDefault();
     var validator = SchemaValidator(FormDataProto, { ...credentials });
 
@@ -115,6 +116,7 @@ function UserLogin() {
         draggable
         pauseOnHover
         closeButton={false}
+        limit={1}
       />
 
       <section className="vh-100">
