@@ -76,3 +76,7 @@
         color: transparent;
     }
 }
+.login-btn:hover {
+    border: #212529;
+    background-color: #7496ca;
+}
