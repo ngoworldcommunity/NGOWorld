@@ -45,7 +45,7 @@ form .btn-container-desktop {
     width: 100%;
   }
   form .register-btn {
-    width: 100%;
+    width: 6rem;
     text-align: center;
   }
   form .btn-container {
@@ -55,6 +55,9 @@ form .btn-container-desktop {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .userregister_sideimg {
+    margin-bottom: 0;
   }
 }
 
