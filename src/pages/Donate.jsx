@@ -91,10 +91,12 @@ const Donate = () => {
 
       <hr className="container" />
 
-      <div className="cards justify-content-center">
-        {clubData.map((club) => {
-          return <SingleClub key={club._id} club={club} />;
-        })}
+      <div className="main-card-container">
+        <div className="cards justify-content-center">
+          {clubData.map((club) => {
+            return <SingleClub key={club._id} club={club} />;
+          })}
+        </div>
       </div>
       <Footer />
     </>
