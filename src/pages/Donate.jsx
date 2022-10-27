@@ -12,12 +12,16 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 import Loading from "../components/Loading";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Donate = () => {
   document.title = "Milan | Donate the needy";
 
   const [clubData, setClubData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isLoggedIn] = useState(Cookies.get("token"));
+  var navigate = useNavigate();
 
   useEffect(() => {
     const fetchClubData = async () => {
@@ -47,6 +51,16 @@ const Donate = () => {
     loadScript("https://checkout.razorpay.com/v1/checkout.js");
   });
 
+  // Redirect user to login page if they are not logged in
+  useEffect(() => {
+    if (!isLoggedIn) {
+      toast.error("Please log in before donating");
+      navigate("/user/login");
+    }
+  }, isLoggedIn);
+
+  if (!isLoggedIn) return null;
+
   return (
     <>
       <Helmet>
@@ -58,19 +72,6 @@ const Donate = () => {
         <link rel="canonical" href="/" />
       </Helmet>
       <Navbar />
-
-      <ToastContainer
-        position="top-right"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        closeButton={false}
-      />
 
       <div id="donate_banner" className="container">
         <div id="donateCol2">
