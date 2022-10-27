@@ -30,10 +30,10 @@ export default function SingleEvent({ club }) {
         {club.Eventdescription && (
           <>
             <div id={`less${club._id}`} className="desc">
-              {club.Eventdescription.length > 80
-                ? club.Eventdescription.slice(0, 80) + "..."
+              {club.Eventdescription.length > 70
+                ? club.Eventdescription.slice(0, 70) + "..."
                 : club.Eventdescription}
-              {club.Eventdescription.length > 80 ? (
+              {club.Eventdescription.length > 70 ? (
                 <span className="seeBtn" onClick={expand}>
                   See more
                 </span>
