@@ -43,10 +43,10 @@ export default function SingleClub({ club }) {
         </div>
 
         <div id={`less${club._id}`} className="desc">
-          {club.description.length > 80
-            ? club.description.slice(0, 80) + '...'
-            : club.description}
-          {club.description.length > 80 ? (
+          {club.tagLine.length > 40
+            ? club.tagLine.slice(0, 40) + '...'
+            : club.tagLine}
+          {club.tagLine.length > 40 ? (
             <span className="seeBtn" onClick={expand}>
               See more
             </span>
@@ -55,7 +55,7 @@ export default function SingleClub({ club }) {
           )}
         </div>
         <div id={`more${club._id}`} className="hidden desc">
-          {club.description}
+          {club.tagLine}
           <span className="seeBtn" onClick={contract}>
             See less
           </span>
