@@ -43,6 +43,7 @@ function ClubLogin() {
 
   //* SUBMIT
   const handleSubmit = (e) => {
+    toast.clearWaitingQueue();
     e.preventDefault();
 
     setIsLoading(true);
@@ -101,6 +102,7 @@ function ClubLogin() {
         pauseOnHover
         closeButton={false}
         id="Clubtoast"
+        limit={1}
       />
 
       <section className="vh-100">

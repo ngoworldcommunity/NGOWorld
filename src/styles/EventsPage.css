@@ -1,9 +1,78 @@
+.main-card-container {
+  padding-top: 6%;
+  padding-bottom: 6%;
+}
+
+.cards {
+  padding: 0;
+  position: relative;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 323px));
+  gap: 50px;
+  font-family: "Mulish", sans-serif;
+}
+
+@media screen and (max-width: 1217px) {
+  .cards {
+    /* padding: 8% 4%; */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 323px));
+    column-gap: 8%;
+    row-gap: 50px;
+  }
+}
+
+.cards::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+@media screen and (max-width: 815px) {
+  .cards {
+    /* padding: 6% 5%; */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 323px));
+    row-gap: 50px;
+  }
+
+  div#clubs_banner {
+    width: 100%;
+    margin-top: 1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .clubs_img {
+    min-width: 400px !important;
+    max-width: 400px !important;
+  }
+}
+
+@media screen and (max-width: 535px) {
+  .cards {
+    display: flex;
+    flex-direction: column;
+    padding: 8% 16%;
+    row-gap: 20px;
+  }
+
+  .clubs_img {
+    min-width: 270px !important;
+    max-width: 270px !important;
+    width: 80%;
+  }
+
+  #clubscol_1 p {
+    margin-inline: 20px;
+  }
+}
+
 @media screen and (max-width: 600px) {
-	div#eventCol_1 h1 {
-		width: 90vw;
-		font-size: 15vw;
-	}
-	div#eventCol_1 p {
-		padding: 0.5rem;
-	}
+  div#eventCol_1 h1 {
+    width: 90vw;
+    font-size: 15vw;
+  }
+  div#eventCol_1 p {
+    padding: 0.5rem;
+  }
 }

@@ -61,6 +61,7 @@ const UserRegister = () => {
   };
 
   const handleSubmit = async (e) => {
+    toast.clearWaitingQueue();
     e.preventDefault();
     var validator = SchemaValidator(FormDataProto, { ...credentials });
 
@@ -120,6 +121,7 @@ const UserRegister = () => {
         draggable
         pauseOnHover
         closeButton={false}
+        limit={1}
       />
 
       <section className="vh-100">
