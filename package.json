@@ -40,10 +40,12 @@
       "prettier --write"
     ],
     "src/**/*.html": [
-    "prettier --write"
+      "prettier --write"
     ],
-    "src/**/*.{json,css,scss,md}": ["prettier --write"]
-    },
+    "src/**/*.{json,css,scss,md}": [
+      "prettier --write"
+    ]
+  },
   "husky": {
     "hooks": {
       "pre-commit": "npx lint-staged"
