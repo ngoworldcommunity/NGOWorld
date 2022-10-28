@@ -51,8 +51,8 @@ const EventsPage = () => {
 
       <hr className="container" />
 
-      <div className="main-card-container">
-        <div className="cards justify-content-center">
+      <div className="container main-card-container">
+        <div className="cards">
           {loading ? (
             <Loading />
           ) : (
