@@ -51,17 +51,19 @@ const EventsPage = () => {
 
       <hr className="container" />
 
-      <div className="cards justify-content-center">
-        {loading ? (
-          <Loading />
-        ) : (
-          <>
-            {" "}
-            {clubData.map((club) => {
-              return <SingleEvent key={club._id} club={club} />;
-            })}
-          </>
-        )}
+      <div className="container main-card-container">
+        <div className="cards">
+          {loading ? (
+            <Loading />
+          ) : (
+            <>
+              {" "}
+              {clubData.map((club) => {
+                return <SingleEvent key={club._id} club={club} />;
+              })}
+            </>
+          )}
+        </div>
       </div>
       <Footer />
     </>

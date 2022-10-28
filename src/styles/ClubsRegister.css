@@ -63,9 +63,15 @@
     margin-bottom: 0px !important;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 770px) {
   .registration-btn {
     width: 100%;
+  }
+  .clubreg_des {
+    display: none;
+  }
+  .clubreg_mob {
+    display: block;
   }
 }
 
@@ -73,10 +79,10 @@
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .regformlabels {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
 }

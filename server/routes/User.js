@@ -30,10 +30,10 @@ router.post("/register", async (req, res) => {
     });
 
     //saving the data to mongodb
-    UserData.save();
-    return res.status(201).json({ message: "Registration successful, please login" })
+    await UserData.save();
+    res.status(201).json({ message: "Registration successful, please login" })
   } catch (e) {
-    return res.status(500).json({ message: "Internal Server Error" })
+     res.status(500).json({ message: "Internal Server Error" })
   }
 });
 
@@ -71,10 +71,10 @@ router.post("/update", async (req, res) => {
 		}
     
 		await User.replaceOne({ email: email }, UserData)
-		return res.status(201).json({ message: "Password Updated Successfully" })
+	  res.status(201).json({ message: "Password Updated Successfully" })
 	} catch (error) {
 		// User Password Updated
-    return res.status(500).json({ message: "Internal Server Error" })
+     res.status(500).json({ message: "Internal Server Error" })
 	}
 })
 
@@ -95,10 +95,11 @@ router.post("/login", async (req, res) => {
     const payload = { User: { id: existingUser.email } };
   
     jwt.sign(payload,process.env.JWT_SECRET, (err, token) => {
-      return res.status(201).json({ token, isuser: true });
+    if(err) throw new Error('Something Went Wrong!');
+     res.status(201).json({ token, isuser: true });
     });
   } catch (err) {
-    return res.status(500).json({ message: "Internal Server Error" });
+     res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
@@ -130,10 +131,10 @@ router.post("/userreport", async (req, res) => {
     });
 
     //saving the data to mongodb
-    ReportData.save();
-    return res.json({ success: true});
+    await ReportData.save();
+    res.status(200).json({ success: true});
   } catch (e) {
-    return res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
@@ -156,12 +157,12 @@ router.post("/contactus", async (req, res) => {
 			await ContactUs.replaceOne({ email: email }, SenderData)
 		} else {
 			const newContact = ContactUs(SenderData)
-			newContact.save()
+			await newContact.save()
     }
     
-		return res.status(201).json({ message: "Thank you for getting in touch!" })
+		res.status(201).json({ message: "Thank you for getting in touch!" })
   } catch (e) {
-    return res.status(500).json({ message: "Internal Server Error" });
+   res.status(500).json({ message: "Internal Server Error" });
   }
 });
 

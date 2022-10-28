@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-import { TailSpin } from "react-loader-spinner";
-import Navbar from "../../components/Navbar";
-import registrationImage from "../../assets/pictures/clubRegistrationImage.png";
-import { Link, useNavigate } from "react-router-dom";
-import { RegisterClub } from "../../service/MilanApi";
-import "../../styles/ClubsRegister.css";
+import React, { useState } from 'react';
+import { TailSpin } from 'react-loader-spinner';
+import Navbar from '../../components/Navbar';
+import registrationImage from '../../assets/pictures/clubRegistrationImage.png';
+import { Link, useNavigate } from 'react-router-dom';
+import { RegisterClub } from '../../service/MilanApi';
+import '../../styles/ClubsRegister.css';
 
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from 'react-helmet-async';
 
 const ClubLogin = () => {
-  document.title = "Milan | Club Register";
+  document.title = 'Milan | Club Register';
   const navigate = useNavigate();
 
   function Anchor(props) {
@@ -25,14 +26,14 @@ const ClubLogin = () => {
   }
 
   const [credentials, setCredentials] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    address: "",
-    pincode: "",
-    description: "",
-    tagLine: "",
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    address: '',
+    pincode: '',
+    description: '',
+    tagLine: '',
   });
 
   const [isEmailValid, setIsEmailValid] = useState(false);
@@ -41,22 +42,23 @@ const ClubLogin = () => {
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
     if (
-      e.target.name === "email" &&
-      e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
+      e.target.name === 'email' &&
+      e.target.value.match('^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$')
     )
       setIsEmailValid(true);
   };
 
   //* Submitting form
   const handleSubmit = async (e) => {
+    toast.clearWaitingQueue();
     e.preventDefault();
 
     setIsLoading(true);
     await RegisterClub({ ...credentials });
     setIsLoading(false);
 
-    toast("🦄 Registered your club !", {
-      position: "top-right",
+    toast('🦄 Registered your club !', {
+      position: 'top-right',
       autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -64,12 +66,21 @@ const ClubLogin = () => {
       draggable: true,
       progress: undefined,
       closeButton: false,
-      onClose: () => navigate("/clubs/login"),
+      onClose: () => navigate('/clubs/login'),
     });
   };
 
   return (
     <>
+      <Helmet>
+        <title>Milan | Club Register</title>
+        <meta
+          name="description"
+          content="Welcome to the Club's registration page. Provide all the needed credentials and join us."
+        />
+        <link rel="canonical" href="/" />
+      </Helmet>
+
       <Navbar />
 
       <ToastContainer
@@ -83,6 +94,7 @@ const ClubLogin = () => {
         draggable
         pauseOnHover
         closeButton={false}
+        limit={1}
       />
 
       <div className="mobile-sec container py-5 h-100">
@@ -97,7 +109,7 @@ const ClubLogin = () => {
           </div>
 
           <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-            <form onSubmit={handleSubmit} >
+            <form onSubmit={handleSubmit}>
               <h1 className="mobile-txt clubregisterheading1">
                 Register your club with Milan !
               </h1>
@@ -196,9 +208,9 @@ const ClubLogin = () => {
 
               <div
                 className="d-flex flex-row flex-md-row"
-                style={{ justifyContent: "space-between" }}
+                style={{ justifyContent: 'space-between' }}
               >
-                <div style={{ width: "45%" }}>
+                <div style={{ width: '45%' }}>
                   <label
                     htmlFor="password-des"
                     className="col-form-label col-form-label-lg regformlabels"
@@ -226,7 +238,7 @@ const ClubLogin = () => {
                   />
                 </div>
 
-                <div style={{ width: "45%" }}>
+                <div style={{ width: '45%' }}>
                   <label
                     htmlFor="confirm-password-des"
                     className="col-form-label col-form-label-lg regformlabels"
@@ -343,7 +355,7 @@ const ClubLogin = () => {
               />
               <small id="textDemo" className="form-text text-muted"></small>
 
-              <div className="d-grid gap-2 py-4">
+              <div className="d-grid gap-2 py-4 btn-container-desktop">
                 <button
                   disabled={
                     credentials.description.trim().length < 20 ||
@@ -352,12 +364,12 @@ const ClubLogin = () => {
                   }
                   type="submit"
                   className="registration-btn btn  py-2"
-                  style={{ backgroundColor: "#C996CC" }}
+                  style={{ backgroundColor: '#C996CC' }}
                 >
                   {isLoading ? (
                     <TailSpin color="#FFFFFF" height={30} width={30} />
                   ) : (
-                    "Register"
+                    'Register'
                   )}
                 </button>
               </div>
@@ -366,7 +378,7 @@ const ClubLogin = () => {
                 para="Already have an account? "
                 details="Login here"
                 link="/clubs/login"
-                className="link-info"
+                className="link-info anchor-container-desktop"
               />
             </form>
           </div>

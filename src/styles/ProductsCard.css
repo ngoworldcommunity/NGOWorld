@@ -5,6 +5,26 @@
   margin-top: 3em;
 }
 
+
+
+.cardart
+{
+
+  transition: all .5s;
+}
+
+
+
+.cardart:hover
+{
+
+  box-shadow: #297f75 0px 0px 10px 3px;
+
+
+  cursor: pointer;
+   
+}
+
 .art {
   width: 200px;
 }
@@ -12,6 +32,8 @@
 .star {
   width: 50px;
 }
+
+
 
 @media (max-width: 684px) {
   .card-group {

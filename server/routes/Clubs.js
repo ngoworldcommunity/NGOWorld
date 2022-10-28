@@ -12,15 +12,17 @@ var jwt = require("jsonwebtoken");
 router.post("/register", async (req, res) => {
   try {
     const data = req.body;
-    const { email } = req.body;
+
     // const { name, email, password, address, pincode, description, tagLine } =
     //   req.body;
-
-    const existingUser = await Club.findOne({ email: email });
+    
+    
+    const { email } = req.body;
+    const existingUser = await Club.findOne({ email: email });      
     if (existingUser) {
       return res.status(409).json({ message: "Account already exists" });
     }
-
+   
     const hashpassword = await bcrypt.hash(data.password, 10);
 
     const ClubData = Club({
@@ -33,12 +35,11 @@ router.post("/register", async (req, res) => {
       tagLine: data.tagLine,
     });
 
-    ClubData.save();
-    return res
-      .status(201)
-      .json({ message: "Registration successful, please login" });
+    await ClubData.save();
+    res.status(201).json({ message: "Registration successful, please login" });
+
   } catch (error) {
-    return res.status(500).json({ message: "Internal Server Error" });
+     res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
@@ -62,11 +63,12 @@ router.post("/login", async (req, res) => {
     const payload = { Club: { id: existingUser.email } };
 
     jwt.sign(payload, process.env.JWT_SECRET, (err, token) => {
-      console.log(token);
-      return res.status(201).json({ token, isuser: false });
+      // console.log(token);
+      if(err) throw new Error('Something Went Wrong!!');
+      res.status(201).json({ token, isuser: false });
     });
   } catch (e) {
-    return res.json({ success: false });
+    res.status(500).json({ success: false });
   }
 });
 
@@ -74,7 +76,7 @@ router.post("/login", async (req, res) => {
 
 router.post("/createevent", async (req, res) => {
   try {
-    // const { eventname, eventlocation, eventdate, eventdescription } = req.body;
+    const { eventname, eventlocation, eventdate, eventdescription } = req.body;
     const eventData = Events({
       Eventname: eventname,
       Eventdate: eventdate,
@@ -84,7 +86,8 @@ router.post("/createevent", async (req, res) => {
     await eventData.save();
     res.status(200).json(eventData);
   } catch (e) {
-    console.log(`Error in creating a event: ${e}`);
+    // console.log(`Error in creating a event: ${e}`);
+    res.status(500).json({ message: "Internal Server Error" });
   }
 });
 module.exports = router;

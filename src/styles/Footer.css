@@ -1,3 +1,11 @@
+.main-footer {
+  position: relative;
+  left: 0;
+  width: 100%;
+  overflow: visible;
+  clear: both;
+}
+
 .page-footer {
   background-color: rgb(66, 65, 65);
   padding: 30px 80px;
@@ -40,8 +48,8 @@
 }
 
 .btn-hover {
-  width: 20%;
   font-size: 16px;
+  padding: 5px 5px;
   font-weight: 600;
   color: #fff;
   cursor: pointer;
@@ -223,7 +231,7 @@
   color: black;
 }
 
-.btn-report:hover i{
+.btn-report:hover i {
   transform: rotate(90deg);
   color: #fff;
 }
@@ -376,10 +384,6 @@
     text-align: justify;
     font-size: 14px;
     margin: 10px -20px;
-  }
-
-  .socials {
-    margin-left: -20px;
   }
 
   .social-icons {

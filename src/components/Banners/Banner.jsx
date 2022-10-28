@@ -1,18 +1,18 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import BannerBg from "../../assets/pictures/milanBg.jpg";
-import "../../styles/Banner.css";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import BannerBg from '../../assets/pictures/milanBg.jpg';
+import '../../styles/Banner.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Banner = () => {
   var nav = useNavigate();
 
   const handleClub = () => {
-    nav("/clubs/register");
+    nav('/clubs/register');
   };
   const handleUser = () => {
-    nav("/user/register");
+    nav('/user/register');
   };
 
   return (
@@ -25,6 +25,7 @@ const Banner = () => {
           data-aos-anchor-placement="bottom-top"
           data-aos-duration="1000"
           data-aos-easing="ease"
+          data-aos-once="false"
         >
           <button className="up-btn" onClick={() => window.scrollTo(0, 0)}>
             <div>↑</div>
