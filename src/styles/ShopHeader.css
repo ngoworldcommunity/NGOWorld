@@ -19,6 +19,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  /* border: 2px solid red; */
 }
 
 .info h1 {
@@ -43,7 +44,7 @@
   width: 196px;
   padding: 8px;
   border: none;
-  border-radius: 12px;
+  border-radius: 13px;
   font-style: normal;
   font-weight: 800;
   font-size: 18px;
@@ -78,23 +79,25 @@
   }
   .info p {
     text-align: center;
+    width: 80%;
+    letter-spacing: 0.7px;
   }
   .ShopImg {
     min-width: 350px;
     width: 100%;
+    display: none;
   }
   .info button {
     width: 170px;
     padding: 6px;
   }
-  .Header-text{
-     display: flex;
-     justify-content: center;
-     align-items: center;
+  .Header-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .Header-text h1{
-     width: 100%;
-     font-size: 30px;
-
-  } 
+  .Header-text h1 {
+    width: 100%;
+    font-size: 30px;
+  }
 }
