@@ -18,10 +18,23 @@ import {
 import MilanState from './context/MilanState';
 import ClubForgotpassword from './pages/clubs/ClubForgotpassword';
 import UserForgotpassword from './pages/user/UserForgotpassword';
+import { ToastContainer } from 'react-toastify';
 const App = () => {
   return (
     <>
       <MilanState>
+        <ToastContainer
+          position="top-right"
+          autoClose={1000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          closeButton={false}
+        />
         <Router>
           <Routes>
             {/* //* Home routes */}

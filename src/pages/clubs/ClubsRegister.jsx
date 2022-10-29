@@ -50,6 +50,7 @@ const ClubLogin = () => {
 
   //* Submitting form
   const handleSubmit = async (e) => {
+    toast.clearWaitingQueue();
     e.preventDefault();
 
     setIsLoading(true);
@@ -93,6 +94,7 @@ const ClubLogin = () => {
         draggable
         pauseOnHover
         closeButton={false}
+        limit={1}
       />
 
       <div className="mobile-sec container py-5 h-100">
