@@ -1,80 +1,117 @@
 .userregister_header {
-    font-family: "Open Sans", sans-serif;
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
 }
 
 .userregister_sideimg {
-    margin-bottom: 100px;
-    max-width: 100%;
-    height: auto;
+  margin-bottom: 100px;
+  max-width: 100%;
+  height: auto;
 }
 
 .anchor-container {
-    text-align: center;
+  text-align: center;
+}
+form .anchor-container-desktop {
+  text-align: left;
+}
+form .btn-container-desktop {
+  text-align: left;
+}
+.btn-container-flex-desktop {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.register-btn {
+  text-transform: uppercase !important;
+  font-size: 1.25rem !important;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+  transition: 0.2s;
 }
 
 @media screen and (max-width: 800px) {
-    h2 {
-        padding-bottom: 2vw;
-    }
+  h1 {
+    text-align: center;
+  }
+  h2 {
+    padding-bottom: 2vw;
+  }
 
-    #homeIcon {
-        font-size: 3.5vw;
-    }
-    .form {
-        padding: 0 4rem 0 4rem;
-    }
+  #homeIcon {
+    font-size: 3.5vw;
+  }
+  .form {
+    padding: 0 2rem 0 2rem;
+  }
 
-    .login-btn {
-        width: 10rem;
-    }
+  .login-btn {
+    width: 100%;
+  }
+  form .register-btn {
+    width: 100%;
+    text-align: center;
+  }
+  form .btn-container {
+    text-align: center;
+  }
+  .btn-container-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .userregister_sideimg {
+    margin-bottom: 0;
+  }
 }
 
 #homeIcon {
-    color: #24a0ed;
-    text-decoration: none;
-    font-size: 22px;
+  color: #24a0ed;
+  text-decoration: none;
+  font-size: 22px;
 }
 
 #homeIcon:hover {
-    color: #40a9eb;
-    text-decoration: underline;
-    transition: 0.5s ease-in-out;
-    cursor: pointer;
+  color: #40a9eb;
+  text-decoration: underline;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 #remember-me {
-    font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .userreg_mob_firstname {
-    display: none;
+  display: none;
 }
 .clubreg_mob {
-    display: none;
+  display: none;
 }
 
 @media only screen and (max-width: 430px) {
-    .userreg_mob_firstname {
-        display: block;
-    }
-    .userreg_des_firstname {
-        display: none;
-    }
-    .clubreg_mob {
-        display: block;
-    }
-    .clubreg_des {
-        display: none;
-    }
+  .userreg_mob_firstname {
+    display: block;
+  }
+  .userreg_des_firstname {
+    display: none;
+  }
+  .clubreg_mob {
+    display: block;
+  }
+  .clubreg_des {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 768px) {
-    .remove_placeholder_desktop::placeholder {
-        color: transparent;
-    }
+  .remove_placeholder_desktop::placeholder {
+    color: transparent;
+  }
 }
 .login-btn:hover {
     border: #212529;
