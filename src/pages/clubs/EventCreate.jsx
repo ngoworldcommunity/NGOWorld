@@ -3,11 +3,48 @@ import Navbar from '../../components/Navbar';
 import '../../styles/EventCreate.css';
 import Events from '../../assets/pictures/CreateEventsPic.svg';
 import { CreateEvent } from '../../service/MilanApi';
-
+import {useEffect, useState} from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function EventCreate() {
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
+  if (windowSize.innerWidth < 400 ) {
+    const placeholder1 = "What's your event called?";
+    const placeholder2 = "Date of the event?";
+    const placeholder3 = "Time of the event? (24 Hours format, IST)";
+    const placeholder4 = "Where will the event take place?";
+    const placeholder5 = "Tell us something more about the event";
+    const label1 = "";
+    const label2 = "";
+    const label3 = "";
+    const label4 = "";
+    const label5 = "";
+}
+else { 
+    const placeholder1 = "";
+    const placeholder2 = "";
+    const placeholder3 = "";
+    const placeholder4 = "";
+    const placeholder5 = "";
+    const label1 = "What's your event called?";
+    const label2 = "Date of the event?";
+    const label3 = "Time of the event? (24 Hours format, IST)";
+    const label4 = "Where will the event take place?";
+    const label5 = "Tell us something more about the event";
+  }
   const [eventdetails, seteventdetails] = useState({
     eventname: '',
     eventdate: '',
@@ -77,60 +114,65 @@ export default function EventCreate() {
                   Create an event for your club
                 </h1>
                 <div className="form-outline">
+                  <label>{label1}</label>
                   <input
                     type="text"
                     className="eventCreateFormInput form-control "
                     id="eventName"
                     name="eventname"
                     required
-                    placeholder="What's your event called?"
+                    placeholder={placeholder1}
                     value={eventdetails.eventname}
                     onChange={handleChange}
                   />
                 </div>
                 <div className="form-outline">
+                  <label>{label2}</label>
                   <input
                     type="text"
                     className="eventCreateFormInput form-control form-control-md"
                     id="eventdate"
                     name="eventdate"
                     required
-                    placeholder="Date of the event?"
+                    placeholder={placeholder2}
                     value={eventdetails.eventdate}
                     onChange={handleChange}
                   />
                 </div>
                 <div className="form-outline">
+                  <label>{label3}</label>
                   <input
                     type="text"
                     className="eventCreateFormInput form-control form-control-md"
                     id="eventtime"
                     name="eventtime"
                     required
-                    placeholder="Time of the event? (24 Hours format, IST)"
+                    placeholder={placeholder3}
                     value={eventdetails.eventtime}
                     onChange={handleChange}
                   />
                 </div>
                 <div className="form-outline">
+                  <label>{label4}</label>
                   <input
                     type="text"
                     className="eventCreateFormInput form-control form-control-md"
                     id="eventlocation"
                     name="eventlocation"
                     required
-                    placeholder="Where will the event take place?"
+                    placeholder={placeholder4}
                     value={eventdetails.eventlocation}
                     onChange={handleChange}
                   />
                 </div>
                 <div className="form-outline">
+                  <label>{label5}</label>
                   <textarea
                     type="text"
                     className="eventCreateFormInput form-control form-control-lg"
                     id="eventTime"
                     name="eventdescription"
-                    placeholder="Tell us something more about the event"
+                    placeholder={placeholder5}
                     value={eventdetails.eventdescription}
                     onChange={handleChange}
                   />
@@ -152,4 +194,8 @@ export default function EventCreate() {
       </section>
     </>
   );
+}
+function getWindowSize() {
+  const {innerWidth, innerHeight} = window;
+  return {innerWidth, innerHeight};
 }
