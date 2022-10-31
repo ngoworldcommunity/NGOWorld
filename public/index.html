@@ -4,20 +4,12 @@
 <head>
   
   <style>
-    
-  .dark-mode { 
+    .button {background-color: #e7e7e7; color: black;} /* Gray */
+ .dark-mode { 
 
         background-color: black; 
 
         color: white; 
-
-      } 
-
-      .light-mode { 
-
-        background-color: white; 
-
-        color: black; 
 
       } 
   </style>
@@ -78,11 +70,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-  
+  <div> 
 
-    <button color='light pink' onclick="darkMode()">Darkmode</button> 
+      <button onclick="darkMode()">Darkmode</button> 
 
-    <button color='yellow' onclick="lightMode()">LightMode</button> 
+    </div> 
 
     <script> 
 
@@ -90,26 +82,11 @@
 
         var element = document.body; 
 
-        var content = document.getElementById("DarkModetext"); 
-
-        element.className = "dark-mode"; 
-
-        content.innerText = "Dark Mode is ON"; 
+        element.classList.toggle("dark-mode"); 
 
       } 
 
-      function lightMode() { 
+    </script> 
 
-        var element = document.body; 
-
-        var content = document.getElementById("DarkModetext"); 
-
-        element.className = "light-mode"; 
-
-        content.innerText = "Dark Mode is OFF"; 
-
-      } 
-
-    </script>
   
 </html>
