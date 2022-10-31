@@ -1,17 +1,11 @@
+import { useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar';
 import '../../styles/EventCreate.css';
 import Events from '../../assets/pictures/CreateEventsPic.svg';
 import { CreateEvent } from '../../service/MilanApi';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useState, useEffect } from 'react';
-function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
-  return {
-    width,
-    height
-  };
-}
+
 export default function useWindowDimensions() {
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
@@ -207,4 +201,11 @@ else {
     </>
   );
 
+}
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
 }
