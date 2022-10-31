@@ -3,48 +3,34 @@ import Navbar from '../../components/Navbar';
 import '../../styles/EventCreate.css';
 import Events from '../../assets/pictures/CreateEventsPic.svg';
 import { CreateEvent } from '../../service/MilanApi';
-import {useEffect, useState} from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-export default function EventCreate() {
-  const [windowSize, setWindowSize] = useState(getWindowSize());
+import { useState, useEffect } from 'react';
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
+}
+export default function useWindowDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
   useEffect(() => {
-    function handleWindowResize() {
-      setWindowSize(getWindowSize());
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
     }
 
-    window.addEventListener('resize', handleWindowResize);
-
-    return () => {
-      window.removeEventListener('resize', handleWindowResize);
-    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
-  if (windowSize.innerWidth < 400 ) {
-    const placeholder1 = "What's your event called?";
-    const placeholder2 = "Date of the event?";
-    const placeholder3 = "Time of the event? (24 Hours format, IST)";
-    const placeholder4 = "Where will the event take place?";
-    const placeholder5 = "Tell us something more about the event";
-    const label1 = "";
-    const label2 = "";
-    const label3 = "";
-    const label4 = "";
-    const label5 = "";
+
+  return windowDimensions;
 }
-else { 
-    const placeholder1 = "";
-    const placeholder2 = "";
-    const placeholder3 = "";
-    const placeholder4 = "";
-    const placeholder5 = "";
-    const label1 = "What's your event called?";
-    const label2 = "Date of the event?";
-    const label3 = "Time of the event? (24 Hours format, IST)";
-    const label4 = "Where will the event take place?";
-    const label5 = "Tell us something more about the event";
-  }
+
+export default function EventCreate() {
+  
+  
   const [eventdetails, seteventdetails] = useState({
     eventname: '',
     eventdate: '',
@@ -84,6 +70,33 @@ else {
     }
   };
 
+  const Component = () => {
+  const { height, width } = useWindowDimensions();
+    if (width < 400 ) {
+    const placeholder1 = "What's your event called?";
+    const placeholder2 = "Date of the event?";
+    const placeholder3 = "Time of the event? (24 Hours format, IST)";
+    const placeholder4 = "Where will the event take place?";
+    const placeholder5 = "Tell us something more about the event";
+    const label1 = "";
+    const label2 = "";
+    const label3 = "";
+    const label4 = "";
+    const label5 = "";
+}
+else { 
+    const placeholder1 = "";
+    const placeholder2 = "";
+    const placeholder3 = "";
+    const placeholder4 = "";
+    const placeholder5 = "";
+    const label1 = "What's your event called?";
+    const label2 = "Date of the event?";
+    const label3 = "Time of the event? (24 Hours format, IST)";
+    const label4 = "Where will the event take place?";
+    const label5 = "Tell us something more about the event";
+  }
+  
   return (
     <>
       <Navbar />
@@ -195,7 +208,4 @@ else {
     </>
   );
 }
-function getWindowSize() {
-  const {innerWidth, innerHeight} = window;
-  return {innerWidth, innerHeight};
 }
