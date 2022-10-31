@@ -70,7 +70,7 @@ export default function EventCreate() {
     }
   };
 
-  const Component = () => {
+  
   const { height, width } = useWindowDimensions();
     if (width < 400 ) {
     const placeholder1 = "What's your event called?";
@@ -207,5 +207,5 @@ else {
       </section>
     </>
   );
-}
+
 }
