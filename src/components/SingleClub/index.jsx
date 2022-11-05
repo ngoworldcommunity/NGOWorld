@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ClubUpperImage from '../../assets/pictures/ClubUpperImage.svg';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import displayRazorpay from '../../service/PaymentGateway';
 
@@ -8,7 +8,11 @@ export default function SingleClub({ club }) {
   const [money, setmoney] = React.useState({ donatedmoney: 0 });
 
   const location = useLocation();
+  const nav = useNavigate()
 
+  const cardButtonHandler = () => {
+    nav('/display/clubs/details')
+  }
   const expand = () => {
     document.getElementById(`less${club._id}`).classList.add('hidden');
     document.getElementById(`more${club._id}`).classList.remove('hidden');
@@ -29,14 +33,14 @@ export default function SingleClub({ club }) {
   };
 
   return (
-    <div className="card clubCard">
+    <div className="card clubCard" onClick={cardButtonHandler}>
       <img
         className="card-img-top club-img"
         src={ClubUpperImage}
         alt={`${club.name} `}
       />
       <div className="card-body text-center">
-        <h1 className="card-title">{club.name} </h1>
+        <h1 className="card-title">{club.name}</h1>
         <div className="club-info mt-3">
           <p>{club.email}</p>
           <p style={{ lineHeight: 1 }}>{club.address}</p>

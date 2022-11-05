@@ -17,6 +17,7 @@ import {
 } from './pages';
 import MilanState from './context/MilanState';
 import ClubForgotpassword from './pages/clubs/ClubForgotpassword';
+import ClubDetailsCard from './pages/clubs/ClubDetails';
 import UserForgotpassword from './pages/user/UserForgotpassword';
 import { ToastContainer } from 'react-toastify';
 const App = () => {
@@ -70,6 +71,8 @@ const App = () => {
             <Route exact path="/clubs/createevent" element={<EventCreate />} />
             <Route exact path="/display/events" element={<EventsPage />} />
             <Route exact path="/shops/shop" element={<ShopLanding />} />
+            <Route exact path="/display/clubs/details" element={<ClubDetailsCard />} />
+           
 
             {/* //* Donations */}
             <Route exact path="/donateus" element={<Donate />} />
