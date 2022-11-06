@@ -1,12 +1,15 @@
 import React from "react";
-import club_details_img from "../../assets/pictures/club-details.png";
+import club_details_img from "../../assets/pictures/clubpage-group-discussion.svg";
 import "../../styles/ClubDetails.css";
 
 function ClubDetailsCard() {
   return (
     <div className="club_details">
-      <img className="club_details_img" src={club_details_img} />
+      <div className="club_details_img">
+      <img src={club_details_img} />
+      </div>
       <div className="club_details_card">
+        <div>
         <h1>Welcome to Rotary International</h1>
         <h6>
           <span><i className="fa-solid fa-map-pin"></i></span> Shapoorji
@@ -22,6 +25,7 @@ function ClubDetailsCard() {
           sense.
         </p>
         <button>Contact Us</button>
+        </div>
       </div>
     </div>
   );
