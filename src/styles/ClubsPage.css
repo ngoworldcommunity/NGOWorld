@@ -126,6 +126,7 @@ div#clubs_banner {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 0px 5px 0px;
   transition: box-shadow 0.5s ease-out 0s;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .clubCard:hover {

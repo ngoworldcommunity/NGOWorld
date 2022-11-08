@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+
+.club_details {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.club_details_img {
+    width: 50vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.club_details_img img {
+    height: 440px;
+    width: 100%;
+}
+
+.club_details_card {
+    width: 50vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 55px;
+    padding-right: 55px;
+    font-family: 'Mulish';
+}
+
+.club_details_card h1 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #2E8E83;
+    margin-bottom: 30px;
+}
+
+.club_details_card h6 {
+    font-style: italic;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.club_details_card span {
+    padding-right: 5px;
+}
+
+.club_details_card p {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    margin-bottom: 40px;
+}
+
+.club_details_card button {
+    align-self: flex-start;
+    background-color: #2E8E83;
+    color: white;
+    width: 155px;
+    height: 45px;
+    border-radius: 13px;
+    border: none;
+    font-weight: 500;
+}
