@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/DonateBanner.css";
 import donateImg from "../../assets/pictures/donate-banner.png";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 
 const DonateBanner = () => {
+  const [isLoggedIn] = useState(Cookies.get("token"));
+
   var nav = useNavigate();
   const handleDonate = () => {
-    nav("/donateus");
+    if (!isLoggedIn) {
+      toast.error("Please log in before donating");
+      nav("/user/login");
+    } else {
+      nav("/donateus");
+    }
   };
   return (
     <div id="donate-banner" className="d-flex justify-content-evenly">
