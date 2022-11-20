@@ -12,3 +12,4 @@ export { default as ClubRegister } from "./clubs/ClubsRegister";
 export { default as EventCreate } from "./clubs/EventCreate";
 export { default as ClubLogin } from "./clubs/ClubsLogin";
 export { default as ClubProfile } from "./clubs/ClubProfile";
+export { default as ProductDetails } from "./shops/ProductDetails";

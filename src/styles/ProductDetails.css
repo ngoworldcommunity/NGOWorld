@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+
+.product_details {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product_details_img {
+  width: 40%;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 60px;
+  margin-right: 60px;
+  background-color: #cccccc;
+  border-radius: 10px;
+}
+
+.art {
+  height: auto;
+  width: auto;
+  text-align: center;
+  justify-content: center;
+  padding: 12%;
+}
+
+.product_details_card {
+  width: 50%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 60px;
+  padding-right: 60px;
+  font-family: "Mulish";
+}
+
+.product_details_card h1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: #2e8e83;
+}
+
+.product_details_card span {
+  padding-right: 5px;
+}
+
+.buy-now-btn {
+  align-self: flex-start;
+  background-color: #f1c21c;
+  color: black;
+  width: 155px;
+  height: 45px;
+  border-radius: 13px;
+  border: none;
+  font-weight: 800;
+}
+
+.main-description {
+  font-family: "Mulish";
+  font-style: italic;
+  font-weight: 300;
+  font-size: 25px;
+}
+
+.sub-description {
+  font-weight: 700px;
+  font-size: 25px;
+  padding: 0;
+}
+
+.stars {
+  width: auto;
+  padding-bottom: 40px;
+}

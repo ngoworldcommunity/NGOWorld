@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   Home,
   ClubLogin,
@@ -14,12 +14,13 @@ import {
   EventCreate,
   EventsPage,
   Donate,
-} from './pages';
-import MilanState from './context/MilanState';
-import ClubForgotpassword from './pages/clubs/ClubForgotpassword';
-import ClubDetailsCard from './pages/clubs/ClubDetails';
-import UserForgotpassword from './pages/user/UserForgotpassword';
-import { ToastContainer } from 'react-toastify';
+  ProductDetails,
+} from "./pages";
+import MilanState from "./context/MilanState";
+import ClubForgotpassword from "./pages/clubs/ClubForgotpassword";
+import ClubDetailsCard from "./pages/clubs/ClubDetails";
+import UserForgotpassword from "./pages/user/UserForgotpassword";
+import { ToastContainer } from "react-toastify";
 const App = () => {
   return (
     <>
@@ -71,11 +72,21 @@ const App = () => {
             <Route exact path="/clubs/createevent" element={<EventCreate />} />
             <Route exact path="/display/events" element={<EventsPage />} />
             <Route exact path="/shops/shop" element={<ShopLanding />} />
-            <Route exact path="/display/clubs/details" element={<ClubDetailsCard />} />
-           
+            <Route
+              exact
+              path="/display/clubs/details"
+              element={<ClubDetailsCard />}
+            />
 
             {/* //* Donations */}
             <Route exact path="/donateus" element={<Donate />} />
+
+            {/* Product Related Routes */}
+            <Route
+              exact
+              path="/shops/shop/product/details"
+              element={<ProductDetails />}
+            />
           </Routes>
         </Router>
       </MilanState>
