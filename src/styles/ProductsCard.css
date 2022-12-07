@@ -1,12 +1,18 @@
 .card-group {
   width: 80%;
-  justify-content: space-evenly;
+  justify-content: center;
   margin-bottom: 6em;
   margin-top: 3em;
+  display: flex;
+  gap: 89px;
+  flex-wrap: wrap;
 }
 
 .cardart {
+  background: #f0f0f0;
+  border-radius: 20px;
   transition: all 0.5s;
+  max-width: 344px;
 }
 
 .cardart:hover {
@@ -15,8 +21,17 @@
   cursor: pointer;
 }
 
+.cardart h6 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.card-content {
+  padding: 15px;
+}
+
 .art {
-  width: 200px;
+  /* width: 200px; */
 }
 
 .star {
@@ -25,7 +40,6 @@
 
 @media (max-width: 684px) {
   .card-group {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
