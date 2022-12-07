@@ -4,7 +4,7 @@
   margin-bottom: 6em;
   margin-top: 3em;
   display: flex;
-  gap: 89px;
+  gap: 50px;
   flex-wrap: wrap;
 }
 
@@ -12,7 +12,7 @@
   background: #f0f0f0;
   border-radius: 20px;
   transition: all 0.5s;
-  max-width: 344px;
+  max-width: 18rem;
 }
 
 .cardart:hover {
@@ -31,7 +31,7 @@
 }
 
 .art {
-  /* width: 200px; */
+  max-width: 100%;
 }
 
 .star {
