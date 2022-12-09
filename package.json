@@ -9,6 +9,7 @@
     "aos": "^2.3.4",
     "axios": "^0.26.0",
     "cypress": "^10.8.0",
+    "embla-carousel-react": "^7.0.5",
     "js-cookie": "^3.0.1",
     "jsonschema": "^1.4.1",
     "react": "^17.0.2",

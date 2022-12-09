@@ -1,28 +1,24 @@
 .card-group {
   width: 80%;
+  display: flex;
+  gap: 5rem;
   justify-content: space-evenly;
   margin-bottom: 6em;
   margin-top: 3em;
 }
 
-
-
-.cardart
-{
-
-  transition: all .5s;
+.w-full {
+  width: 100%;
 }
 
+.cardart {
+  transition: all 0.5s;
+}
 
-
-.cardart:hover
-{
-
+.cardart:hover {
   box-shadow: #297f75 0px 0px 10px 3px;
 
-
   cursor: pointer;
-   
 }
 
 .art {
@@ -33,16 +29,16 @@
   width: 50px;
 }
 
-
-
-@media (max-width: 684px) {
+@media (max-width: 584px) {
   .card-group {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
+    justify-items: center;
   }
-  .cardart{
+  .cardart {
     margin-bottom: 37px;
+    width: 100%;
   }
 }
