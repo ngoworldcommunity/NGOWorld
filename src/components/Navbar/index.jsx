@@ -20,10 +20,8 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light ">
-        <div className="container-fluid">
-          {/* //* navbar brand */}
-
+      <nav className="navbar navbar-expand-lg navbar-light sticky-top navbar_main ">
+        <div className="container">
           <img
             src={
               solidarity ||
@@ -91,15 +89,10 @@ const Navbar = () => {
                 ></div>
               </li>
 
-              <li className="nav-item home">
-                <Link to={"/about-us"}>About Us</Link>
-                <div
-                  className={
-                    "" +
-                    (location.pathname === "/about-us" ? "active-link" : "")
-                  }
-                ></div>
-              </li>
+              <button className="btn btn-warning nav_signup_btn">
+                Sign up
+              </button>
+
               {/* Render Contact Us in Navabr only for Login and Register Pages */}
               {(location.pathname === "/user/login" ||
                 location.pathname === "/user/register" ||
@@ -115,9 +108,6 @@ const Navbar = () => {
                   ></div>
                 </li>
               )}
-
-              {/* Auth0 will be implemented later on*/}
-              {/* The basic JWT Auths will be removed to reduce hassle */}
 
               {(Cookies.get("token") || Cookies.get("club")) && (
                 <img

@@ -1,23 +1,24 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import BannerBg from '../../assets/pictures/milanBg.jpg';
-import '../../styles/Banner.css';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import BannerBg from "../../assets/pictures/milanBg.jpg";
+import "../../styles/Banner.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Navbar from "../Navbar";
 
 const Banner = () => {
   var nav = useNavigate();
 
   const handleClub = () => {
-    nav('/clubs/register');
+    nav("/clubs/register");
   };
   const handleUser = () => {
-    nav('/user/register');
+    nav("/user/register");
   };
 
   return (
     <>
-      <div className="banner-container" style={{ backGround: BannerBg }}>
+      {/* <div className="banner-container" style={{ backGround: BannerBg }}>
         <div
           className="banner-outer"
           data-aos="fade-up"
@@ -58,6 +59,34 @@ const Banner = () => {
             >
               Continue as a User
             </button>
+          </div>
+        </div>
+      </div> */}
+
+      <Navbar />
+
+      <div className="container">
+        <div className="banner_mainparent">
+          <div className="banner_subparent">
+            <div className="banner_textdiv">
+              <h1 className="banner_header1">Welcome to </h1>
+              <p className="banner_header2">MILAN</p>
+              <div>
+                <p className="banner_header3">
+                  We are a hub, trying to connect help and need. Join us and
+                  make earth a better place for all to live!
+                </p>
+              </div>
+              <div className="banner_signup_btndiv">
+                <button className="btn btn-warning banner_signup_btn">
+                  Sign up now
+                </button>
+              </div>
+            </div>
+
+            {/* <div className="banner_imgdiv">
+            <img src="https://i.ibb.co/M2JQtB6/Milan-2.png" alt="" />
+          </div> */}
           </div>
         </div>
       </div>

@@ -5,8 +5,6 @@ import Axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// toast.configure();
-
 const apiURL = [
   "https://milan-jwoc.herokuapp.com",
   "http://localhost:5000",
