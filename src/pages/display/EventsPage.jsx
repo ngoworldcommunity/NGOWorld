@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/ClubsPage.css";
-import { Navbar, Footer, SingleEvent } from "../../components";
+// import { Navbar, Footer, SingleEvent } from "../../components";
+import SingleEvent from "../../components/SingleEvent";
 import { GetAllEvents } from "../../service/MilanApi";
 import Eventspic from "../../assets/pictures/EventsPagefloating.svg";
 import "../../styles/EventsPage.css";
@@ -24,7 +25,7 @@ const EventsPage = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Banner Portion Code  */}
 
@@ -65,7 +66,7 @@ const EventsPage = () => {
           )}
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

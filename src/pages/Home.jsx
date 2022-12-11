@@ -1,17 +1,10 @@
 import React, { useState } from "react";
-import {
-  Banner,
-  Navbar,
-  Footer,
-  DonateBanner,
-  HomeCardsContainer,
-  EventsBanner,
-  LoginBanner,
-  ClubBanner,
-} from "../components";
+import Banner from "../components/Banners/Banner.jsx";
 import Cookies from "js-cookie";
 import { Helmet } from "react-helmet-async";
 import Milaninfobanner from "../components/Milaninfobanner";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const AuthState = () => {
   const [login, setLogin] = useState(
@@ -31,8 +24,8 @@ const Home = () => {
         <link rel="canonical" href="/" />
       </Helmet>
 
-      {AuthState() && <Navbar />}
-      {AuthState() ? <LoginBanner /> : <Banner />}
+      <Navbar />
+      <Banner />
       <Milaninfobanner />
 
       {/* {Cookies.get("club") ? <ClubBanner /> : <EventsBanner />} */}

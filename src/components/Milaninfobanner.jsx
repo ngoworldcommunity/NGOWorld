@@ -49,9 +49,9 @@ const Milaninfobanner = () => {
 
             <p className="mib_header2">
               Over 80% of our funds comes directly from the love and support you
-              all show. Donations- small or big, can help people in need
-              survive. We also donate directly to emergencies, natural
-              disasters.
+              all show. We also donate directly to emergencies, natural
+              disasters. Donations, small or big, can help people in need
+              survive.
             </p>
           </div>
 

@@ -1,8 +1,8 @@
 import React from "react";
-import "../../styles/Navbar.css";
-import solidarity from "../../assets/pictures/solidarity.png";
+import "../styles/Navbar.css";
+import solidarity from "../assets/pictures/solidarity.png";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import ProfilePicture from "../../assets/pictures/ProfilePicture.png";
+import ProfilePicture from "../assets/pictures/ProfilePicture.png";
 import Cookies from "js-cookie";
 
 const Navbar = () => {
