@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "../styles/ClubsPage.css";
 import displayRazorpay from "../service/PaymentGateway";
 
-export default function SingleClub({ club, type, event }) {
+export default function SingleClubEvent({ club, type, event }) {
   const [money, setmoney] = React.useState({ donatedmoney: 0 });
 
   const location = useLocation();
