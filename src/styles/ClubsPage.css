@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+/* @import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
 
 * {
   margin: 0;
@@ -15,7 +15,7 @@
 div#clubs_banner {
   width: 80%;
   margin-top: 3rem;
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -54,7 +54,7 @@ div#clubs_banner {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 323px));
   gap: 50px;
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
 }
 
 .cards::-webkit-scrollbar {
@@ -63,7 +63,7 @@ div#clubs_banner {
 
 @media screen and (max-width: 1217px) {
   .cards {
-    /* padding: 8% 4%; */
+    
     grid-template-columns: repeat(auto-fill, minmax(300px, 323px));
     column-gap: 8%;
     row-gap: 50px;
@@ -72,7 +72,7 @@ div#clubs_banner {
 
 @media screen and (max-width: 815px) {
   .cards {
-    /* padding: 6% 5%; */
+   
     grid-template-columns: repeat(auto-fill, minmax(300px, 323px));
     row-gap: 50px;
   }
@@ -120,7 +120,7 @@ div#clubs_banner {
     padding: 0;
   }
 }
- 
+
 .clubCard {
   height: 100%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 0px 5px 0px;
@@ -136,7 +136,7 @@ div#clubs_banner {
 .clubCard h1 {
   font-weight: 700;
   font-size: 1.75rem;
-  font-family: 'Mulish';
+  font-family: "Mulish";
 }
 
 @media screen and (max-width: 535px) {
@@ -155,15 +155,15 @@ div#clubs_banner {
   font-weight: 600;
   line-height: 6px;
   color: rgba(0, 0, 0, 0.4);
-  font-family: 'Mulish';
+  font-family: "Mulish";
 }
 
 .desc {
   font-size: 16px;
   font-weight: 600;
   line-height: 23px;
-  font-family: 'Mulish';
-  /* height: 100%; */
+  font-family: "Mulish";
+
 }
 
 .seeBtn {
@@ -214,8 +214,8 @@ body::-webkit-scrollbar {
 }
 
 .eventspageintro_textdiv p {
-  font-family: 'Mulish', sans-serif;
-  /* width: 60%; */
+  font-family: "Mulish", sans-serif;
+
   font-size: 20px;
   margin-top: 20px;
 }
@@ -268,7 +268,7 @@ body::-webkit-scrollbar {
   padding: 0 5px;
 }
 
-/* Banner Portion CSS */
+
 
 .event_image {
   min-width: 470px;
@@ -277,7 +277,7 @@ body::-webkit-scrollbar {
 
 div#event_banner {
   margin-top: 1rem;
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -318,5 +318,110 @@ div#event_banner {
   .donate_img {
     min-width: 400px !important;
     max-width: 400px !important;
+  }
+} */
+
+.cp_main_parent {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.cp_subparent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.cp_textdiv {
+  width: 70%;
+}
+.cp_header1 {
+  font-family: Montserrat, sans-serif;
+  font-size: 76px;
+  line-height: 80px;
+  margin-bottom: 1.5rem !important;
+  color: #28183b;
+}
+.cp_header2 {
+  font-family: Poppins, sans-serif;
+  color: black;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+
+.cp_cardsdiv {
+  margin-top: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.clubCard {
+  max-width: 15rem;
+  min-width: 15rem;
+}
+
+.cp_card {
+  max-width: 18rem;
+  min-width: 18rem;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  max-height: 536px;
+  min-height: 536px;
+}
+
+.cp_card_imgdiv img {
+  max-width: 18rem;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.cp_card_textdiv {
+  padding: 10px 10px 5px 10px;
+  font-family: Poppins, sans-serif;
+  color: black;
+  text-align: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.cp_card_name {
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.cp_card_address,
+.cp_card_tag {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 430px) {
+  .cp_textdiv {
+    width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .cp_header1 {
+    font-family: Montserrat, sans-serif;
+    font-size: 3rem;
+    line-height: 60px;
+    margin-bottom: 1.5rem !important;
+    color: #28183b;
+  }
+  .cp_header2 {
+    font-family: Poppins, sans-serif;
+    color: black;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 1px;
   }
 }

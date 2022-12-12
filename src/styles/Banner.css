@@ -89,16 +89,16 @@
   }
 
   .banner_header1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     text-align: center;
-    line-height: 30px;
+    line-height: 60px;
     margin-bottom: 0px !important;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
   }
   .banner_header2 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     text-align: center;
     overflow-wrap: break-word;
     word-wrap: break-word;

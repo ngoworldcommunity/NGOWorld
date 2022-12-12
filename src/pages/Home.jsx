@@ -24,7 +24,6 @@ const Home = () => {
         <link rel="canonical" href="/" />
       </Helmet>
 
-      <Navbar />
       <Banner />
       <Milaninfobanner />
 
