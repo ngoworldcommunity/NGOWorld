@@ -1,6 +1,14 @@
+.navbar_main {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding-bottom: 10px;
+  padding-top: 10px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 30px rgba(255, 255, 255, 0.15);
+}
+
 .navbar-brand {
   font-size: 1.8em;
-  color: rgba(0, 0, 0, 0.1);
+  color: #28183b;
   font-family: "Indie Flower", cursive;
   font-weight: 600;
   display: flex;
@@ -10,18 +18,20 @@
 }
 
 .nav-item a {
-  color: rgba(0, 0, 0, 1);
   text-decoration: none;
   cursor: pointer;
+  font-family: Poppins, sans-serif;
+  color: #28183b;
+  font-size: 1rem;
 }
 
 .nav-item a:hover {
-  color: #297f75;
+  color: #28183b;
 }
 
 .active-link {
-  border-bottom: 4px solid grey;
-  width: 50%;
+  border-bottom: 2px solid #e26959;
+  width: 30%;
   border-radius: 20%;
   margin: auto;
 }
@@ -85,4 +95,32 @@
   .container-fluid {
     padding: 1rem 3rem;
   }
+}
+
+.nav_signup_btn {
+  background: #e26959;
+  box-shadow: 0 0 50px -10px #9747ff14;
+  font-family: Poppins, sans-serif;
+  border: none;
+  border-radius: 6px;
+
+  padding: 10px 20px;
+  color: rgba(0, 0, 0, 0.896);
+  font-weight: 600;
+  cursor: pointer;
+  /* width: 30%; */
+}
+
+.nav_signup_btn:hover {
+  background: #e26959;
+  box-shadow: 0 0 50px -10px #9747ff14;
+  font-family: Poppins, sans-serif;
+  border: none;
+  border-radius: 6px;
+
+  padding: 10px 20px;
+  color: rgba(0, 0, 0, 0.896);
+  font-weight: 600;
+  cursor: pointer;
+  width: 30%;
 }

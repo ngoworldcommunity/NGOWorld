@@ -1,6 +1,6 @@
 import * as React from "react";
-import "../../styles/SingleEvent.css";
-import eventsbanner from "../../assets/pictures/singleeventsbanner.svg";
+import "../styles/SingleEvent.css";
+import eventsbanner from "../assets/pictures/singleeventsbanner.svg";
 
 export default function SingleEvent({ club }) {
   const expand = () => {

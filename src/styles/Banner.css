@@ -1,175 +1,120 @@
-/* // Home Banner */
-.banner-container {
-  background: url('../assets/pictures/milanBg.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  height: 100vh;
+.banner_mainparent {
   display: flex;
+  text-align: center;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  width: 100%;
+  height: 90vh;
 }
 
-.banner-inner {
+.banner_subparent {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 50%;
-  height: 80%;
-  padding-bottom: 65px;
-  max-width: 974px;
+  justify-content: center;
+}
+.banner_textdiv {
   text-align: center;
 }
 
-.banner-content {
-  padding-bottom: 120px;
+.banner_header1 {
+  font-family: Montserrat, sans-serif;
+  font-size: 76px;
+  line-height: 30px;
+  margin-bottom: 1.5rem !important;
+  color: #28183b;
 }
 
-@media (max-width: 425px) {
-  .banner-container {
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
-  }
-
-  .banner-content {
-    padding-bottom: 250px;
-  }
+.banner_header2 {
+  font-family: Montserrat, sans-serif;
+  font-size: 76px;
+  line-height: 80px;
+  margin-bottom: 1.5rem !important;
+  color: #28183b;
 }
 
-.banner-header1 {
+.banner_textdiv div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.banner_header3 {
+  font-family: Poppins, sans-serif;
   color: black;
-  text-transform: uppercase;
-  font-size: 5rem;
-  font-family: 'Mulish';
+  font-size: 1.4rem;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  width: 70%;
+}
+
+.banner_signup_btn {
+  background: #e26959;
+  box-shadow: 0 0 50px -10px #9747ff14;
+  font-family: Poppins, sans-serif;
+  border: none;
+  border-radius: 6px;
+  margin-top: 2rem;
+  padding: 10px 20px;
+  color: rgba(0, 0, 0, 0.896);
   font-weight: 600;
-}
-
-.banner-subtitle {
-  color: rgb(111, 106, 106);
-  font-size: 30px;
-  margin: 0;
-  font-family: 'Mulish';
-  font-weight: bold;
-}
-@media (min-width: 768px) {
-  .banner-subtitle {
-    font-size: 30px;
-  }
-}
-@media (max-width: 600px) {
-  .banner-header1 {
-    font-size: 4rem;
-  }
-  .banner-subtitle {
-    font-size: 1.75rem;
-    font-weight: bolder;
-  }
-}
-
-.banner-Buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 10px;
-}
-.banner-Buttons button {
-  background-color: #0d6efd;
-  padding: 0.5rem 1rem;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  border: none;
   cursor: pointer;
-  width: auto;
-  font-family: 'Open Sans', sans-serif;
+  width: 30%;
 }
 
-.banner-Buttons_btn1 {
-  margin-right: 10px;
-}
-
-#btn-1 {
-  background-color: #ba68c8;
-  color: white;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-}
-
-#btn-2 {
-  background-color: var(--bs-blue);
-  color: white;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-}
-
-#btn-1:hover,
-#btn-2:hover {
-  background-color: white;
-  color: black;
-}
-
-@media (max-width: 684px) {
-  .banner-inner {
-    position: absolute;
-  }
-
-  .banner-Buttons {
-    position: absolute;
-    bottom: 110px;
-    margin: 0 !important;
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
-
-  .banner-Buttons button {
-    font-size: 14px;
-    padding: 8px;
-    margin: 0 !important;
-    margin-top: 10px !important;
-  }
-  .banner-content {
-    padding-bottom: 250px;
-  }
-}
-
-@media (max-width: 343px) {
-  .banner-Buttons {
-    bottom: 110px;
-  }
-}
-
-.banner-outer {
-  z-index: 2;
-  position: fixed;
-  bottom: 5%;
-  right: 3%;
-}
-
-.up-btn {
-  font-size: 1.85rem;
-  display: block;
+.banner_signup_btn:hover {
+  background: #e26959;
+  box-shadow: 0 0 50px -10px #9747ff14;
+  font-family: Poppins, sans-serif;
   border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 35px;
-  width: 35px;
-  padding: 0.25rem 1rem 0.5rem 1rem;
-  background-color: white;
-  border-radius: 50%;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.2s ease;
+  border-radius: 6px;
+  margin-top: 2rem;
+  padding: 10px 20px;
+  color: rgba(0, 0, 0, 0.896);
+  font-weight: 600;
+  cursor: pointer;
+  width: 30%;
 }
 
-.up-btn div {
-  color: #297f75;
-  text-decoration: none;
+.banner_imgdiv img {
+  max-width: 400px;
 }
 
-.up-btn:hover,
-.up-btn:active {
-  background-color: aliceblue;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+@media screen and (max-width: 430px) {
+  .banner_subparent {
+    flex-direction: column;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .banner_imgdiv img {
+    display: none;
+  }
+
+  .banner_header1 {
+    font-size: 3.5rem;
+    text-align: center;
+    line-height: 60px;
+    margin-bottom: 0px !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+  .banner_header2 {
+    font-size: 3.5rem;
+    text-align: center;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+  .banner_header3 {
+    text-align: center;
+    width: 100%;
+    font-size: 1rem;
+  }
+  .banner_signup_btndiv {
+    display: flex;
+  }
+
+  .banner_signup_btn {
+    width: auto;
+    margin: auto;
+  }
 }
