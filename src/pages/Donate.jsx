@@ -71,7 +71,6 @@ const Donate = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-      <Navbar />
 
       <div id="donate_banner" className="container">
         <div id="donateCol2">

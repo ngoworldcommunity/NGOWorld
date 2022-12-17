@@ -8,7 +8,6 @@ import { ToastContainer, toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 
 const ContactUs = () => {
-
   const initialState = { firstName: "", lastName: "", email: "", message: "" };
   const [formData, setFormData] = useState(initialState);
 
@@ -40,12 +39,13 @@ const ContactUs = () => {
   return (
     <>
       <Helmet>
-
         <title>Milan | Contact Us</title>
-        <meta name="description" content="Welcome to the contact us page, feel free to reach out to us for collaborations and more." />
+        <meta
+          name="description"
+          content="Welcome to the contact us page, feel free to reach out to us for collaborations and more."
+        />
         <link rel="canonical" href="/" />
       </Helmet>
-      <Navbar />
       <ToastContainer />
       <section className="vh-100">
         <div className="container py-5 h-100">

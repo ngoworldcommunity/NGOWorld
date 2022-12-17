@@ -1,54 +1,52 @@
-import React, { useState } from 'react';
-import Navbar from '../../components/Navbar';
-import { useNavigate } from 'react-router-dom';
-import { UpdateUser } from '../../service/MilanApi';
-import Cookies from 'js-cookie';
-import '../../styles/UserLogin.css';
+import React, { useState } from "react";
+import Navbar from "../../components/Navbar";
+import { useNavigate } from "react-router-dom";
+import { UpdateUser } from "../../service/MilanApi";
+import Cookies from "js-cookie";
+import "../../styles/UserLogin.css";
 
 export default function UserProfile() {
-  document.title = 'Milan | User Profile';
+  document.title = "Milan | User Profile";
   const Navigate = useNavigate();
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [credentials, setCredentials] = useState({
-    email: '',
-    oldPassword: '',
-    newPassword: '',
+    email: "",
+    oldPassword: "",
+    newPassword: "",
   });
 
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
     if (
-      e.target.name === 'email' &&
-      e.target.value.match('^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$')
+      e.target.name === "email" &&
+      e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
     ) {
       setIsEmailValid(true);
     }
   };
 
   const handleLogout = () => {
-    Cookies.remove('token');
+    Cookies.remove("token");
 
-    Navigate('/user/login');
+    Navigate("/user/login");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Updating...');
+    alert("Updating...");
     const Data = UpdateUser(credentials);
 
     Data.then((response) => {
       if (response?.data.message) {
         handleLogout();
       } else {
-        setCredentials({ email: '', oldPassword: '', newPassword: '' });
+        setCredentials({ email: "", oldPassword: "", newPassword: "" });
       }
     });
   };
 
   return (
     <>
-      <Navbar />
-
       <section className="vh-100">
         <div className="container py-5 h-100">
           <div className="row d-flex align-items-center justify-content-center h-100">
@@ -61,15 +59,15 @@ export default function UserProfile() {
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form style={{ width: 'auto' }} onSubmit={handleSubmit}>
-                <h1 style={{ letterSpacing: '1px', marginBottom: '2rem' }}>
+              <form style={{ width: "auto" }} onSubmit={handleSubmit}>
+                <h1 style={{ letterSpacing: "1px", marginBottom: "2rem" }}>
                   Update User profile
                 </h1>
                 <div className="form-outline mb-4">
                   <label
                     htmlFor="email"
                     className="col-form-label col-form-label-lg"
-                    style={{ fontFamily: 'Open Sans, sans-serif' }}
+                    style={{ fontFamily: "Open Sans, sans-serif" }}
                   >
                     Enter email address
                   </label>
@@ -89,7 +87,7 @@ export default function UserProfile() {
                   <label
                     htmlFor="oldPassword"
                     className="col-form-label col-form-label-lg"
-                    style={{ fontFamily: 'Open Sans, sans-serif' }}
+                    style={{ fontFamily: "Open Sans, sans-serif" }}
                   >
                     Enter previous password
                   </label>
@@ -99,7 +97,7 @@ export default function UserProfile() {
                     id="oldPassword"
                     name="oldPassword"
                     placeholder="Previous Password"
-                    style={{ fontFamily: 'Open Sans, sans-serif' }}
+                    style={{ fontFamily: "Open Sans, sans-serif" }}
                     value={credentials.oldPassword}
                     onChange={handleChange}
                     required
@@ -109,7 +107,7 @@ export default function UserProfile() {
                   <label
                     htmlFor="newPassword"
                     className="col-form-label col-form-label-lg"
-                    style={{ fontFamily: 'Open Sans, sans-serif' }}
+                    style={{ fontFamily: "Open Sans, sans-serif" }}
                   >
                     Enter new password
                   </label>
@@ -119,7 +117,7 @@ export default function UserProfile() {
                     id="newpPassword"
                     name="newPassword"
                     placeholder="New Password"
-                    style={{ fontFamily: 'Open Sans, sans-serif' }}
+                    style={{ fontFamily: "Open Sans, sans-serif" }}
                     value={credentials.newPassword}
                     onChange={handleChange}
                     required
@@ -136,7 +134,7 @@ export default function UserProfile() {
                       !isEmailValid
                     }
                     style={{
-                      backgroundColor: '#89b5f7',
+                      backgroundColor: "#89b5f7",
                       margin: 10,
                       marginLeft: 0,
                     }}
@@ -147,7 +145,7 @@ export default function UserProfile() {
                   <button
                     onClick={handleLogout}
                     className="btn btn-lg btn-block"
-                    style={{ backgroundColor: '#89b5f7' }}
+                    style={{ backgroundColor: "#89b5f7" }}
                   >
                     Logout
                   </button>
