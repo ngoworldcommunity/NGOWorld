@@ -58,11 +58,6 @@
   .navbar-brand {
     font-size: 1.7rem;
   }
-
-  .nav-item {
-    margin-left: 15px;
-    margin-right: 15px;
-  }
 }
 
 .nav_bramhin_img {
@@ -82,13 +77,6 @@
   object-fit: cover;
   cursor: pointer;
   align-self: center;
-}
-
-@media (max-width: 1000px) {
-  .home {
-    margin: auto;
-    margin-bottom: 10px;
-  }
 }
 
 @media (min-width: 769px) {
