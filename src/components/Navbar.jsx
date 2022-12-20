@@ -22,15 +22,16 @@ const Navbar = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-light sticky-top navbar_main ">
         <div className="container">
-          <img
-            src={
-              solidarity ||
-              "https://www.shareicon.net/data/512x512/2016/09/15/829452_user_512x512.png"
-            }
-            onClick={() => window.location.replace("/")}
-            alt="Milan-logo"
-            className="nav_bramhin_img"
-          />
+          <Link to={"/"}>
+            <img
+              src={
+                solidarity ||
+                "https://www.shareicon.net/data/512x512/2016/09/15/829452_user_512x512.png"
+              }
+              alt="Milan-logo"
+              className="nav_bramhin_img"
+            />
+          </Link>
 
           <button
             className="navbar-toggler"
@@ -88,11 +89,6 @@ const Navbar = () => {
                   }
                 ></div>
               </li>
-
-              <button className="btn btn-warning nav_signup_btn">
-                Sign up
-              </button>
-
               {/* Render Contact Us in Navabr only for Login and Register Pages */}
               {(location.pathname === "/user/login" ||
                 location.pathname === "/user/register" ||
@@ -108,6 +104,11 @@ const Navbar = () => {
                   ></div>
                 </li>
               )}
+              <li className="nav_signup_btn">
+                <Link to="/user/register">
+                  <button className="btn nav_signup_btn">Sign up</button>
+                </Link>
+              </li>
 
               {(Cookies.get("token") || Cookies.get("club")) && (
                 <img
