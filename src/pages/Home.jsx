@@ -28,7 +28,6 @@ const Home = () => {
       <Milaninfobanner />
 
       {/* {Cookies.get("club") ? <ClubBanner /> : <EventsBanner />} */}
-      <Footer />
     </>
   );
 };

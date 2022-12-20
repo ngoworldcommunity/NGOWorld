@@ -30,7 +30,6 @@ export default function AboutUs() {
           </p>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
