@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import Navbar from '../../components/Navbar';
-import '../../styles/EventCreate.css';
-import Events from '../../assets/pictures/CreateEventsPic.svg';
-import { CreateEvent } from '../../service/MilanApi';
+import React, { useState } from "react";
+import Navbar from "../../components/Navbar";
+import "../../styles/EventCreate.css";
+import Events from "../../assets/pictures/CreateEventsPic.svg";
+import { CreateEvent } from "../../service/MilanApi";
 
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function EventCreate() {
   const [eventdetails, seteventdetails] = useState({
-    eventname: '',
-    eventdate: '',
-    eventtime: '',
-    eventlocation: '',
-    eventdescription: '',
+    eventname: "",
+    eventdate: "",
+    eventtime: "",
+    eventlocation: "",
+    eventdescription: "",
   });
 
   const handleChange = (e) => {
@@ -25,8 +25,8 @@ export default function EventCreate() {
     const eventresponse = await CreateEvent(eventdetails);
 
     if (eventresponse.status === 200) {
-      toast('🌈 Adding your Event !', {
-        position: 'top-right',
+      toast("🌈 Adding your Event !", {
+        position: "top-right",
         autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -36,11 +36,11 @@ export default function EventCreate() {
         closeButton: false,
         onClose: () => {
           seteventdetails({
-            eventname: '',
-            eventdate: '',
-            eventtime: '',
-            eventlocation: '',
-            eventdescription: '',
+            eventname: "",
+            eventdate: "",
+            eventtime: "",
+            eventlocation: "",
+            eventdescription: "",
           });
         },
       });
@@ -49,8 +49,6 @@ export default function EventCreate() {
 
   return (
     <>
-      <Navbar />
-
       <ToastContainer
         position="top-right"
         autoClose={1000}
@@ -72,7 +70,7 @@ export default function EventCreate() {
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form style={{ width: 'auto' }}>
+              <form style={{ width: "auto" }}>
                 <h1 className="eventCreateWelcome">
                   Create an event for your club
                 </h1>

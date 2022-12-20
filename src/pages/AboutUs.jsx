@@ -8,7 +8,6 @@ export default function AboutUs() {
   document.title = "Milan | About Us";
   return (
     <div>
-      <Navbar />
       <div
         id="about"
         className="d-flex justify-content-between align-items-center"

@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { Link, useNavigate } from 'react-router-dom';
-import Navbar from '../../components/Navbar';
-import { RegisterUser } from '../../service/MilanApi';
+import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../../components/Navbar";
+import { RegisterUser } from "../../service/MilanApi";
 
-import SchemaValidator, { msgLocalise } from '../../utils/validation';
+import SchemaValidator, { msgLocalise } from "../../utils/validation";
 
 //* The styles for Login and Register are essentially same
-import '../../styles/UserLogin.css';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { Helmet } from 'react-helmet-async';
+import "../../styles/UserLogin.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet-async";
 
 const UserRegister = () => {
   const navigate = useNavigate();
@@ -27,32 +27,32 @@ const UserRegister = () => {
   }
 
   const [credentials, setCredentials] = useState({
-    firstname: '',
-    lastname: '',
-    email: '',
-    password: '',
-    address: '',
-    pincode: '',
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    address: "",
+    pincode: "",
   });
 
   const FormDataProto = {
-    id: '/SignUpForm',
-    type: 'object',
+    id: "/SignUpForm",
+    type: "object",
     properties: {
-      firstname: { type: 'string' },
-      lastname: { type: 'string' },
-      email: { type: 'string', format: 'email' },
-      password: { type: 'string', minLength: 8 },
-      address: { type: 'string' },
-      pincode: { pattern: '[0-9]+', minLength: 6 },
+      firstname: { type: "string" },
+      lastname: { type: "string" },
+      email: { type: "string", format: "email" },
+      password: { type: "string", minLength: 8 },
+      address: { type: "string" },
+      pincode: { pattern: "[0-9]+", minLength: 6 },
     },
     required: [
-      'firstname',
-      'lastname',
-      'email',
-      'password',
-      'address',
-      'pincode',
+      "firstname",
+      "lastname",
+      "email",
+      "password",
+      "address",
+      "pincode",
     ],
   };
 
@@ -68,8 +68,8 @@ const UserRegister = () => {
     if (validator.valid) {
       await RegisterUser(credentials);
 
-      toast('🦄 Registered your account !', {
-        position: 'top-right',
+      toast("🦄 Registered your account !", {
+        position: "top-right",
         autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -78,13 +78,13 @@ const UserRegister = () => {
         progress: undefined,
         closeButton: false,
         onClose: () => {
-          navigate('/user/login');
+          navigate("/user/login");
         },
       });
     } else {
       validator.errors.map(function (e, i) {
         return toast(`${e.path[0]} : ${msgLocalise(e)}`, {
-          position: 'top-right',
+          position: "top-right",
           autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -107,9 +107,6 @@ const UserRegister = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-
-      <Navbar />
-
       <ToastContainer
         position="top-right"
         autoClose={1000}
@@ -136,7 +133,7 @@ const UserRegister = () => {
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form style={{ width: 'auto' }} onSubmit={handleSubmit}>
+              <form style={{ width: "auto" }} onSubmit={handleSubmit}>
                 <h1 className="userregister_header">Join us at Milan !!</h1>
                 <div className="form-outline mb-2">
                   <label
@@ -267,7 +264,7 @@ const UserRegister = () => {
                 <button
                   type="submit"
                   className="btn btn-lg btn-block register-btn btn-container-desktop"
-                  style={{ backgroundColor: '#89b5f7' }}
+                  style={{ backgroundColor: "#89b5f7" }}
                 >
                   Register
                 </button>
