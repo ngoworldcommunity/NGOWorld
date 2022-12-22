@@ -104,7 +104,7 @@ const Navbar = () => {
                   ></div>
                 </li>
               )}
-              <li className="nav_signup_btn">
+              <li className="nav-item home">
                 <Link to="/user/register">
                   <button className="btn nav_signup_btn">Sign up</button>
                 </Link>
