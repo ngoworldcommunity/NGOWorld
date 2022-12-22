@@ -108,7 +108,6 @@ const Donate = () => {
           )}
         </div>
       </div>
-      <Footer />
     </>
   );
 };
