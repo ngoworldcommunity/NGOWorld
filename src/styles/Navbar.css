@@ -44,9 +44,9 @@
 }
 
 .home {
-  margin: auto;
   font-weight: 600;
-  margin-right: 30px;
+  margin: auto;
+  padding-right: 30px;
 }
 
 .shop_icon {
@@ -57,6 +57,10 @@
 @media (max-width: 1024px) and (min-width: 769px) {
   .navbar-brand {
     font-size: 1.7rem;
+  }
+  .home {
+    margin: auto;
+    padding: 8px;
   }
 }
 
@@ -91,24 +95,13 @@
   font-family: Poppins, sans-serif;
   border: none;
   border-radius: 6px;
-
-  padding: 10px 20px;
+  text-decoration: none;
   color: rgba(0, 0, 0, 0.896);
   font-weight: 600;
   cursor: pointer;
-  /* width: 30%; */
 }
 
 .nav_signup_btn:hover {
-  background: #e26959;
-  box-shadow: 0 0 50px -10px #9747ff14;
-  font-family: Poppins, sans-serif;
-  border: none;
-  border-radius: 6px;
-
-  padding: 10px 20px;
-  color: rgba(0, 0, 0, 0.896);
-  font-weight: 600;
   cursor: pointer;
-  width: 30%;
+  background: #f68475;
 }
