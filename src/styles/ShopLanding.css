@@ -1,26 +1,26 @@
-.cp_main_parent {
+.shop_main_parent {
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
 
-.cp_subparent {
+.shop_subparent {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
-.cp_textdiv {
+.shop_textdiv {
   width: 70%;
 }
-.cp_header1 {
+.shop_header1 {
   font-family: Montserrat, sans-serif;
   font-size: 76px;
   line-height: 80px;
   margin-bottom: 1.5rem !important;
   color: #28183b;
 }
-.cp_header2 {
+.shop_header2 {
   font-family: Poppins, sans-serif;
   color: black;
   font-size: 1.4rem;
@@ -28,7 +28,7 @@
   letter-spacing: 1px;
 }
 
-.cp_cardsdiv {
+.shop_cardsdiv {
   margin-top: 5rem;
   display: flex;
   flex-wrap: wrap;
@@ -41,7 +41,7 @@
   min-width: 15rem;
 }
 
-.cp_card {
+.shop_card {
   max-width: 18rem;
   min-width: 18rem;
   background-color: #f2f2f2;
@@ -50,13 +50,13 @@
   min-height: 536px;
 }
 
-.cp_card_imgdiv img {
+.shop_card_imgdiv img {
   max-width: 18rem;
   object-fit: cover;
   border-radius: 10px 10px 0px 0px;
 }
 
-.cp_card_textdiv {
+.shop_card_textdiv {
   padding: 10px 10px 5px 10px;
   font-family: Poppins, sans-serif;
   color: black;
@@ -66,35 +66,35 @@
   word-break: break-word;
 }
 
-.cp_card_name {
+.shop_card_name {
   font-size: 1.3rem;
   letter-spacing: 1px;
   font-weight: 600;
 }
 
-.cp_card_address,
-.cp_card_tag {
+.shop_card_address,
+.shop_card_tag {
   font-size: 1rem;
   letter-spacing: 1px;
   font-weight: 400;
 }
 
 @media screen and (max-width: 430px) {
-  .cp_textdiv {
+  .shop_textdiv {
     width: 100%;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
   }
 
-  .cp_header1 {
+  .shop_header1 {
     font-family: Montserrat, sans-serif;
     font-size: 3rem;
     line-height: 60px;
     margin-bottom: 1.5rem !important;
     color: #28183b;
   }
-  .cp_header2 {
+  .shop_header2 {
     font-family: Poppins, sans-serif;
     color: black;
     font-size: 1rem;

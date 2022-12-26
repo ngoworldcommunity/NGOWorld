@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/Banner.css";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   var nav = useNavigate();
@@ -27,7 +28,12 @@ const Banner = () => {
                 </p>
               </div>
               <div className="banner_signup_btndiv">
-                <button className="btn btn-warning banner_signup_btn">
+                <button
+                  className="btn btn-warning banner_signup_btn"
+                  onClick={() => {
+                    nav("/clubs/register");
+                  }}
+                >
                   Sign up now
                 </button>
               </div>

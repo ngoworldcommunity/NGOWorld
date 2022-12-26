@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 import "../styles/Milaninfobanner.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useNavigate } from "react-router-dom";
 
 const Milaninfobanner = () => {
+  const nav = useNavigate();
   useEffect(() => {
     AOS.init({
       once: false,
@@ -82,7 +84,12 @@ const Milaninfobanner = () => {
               </p>
             </div>
             <div className="banner_signup_btndiv">
-              <button className="btn btn-warning mib_explore_btn">
+              <button
+                className="btn btn-warning mib_explore_btn"
+                onClick={() => {
+                  nav("/shops/shop");
+                }}
+              >
                 Explore the shop
               </button>
             </div>
