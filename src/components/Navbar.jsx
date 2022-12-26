@@ -81,42 +81,27 @@ const Navbar = () => {
               </li>
 
               <li className="nav-item home">
-                <Link to="/shops/shop">Shop</Link>
+                <Link to="/shop">Shop</Link>
                 <div
                   className={
-                    "" +
-                    (location.pathname === "/shops/shop" ? "active-link" : "")
+                    "" + (location.pathname === "/shop" ? "active-link" : "")
                   }
                 ></div>
               </li>
-              {/* Render Contact Us in Navabr only for Login and Register Pages */}
-              {(location.pathname === "/user/login" ||
-                location.pathname === "/user/register" ||
-                location.pathname === "/clubs/login" ||
-                location.pathname === "/clubs/register") && (
-                <li className="nav-item home">
-                  <Link to={"/contact"}>Contact</Link>
-                  <div
-                    className={
-                      "" +
-                      (location.pathname === "/contact" ? "active-link" : "")
-                    }
-                  ></div>
-                </li>
-              )}
-              <li className="nav-item home">
-                <Link to="/user/register">
-                  <button className="btn nav_signup_btn">Sign up</button>
-                </Link>
-              </li>
 
-              {(Cookies.get("token") || Cookies.get("club")) && (
+              {Cookies.get("token") || Cookies.get("club") ? (
                 <img
                   onClick={handleNavigate}
                   src={ProfilePicture}
                   alt="lol"
                   className="nav_user_img"
                 />
+              ) : (
+                <li className="nav-item home">
+                  <Link to="/user/register">
+                    <button className="btn nav_signup_btn">Sign up</button>
+                  </Link>
+                </li>
               )}
             </ul>
           </div>

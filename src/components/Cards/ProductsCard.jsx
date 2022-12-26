@@ -1,56 +1,22 @@
 import React from "react";
-import star from "../../assets/pictures/star.png";
-import face from "../../assets/pictures/girlface.svg";
-import art from "../../assets/pictures/artpiece.svg";
-import "../../styles/ProductsCard.css";
+import "../../styles/Products.css";
 
-const ProductsCard = () => {
+const ProductsCard = ({ product }) => {
   return (
-    <div className="card-group">
-      <div className="cardart">
-        <img src={face} className="art" alt="art" />
-        <div className="card-content">
-          <div>
-            <img src={star} className="star" alt="start" />
+    <>
+      <div className="productcard_mainparent">
+        <div className="productcard_subparent">
+          <div className="productcard_imgdiv">
+            <img src={product.img} alt="" />
           </div>
-          <h6>Art: A girl's dream</h6>
-          <h6>$20</h6>
-        </div>
-      </div>
 
-      <div className="cardart">
-        <img src={art} className="art" alt="art" />
-        <div className="card-content">
-          <div>
-            <img src={star} className="star" alt="star" />
+          <div className="productcard_textdiv">
+            <p className="productcard_header1">{product.name}</p>
+            <p className="productcard_header2">${product.price} </p>
           </div>
-          <h6>Art: Celebrate Inside</h6>
-          <h6>$20</h6>
         </div>
       </div>
-
-      <div className="cardart">
-        <img src={face} className="art" alt="art" />
-        <div className="card-content">
-          <div>
-            <img src={star} className="star" alt="star" />
-          </div>
-          <h6>Art: A girl's dream</h6>
-          <h6>$20</h6>
-        </div>
-      </div>
-
-      <div className="cardart">
-        <img src={art} className="art" alt="art" />
-        <div className="card-content">
-          <div>
-            <img src={star} className="star" alt="star" />
-          </div>
-          <h6>Art: Celebrate Inside</h6>
-          <h6>$20</h6>
-        </div>
-      </div>
-    </div>
+    </>
   );
 };
 

@@ -73,7 +73,7 @@ const App = () => {
             <Route exact path="/about-us" element={<AboutUs />} />
             <Route exact path="/clubs/createevent" element={<EventCreate />} />
             <Route exact path="/display/events" element={<EventsPage />} />
-            <Route exact path="/shops/shop" element={<ShopLanding />} />
+            <Route exact path="/shop" element={<ShopLanding />} />
             <Route
               exact
               path="/display/clubs/:id"
@@ -83,7 +83,7 @@ const App = () => {
             {/* //* Donations */}
             <Route exact path="/donateus" element={<Donate />} />
           </Routes>
-          <Footer />
+          {/* <Footer /> */}
         </Router>
       </MilanState>
     </>

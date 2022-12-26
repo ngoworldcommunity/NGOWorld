@@ -87,7 +87,8 @@ const Milaninfobanner = () => {
               <button
                 className="btn btn-warning mib_explore_btn"
                 onClick={() => {
-                  nav("/shops/shop");
+                  nav("/shop");
+                  window.scrollTo(0, 0);
                 }}
               >
                 Explore the shop
