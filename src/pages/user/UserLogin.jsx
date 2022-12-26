@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import Navbar from '../../components/Navbar';
-import '../../styles/UserLogin.css';
-import { LoginUser } from '../../service/MilanApi';
-import Cookies from 'js-cookie';
-import { toast, ToastContainer } from 'react-toastify';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../../components/Navbar";
+import "../../styles/UserLogin.css";
+import { LoginUser } from "../../service/MilanApi";
+import Cookies from "js-cookie";
+import { toast, ToastContainer } from "react-toastify";
 
-import SchemaValidator, { msgLocalise } from '../../utils/validation';
-import 'react-toastify/dist/ReactToastify.css';
-import { Helmet } from 'react-helmet-async';
+import SchemaValidator, { msgLocalise } from "../../utils/validation";
+import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet-async";
 
 function UserLogin() {
   const Navigate = useNavigate();
@@ -25,18 +25,18 @@ function UserLogin() {
   }
 
   const [credentials, setCredentials] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const FormDataProto = {
-    id: '/LoginForm',
-    type: 'object',
+    id: "/LoginForm",
+    type: "object",
     properties: {
-      email: { type: 'string', format: 'email' },
-      password: { type: 'string', minLength: 4 },
+      email: { type: "string", format: "email" },
+      password: { type: "string", minLength: 4 },
     },
-    required: ['email', 'password'],
+    required: ["email", "password"],
   };
 
   //* To set the value as soon as we input
@@ -56,10 +56,10 @@ function UserLogin() {
 
       Data.then((response) => {
         if (response?.data.token) {
-          Cookies.set('token', response.data.token);
+          Cookies.set("token", response.data.token);
 
-          toast('🦄 Logging you in !', {
-            position: 'top-right',
+          toast("🦄 Logging you in !", {
+            position: "top-right",
             autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
@@ -68,11 +68,11 @@ function UserLogin() {
             progress: undefined,
             closeButton: false,
             onClose: () => {
-              Navigate('/');
+              Navigate("/");
             },
           });
         } else {
-          setCredentials({ email: '', password: '' });
+          setCredentials({ email: "", password: "" });
         }
       }).catch((err) => {
         console.log(err);
@@ -80,7 +80,7 @@ function UserLogin() {
     } else {
       validator.errors.map(function (e, i) {
         return toast(`${e.path[0]} : ${msgLocalise(e)}`, {
-          position: 'top-right',
+          position: "top-right",
           autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -103,7 +103,6 @@ function UserLogin() {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-      <Navbar />
 
       <ToastContainer
         position="top-right"
@@ -131,12 +130,12 @@ function UserLogin() {
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form style={{ width: 'auto' }} onSubmit={handleSubmit}>
+              <form style={{ width: "auto" }} onSubmit={handleSubmit}>
                 <h1
                   style={{
-                    letterSpacing: '1px',
-                    marginBottom: '20px',
-                    textAlign: 'center',
+                    letterSpacing: "1px",
+                    marginBottom: "20px",
+                    textAlign: "center",
                   }}
                 >
                   Log in
@@ -232,7 +231,7 @@ function UserLogin() {
                   <button
                     type="submit"
                     className="login-btn btn btn-lg btn-block"
-                    style={{ backgroundColor: '#89b5f7' }}
+                    style={{ backgroundColor: "#89b5f7" }}
                   >
                     Login
                   </button>

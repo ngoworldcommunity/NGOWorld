@@ -1,4 +1,4 @@
-![Milan is ready For Hacktoberfest](https://user-images.githubusercontent.com/72851613/189706481-51332489-68dd-45d0-8817-e0365ebc13d8.png)
+![TekHub Banner (1)](https://user-images.githubusercontent.com/72851613/207783151-1d2f19cf-afa4-477b-8823-dcabb86adbf5.png)
 
 <br/>
 

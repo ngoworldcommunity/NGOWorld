@@ -21,6 +21,7 @@ import ClubDetailsCard from "./pages/clubs/ClubDetails";
 import UserForgotpassword from "./pages/user/UserForgotpassword";
 import { ToastContainer } from "react-toastify";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 const App = () => {
   return (
     <>
@@ -82,6 +83,7 @@ const App = () => {
             {/* //* Donations */}
             <Route exact path="/donateus" element={<Donate />} />
           </Routes>
+          <Footer />
         </Router>
       </MilanState>
     </>

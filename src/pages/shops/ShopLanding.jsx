@@ -16,7 +16,6 @@ const ShopLanding = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-      <Navbar />
       <ShopHeader />
       <Products />
     </>
