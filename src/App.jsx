@@ -75,7 +75,7 @@ const App = () => {
             <Route exact path="/shops/shop" element={<ShopLanding />} />
             <Route
               exact
-              path="/display/clubs/details"
+              path="/display/clubs/:id"
               element={<ClubDetailsCard />}
             />
 
