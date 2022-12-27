@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Loading from "../../components/Loading";
 import SingleClubEvent from "../../components/SingleClubEvent";
 import { GetAllClubs } from "../../service/MilanApi";
@@ -20,6 +21,15 @@ const ClubsPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Milan | Clubs </title>
+        <meta
+          name="description"
+          content="These are the clubs and communities you can follow, you can attend charity/club events and even get notified about it once you subscribe !"
+        />
+        <link rel="canonical" href="/" />
+      </Helmet>
+
       <div className="container">
         <div className="cp_main_parent">
           <div className="cp_subparent">
