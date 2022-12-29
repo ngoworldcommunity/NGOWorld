@@ -1,14 +1,8 @@
 .userregister_header {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 2rem;
-}
-
-.userregister_sideimg {
-  margin-bottom: 100px;
-  max-width: 100%;
-  height: auto;
 }
 
 .anchor-container {
@@ -32,6 +26,30 @@ form .btn-container-desktop {
   font-weight: 500;
   letter-spacing: 0.05rem;
   transition: 0.2s;
+}
+
+.loginform h1 {
+  font-family: Montserrat, sans-serif;
+  font-size: 3.5rem;
+  line-height: 60px;
+  margin-bottom: 1.5rem !important;
+  color: #28183b;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.loginform label {
+  font-family: Poppins, sans-serif;
+  color: black;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+@media screen and (max-width: 1023px) {
+  .loginform label {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -83,7 +101,7 @@ form .btn-container-desktop {
 }
 
 #remember-me {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .userreg_mob_firstname {
@@ -108,12 +126,7 @@ form .btn-container-desktop {
   }
 }
 
-@media only screen and (min-width: 768px) {
-  .remove_placeholder_desktop::placeholder {
-    color: transparent;
-  }
-}
 .login-btn:hover {
-    border: #212529;
-    background-color: #7496ca;
+  border: #212529;
+  background-color: #7496ca;
 }

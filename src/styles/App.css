@@ -1,0 +1,32 @@
+.authimg {
+  /* max-width: 50%; */
+  max-width: 450px;
+  max-height: 480px;
+}
+
+@media screen and (max-width: 1023px) {
+  .authimg {
+    display: none;
+  }
+}
+
+::-webkit-input-placeholder {
+  /* Edge */
+  color: transparent !important;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer */
+  color: transparent !important;
+}
+
+::placeholder {
+  color: transparent !important;
+}
+
+@media screen and (max-width: 1023px) {
+  input::placeholder {
+    /* Style for placeholder text on mobile devices */
+    color: black !important;
+  }
+}

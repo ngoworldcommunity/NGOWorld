@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import { RegisterUser } from "../../service/MilanApi";
-
+import { ReactComponent as Authbanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 import SchemaValidator, { msgLocalise } from "../../utils/validation";
 
 //* The styles for Login and Register are essentially same
@@ -123,13 +122,9 @@ const UserRegister = () => {
 
       <section className="vh-100">
         <div className="container py-5 h-100">
-          <div className="row d-flex align-items-center justify-content-center h-100">
+          <div className="row d-flex align-items-top justify-content-center h-100">
             <div className="col-md-8 col-lg-7 col-xl-6">
-              <img
-                src="https://www.getillustrations.com/packs/plastic-illustrations-scene-builder-pack/scenes/_1x/accounts%20_%20man,%20workspace,%20desk,%20laptop,%20login,%20user_md.png"
-                className="img-fluid userregister_sideimg"
-                alt="Phone"
-              />
+              <Authbanner className="authimg" />
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">

@@ -22,6 +22,7 @@ import UserForgotpassword from "./pages/user/UserForgotpassword";
 import { ToastContainer } from "react-toastify";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import "./styles/App.css";
 const App = () => {
   return (
     <>
@@ -70,7 +71,7 @@ const App = () => {
             {/* //* Display Routes */}
             <Route exact path="/display/clubs" element={<ClubsPage />} />
             <Route exact path="/contact" element={<ContactPage />} />
-            <Route exact path="/about-us" element={<AboutUs />} />
+            <Route exact path="/aboutus" element={<AboutUs />} />
             <Route exact path="/clubs/createevent" element={<EventCreate />} />
             <Route exact path="/display/events" element={<EventsPage />} />
             <Route exact path="/shop" element={<ShopLanding />} />

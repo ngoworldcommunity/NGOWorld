@@ -70,17 +70,11 @@
 /* For Mobile */
 
 @media screen and (max-width: 800px) {
-  .mobile {
-    display: block;
-  }
-  .desktop {
-    display: none;
-  }
   .mobile-img {
     width: 300px;
   }
   #remember-me {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
   }
 
   .login-btn {

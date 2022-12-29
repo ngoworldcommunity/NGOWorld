@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/ClubLogin.css";
-import Pic from "../../assets/pictures/clubs-login.png";
 import { LoginClub } from "../../service/MilanApi";
 import { TailSpin } from "react-loader-spinner";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Cookies from "js-cookie";
 import { Helmet } from "react-helmet-async";
+import { ReactComponent as Authbanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 
 function ClubLogin() {
   const Navigate = useNavigate();
@@ -106,9 +106,9 @@ function ClubLogin() {
 
       <section className="vh-100">
         <div className="container py-5 h-100">
-          <div className="row d-flex align-items-center justify-content-center h-100">
+          <div className="row d-flex align-items-top justify-content-center h-100">
             <div className="col-md-8 col-lg-7 col-xl-6 d-flex justify-content-center">
-              <img src={Pic} className="mobile-img" alt="profile-img"></img>
+              <Authbanner className="authimg" />
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">

@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { TailSpin } from "react-loader-spinner";
-import Navbar from "../../components/Navbar";
-import registrationImage from "../../assets/pictures/clubRegistrationImage.png";
 import { Link, useNavigate } from "react-router-dom";
 import { RegisterClub } from "../../service/MilanApi";
 import "../../styles/ClubsRegister.css";
-
+import { ReactComponent as Authbanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
@@ -96,14 +94,9 @@ const ClubLogin = () => {
       />
 
       <div className="mobile-sec container py-5 h-100">
-        <div className="row d-flex align-items-center justify-content-center h-100">
+        <div className="row d-flex align-items-top justify-content-center h-100">
           <div className="col-md-8 col-lg-7 col-xl-6">
-            <img
-              src={registrationImage}
-              className="img-fluid imageClub"
-              alt="Club Registration"
-              width="90%"
-            />
+            <Authbanner className="authimg" />
           </div>
 
           <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">

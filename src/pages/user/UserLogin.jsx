@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../../components/Navbar";
 import "../../styles/UserLogin.css";
 import { LoginUser } from "../../service/MilanApi";
 import Cookies from "js-cookie";
@@ -9,6 +8,7 @@ import { toast, ToastContainer } from "react-toastify";
 import SchemaValidator, { msgLocalise } from "../../utils/validation";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
+import { ReactComponent as Authbanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 
 function UserLogin() {
   const Navigate = useNavigate();
@@ -120,26 +120,18 @@ function UserLogin() {
 
       <section className="vh-100">
         <div className="container py-5 h-100">
-          <div className="row d-flex align-items-center justify-content-center h-100">
-            <div className="col-md-8 col-lg-7 col-xl-6">
-              <img
-                src="https://www.getillustrations.com/packs/plastic-illustrations-scene-builder-pack/scenes/_1x/accounts%20_%20man,%20workspace,%20desk,%20laptop,%20login,%20user_md.png"
-                className="img-fluid"
-                alt="Phone"
-              />
+          <div className="d-flex align-items-center justify-content-center h-100 gap-1">
+            <div className="">
+              <Authbanner className="authimg" />
             </div>
 
-            <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form style={{ width: "auto" }} onSubmit={handleSubmit}>
-                <h1
-                  style={{
-                    letterSpacing: "1px",
-                    marginBottom: "20px",
-                    textAlign: "center",
-                  }}
-                >
-                  Log in
-                </h1>
+            <div className=" offset-xl-1">
+              <form
+                style={{ width: "auto" }}
+                onSubmit={handleSubmit}
+                className="loginform"
+              >
+                <h1>Login as an user</h1>
                 <div className="form-outline mb-4">
                   <label
                     htmlFor="exampleInputEmail1"
@@ -152,7 +144,7 @@ function UserLogin() {
                     className="desktop form-control form-control-lg"
                     id="desktopUserEmail"
                     aria-describedby="emailHelp"
-                    placeholder=""
+                    placeholder="Enter your email"
                     name="email"
                     value={credentials.email}
                     onChange={handleChange}
@@ -160,20 +152,6 @@ function UserLogin() {
                     aria-required="true"
                     aria-label="email"
                     autoFocus
-                  />
-
-                  <input
-                    type="email"
-                    className="mobile form-control form-control-lg"
-                    id="mobileUserEmail"
-                    aria-describedby="emailHelp"
-                    name="email"
-                    value={credentials.email}
-                    placeholder="Enter your email"
-                    onChange={handleChange}
-                    required
-                    aria-required="true"
-                    aria-label="email"
                   />
                 </div>
 
@@ -188,43 +166,16 @@ function UserLogin() {
                     type="password"
                     className="desktop form-control form-control-lg"
                     id="desktopUserPassword"
-                    placeholder=""
-                    name="password"
-                    value={credentials.password}
-                    onChange={handleChange}
-                    required
-                    aria-label="password"
-                  />
-
-                  <input
-                    type="password"
-                    className="mobile form-control form-control-lg"
-                    id="mobileUserPassword"
-                    name="password"
-                    value={credentials.password}
-                    onChange={handleChange}
                     placeholder="Enter your password"
+                    name="password"
+                    value={credentials.password}
+                    onChange={handleChange}
                     required
                     aria-label="password"
                   />
                 </div>
 
                 {/* RememberMe Tab  */}
-                <div id="rememberMe" className="form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="exampleCheck1"
-                  />
-                  <label
-                    id="remember-me"
-                    className="form-check-label"
-                    htmlFor="exampleCheck1"
-                  >
-                    Remember me
-                  </label>
-                </div>
-                <br />
 
                 {/* Login Button */}
                 <div className="btn-container btn-container-desktop">

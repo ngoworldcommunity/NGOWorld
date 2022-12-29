@@ -3,6 +3,9 @@ import "../styles/Milaninfobanner.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
+import MilanLanding1 from "../assets/pictures/landing/MilanLanding1.png";
+import MilanLanding2 from "../assets/pictures/landing/MilanLanding2.png";
+import LandingMobile from "../assets/pictures/landing/LandingMobile.png";
 
 const Milaninfobanner = () => {
   const nav = useNavigate();
@@ -22,7 +25,7 @@ const Milaninfobanner = () => {
             data-aos="fade-right"
             data-aos-duration="500"
           >
-            <img src="https://i.ibb.co/JvCJ0TB/mib.png" alt="" />
+            <img src={MilanLanding1} alt="" />
           </div>
 
           <div
@@ -62,7 +65,7 @@ const Milaninfobanner = () => {
             data-aos="fade-left"
             data-aos-duration="500"
           >
-            <img src="https://i.ibb.co/RP9f0Ks/mib2.png" alt="" />
+            <img src={MilanLanding2} alt="" />
           </div>
         </div>
       </div>
@@ -70,7 +73,7 @@ const Milaninfobanner = () => {
       <div className="mib_main_parent2">
         <div className="mib_subparent3">
           <div className="mib_imgdiv">
-            <img src="https://i.ibb.co/wNxgnmN/mib3.png" alt="" />
+            <img src={LandingMobile} alt="" />
           </div>
 
           <div className="mib_textdiv">
