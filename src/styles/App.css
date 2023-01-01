@@ -4,11 +4,14 @@
   max-height: 480px;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   .authimg {
     display: none;
   }
 }
+
+/* Form global css */
+/* These are not to be deleted, applicable for all the forms across the site */
 
 ::-webkit-input-placeholder {
   /* Edge */
@@ -24,9 +27,12 @@
   color: transparent !important;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   input::placeholder {
-    /* Style for placeholder text on mobile devices */
     color: black !important;
+  }
+
+  label {
+    display: none;
   }
 }

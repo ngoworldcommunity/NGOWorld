@@ -120,10 +120,8 @@ function UserLogin() {
 
       <section className="vh-100">
         <div className="container py-5 h-100">
-          <div className="d-flex align-items-center justify-content-center h-100 gap-1">
-            <div className="">
-              <Authbanner className="authimg" />
-            </div>
+          <div className="d-flex align-items-center justify-content-center h-100 gap-1 ">
+            <Authbanner className="authimg" />
 
             <div className=" offset-xl-1">
               <form
@@ -131,7 +129,7 @@ function UserLogin() {
                 onSubmit={handleSubmit}
                 className="loginform"
               >
-                <h1>Login as an user</h1>
+                <h1 className="mb-2">Login as an user</h1>
                 <div className="form-outline mb-4">
                   <label
                     htmlFor="exampleInputEmail1"

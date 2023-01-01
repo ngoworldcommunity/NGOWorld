@@ -46,12 +46,6 @@ form .btn-container-desktop {
   letter-spacing: 1px;
 }
 
-@media screen and (max-width: 1023px) {
-  .loginform label {
-    display: none;
-  }
-}
-
 @media screen and (max-width: 800px) {
   h1 {
     text-align: center;
