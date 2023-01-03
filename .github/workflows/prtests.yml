@@ -1,0 +1,65 @@
+name: E2E Tests + Preview deploy
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    # use docker container to run tests
+    container: cypress/browsers:node18.12.0-chrome107
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: set environment variables
+        uses: allenevans/set-env@v2.0.0
+        with:
+          HUSKY: 0
+
+      - name: "Cypress Tests - Chrome"
+        uses: cypress-io/github-action@v4.2.0
+        with:
+          install: true
+          build: npm run build
+          start: npm run dev
+          wait-on: "http://localhost:3000"
+          wait-on-timeout: 120
+          browser: chrome
+          spec: cypress/e2e/*
+        env:
+          CI: "false"
+
+  Deploy-Preview:
+    needs: cypress-run
+    if: success()
+    runs-on: ubuntu-latest
+
+    steps:
+      - id: script
+        uses: actions/github-script@v3
+        with:
+          script: |
+            const isPr = [ 'pull_request', 'pull_request_target' ].includes(context.eventName)
+            core.setOutput('ref', isPr ? context.payload.pull_request.head.ref : context.ref)
+            core.setOutput('repo', isPr ? context.payload.pull_request.head.repo.full_name : context.repo.full_name)
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ steps.script.outputs.ref }}
+          repository: ${{ steps.script.outputs.repo }}
+
+      - name: Deploy to Vercel Action
+        uses: BetaHuhn/deploy-to-vercel-action@v1.9.10
+        with:
+          GITHUB_TOKEN: ${{ secrets.MILAN_CICD }}
+          VERCEL_TOKEN: ${{ secrets.NOW_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          DEPLOY_PR_FROM_FORK: true

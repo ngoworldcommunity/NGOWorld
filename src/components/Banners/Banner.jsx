@@ -33,6 +33,8 @@ const Banner = () => {
                   onClick={() => {
                     nav("/clubs/register");
                   }}
+                  data-cy="landingpage-club-signup"
+                  id="landingpage-club-signup"
                 >
                   Sign up now
                 </button>

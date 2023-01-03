@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TailSpin } from "react-loader-spinner";
+import ClipLoader from "react-spinners/ClipLoader";
 import { Link, useNavigate } from "react-router-dom";
 import { RegisterClub } from "../../service/MilanApi";
 import "../../styles/ClubsRegister.css";
@@ -357,11 +357,7 @@ const ClubLogin = () => {
                   className="registration-btn btn  py-2"
                   style={{ backgroundColor: "#C996CC" }}
                 >
-                  {isLoading ? (
-                    <TailSpin color="#FFFFFF" height={30} width={30} />
-                  ) : (
-                    "Register"
-                  )}
+                  {isLoading ? <ClipLoader color="#e26959" /> : "Register"}
                 </button>
               </div>
 
