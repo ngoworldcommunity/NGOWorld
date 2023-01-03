@@ -15,10 +15,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
-        run: npm install
+        run: npm install --force
       - name: Run tests
         id: run_tests
-        uses: cypress/run@v1
+        uses: cypress-io/github-action@v3
         with:
           record: true
       - name: Deploy to Vercel
