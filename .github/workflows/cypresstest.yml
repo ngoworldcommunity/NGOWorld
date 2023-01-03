@@ -32,7 +32,7 @@ jobs:
         if:
           steps.run_tests.outputs.total_passed ==
           steps.run_tests.outputs.total_tests
-        uses: vercel/actions/cli@master
+        uses: vercel/actions/cli@v3
         with:
           args: deploy --prod
         env:
