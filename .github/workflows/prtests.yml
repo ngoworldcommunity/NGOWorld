@@ -63,10 +63,11 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           DEPLOY_PR_FROM_FORK: true
+          CREATE_COMMENT: false
 
       - name: Comment on PR
         uses: phulsechinmay/rewritable-pr-comment@v0.3.0
-        if: ${{ steps.vercel-deploy.outputs.DEPLOYMENT_CREATED }}
+
         with:
           message: |
             Congrats 🎉 | Tests passed, PR deployed sucessfully to Vercel.
