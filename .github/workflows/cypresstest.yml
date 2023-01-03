@@ -89,5 +89,8 @@ jobs:
         uses: vercel/actions/cli@v3
         with:
           args: deploy --prod
+          repository: vercel/actions
+          version: v3
+          path: _actions/vercel/actions/v3/cli
         env:
           NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
