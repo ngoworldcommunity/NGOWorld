@@ -139,6 +139,7 @@ function ClubLogin() {
                     value={credentials.email}
                     onChange={handleChange}
                     required
+                    data-cy="desktop-club-email"
                   />
 
                   <input
@@ -170,6 +171,7 @@ function ClubLogin() {
                     value={credentials.password}
                     onChange={handleChange}
                     required
+                    data-cy="desktop-club-password"
                   />
 
                   <input
