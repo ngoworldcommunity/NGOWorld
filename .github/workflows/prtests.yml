@@ -11,6 +11,6 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run tests
-        uses: cypress/run@v1
+        uses: cypress-io/github-action@v3
         with:
           record: true
