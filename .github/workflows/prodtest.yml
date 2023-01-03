@@ -1,17 +1,18 @@
-name: E2E Tests + Preview deploy
+name: E2E Tests + Production deploy
 
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 on:
-  pull_request:
-    branches: [main]
+  push:
+    branches:
+      - main
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    # use docker container to run tests
+
     container: cypress/browsers:node18.12.0-chrome107
     steps:
       - name: Checkout
@@ -35,7 +36,7 @@ jobs:
         env:
           CI: "false"
 
-  Deploy-Preview:
+  Deploy-Production:
     needs: cypress-run
     if: success()
     runs-on: ubuntu-latest
@@ -45,9 +46,9 @@ jobs:
         run: npm install --global vercel@canary
       - name: Pull Vercel Environment Information
         run:
-          vercel pull --yes --environment=preview --token=${{
-          secrets.NOW_TOKEN}}
+          vercel pull --yes --environment=production --token=${{
+          secrets.NOW_TOKEN }}
       - name: Build Project Artifacts
-        run: vercel build --token=${{ secrets.NOW_TOKEN }}
+        run: vercel build --prod --token=${{ secrets.NOW_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --prebuilt --token=${{ secrets.NOW_TOKEN }}
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.NOW_TOKEN }}
