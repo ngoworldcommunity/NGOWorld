@@ -1,0 +1,28 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        id: run_tests
+        uses: cypress/run@v1
+        with:
+          record: true
+      - name: Deploy to Vercel
+        if:
+          steps.run_tests.outputs.total_passed ==
+          steps.run_tests.outputs.total_tests
+        uses: vercel/actions/cli@master
+        with:
+          args: deploy --prod
+        env:
+          NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
