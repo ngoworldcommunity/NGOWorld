@@ -13,20 +13,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Vercel action
+        uses: actions/checkout@v2.3.1
+        # with:
+        #   repository: vercel/actions/cli
+        #   ref: master
+
       - name: Install dependencies
         run: npm install --force
+
       - name: Run tests
         id: run_tests
         uses: cypress-io/github-action@v3
         with:
           record: true
-
-      - name: Checkout Vercel action
-        uses: actions/checkout@v2.3.1
-        with:
-          repository: vercel/actions/cli
-          ref: master
 
       - name: Deploy to Vercel
         if:
