@@ -63,7 +63,7 @@ jobs:
       - name: "Cypress Tests - Chrome"
         uses: cypress-io/github-action@v4.2.0 # use the explicit version number
         with:
-          install: npm install --force # Install project dependencies
+          install: true # Install project dependencies
           build: npm build # Create production build for testing
           start: npm run dev # Start development server on docker container
           wait-on: "http://localhost:3000" # wait on the project to start before running tests

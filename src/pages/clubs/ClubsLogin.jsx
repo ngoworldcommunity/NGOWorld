@@ -3,12 +3,12 @@ import Navbar from "../../components/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/ClubLogin.css";
 import { LoginClub } from "../../service/MilanApi";
-import { TailSpin } from "react-loader-spinner";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Cookies from "js-cookie";
 import { Helmet } from "react-helmet-async";
 import { ReactComponent as Authbanner } from "../../assets/pictures/authpages/authbannerimg.svg";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function ClubLogin() {
   const Navigate = useNavigate();
@@ -209,11 +209,7 @@ function ClubLogin() {
                     className="login-btn btn btn-lg btn-block"
                     style={{ backgroundColor: "#C996CC" }}
                   >
-                    {isLoading ? (
-                      <TailSpin color="#FFFFFF" height={30} width={30} />
-                    ) : (
-                      "LOGIN"
-                    )}
+                    {isLoading ? <ClipLoader color="#e26959" /> : "LOGIN"}
                   </button>
                 </div>
                 <br></br>
