@@ -55,10 +55,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set HUSKY environment variable
-        uses: actions/set-env@v1
-        env:
-          HUSKY: "0"
+      - name: set environment variables
+        uses: allenevans/set-env@v2.0.0
+        with:
+          HUSKY: 0
 
       - name: "Cypress Tests - Chrome"
         uses: cypress-io/github-action@v4.2.0 # use the explicit version number
