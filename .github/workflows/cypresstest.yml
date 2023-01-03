@@ -69,7 +69,7 @@ jobs:
           # temporary fix for eslint warnings being treated as errors.
           # This works for "react": "^17.0.2" and "react-scripts": "^5.0.1". Upgrading any of these packages
           # means that you will have to change this to CI=false
-          CI: ""
+          CI: "false"
 
   deploy:
     needs: cypress-run
