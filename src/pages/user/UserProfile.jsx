@@ -1,12 +1,10 @@
+import Cookies from "js-cookie";
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import { UpdateUser } from "../../service/MilanApi";
-import Cookies from "js-cookie";
 import "../../styles/UserLogin.css";
 
 export default function UserProfile() {
-  document.title = "Milan | User Profile";
   const Navigate = useNavigate();
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [credentials, setCredentials] = useState({
@@ -47,6 +45,7 @@ export default function UserProfile() {
 
   return (
     <>
+      <Helmet title="Milan | User Profile" />
       <section className="vh-100">
         <div className="container py-5 h-100">
           <div className="row d-flex align-items-center justify-content-center h-100">

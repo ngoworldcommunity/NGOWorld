@@ -63,14 +63,7 @@ const Donate = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Milan | Donations</title>
-        <meta
-          name="description"
-          content="Welcome to the donations page, even a small amount can help folks struggling out there."
-        />
-        <link rel="canonical" href="/" />
-      </Helmet>
+     <Helmet title="Milan | Donate" />
 
       <div id="donate_banner" className="container">
         <div id="donateCol2">

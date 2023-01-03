@@ -1,11 +1,9 @@
+import Cookies from "js-cookie";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import comingsoon from "../../assets/pictures/comingsoon.svg";
-import Navbar from "../../components/Navbar";
-import Cookies from "js-cookie";
 
 const ClubProfile = () => {
-  document.title = "Milan | Club Profile";
   const Navigate = useNavigate();
 
   const handleLogout = () => {
@@ -16,6 +14,7 @@ const ClubProfile = () => {
 
   return (
     <>
+      <Helmet title="Milan | Club Profile" />
       <div
         className="container"
         style={{ textAlign: "center", marginTop: "2rem" }}

@@ -4,12 +4,14 @@ import Navbar from "../../components/Navbar";
 // import { Link, useNavigate } from "react-router-dom";
 import "../../styles/UserLogin.css";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "../../components/SEO";
 
 const UserForgotpassword = () => {
-  document.title = "Milan | Reset Password";
+
 
   return (
     <>
+    <Helmet title='Milan | Reset Password' />
       <section className="vh-80">
         <div className="container  h-80">
           <div className="row d-flex align-items-center justify-content-center h-100">

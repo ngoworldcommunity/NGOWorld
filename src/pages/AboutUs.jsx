@@ -3,11 +3,12 @@ import "../styles/AboutUs.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import abtImg from "../assets/pictures/aboutus/about-pana.png";
+import { Helmet } from "../components/SEO";
 
 export default function AboutUs() {
-  document.title = "Milan | About Us";
   return (
     <div>
+      <Helmet title="Milan | About Us" />
       <div
         id="about"
         className="d-flex justify-content-between align-items-center"

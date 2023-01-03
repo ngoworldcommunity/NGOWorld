@@ -1,10 +1,8 @@
+import Cookies from "js-cookie";
 import React, { useState } from "react";
 import Banner from "../components/Banners/Banner.jsx";
-import Cookies from "js-cookie";
-import { Helmet } from "react-helmet-async";
 import Milaninfobanner from "../components/Milaninfobanner";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import { Helmet } from "../components/SEO";
 
 const AuthState = () => {
   const [login, setLogin] = useState(
@@ -15,14 +13,7 @@ const AuthState = () => {
 const Home = () => {
   return (
     <>
-      <Helmet>
-        <title>Milan | Home</title>
-        <meta
-          name="description"
-          content="Welcome to the homepage of Milan, a hub for Users to collaborate with NGOs, Charities and more."
-        />
-        <link rel="canonical" href="/" />
-      </Helmet>
+      <Helmet title="Milan | Home" />
 
       <Banner />
       <Milaninfobanner />

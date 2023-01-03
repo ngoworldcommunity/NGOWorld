@@ -6,10 +6,10 @@ import "../../styles/ClubsRegister.css";
 import { ReactComponent as Authbanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "../../components/SEO";
 
 const ClubLogin = () => {
-  document.title = "Milan | Club Register";
+
   const navigate = useNavigate();
 
   function Anchor(props) {
@@ -70,14 +70,7 @@ const ClubLogin = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Milan | Club Register</title>
-        <meta
-          name="description"
-          content="Welcome to the Club's registration page. Provide all the needed credentials and join us."
-        />
-        <link rel="canonical" href="/" />
-      </Helmet>
+      <Helmet title='Milan | Club Register' />
 
       <ToastContainer
         position="top-right"

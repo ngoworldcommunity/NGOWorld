@@ -7,7 +7,7 @@ import { toast, ToastContainer } from "react-toastify";
 
 import SchemaValidator, { msgLocalise } from "../../utils/validation";
 import "react-toastify/dist/ReactToastify.css";
-import { Helmet } from "react-helmet-async";
+
 import { ReactComponent as Authbanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 
 function UserLogin() {
@@ -95,14 +95,7 @@ function UserLogin() {
 
   return (
     <>
-      <Helmet>
-        <title>Milan | User login</title>
-        <meta
-          name="description"
-          content="Welcome to the User's login page. Login to Milan with your email and password."
-        />
-        <link rel="canonical" href="/" />
-      </Helmet>
+          <Helmet title='Milan | User Login' />
 
       <ToastContainer
         position="top-right"

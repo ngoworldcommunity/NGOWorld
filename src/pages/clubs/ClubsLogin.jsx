@@ -80,14 +80,7 @@ function ClubLogin() {
 
   return (
     <>
-      <Helmet>
-        <title>Milan | Clubs login</title>
-        <meta
-          name="description"
-          content="Welcome to the Club's login page. Login to Milan with your email and password."
-        />
-        <link rel="canonical" href="/" />
-      </Helmet>
+      <Helmet title="Milan | Club Login" />
 
       <ToastContainer
         position="top-right"
