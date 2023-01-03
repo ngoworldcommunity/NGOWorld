@@ -58,7 +58,7 @@ jobs:
       - name: Deploy to Vercel Action
         uses: BetaHuhn/deploy-to-vercel-action@v1.9.10
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MILAN_SECRET_TOKEN }}
           VERCEL_TOKEN: ${{ secrets.NOW_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
@@ -83,5 +83,5 @@ jobs:
             </table>
 
             [View Workflow Logs](${ LOG_URL })
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MILAN_SECRET_TOKEN }}
           COMMENT_IDENTIFIER: "vercel-deploy"
