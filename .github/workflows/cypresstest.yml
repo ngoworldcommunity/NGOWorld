@@ -80,6 +80,7 @@ jobs:
     needs: cypress-run
     if: success() # only run this job if the previous job was successful
     runs-on: ubuntu-latest
+    container: cypress/browsers:node18.12.0-chrome107
     steps:
       - name: Checkout
         uses: actions/checkout@v3
