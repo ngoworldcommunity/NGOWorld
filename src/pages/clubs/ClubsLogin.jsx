@@ -107,7 +107,7 @@ function ClubLogin() {
       <section className="vh-100">
         <div className="container py-5 h-100">
           <div className="row d-flex align-items-top justify-content-center h-100">
-            <div className="col-md-8 col-lg-7 col-xl-6 d-flex justify-content-center">
+            <div className="col-md-8 col-lg-7 col-xl-6">
               <Authbanner className="authimg" />
             </div>
 
@@ -117,8 +117,8 @@ function ClubLogin() {
                   style={{
                     letterSpacing: "1px",
                     marginBottom: "25px",
-                    textAlign: "center",
                   }}
+                  className="userregister_header"
                 >
                   Log in with your Club!
                 </h1>
@@ -207,7 +207,6 @@ function ClubLogin() {
                     disabled={credentials.password.length <= 4 || !isEmailValid}
                     type="submit"
                     className="login-btn btn btn-lg btn-block"
-                    style={{ backgroundColor: "#C996CC" }}
                   >
                     {isLoading ? <ClipLoader color="#e26959" /> : "LOGIN"}
                   </button>

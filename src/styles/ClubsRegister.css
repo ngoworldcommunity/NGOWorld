@@ -25,7 +25,7 @@
 /* Registration Button */
 .registration-btn {
   width: 30%;
-  background-color: #ba68c8;
+  background-color: rgb(137, 181, 247) !important;
   color: whitesmoke;
   border: none;
   display: flex;
@@ -79,10 +79,5 @@
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.regformlabels {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1rem;
+  font-family: Montserrat, sans-serif;
 }

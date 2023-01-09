@@ -1,10 +1,3 @@
-.userregister_header {
-  font-family: "Open Sans", sans-serif;
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-}
-
 .anchor-container {
   text-align: center;
 }
@@ -21,16 +14,19 @@ form .btn-container-desktop {
 }
 
 .register-btn {
+  background-color: rgb(137, 181, 247);
   text-transform: uppercase !important;
   font-size: 1.25rem !important;
   font-weight: 500;
   letter-spacing: 0.05rem;
   transition: 0.2s;
+  cursor: pointer;
 }
 
-.loginform h1 {
+.loginform h1,
+.userregister_header {
   font-family: Montserrat, sans-serif;
-  font-size: 3.5rem;
+  font-size: 2rem;
   line-height: 60px;
   margin-bottom: 1.5rem !important;
   color: #28183b;
@@ -39,10 +35,11 @@ form .btn-container-desktop {
   word-break: break-word;
 }
 
-.loginform label {
+.loginform label,
+.regformlabels {
   font-family: Poppins, sans-serif;
   color: black;
-  font-size: 1.4rem;
+  font-size: 1rem;
   letter-spacing: 1px;
 }
 
@@ -118,9 +115,15 @@ form .btn-container-desktop {
   .clubreg_des {
     display: none;
   }
+  .loginform h1,
+  .userregister_header {
+    font-size: 2rem;
+  }
 }
 
-.login-btn:hover {
+.login-btn:hover,
+.register-btn:hover {
   border: #212529;
   background-color: #7496ca;
+  transform: scale(1.02);
 }
