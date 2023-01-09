@@ -63,7 +63,7 @@
     margin-bottom: 0px !important;
   }
 }
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 1024px) {
   .registration-btn {
     width: 100%;
   }
