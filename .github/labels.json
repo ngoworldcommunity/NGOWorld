@@ -126,13 +126,5 @@
   {
     "name": "dependencies",
     "color": "0366d6"
-  },
-  {
-    "name": "hacktoberfest",
-    "color": "eb06b0"
-  },
-  {
-    "name": "hacktoberfest-accepted",
-    "color": "0f8b16"
   }
 ]

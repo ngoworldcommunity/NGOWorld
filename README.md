@@ -44,7 +44,6 @@ Contributing to the Project
     <img alt="C" src="https://img.shields.io/badge/VSCode-%23007ACC.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white">
     <img alt="C" src="https://img.shields.io/badge/Open%20Source-%23F05032.svg?style=for-the-badge&logo=open-source-initiative&logoColor=white">
     <img alt="C" src="https://img.shields.io/badge/CSS-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white">
-    <img alt="C" src="https://img.shields.io/badge/Hacktoberfest-%23F05032.svg?style=for-the-badge&logo=open-source-initiative&logoColor=white">
     <img alt="C" src="https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=canva&logoColor=white">
     <img alt="C" src="https://img.shields.io/badge/Figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white">
     <img alt="C" src="https://img.shields.io/badge/Auth0-%2300C7B7.svg?style=for-the-badge&logo=auth0&logoColor=white">
