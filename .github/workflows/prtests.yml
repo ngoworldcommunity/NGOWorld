@@ -1,8 +1,13 @@
 name: E2E Tests + Preview deploy
 
 env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    GH_PAT: ${{ secrets.GH_PAT }}
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    VERCEL_TOKEN: ${{ secrets.NOW_TOKEN }}
+    VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+    VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    DEPLOY_PR_FROM_FORK: true
+
 
 on:
   pull_request:
@@ -58,8 +63,8 @@ jobs:
       - name: Deploy to Vercel Action
         uses: BetaHuhn/deploy-to-vercel-action@develop
         with:
-          GH_PAT: ${{ secrets.MILAN_CICD }}
-          GITHUB_TOKEN: ${{ secrets.MILAN_CICD }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VERCEL_TOKEN: ${{ secrets.NOW_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
