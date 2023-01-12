@@ -1,0 +1,26 @@
+name: Fetch Labels from Issue
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  fetch-labels:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Get labels from linked issue
+        id: get-labels
+        run: |
+          ISSUE_NUMBER=$(jq -r .pull_request.issue_url $GITHUB_EVENT_PATH | awk -F '/' '{print $NF}')
+          LABELS=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" https://api.github.com/repos/$GITHUB_REPOSITORY/issues/$ISSUE_NUMBER/labels)
+          echo "::set-output name=labels::$LABELS"
+
+      - name: Add labels to PR
+        run: |
+          LABELS=$(jq -r '.labels[] | .name' <<< "${{ steps.get-labels.outputs.labels }}")
+          for LABEL in $LABELS; do
+            curl -s -X POST -H "Authorization: Bearer $GITHUB_TOKEN" -H "Content-Type: application/json" -d "{\"labels\":[\"$LABEL\"]}" https://api.github.com/repos/$GITHUB_REPOSITORY/pulls/${{ github.event.number }}/labels
+          done
