@@ -54,10 +54,12 @@ jobs:
             core.setOutput('repo', isPr ? context.payload.pull_request.head.repo.full_name : context.repo.full_name)
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+      
+      - name: set environment variables
+        uses: allenevans/set-env@v2.0.0
         with:
-          ref: ${{ steps.script.outputs.ref }}
-          repository: ${{ steps.script.outputs.repo }}
+          DEPLOY_PR_FROM_FORK: true
 
       - name: Deploy to Vercel Action
         uses: BetaHuhn/deploy-to-vercel-action@v1.9.10
