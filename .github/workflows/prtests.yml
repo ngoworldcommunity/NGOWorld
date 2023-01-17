@@ -63,7 +63,6 @@ jobs:
 
 
       - name: Check if Branch Exists
-        if: ${{ github.event_name == 'pull_request' }}
         run: |
           const octokit = require('@octokit/rest')();
           octokit.authenticate({
