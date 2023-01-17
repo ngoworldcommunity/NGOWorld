@@ -63,8 +63,9 @@ jobs:
 
 
       - name: Check if Branch Exists
+        if: ${{ github.event_name == 'pull_request' }}
         run: |
-          const octokit = require('@octokit/rest')();
+          const octokit = require('@octokit/rest');
           octokit.authenticate({
             type: 'token',
             token: ${{ secrets.GITHUB_TOKEN }}
@@ -77,17 +78,16 @@ jobs:
           if (!branchExists) {
             core.setFailed(`Branch ${context.payload.pull_request.head.ref} does not exist`);
           }
+
       
       - name: Create Branch
-        if: ${{ steps.check_if_branch_exists.outputs.branchExists == 'false' }}
-        uses: peterjgrainger/action-create-branch@v2.0.1
+        if: ${{ steps.check_if_branch_exists.outputs.status != '200' }}
+        uses: peterjgrainger/action-create-branch@v2.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          repo: ${{ steps.script.outputs.repo }}
-          branch: ${{ github.event.pull_request.head.ref }}
-          sha: ${{ github.event.pull_request.head.sha }}
-
+          branch: '${{ github.event.pull_request.head.ref }}'
+          sha: '${{ github.event.pull_request.head.sha }}'
           
       - name: Deploy to Vercel Action
         uses: BetaHuhn/deploy-to-vercel-action@latest
