@@ -62,26 +62,24 @@ jobs:
           repository: ${{ steps.script.outputs.repo }}
 
 
-      - name: Check if Branch Exists
-        if: ${{ github.event_name == 'pull_request' }}
-        run: |
-          const octokit = require('@octokit/rest');
-          octokit.authenticate({
-            type: 'token',
-            token: ${{ secrets.GITHUB_TOKEN }}
-          });
-          const branchExists = await octokit.repos.getBranch({
-            owner: context.payload.pull_request.head.repo.owner.login,
-            repo: context.payload.pull_request.head.repo.name,
-            branch: context.payload.pull_request.head.ref
-          });
-          if (!branchExists) {
-            core.setFailed(`Branch ${context.payload.pull_request.head.ref} does not exist`);
-          }
+      # - name: Check if Branch Exists
+      #   run: |
+      #     const octokit = require('@octokit/rest');
+      #     octokit.authenticate({
+      #       type: 'token',
+      #       token: ${{ secrets.GITHUB_TOKEN }}
+      #     });
+      #     const branchExists = await octokit.repos.getBranch({
+      #       owner: context.payload.pull_request.head.repo.owner.login,
+      #       repo: context.payload.pull_request.head.repo.name,
+      #       branch: context.payload.pull_request.head.ref
+      #     });
+      #     if (!branchExists) {
+      #       core.setFailed(`Branch ${context.payload.pull_request.head.ref} does not exist`);
+      #     }
 
       
       - name: Create Branch
-        if: ${{ steps.check_if_branch_exists.outputs.status != '200' }}
         uses: peterjgrainger/action-create-branch@v2.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -97,3 +95,11 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           DEPLOY_PR_FROM_FORK: true
+
+
+      - name: Delete branch
+        if: ${{github.event.pull_request.head.ref !='main' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
+        uses: dawidd6/action-delete-branch@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branches: ${{ github.event.pull_request.head.ref }}
