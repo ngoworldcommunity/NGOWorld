@@ -24,7 +24,7 @@
 
 /* Login Button */
 .login-btn {
-  background-color: #7ed957;
+  background-color: #e26959;
   color: black;
   border: none;
   text-transform: uppercase !important;
@@ -32,6 +32,15 @@
   font-weight: 500;
   letter-spacing: 0.05rem;
   transition: 0.2s;
+}
+.login-btn:hover {
+  background-color: #f68475;
+  transform: scale(1.02);
+}
+.login-btn:disabled {
+  background-color: #e26959;
+  cursor: not-allowed;
+  opacity: 0.8;
 }
 
 .btn-container {
@@ -79,6 +88,7 @@
 
   .login-btn {
     width: 100%;
+    text-align: center !important;
   }
 
   form {

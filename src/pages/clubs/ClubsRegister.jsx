@@ -346,7 +346,7 @@ const ClubLogin = () => {
               />
               <small id="textDemo" className="form-text text-muted"></small>
 
-              <div className="d-grid gap-2 py-4 btn-container-desktop">
+              <div>
                 <button
                   disabled={
                     credentials.description.trim().length < 20 ||
@@ -354,8 +354,7 @@ const ClubLogin = () => {
                     !isEmailValid
                   }
                   type="submit"
-                  className="registration-btn btn  py-2"
-                  style={{ backgroundColor: "#C996CC" }}
+                  className="btn login-btn  py-2"
                 >
                   {isLoading ? <ClipLoader color="#e26959" /> : "Register"}
                 </button>

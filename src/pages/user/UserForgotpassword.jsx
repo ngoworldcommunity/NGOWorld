@@ -23,9 +23,7 @@ const UserForgotpassword = () => {
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
               <form style={{ width: "auto" }}>
-                <h1 style={{ letterSpacing: "1px", marginBottom: "30px" }}>
-                  Reset Your Password!
-                </h1>
+                <h1 className="userregister_header">Reset Your Password!</h1>
                 <div className="form-outline mb-4">
                   <label
                     htmlFor="exampleInputEmail1"
@@ -59,10 +57,7 @@ const UserForgotpassword = () => {
                   />
                 </div>
 
-                <button
-                  className="login-btn btn btn-lg btn-block"
-                  style={{ backgroundColor: "#89b5f7", color: "grey" }}
-                >
+                <button className="login-btn btn btn-lg btn-block">
                   {" "}
                   Forgot Password
                 </button>

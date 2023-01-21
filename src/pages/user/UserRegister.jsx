@@ -129,7 +129,7 @@ const UserRegister = () => {
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
               <form style={{ width: "auto" }} onSubmit={handleSubmit}>
-                <h1 className="userregister_header">Join us at Milan !!</h1>
+                <h1 className="userregister_header">Join us at Milan !</h1>
                 <div className="form-outline mb-2">
                   <label
                     htmlFor="Full Name"
@@ -258,8 +258,7 @@ const UserRegister = () => {
                 <br />
                 <button
                   type="submit"
-                  className="btn btn-lg btn-block register-btn btn-container-desktop"
-                  style={{ backgroundColor: "#89b5f7" }}
+                  className="login-btn btn btn-lg btn-block btn-container-desktop"
                 >
                   Register
                 </button>

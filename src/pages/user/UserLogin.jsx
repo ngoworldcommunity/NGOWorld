@@ -120,16 +120,18 @@ function UserLogin() {
 
       <section className="vh-100">
         <div className="container py-5 h-100">
-          <div className="d-flex align-items-center justify-content-center h-100 gap-1 ">
-            <Authbanner className="authimg" />
+          <div className="d-flex align-items-top justify-content-center h-100 gap-1 ">
+            <div className="col-md-8 col-lg-7 col-xl-6">
+              <Authbanner className="authimg" />
+            </div>
 
-            <div className=" offset-xl-1">
+            <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
               <form
                 style={{ width: "auto" }}
                 onSubmit={handleSubmit}
                 className="loginform"
               >
-                <h1 className="mb-2">Login as an user</h1>
+                <h1 className="mb-2">Login as an User !</h1>
                 <div className="form-outline mb-4">
                   <label
                     htmlFor="exampleInputEmail1"
@@ -180,7 +182,6 @@ function UserLogin() {
                   <button
                     type="submit"
                     className="login-btn btn btn-lg btn-block"
-                    style={{ backgroundColor: "#89b5f7" }}
                   >
                     Login
                   </button>
