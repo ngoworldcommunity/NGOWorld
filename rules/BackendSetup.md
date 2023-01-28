@@ -17,5 +17,5 @@ KEY_SECRET=
 JWT_SECRET=
 ```
 - You can go through the <a href="https://razorpay.com/docs/api" target="_blank">Razorpay docs</a> to generate the API keys
-- Now you're all set, run `npm start` and your server shoud be running locally on the specified `PORT`
+- Now you're all set, run `npm run dev` and your server shoud be running locally on the specified `PORT`
 <br/>
