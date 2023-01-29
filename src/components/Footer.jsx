@@ -199,39 +199,11 @@ const Footer = () => {
                 Check out our socials
               </h1>
             ) : (
-              <p className="footer-text font-italic text-light text-left">
-                With Milan we aim at bringing all the various NGOs and donors
-                under one single roof to ease the burden of going to find their
-                appropriate donors and the appropriate communities to donate to.
-                With the help of our search filters and ask platform, it becomes
-                easier for the people to find their right community to serve.
+              <p className="footer-text font-italic text-light text-left mt-4">
+                We are an Opensource product,<br /><span className=""> feel free to contribute</span> <a href="https://github.com/IAmTamal/Milan" target='_blank'>here</a>
               </p>
             )}
-            <div className="socials justify-content-center">
-              <div className="twitter social-btn">
-                <a
-                  href="https://twitter.com/mrTamall"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  <i className="fa-brands fa-twitter"></i>
-                </a>
-              </div>
-              <div className="github social-btn">
-                <a
-                  href="https://github.com/IAmTamal/Milan"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  <i className="fa-brands fa-github"></i>
-                </a>
-              </div>
-              <div className="cont social-btn">
-                <a href="https://milaan.vercel.app/contact">
-                  <i className="cont-icon fa-solid fa-message"></i>
-                </a>
-              </div>
-            </div>
+            
           </div>
 
           <div className="join-us col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
@@ -295,7 +267,35 @@ const Footer = () => {
               </button>
             </div>
           </div>
+          
         </div>
+        <div className="socials justify-content-center">
+              <div className="twitter social-btn">
+                <a
+                  href="https://twitter.com/mrTamall"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <i className="fa-brands fa-twitter"></i>
+                </a>
+              </div>
+              <div className="github social-btn">
+                <a
+                  href="https://github.com/IAmTamal/Milan"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <i className="fa-brands fa-github"></i>
+                </a>
+              </div>
+              <div className="cont social-btn">
+                <a href="https://milaan.vercel.app/contact">
+                  <i className="cont-icon fa-solid fa-message"></i>
+                </a>
+              </div>
+             
+            </div>
+            <p className="text-light text-center">Milan</p>
       </div>
     </footer>
   );

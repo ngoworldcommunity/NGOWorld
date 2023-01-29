@@ -116,6 +116,7 @@
 
 .socials {
   display: flex;
+  /* margin-top: 8px; */
 }
 
 .social-btn {
@@ -177,6 +178,7 @@
 
 .join {
   margin-top: 27px;
+  margin-left: -75px;
 }
 
 .join-us ul li a {
@@ -202,7 +204,7 @@
 }
 
 .rep {
-  margin-top: 23px;
+  margin-top: 50px;
 }
 
 .btn-report {
