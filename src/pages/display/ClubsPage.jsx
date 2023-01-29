@@ -1,70 +1,5 @@
-// import React, { useEffect, useState } from 'react';
-// import SingleClub from '../../components/SingleClub';
-// import '../../styles/ClubsPage.css';
-// import clubs_banner from '../../assets/pictures/clubs-banner.svg';
-// import Navbar from '../../components/Navbar';
-// import Footer from '../../components/Footer';
-// import { GetAllClubs } from '../../service/MilanApi';
-// import Loading from '../../components/Loading';
-
-// const ClubsPage = () => {
-//   document.title = 'Milan | Clubs';
-//   const [clubData, setClubData] = useState([]);
-//   const [loading, setLoading] = useState(false);
-
-//   useEffect(() => {
-//     const fetchClubData = async () => {
-//       setLoading(true);
-//       const response = await GetAllClubs();
-//       setClubData(response);
-//       setLoading(false);
-//     };
-//     fetchClubData();
-//   }, []);
-
-//   return (
-//     <>
-
-//       <div id="clubs_banner" className="container">
-//         <div id="clubsCol2">
-//           <img src={clubs_banner} alt="clubs banner" className="clubs_img" />
-//         </div>
-
-//         <div
-//           id="clubscol_1"
-//           className="d-flex flex-column justify-content-center align-items-start"
-//         >
-//           <h1 className="mb-2">Clubs and communities !</h1>
-//           <p>
-//             Here are some clubs you can follow, you can attend club events and
-//             even get notified about it once you subscribe !
-//           </p>
-//         </div>
-//       </div>
-
-//       <hr className="container" />
-
-//       <div className="container main-card-container">
-//         <div className="cards">
-//           {loading ? (
-//             <Loading />
-//           ) : (
-//             <>
-//               {clubData.map((club) => {
-//                 return <SingleClub key={club._id} club={club} />;
-//               })}
-//             </>
-//           )}
-//         </div>
-//       </div>
-//       <Footer />
-//     </>
-//   );
-// };
-
-// export default ClubsPage;
-
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Loading from "../../components/Loading";
 import SingleClubEvent from "../../components/SingleClubEvent";
 import { GetAllClubs } from "../../service/MilanApi";
@@ -86,6 +21,15 @@ const ClubsPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Milan | Clubs </title>
+        <meta
+          name="description"
+          content="These are the clubs and communities you can follow, you can attend charity/club events and even get notified about it once you subscribe !"
+        />
+        <link rel="canonical" href="/" />
+      </Helmet>
+
       <div className="container">
         <div className="cp_main_parent">
           <div className="cp_subparent">

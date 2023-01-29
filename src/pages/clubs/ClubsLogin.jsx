@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import Navbar from '../../components/Navbar';
-import { Link, useNavigate } from 'react-router-dom';
-import '../../styles/ClubLogin.css';
-import Pic from '../../assets/pictures/clubs-login.png';
-import { LoginClub } from '../../service/MilanApi';
-import { TailSpin } from 'react-loader-spinner';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Cookies from 'js-cookie';
-import { Helmet } from 'react-helmet-async';
+import React, { useState } from "react";
+import Navbar from "../../components/Navbar";
+import { Link, useNavigate } from "react-router-dom";
+import "../../styles/ClubLogin.css";
+import { LoginClub } from "../../service/MilanApi";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Cookies from "js-cookie";
+import { Helmet } from "react-helmet-async";
+import { ReactComponent as Authbanner } from "../../assets/pictures/authpages/authbannerimg.svg";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function ClubLogin() {
   const Navigate = useNavigate();
@@ -25,8 +25,8 @@ function ClubLogin() {
   }
 
   const [credentials, setCredentials] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const [isEmailValid, setIsEmailValid] = useState(false);
@@ -35,8 +35,8 @@ function ClubLogin() {
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
     if (
-      e.target.name === 'email' &&
-      e.target.value.match('^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$')
+      e.target.name === "email" &&
+      e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
     )
       setIsEmailValid(true);
   };
@@ -52,10 +52,10 @@ function ClubLogin() {
 
     Data.then((response) => {
       if (response?.data.token) {
-        Cookies.set('club', response.data.token);
+        Cookies.set("club", response.data.token);
 
-        toast('🦄 Logging you in !', {
-          position: 'top-right',
+        toast("🦄 Logging you in !", {
+          position: "top-right",
           autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -64,13 +64,13 @@ function ClubLogin() {
           progress: undefined,
           closeButton: false,
           onClose: () => {
-            Navigate('/');
+            Navigate("/");
           },
         });
       } else {
         setCredentials({
-          email: '',
-          password: '',
+          email: "",
+          password: "",
         });
       }
     }).catch((err) => {
@@ -88,7 +88,6 @@ function ClubLogin() {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-      <Navbar />
 
       <ToastContainer
         position="top-right"
@@ -107,19 +106,19 @@ function ClubLogin() {
 
       <section className="vh-100">
         <div className="container py-5 h-100">
-          <div className="row d-flex align-items-center justify-content-center h-100">
-            <div className="col-md-8 col-lg-7 col-xl-6 d-flex justify-content-center">
-              <img src={Pic} className="mobile-img" alt="profile-img"></img>
+          <div className="row d-flex align-items-top justify-content-center h-100">
+            <div className="col-md-8 col-lg-7 col-xl-6">
+              <Authbanner className="authimg" />
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form style={{ width: 'auto' }} onSubmit={handleSubmit}>
+              <form style={{ width: "auto" }} onSubmit={handleSubmit}>
                 <h1
                   style={{
-                    letterSpacing: '1px',
-                    marginBottom: '25px',
-                    textAlign: 'center',
+                    letterSpacing: "1px",
+                    marginBottom: "25px",
                   }}
+                  className="userregister_header"
                 >
                   Log in with your Club!
                 </h1>
@@ -140,6 +139,7 @@ function ClubLogin() {
                     value={credentials.email}
                     onChange={handleChange}
                     required
+                    data-cy="desktop-club-email"
                   />
 
                   <input
@@ -171,6 +171,7 @@ function ClubLogin() {
                     value={credentials.password}
                     onChange={handleChange}
                     required
+                    data-cy="desktop-club-password"
                   />
 
                   <input
@@ -206,13 +207,8 @@ function ClubLogin() {
                     disabled={credentials.password.length <= 4 || !isEmailValid}
                     type="submit"
                     className="login-btn btn btn-lg btn-block"
-                    style={{ backgroundColor: '#C996CC' }}
                   >
-                    {isLoading ? (
-                      <TailSpin color="#FFFFFF" height={30} width={30} />
-                    ) : (
-                      'LOGIN'
-                    )}
+                    {isLoading ? <ClipLoader color="#e26959" /> : "LOGIN"}
                   </button>
                 </div>
                 <br></br>

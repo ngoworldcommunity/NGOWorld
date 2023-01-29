@@ -22,15 +22,16 @@ const Navbar = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-light sticky-top navbar_main ">
         <div className="container">
-          <img
-            src={
-              solidarity ||
-              "https://www.shareicon.net/data/512x512/2016/09/15/829452_user_512x512.png"
-            }
-            onClick={() => window.location.replace("/")}
-            alt="Milan-logo"
-            className="nav_bramhin_img"
-          />
+          <Link to={"/"}>
+            <img
+              src={
+                solidarity ||
+                "https://www.shareicon.net/data/512x512/2016/09/15/829452_user_512x512.png"
+              }
+              alt="Milan-logo"
+              className="nav_bramhin_img"
+            />
+          </Link>
 
           <button
             className="navbar-toggler"
@@ -80,42 +81,27 @@ const Navbar = () => {
               </li>
 
               <li className="nav-item home">
-                <Link to="/shops/shop">Shop</Link>
+                <Link to="/shop">Shop</Link>
                 <div
                   className={
-                    "" +
-                    (location.pathname === "/shops/shop" ? "active-link" : "")
+                    "" + (location.pathname === "/shop" ? "active-link" : "")
                   }
                 ></div>
               </li>
 
-              <button className="btn btn-warning nav_signup_btn">
-                Sign up
-              </button>
-
-              {/* Render Contact Us in Navabr only for Login and Register Pages */}
-              {(location.pathname === "/user/login" ||
-                location.pathname === "/user/register" ||
-                location.pathname === "/clubs/login" ||
-                location.pathname === "/clubs/register") && (
-                <li className="nav-item home">
-                  <Link to={"/contact"}>Contact</Link>
-                  <div
-                    className={
-                      "" +
-                      (location.pathname === "/contact" ? "active-link" : "")
-                    }
-                  ></div>
-                </li>
-              )}
-
-              {(Cookies.get("token") || Cookies.get("club")) && (
+              {Cookies.get("token") || Cookies.get("club") ? (
                 <img
                   onClick={handleNavigate}
                   src={ProfilePicture}
                   alt="lol"
                   className="nav_user_img"
                 />
+              ) : (
+                <li className="nav-item home">
+                  <Link to="/user/register">
+                    <button className="btn nav_signup_btn">Sign up</button>
+                  </Link>
+                </li>
               )}
             </ul>
           </div>

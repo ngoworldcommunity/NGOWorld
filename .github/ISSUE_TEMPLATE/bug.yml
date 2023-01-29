@@ -6,7 +6,6 @@ labels:
     "🛠 goal: fix",
     "🛠 status : under development",
     "🟧 priority: high",
-    "hacktoberfest",
   ]
 body:
   - type: textarea

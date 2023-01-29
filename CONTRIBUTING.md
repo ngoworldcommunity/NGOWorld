@@ -5,12 +5,18 @@
 <br/>
 
 - Issues will be assigned on a **First-Come-First-Serve** basis and are applicable only when they have opted through GitHub.
-- If a contributor is unable to solve the allotted issue within the given period, the issue needs to be passed to other contenders at the discretion of the maintainer/owner.
+- If a contributor is unable to solve the allotted issue, the issue needs to be passed to other contenders at the discretion of the maintainer/owner.
+
+
+## General  
 
 - `Fork` the repo to your account.
 - `git clone` to clone the repo
 
-- Make your desired changes to the code,
+- Making a branch is **optional**, else contribute to the main branch of your forked repo.
+
+
+## After changes : 
 - Make sure you do `git pull` to pull the latest version of the code
 - `git add .` to stage for commits
 - **NOTICE--> message will be `fix: <anything you fixed>`**

@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
-
-import { Link, useNavigate } from 'react-router-dom';
-import Navbar from '../../components/Navbar';
-import { RegisterUser } from '../../service/MilanApi';
-
-import SchemaValidator, { msgLocalise } from '../../utils/validation';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../../components/Navbar";
+import { RegisterUser } from "../../service/MilanApi";
+import { ReactComponent as Authbanner } from "../../assets/pictures/authpages/authbannerimg.svg";
+import SchemaValidator, { msgLocalise } from "../../utils/validation";
 
 //* The styles for Login and Register are essentially same
-import '../../styles/UserLogin.css';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { Helmet } from 'react-helmet-async';
+import "../../styles/UserLogin.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet-async";
 
 const UserRegister = () => {
   const navigate = useNavigate();
@@ -27,32 +26,32 @@ const UserRegister = () => {
   }
 
   const [credentials, setCredentials] = useState({
-    firstname: '',
-    lastname: '',
-    email: '',
-    password: '',
-    address: '',
-    pincode: '',
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    address: "",
+    pincode: "",
   });
 
   const FormDataProto = {
-    id: '/SignUpForm',
-    type: 'object',
+    id: "/SignUpForm",
+    type: "object",
     properties: {
-      firstname: { type: 'string' },
-      lastname: { type: 'string' },
-      email: { type: 'string', format: 'email' },
-      password: { type: 'string', minLength: 8 },
-      address: { type: 'string' },
-      pincode: { pattern: '[0-9]+', minLength: 6 },
+      firstname: { type: "string" },
+      lastname: { type: "string" },
+      email: { type: "string", format: "email" },
+      password: { type: "string", minLength: 8 },
+      address: { type: "string" },
+      pincode: { pattern: "[0-9]+", minLength: 6 },
     },
     required: [
-      'firstname',
-      'lastname',
-      'email',
-      'password',
-      'address',
-      'pincode',
+      "firstname",
+      "lastname",
+      "email",
+      "password",
+      "address",
+      "pincode",
     ],
   };
 
@@ -68,8 +67,8 @@ const UserRegister = () => {
     if (validator.valid) {
       await RegisterUser(credentials);
 
-      toast('🦄 Registered your account !', {
-        position: 'top-right',
+      toast("🦄 Registered your account !", {
+        position: "top-right",
         autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -78,13 +77,13 @@ const UserRegister = () => {
         progress: undefined,
         closeButton: false,
         onClose: () => {
-          navigate('/user/login');
+          navigate("/user/login");
         },
       });
     } else {
       validator.errors.map(function (e, i) {
         return toast(`${e.path[0]} : ${msgLocalise(e)}`, {
-          position: 'top-right',
+          position: "top-right",
           autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
@@ -107,9 +106,6 @@ const UserRegister = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-
-      <Navbar />
-
       <ToastContainer
         position="top-right"
         autoClose={1000}
@@ -126,18 +122,14 @@ const UserRegister = () => {
 
       <section className="vh-100">
         <div className="container py-5 h-100">
-          <div className="row d-flex align-items-center justify-content-center h-100">
+          <div className="row d-flex align-items-top justify-content-center h-100">
             <div className="col-md-8 col-lg-7 col-xl-6">
-              <img
-                src="https://www.getillustrations.com/packs/plastic-illustrations-scene-builder-pack/scenes/_1x/accounts%20_%20man,%20workspace,%20desk,%20laptop,%20login,%20user_md.png"
-                className="img-fluid userregister_sideimg"
-                alt="Phone"
-              />
+              <Authbanner className="authimg" />
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form style={{ width: 'auto' }} onSubmit={handleSubmit}>
-                <h1 className="userregister_header">Join us at Milan !!</h1>
+              <form style={{ width: "auto" }} onSubmit={handleSubmit}>
+                <h1 className="userregister_header">Join us at Milan !</h1>
                 <div className="form-outline mb-2">
                   <label
                     htmlFor="Full Name"
@@ -266,8 +258,7 @@ const UserRegister = () => {
                 <br />
                 <button
                   type="submit"
-                  className="btn btn-lg btn-block register-btn btn-container-desktop"
-                  style={{ backgroundColor: '#89b5f7' }}
+                  className="login-btn btn btn-lg btn-block btn-container-desktop"
                 >
                   Register
                 </button>
