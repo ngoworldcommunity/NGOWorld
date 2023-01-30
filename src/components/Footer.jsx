@@ -106,7 +106,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-white m-0">
+    <footer className="bg-white m-0 main-font">
       <ToastContainer />
 
       {/* Report modal starts here  */}
@@ -200,7 +200,7 @@ const Footer = () => {
               </h1>
             ) : (
               <p className="footer-text font-italic text-light text-left mt-4">
-                We are an Opensource product,<br /><span className=""> feel free to contribute</span> <a href="https://github.com/IAmTamal/Milan" target='_blank'>here</a>
+                Want to join Team Milan ?<br /><span className=""> Contribute here </span> <a href="https://github.com/IAmTamal/Milan" target='_blank'>here</a>!
               </p>
             )}
             
@@ -208,7 +208,7 @@ const Footer = () => {
 
           <div className="join-us col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
             <div className="join">
-              <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4">
+              <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4 headings">
                 {logged ? "Explore!" : "Join Us!"}
               </h1>
               <ul className="join-us-list list-unstyled mb-0">
@@ -250,7 +250,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="rep col-lg-4 col-md-6 mb-lg-0">
-            <h1 className="h6 text-uppercase text-light font-weight-bold mb-2 text-center">
+            <h1 className="h6 headings text-uppercase text-light font-weight-bold mb-2 text-center">
               Got something to report ?
             </h1>
             <p className="text-light text-center mb-4">
@@ -295,7 +295,7 @@ const Footer = () => {
               </div>
              
             </div>
-            <p className="text-light text-center">Milan</p>
+            <p className="text-light text-center">Developed by team Milan © 2023</p>
       </div>
     </footer>
   );

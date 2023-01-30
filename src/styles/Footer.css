@@ -5,7 +5,9 @@
   overflow: visible;
   clear: both;
 }
-
+.main-font{
+  font-family: poppins;
+}
 .page-footer {
   background-color: rgb(48, 47, 47);
   padding: 30px 80px;
@@ -118,7 +120,9 @@
   display: flex;
   /* margin-top: 8px; */
 }
-
+.headings{
+  font-family: Montserrat,sans-serif;
+}
 .social-btn {
   display: flex;
   justify-content: space-evenly;
