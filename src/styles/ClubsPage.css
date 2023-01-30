@@ -92,7 +92,7 @@
 }
 
 .cp_card_button:hover {
-  background-color: orange;
+  background-color: #e26959;
   border: none;
   transition: 500ms;
 }
