@@ -199,8 +199,8 @@ const Footer = () => {
                 Check out our socials
               </h1>
             ) : (
-              <p className="footer-text font-italic text-light text-left mt-4">
-                Want to join Team Milan ?<br /><span className=""> Contribute here </span> <a href="https://github.com/IAmTamal/Milan" target='_blank'>here</a>!
+              <p className="footer-text font-italic text-light text-left mt-4 headings">
+                Want to join Team Milan ?<br /><span className=""> Contribute </span> <a href="https://github.com/IAmTamal/Milan" target='_blank'>here</a>!
               </p>
             )}
             
