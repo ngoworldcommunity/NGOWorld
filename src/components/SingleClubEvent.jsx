@@ -52,6 +52,7 @@ export default function SingleClubEvent({ club, type, event }) {
             {type === "events" ? event.Eventlocation : null}
           </p>
           {/* <p className='cp_card_tag' >{type === "events" ? event.Eventdescription : club.tagLine}</p> */}
+          <button className="cp_card_button">View</button>
         </div>
       </div>
     </>
