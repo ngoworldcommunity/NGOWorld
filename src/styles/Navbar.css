@@ -63,6 +63,11 @@
     padding: 8px;
   }
 }
+@media (max-width: 769px) {
+  .nav-item {
+    font-size: 1.5rem;
+  }
+}
 
 .nav_bramhin_img {
   width: 45px;
