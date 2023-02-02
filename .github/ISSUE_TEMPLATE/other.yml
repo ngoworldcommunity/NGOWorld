@@ -18,13 +18,6 @@ body:
       description: Provide a clear and concise explanation of your issue.
     validations:
       required: true
-  - type: textarea
-    id: extrainfo
-    attributes:
-      label: Additional information
-      description: Is there anything else we should know about this issue?
-    validations:
-      required: false
   - type: dropdown
     id: browser
     attributes:

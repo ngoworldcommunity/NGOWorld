@@ -22,14 +22,7 @@ body:
       description: Please add screenshots if applicable
     validations:
       required: false
-  - type: textarea
-    id: extrainfo
-    attributes:
-      label: Additional information
-      description: Is there anything else we should know about this bug?
-    validations:
-      required: false
-
+  
   - type: dropdown
     id: browser
     attributes:
