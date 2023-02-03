@@ -13,16 +13,12 @@ router.post("/register", async (req, res) => {
   try {
     const data = req.body;
 
-    // const { name, email, password, address, pincode, description, tagLine } =
-    //   req.body;
-    
-    
     const { email } = req.body;
-    const existingUser = await Club.findOne({ email: email });      
+    const existingUser = await Club.findOne({ email: email });
     if (existingUser) {
       return res.status(409).json({ message: "Account already exists" });
     }
-   
+
     const hashpassword = await bcrypt.hash(data.password, 10);
 
     const ClubData = Club({
@@ -37,9 +33,8 @@ router.post("/register", async (req, res) => {
 
     await ClubData.save();
     res.status(201).json({ message: "Registration successful, please login" });
-
   } catch (error) {
-     res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
@@ -64,7 +59,7 @@ router.post("/login", async (req, res) => {
 
     jwt.sign(payload, process.env.JWT_SECRET, (err, token) => {
       // console.log(token);
-      if(err) throw new Error('Something Went Wrong!!');
+      if (err) throw new Error("Something Went Wrong!!");
       res.status(201).json({ token, isuser: false });
     });
   } catch (e) {

@@ -12,7 +12,7 @@ export default function SingleClubEvent({ club, type, event }) {
   const nav = useNavigate();
 
   const cardButtonHandler = () => {
-    nav(`/display/clubs/${club._id}`);
+    nav(`/clubs/${club._id}`);
   };
   const expand = () => {
     document.getElementById(`less${club._id}`).classList.add("hidden");

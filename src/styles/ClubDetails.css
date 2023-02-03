@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
 
 .club_details {
-    height: 100vh;
+    height: auto;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -28,20 +28,31 @@
     justify-content: space-around;
     padding-left: 55px;
     padding-right: 55px;
-    font-family: 'Mulish';
+
 }
 
 .club_details_card h1 {
     font-size: 50px;
     font-weight: bold;
-    color: #2E8E83;
+    color: #e26959;
+    margin-bottom: 10px;
+    font-family: Montserrat, sans-serif;
+}
+
+.club_details_card h2 {
+    font-size: 30px;
+    /*    font-weight: bold; */
+    max-width: 95%;
     margin-bottom: 30px;
+    font-family: Poppins, sans-serif;
 }
 
 .club_details_card h6 {
     font-style: italic;
-    font-size: 17px;
+    font-size: 20px;
+    font-weight: bold;
     margin-bottom: 30px;
+    font-family: Poppins, sans-serif;
 }
 
 .club_details_card span {
@@ -50,19 +61,20 @@
 
 .club_details_card p {
     font-style: normal;
-    font-weight: 600;
     font-size: 20px;
     line-height: 25px;
     margin-bottom: 40px;
+    font-family: Poppins, sans-serif;
 }
 
 .club_details_card button {
     align-self: flex-start;
-    background-color: #2E8E83;
+    background-color: #e26959;
     color: white;
     width: 155px;
     height: 45px;
     border-radius: 13px;
     border: none;
     font-weight: 500;
+    font-family: Poppins, sans-serif;
 }

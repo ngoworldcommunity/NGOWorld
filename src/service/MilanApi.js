@@ -6,19 +6,18 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const apiURL = [
-  "https://milan-jwoc.herokuapp.com",
   "http://localhost:5000",
   "https://milan-server.vercel.app",
   "https://milan-server.adaptable.app",
 ];
-const API = apiURL[2];
+const API = apiURL[1];
 
 const User_Log = `${API}/user/login`;
 const User_Reg = `${API}/user/register`;
 const User_Updt = `${API}/user/update`;
 const Club_Log = `${API}/club/login`;
 const Club_Reg = `${API}/club/register`;
-const All_Clubs = `${API}/display/allClubs`;
+const All_Clubs = `${API}/display/clubs`;
 const Report_Log = `${API}/user/userreport`;
 
 const All_Events = `${API}/display/allevents`;
@@ -94,6 +93,18 @@ export const RegisterClub = async (credentials) => {
 export const GetAllClubs = async () => {
   try {
     const response = await Axios.get(All_Clubs);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+  }
+};
+
+//* Get single club details
+
+export const getClubDetails = async (id) => {
+  try {
+    const response = await Axios.get(`${API}/display/clubs?id=${id}`);
     return response.data;
   } catch (error) {
     console.log(error);

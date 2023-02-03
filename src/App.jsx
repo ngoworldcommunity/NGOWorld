@@ -69,17 +69,13 @@ const App = () => {
             />
 
             {/* //* Display Routes */}
-            <Route exact path="/display/clubs" element={<ClubsPage />} />
+            <Route exact path="/clubs" element={<ClubsPage />} />
             <Route exact path="/contact" element={<ContactPage />} />
             <Route exact path="/aboutus" element={<AboutUs />} />
             <Route exact path="/clubs/createevent" element={<EventCreate />} />
-            <Route exact path="/display/events" element={<EventsPage />} />
+            <Route exact path="/events" element={<EventsPage />} />
             <Route exact path="/shop" element={<ShopLanding />} />
-            <Route
-              exact
-              path="/display/clubs/:id"
-              element={<ClubDetailsCard />}
-            />
+            <Route exact path="/clubs/:id" element={<ClubDetailsCard />} />
 
             {/* //* Donations */}
             <Route exact path="/donateus" element={<Donate />} />
