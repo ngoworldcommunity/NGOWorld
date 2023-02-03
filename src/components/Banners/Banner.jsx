@@ -38,7 +38,7 @@ const Banner = () => {
                     data-cy="landingpage-club-signup"
                     id="landingpage-club-signup"
                   >
-                    Exolore our brand new shop!
+                    Exolore our brand new shop !
                   </button>
                 ) : (
                   <button
