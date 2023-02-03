@@ -29,7 +29,7 @@ const Banner = () => {
                 </p>
               </div>
               <div className="banner_signup_btndiv">
-                {Cookies.get("token") || Cookies.get("club") ? (
+                {!Cookies.get("token") || !Cookies.get("club") ? (
                   <button
                     className="btn btn-warning banner_signup_btn"
                     onClick={() => {
@@ -38,7 +38,7 @@ const Banner = () => {
                     data-cy="landingpage-club-signup"
                     id="landingpage-club-signup"
                   >
-                    Exolore our brand new shop
+                    Exolore our brand new shop!
                   </button>
                 ) : (
                   <button
