@@ -12,7 +12,7 @@ export default function SingleClubEvent({ club, type, event }) {
   const nav = useNavigate();
 
   const cardButtonHandler = () => {
-    nav(`/display/clubs/${club._id}`);
+    nav(`/clubs/${club._id}`);
   };
   const expand = () => {
     document.getElementById(`less${club._id}`).classList.add("hidden");
@@ -52,6 +52,7 @@ export default function SingleClubEvent({ club, type, event }) {
             {type === "events" ? event.Eventlocation : null}
           </p>
           {/* <p className='cp_card_tag' >{type === "events" ? event.Eventdescription : club.tagLine}</p> */}
+          <button className="cp_card_button">View</button>
         </div>
       </div>
     </>

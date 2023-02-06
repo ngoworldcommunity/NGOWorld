@@ -43,6 +43,11 @@ form .btn-container-desktop {
   letter-spacing: 1px;
 }
 
+.form-control:focus {
+  box-shadow:0 0 11px 0.1rem #e26959 !important;
+  border: none;
+}
+
 @media screen and (max-width: 800px) {
   h1 {
     text-align: center;
@@ -125,5 +130,10 @@ form .btn-container-desktop {
 .register-btn:hover {
   border: #212529;
   background-color: #7496ca;
+  transform: scale(1.02);
+}
+
+.login-btn:focus{
+  background-color: #f68475;
   transform: scale(1.02);
 }
