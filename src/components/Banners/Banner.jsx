@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/Banner.css";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const Banner = () => {
   var nav = useNavigate();
@@ -28,16 +29,29 @@ const Banner = () => {
                 </p>
               </div>
               <div className="banner_signup_btndiv">
-                <button
-                  className="btn btn-warning banner_signup_btn"
-                  onClick={() => {
-                    nav("/clubs/register");
-                  }}
-                  data-cy="landingpage-club-signup"
-                  id="landingpage-club-signup"
-                >
-                  Sign up now
-                </button>
+                {Cookies.get("token") || Cookies.get("club") ? (
+                  <button
+                    className="btn btn-warning banner_signup_btn"
+                    onClick={() => {
+                      nav("/shop");
+                    }}
+                    data-cy="landingpage-club-signup"
+                    id="landingpage-club-signup"
+                  >
+                    Explore our brand new shop !
+                  </button>
+                ) : (
+                  <button
+                    className="btn btn-warning banner_signup_btn"
+                    onClick={() => {
+                      nav("/clubs/register");
+                    }}
+                    data-cy="landingpage-club-signup"
+                    id="landingpage-club-signup"
+                  >
+                    Sign up now
+                  </button>
+                )}
               </div>
             </div>
           </div>
