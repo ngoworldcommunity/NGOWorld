@@ -57,11 +57,11 @@ const Navbar = () => {
               </li>
 
               <li className="nav-item home">
-                <Link to={"/display/clubs"}>Clubs</Link>
+                <Link to={"/clubs"}>Clubs</Link>
                 <div
                   className={
                     "" +
-                    (location.pathname === "/display/clubs"
+                    (location.pathname === "/clubs"
                       ? "active-link"
                       : "")
                   }
@@ -69,11 +69,11 @@ const Navbar = () => {
               </li>
 
               <li className="nav-item home">
-                <Link to="/display/events">Events</Link>
+                <Link to="/events">Events</Link>
                 <div
                   className={
                     "" +
-                    (location.pathname === "/display/events"
+                    (location.pathname === "/events"
                       ? "active-link"
                       : "")
                   }
