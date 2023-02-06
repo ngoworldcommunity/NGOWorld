@@ -208,7 +208,9 @@
 }
 
 .rep {
+  margin: auto;
   margin-top: 50px;
+  margin-bottom: 10px;
 }
 
 .btn-report {
@@ -305,12 +307,17 @@
     margin-top: 20px;
     margin-bottom: 40px;
   }
+  .join-us-list{
+      margin-left: 130px;
+  }
+ 
 }
 
 @media screen and (max-width: 680px) {
   .page-footer {
     padding: 30px 28px !important;
   }
+  
 }
 
 .reportModal {
@@ -363,6 +370,7 @@
   .reportModalHeader {
     justify-content: center;
     align-items: center;
+
   }
 
   .reportModalHeader > h1 {
@@ -402,10 +410,15 @@
     justify-content: center;
     align-items: stretch;
     gap: 30px;
+  
   }
 
   .join-us-list {
     position: relative;
     top: -10px;
+    margin-left: 70px;
+  }
+  .join h1{
+    margin-left: 60px;
   }
 }
