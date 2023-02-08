@@ -1,9 +1,0 @@
-https://milaan.vercel.app/
-https://milaan.vercel.app/clubs/register
-https://milaan.vercel.app/clubs/login
-https://milaan.vercel.app/user/register
-https://milaan.vercel.app/user/login
-https://milaan.vercel.app/display/clubs
-https://milaan.vercel.app/display/events
-https://milaan.vercel.app/shops/shop
-https://milaan.vercel.app/about-us
