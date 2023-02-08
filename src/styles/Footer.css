@@ -8,6 +8,14 @@
 .main-font{
   font-family: poppins;
 }
+
+/* .join{
+  border: 2px solid red;
+}
+.join-us{
+  border: 2px solid red;
+} */
+
 .page-footer {
   background-color: rgb(48, 47, 47);
   padding: 30px 80px;
@@ -118,7 +126,7 @@
 
 .socials {
   display: flex;
-  /* margin-top: 8px; */
+  margin-top: 8px;
 }
 .headings{
   font-family: Montserrat,sans-serif;
@@ -185,6 +193,7 @@
   margin-left: -75px;
 }
 
+
 .join-us ul li a {
   transition: all 0.3s ease-in;
 }
@@ -210,7 +219,7 @@
 .rep {
   margin: auto;
   margin-top: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 .btn-report {
@@ -281,6 +290,7 @@
   .footer-links {
     line-height: 40px !important;
   }
+  
 }
 
 @media screen and (max-width: 896px) {
@@ -300,23 +310,26 @@
   .row2 {
     margin: 0 !important;
   }
-
+  
   .report {
     position: relative;
     bottom: 0;
     margin-top: 20px;
     margin-bottom: 40px;
   }
-  .join-us-list{
-      margin-left: 130px;
+  .join{
+    margin-left: 200px;
   }
- 
+
+
+  
 }
 
 @media screen and (max-width: 680px) {
   .page-footer {
     padding: 30px 28px !important;
   }
+  
   
 }
 
@@ -364,6 +377,7 @@
   body {
     overflow: unset;
   }
+  
 }
 
 @media screen and (max-width: 525px) {
@@ -372,7 +386,7 @@
     align-items: center;
 
   }
-
+  
   .reportModalHeader > h1 {
     font-size: 1.2rem;
     margin-left: 1.4rem;
@@ -385,12 +399,16 @@
     min-width: 220px;
     text-align: center;
   }
+  
+  
 }
 
 @media only screen and (min-width: 767px) {
   .social-icons-mobile {
     display: none;
   }
+ 
+  
 }
 
 @media only screen and (max-width: 767px) {
@@ -420,5 +438,8 @@
   }
   .join h1{
     margin-left: 60px;
+  }
+  .join{
+    margin-left: -70px;
   }
 }
