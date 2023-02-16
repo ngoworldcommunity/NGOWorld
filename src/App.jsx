@@ -81,7 +81,9 @@ const App = () => {
             <Route exact path="/donateus" element={<Donate />} />
           </Routes>
           {/* <Footer /> */}
+          <Footer />
         </Router>
+      
       </MilanState>
     </>
   );

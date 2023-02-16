@@ -106,7 +106,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-white m-0">
+    <footer className="bg-white m-0 main-font">
       <ToastContainer />
 
       {/* Report modal starts here  */}
@@ -199,44 +199,16 @@ const Footer = () => {
                 Check out our socials
               </h1>
             ) : (
-              <p className="footer-text font-italic text-light text-left">
-                With Milan we aim at bringing all the various NGOs and donors
-                under one single roof to ease the burden of going to find their
-                appropriate donors and the appropriate communities to donate to.
-                With the help of our search filters and ask platform, it becomes
-                easier for the people to find their right community to serve.
+              <p className="footer-text font-italic text-light text-left mt-4 headings">
+                Want to join Team Milan ?<br /><span className=""> Contribute </span> <a href="https://github.com/IAmTamal/Milan" target='_blank'>here</a>!
               </p>
             )}
-            <div className="socials justify-content-center">
-              <div className="twitter social-btn">
-                <a
-                  href="https://twitter.com/mrTamall"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  <i className="fa-brands fa-twitter"></i>
-                </a>
-              </div>
-              <div className="github social-btn">
-                <a
-                  href="https://github.com/IAmTamal/Milan"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  <i className="fa-brands fa-github"></i>
-                </a>
-              </div>
-              <div className="cont social-btn">
-                <a href="https://milaan.vercel.app/contact">
-                  <i className="cont-icon fa-solid fa-message"></i>
-                </a>
-              </div>
-            </div>
+            
           </div>
 
           <div className="join-us col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
             <div className="join">
-              <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4">
+              <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4 headings">
                 {logged ? "Explore!" : "Join Us!"}
               </h1>
               <ul className="join-us-list list-unstyled mb-0">
@@ -278,7 +250,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="rep col-lg-4 col-md-6 mb-lg-0">
-            <h1 className="h6 text-uppercase text-light font-weight-bold mb-2 text-center">
+            <h1 className="h6 headings text-uppercase text-light font-weight-bold mb-2 text-center">
               Got something to report ?
             </h1>
             <p className="text-light text-center mb-4">
@@ -295,7 +267,35 @@ const Footer = () => {
               </button>
             </div>
           </div>
+          
         </div>
+        <div className="socials justify-content-center">
+              <div className="twitter social-btn">
+                <a
+                  href="https://twitter.com/mrTamall"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <i className="fa-brands fa-twitter"></i>
+                </a>
+              </div>
+              <div className="github social-btn">
+                <a
+                  href="https://github.com/IAmTamal/Milan"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <i className="fa-brands fa-github"></i>
+                </a>
+              </div>
+              <div className="cont social-btn">
+                <a href="https://milaan.vercel.app/contact">
+                  <i className="cont-icon fa-solid fa-message"></i>
+                </a>
+              </div>
+             
+            </div>
+            <p className="text-light text-center">Developed by team Milan © 2023</p>
       </div>
     </footer>
   );

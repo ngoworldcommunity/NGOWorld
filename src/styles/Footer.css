@@ -5,6 +5,16 @@
   overflow: visible;
   clear: both;
 }
+.main-font{
+  font-family: poppins;
+}
+
+/* .join{
+  border: 2px solid red;
+}
+.join-us{
+  border: 2px solid red;
+} */
 
 .page-footer {
   background-color: rgb(48, 47, 47);
@@ -116,8 +126,11 @@
 
 .socials {
   display: flex;
+  margin-top: 8px;
 }
-
+.headings{
+  font-family: Montserrat,sans-serif;
+}
 .social-btn {
   display: flex;
   justify-content: space-evenly;
@@ -177,7 +190,9 @@
 
 .join {
   margin-top: 27px;
+  margin-left: -75px;
 }
+
 
 .join-us ul li a {
   transition: all 0.3s ease-in;
@@ -202,7 +217,9 @@
 }
 
 .rep {
-  margin-top: 23px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 25px;
 }
 
 .btn-report {
@@ -273,6 +290,7 @@
   .footer-links {
     line-height: 40px !important;
   }
+  
 }
 
 @media screen and (max-width: 896px) {
@@ -292,19 +310,27 @@
   .row2 {
     margin: 0 !important;
   }
-
+  
   .report {
     position: relative;
     bottom: 0;
     margin-top: 20px;
     margin-bottom: 40px;
   }
+  .join{
+    margin-left: 200px;
+  }
+
+
+  
 }
 
 @media screen and (max-width: 680px) {
   .page-footer {
     padding: 30px 28px !important;
   }
+  
+  
 }
 
 .reportModal {
@@ -351,14 +377,16 @@
   body {
     overflow: unset;
   }
+  
 }
 
 @media screen and (max-width: 525px) {
   .reportModalHeader {
     justify-content: center;
     align-items: center;
-  }
 
+  }
+  
   .reportModalHeader > h1 {
     font-size: 1.2rem;
     margin-left: 1.4rem;
@@ -371,12 +399,16 @@
     min-width: 220px;
     text-align: center;
   }
+  
+  
 }
 
 @media only screen and (min-width: 767px) {
   .social-icons-mobile {
     display: none;
   }
+ 
+  
 }
 
 @media only screen and (max-width: 767px) {
@@ -396,10 +428,18 @@
     justify-content: center;
     align-items: stretch;
     gap: 30px;
+  
   }
 
   .join-us-list {
     position: relative;
     top: -10px;
+    margin-left: 70px;
+  }
+  .join h1{
+    margin-left: 60px;
+  }
+  .join{
+    margin-left: -70px;
   }
 }
