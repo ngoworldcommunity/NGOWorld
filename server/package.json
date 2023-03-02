@@ -18,7 +18,7 @@
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.10",
-    "nodemon": "^2.0.15",
+    "nodemon": "^2.0.20",
     "razorpay": "^2.8.3",
     "shortid": "^2.2.16"
   }
