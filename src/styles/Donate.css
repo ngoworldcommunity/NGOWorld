@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200;400;500;700;800&display=swap");
+
 .donate_img {
   min-width: 470px;
   width: 100%;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200;400;500;700;800&display=swap");
+
 
 div#donate_banner {
   width: 80%;

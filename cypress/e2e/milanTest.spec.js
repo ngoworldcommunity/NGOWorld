@@ -21,16 +21,16 @@ describe('Landing page checks', () => {
 describe('All auth checks', () => {
   it('Checking Club logins', () => {
     cy.visit('/clubs/login');
-    cy.get('[ data-cy="desktop-club-email"]').type('rotary@gmail.com');
-    cy.get('[ data-cy="desktop-club-password"]').type('rotary');
+    cy.get('[ data-cy="desktop-club-email"]').type('rotary@gmail.com',, { force: true });
+    cy.get('[ data-cy="desktop-club-password"]').type('rotary',, { force: true });
     cy.get('.login-btn').click();
     cy.getCookie('clubToken');
   });
 
   it('Checking User logins', () => {
     cy.visit('/user/login');
-    cy.get('#desktopUserEmail').type('gyansujan69@gmail.com');
-    cy.get('#desktopUserPassword').type('tamaldas69');
+    cy.get('#desktopUserEmail').type('gyansujan69@gmail.com',, { force: true });
+    cy.get('#desktopUserPassword').type('tamaldas69',, { force: true });
     cy.get('.login-btn').click();
     cy.getCookie('token ');
   });
