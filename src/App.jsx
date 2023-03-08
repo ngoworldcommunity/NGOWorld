@@ -29,13 +29,13 @@ const App = () => {
       <MilanState>
         <ToastContainer
           position="top-right"
-          autoClose={1000}
+          autoClose={1200}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick
           rtl={false}
           pauseOnFocusLoss
-          draggable
+          draggable={false}
           pauseOnHover
           closeButton={false}
         />
@@ -83,7 +83,7 @@ const App = () => {
           {/* <Footer /> */}
           <Footer />
         </Router>
-      
+
       </MilanState>
     </>
   );
