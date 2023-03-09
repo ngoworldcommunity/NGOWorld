@@ -9,6 +9,7 @@ import SchemaValidator, { msgLocalise } from "../../utils/validation";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 import { ReactComponent as Authbanner } from "../../assets/pictures/authpages/authbannerimg.svg";
+import { showErrorToast, showSuccessToast } from "../../utils/showToast";
 
 function UserLogin() {
   const Navigate = useNavigate();
@@ -57,25 +58,13 @@ function UserLogin() {
       Data.then((response) => {
         if (response?.data.token) {
           Cookies.set("token", response.data.token);
-
-          toast("🦄 Logging you in !", {
-            position: "top-right",
-            autoClose: 1000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            closeButton: false,
-            onClose: () => {
-              Navigate("/");
-            },
-          });
+          showSuccessToast("Logged you in !");
+          Navigate("/");
         } else {
           setCredentials({ email: "", password: "" });
         }
       }).catch((err) => {
-        console.log(err);
+        showErrorToast("Server error, try again later !");
       });
     } else {
       validator.errors.map(function (e, i) {
@@ -104,19 +93,6 @@ function UserLogin() {
         <link rel="canonical" href="/" />
       </Helmet>
 
-      <ToastContainer
-        position="top-right"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        closeButton={false}
-        limit={1}
-      />
 
       <section className="vh-100">
         <div className="container py-5 h-100">

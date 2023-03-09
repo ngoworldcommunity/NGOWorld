@@ -11,6 +11,7 @@
   display: flex;
   justify-content: center;
 }
+
 .banner_textdiv {
   text-align: center;
 }
@@ -36,6 +37,7 @@
   display: flex;
   justify-content: center;
 }
+
 .banner_header3 {
   font-family: Poppins, sans-serif;
   color: black;
@@ -43,6 +45,14 @@
   line-height: 1.5;
   letter-spacing: 1px;
   width: 70%;
+}
+
+.banner_btn_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .banner_signup_btn {
@@ -56,7 +66,9 @@
   color: rgba(0, 0, 0, 0.896);
   font-weight: 600;
   cursor: pointer;
-  width: 30%;
+  width: 310px;
+  min-height: 50px;
+  max-height: 50px;
 }
 
 .banner_signup_btn:hover {
@@ -70,11 +82,36 @@
   color: rgba(0, 0, 0, 0.896);
   font-weight: 600;
   cursor: pointer;
-  width: 30%;
+  width: 310px;
+}
+
+.banner_contribute_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.banner_contribute_btn p {
+  margin-bottom: 0px;
+  margin-top: 3px;
+}
+
+.banner_contribute_logo {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 0px;
 }
 
 .banner_imgdiv img {
   max-width: 400px;
+}
+
+@media screen and (max-width: 1000px) {
+  .banner_btn_div {
+    flex-direction: column;
+    gap: 0;
+  }
 }
 
 @media screen and (max-width: 430px) {
@@ -84,6 +121,7 @@
     padding-left: 10px;
     padding-right: 10px;
   }
+
   .banner_imgdiv img {
     display: none;
   }
@@ -97,6 +135,7 @@
     word-wrap: break-word;
     word-break: break-word;
   }
+
   .banner_header2 {
     font-size: 3.5rem;
     text-align: center;
@@ -104,13 +143,19 @@
     word-wrap: break-word;
     word-break: break-word;
   }
+
   .banner_header3 {
     text-align: center;
     width: 100%;
     font-size: 1rem;
   }
+
   .banner_signup_btndiv {
     display: flex;
+  }
+
+  .banner_btn_div {
+    gap: 1rem;
   }
 
   .banner_signup_btn {

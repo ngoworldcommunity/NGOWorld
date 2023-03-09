@@ -7,6 +7,7 @@ import { ReactComponent as Authbanner } from "../../assets/pictures/authpages/au
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
+import { showSuccessToast } from "../../utils/showToast";
 
 const ClubLogin = () => {
   document.title = "Milan | Club Register";
@@ -50,22 +51,11 @@ const ClubLogin = () => {
   const handleSubmit = async (e) => {
     toast.clearWaitingQueue();
     e.preventDefault();
-
     setIsLoading(true);
     await RegisterClub({ ...credentials });
     setIsLoading(false);
-
-    toast("🦄 Registered your club !", {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      closeButton: false,
-      onClose: () => navigate("/clubs/login"),
-    });
+    showSuccessToast("Registered sueccessfully, please log in !");
+    navigate("/clubs/login");
   };
 
   return (
@@ -78,20 +68,6 @@ const ClubLogin = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-
-      <ToastContainer
-        position="top-right"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        closeButton={false}
-        limit={1}
-      />
 
       <div className="mobile-sec container py-5 h-100">
         <div className="row d-flex align-items-top justify-content-center h-100">
