@@ -5,7 +5,30 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import ProfilePicture from "../assets/pictures/ProfilePicture.png";
 import Cookies from "js-cookie";
 
+import Button from 'react-bootstrap/Button';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
+
 const Navbar = () => {
+
+  const popover = (
+    <Popover id="popover-basic">
+      <Popover.Body>
+        <div className="d-flex justify-content-center flex-column align-items-center">
+          <h4>Register an Account</h4>
+          <Link to="/user/register">
+            <button className="btn nav_signup_btn fw-normal mt-3 blah">Sign up</button>
+          </Link>
+          <hr className="break_line mt-4" />
+          <h4 className="mt-2">Register a Club</h4>
+          <Link to="/clubs/register">
+            <button className="btn nav_signup_btn fw-normal mt-3">Club Register</button>
+          </Link>
+        </div>
+      </Popover.Body>
+    </Popover>
+  );
+
   const navigate = useNavigate();
   const location = useLocation();
   const handleNavigate = () => {
@@ -98,9 +121,9 @@ const Navbar = () => {
                 />
               ) : (
                 <li className="nav-item home">
-                  <Link to="/user/register">
-                    <button className="btn nav_signup_btn">Sign up</button>
-                  </Link>
+                  <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
+                    <Button className="btn nav_signup_btn">Sign up</Button>
+                  </OverlayTrigger>
                 </li>
               )}
             </ul>

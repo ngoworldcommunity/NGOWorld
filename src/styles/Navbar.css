@@ -104,4 +104,27 @@
 .nav_signup_btn:hover {
   cursor: pointer;
   background: #f68475;
+  color: black;
+}
+
+.nav_signup_btn:active {
+  cursor: pointer;
+  background: #f68475 !important;
+  color: black !important;
+}
+
+.nav_signup_btn:focus {
+  cursor: pointer;
+  background: #f68475 !important;
+  color: black !important;
+  box-shadow: none;
+}
+
+.break_line {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;               
+  background-color:black;
+  height: 1px;
 }
