@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../../components/Navbar";
 import { RegisterUser } from "../../service/MilanApi";
 import { ReactComponent as Authbanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 import SchemaValidator, { msgLocalise } from "../../utils/validation";
 
 //* The styles for Login and Register are essentially same
 import "../../styles/UserLogin.css";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
+import { showSuccessToast } from "../../utils/showToast";
 
 const UserRegister = () => {
   const navigate = useNavigate();
@@ -66,20 +64,8 @@ const UserRegister = () => {
 
     if (validator.valid) {
       await RegisterUser(credentials);
-
-      toast("🦄 Registered your account !", {
-        position: "top-right",
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        closeButton: false,
-        onClose: () => {
-          navigate("/user/login");
-        },
-      });
+      showSuccessToast("Registered successfully, please log in !");
+      navigate("/user/login");
     } else {
       validator.errors.map(function (e, i) {
         return toast(`${e.path[0]} : ${msgLocalise(e)}`, {
@@ -106,21 +92,8 @@ const UserRegister = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-      <ToastContainer
-        position="top-right"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        closeButton={false}
-        limit={1}
-      />
 
-      <section className="vh-100">
+      <section className="min-vh-100">
         <div className="container py-5 h-100">
           <div className="row d-flex align-items-top justify-content-center h-100">
             <div className="col-md-8 col-lg-7 col-xl-6">

@@ -1,7 +1,5 @@
 import React from "react";
 import forgotpassworduser from "../../assets/pictures/forgotpassworduser.svg";
-import Navbar from "../../components/Navbar";
-// import { Link, useNavigate } from "react-router-dom";
 import "../../styles/UserLogin.css";
 import "react-toastify/dist/ReactToastify.css";
 
