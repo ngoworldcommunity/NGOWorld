@@ -10,7 +10,7 @@ With Milan we help users, NGOs, Clubs and charities to meet their needs. <br/>
 </h3>
 <br>
 <p align="center">
-Join as a User, NGO, Club or Charity and help us make the world a better place. You can donate, buy, sell, volunteer, and help us in multiple ways. We also have events tab for organizations to post their events for users to attend those without a lot of hassle. <br> Milan is Opensource too, come, contribute 🚀 
+Join as a User, NGO, Club or Charity and help us make the world a better place. You can donate, buy, sell, volunteer, and help us in multiple ways. We also have events tab for organizations to post their events for users to attend those without a lot of hassle. <br> Milan is an Opensource too, come, contribute 🚀 
 </p>
 <br>
 
