@@ -58,35 +58,21 @@
 }
 
 .btn-hover {
-  font-size: 16px;
-  padding: 5px 5px;
   font-weight: 600;
   color: #fff;
   cursor: pointer;
   margin: 20px;
-  height: 40px;
   text-align: center;
-  border: none;
-  background-size: 300% 100%;
-  border-radius: 5px;
   -o-transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-  background-image: linear-gradient(
-    to right,
-    #ea1111,
-    #e40303,
-    #fa7199,
-    #e85a19
-  );
-  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+  background-color: #e26959;
+  box-shadow: 0 0 50px -10px #9747ff14;
 }
 
 .btn-hover:hover {
-  background-position: 100% 0;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+  color: #fff;
+  background: #f68475;
 }
 
 .btn-hover:focus {

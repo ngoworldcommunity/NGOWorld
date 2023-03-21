@@ -177,7 +177,7 @@ const Footer = () => {
                 />
               </div>
               <div className="text-center">
-                <button className="btn-hover" onClick={handleReportSubmit}>
+                <button className="btn btn-hover" onClick={handleReportSubmit}>
                   SUBMIT
                 </button>
               </div>
@@ -199,10 +199,14 @@ const Footer = () => {
               </h1>
             ) : (
               <p className="footer-text font-italic text-light text-left mt-4 headings">
-                Want to make Milan better ?<br /><span className=""> Contribute </span> <a href="https://github.com/IAmTamal/Milan" target='_blank'>here </a>!
+                Want to make Milan better ?<br />
+                <span className=""> Contribute </span>{" "}
+                <a href="https://github.com/IAmTamal/Milan" target="_blank">
+                  here{" "}
+                </a>
+                !
               </p>
             )}
-
           </div>
 
           <div className="join-us col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
@@ -266,7 +270,6 @@ const Footer = () => {
               </button>
             </div>
           </div>
-
         </div>
         <div className="socials justify-content-center">
           <div className="twitter social-btn">
@@ -292,7 +295,6 @@ const Footer = () => {
               <i className="cont-icon fa-solid fa-message"></i>
             </a>
           </div>
-
         </div>
         <p className="text-light text-center">Developed by team Milan © 2023</p>
       </div>
