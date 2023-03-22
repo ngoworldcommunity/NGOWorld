@@ -21,12 +21,15 @@
 .club_details_card {
   margin-top: 1rem;
   padding: 3rem 0rem;
-  background: #f2f2f2;
   border-radius: 1rem;
 }
 
+.welcome_text {
+  color: black;
+}
+
 .club_details_card h1 {
-  font-size: 2rem;
+  font-size: 25px;
   font-weight: bold;
   color: #e26959;
   margin-bottom: 1rem;
@@ -80,6 +83,7 @@
   }
 
   .club_details_card h1 {
+    font-size: 30px;
     text-align: center;
   }
 
@@ -105,12 +109,20 @@
 }
 
 @media (min-width: 992px) {
+  .container-fluid {
+    margin-bottom: 1rem;
+  }
+
   .club_details_card {
     padding: 3rem;
   }
 
+  .club_details_img img {
+    width: 80%;
+  }
+
   .club_details_card h1 {
-    font-size: 50px;
+    font-size: 35px;
   }
 
   .club_details_card h2 {
