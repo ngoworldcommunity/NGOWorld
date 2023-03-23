@@ -41,14 +41,12 @@ export default function SingleClubEvent({ club, type, event }) {
         </div>
         <div className="cp_card_textdiv">
           <p className="cp_card_name">
-            {type === "events" ? event.Eventname : club.name}{" "}
+            {type === "events" ? event.Eventname : club.name}
+          </p>
+          <p className="cp_card_tag">
+            {type === "events" ? event.Eventdate : club.tagLine}
           </p>
           <p className="cp_card_address">
-            {" "}
-            {type === "events" ? event.Eventdate : club.address}
-          </p>
-          <p className="cp_card_address">
-            {" "}
             {type === "events" ? event.Eventlocation : null}
           </p>
           {/* <p className='cp_card_tag' >{type === "events" ? event.Eventdescription : club.tagLine}</p> */}
