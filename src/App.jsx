@@ -23,6 +23,7 @@ import { ToastContainer } from "react-toastify";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./styles/App.css";
+import ShopCategory from "./pages/shops/ShopCategory";
 const App = () => {
   return (
     <>
@@ -74,11 +75,14 @@ const App = () => {
             <Route exact path="/aboutus" element={<AboutUs />} />
             <Route exact path="/clubs/createevent" element={<EventCreate />} />
             <Route exact path="/events" element={<EventsPage />} />
-            <Route exact path="/shop" element={<ShopLanding />} />
             <Route exact path="/clubs/:id" element={<ClubDetailsCard />} />
 
             {/* //* Donations */}
             <Route exact path="/donateus" element={<Donate />} />
+
+            {/* //* Shop */}
+            <Route exact path="/shop" element={<ShopLanding />} />
+            <Route exact path="/shop/:category" element={<ShopCategory />} />
           </Routes>
           {/* <Footer /> */}
           <Footer />

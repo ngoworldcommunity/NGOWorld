@@ -4,13 +4,7 @@
 import Axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-const apiURL = [
-  "http://localhost:5000",
-  "https://milan-server.vercel.app",
-  "https://milan-server.adaptable.app",
-];
-const API = apiURL[1];
+const API = import.meta.env.VITE_MILANAPI;
 
 const User_Log = `${API}/user/login`;
 const User_Reg = `${API}/user/register`;

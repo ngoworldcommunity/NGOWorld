@@ -2,23 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Loading from "../../components/Loading";
 import SingleClubEvent from "../../components/SingleClubEvent";
-import { GetAllClubs, GetAllEvents } from "../../service/MilanApi";
+import useSWR from 'swr'
+import { defaultfetcher } from "../../utils/fetcher"
+
 
 const EventsPage = () => {
-  const [eventsData, setEventsData] = useState([]);
-  const [loading, setLoading] = useState(false);
 
-  const fetcheventsData = async () => {
-    setLoading(true);
-    const response = await GetAllEvents();
-    setEventsData(response);
-    setLoading(false);
-  };
+  const { data: eventsData, error, isLoading } = useSWR(`${import.meta.env.VITE_MILANAPI}/display/allevents`, defaultfetcher)
 
   useEffect(() => {
     window.scrollTo(0, 0);
-
-    fetcheventsData();
   }, []);
 
   return (
@@ -47,7 +40,7 @@ const EventsPage = () => {
           </div>
 
           <div className="cp_cardsdiv">
-            {loading ? (
+            {isLoading ? (
               <Loading />
             ) : (
               <>
