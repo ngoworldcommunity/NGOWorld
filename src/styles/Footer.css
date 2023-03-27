@@ -31,6 +31,7 @@
 }
 
 .reportModalHeader > h1 {
+  font-family: Montserrat, sans-serif;
   color: #4e4e4e;
   font-size: 1.5rem;
   font-weight: 600;
