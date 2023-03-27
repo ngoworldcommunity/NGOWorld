@@ -33,11 +33,35 @@
 .reportModalHeader > h1 {
   color: #4e4e4e;
   font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .reportModalContent > h2 {
   color: #4e4e4e;
   font-size: 0.9rem;
+}
+
+#reportForm {
+  padding: 0;
+}
+
+/* Overriding global (App.css) style of making placeholders transparent in desktop view */
+
+#reportForm input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  /* Edge */
+  color: black !important;
+}
+
+#reportForm input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  /* Internet Explorer */
+  color: black !important;
+}
+
+#reportForm input::placeholder,
+textarea::placeholder {
+  color: black !important;
 }
 
 .crossButton {
@@ -367,7 +391,7 @@
   .reportModalHeader > h1 {
     font-size: 1.2rem;
     margin-left: 1.4rem;
-    margin-bottom: 0px;
+    /* margin-bottom: 0px; */
     flex: auto;
   }
 
