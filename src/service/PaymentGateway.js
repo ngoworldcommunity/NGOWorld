@@ -10,13 +10,16 @@ const apiURL = [
 const API = apiURL[2];
 
 export default async function displayRazorpay(money) {
-  const data = await fetch(`${API}/payment/razorpay`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
+  const data = await fetch(
+    `${process.env.REACT_APP_MILANAPI}/payment/razorpay`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(money),
     },
-    body: JSON.stringify(money),
-  }).then((t) => t.json());
+  ).then((t) => t.json());
 
   const options = {
     key: process.env.RAZORPAY_KEY_ID,

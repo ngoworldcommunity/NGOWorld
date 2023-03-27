@@ -1,28 +1,6 @@
-.products_mainparent {
-  margin-top: 8rem;
-}
-
-.products_header h1 {
-  font-family: Montserrat, sans-serif;
-  font-size: 70px;
-  line-height: 80px;
-  margin-bottom: 1.5rem !important;
-  color: #28183b;
-  text-align: center;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
-}
-
-.products_header hr {
-  width: 30%;
-  margin: 0 auto;
-  border: 1px solid #28183b;
-}
-
 .products_carddiv {
   display: flex;
-  gap: 1.5rem;
+  gap: 3rem;
   margin-top: 3rem;
   justify-content: center;
   flex-wrap: wrap;
@@ -30,15 +8,16 @@
 
 .productcard_mainparent {
   background-color: rgb(208, 207, 207);
-  max-width: 15rem;
+  max-width: 18rem;
   border-radius: 10px;
   padding: 0px 10px 10px 10px;
   cursor: pointer;
 }
 
 .productcard_imgdiv img {
-  max-width: 15rem;
-  object-fit: cover;
+  max-width: 12rem;
+  object-fit: contain;
+  margin-top: 10px;
 }
 
 .productcard_textdiv {
@@ -49,6 +28,7 @@
   line-height: 1.5;
   letter-spacing: 1px;
 }
+
 .productcard_textdiv p {
   margin-bottom: 0px;
 }
@@ -66,4 +46,160 @@
     font-size: 1rem;
     text-align: center;
   }
+}
+
+
+.shop_textdiv {
+  margin-bottom: 30px;
+}
+
+
+
+
+/* //* Product Cards */
+
+.pb_main {
+  /*   height: 100vh; */
+  width: 100%;
+  background-position: right 0;
+  background-size: cover;
+  padding: 100px 80px;
+  margin-bottom: 5rem;
+}
+
+.pb_header1 {
+  font-size: 60px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 20px;
+  width: 60%;
+  margin: auto;
+}
+
+.pb_subheader1 {
+  font-size: 22px;
+  text-align: center;
+  margin-top: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.pb_cardsdiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.pb_cardmain {
+  background-color: rgb(232, 229, 229);
+  max-width: 18rem;
+  min-width: 18rem;
+  border-radius: 8px;
+  padding: 10px 10px;
+  cursor: pointer;
+  text-decoration: none !important;
+  position: relative;
+  /*   min-height: 26rem; */
+  max-height: 28rem;
+  min-height: 25rem;
+}
+
+.card_cart {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+  bottom: 20px;
+
+}
+
+
+.pb_cardimgdiv {
+  /*  background-color: rgb(210, 206, 206);
+  border-radius: 12px; */
+}
+
+.pb_cardimgdiv img {
+  width: 286px;
+  height: 286px;
+  object-fit: cover;
+}
+
+.pb_cardtextdiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 170px;
+}
+
+.pb_cardtextdiv p {
+  margin-bottom: 0px;
+}
+
+.pb_cardtextdiv p:nth-child(1) {
+  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 10px;
+  color: black;
+
+  /*   color: #007c73; */
+}
+
+.pb_price {
+  margin-bottom: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  margin-top: 5px;
+  font-weight: 600;
+  color: #007c73;
+
+}
+
+.pb_cardtextdiv p:nth-child(4) {
+
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  margin-top: 5px;
+
+}
+
+@media screen and (max-width: 1025px) {
+
+  .pb_header1,
+  .pb_subheader1 {
+    width: 100%;
+  }
+
+  .shirtpage_main_heading {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .searchmaindiv {
+    max-width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 769px) {
+
+  .pb_header1,
+  .pb_subheader1 {
+    font-size: 50px;
+    line-height: 50px;
+  }
+
+  .pb_subheader1 {
+    font-size: 18px;
+  }
+
+  .pb_main {
+    padding: 50px 20px;
+    max-width: 100vw;
+  }
+
+
 }
