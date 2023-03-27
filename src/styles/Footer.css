@@ -49,20 +49,20 @@
 /* Overriding global (App.css) style of making placeholders transparent in desktop view */
 
 #reportForm input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
+#reportForm textarea::-webkit-input-placeholder {
   /* Edge */
-  color: black !important;
+  color: #6b7280 !important;
 }
 
 #reportForm input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
+#reportForm textarea:-ms-input-placeholder {
   /* Internet Explorer */
-  color: black !important;
+  color: #6b7280 !important;
 }
 
 #reportForm input::placeholder,
-textarea::placeholder {
-  color: black !important;
+#reportForm textarea::placeholder {
+  color: #6b7280 !important;
 }
 
 .crossButton {
