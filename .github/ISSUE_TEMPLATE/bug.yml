@@ -1,6 +1,6 @@
 name: 🐛 Bug
 description: Report an issue to help improve the project.
-title: "[BUGS] <description>"
+title: "[BUG] write a small description here"
 labels:
   [
     "🛠 goal: fix",
@@ -42,26 +42,16 @@ body:
   - type: checkboxes
     id: no-duplicate-issues
     attributes:
-      label: "👀 Have you checked for similar open issues?"
+      label: "Checklist ✅"
       options:
         - label: "I checked and didn't find similar issue"
           required: true
 
-  - type: checkboxes
-    id: read-code-of-conduct
-    attributes:
-      label: "🏢 Have you read the Contributing Guidelines?"
-      options:
         - label: "I have read the [Contributing Guidelines](https://github.com/IAmTamal/Milan/blob/main/CONTRIBUTING.md)"
           required: true
 
-  - type: dropdown
-    attributes:
-      label: Are you willing to work on this issue ?
-      description: This is absolutely not required, but we are happy to guide you in the contribution process.
-      options:
-        - "Yes I am willing to submit a PR!"
-        - "No, someone else can work on it"
+        - label: "I am willing to work on this issue (blank for no)"
+          required: true
 
   - type: markdown
     attributes:
