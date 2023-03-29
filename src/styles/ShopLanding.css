@@ -10,9 +10,11 @@
   justify-content: center;
   text-align: center;
 }
+
 .shop_textdiv {
   width: 70%;
 }
+
 .shop_header1 {
   font-family: Montserrat, sans-serif;
   font-size: 76px;
@@ -20,6 +22,7 @@
   margin-bottom: 1.5rem !important;
   color: #28183b;
 }
+
 .shop_header2 {
   font-family: Poppins, sans-serif;
   color: black;
@@ -79,6 +82,75 @@
   font-weight: 400;
 }
 
+/* //* Buttons div start */
+.shop_buttonsdiv {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 120px;
+}
+
+
+.btn-grad {
+
+  background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%) !important;
+
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 0 20px #eee;
+  border-radius: 8px;
+  display: block;
+  font-family: "Poppins", sans-serif;
+  color: black;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+.products_header {
+  margin-bottom: 80px;
+}
+
+
+.products_header h1 {
+  font-family: Montserrat, sans-serif;
+  font-size: 70px;
+  line-height: 80px;
+  margin-bottom: 1.5rem !important;
+  color: #28183b;
+  text-align: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.products_header hr {
+  width: 30%;
+  margin: 0 auto;
+  border: 1px solid #28183b;
+}
+
+
+
+
+
+/* //* Buttons div end */
+
+
 @media screen and (max-width: 430px) {
   .shop_textdiv {
     width: 100%;
@@ -94,6 +166,7 @@
     margin-bottom: 1.5rem !important;
     color: #28183b;
   }
+
   .shop_header2 {
     font-family: Poppins, sans-serif;
     color: black;

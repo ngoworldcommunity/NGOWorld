@@ -1,23 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Helmet } from "react-helmet-async";
 import Loading from "../../components/Loading";
 import SingleClubEvent from "../../components/SingleClubEvent";
-import { GetAllClubs } from "../../service/MilanApi";
+import useSWR from 'swr'
+import { defaultfetcher } from "../../utils/fetcher";
 
 const ClubsPage = () => {
-  const [clubData, setClubData] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const fetchClubData = async () => {
-    setLoading(true);
-    const response = await GetAllClubs();
-    setClubData(response);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    fetchClubData();
-  }, []);
+  const { data: clubData, error, isLoading } = useSWR(`${import.meta.env.VITE_MILANAPI}/display/clubs`, defaultfetcher)
 
   return (
     <>
@@ -43,7 +32,7 @@ const ClubsPage = () => {
           </div>
 
           <div className="cp_cardsdiv">
-            {loading ? (
+            {isLoading ? (
               <Loading />
             ) : (
               <>
