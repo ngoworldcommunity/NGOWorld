@@ -51,7 +51,7 @@ body:
           required: true
 
         - label: "I am willing to work on this issue (blank for no)"
-          required: true
+          required: false
 
   - type: markdown
     attributes:
