@@ -1,4 +1,4 @@
-name: 🐛 Bug
+name: 🐞 Bug
 description: Report an issue to help improve the project.
 title: "[BUG] write a small description here"
 labels:
@@ -26,7 +26,7 @@ body:
   - type: dropdown
     id: browser
     attributes:
-      label: "🥦 Browser"
+      label: "Browser 🥦"
       description: "What browser are you using ?"
       options:
         - Google Chrome
@@ -56,5 +56,5 @@ body:
   - type: markdown
     attributes:
       value: |
-        Follow me on Twitter [here](https://twitter.com/mrTamall)
+        In case of emergencies contact me on [Twitter](https://twitter.com/mrTamall)
         Feel free to check out other cool repositories [here](https://github.com/IAmTamal)
