@@ -5,7 +5,7 @@
   overflow: visible;
   clear: both;
 }
-.main-font{
+.main-font {
   font-family: poppins;
 }
 
@@ -31,13 +31,38 @@
 }
 
 .reportModalHeader > h1 {
+  font-family: Montserrat, sans-serif;
   color: #4e4e4e;
   font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .reportModalContent > h2 {
   color: #4e4e4e;
   font-size: 0.9rem;
+}
+
+#reportForm {
+  padding: 0;
+}
+
+/* Overriding global (App.css) style of making placeholders transparent in desktop view */
+
+#reportForm input::-webkit-input-placeholder,
+#reportForm textarea::-webkit-input-placeholder {
+  /* Edge */
+  color: #6b7280 !important;
+}
+
+#reportForm input:-ms-input-placeholder,
+#reportForm textarea:-ms-input-placeholder {
+  /* Internet Explorer */
+  color: #6b7280 !important;
+}
+
+#reportForm input::placeholder,
+#reportForm textarea::placeholder {
+  color: #6b7280 !important;
 }
 
 .crossButton {
@@ -58,35 +83,21 @@
 }
 
 .btn-hover {
-  font-size: 16px;
-  padding: 5px 5px;
   font-weight: 600;
   color: #fff;
   cursor: pointer;
   margin: 20px;
-  height: 40px;
   text-align: center;
-  border: none;
-  background-size: 300% 100%;
-  border-radius: 5px;
   -o-transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-  background-image: linear-gradient(
-    to right,
-    #ea1111,
-    #e40303,
-    #fa7199,
-    #e85a19
-  );
-  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+  background-color: #e26959;
+  box-shadow: 0 0 50px -10px #9747ff14;
 }
 
 .btn-hover:hover {
-  background-position: 100% 0;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+  color: #fff;
+  background: #f68475;
 }
 
 .btn-hover:focus {
@@ -128,8 +139,8 @@
   display: flex;
   margin-top: 8px;
 }
-.headings{
-  font-family: Montserrat,sans-serif;
+.headings {
+  font-family: Montserrat, sans-serif;
 }
 .social-btn {
   display: flex;
@@ -192,7 +203,6 @@
   margin-top: 27px;
   margin-left: -75px;
 }
-
 
 .join-us ul li a {
   transition: all 0.3s ease-in;
@@ -290,7 +300,6 @@
   .footer-links {
     line-height: 40px !important;
   }
-  
 }
 
 @media screen and (max-width: 896px) {
@@ -310,27 +319,22 @@
   .row2 {
     margin: 0 !important;
   }
-  
+
   .report {
     position: relative;
     bottom: 0;
     margin-top: 20px;
     margin-bottom: 40px;
   }
-  .join{
+  .join {
     margin-left: 200px;
   }
-
-
-  
 }
 
 @media screen and (max-width: 680px) {
   .page-footer {
     padding: 30px 28px !important;
   }
-  
-  
 }
 
 .reportModal {
@@ -342,7 +346,7 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 2;
+  z-index: 20;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -377,20 +381,18 @@
   body {
     overflow: unset;
   }
-  
 }
 
 @media screen and (max-width: 525px) {
   .reportModalHeader {
     justify-content: center;
     align-items: center;
-
   }
-  
+
   .reportModalHeader > h1 {
     font-size: 1.2rem;
     margin-left: 1.4rem;
-    margin-bottom: 0px;
+    /* margin-bottom: 0px; */
     flex: auto;
   }
 
@@ -399,16 +401,12 @@
     min-width: 220px;
     text-align: center;
   }
-  
-  
 }
 
 @media only screen and (min-width: 767px) {
   .social-icons-mobile {
     display: none;
   }
- 
-  
 }
 
 @media only screen and (max-width: 767px) {
@@ -428,7 +426,6 @@
     justify-content: center;
     align-items: stretch;
     gap: 30px;
-  
   }
 
   .join-us-list {
@@ -436,10 +433,10 @@
     top: -10px;
     margin-left: 70px;
   }
-  .join h1{
+  .join h1 {
     margin-left: 60px;
   }
-  .join{
+  .join {
     margin-left: -70px;
   }
 }

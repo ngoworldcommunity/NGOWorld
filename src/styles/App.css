@@ -28,7 +28,8 @@
 }
 
 @media screen and (max-width: 1024px) {
-  input::placeholder {
+  input::placeholder,
+  textarea::placeholder {
     color: black !important;
   }
 
