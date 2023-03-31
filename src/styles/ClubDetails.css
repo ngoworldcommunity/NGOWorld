@@ -78,6 +78,10 @@
   cursor: pointer;
 }
 
+.club_details_card button:hover{
+  background: #f68475;
+}
+
 @media (min-width: 768px) and (max-width: 992px) {
   .container-fluid {
     padding: 1rem 3rem;
