@@ -67,14 +67,15 @@
 .club_details_card button {
   align-self: flex-start;
   background-color: #e26959;
-  color: white;
+  box-shadow: 0 0 50px -10px #9747ff14;
+  color: rgba(0, 0, 0, 0.896);
   width: 155px;
   height: 45px;
-  border-radius: 13px;
+  border-radius: 6px;
   border: none;
-  font-weight: 500;
-  font-family: Poppins, sans-serif;
+  font-weight: 600;
   margin-left: 2rem;
+  cursor: pointer;
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
