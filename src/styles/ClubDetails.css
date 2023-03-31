@@ -32,12 +32,11 @@
   font-size: 25px;
   font-weight: bold;
   color: #e26959;
-  margin-bottom: 1rem;
   font-family: Montserrat, sans-serif;
 }
 
 .club_details_card h2 {
-  font-size: 20px;
+  font-size: 18px;
   max-width: 95%;
   margin: 2rem;
   font-family: Poppins, sans-serif;
@@ -45,7 +44,7 @@
 
 .club_details_card h6 {
   font-style: italic;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   margin-bottom: 30px;
   font-family: Poppins, sans-serif;
