@@ -16,7 +16,7 @@
 .modal {
   position: relative;
   background-color: white;
-  border-radius: 3%;
+  border-radius: 15px;
   height: fit-content;
   width: 30vw;
   min-width: 500px;
