@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
+import Modal from "./Modal";
 
 const Footer = () => {
   const [reportModal, setReportModal] = useState(false);
@@ -112,78 +113,69 @@ const Footer = () => {
       {/* Report modal starts here  */}
 
       {reportModal && (
-        <div className="reportModal">
-          <div className="reportModalContent">
-            <div className="reportModalHeader">
-              <h1>REPORT A PROBLEM</h1>
+        <Modal onClose={handleReportModalClose} className="reportModal">
+          <div className="reportModalHeader">
+            <h1>REPORT A PROBLEM</h1>
+          </div>
 
-              <button
-                type="button"
-                className="btn-close crossButton"
-                aria-label="Close"
-                onClick={handleReportModalClose}
-              ></button>
+          <h2>
+            We are trying our best. We give in the best shot and hope for the
+            best.
+          </h2>
+          <br />
+
+          {/* Report form  */}
+
+          <form id="reportForm">
+            <div className="form-group">
+              <input
+                required
+                type="email"
+                className="form-control"
+                placeholder="Enter your Email*"
+                value={reportEmail}
+                onChange={(e) => setReportEmail(e.target.value)}
+                autoFocus
+              />
             </div>
 
-            <h2>
-              We are trying our best. We give in the best shot and hope for the
-              best.
-            </h2>
-            <br />
+            <div className="form-group d-flex">
+              <input
+                required
+                type="text"
+                className="form-control "
+                placeholder="First Name*"
+                value={reportFirstName}
+                onChange={(e) => setReportFirstName(e.target.value)}
+              />
+              <input
+                required
+                type="text"
+                className="form-control ml-1"
+                placeholder="Last Name*"
+                value={reportLastName}
+                onChange={(e) => setReportLastName(e.target.value)}
+              />
+            </div>
 
-            {/* Report form  */}
-
-            <form id="reportForm">
-              <div className="form-group">
-                <input
-                  required
-                  type="email"
-                  className="form-control"
-                  placeholder="Enter your Email*"
-                  value={reportEmail}
-                  onChange={(e) => setReportEmail(e.target.value)}
-                  autoFocus
-                />
-              </div>
-
-              <div className="form-group d-flex">
-                <input
-                  required
-                  type="text"
-                  className="form-control "
-                  placeholder="First Name*"
-                  value={reportFirstName}
-                  onChange={(e) => setReportFirstName(e.target.value)}
-                />
-                <input
-                  required
-                  type="text"
-                  className="form-control ml-1"
-                  placeholder="Last Name*"
-                  value={reportLastName}
-                  onChange={(e) => setReportLastName(e.target.value)}
-                />
-              </div>
-
-              <div className="form-group">
-                <textarea
-                  required
-                  type="text"
-                  className="form-control"
-                  placeholder="Brief the issue that you are facing*"
-                  rows={6}
-                  value={reportIssue}
-                  onChange={(e) => setReportIssue(e.target.value)}
-                />
-              </div>
-              <div className="text-center">
-                <button className="btn btn-hover" onClick={handleReportSubmit}>
-                  SUBMIT
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
+            <div className="form-group">
+              <textarea
+                required
+                type="text"
+                className="form-control"
+                placeholder="Brief the issue that you are facing*"
+                rows={6}
+                value={reportIssue}
+                onChange={(e) => setReportIssue(e.target.value)}
+              />
+            </div>
+            <div className="text-center">
+              <button className="btn btn-hover" onClick={handleReportSubmit}>
+                SUBMIT
+              </button>
+            </div>
+          </form>
+        </Modal>
       )}
 
       <div
