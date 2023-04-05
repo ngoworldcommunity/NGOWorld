@@ -283,7 +283,7 @@ const Footer = () => {
             </a>
           </div>
           <div className="cont social-btn">
-            <a href="https://milaan.vercel.app/contact">
+            <a href="/contact">
               <i className="cont-icon fa-solid fa-message"></i>
             </a>
           </div>
