@@ -37,7 +37,7 @@
   font-weight: 600;
 }
 
-.reportModalContent > h2 {
+.reportModal > h2 {
   color: #4e4e4e;
   font-size: 0.9rem;
 }
@@ -63,17 +63,6 @@
 #reportForm input::placeholder,
 #reportForm textarea::placeholder {
   color: #6b7280 !important;
-}
-
-.crossButton {
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  right: 12px;
-  top: 7px;
-  font-size: 14px;
-  border: 0;
-  box-shadow: none;
 }
 
 .btn-close:focus {
@@ -337,38 +326,6 @@
   }
 }
 
-.reportModal {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 20;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.reportModalContent {
-  position: relative;
-  background-color: white;
-  border-radius: 3%;
-  height: fit-content;
-  width: 30vw;
-  min-width: 500px;
-  padding: 1rem;
-  color: black;
-}
-
-.reportModalHeader {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
 .form-control {
   margin-bottom: 1rem;
 }
@@ -394,12 +351,6 @@
     margin-left: 1.4rem;
     /* margin-bottom: 0px; */
     flex: auto;
-  }
-
-  .reportModalContent {
-    width: 89vw;
-    min-width: 220px;
-    text-align: center;
   }
 }
 
