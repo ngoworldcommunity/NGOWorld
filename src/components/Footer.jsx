@@ -288,7 +288,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <p className="text-light text-center">Developed by team Milan © 2023</p>
+        <p className="text-light text-center"> Developed by team Milan &copy; {new Date().getFullYear()}  </p>
       </div>
     </footer>
   );
