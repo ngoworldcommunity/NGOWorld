@@ -283,9 +283,9 @@ const Footer = () => {
             </a>
           </div>
           <div className="cont social-btn">
-            <a href="/contact">
+            <Link to={"/contact"}>
               <i className="cont-icon fa-solid fa-message"></i>
-            </a>
+            </Link>
           </div>
         </div>
         <p className="text-light text-center"> Developed by team Milan &copy; {new Date().getFullYear()}  </p>
