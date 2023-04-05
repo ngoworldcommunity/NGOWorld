@@ -32,12 +32,11 @@
   font-size: 25px;
   font-weight: bold;
   color: #e26959;
-  margin-bottom: 1rem;
   font-family: Montserrat, sans-serif;
 }
 
 .club_details_card h2 {
-  font-size: 20px;
+  font-size: 18px;
   max-width: 95%;
   margin: 2rem;
   font-family: Poppins, sans-serif;
@@ -45,7 +44,7 @@
 
 .club_details_card h6 {
   font-style: italic;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   margin-bottom: 30px;
   font-family: Poppins, sans-serif;
@@ -67,14 +66,19 @@
 .club_details_card button {
   align-self: flex-start;
   background-color: #e26959;
-  color: white;
+  box-shadow: 0 0 50px -10px #9747ff14;
+  color: rgba(0, 0, 0, 0.896);
   width: 155px;
   height: 45px;
-  border-radius: 13px;
+  border-radius: 6px;
   border: none;
-  font-weight: 500;
-  font-family: Poppins, sans-serif;
+  font-weight: 600;
   margin-left: 2rem;
+  cursor: pointer;
+}
+
+.club_details_card button:hover{
+  background: #f68475;
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
