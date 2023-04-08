@@ -85,6 +85,29 @@
   width: 310px;
 }
 
+.modal_signup_btn {
+  background: #e26959;
+  box-shadow: 0 0 50px -10px #9747ff14;
+  font-family: Poppins, sans-serif;
+  border: none;
+  border-radius: 6px;
+  margin-top: 2rem;
+  padding: 20px;
+  color: rgba(0, 0, 0, 0.896);
+  font-weight: 600;
+  cursor: pointer;
+  width: 14vw;
+  height: 100%;
+}
+
+.modal_signup_btn:hover {
+  background: #e26959;
+}
+.modal_btn_wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .banner_contribute_btn {
   display: flex;
   align-items: center;
@@ -111,6 +134,10 @@
   .banner_btn_div {
     flex-direction: column;
     gap: 0;
+  }
+
+  .modal_signup_btn {
+    width: 20vw;
   }
 }
 
@@ -161,5 +188,14 @@
   .banner_signup_btn {
     width: auto;
     margin: auto;
+  }
+
+  .modal_signup_btn {
+    width: 100%;
+    height: 100%;
+  }
+
+  .modal_btn_wrapper {
+    flex-direction: column;
   }
 }

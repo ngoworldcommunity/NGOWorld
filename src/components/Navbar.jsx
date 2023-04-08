@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Navbar.css";
 import solidarity from "../assets/pictures/solidarity.png";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ProfilePicture from "../assets/pictures/ProfilePicture.png";
 import Cookies from "js-cookie";
+import Modal from "./Modal";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [signupModal, setSignupModal] = useState(false);
   const handleNavigate = () => {
     if (Cookies.get("token")) {
       navigate("/user/profile");
@@ -17,6 +19,25 @@ const Navbar = () => {
       navigate("/clubs/profile");
     }
   };
+
+  const handleSignupModalOpen = () => {
+    setSignupModal(true);
+  };
+  const handleSignupModalClose = () => {
+    setSignupModal(false);
+  };
+
+  useEffect(() => {
+    if (signupModal) {
+      const closeEvent = (e) => {
+        if (e.key === "Escape") {
+          handleSignupModalClose();
+        }
+      };
+      window.addEventListener("keydown", closeEvent);
+      return () => window.removeEventListener("keydown", closeEvent);
+    }
+  }, [signupModal]);
 
   return (
     <>
@@ -60,10 +81,7 @@ const Navbar = () => {
                 <Link to={"/clubs"}>Clubs</Link>
                 <div
                   className={
-                    "" +
-                    (location.pathname === "/clubs"
-                      ? "active-link"
-                      : "")
+                    "" + (location.pathname === "/clubs" ? "active-link" : "")
                   }
                 ></div>
               </li>
@@ -72,10 +90,7 @@ const Navbar = () => {
                 <Link to="/events">Events</Link>
                 <div
                   className={
-                    "" +
-                    (location.pathname === "/events"
-                      ? "active-link"
-                      : "")
+                    "" + (location.pathname === "/events" ? "active-link" : "")
                   }
                 ></div>
               </li>
@@ -98,9 +113,36 @@ const Navbar = () => {
                 />
               ) : (
                 <li className="nav-item home">
-                  <Link to="/user/register">
-                    <button className="btn nav_signup_btn">Sign up</button>
-                  </Link>
+                  <button
+                    className="btn nav_signup_btn"
+                    onClick={handleSignupModalOpen}
+                  >
+                    Sign up
+                  </button>
+                  {signupModal && (
+                    <Modal onClose={handleSignupModalClose}>
+                      <div className="modal_btn_wrapper">
+                        <button
+                          className="btn btn-warning modal_signup_btn"
+                          onClick={() => {
+                            setSignupModal(false);
+                            navigate("/user/register");
+                          }}
+                        >
+                          For Users
+                        </button>
+                        <button
+                          className="btn btn-warning modal_signup_btn"
+                          onClick={() => {
+                            setSignupModal(false);
+                            navigate("/clubs/register");
+                          }}
+                        >
+                          For Clubs
+                        </button>
+                      </div>
+                    </Modal>
+                  )}
                 </li>
               )}
             </ul>

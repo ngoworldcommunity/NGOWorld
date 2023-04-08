@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/Banner.css";
 import Cookies from "js-cookie";
 import { ImGithub } from "react-icons/im";
+import Modal from "../Modal";
 
 const Banner = () => {
   var nav = useNavigate();
+  const [signupModal, setSignupModal] = useState(false);
+  const handleSignupModalOpen = () => {
+    setSignupModal(true);
+  };
+  const handleSignupModalClose = () => {
+    setSignupModal(false);
+  };
+
+  useEffect(() => {
+    if (signupModal) {
+      const closeEvent = (e) => {
+        if (e.key === "Escape") {
+          handleSignupModalClose();
+        }
+      };
+      window.addEventListener("keydown", closeEvent);
+      return () => window.removeEventListener("keydown", closeEvent);
+    }
+  }, [signupModal]);
 
   return (
     <>
@@ -35,12 +55,14 @@ const Banner = () => {
                       Explore our brand new shop !
                     </button>
 
-                    <a href="https://github.com/IAmTamal/Milan" target="_blank" style={{ textDecoration: "none" }}>
+                    <a
+                      href="https://github.com/IAmTamal/Milan"
+                      target="_blank"
+                      style={{ textDecoration: "none" }}
+                    >
                       <button className="btn btn-warning banner_signup_btn banner_contribute_btn ">
                         <ImGithub className="banner_contribute_logo" />
-                        <p>
-                          Contribute to Milan
-                        </p>
+                        <p>Contribute to Milan</p>
                       </button>
                     </a>
                   </div>
@@ -48,21 +70,42 @@ const Banner = () => {
                   <div className="banner_btn_div">
                     <button
                       className="btn btn-warning banner_signup_btn"
-                      onClick={() => {
-                        nav("/clubs/register");
-                      }}
+                      onClick={handleSignupModalOpen}
                       data-cy="landingpage-club-signup"
                       id="landingpage-club-signup"
                     >
                       Sign up now
                     </button>
-
-                    <a href="https://github.com/IAmTamal/Milan" target="_blank" style={{ textDecoration: "none" }}>
+                    {signupModal && (
+                      <Modal onClose={handleSignupModalClose}>
+                        <div className="modal_btn_wrapper">
+                          <button
+                            className="btn btn-warning modal_signup_btn"
+                            onClick={() => {
+                              nav("/user/register");
+                            }}
+                          >
+                            For Users
+                          </button>
+                          <button
+                            className="btn btn-warning modal_signup_btn"
+                            onClick={() => {
+                              nav("/clubs/register");
+                            }}
+                          >
+                            For Clubs
+                          </button>
+                        </div>
+                      </Modal>
+                    )}
+                    <a
+                      href="https://github.com/IAmTamal/Milan"
+                      target="_blank"
+                      style={{ textDecoration: "none" }}
+                    >
                       <button className="btn btn-warning banner_signup_btn banner_contribute_btn ">
                         <ImGithub className="banner_contribute_logo" />
-                        <p>
-                          Contribute to Milan
-                        </p>
+                        <p>Contribute to Milan</p>
                       </button>
                     </a>
                   </div>
