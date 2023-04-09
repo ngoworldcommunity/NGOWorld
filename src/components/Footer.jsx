@@ -75,7 +75,7 @@ const Footer = () => {
     } else if (success === "tryagain") {
       toast.error("You can only submit once in 2 hours");
     } else {
-      toast.error("Some error occured");
+      toast.error("Some error ocurred");
     }
     setTimeout(() => {
       handleReportModalClose();

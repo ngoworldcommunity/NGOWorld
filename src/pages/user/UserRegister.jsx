@@ -97,7 +97,7 @@ const UserRegister = () => {
         <div className="container py-5 h-100">
           <div className="row d-flex align-items-top justify-content-center h-100">
             <div className="col-md-8 col-lg-7 col-xl-6">
-              <Authbanner className="authimg" />
+              <Authbanner className="authing" />
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
@@ -161,7 +161,7 @@ const UserRegister = () => {
                     name="email"
                     value={credentials.email}
                     onChange={handleChange}
-                    aria-label="Email Adress"
+                    aria-label="Email Address"
                     required
                   />
                 </div>
@@ -204,7 +204,7 @@ const UserRegister = () => {
                     value={credentials.address}
                     onChange={handleChange}
                     required
-                    aria-label="Adress"
+                    aria-label="Address"
                   />
                 </div>
                 {/* //* Pincode */}
