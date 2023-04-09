@@ -7,7 +7,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Cookies from "js-cookie";
 import { Helmet } from "react-helmet-async";
-import { ReactComponent as Authbanner } from "../../assets/pictures/authpages/authbannerimg.svg";
+import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 import ClipLoader from "react-spinners/ClipLoader";
 import { showErrorToast, showSuccessToast } from "../../utils/showToast";
 
@@ -82,7 +82,7 @@ function ClubLogin() {
         <div className="container py-5 h-100">
           <div className="row d-flex align-items-top justify-content-center h-100">
             <div className="col-md-8 col-lg-7 col-xl-6">
-              <Authbanner className="authing" />
+              <AuthBanner className="auth-img" />
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">

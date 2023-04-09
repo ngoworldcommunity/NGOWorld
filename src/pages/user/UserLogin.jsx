@@ -8,7 +8,7 @@ import { toast, ToastContainer } from "react-toastify";
 import SchemaValidator, { msgLocalise } from "../../utils/validation";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
-import { ReactComponent as Authbanner } from "../../assets/pictures/authpages/authbannerimg.svg";
+import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 import { showErrorToast, showSuccessToast } from "../../utils/showToast";
 
 function UserLogin() {
@@ -97,7 +97,7 @@ function UserLogin() {
         <div className="container py-5 h-100">
           <div className="d-flex align-items-top justify-content-center h-100 gap-1 ">
             <div className="col-md-8 col-lg-7 col-xl-6">
-              <Authbanner className="authing" />
+              <AuthBanner className="auth-img" />
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">

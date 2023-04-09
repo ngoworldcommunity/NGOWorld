@@ -1,11 +1,11 @@
-.authing {
+.auth-img {
   /* max-width: 50%; */
   max-width: 450px;
   max-height: 480px;
 }
 
 @media screen and (max-width: 1024px) {
-  .authing {
+  .auth-img {
     display: none;
   }
 }
