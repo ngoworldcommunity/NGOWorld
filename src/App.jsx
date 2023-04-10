@@ -24,6 +24,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./styles/App.css";
 import ShopCategory from "./pages/shops/ShopCategory";
+import DetailedProduct from "./pages/shops/DetailedProduct";
 const App = () => {
   return (
     <>
@@ -83,11 +84,15 @@ const App = () => {
             {/* //* Shop */}
             <Route exact path="/shop" element={<ShopLanding />} />
             <Route exact path="/shop/:category" element={<ShopCategory />} />
+            <Route
+              exact
+              path="/shop/:category/:id"
+              element={<DetailedProduct />}
+            />
           </Routes>
           {/* <Footer /> */}
           <Footer />
         </Router>
-
       </MilanState>
     </>
   );
