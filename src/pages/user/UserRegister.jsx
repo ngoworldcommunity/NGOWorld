@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { RegisterUser } from "../../service/MilanApi";
-import { ReactComponent as Authbanner } from "../../assets/pictures/authpages/authbannerimg.svg";
+import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 import SchemaValidator, { msgLocalise } from "../../utils/validation";
 
 //* The styles for Login and Register are essentially same
@@ -97,7 +97,7 @@ const UserRegister = () => {
         <div className="container py-5 h-100">
           <div className="row d-flex align-items-top justify-content-center h-100">
             <div className="col-md-8 col-lg-7 col-xl-6">
-              <Authbanner className="authimg" />
+              <AuthBanner className="auth-img" />
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
@@ -161,7 +161,7 @@ const UserRegister = () => {
                     name="email"
                     value={credentials.email}
                     onChange={handleChange}
-                    aria-label="Email Adress"
+                    aria-label="Email Address"
                     required
                   />
                 </div>
@@ -204,7 +204,7 @@ const UserRegister = () => {
                     value={credentials.address}
                     onChange={handleChange}
                     required
-                    aria-label="Adress"
+                    aria-label="Address"
                   />
                 </div>
                 {/* //* Pincode */}
