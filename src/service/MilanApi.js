@@ -20,7 +20,7 @@ const Create_Event = `${API}/club/createevent`;
 
 //^ `````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 //* Axios call to login a User
-//* IF sucess we alert user made else we alert user failed
+//* IF success we alert user made else we alert user failed
 //* we get the credentials from the Awb.jsx
 
 //* UPDATE USER
