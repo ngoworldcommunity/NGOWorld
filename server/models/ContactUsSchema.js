@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const ContactUsScema = mongoose.Schema({
+const ContactUsSchema = mongoose.Schema({
   firstname: {
     type: String,
     required: true,
@@ -20,4 +20,4 @@ const ContactUsScema = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("contactus", ContactUsScema);
+module.exports = mongoose.model("contactus", ContactUsSchema);
