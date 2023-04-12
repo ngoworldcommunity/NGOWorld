@@ -4,8 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { RegisterClub } from "../../service/MilanApi";
 import "../../styles/ClubsRegister.css";
 import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 import { showSuccessToast } from "../../utils/showToast";
 
@@ -115,7 +113,7 @@ const ClubLogin = () => {
                   htmlFor="club-tagLine"
                   className="col-form-label col-form-label-lg regformlabels"
                 >
-                  Club Tagline 🏷️ (Max 50 Chars.)
+                  Club Tagline (Max 50 Characters)
                 </label>
                 <input
                   type="text"
@@ -146,7 +144,7 @@ const ClubLogin = () => {
                   htmlFor="email-des"
                   className="col-form-label col-form-label-lg regformlabels"
                 >
-                  Email address 📨
+                  Email address
                 </label>
                 <input
                   type="email"
@@ -182,7 +180,7 @@ const ClubLogin = () => {
                     htmlFor="password-des"
                     className="col-form-label col-form-label-lg regformlabels"
                   >
-                    Password 🔑
+                    Password
                   </label>
                   <input
                     type="password"
@@ -210,7 +208,7 @@ const ClubLogin = () => {
                     htmlFor="confirm-password-des"
                     className="col-form-label col-form-label-lg regformlabels"
                   >
-                    Confirm Password 🔐
+                    Confirm Password
                   </label>
                   <input
                     type="password"
@@ -241,7 +239,7 @@ const ClubLogin = () => {
                   htmlFor="address-des"
                   className="col-form-label col-form-label-lg regformlabels"
                 >
-                  Address 🏡
+                  Address
                 </label>
                 {/* textarea for address */}
                 <textarea
@@ -268,7 +266,7 @@ const ClubLogin = () => {
                 htmlFor="pincode-des"
                 className="col-form-label col-form-label-lg regformlabels"
               >
-                Pincode 📍
+                Pincode / Zipcode
               </label>
               <div className="form-outline mb-4">
                 <input
@@ -297,7 +295,7 @@ const ClubLogin = () => {
                 htmlFor="description-des"
                 className="col-form-label col-form-label-lg regformlabels"
               >
-                Club description 📝
+                Club description
               </label>
               <textarea
                 type="text"

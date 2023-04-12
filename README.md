@@ -2,11 +2,9 @@
 
 <br/>
 
-<h1 align="center">
-✨ A hub for help to meet the needs ✨ <br/>
-</h1>
+
 <h3 align="center">
-With Milan we help users, NGOs, Clubs and charities to meet their needs. <br/>
+With Milan we help users, NGOs, Clubs & Charities connect with the world. <br/>
 </h3>
 <br>
 <p align="center">
@@ -14,7 +12,7 @@ Join as a User, NGO, Club or Charity and help us make the world a better place. 
 </p>
 <br>
 
-<h1 align="center">
+<!-- <h1 align="center">
 Why the name - 'Milan' ?
 </h1>
 <br>
@@ -22,7 +20,7 @@ Why the name - 'Milan' ?
 The word ‘Milan’ when translated from its colloquial form into English means ‘conjugation’.
 It is often seen that people get scammed when their intentions are in lieu they were just trying to do good for other people, they were trying to extend their help. Again, it is seen that there are some Clubs or NGOs who do not get enough funds to work for humanitarian causes because of the lack of proper representation.
 </p>
-<br/>
+<br/> -->
 
 <!-- //* CONTRIBUTE  -->
 
