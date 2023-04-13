@@ -27,14 +27,13 @@
   background-color: #e26959;
   color: black;
   border: none;
-  text-transform: uppercase !important;
   font-size: 1.25rem;
   font-weight: 500;
   letter-spacing: 0.05rem;
   transition: 0.2s;
 }
 .login-btn:hover {
-  background-color: #f68475;
+  background-color: #e26959;
   transform: scale(1.02);
 }
 .login-btn:disabled {

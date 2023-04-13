@@ -164,6 +164,10 @@
   font-size: 1.2rem !important;
 }
 
+.mib_explore_btn:hover {
+  background: #e26959;
+}
+
 @media screen and (430px < width < 1008px) {
   .mib_subparent1 {
     display: flex;

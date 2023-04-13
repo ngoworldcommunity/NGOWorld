@@ -15,7 +15,6 @@ form .btn-container-desktop {
 
 .register-btn {
   background-color: rgb(137, 181, 247);
-  text-transform: uppercase !important;
   font-size: 1.25rem !important;
   font-weight: 500;
   letter-spacing: 0.05rem;
@@ -44,7 +43,7 @@ form .btn-container-desktop {
 }
 
 .form-control:focus {
-  box-shadow:0 0 11px 0.1rem #e26959 !important;
+  box-shadow: 0 0 11px 0.1rem #e26959 !important;
   border: none;
 }
 
@@ -129,11 +128,12 @@ form .btn-container-desktop {
 .login-btn:hover,
 .register-btn:hover {
   border: #212529;
-  background-color: #7496ca;
+  background-color: #e26959;
   transform: scale(1.02);
+  color: black;
 }
 
-.login-btn:focus{
-  background-color: #f68475;
+.login-btn:focus {
+  background-color: #e26959;
   transform: scale(1.02);
 }
