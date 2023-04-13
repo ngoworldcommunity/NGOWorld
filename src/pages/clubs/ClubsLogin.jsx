@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/ClubLogin.css";
 import { LoginClub } from "../../service/MilanApi";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import Cookies from "js-cookie";
+import { toast, ToastContainer } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -101,7 +99,7 @@ function ClubLogin() {
                     htmlFor="exampleInputEmail1"
                     className="col-form-label col-form-label-lg regformlabels"
                   >
-                    Email address 📨
+                    Email address
                   </label>
                   <input
                     type="email"
@@ -114,6 +112,7 @@ function ClubLogin() {
                     onChange={handleChange}
                     required
                     data-cy="desktop-club-email"
+                    autoFocus
                   />
 
                   <input
@@ -134,7 +133,7 @@ function ClubLogin() {
                     htmlFor="exampleInputPassword1"
                     className="col-form-label col-form-label-lg regformlabels color"
                   >
-                    Password 🔑
+                    Password
                   </label>
                   <input
                     type="password"
