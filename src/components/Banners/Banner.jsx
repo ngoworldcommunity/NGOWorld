@@ -13,8 +13,10 @@ const Banner = () => {
         <div className="banner_mainparent">
           <div className="banner_subparent">
             <div className="banner_textdiv">
-              <h1 className="banner_header1">Welcome to </h1>
-              <p className="banner_header2">MILAN</p>
+              <h1 className="banner_header1">
+                Welcome to <br /> MILAN{" "}
+              </h1>
+              {/*  <p className="banner_header2">MILAN</p> */}
               <div>
                 <p className="banner_header3">
                   We are a hub, trying to connect help and need. Join us and

@@ -3,9 +3,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { Link, useNavigate } from "react-router-dom";
 import { RegisterClub } from "../../service/MilanApi";
 import "../../styles/ClubsRegister.css";
-import { ReactComponent as Authbanner } from "../../assets/pictures/authpages/authbannerimg.svg";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 import { Helmet } from "react-helmet-async";
 import { showSuccessToast } from "../../utils/showToast";
 
@@ -72,7 +70,7 @@ const ClubLogin = () => {
       <div className="mobile-sec container py-5 h-100">
         <div className="row d-flex align-items-top justify-content-center h-100">
           <div className="col-md-8 col-lg-7 col-xl-6">
-            <Authbanner className="authimg" />
+            <AuthBanner className="auth-img" />
           </div>
 
           <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
@@ -115,7 +113,7 @@ const ClubLogin = () => {
                   htmlFor="club-tagLine"
                   className="col-form-label col-form-label-lg regformlabels"
                 >
-                  Club Tagline 🏷️ (Max 50 Chars.)
+                  Club Tagline (Max 50 Characters)
                 </label>
                 <input
                   type="text"
@@ -146,7 +144,7 @@ const ClubLogin = () => {
                   htmlFor="email-des"
                   className="col-form-label col-form-label-lg regformlabels"
                 >
-                  Email address 📨
+                  Email address
                 </label>
                 <input
                   type="email"
@@ -182,7 +180,7 @@ const ClubLogin = () => {
                     htmlFor="password-des"
                     className="col-form-label col-form-label-lg regformlabels"
                   >
-                    Password 🔑
+                    Password
                   </label>
                   <input
                     type="password"
@@ -210,7 +208,7 @@ const ClubLogin = () => {
                     htmlFor="confirm-password-des"
                     className="col-form-label col-form-label-lg regformlabels"
                   >
-                    Confirm Password 🔐
+                    Confirm Password
                   </label>
                   <input
                     type="password"
@@ -241,7 +239,7 @@ const ClubLogin = () => {
                   htmlFor="address-des"
                   className="col-form-label col-form-label-lg regformlabels"
                 >
-                  Address 🏡
+                  Address
                 </label>
                 {/* textarea for address */}
                 <textarea
@@ -268,7 +266,7 @@ const ClubLogin = () => {
                 htmlFor="pincode-des"
                 className="col-form-label col-form-label-lg regformlabels"
               >
-                Pincode 📍
+                Pincode / Zipcode
               </label>
               <div className="form-outline mb-4">
                 <input
@@ -297,7 +295,7 @@ const ClubLogin = () => {
                 htmlFor="description-des"
                 className="col-form-label col-form-label-lg regformlabels"
               >
-                Club description 📝
+                Club description
               </label>
               <textarea
                 type="text"

@@ -2,11 +2,9 @@
 
 <br/>
 
-<h1 align="center">
-✨ A hub for help to meet the needs ✨ <br/>
-</h1>
+
 <h3 align="center">
-With Milan we help users, NGOs, Clubs and charities to meet their needs. <br/>
+With Milan we help users, NGOs, Clubs & Charities connect with the world. <br/>
 </h3>
 <br>
 <p align="center">
@@ -14,7 +12,7 @@ Join as a User, NGO, Club or Charity and help us make the world a better place. 
 </p>
 <br>
 
-<h1 align="center">
+<!-- <h1 align="center">
 Why the name - 'Milan' ?
 </h1>
 <br>
@@ -22,8 +20,7 @@ Why the name - 'Milan' ?
 The word ‘Milan’ when translated from its colloquial form into English means ‘conjugation’.
 It is often seen that people get scammed when their intentions are in lieu they were just trying to do good for other people, they were trying to extend their help. Again, it is seen that there are some Clubs or NGOs who do not get enough funds to work for humanitarian causes because of the lack of proper representation.
 </p>
-<br/>
-
+<br/> -->
 
 <!-- //* CONTRIBUTE  -->
 
@@ -56,7 +53,7 @@ Contributing to the Project
 Milan is built using the MERN Stack. The designing has been done using Canva, Figma and some other tools. You can surely make a NEW ISSUE, or solve AN EXISTING ISSUE - the choice is yours. Apart from code, you can also help us with documentation, Automations or/and UI/UX. 🚀 </p>
 
 <p align="center">
-It is always recommended that you *open an issue and get it assined to you* before working on any feature which would bring clarity in working as well as it ensures that no two people are working on the same thing.  
+It is always recommended that you *open an issue and get it assigned to you* before working on any feature which would bring clarity in working as well as it ensures that no two people are working on the same thing.  
 </p>
 
 </br>
@@ -79,9 +76,7 @@ We request all the people who wish to contribute to follow the set of guidelines
 
 <h5 align="center"><a href="https://github.com/IAmTamal/Milan/blob/main/rules/DockerSetup.md">🛠 SETTING UP THE APP WITH DOCKER</a></h5>
 
-
 </br>
-
 
 <h1 align="center">
 Most active contributors 🚀
@@ -95,7 +90,6 @@ Most active contributors 🚀
 </a>
 </p>
 </br>
-
 
 <h1 align="center">
 Thank you everyone! 💚
@@ -113,5 +107,3 @@ License
 
 <p align="center">
 Milan is Licensed under the <a href="./LICENSE">MIT License</a>. Please go through the License atleast once before contributing. </p>
-
-
