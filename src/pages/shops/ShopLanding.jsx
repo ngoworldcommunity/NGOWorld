@@ -27,19 +27,23 @@ const ShopLanding = () => {
             </div>
 
             <div className="shop_buttonsdiv">
-              <Link to={"/shop/art"} style={{ textDecoration: "none" }} >
-                <button className="btn btn-grad" >Checkout our art collections</button>
+              <Link to={"/shop/art"} style={{ textDecoration: "none" }}>
+                <button className="btn btn-grad">
+                  Checkout our art collections
+                </button>
               </Link>
 
-              <Link to={"/shop/decors"} style={{ textDecoration: "none" }} >
-                <button className="btn btn-grad" >Checkout our home decors</button>
+              <Link to={"/shop/decors"} style={{ textDecoration: "none" }}>
+                <button className="btn btn-grad">
+                  Checkout our home decors
+                </button>
               </Link>
 
-              <Link to={"/shop/handmade"} style={{ textDecoration: "none" }} >
-                <button className="btn btn-grad" >Handmade items (50% off 🎉)</button>
+              <Link to={"/shop/handmade"} style={{ textDecoration: "none" }}>
+                <button className="btn btn-grad">
+                  Handmade items (50% off 🎉)
+                </button>
               </Link>
-
-
             </div>
           </div>
 

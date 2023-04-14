@@ -35,12 +35,14 @@ const Banner = () => {
                       Explore our brand new shop !
                     </button>
 
-                    <a href="https://github.com/IAmTamal/Milan" target="_blank" style={{ textDecoration: "none" }}>
+                    <a
+                      href="https://github.com/IAmTamal/Milan"
+                      target="_blank"
+                      style={{ textDecoration: "none" }}
+                    >
                       <button className="btn btn-warning banner_signup_btn banner_contribute_btn ">
                         <ImGithub className="banner_contribute_logo" />
-                        <p>
-                          Contribute to Milan
-                        </p>
+                        <p>Contribute to Milan</p>
                       </button>
                     </a>
                   </div>
@@ -57,12 +59,14 @@ const Banner = () => {
                       Sign up now
                     </button>
 
-                    <a href="https://github.com/IAmTamal/Milan" target="_blank" style={{ textDecoration: "none" }}>
+                    <a
+                      href="https://github.com/IAmTamal/Milan"
+                      target="_blank"
+                      style={{ textDecoration: "none" }}
+                    >
                       <button className="btn btn-warning banner_signup_btn banner_contribute_btn ">
                         <ImGithub className="banner_contribute_logo" />
-                        <p>
-                          Contribute to Milan
-                        </p>
+                        <p>Contribute to Milan</p>
                       </button>
                     </a>
                   </div>

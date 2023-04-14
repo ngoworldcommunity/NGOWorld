@@ -93,7 +93,6 @@ function UserLogin() {
         <link rel="canonical" href="/" />
       </Helmet>
 
-
       <section className="vh-100">
         <div className="container py-5 h-100">
           <div className="d-flex align-items-top justify-content-center h-100 gap-1 ">

@@ -63,7 +63,7 @@ function ClubLogin() {
         });
       }
     }).catch((err) => {
-      showErrorToast("Server error, please try later !")
+      showErrorToast("Server error, please try later !");
     });
   };
 
