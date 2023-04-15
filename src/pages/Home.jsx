@@ -26,8 +26,6 @@ const Home = () => {
 
       <Banner />
       <Milaninfobanner />
-
-
     </>
   );
 };

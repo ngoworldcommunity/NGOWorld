@@ -2,13 +2,18 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Loading from "../../components/Loading";
 import SingleClubEvent from "../../components/SingleClubEvent";
-import useSWR from 'swr'
-import { defaultfetcher } from "../../utils/fetcher"
-
+import useSWR from "swr";
+import { defaultfetcher } from "../../utils/fetcher";
 
 const EventsPage = () => {
-
-  const { data: eventsData, error, isLoading } = useSWR(`${import.meta.env.VITE_MILANAPI}/display/allevents`, defaultfetcher)
+  const {
+    data: eventsData,
+    error,
+    isLoading,
+  } = useSWR(
+    `${import.meta.env.VITE_MILANAPI}/display/allevents`,
+    defaultfetcher,
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);

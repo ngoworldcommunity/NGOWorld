@@ -3,6 +3,8 @@
   "version": "0.3.7",
   "private": true,
   "dependencies": {
+    "@commitlint/cli": "^17.6.1",
+    "@commitlint/config-conventional": "^17.6.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/user-event": "^13.5.0",
     "aos": "^2.3.4",
@@ -31,33 +33,7 @@
     "preview": "vite preview",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "prepare": "husky install",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix && npm format",
-    "format": "prettier --write src"
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx}": [
-      "eslint . --fix",
-      "prettier --write"
-    ],
-    "src/**/*.html": [
-      "prettier --write"
-    ],
-    "src/**/*.{json,css,scss,md}": [
-      "prettier --write"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npx lint-staged"
-    }
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "prepare": "husky install"
   },
   "browserslist": {
     "production": [
@@ -73,11 +49,30 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^2.2.0",
-    "eslint-plugin-cypress": "^2.12.1",
+    "eslint": "^8.38.0",
+    "eslint-plugin-cypress": "^2.13.2",
+    "eslint-plugin-react": "^7.32.2",
     "husky": "^8.0.0",
-    "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
-    "semantic-release": "^19.0.2",
-    "vite": "^3.2.3"
+    "lint-staged": "^13.2.1",
+    "prettier": "^2.8.7",
+    "semantic-release": "^19.0.5",
+    "vite": "^3.2.5"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx lint-staged"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   }
 }

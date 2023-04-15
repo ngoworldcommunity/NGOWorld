@@ -15,6 +15,7 @@ router.post("/register", async (req, res) => {
 
     const { email } = req.body;
     const existingUser = await Club.findOne({ email: email });
+
     if (existingUser) {
       return res.status(409).json({ message: "Account already exists" });
     }

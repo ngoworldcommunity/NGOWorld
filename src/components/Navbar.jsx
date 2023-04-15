@@ -60,10 +60,7 @@ const Navbar = () => {
                 <Link to={"/clubs"}>Clubs</Link>
                 <div
                   className={
-                    "" +
-                    (location.pathname === "/clubs"
-                      ? "active-link"
-                      : "")
+                    "" + (location.pathname === "/clubs" ? "active-link" : "")
                   }
                 ></div>
               </li>
@@ -72,10 +69,7 @@ const Navbar = () => {
                 <Link to="/events">Events</Link>
                 <div
                   className={
-                    "" +
-                    (location.pathname === "/events"
-                      ? "active-link"
-                      : "")
+                    "" + (location.pathname === "/events" ? "active-link" : "")
                   }
                 ></div>
               </li>
