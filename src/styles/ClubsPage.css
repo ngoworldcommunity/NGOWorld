@@ -26,8 +26,6 @@
   font-size: 1.4rem;
   line-height: 1.5;
   letter-spacing: 1px;
-  margin: auto;
-  width: 80%;
 }
 
 .cp_cardsdiv {
@@ -121,6 +119,5 @@
     font-size: 1rem;
     line-height: 1.5;
     letter-spacing: 1px;
-    width: 100%
   }
 }
