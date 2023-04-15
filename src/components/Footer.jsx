@@ -283,12 +283,12 @@ const Footer = () => {
             </a>
           </div>
           <div className="cont social-btn">
-            <a href="https://milaan.vercel.app/contact">
+            <Link to={"/contact"}>
               <i className="cont-icon fa-solid fa-message"></i>
-            </a>
+            </Link>
           </div>
         </div>
-        <p className="text-light text-center">Developed by team Milan © 2023</p>
+        <p className="text-light text-center"> Developed by team Milan &copy; {new Date().getFullYear()}  </p>
       </div>
     </footer>
   );
