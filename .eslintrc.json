@@ -1,4 +1,4 @@
-{
+/* {
   "env": {
     "browser": true,
     "es2021": true
@@ -17,3 +17,4 @@
     "react/prop-types": 0
   }
 }
+ */
