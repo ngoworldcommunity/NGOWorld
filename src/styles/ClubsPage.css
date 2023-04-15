@@ -11,7 +11,7 @@
   text-align: center;
 }
 .cp_textdiv {
-  width: 70%;
+  width: 80%;
 }
 .cp_header1 {
   font-family: Montserrat, sans-serif;
@@ -26,6 +26,8 @@
   font-size: 1.4rem;
   line-height: 1.5;
   letter-spacing: 1px;
+  margin: auto;
+  width: 80%;
 }
 
 .cp_cardsdiv {
