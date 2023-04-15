@@ -87,7 +87,6 @@ const App = () => {
           {/* <Footer /> */}
           <Footer />
         </Router>
-
       </MilanState>
     </>
   );
