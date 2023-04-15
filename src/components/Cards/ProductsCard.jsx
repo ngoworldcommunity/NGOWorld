@@ -18,10 +18,9 @@ const ProductsCard = ({ product }) => {
         </div>
       </div> */}
 
-      <Link passHref href={`/products`} className="pb_cardmain">
-        <div >
+      <Link passHref href={`/products`}>
+        <div className="pb_cardmain">
           <div className="pb_cardimgdiv">
-
             <img src={product.img} alt="" />
           </div>
           <div className="pb_cardtextdiv">
@@ -31,13 +30,16 @@ const ProductsCard = ({ product }) => {
               <p>⭐⭐⭐⭐⭐</p>
               <p className="pb_price">₹ 100</p>
             </div>
-
           </div>
           <div className="card_cart">
-            <img src="https://shop-coders.vercel.app/_next/static/media/cart.a9a33008.svg" width={32} height={32} alt=" picture of the products" />
+            <img
+              src="https://shop-coders.vercel.app/_next/static/media/cart.a9a33008.svg"
+              width={32}
+              height={32}
+              alt="cart"
+            />
           </div>
         </div>
-
       </Link>
     </>
   );

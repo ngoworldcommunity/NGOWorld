@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   Home,
@@ -24,6 +25,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./styles/App.css";
 import ShopCategory from "./pages/shops/ShopCategory";
+
 const App = () => {
   return (
     <>
@@ -52,6 +54,7 @@ const App = () => {
             <Route exact path="/user/register" element={<UserRegister />} />
             <Route exact path="/user/login" element={<UserLogin />} />
             <Route exact path="/user/profile" element={<UserProfile />} />
+
             <Route
               exact
               path="/user/forgotpass"
@@ -87,7 +90,6 @@ const App = () => {
           {/* <Footer /> */}
           <Footer />
         </Router>
-
       </MilanState>
     </>
   );

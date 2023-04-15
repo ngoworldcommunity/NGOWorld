@@ -181,18 +181,41 @@ function ClubLogin() {
                     type="submit"
                     className="login-btn btn btn-lg btn-block"
                   >
-                    {isLoading ? <ClipLoader color="#e26959" /> : "LOGIN"}
+                    {isLoading ?
+                      <ClipLoader color="#e26959" /> : "LOGIN"}
                   </button>
                 </div>
                 <br></br>
                 <br></br>
                 <div className="anchor-container anchor-container-desktop">
+
+
+
+
+
+
+
+
+
+
+
                   <Anchor
                     para=""
                     details="Forgot password?"
                     link="/clubs/forgotpass"
                     className="text-muted"
                   />
+
+
+
+
+
+
+
+
+
+
+
                   <Anchor
                     para="Don't have an account? "
                     details="Register here"
