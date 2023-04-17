@@ -186,7 +186,7 @@ const Footer = () => {
           <div className="col-lg-6 col-md-6 mb-4 mb-lg-0 px-5">
             <img src="img/logo.png" alt="" width="180" className="mb-3" />
             {isMobile ? (
-              <h1 class="h6 join-us text-uppercase text-light font-weight-bold mb-4">
+              <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4">
                 Check out our socials
               </h1>
             ) : (
@@ -283,12 +283,12 @@ const Footer = () => {
             </a>
           </div>
           <div className="cont social-btn">
-            <a href="https://milaan.vercel.app/contact">
+            <Link to={"/contact"}>
               <i className="cont-icon fa-solid fa-message"></i>
-            </a>
+            </Link>
           </div>
         </div>
-        <p className="text-light text-center">Developed by team Milan © 2023</p>
+        <p className="text-light text-center"> Developed by team Milan &copy; {new Date().getFullYear()}  </p>
       </div>
     </footer>
   );

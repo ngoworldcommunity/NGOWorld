@@ -93,10 +93,13 @@
   margin-bottom: 120px;
 }
 
-
 .btn-grad {
-
-  background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%) !important;
+  background-image: linear-gradient(
+    to right,
+    #1fa2ff 0%,
+    #12d8fa 51%,
+    #1fa2ff 100%
+  ) !important;
 
   padding: 15px 45px;
   text-align: center;
@@ -125,7 +128,6 @@
   margin-bottom: 80px;
 }
 
-
 .products_header h1 {
   font-family: Montserrat, sans-serif;
   font-size: 70px;
@@ -144,12 +146,7 @@
   border: 1px solid #28183b;
 }
 
-
-
-
-
 /* //* Buttons div end */
-
 
 @media screen and (max-width: 430px) {
   .shop_textdiv {

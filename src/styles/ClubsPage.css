@@ -97,7 +97,6 @@
   transition: 500ms;
 }
 
-
 @media screen and (max-width: 430px) {
   .cp_textdiv {
     width: 100%;

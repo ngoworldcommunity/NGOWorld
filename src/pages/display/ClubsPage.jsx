@@ -2,11 +2,15 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import Loading from "../../components/Loading";
 import SingleClubEvent from "../../components/SingleClubEvent";
-import useSWR from 'swr'
+import useSWR from "swr";
 import { defaultfetcher } from "../../utils/fetcher";
 
 const ClubsPage = () => {
-  const { data: clubData, error, isLoading } = useSWR(`${import.meta.env.VITE_MILANAPI}/display/clubs`, defaultfetcher)
+  const {
+    data: clubData,
+    error,
+    isLoading,
+  } = useSWR(`${import.meta.env.VITE_MILANAPI}/display/clubs`, defaultfetcher);
 
   return (
     <>
