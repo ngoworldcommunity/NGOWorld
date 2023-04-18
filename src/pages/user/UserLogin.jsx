@@ -112,7 +112,7 @@ function UserLogin() {
                     htmlFor="exampleInputEmail1"
                     className="col-form-label col-form-label-lg regformlabels"
                   >
-                    Email address 📨
+                    Email address
                   </label>
                   <input
                     type="email"
@@ -134,7 +134,7 @@ function UserLogin() {
                   htmlFor="exampleInputPassword1"
                   className="col-form-label col-form-label-lg regformlabels color"
                 >
-                  Password 🔑
+                  Password
                 </label>
                 <div className="form-outline mb-4">
                   <input

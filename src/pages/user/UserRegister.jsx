@@ -102,46 +102,46 @@ const UserRegister = () => {
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
               <form style={{ width: "auto" }} onSubmit={handleSubmit}>
-                <h1 className="userregister_header">Join us at Milan !</h1>
+                <h1 className="userregister_header">Register as an User !</h1>
                 <div className="form-outline mb-2">
-                  <label
-                    htmlFor="Full Name"
-                    className="col-form-label col-form-label-lg regformlabels"
-                  >
-                    Enter your name
-                  </label>
                   <div className="d-flex flex-column flex-md-row">
-                    <input
-                      type="text"
-                      className="userreg_des_firstname form-control form-control-lg me-md-2"
-                      placeholder="First name"
-                      name="firstname"
-                      value={credentials.firstname}
-                      onChange={handleChange}
-                      required
-                      autoFocus
-                      aria-label="First name"
-                    />
-                    <input
-                      type="text"
-                      className="userreg_mob_firstname form-control form-control-lg me-md-2"
-                      placeholder="First name"
-                      name="firstname"
-                      value={credentials.firstname}
-                      onChange={handleChange}
-                      required
-                      aria-label="First name"
-                    />
-                    <input
-                      type="text"
-                      className="form-control form-control-lg ms-md-2"
-                      placeholder="Last name"
-                      name="lastname"
-                      value={credentials.lastname}
-                      onChange={handleChange}
-                      required
-                      aria-label="Last name"
-                    />
+                    <div className="me-md-2">
+                      <label
+                        htmlFor="First Name"
+                        className="col-form-label col-form-label-lg regformlabels"
+                      >
+                        First Name
+                      </label>
+                      <input
+                        type="text"
+                        className="userreg_des_firstname form-control form-control-lg"
+                        placeholder="First name"
+                        name="firstname"
+                        value={credentials.firstname}
+                        onChange={handleChange}
+                        required
+                        autoFocus
+                        aria-label="First name"
+                      />
+                    </div>
+                    <div className="ms-md-2">
+                      <label
+                        htmlFor="Last Name"
+                        className="col-form-label col-form-label-lg regformlabels"
+                      >
+                        Last Name
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control form-control-lg"
+                        placeholder="Last name"
+                        name="lastname"
+                        value={credentials.lastname}
+                        onChange={handleChange}
+                        required
+                        aria-label="Last name"
+                      />
+                    </div>
                   </div>
                 </div>
                 {/* //* Email */}
@@ -150,7 +150,7 @@ const UserRegister = () => {
                     htmlFor="emailInput"
                     className="col-form-label col-form-label-lg regformlabels"
                   >
-                    Email address 📨
+                    Email address
                   </label>
 
                   <input
@@ -171,7 +171,7 @@ const UserRegister = () => {
                     htmlFor="exampleInputPassword1"
                     className="col-form-label col-form-label-lg regformlabels"
                   >
-                    Password 🔑
+                    Password
                   </label>
 
                   <input
@@ -192,7 +192,7 @@ const UserRegister = () => {
                     htmlFor="address"
                     className="col-form-label col-form-label-lg regformlabels"
                   >
-                    Address 🏡
+                    Address
                   </label>
 
                   <input
@@ -213,7 +213,7 @@ const UserRegister = () => {
                     htmlFor="pincode"
                     className="col-form-label col-form-label-lg regformlabels"
                   >
-                    Pincode 📍
+                    Pincode
                   </label>
 
                   <input
