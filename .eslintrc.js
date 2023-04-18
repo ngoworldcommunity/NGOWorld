@@ -16,6 +16,7 @@ module.exports = {
     "jsx-quotes": ["error", "prefer-double"],
     semi: ["error", "always"],
     "no-multiple-empty-lines": "error",
+    "react/prop-types": ["off"],
   },
   settings: {
     react: {
