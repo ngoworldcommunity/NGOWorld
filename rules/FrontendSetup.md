@@ -22,7 +22,7 @@ Follow the below steps to setup the Frontend locally. We are using `npm` as the 
 - We are using `ESLint` and `Prettier` for linting and formatting.
 - Maintain the same coding standards as the rest of the codebase. 
 - Follow good naming conventions for the files, variables and functions along with proper documentation (if needed).
-- We also use `husky` and `lint-staged` to run the linter and formatter before every commit. Read about this in our [Contributing Guidelines]("https://github.com/IAmTamal/Milan/blob/main/CONTRIBUTING.md").
+- We also use `husky` and `lint-staged` to run the linter and formatter before every commit. Read about this in our [Contributing Guidelines](/CONTRIBUTING.md).
 - Maintain a good folder structure, incase you use anu new components or pages make sure you put them in the right folder.
 - If you are using any new dependencies, make sure you mention them in the PR.
 - If you are using any new Image , compress it using [online tools]("https://www.iloveimg.com/compress-image") and then use it in the project.
@@ -31,4 +31,4 @@ Follow the below steps to setup the Frontend locally. We are using `npm` as the 
 
 So now you have the the frontend up and running locally. Now you can start working on the issues. Now follow the below steps to setup the backend locally.
 
-1. [Setting up the backend locally]("https://github.com/IAmTamal/Milan/blob/main/rules/BackendSetup.md")
+1. [Setting up the backend locally](/rules/BackendSetup.md)

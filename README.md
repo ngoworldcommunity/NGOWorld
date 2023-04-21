@@ -35,12 +35,12 @@ Join as a User, NGO, Club, or Charity, and help us make the world a better place
 
 When contributing or setting up the projects, please follow the below guidelines:
 
-1. [Contributing Guidelines]("https://github.com/IAmTamal/Milan/blob/main/CONTRIBUTING.md")
-2. [Code of conduct]("https://github.com/IAmTamal/Milan/blob/main/CONTRIBUTING.md")
-3. [Getting the repo on your system]("")
-4. [Setting up frontend locally]("https://github.com/IAmTamal/Milan/blob/main/rules/FrontendSetup.md")
-5. [Setting up the backend locally]("https://github.com/IAmTamal/Milan/blob/main/rules/BackendSetup.md")
-6. [Setting up the app with docker]("https://github.com/IAmTamal/Milan/blob/main/rules/DockerSetup.md"")
+1. [Contributing Guidelines](/CONTRIBUTING.md)
+2. [Code of conduct](/CODE_OF_CONDUCT.md)
+3. [Getting the repo on your system](/rules/CloneSetup.md)
+4. [Setting up frontend locally](/rules/FrontendSetup.md)
+5. [Setting up the backend locally](/rules/BackendSetup.md)
+6. [Setting up the app with docker](/rules/DockerSetup.md)
 
 ## License 👮
 
