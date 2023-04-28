@@ -7,6 +7,10 @@
   z-index: 10;
 }
 
+.navbar-nav {
+  gap: 0.5rem;
+}
+
 .navbar-brand {
   font-size: 1.8em;
   color: #28183b;
@@ -47,7 +51,6 @@
 .home {
   font-weight: 600;
   margin: auto;
-  padding-right: 30px;
 }
 
 .shop_icon {
@@ -78,7 +81,6 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  margin-left: 10px;
   object-fit: cover;
   cursor: pointer;
   align-self: center;
@@ -87,6 +89,12 @@
 @media (min-width: 769px) {
   .container-fluid {
     padding: 1rem 3rem;
+  }
+  .home {
+    padding-right: 30px;
+  }
+  .nav_user_img {
+    margin-left: 10px;
   }
 }
 
