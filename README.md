@@ -42,6 +42,12 @@ When contributing or setting up the projects, please follow the below guidelines
 5. [Setting up the backend locally](/rules/BackendSetup.md)
 6. [Setting up the app with docker](/rules/DockerSetup.md)
 
+## Contributing to Milan 🛠
+
+- You can raise an issue if you feel like fixing a bug / adding new features / or even contributing to docs & so on.
+- Always look for **[OPEN TO CONTRIBUTE](https://github.com/IAmTamal/Milan/issues?q=is%3Aissue+is%3Aopen+label%3A%22%F0%9F%A4%A9+status+%3A++Up+for+Grab%22)** issues, you can go & get assigned.
+- Please, donot make PRs, without making an issue first.
+
 ## License 👮
 
 Milan is Licensed under the <a href="./LICENSE">MIT License</a>. Please go through the License atleast once before contributing. 
