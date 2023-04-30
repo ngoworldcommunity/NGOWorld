@@ -31,9 +31,9 @@ Join as a User, NGO, Club, or Charity, and help us make the world a better place
 
 </br>
 
-## Guidelines 🔐
+## Contributing to Milan, Guidelines 🔐
 
-When contributing or setting up the projects, please follow the below guidelines:
+It is expected that all the contributors, especially the `first time contributors` must go through these atleast once while setting up, contributing to this project :
 
 1. [Contributing Guidelines](/CONTRIBUTING.md)
 2. [Code of conduct](/CODE_OF_CONDUCT.md)
@@ -41,12 +41,7 @@ When contributing or setting up the projects, please follow the below guidelines
 4. [Setting up frontend locally](/rules/FrontendSetup.md)
 5. [Setting up the backend locally](/rules/BackendSetup.md)
 6. [Setting up the app with docker](/rules/DockerSetup.md)
-
-## Contributing to Milan 🛠
-
-- You can raise an issue if you feel like fixing a bug / adding new features / or even contributing to docs & so on.
-- Always look for **[OPEN TO CONTRIBUTE](https://github.com/IAmTamal/Milan/issues?q=is%3Aissue+is%3Aopen+label%3A%22%F0%9F%A4%A9+status+%3A++Up+for+Grab%22)** issues, you can go & get assigned.
-- Please, donot make PRs, without making an issue first.
+7. Always look for **[OPEN TO CONTRIBUTE](https://github.com/IAmTamal/Milan/issues?q=is%3Aissue+is%3Aopen+label%3A%22%F0%9F%A4%A9+status+%3A++Up+for+Grab%22)** issues, you can go & get assigned.
 
 ## License 👮
 
