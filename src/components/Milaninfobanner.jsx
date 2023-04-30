@@ -25,7 +25,7 @@ const Milaninfobanner = () => {
             data-aos="fade-right"
             data-aos-duration="500"
           >
-            <img src={MilanLanding1} alt="MilanLandingImage" width={430} height={430}/>
+            <img src={MilanLanding1} alt="a group of people in different poses" width={430} height={430}/>
           </div>
 
           <div
@@ -67,7 +67,7 @@ const Milaninfobanner = () => {
             data-aos="fade-left"
             data-aos-duration="500"
           >
-            <img src={MilanLanding2} alt="MilanLandingImage1" width={430} height={430}/>
+            <img src={MilanLanding2} alt="a group of people in different poses" width={430} height={430}/>
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@ const Milaninfobanner = () => {
       <div className="mib_main_parent2">
         <div className="mib_subparent3">
           <div className="mib_imgdiv">
-            <img src={LandingMobile} alt="MilanLandingImgMobile" width={324} height={324}/>
+            <img src={LandingMobile} alt="a group of people in different poses" width={324} height={324}/>
           </div>
 
           <div className="mib_textdiv">
