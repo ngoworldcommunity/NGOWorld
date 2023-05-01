@@ -6,11 +6,14 @@ import useSWR from "swr";
 import { defaultfetcher } from "../../utils/fetcher";
 
 const ClubsPage = () => {
-  const {
-    data: clubData,
-    error,
-    isLoading,
-  } = useSWR(`${import.meta.env.VITE_MILANAPI}/display/clubs`, defaultfetcher);
+  const { data: clubData, isLoading } = useSWR(
+    `${import.meta.env.VITE_MILANAPI}/display/clubs`,
+    defaultfetcher,
+  );
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
@@ -40,8 +43,8 @@ const ClubsPage = () => {
               <Loading />
             ) : (
               <>
-                {clubData.map((club) => {
-                  return <SingleClubEvent key={club._id} club={club} />;
+                {clubData?.map((club) => {
+                  return <SingleClubEvent key={club?._id} club={club} />;
                 })}
               </>
             )}
