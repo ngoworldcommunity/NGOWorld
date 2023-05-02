@@ -1,8 +1,8 @@
 .signUpModalHeader > h1 {
-  font-family: Montserrat, sans-serif;
+  font-family: Poppins, sans-serif;
   color: #4e4e4e;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 800;
   text-align: center;
 }
 
@@ -13,8 +13,18 @@
   margin: 0 auto;
 }
 
-.divider {
-  margin: 0 20px;
+.modal-btn {
+  font-weight: 600;
+  color: black;
+  cursor: pointer;
+  margin: 20px;
+  text-align: center;
+  background-color: #e26959;
+  box-shadow: 0 0 50px -10px #9747ff14;
+}
+
+.btn:hover {
+  background-color: #e26959;
 }
 
 @media screen and (max-width: 525px) {

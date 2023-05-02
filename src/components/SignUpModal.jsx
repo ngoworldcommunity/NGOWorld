@@ -30,17 +30,16 @@ const SignUpModal = ({ onClose }) => {
       <div>
         <div className="text-center button-wrapper">
           <button
-            className="btn btn-hover"
+            className="btn modal-btn"
             onClick={() => navigateToURL("/user/register")}
           >
-            Sign Up as an Individual - <i className="fa-solid fa-user"></i>
+            Continue as an User
           </button>
-          <hr className="divider" />
           <button
-            className="btn btn-hover"
+            className="btn modal-btn"
             onClick={() => navigateToURL("/clubs/register")}
           >
-            Sign Up as a Club - <i className="fa-solid fa-users"></i>
+            Continue as a Club/NGO
           </button>
         </div>
       </div>
