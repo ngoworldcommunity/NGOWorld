@@ -9,6 +9,16 @@ const Banner = () => {
   const nav = useNavigate();
   const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
 
+  const toggleSingUpModal = () => {
+    if (isSignUpModalOpen) {
+      setIsSignUpModalOpen(false);
+      document.body.style.overflow = "unset";
+      return;
+    }
+    setIsSignUpModalOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+
   return (
     <>
       <div className="container">
@@ -57,9 +67,7 @@ const Banner = () => {
                   <div className="banner_btn_div">
                     <button
                       className="btn btn-warning banner_signup_btn"
-                      onClick={() => {
-                        setIsSignUpModalOpen(true);
-                      }}
+                      onClick={toggleSingUpModal}
                       data-cy="landingpage-club-signup"
                       id="landingpage-club-signup"
                     >
@@ -84,9 +92,7 @@ const Banner = () => {
           </div>
         </div>
       </div>
-      {isSignUpModalOpen && (
-        <SignUpModal onClose={() => setIsSignUpModalOpen(false)} />
-      )}
+      {isSignUpModalOpen && <SignUpModal onClose={toggleSingUpModal} />}
     </>
   );
 };

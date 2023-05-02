@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Modal from "./Modal";
 import { useNavigate } from "react-router-dom";
 import "../styles/SignUpModal.css";
@@ -10,6 +10,16 @@ const SignUpModal = ({ onClose }) => {
     onClose();
     navigate(url);
   };
+
+  useEffect(() => {
+    const closeEvent = (e) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", closeEvent);
+    return () => window.removeEventListener("keydown", closeEvent);
+  }, []);
 
   return (
     <Modal onClose={onClose}>

@@ -21,6 +21,16 @@ const Navbar = () => {
     }
   };
 
+  const toggleSingUpModal = () => {
+    if (isSignUpModalOpen) {
+      setIsSignUpModalOpen(false);
+      document.body.style.overflow = "unset";
+      return;
+    }
+    setIsSignUpModalOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light sticky-top navbar_main ">
@@ -95,7 +105,7 @@ const Navbar = () => {
                 />
               ) : (
                 <li className="nav-item home">
-                  <div onClick={() => setIsSignUpModalOpen(true)}>
+                  <div onClick={toggleSingUpModal}>
                     <button className="btn nav_signup_btn">Sign up</button>
                   </div>
                 </li>
@@ -104,9 +114,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {isSignUpModalOpen && (
-        <SignUpModal onClose={() => setIsSignUpModalOpen(false)} />
-      )}
+      {isSignUpModalOpen && <SignUpModal onClose={toggleSingUpModal} />}
     </>
   );
 };
