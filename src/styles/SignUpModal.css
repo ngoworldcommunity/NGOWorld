@@ -1,0 +1,31 @@
+.signUpModalHeader > h1 {
+  font-family: Montserrat, sans-serif;
+  color: #4e4e4e;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+
+.divider {
+  margin: 0 20px;
+}
+
+@media screen and (max-width: 525px) {
+  .signUpModalHeader {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .signUpModalHeader > h1 {
+    font-size: 1.2rem;
+    margin-left: 1.4rem;
+    flex: auto;
+  }
+}

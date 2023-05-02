@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Navbar.css";
 import solidarity from "../assets/pictures/solidarity.png";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ProfilePicture from "../assets/pictures/ProfilePicture.png";
 import Cookies from "js-cookie";
+import SignUpModal from "./SignUpModal";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
+
   const handleNavigate = () => {
     if (Cookies.get("token")) {
       navigate("/user/profile");
@@ -92,15 +95,18 @@ const Navbar = () => {
                 />
               ) : (
                 <li className="nav-item home">
-                  <Link to="/user/register">
+                  <div onClick={() => setIsSignUpModalOpen(true)}>
                     <button className="btn nav_signup_btn">Sign up</button>
-                  </Link>
+                  </div>
                 </li>
               )}
             </ul>
           </div>
         </div>
       </nav>
+      {isSignUpModalOpen && (
+        <SignUpModal onClose={() => setIsSignUpModalOpen(false)} />
+      )}
     </>
   );
 };
