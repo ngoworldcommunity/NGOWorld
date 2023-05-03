@@ -40,7 +40,7 @@ Some of them are automatically fixed, while some needs manual fixing.
 
 - Only ask to be assigned 1 issue at a time.
 - **Do not** enable GitHub Actions on your fork
-- You can assign yourself to an issue if you want to work on it my checking the `I am willing to work on this issue (blank for no)` checkbox.
+- You can assign yourself to an issue if you want to work on it by checking the `I am willing to work on this issue (blank for no)` checkbox.
 - Incase someone else has left that box empty, you can assign yourself to that issue by commenting `I would like to work on this issue` on that issue.
 - We assign on a **first come first serve basis**.
 
