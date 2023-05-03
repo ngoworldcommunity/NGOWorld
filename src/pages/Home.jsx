@@ -1,18 +1,12 @@
-import React, { useState } from "react";
-import Banner from "../components/Banners/Banner.jsx";
-import Cookies from "js-cookie";
+import React from "react";
 import { Helmet } from "react-helmet-async";
+import Banner from "../components/Banners/Banner.jsx";
 import Milaninfobanner from "../components/Milaninfobanner";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-
-const AuthState = () => {
-  const [login, setLogin] = useState(
-    Cookies.get("token") || Cookies.get("club"),
-  );
-  return login;
-};
 const Home = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Helmet>

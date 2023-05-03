@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Loading from "../../components/Loading";
 import SingleClubEvent from "../../components/SingleClubEvent";
@@ -6,11 +6,7 @@ import useSWR from "swr";
 import { defaultfetcher } from "../../utils/fetcher";
 
 const EventsPage = () => {
-  const {
-    data: eventsData,
-    error,
-    isLoading,
-  } = useSWR(
+  const { data: eventsData, isLoading } = useSWR(
     `${import.meta.env.VITE_MILANAPI}/display/allevents`,
     defaultfetcher,
   );
@@ -49,10 +45,10 @@ const EventsPage = () => {
               <Loading />
             ) : (
               <>
-                {eventsData.map((event) => {
+                {eventsData?.map((event) => {
                   return (
                     <SingleClubEvent
-                      key={event._id}
+                      key={event?._id}
                       event={event}
                       type="events"
                     />
