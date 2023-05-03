@@ -26,8 +26,8 @@ const ShopLanding = () => {
             <div className="shop_textdiv">
               <p className="shop_header1">Shop for charity !</p>
               <p className="shop_header2">
-                {`Welcome to our shop. Anything you buy from here helps out the
-                charities. We don't take anything from the profit.`}
+                Welcome to our shop. Anything you buy from here helps out the
+                charities. We don&apos;t take anything from the profit.
               </p>
             </div>
 
