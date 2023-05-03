@@ -1,9 +1,14 @@
+import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Products from "../../components/shop/Products";
 import "../../styles/ShopLanding.css";
 
 const ShopLanding = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -22,7 +27,7 @@ const ShopLanding = () => {
               <p className="shop_header1">Shop for charity !</p>
               <p className="shop_header2">
                 Welcome to our shop. Anything you buy from here helps out the
-                charities. We don't take anything from the profit.
+                charities. We don&apos;t take anything from the profit.
               </p>
             </div>
 
