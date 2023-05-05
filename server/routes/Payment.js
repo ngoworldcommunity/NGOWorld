@@ -1,25 +1,22 @@
 const express = require("express");
-const Club = require("../models/ClubsSchema");
-const User = require("../models/UserSchema");
-const Events = require("../models/EventsSchema");
 const router = express.Router();
 
 const shortid = require("shortid");
 const Razorpay = require("razorpay");
 
 const razorpay = new Razorpay({
-  key_id: process.env.KEY_ID,
-  key_secret: process.env.KEY_SECRET,
+  key_id: process.env.RAZORPAY_KEY_ID,
+  key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
 router.post("/razorpay", async (req, res) => {
   const payment_capture = 1;
-  const amount = parseInt(req.body.donatedmoney);
-  // console.log(typeof amount);
+  const amount = req.body.amount * 100;
+
   const currency = "INR";
 
   const options = {
-    amount: amount * 100,
+    amount: amount,
     currency,
     receipt: shortid.generate(),
     payment_capture,
@@ -27,14 +24,12 @@ router.post("/razorpay", async (req, res) => {
 
   try {
     const response = await razorpay.orders.create(options);
-    // console.log(response);
-    res.json({
+    return res.status(200).json({
       id: response.id,
       currency: response.currency,
       amount: response.amount,
     });
   } catch (error) {
-    // console.log(error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
