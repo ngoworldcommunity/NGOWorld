@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
 
 .container-fluid {
   padding: 1rem 2rem;
@@ -147,5 +147,229 @@
 
   .club_details_card button {
     margin-left: 0rem;
+  }
+} */
+
+.clubdetails_parent {
+  padding: 6% 15%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.clubdetails_imagediv > img {
+  border-radius: 10px;
+  width: 20rem;
+}
+.clubdetails_textdiv {
+  width: 60%;
+}
+.clubdetails_textdiv > h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #e26959;
+}
+.clubdetails_textdiv > h2,
+.paymodal > h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.clubdetails_description {
+  margin-top: 3rem;
+  color: black;
+}
+
+.clubdetails_description > p:nth-child(1) > span {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  margin-top: 1rem;
+  color: #e26959;
+}
+.clubdetails_description > p:nth-child(1) {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.clubdetails_description > p:nth-child(2),
+.paymodal > p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.clubdetails_description > .btn,
+.paymodal > .btn {
+  margin-top: 2rem;
+  border: 3px solid #e26959;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: black;
+  letter-spacing: 1px;
+  border-radius: 5px;
+}
+.clubdetails_description > .btn:hover,
+.paymodal > .btn:hover {
+  background-color: #e26959;
+  color: white;
+}
+
+.clubdetails_description_landscape {
+  display: none;
+}
+
+.paymodal > .input-group > input {
+  margin-bottom: 0px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: black;
+  letter-spacing: 1px;
+}
+
+.paymodal > .input-group > input:focus {
+  box-shadow: none !important;
+  border: 1px solid #e26959 !important;
+}
+
+.paymodal > .input-group > input::placeholder {
+  color: rgba(0, 0, 0, 0.402) !important;
+}
+
+@media screen and (max-width: 1099px) {
+  .clubdetails_parent {
+    gap: 4rem;
+  }
+  .clubdetails_imagediv > img {
+    border-radius: 10px;
+    width: 15rem;
+  }
+
+  .clubdetails_textdiv {
+    width: 100%;
+  }
+  .clubdetails_textdiv > h1 {
+    font-size: 2.1rem;
+    text-align: left;
+  }
+  .clubdetails_textdiv > h2 {
+    font-size: 1.3rem;
+  }
+
+  .clubdetails_description {
+    margin-top: 3rem;
+    color: black;
+  }
+
+  .clubdetails_description > p:nth-child(1) > span {
+    font-size: 1.1rem;
+  }
+  .clubdetails_description > p:nth-child(1) {
+    font-size: 1.1rem;
+  }
+
+  .clubdetails_description > p:nth-child(2) {
+    font-size: 1.1rem;
+  }
+
+  .clubdetails_description > .btn {
+    font-size: 1rem;
+    border: 2px solid #e26959;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .clubdetails_parent {
+    padding: 6% 10%;
+    /* gap: 2rem; */
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .flexed {
+    display: none;
+  }
+
+  .clubdetails_parent {
+    padding: 6% 10%;
+    gap: 3rem;
+    align-items: center;
+    padding-bottom: 2%;
+  }
+
+  .clubdetails_imagediv > img {
+    width: 13rem;
+  }
+
+  .clubdetails_description_landscape {
+    display: flex;
+    flex-direction: column;
+    padding: 0% 10%;
+    margin-top: 0;
+    padding-bottom: 6%;
+  }
+
+  .clubdetails_description > p:nth-child(2) {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .clubdetails_description > .btn {
+    margin: auto;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .clubdetails_parent {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .clubdetails_imagediv > img {
+    border-radius: 10px;
+    width: 13rem;
+  }
+
+  .clubdetails_textdiv {
+    width: 100%;
+  }
+  .clubdetails_textdiv > h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .clubdetails_textdiv > h2 {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .clubdetails_description {
+    margin-top: 0rem;
+  }
+
+  .clubdetails_description > p:nth-child(1) > span {
+    font-size: 1rem;
+    text-align: center;
+  }
+  .clubdetails_description > p:nth-child(1) {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .clubdetails_description > p:nth-child(2) {
+    font-size: 1rem;
+  }
+
+  .clubdetails_description > .btn {
+    font-size: 1rem;
+    border: 2px solid #e26959;
   }
 }
