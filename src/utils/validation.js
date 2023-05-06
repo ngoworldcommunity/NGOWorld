@@ -13,10 +13,10 @@ const errMsgLocalisers = {
   maxLength: (err) => {
     return `Maximum length should be ${err.argument}`;
   },
-  format: (err) => {
+  format: () => {
     return `Is not valid !`;
   },
-  pattern: (err) => {
+  pattern: () => {
     return `Is not valid !`;
   },
 };

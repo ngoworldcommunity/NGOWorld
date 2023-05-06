@@ -17,13 +17,13 @@ body {
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {
-  scrollbar-width: 10px;
-  scrollbar-color: #e26959 #ffffff;
+  scrollbar-width: 6px;
+  scrollbar-color: #e26959 #ffffff00;
 }
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 *::-webkit-scrollbar-track {
