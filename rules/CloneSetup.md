@@ -21,6 +21,6 @@ git clone https://github.com/<YOUR_USERNAME>/Milan.git
 
 So now you have the repo in your local storage. The next step is to setup the frontend and backend locally. You can refer to the following links to setup the frontend and backend locally.
 
-1. [Setting up frontend locally]("https://github.com/IAmTamal/Milan/blob/main/rules/FrontendSetup.md")
-2. [Setting up the backend locally]("https://github.com/IAmTamal/Milan/blob/main/rules/BackendSetup.md")
-3. [Setting up the app with docker]("https://github.com/IAmTamal/Milan/blob/main/rules/DockerSetup.md"")
+1. [Setting up frontend locally](/rules/FrontendSetup.md)
+2. [Setting up the backend locally](/rules/BackendSetup.md)
+3. [Setting up the app with docker](/rules/DockerSetup.md)
