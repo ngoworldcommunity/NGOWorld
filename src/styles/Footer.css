@@ -224,22 +224,18 @@
 .btn-report {
   border-radius: 8px;
   border: none;
-  background-color: #9ac2fe;
+  background-color: #e26959;
   padding: 10px 20px;
   transition: all 0.3s ease-in;
 }
 
 .btn-report:hover {
-  background-color: #3663a6;
+  background-color:#fae0b4ff;
   transform: scale(1.1);
 }
 
 .btn-report span {
   color: black;
-}
-
-.btn-report:hover span {
-  color: #fff;
 }
 
 .btn-report i {
@@ -249,7 +245,6 @@
 
 .btn-report:hover i {
   transform: rotate(90deg);
-  color: #fff;
 }
 
 .report img {
@@ -316,7 +311,7 @@
     margin-bottom: 40px;
   }
   .join {
-    margin-left: 200px;
+    margin-left: 0px;
   }
 }
 
@@ -331,7 +326,12 @@
 }
 
 .footer_auth_text {
-  color: #9ac2fe;
+  color: #d8d7d7;
+  margin-bottom: 2px;
+}
+
+.footer_auth_text:hover {
+  color: #e26959;
 }
 
 @media screen and (min-width: 526px) {
