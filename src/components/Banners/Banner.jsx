@@ -1,23 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/Banner.css";
 import Cookies from "js-cookie";
 import { ImGithub } from "react-icons/im";
-import SignUpModal from "../SignUpModal";
+import MilanContext from "../../context/MilanContext";
 
 const Banner = () => {
   const nav = useNavigate();
-  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
-
-  const toggleSingUpModal = () => {
-    if (isSignUpModalOpen) {
-      setIsSignUpModalOpen(false);
-      document.body.style.overflow = "unset";
-      return;
-    }
-    setIsSignUpModalOpen(true);
-    document.body.style.overflow = "hidden";
-  };
+  const { toggleSignUpModal } = useContext(MilanContext);
 
   return (
     <>
@@ -67,7 +57,7 @@ const Banner = () => {
                   <div className="banner_btn_div">
                     <button
                       className="btn btn-warning banner_signup_btn"
-                      onClick={toggleSingUpModal}
+                      onClick={toggleSignUpModal}
                       data-cy="landingpage-club-signup"
                       id="landingpage-club-signup"
                     >
@@ -92,7 +82,6 @@ const Banner = () => {
           </div>
         </div>
       </div>
-      {isSignUpModalOpen && <SignUpModal onClose={toggleSingUpModal} />}
     </>
   );
 };

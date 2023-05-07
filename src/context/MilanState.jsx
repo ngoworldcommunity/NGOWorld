@@ -10,8 +10,20 @@ const MilanState = (props) => {
     bottom: false,
     right: false,
   });
+  const [isSignUpModalOpen, setIsSignUpModalOpen] = react.useState(false);
+
+  const toggleSignUpModal = () => {
+    if (isSignUpModalOpen) {
+      setIsSignUpModalOpen(false);
+      document.body.style.overflow = "unset";
+      return;
+    }
+    setIsSignUpModalOpen(true);
+    document.body.style.overflow = "hidden";
+  };
 
   return (
+    // eslint-disable-next-line react/react-in-jsx-scope
     <MilanContext.Provider
       value={{
         drawerOpen,
@@ -19,6 +31,8 @@ const MilanState = (props) => {
         anchor,
         state,
         setState,
+        isSignUpModalOpen,
+        toggleSignUpModal,
       }}
     >
       {props.children}

@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect } from "react";
 import "../styles/Navbar.css";
 import solidarity from "../assets/pictures/solidarity.png";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ProfilePicture from "../assets/pictures/ProfilePicture.png";
 import Cookies from "js-cookie";
-import SignUpModal from "./SignUpModal";
+import MilanContext from "../context/MilanContext";
+import Modal from "./Modal";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
+  const { isSignUpModalOpen, toggleSignUpModal } = useContext(MilanContext);
 
   const handleNavigate = () => {
     if (Cookies.get("token")) {
@@ -21,15 +22,22 @@ const Navbar = () => {
     }
   };
 
-  const toggleSingUpModal = () => {
-    if (isSignUpModalOpen) {
-      setIsSignUpModalOpen(false);
-      document.body.style.overflow = "unset";
-      return;
-    }
-    setIsSignUpModalOpen(true);
-    document.body.style.overflow = "hidden";
+  const navigateToURL = (url) => {
+    toggleSignUpModal();
+    navigate(url);
   };
+
+  useEffect(() => {
+    if (isSignUpModalOpen) {
+      const closeEvent = (e) => {
+        if (e.key === "Escape") {
+          toggleSignUpModal();
+        }
+      };
+      window.addEventListener("keydown", closeEvent);
+      return () => window.removeEventListener("keydown", closeEvent);
+    }
+  }, [isSignUpModalOpen]);
 
   return (
     <>
@@ -105,7 +113,7 @@ const Navbar = () => {
                 />
               ) : (
                 <li className="nav-item home">
-                  <div onClick={toggleSingUpModal}>
+                  <div onClick={toggleSignUpModal}>
                     <button className="btn nav_signup_btn">Sign up</button>
                   </div>
                 </li>
@@ -114,7 +122,30 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {isSignUpModalOpen && <SignUpModal onClose={toggleSingUpModal} />}
+      {isSignUpModalOpen && (
+        <Modal onClose={toggleSignUpModal}>
+          <div className="signUpModalHeader">
+            <h1>Sign Up!</h1>
+          </div>
+          <hr />
+          <div>
+            <div className="text-center button-wrapper">
+              <button
+                className="btn modal-btn"
+                onClick={() => navigateToURL("/user/register")}
+              >
+                Continue as an User
+              </button>
+              <button
+                className="btn modal-btn"
+                onClick={() => navigateToURL("/clubs/register")}
+              >
+                Continue as a Club/NGO
+              </button>
+            </div>
+          </div>
+        </Modal>
+      )}
     </>
   );
 };
