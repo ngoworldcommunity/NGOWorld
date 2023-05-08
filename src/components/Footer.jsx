@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { ReportProblem } from "../service/MilanApi";
 import "../styles/Footer.css";
@@ -193,7 +194,11 @@ const Footer = () => {
               <p className="footer-text font-italic text-light text-left mt-4 headings">
                 Want to make Milan better ?<br />
                 <span className=""> Contribute </span>{" "}
-                <a href="https://github.com/IAmTamal/Milan" target="_blank">
+                <a
+                  href="https://github.com/IAmTamal/Milan"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   here{" "}
                 </a>
                 !
@@ -288,7 +293,10 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <p className="text-light text-center"> Developed by team Milan &copy; {new Date().getFullYear()}  </p>
+        <p className="text-light text-center">
+          {" "}
+          Developed by team Milan &copy; {new Date().getFullYear()}{" "}
+        </p>
       </div>
     </footer>
   );

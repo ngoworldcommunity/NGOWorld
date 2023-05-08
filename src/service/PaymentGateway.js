@@ -1,51 +1,37 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-const apiURL = [
-  "https://milan-jwoc.herokuapp.com",
-  "http://localhost:5000",
-  "https://milan-server.vercel.app",
-  "https://milan-server.adaptable.app",
-];
-const API = apiURL[2];
+import Axios from "axios";
 
 export default async function displayRazorpay(money) {
-  const data = await fetch(
-    `${process.env.REACT_APP_MILANAPI}/payment/razorpay`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(money),
-    },
-  ).then((t) => t.json());
+  const data = await Axios.post(
+    `${import.meta.env.VITE_MILANAPI}/payment/razorpay`,
+    { amount: money },
+  );
 
   const options = {
-    key: process.env.RAZORPAY_KEY_ID,
+    key: import.meta.env.VITE_RAZORPAY_KEY_ID,
     currency: data.currency,
-    amount: data.amount,
+    amount: data.data.amount,
     name: "Milan",
     description: "A hub for NGOs",
     image: "https://i.ibb.co/JC4g0ZD/favicon.png",
     order_id: data.id,
-    handler: function (response) {
-      // alert("PAYMENT ID ::" + response.razorpay_payment_id);
-      // alert("ORDER ID :: " + response.razorpay_order_id);
-      toast("🌈 Thanks for the donation !", {
+    handler: function () {
+      toast("🌈 Thankyou for the help.", {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 1200,
         hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: false,
         progress: undefined,
+        closeButton: false,
       });
     },
     prefill: {
       name: "Tamal Das",
-      email: "gyansujan69@gmail.com",
-      contact: "9073097510",
+      email: "tamalcodes@gmail.com",
+      contact: "8240415709",
     },
   };
 
