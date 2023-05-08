@@ -14,12 +14,10 @@ jobs:
     runs-on: ubuntu-latest
 
     container: cypress/browsers:node18.12.0-chrome107
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Install pnpm
-        run: npm install -g pnpm
 
       - name: set environment variables
         uses: allenevans/set-env@v2.0.0
@@ -30,8 +28,8 @@ jobs:
         uses: cypress-io/github-action@v4.2.0
         with:
           install: true
-          build: pnpm build
-          start: pnpm dev
+          build: npm run build
+          start: npm run dev
           wait-on: "http://localhost:3000"
           wait-on-timeout: 120
           browser: chrome
@@ -46,7 +44,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install Vercel CLI
-        run: pnpm install --global vercel@canary
+        run: npm install --global vercel@canary
       - name: Pull Vercel Environment Information
         run:
           vercel pull --yes --environment=production --token=${{
