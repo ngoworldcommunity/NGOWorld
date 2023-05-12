@@ -13,6 +13,7 @@ describe("Landing page checks", () => {
   it("Check club signup button", () => {
     cy.visit("/");
     cy.get("#landingpage-club-signup").click({ force: true });
+    cy.get("#club-signup-modal-btn").click({ force: true });
     cy.url().should("include", "/clubs/register");
   });
 });

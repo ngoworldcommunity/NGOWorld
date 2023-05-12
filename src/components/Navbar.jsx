@@ -130,12 +130,14 @@ const Navbar = () => {
             <div className="text-center button-wrapper">
               <button
                 className="btn modal-btn"
+                id="user-signup-modal-btn"
                 onClick={() => navigateToURL("/user/register")}
               >
                 Continue as an User
               </button>
               <button
                 className="btn modal-btn"
+                id="club-signup-modal-btn"
                 onClick={() => navigateToURL("/clubs/register")}
               >
                 Continue as a Club/NGO
