@@ -45,6 +45,20 @@ PORT=""
 JWT_SECRET=
 ```
 
+## Setting up `razorpay api key`
+- Head on to [Razorpay API reference](https://razorpay.com/docs/api) and Sign Up to razor pay rembember you don't need to KYC. 
+- Login after Signing Up then you will see this interface, you can use the test mode.
+
+<img width="945" alt="image" src="https://github.com/tejaskh3/Milan/assets/98630752/2de85099-8167-4db2-9fc7-9d539c5bcf64">
+
+- Then move to `Account & Settings` there you will get API keys option where you can generate the keys.
+
+<img width="960" alt="image" src="https://github.com/tejaskh3/Milan/assets/98630752/b1feb58c-f71a-4820-b298-40f05d27146e">
+
+- Generate and copy the key and its secret and paste it to `RAZORPAY_KEY_ID` and `RAZORPAY_KEY_SECRET` respectively and you are done setting up backend.
+
+<img width="359" alt="image" src="https://github.com/tejaskh3/Milan/assets/98630752/5f08bde3-17fa-472d-9587-9524fa737dd5">
+
 ## Coding standards 🔐
 
 - Make sure to follow proper latest coding practices.
