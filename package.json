@@ -50,7 +50,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^2.2.0",
     "eslint": "^8.38.0",
-    "eslint-plugin-cypress": "^2.13.2",
+    "eslint-plugin-cypress": "^2.13.3",
     "eslint-plugin-react": "^7.32.2",
     "husky": "^8.0.0",
     "lint-staged": "^13.2.1",
