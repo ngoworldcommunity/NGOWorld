@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import "../styles/Navbar.css";
 import solidarity from "../assets/pictures/solidarity.png";
 import { Link, useNavigate, useLocation } from "react-router-dom";
@@ -6,11 +6,14 @@ import ProfilePicture from "../assets/pictures/ProfilePicture.png";
 import Cookies from "js-cookie";
 import MilanContext from "../context/MilanContext";
 import Modal from "./Modal";
+import { FaBars } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { isSignUpModalOpen, toggleSignUpModal } = useContext(MilanContext);
+  const { isNavbarOpen, toggleNavbar } = useContext(MilanContext);
 
   const handleNavigate = () => {
     if (Cookies.get("token")) {
@@ -27,17 +30,6 @@ const Navbar = () => {
     navigate(url);
   };
 
-  useEffect(() => {
-    if (isSignUpModalOpen) {
-      const closeEvent = (e) => {
-        if (e.key === "Escape") {
-          toggleSignUpModal();
-        }
-      };
-      window.addEventListener("keydown", closeEvent);
-      return () => window.removeEventListener("keydown", closeEvent);
-    }
-  }, [isSignUpModalOpen]);
 
   return (
     <>
@@ -62,11 +54,17 @@ const Navbar = () => {
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            onClick={()=>toggleNavbar()}
           >
-            <span className="navbar-toggler-icon"></span>
+            {isNavbarOpen ? <IoMdClose /> : <FaBars />}
           </button>
 
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div
+            className={`collapse navbar-collapse ${
+              isNavbarOpen ? "show" : ""
+            }`}
+            id="navbarSupportedContent"
+          >
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item home">
                 <Link to={"/"}>Home</Link>
