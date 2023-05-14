@@ -3,10 +3,9 @@ description: Found an issue in the documentation? You can use this one!
 title: "[DOCS] write a small description here"
 labels:
   [
-    "✨ goal: improvement",
     "🛠 status : under development",
     "🟨 priority: medium",
-    "📄 aspect: text",
+    "📄 aspect: docs",
   ]
 body:
   - type: textarea
