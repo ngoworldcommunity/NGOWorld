@@ -16,7 +16,7 @@
     "crypto": "^1.0.1",
     "dotenv": "^15.0.0",
     "express": "^4.17.2",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.1.10",
     "nodemon": "^2.0.20",
     "razorpay": "^2.8.3",
