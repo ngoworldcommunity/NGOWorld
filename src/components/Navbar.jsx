@@ -8,6 +8,7 @@ import MilanContext from "../context/MilanContext";
 import Modal from "./Modal";
 import { FaBars } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
+import Button from "./Button";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -29,7 +30,6 @@ const Navbar = () => {
     toggleSignUpModal();
     navigate(url);
   };
-
 
   return (
     <>
@@ -54,15 +54,13 @@ const Navbar = () => {
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
-            onClick={()=>toggleNavbar()}
+            onClick={() => toggleNavbar()}
           >
             {isNavbarOpen ? <IoMdClose /> : <FaBars />}
           </button>
 
           <div
-            className={`collapse navbar-collapse ${
-              isNavbarOpen ? "show" : ""
-            }`}
+            className={`collapse navbar-collapse ${isNavbarOpen ? "show" : ""}`}
             id="navbarSupportedContent"
           >
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -111,9 +109,13 @@ const Navbar = () => {
                 />
               ) : (
                 <li className="nav-item home">
-                  <div onClick={toggleSignUpModal}>
-                    <button className="btn nav_signup_btn">Sign up</button>
-                  </div>
+                  <Button
+                    size="sm"
+                    className=" nav_signup_btn"
+                    onClick={toggleSignUpModal}
+                  >
+                    Sign up
+                  </Button>
                 </li>
               )}
             </ul>
@@ -128,20 +130,20 @@ const Navbar = () => {
           <hr />
           <div>
             <div className="text-center button-wrapper">
-              <button
+              <Button
                 className="btn modal-btn"
                 id="user-signup-modal-btn"
                 onClick={() => navigateToURL("/user/register")}
               >
                 Continue as an User
-              </button>
-              <button
+              </Button>
+              <Button
                 className="btn modal-btn"
                 id="club-signup-modal-btn"
                 onClick={() => navigateToURL("/clubs/register")}
               >
                 Continue as a Club/NGO
-              </button>
+              </Button>
             </div>
           </div>
         </Modal>

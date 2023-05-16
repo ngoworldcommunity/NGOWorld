@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import Modal from "./Modal";
+import Button from "./Button";
 
 const Footer = () => {
   const [reportModal, setReportModal] = useState(false);
@@ -171,9 +172,9 @@ const Footer = () => {
               />
             </div>
             <div className="text-center">
-              <button className="btn btn-hover" onClick={handleReportSubmit}>
-                SUBMIT
-              </button>
+              <Button className="btn-hover" onClick={handleReportSubmit}>
+                Submit
+              </Button>
             </div>
           </form>
         </Modal>

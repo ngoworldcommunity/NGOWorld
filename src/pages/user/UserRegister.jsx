@@ -9,6 +9,7 @@ import "../../styles/UserLogin.css";
 import { Helmet } from "react-helmet-async";
 import { toast } from "react-toastify";
 import { showSuccessToast } from "../../utils/showToast";
+import Button from "../../components/Button";
 
 const UserRegister = () => {
   const navigate = useNavigate();
@@ -236,12 +237,9 @@ const UserRegister = () => {
                   />
                 </div>
                 <br />
-                <button
-                  type="submit"
-                  className="login-btn btn btn-lg btn-block btn-container-desktop"
-                >
+                <Button type="submit" className="login-btn">
                   Register
-                </button>
+                </Button>
                 <br></br> <br></br>
                 <Anchor
                   para="Already have an account? "

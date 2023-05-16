@@ -123,13 +123,7 @@
 }
 
 .modal-btn {
-  font-weight: 600;
-  color: #000000;
-  cursor: pointer;
   margin: 20px;
-  text-align: center;
-  background-color: #e26959;
-  box-shadow: 0 0 50px -10px #9747ff14;
 }
 
 .btn:hover {

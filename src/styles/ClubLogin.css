@@ -23,7 +23,7 @@
 }
 
 /* Login Button */
-.login-btn {
+/* .login-btn {
   background-color: #e26959;
   color: black;
   border: none;
@@ -32,11 +32,13 @@
   font-weight: 500;
   letter-spacing: 0.05rem;
   transition: 0.2s;
-}
-.login-btn:hover {
+} */
+
+/* .login-btn:hover {
   background-color: #f68475;
   transform: scale(1.02);
-}
+} */
+
 .login-btn:disabled {
   background-color: #e26959;
   cursor: not-allowed;
