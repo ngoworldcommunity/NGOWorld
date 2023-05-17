@@ -4,7 +4,6 @@
   cursor: pointer;
   text-transform: uppercase;
   transition: 0.5s !important;
-  /* box-shadow: 0 0 20px #eee; */
   box-shadow: 0 0 50px -10px #9747ff14;
   border-radius: 8px;
   display: inline-flex;
@@ -27,7 +26,7 @@
 .solid {
   background: #e26959;
   border: 1px solid #e26959;
-  /* color: rgba(0, 0, 0, 0.896); */
+  color: #000;
 }
 
 .solid:hover,
