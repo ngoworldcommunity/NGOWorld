@@ -194,13 +194,13 @@ const Footer = () => {
             ) : (
               <p className="footer-text font-italic text-light text-left mt-4 headings">
                 Want to make Milan better ?<br />
-                <span className=""> Contribute </span>{" "}
+                <span className=""> Contribute </span>
                 <a
                   href="https://github.com/IAmTamal/Milan"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  here{" "}
+                  here
                 </a>
                 !
               </p>
@@ -295,8 +295,7 @@ const Footer = () => {
           </div>
         </div>
         <p className="text-light text-center">
-          {" "}
-          Developed by team Milan &copy; {new Date().getFullYear()}{" "}
+          Developed by team Milan &copy; {new Date().getFullYear()}
         </p>
       </div>
     </footer>
