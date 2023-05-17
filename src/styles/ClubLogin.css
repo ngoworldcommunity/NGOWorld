@@ -22,29 +22,6 @@
   font-weight: bold;
 }
 
-/* Login Button */
-/* .login-btn {
-  background-color: #e26959;
-  color: black;
-  border: none;
-  text-transform: uppercase !important;
-  font-size: 1.25rem;
-  font-weight: 500;
-  letter-spacing: 0.05rem;
-  transition: 0.2s;
-} */
-
-/* .login-btn:hover {
-  background-color: #f68475;
-  transform: scale(1.02);
-} */
-
-.login-btn:disabled {
-  background-color: #e26959;
-  cursor: not-allowed;
-  opacity: 0.8;
-}
-
 .btn-container {
   text-align: center;
 }
@@ -86,11 +63,6 @@
   }
   #remember-me {
     font-family: "Open Sans", sans-serif;
-  }
-
-  .login-btn {
-    width: 100%;
-    text-align: center !important;
   }
 
   form {
