@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../styles/Navbar.css";
 import solidarity from "../assets/pictures/solidarity.png";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ProfilePicture from "../assets/pictures/ProfilePicture.png";
 import Cookies from "js-cookie";
+import MilanContext from "../context/MilanContext";
+import Modal from "./Modal";
+import { FaBars } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { isSignUpModalOpen, toggleSignUpModal } = useContext(MilanContext);
+  const { isNavbarOpen, toggleNavbar } = useContext(MilanContext);
+
   const handleNavigate = () => {
     if (Cookies.get("token")) {
       navigate("/user/profile");
@@ -17,6 +24,12 @@ const Navbar = () => {
       navigate("/clubs/profile");
     }
   };
+
+  const navigateToURL = (url) => {
+    toggleSignUpModal();
+    navigate(url);
+  };
+
 
   return (
     <>
@@ -41,11 +54,17 @@ const Navbar = () => {
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            onClick={()=>toggleNavbar()}
           >
-            <span className="navbar-toggler-icon"></span>
+            {isNavbarOpen ? <IoMdClose /> : <FaBars />}
           </button>
 
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div
+            className={`collapse navbar-collapse ${
+              isNavbarOpen ? "show" : ""
+            }`}
+            id="navbarSupportedContent"
+          >
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item home">
                 <Link to={"/"}>Home</Link>
@@ -92,15 +111,41 @@ const Navbar = () => {
                 />
               ) : (
                 <li className="nav-item home">
-                  <Link to="/user/register">
+                  <div onClick={toggleSignUpModal}>
                     <button className="btn nav_signup_btn">Sign up</button>
-                  </Link>
+                  </div>
                 </li>
               )}
             </ul>
           </div>
         </div>
       </nav>
+      {isSignUpModalOpen && (
+        <Modal onClose={toggleSignUpModal}>
+          <div className="signUpModalHeader">
+            <h1>Sign Up!</h1>
+          </div>
+          <hr />
+          <div>
+            <div className="text-center button-wrapper">
+              <button
+                className="btn modal-btn"
+                id="user-signup-modal-btn"
+                onClick={() => navigateToURL("/user/register")}
+              >
+                Continue as an User
+              </button>
+              <button
+                className="btn modal-btn"
+                id="club-signup-modal-btn"
+                onClick={() => navigateToURL("/clubs/register")}
+              >
+                Continue as a Club/NGO
+              </button>
+            </div>
+          </div>
+        </Modal>
+      )}
     </>
   );
 };

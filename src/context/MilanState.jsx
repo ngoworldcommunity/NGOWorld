@@ -10,8 +10,31 @@ const MilanState = (props) => {
     bottom: false,
     right: false,
   });
+  const [isSignUpModalOpen, setIsSignUpModalOpen] = react.useState(false);
+  const [isNavbarOpen, setIsNavbarOpen] = react.useState(false);
+
+  const toggleSignUpModal = () => {
+    if (isSignUpModalOpen) {
+      setIsSignUpModalOpen(false);
+      document.body.style.overflow = "unset";
+      return;
+    }
+    setIsSignUpModalOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const toggleNavbar = () => {
+    if(isNavbarOpen){
+      setIsNavbarOpen(false);
+      return;
+    }
+    else{
+      setIsNavbarOpen(true);
+    }
+  };
 
   return (
+    // eslint-disable-next-line react/react-in-jsx-scope
     <MilanContext.Provider
       value={{
         drawerOpen,
@@ -19,6 +42,10 @@ const MilanState = (props) => {
         anchor,
         state,
         setState,
+        isSignUpModalOpen,
+        toggleSignUpModal,
+        isNavbarOpen,
+        toggleNavbar
       }}
     >
       {props.children}
