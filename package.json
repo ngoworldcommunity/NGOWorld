@@ -6,7 +6,7 @@
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",
     "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/user-event": "^14.4.3",
     "aos": "^2.3.4",
     "axios": "^1.4.0",
     "cypress": "^12.12.0",
