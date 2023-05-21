@@ -15,16 +15,16 @@ Milan is a platform designed to help users, NGOs, clubs, and charities connect w
 
 ## Features and Capabilities
 
-1. Seamless Connections
+1. **Seamless Connections** : 
 Milan provides a user-friendly interface that enables seamless connections between individuals, NGOs, clubs, and charities. 
 
-2. Donate, Buy, Sell
+2. **Donate, Buy, Sell** : 
 With Milan, you have the power to make an impact through various means. You can donate directly to NGOs and charities, purchase products and services.
 
-3. Volunteer Opportunities
+3. **Volunteer Opportunities** : 
 We believe that volunteering is a powerful way to create positive change. Milan offers a dedicated section where you can find and participate in volunteer.
 
-4. Events Hub
+4. **Events Hub** :
 Stay informed and engaged with the vibrant community on Milan by exploring the Events Hub. 
 
 ## Tech Stack 💻
@@ -64,5 +64,5 @@ Milan is Licensed under the <a href="./LICENSE">MIT License</a>. Please go throu
 
 ## Support 🙏
 
-If you find Milan inspiring and valuable, we would greatly appreciate your support. **Simply give us a star ⭐** on our repository. We would like to extend our heartfelt gratitude to all the contributors who have dedicated their time and effort to this project. Your contributions are truly amazing and essential to our mission of creating a better world. Together, through the power of open-source collaboration, we can drive positive change and make a lasting impact! 🚀
+If you find Milan inspiring and valuable, we would greatly appreciate your support. **Simply give us a star ⭐** on our repository. We would like to extend our heartfelt gratitude to all the contributions. Your contributions are truly amazing and essential to our mission. 🚀
 
