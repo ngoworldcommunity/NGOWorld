@@ -4,6 +4,9 @@
 
 Join as a User, NGO, Club, or Charity, and help us make the world a better place. You can donate, buy, sell, volunteer, and help us in multiple ways. We also have an events tab for organizations to post their events for users to attend without a lot of hassle.
 
+
+Milan is a platform designed to help users, NGOs, clubs, and charities connect with the world. Our goal is to make the world a better place by facilitating donations, purchases, sales, volunteering, and various other ways of contributing to meaningful causes. Additionally, we provide an events tab where organizations can easily post their events for users to attend without hassle
+
 <br/>
 
 ![TekHub Banner (1)](https://user-images.githubusercontent.com/72851613/207783151-1d2f19cf-afa4-477b-8823-dcabb86adbf5.png)
