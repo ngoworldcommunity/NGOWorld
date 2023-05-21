@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import Modal from "./Modal";
 import solidarity from "../assets/pictures/solidarity.png";
+import Button from "./Button";
 
 const Footer = () => {
   const [reportModal, setReportModal] = useState(false);
@@ -172,9 +173,9 @@ const Footer = () => {
               />
             </div>
             <div className="text-center">
-              <button className="btn btn-hover" onClick={handleReportSubmit}>
-                SUBMIT
-              </button>
+              <Button className="btn-hover" onClick={handleReportSubmit}>
+                Submit
+              </Button>
             </div>
           </form>
         </Modal>
@@ -196,14 +197,14 @@ const Footer = () => {
             ) : (
               <p className="footer-text font-italic text-light text-left mt-4 headings">
                 Want to make Milan better ?<br />
-                <span className=""> Contribute </span>{" "}
+                <span className=""> Contribute </span>
                 <a
                   href="https://github.com/IAmTamal/Milan"
                   target="_blank"
                   rel="noreferrer"
                   style={{ color: "#e26959" }}
                 >
-                  here{" "}
+                  here
                 </a>
                 !
               </p>
@@ -308,9 +309,33 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <p className="text-light text-center mt-2">
-          {" "}
-          Developed by team Milan &copy; {new Date().getFullYear()}{" "}
+        <div className="socials justify-content-center">
+          <div className="twitter social-btn">
+            <a
+              href="https://twitter.com/mrTamall"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <i className="fa-brands fa-twitter"></i>
+            </a>
+          </div>
+          <div className="github social-btn">
+            <a
+              href="https://github.com/IAmTamal/Milan"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <i className="fa-brands fa-github"></i>
+            </a>
+          </div>
+          <div className="cont social-btn">
+            <Link to={"/contact"}>
+              <i className="cont-icon fa-solid fa-message"></i>
+            </Link>
+          </div>
+        </div>
+        <p className="text-light text-center">
+          Developed by team Milan &copy; {new Date().getFullYear()}
         </p>
       </div>
     </footer>

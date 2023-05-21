@@ -1,8 +1,5 @@
 import React from "react";
 import forgotpassword from "../../assets/pictures/forgotpassworduser.svg";
-import Navbar from "../../components/Navbar";
-// import { Link, useNavigate } from "react-router-dom";
-//import "../../styles/ClubLogin.css";
 import "react-toastify/dist/ReactToastify.css";
 
 const ClubForgotpassword = () => {
@@ -53,7 +50,6 @@ const ClubForgotpassword = () => {
                 </div>
 
                 <button className="login-btn btn btn-lg btn-block">
-                  {" "}
                   Forgot Password
                 </button>
 

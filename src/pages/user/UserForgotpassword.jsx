@@ -56,7 +56,6 @@ const UserForgotpassword = () => {
                 </div>
 
                 <button className="login-btn btn btn-lg btn-block">
-                  {" "}
                   Forgot Password
                 </button>
 

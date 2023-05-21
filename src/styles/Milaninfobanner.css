@@ -151,17 +151,11 @@
 }
 
 .mib_explore_btn {
-  background: #e26959;
-  box-shadow: 0 0 50px -10px #9747ff14;
-  font-family: Poppins, sans-serif;
-  border: none;
-  border-radius: 6px;
   margin-top: 2rem;
-  padding: 10px 20px;
-  color: rgba(0, 0, 0, 0.896);
+  /* padding: 10px 20px; */
   font-weight: 600;
   cursor: pointer;
-  font-size: 1.2rem !important;
+  /* font-size: 1.2rem !important; */
 }
 
 @media screen and (430px < width < 1008px) {
