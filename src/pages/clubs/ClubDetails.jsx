@@ -52,8 +52,7 @@ function ClubDetailsCard() {
 
           <div className="clubdetails_description flexed">
             <p>
-              {" "}
-              <span>Find us at : </span> {clubdetails?.address}{" "}
+              <span>Find us at : </span> {clubdetails?.address}
             </p>
             <p>{clubdetails?.description}</p>
 
@@ -72,8 +71,7 @@ function ClubDetailsCard() {
 
       <div className="clubdetails_description  clubdetails_description_landscape">
         <p>
-          {" "}
-          <span>Find us at : </span> {clubdetails?.address}{" "}
+          <span>Find us at : </span> {clubdetails?.address}
         </p>
         <p>{clubdetails?.description}</p>
 

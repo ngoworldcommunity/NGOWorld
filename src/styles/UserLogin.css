@@ -68,7 +68,6 @@ form .btn-container-desktop {
   }
   form .register-btn {
     width: 100%;
-    text-align: center;
   }
   form .btn-container {
     text-align: center;
@@ -124,16 +123,4 @@ form .btn-container-desktop {
   .userregister_header {
     font-size: 2rem;
   }
-}
-
-.login-btn:hover,
-.register-btn:hover {
-  border: #212529;
-  background-color: #7496ca;
-  transform: scale(1.02);
-}
-
-.login-btn:focus {
-  background-color: #f68475;
-  transform: scale(1.02);
 }

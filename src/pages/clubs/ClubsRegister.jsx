@@ -6,6 +6,8 @@ import "../../styles/ClubsRegister.css";
 import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 import { Helmet } from "react-helmet-async";
 import { showSuccessToast } from "../../utils/showToast";
+import Button from "../../components/Button";
+import { toast } from "react-toastify";
 
 const ClubLogin = () => {
   document.title = "Milan | Club Register";
@@ -319,19 +321,22 @@ const ClubLogin = () => {
                 id="description-mob"
               />
               <small id="textDemo" className="form-text text-muted"></small>
+              <br />
 
               <div>
-                <button
+                <Button
                   disabled={
                     credentials.description.trim().length < 20 ||
                     credentials.password.length <= 4 ||
                     !isEmailValid
                   }
                   type="submit"
-                  className="btn login-btn  py-2"
+                  className="login-btn"
                 >
                   {isLoading ? <ClipLoader color="#e26959" /> : "Register"}
-                </button>
+                </Button>
+                <br />
+                <br />
               </div>
 
               <Anchor

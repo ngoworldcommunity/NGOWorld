@@ -72,25 +72,7 @@
 }
 
 .btn-hover {
-  font-weight: 600;
-  color: #fff;
-  cursor: pointer;
   margin: 20px;
-  text-align: center;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-  background-color: #e26959;
-  box-shadow: 0 0 50px -10px #9747ff14;
-}
-
-.btn-hover:hover {
-  color: #fff;
-  background: #f68475;
-}
-
-.btn-hover:focus {
-  outline: none;
 }
 
 .links {

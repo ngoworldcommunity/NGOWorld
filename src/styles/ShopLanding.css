@@ -96,9 +96,9 @@
 .btn-grad {
   background-image: linear-gradient(
     to right,
-    #1fa2ff 0%,
-    #12d8fa 51%,
-    #1fa2ff 100%
+    #e26959 0%,
+    #f59e0b 51%,
+    #e26959 100%
   ) !important;
 
   padding: 15px 45px;

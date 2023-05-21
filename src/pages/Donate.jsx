@@ -2,13 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import donate_image1 from "../assets/pictures/donate_image1.svg";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import SingleClubEvent from "../components/SingleClubEvent";
 import { GetAllClubs } from "../service/MilanApi";
 import "../styles/Donate.css";
-
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 import Loading from "../components/Loading";
@@ -85,8 +82,8 @@ const Donate = () => {
           <p>
             Donations does play an important part as our annual funds, donations
             from your ends helps thousands of unfortunate people live their
-            lives.{" "}
-          </p>{" "}
+            lives.
+          </p>
           <p>
             Choose any club, donate whatever you want, even 5 rupees helps !
           </p>

@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import Modal from "./Modal";
+import Button from "./Button";
 
 const Footer = () => {
   const [reportModal, setReportModal] = useState(false);
@@ -171,9 +172,9 @@ const Footer = () => {
               />
             </div>
             <div className="text-center">
-              <button className="btn btn-hover" onClick={handleReportSubmit}>
-                SUBMIT
-              </button>
+              <Button className="btn-hover" onClick={handleReportSubmit}>
+                Submit
+              </Button>
             </div>
           </form>
         </Modal>
@@ -193,13 +194,13 @@ const Footer = () => {
             ) : (
               <p className="footer-text font-italic text-light text-left mt-4 headings">
                 Want to make Milan better ?<br />
-                <span className=""> Contribute </span>{" "}
+                <span className=""> Contribute </span>
                 <a
                   href="https://github.com/IAmTamal/Milan"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  here{" "}
+                  here
                 </a>
                 !
               </p>
@@ -294,8 +295,7 @@ const Footer = () => {
           </div>
         </div>
         <p className="text-light text-center">
-          {" "}
-          Developed by team Milan &copy; {new Date().getFullYear()}{" "}
+          Developed by team Milan &copy; {new Date().getFullYear()}
         </p>
       </div>
     </footer>
