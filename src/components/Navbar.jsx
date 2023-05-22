@@ -114,7 +114,7 @@ const Navbar = () => {
                     className=" nav_signup_btn"
                     onClick={toggleSignUpModal}
                   >
-                    Sign up
+                    Sign In
                   </Button>
                 </li>
               )}
