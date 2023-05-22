@@ -10,22 +10,32 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Add label to PR
         run: |
           # Get the PR title
-          PR_TITLE=$(git log --format=%s -1 ${{ github.event.pull_request.head.sha }})
+          PR_TITLE=$(echo "${{ github.event.pull_request.title }}" | awk '{print $1;}')
 
-          # Check for specific keywords (case-sensitive) and add corresponding labels
+          # Set the labels based on PR title
           if [[ $PR_TITLE == fix\(\):* ]]; then
-            gh pr edit ${{ github.event.pull_request.number }} --add-labels "🧿 status: awaiting triage" --add-labels "🛠 goal: fix"
+            LABELS=("🧿 status: awaiting triage" "🛠 goal: fix")
           elif [[ $PR_TITLE == feat\(\):* ]]; then
-            gh pr edit ${{ github.event.pull_request.number }} --add-labels "🧿 status: awaiting triage" --add-labels "⭐ goal: addition"
+            LABELS=("🧿 status: awaiting triage" "⭐ goal: addition")
           elif [[ $PR_TITLE == docs\(\):* ]]; then
-            gh pr edit ${{ github.event.pull_request.number }} --add-labels "🧿 status: awaiting triage" --add-labels "📄 aspect: docs"
-          elif [[ $PR_TITLE == build()* ]]; then
-            gh pr edit ${{ github.event.pull_request.number }} --add-labels "🧿 status: awaiting triage" --add-labels "🛠 goal: fix"
+            LABELS=("🧿 status: awaiting triage" "📄 aspect: docs")
+          elif [[ $PR_TITLE == build\(\):* ]]; then
+            LABELS=("🧿 status: awaiting triage" "🛠 goal: fix")
           else
             echo "No label matched the PR title"
+            exit 0
           fi
+
+          # Add labels to the pull request using GitHub API
+          for label in "${LABELS[@]}"; do
+            curl -X POST \
+              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github.v3+json" \
+              -d "{\"labels\": [\"$label\"]}" \
+              "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/labels"
+          done
