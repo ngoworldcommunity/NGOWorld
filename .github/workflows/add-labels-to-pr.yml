@@ -15,7 +15,7 @@ jobs:
       - name: Add label to PR
         run: |
           # Get the PR title
-          PR_TITLE=$(echo "${{ github.event.pull_request.title }}" | awk '{print $1;}')
+          PR_TITLE=$(echo "${{ github.event.pull_request.title }}")
 
           # Set the labels based on PR title
           if [[ $PR_TITLE == fix():* ]]; then
