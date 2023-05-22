@@ -3,9 +3,8 @@ description: Report an issue to help improve the project.
 title: "[BUG] write a small description here"
 labels:
   [
-    "🛠 goal: fix",
-    "🛠 status : under development",
-    "🟧 priority: high",
+    "🧿 status: awaiting triage",
+    "🛠 goal: fix"
   ]
 body:
   - type: textarea

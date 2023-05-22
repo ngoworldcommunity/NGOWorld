@@ -1,0 +1,31 @@
+name: Add Label to PR
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, edited, ready_for_review]
+
+jobs:
+  add-label:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Add label to PR
+        run: |
+          # Get the PR title
+          PR_TITLE=$(git log --format=%s -1 ${{ github.event.pull_request.head.sha }})
+
+          # Check for specific keywords (case-sensitive) and add corresponding labels
+          if [[ $PR_TITLE == fix\(\):* ]]; then
+            gh pr edit ${{ github.event.pull_request.number }} --add-labels "🧿 status: awaiting triage" --add-labels "🛠 goal: fix"
+          elif [[ $PR_TITLE == feat\(\):* ]]; then
+            gh pr edit ${{ github.event.pull_request.number }} --add-labels "🧿 status: awaiting triage" --add-labels "⭐ goal: addition"
+          elif [[ $PR_TITLE == docs\(\):* ]]; then
+            gh pr edit ${{ github.event.pull_request.number }} --add-labels "🧿 status: awaiting triage" --add-labels "📄 aspect: docs"
+          elif [[ $PR_TITLE == build()* ]]; then
+            gh pr edit ${{ github.event.pull_request.number }} --add-labels "🧿 status: awaiting triage" --add-labels "🛠 goal: fix"
+          else
+            echo "No label matched the PR title"
+          fi
