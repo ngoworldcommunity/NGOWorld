@@ -32,7 +32,6 @@ const EventsPage = () => {
             <div className="cp_textdiv">
               <p className="cp_header1">Events happening now !</p>
               <p className="cp_header2">
-                {" "}
                 All our partnered NGOs , hosts various events be it educational,
                 cleaning mother earth, funding events, health camps and many
                 more !

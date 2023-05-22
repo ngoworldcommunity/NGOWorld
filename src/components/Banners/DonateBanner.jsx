@@ -35,7 +35,6 @@ const DonateBanner = () => {
             handleDonate();
           }}
         >
-          {" "}
           Share your love ❤️
         </button>
       </div>

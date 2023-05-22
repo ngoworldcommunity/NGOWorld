@@ -3,11 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import "../../styles/ClubLogin.css";
 import { LoginClub } from "../../service/MilanApi";
 import Cookies from "js-cookie";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 import ClipLoader from "react-spinners/ClipLoader";
 import { showErrorToast, showSuccessToast } from "../../utils/showToast";
+import Button from "../../components/Button";
 
 function ClubLogin() {
   const Navigate = useNavigate();
@@ -60,7 +61,7 @@ function ClubLogin() {
           password: "",
         });
       }
-    }).catch((err) => {
+    }).catch(() => {
       showErrorToast("Server error, please try later !");
     });
   };
@@ -176,45 +177,23 @@ function ClubLogin() {
                 </div>
                 <br />
                 <div className="btn-container btn-container-desktop">
-                  <button
+                  <Button
                     disabled={credentials.password.length <= 4 || !isEmailValid}
                     type="submit"
-                    className="login-btn btn btn-lg btn-block"
+                    className="login-btn"
                   >
-                    {isLoading ?
-                      <ClipLoader color="#e26959" /> : "LOGIN"}
-                  </button>
+                    {isLoading ? <ClipLoader color="#e26959" /> : "LOGIN"}
+                  </Button>
                 </div>
                 <br></br>
                 <br></br>
                 <div className="anchor-container anchor-container-desktop">
-
-
-
-
-
-
-
-
-
-
-
                   <Anchor
                     para=""
                     details="Forgot password?"
                     link="/clubs/forgotpass"
                     className="text-muted"
                   />
-
-
-
-
-
-
-
-
-
-
 
                   <Anchor
                     para="Don't have an account? "
