@@ -7,7 +7,6 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
   DEPLOY_PR_FROM_FORK: true
 
-
 on:
   pull_request_target:
     types: [opened, synchronize, reopened]
@@ -55,8 +54,6 @@ jobs:
             const isPr = [ 'pull_request', 'pull_request_target' ].includes(context.eventName)
             core.setOutput('ref', isPr ? context.payload.pull_request.head.ref : context.ref)
             core.setOutput('repo', isPr ? context.payload.pull_request.head.repo.full_name : context.repo.full_name)
-            
-      
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -69,9 +66,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch: '${{ github.event.pull_request.head.ref }}'
-          sha: '${{ github.event.pull_request.head.sha }}'
-          
+          branch: "${{ github.event.pull_request.head.ref }}"
+          sha: "${{ github.event.pull_request.head.sha }}"
+
       - name: Deploy to Vercel Action
         uses: BetaHuhn/deploy-to-vercel-action@latest
         with:
@@ -82,9 +79,10 @@ jobs:
           DEPLOY_PR_FROM_FORK: true
           DELETE_EXISTING_COMMENT: true
 
-
       - name: Delete branch
-        if: ${{github.event.pull_request.head.ref !='main' && github.event.action == 'closed' && github.event.pull_request.merged == true }}
+        if:
+          ${{github.event.pull_request.head.ref !='main' && github.event.action
+          == 'closed' && github.event.pull_request.merged == true }}
         uses: dawidd6/action-delete-branch@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
