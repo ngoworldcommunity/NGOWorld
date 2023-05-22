@@ -24,7 +24,7 @@ jobs:
             LABELS=("🧿 status: awaiting triage" "⭐ goal: addition")
           elif [[ $PR_TITLE == "docs():"* ]]; then
             LABELS=("🧿 status: awaiting triage" "📄 aspect: docs")
-          elif grep -q "build" "$PR_TITLE"; then
+          elif [[ $PR_TITLE == build*:* ]]; then
             LABELS=("🧿 status: awaiting triage" "🛠 goal: fix")
           else
             echo "No label matched the PR title"
