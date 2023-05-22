@@ -18,13 +18,13 @@ jobs:
           PR_TITLE=$(echo "${{ github.event.pull_request.title }}" | awk '{print $1;}')
 
           # Set the labels based on PR title
-          if [[ $PR_TITLE == fix:* ]]; then
+          if [[ $PR_TITLE == fix\(\):* ]]; then
             LABELS=("🧿 status: awaiting triage" "🛠 goal: fix")
-          elif [[ $PR_TITLE == feat:* ]]; then
+          elif [[ $PR_TITLE == feat\(\):* ]]; then
             LABELS=("🧿 status: awaiting triage" "⭐ goal: addition")
-          elif [[ $PR_TITLE == docs:* ]]; then
+          elif [[ $PR_TITLE == docs\(\):* ]]; then
             LABELS=("🧿 status: awaiting triage" "📄 aspect: docs")
-          elif [[ $PR_TITLE == build:* ]]; then
+          elif [[ $PR_TITLE == build\(\):* ]]; then
             LABELS=("🧿 status: awaiting triage" "🛠 goal: fix")
           else
             echo "No label matched the PR title"
