@@ -1,13 +1,16 @@
-import React from 'react'
-
+import React from "react";
+import error404Svg from "../assets/pictures/error404.svg";
+import Button from "../components/Button";
+import "../styles/Error404.css"
 function Error404() {
   return (
     <>
-        <h1>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates earum voluptate quod corrupti iste aspernatur eveniet esse nihil. Temporibus dignissimos eligendi iure sed quae? Distinctio omnis dolorem sequi rem quae veniam! Ratione, nobis.
-        </h1>
+      <img src={error404Svg} alt="error-404" className="error-img" />
+      <div className="button-wrapper home-btn">
+      <Button to="/" children={"Go Back To Homepage"} />
+      </div>
     </>
-  )
+  );
 }
 
-export default Error404
+export default Error404;
