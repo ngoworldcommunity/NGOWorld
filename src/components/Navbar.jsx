@@ -99,7 +99,13 @@ const Navbar = () => {
                   }
                 ></div>
               </li>
-
+            </ul>
+            <div className="nav-buttons">
+              <div className="nav-item home">
+                <Button size="sm" className=" nav_signup_btn" to="/user/login">
+                  Sign in
+                </Button>
+              </div>
               {Cookies.get("token") || Cookies.get("club") ? (
                 <img
                   onClick={handleNavigate}
@@ -108,7 +114,7 @@ const Navbar = () => {
                   className="nav_user_img"
                 />
               ) : (
-                <li className="nav-item home">
+                <div className="nav-item home">
                   <Button
                     size="sm"
                     className=" nav_signup_btn"
@@ -116,9 +122,9 @@ const Navbar = () => {
                   >
                     Sign up
                   </Button>
-                </li>
+                </div>
               )}
-            </ul>
+            </div>
           </div>
         </div>
       </nav>

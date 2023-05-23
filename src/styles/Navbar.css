@@ -7,6 +7,12 @@
   z-index: 10;
 }
 
+.navbar-nav {
+  margin: auto;
+  gap: 30px;
+  padding-left: 100px;
+}
+
 .navbar-brand {
   font-size: 1.8em;
   color: #28183b;
@@ -47,7 +53,6 @@
 .home {
   font-weight: 600;
   margin: auto;
-  padding-right: 30px;
 }
 
 .shop_icon {
@@ -55,13 +60,25 @@
   height: 10px;
 }
 
-@media (max-width: 1024px) and (min-width: 769px) {
+.nav-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+@media (max-width: 1024px) {
   .navbar-brand {
     font-size: 1.7rem;
   }
   .home {
     margin: auto;
     padding: 8px;
+  }
+  .navbar-nav {
+    padding-left: 0px;
+  }
+  .nav-buttons {
+    flex-direction: column;
+    margin: auto;
   }
 }
 
