@@ -2,7 +2,7 @@ name: Add Label to PR
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize, edited, ready_for_review]
+    types: [opened, reopened]
 
 jobs:
   add-label:
