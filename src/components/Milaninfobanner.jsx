@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import MilanLanding1 from "../assets/pictures/landing/MilanLanding1.png";
 import MilanLanding2 from "../assets/pictures/landing/MilanLanding2.png";
 import LandingMobile from "../assets/pictures/landing/LandingMobile.png";
+import Button from "./Button";
 
 const Milaninfobanner = () => {
   const nav = useNavigate();
@@ -25,7 +26,12 @@ const Milaninfobanner = () => {
             data-aos="fade-right"
             data-aos-duration="500"
           >
-            <img src={MilanLanding1} alt="a group of people in different poses" width={430} height={430}/>
+            <img
+              src={MilanLanding1}
+              alt="a group of people in different poses"
+              width={430}
+              height={430}
+            />
           </div>
 
           <div
@@ -67,7 +73,12 @@ const Milaninfobanner = () => {
             data-aos="fade-left"
             data-aos-duration="500"
           >
-            <img src={MilanLanding2} alt="a group of people in different poses" width={430} height={430}/>
+            <img
+              src={MilanLanding2}
+              alt="a group of people in different poses"
+              width={430}
+              height={430}
+            />
           </div>
         </div>
       </div>
@@ -75,7 +86,12 @@ const Milaninfobanner = () => {
       <div className="mib_main_parent2">
         <div className="mib_subparent3">
           <div className="mib_imgdiv">
-            <img src={LandingMobile} alt="a group of people in different poses" width={324} height={324}/>
+            <img
+              src={LandingMobile}
+              alt="a group of people in different poses"
+              width={324}
+              height={324}
+            />
           </div>
 
           <div className="mib_textdiv">
@@ -89,15 +105,15 @@ const Milaninfobanner = () => {
               </p>
             </div>
             <div className="banner_signup_btndiv">
-              <button
-                className="btn btn-warning mib_explore_btn"
+              <Button
+                className="mib_explore_btn"
                 onClick={() => {
                   nav("/shop");
                   window.scrollTo(0, 0);
                 }}
               >
                 Explore the shop
-              </button>
+              </Button>
             </div>
           </div>
         </div>

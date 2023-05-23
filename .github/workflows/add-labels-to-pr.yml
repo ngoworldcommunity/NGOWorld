@@ -1,0 +1,41 @@
+name: Add Label to PR
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, edited, ready_for_review]
+
+jobs:
+  add-label:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Add label to PR
+        run: |
+          # Get the PR title
+          PR_TITLE=$(echo "${{ github.event.pull_request.title }}")
+
+          # Set the labels based on PR title
+          if [[ $PR_TITLE == fix*:* ]]; then
+            LABELS=("🧿 status: awaiting triage" "🛠 goal: fix")
+          elif [[ $PR_TITLE == feat*:* ]]; then
+            LABELS=("🧿 status: awaiting triage" "⭐ goal: addition")
+          elif [[ $PR_TITLE == docs*:* ]]; then
+            LABELS=("🧿 status: awaiting triage" "📄 aspect: docs")
+          elif [[ $PR_TITLE == build*:* ]]; then
+            LABELS=("🧿 status: awaiting triage" "🛠 goal: fix")
+          else
+            echo "No label matched the PR title"
+            exit 0
+          fi
+
+          # Add labels to the pull request using GitHub API
+          for label in "${LABELS[@]}"; do
+            curl -X POST \
+              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github.v3+json" \
+              -d "{\"labels\": [\"$label\"]}" \
+              "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/labels"
+          done

@@ -3,9 +3,8 @@ description: Have a new idea/feature for Milan? Please suggest!
 title: "[FEATURE] write a small description here"
 labels:
   [
-    "⭐ goal: addition",
-    "🛠 status : under development",
-    "🟨 priority: medium",
+    "🧿 status: awaiting triage",
+    "⭐ goal: addition"
   ]
 body:
   - type: textarea

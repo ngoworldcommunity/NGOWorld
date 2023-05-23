@@ -3,13 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import "../../styles/UserLogin.css";
 import { LoginUser } from "../../service/MilanApi";
 import Cookies from "js-cookie";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 import SchemaValidator, { msgLocalise } from "../../utils/validation";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 import { showErrorToast, showSuccessToast } from "../../utils/showToast";
+import Button from "../../components/Button";
 
 function UserLogin() {
   const Navigate = useNavigate();
@@ -63,11 +64,11 @@ function UserLogin() {
         } else {
           setCredentials({ email: "", password: "" });
         }
-      }).catch((err) => {
+      }).catch(() => {
         showErrorToast("Server error, try again later !");
       });
     } else {
-      validator.errors.map(function (e, i) {
+      validator.errors.map(function (e) {
         return toast(`${e.path[0]} : ${msgLocalise(e)}`, {
           position: "top-right",
           autoClose: 1000,
@@ -154,12 +155,9 @@ function UserLogin() {
 
                 {/* Login Button */}
                 <div className="btn-container btn-container-desktop">
-                  <button
-                    type="submit"
-                    className="login-btn btn btn-lg btn-block"
-                  >
+                  <Button type="submit" className="login-btn">
                     Login
-                  </button>
+                  </Button>
                 </div>
                 <br></br>
                 <br></br>

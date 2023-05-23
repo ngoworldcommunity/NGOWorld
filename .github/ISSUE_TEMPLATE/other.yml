@@ -3,9 +3,8 @@ description: Use this for any other issues. Please do NOT create blank issues
 title: "[OTHER]"
 labels:
   [
-    "✨ goal: improvement",
-    "🛠 status : under development",
-    "🟨 priority: medium",
+    "🧿 status: awaiting triage",
+    "✨ goal: improvement"
   ]
 body:
   - type: markdown

@@ -11,95 +11,101 @@ const ContactUs = require("../models/ContactUsSchema");
 //* Route 1  - User Registration
 router.post("/register", async (req, res) => {
   try {
-    const data = req.body;
-    const { email } = req.body;
+    const { email, ...data } = req.body;
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
       return res.status(409).json({ message: "User already exists" });
     }
 
-    const hashpassword = await bcrypt.hash(data.password, 10);
-    const UserData = User({
-      firstname: data.firstname,
-      lastname: data.lastname,
-      email: data.email,
-      password: hashpassword,
-      address: data.address,
-      pincode: data.pincode,
+    const hashedPassword = await bcrypt.hash(data.password, 10);
+    const newUser = new User({
+      ...data,
+      email,
+      password: hashedPassword,
     });
-
-    //saving the data to mongodb
-    await UserData.save();
-    res.status(201).json({ message: "Registration successful, please login" })
+    await newUser.save();
+    res.status(201).json({ message: "Registration successful, please login" });
   } catch (e) {
-     res.status(500).json({ message: "Internal Server Error" })
+    res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
 //* Route 1a - User Update
 router.post("/update", async (req, res) => {
   try {
-    const { email, oldPassword, newPassword } = req.body
-		const existingUser = await User.findOne({ email: email, })
+    const { email, oldPassword, newPassword } = req.body;
+    const existingUser = await User.findOne({ email: email });
     if (!existingUser) {
-      return res.status(404).json({ message: "User not found" })
+      return res.status(404).json({ message: "User not found" });
     }
-		// User Exists in the database
-		const validPassword = await bcrypt.compare(oldPassword, existingUser.password)
-    
+    // User Exists in the database
+    const validPassword = await bcrypt.compare(
+      oldPassword,
+      existingUser.password,
+    );
+
     if (!validPassword) {
-      return res.status(401).json({ message: "Invalid Credentials" })
+      return res.status(401).json({ message: "Invalid Credentials" });
     }
-		// Old Password Mathched
+    // Old Password Mathched
     if (newPassword.length < 5) {
-      return res.status(406).json({ message: "Password Length must be greater than 5 characters" })
+      return res
+        .status(406)
+        .json({ message: "Password Length must be greater than 5 characters" });
     }
     // Correct Password Length
-    
-		const newHashedPassword = await bcrypt.hash(newPassword, 10)
-		// New Password Hashed
-    
-		// Updated User
-		const UserData = {
-      firstname: existingUser.firstname,
-			lastname: existingUser.lastname,
-			email: email,
-			password: newHashedPassword,
-			address: existingUser.address,
-			pincode: existingUser.pincode,
-		}
-    
-		await User.replaceOne({ email: email }, UserData)
-	  res.status(201).json({ message: "Password Updated Successfully" })
-	} catch (error) {
-		// User Password Updated
-     res.status(500).json({ message: "Internal Server Error" })
-	}
-})
 
-//* Route 2 - User Login
+    const newHashedPassword = await bcrypt.hash(newPassword, 10);
+    // New Password Hashed
+
+    // Updated User
+    const UserData = {
+      firstname: existingUser.firstname,
+      lastname: existingUser.lastname,
+      email: email,
+      password: newHashedPassword,
+      address: existingUser.address,
+      pincode: existingUser.pincode,
+    };
+
+    await User.replaceOne({ email: email }, UserData);
+    res.status(201).json({ message: "Password Updated Successfully" });
+  } catch (error) {
+    // User Password Updated
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+/**
+ * @description Login User
+ * @route POST /user/login
+ * @access Public
+ * @requires email,password
+ * @returns token (string) and isuser (boolean)
+ */
+
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
-    const existingUser = await User.findOne({email});
-    
+    const existingUser = await User.findOne({ email });
+
     if (!existingUser) {
-      return res.status(404).json({ message: "User not found" })
+      return res.status(404).json({ message: "User not found" });
     }
     const validPassword = await bcrypt.compare(password, existingUser.password);
     if (!validPassword) {
-      return res.status(401).json({ message: "Invalid Credentials" })
+      return res.status(401).json({ message: "Invalid Credentials" });
     }
 
     const payload = { User: { id: existingUser.email } };
-  
-    jwt.sign(payload,process.env.JWT_SECRET, (err, token) => {
-    if(err) throw new Error('Something Went Wrong!');
-     res.status(201).json({ token, isuser: true });
+
+    jwt.sign(payload, process.env.JWT_SECRET, (err, token) => {
+      if (err) throw new Error("Something Went Wrong!");
+      res.status(201).json({ token, isuser: true });
     });
   } catch (err) {
-     res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
@@ -108,15 +114,19 @@ router.post("/userreport", async (req, res) => {
   try {
     //fetch previous report from the same user
     const currentHour = new Date().getMinutes();
-    const previousReports = await ReportProblem.find({ email: req.body.email }).exec();
+    const previousReports = await ReportProblem.find({
+      email: req.body.email,
+    }).exec();
 
     for (let i = 0; i < previousReports.length; i++) {
-      let hourOfThisReport = new Date(previousReports[i].createdAt).getMinutes()
+      let hourOfThisReport = new Date(
+        previousReports[i].createdAt,
+      ).getMinutes();
       //check if the user created a report in the last 2 hours
       if (hourOfThisReport >= currentHour - 120) {
         return res.json({
           success: false,
-          message: "tryagain"
+          message: "tryagain",
         });
       }
     }
@@ -132,7 +142,7 @@ router.post("/userreport", async (req, res) => {
 
     //saving the data to mongodb
     await ReportData.save();
-    res.status(200).json({ success: true});
+    res.status(200).json({ success: true });
   } catch (e) {
     res.status(500).json({ message: "Internal Server Error" });
   }
@@ -141,35 +151,29 @@ router.post("/userreport", async (req, res) => {
 //* Route 4  - Contact Us
 router.post("/contactus", async (req, res) => {
   try {
-		//insert the Sender's Data in database
-		const data = req.body
-		const email = data.email // Primary Key
+    //insert the Sender's Data in database
+    const data = req.body;
+    const email = data.email; // Primary Key
 
-		const SenderData = {
-			firstname: data.firstName,
-			lastname: data.lastName,
-			email: email,
-			message: data.message,
-		}
-		//saving the data to mongodb
-		const existingContact = await ContactUs.findOne({ email })
-		if (existingContact) {
-			await ContactUs.replaceOne({ email: email }, SenderData)
-		} else {
-			const newContact = ContactUs(SenderData)
-			await newContact.save()
+    const SenderData = {
+      firstname: data.firstName,
+      lastname: data.lastName,
+      email: email,
+      message: data.message,
+    };
+    //saving the data to mongodb
+    const existingContact = await ContactUs.findOne({ email });
+    if (existingContact) {
+      await ContactUs.replaceOne({ email: email }, SenderData);
+    } else {
+      const newContact = ContactUs(SenderData);
+      await newContact.save();
     }
-    
-		res.status(201).json({ message: "Thank you for getting in touch!" })
+
+    res.status(201).json({ message: "Thank you for getting in touch!" });
   } catch (e) {
-   res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
 module.exports = router;
-
-
-
-// ContactUs.find().then(
-//   (data) => console.log(data)
-// )

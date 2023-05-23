@@ -7,6 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import Modal from "./Modal";
+import solidarity from "../assets/pictures/solidarity.png";
+import Button from "./Button";
 
 const Footer = () => {
   const [reportModal, setReportModal] = useState(false);
@@ -171,9 +173,9 @@ const Footer = () => {
               />
             </div>
             <div className="text-center">
-              <button className="btn btn-hover" onClick={handleReportSubmit}>
-                SUBMIT
-              </button>
+              <Button className="btn-hover" onClick={handleReportSubmit}>
+                Submit
+              </Button>
             </div>
           </form>
         </Modal>
@@ -181,35 +183,37 @@ const Footer = () => {
 
       <div
         className="px-5 py-2 main-footer"
-        style={{ backgroundColor: "#424141" }}
+        style={{ backgroundColor: "#272626" }}
       >
         <div className="row">
-          <div className="col-lg-6 col-md-6 mb-4 mb-lg-0 px-5">
-            <img src="img/logo.png" alt="" width="180" className="mb-3" />
+          <div className="col-lg-5 col-md-5 mb-lg-0 px-5">
+            <div className="col-sm-3 col-6  col-lg-3 mx-auto mx-lg-0">
+              <img src={solidarity} alt="" className="mt-4 mx-auto img-fluid" />
+            </div>
             {isMobile ? (
-              <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4">
+              <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4 mt-2">
                 Check out our socials
               </h1>
             ) : (
               <p className="footer-text font-italic text-light text-left mt-4 headings">
                 Want to make Milan better ?<br />
-                <span className=""> Contribute </span>{" "}
+                <span className=""> Contribute </span>
                 <a
                   href="https://github.com/IAmTamal/Milan"
                   target="_blank"
                   rel="noreferrer"
+                  style={{ color: "#e26959" }}
                 >
-                  here{" "}
+                  here
                 </a>
                 !
               </p>
             )}
           </div>
-
-          <div className="join-us col-lg-2 col-md-6 mb-4 mb-lg-0 px-5">
+          <div className="join-us col-lg-4 col-md-3 mx-auto mb-lg-0 px-5">
             <div className="join">
-              <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4 headings">
-                {logged ? "Explore!" : "Join Us!"}
+              <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-lg-2 mb-3 headings">
+                {logged ? "Explore!" : "Join Us"}
               </h1>
               <ul className="join-us-list list-unstyled mb-0">
                 <li className="mb-2">
@@ -249,11 +253,48 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className="rep col-lg-4 col-md-6 mb-lg-0">
+          <div className="join-us col-lg-4 col-md-3 mx-auto mb-lg-0 px-5 ">
+            <div className="join">
+              <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-lg-2 mb-3 headings">
+                Socials
+              </h1>
+              <ul className="join-us-list list-unstyled mb-0">
+                <li className="mb-2">
+                  <a
+                    href="https://twitter.com/mrTamall"
+                    rel="noreferrer"
+                    target="_blank"
+                    className="text-decoration-none footer_auth_text"
+                  >
+                    Twitter
+                  </a>
+                </li>
+                <li className="mb-2">
+                  <a
+                    href="https://github.com/IAmTamal/Milan"
+                    rel="noreferrer"
+                    target="_blank"
+                    className="text-decoration-none footer_auth_text"
+                  >
+                    GitHub
+                  </a>
+                </li>
+                <li className="mb-2">
+                  <Link
+                    to="/contact"
+                    className="text-decoration-none footer_auth_text"
+                  >
+                    Contact Us
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-4 col-lg-4 col-md-6 mb-lg-0 mx-auto">
             <h1 className="h6 headings text-uppercase text-light font-weight-bold mb-2 text-center">
               Got something to report ?
             </h1>
-            <p className="text-light text-center mb-4">
+            <p className="text-center mb-lg-4" style={{ color: "#d8d7d7" }}>
               You can submit a report to us by filling a form below !
             </p>
             <div className="d-flex justify-content-center rounded mx-auto">
@@ -294,8 +335,7 @@ const Footer = () => {
           </div>
         </div>
         <p className="text-light text-center">
-          {" "}
-          Developed by team Milan &copy; {new Date().getFullYear()}{" "}
+          Developed by team Milan &copy; {new Date().getFullYear()}
         </p>
       </div>
     </footer>
