@@ -5,3 +5,9 @@ filters:
       - /feat/i
     events: [pull_request]
     targets: [title]
+    
+  - label: "duplicate"
+    regexs:
+      - /feat/i
+    events: [pull_request]
+    targets: [title]
