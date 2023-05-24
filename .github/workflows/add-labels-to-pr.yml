@@ -8,6 +8,10 @@ on:
 jobs:
   add-triage-label:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
     steps:
       - name: checkout
         uses: actions/checkout@v2
