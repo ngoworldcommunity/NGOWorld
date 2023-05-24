@@ -1,16 +1,3 @@
-# What is Milan ? 
-
-**With Milan we help users, NGOs, Clubs & Charities connect with the world.**
-
-Join as a User, NGO, Club, or Charity, and help us make the world a better place. You can donate, buy, sell, volunteer, and help us in multiple ways. We also have an events tab for organizations to post their events for users to attend without a lot of hassle.
-
-<br/>
-
-![TekHub Banner (1)](https://user-images.githubusercontent.com/72851613/207783151-1d2f19cf-afa4-477b-8823-dcabb86adbf5.png)
-
-<br>
-
-
 
 ## Tech Stack 💻
 
