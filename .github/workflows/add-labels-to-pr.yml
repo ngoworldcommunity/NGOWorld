@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Run Issue PR Labeler
-        uses: hoho4190/issue-pr-labeler@v1
+        uses: hoho4190/issue-pr-labeler@v1.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           disable-bot: true
