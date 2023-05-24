@@ -1,6 +1,6 @@
 # example
 filters:
-  - label: duplicate
+  - label: "👷🏻‍♂️ status: awaiting triage"
     regexs:
       - /feat/i
     events: [pull_request]
