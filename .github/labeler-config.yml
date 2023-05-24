@@ -1,0 +1,7 @@
+# example
+filters:
+  - label: duplicate
+    regexs:
+      - /feat/i
+    events: [pull_request]
+    targets: [title]
