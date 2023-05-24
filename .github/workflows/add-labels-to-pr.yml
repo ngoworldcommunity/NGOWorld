@@ -11,14 +11,13 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: read # required to read configuration yml file
-      issues: write # required to add labels to issues
-      pull-requests: write # required to add labels to pull requests
+      contents: read
+      issues: write
+      pull-requests: write
 
     steps:
-      - name: Run Issue PR Labeler
+      - name: Run PR Triage Labeler
         uses: hoho4190/issue-pr-labeler@v1.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          disable-bot: true
           config-file-name: labeler-config.yml
