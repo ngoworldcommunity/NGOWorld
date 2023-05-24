@@ -1,21 +1,23 @@
-name: Add triage label to new PRs
+name: PR Triage Labeler
 
 on:
   pull_request:
     types:
       - opened
       - reopened
+
 jobs:
-  add-triage-label:
+  main:
     runs-on: ubuntu-latest
+
     permissions:
       contents: read
       issues: write
       pull-requests: write
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
 
-      - uses: actions-ecosystem/action-add-labels@v1
+    steps:
+      - name: Run PR Triage Labeler
+        uses: hoho4190/issue-pr-labeler@v1.1.0
         with:
-          labels: duplicate
+          token: ${{ secrets.GITHUB_TOKEN }}
+          config-file-name: labeler-config.yml
