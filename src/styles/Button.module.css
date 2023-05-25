@@ -29,6 +29,10 @@
   color: #000;
 }
 
+.outlined {
+  border: 2px solid #e26959;
+}
+
 .solid:hover,
 .solid:active,
 .solid:focus {
