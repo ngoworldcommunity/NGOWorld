@@ -7,6 +7,8 @@
     <a href="./LICENSE">
         <img src="https://img.shields.io/github/license/IAmTamal/Milan?style=for-the-badge" /></a>
 </div>
+<br>
+
 **With Milan we help users, NGOs, Clubs & Charities connect with the world.**
 
 Join as a User, NGO, Club, or Charity, and help us make the world a better place. You can donate, buy, sell, volunteer, and help us in multiple ways. We also have an events tab for organizations to post their events for users to attend without a lot of hassle.
