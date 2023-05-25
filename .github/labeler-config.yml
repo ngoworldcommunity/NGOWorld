@@ -1,0 +1,48 @@
+filters:
+  - label: "👷🏻‍♂️ status: awaiting triage"
+    regexs:
+      - /feat/i
+    events: [pull_request]
+    targets: [title]
+    
+  - label: "⭐ goal: addition"
+    regexs:
+      - /feat/i
+    events: [pull_request]
+    targets: [title]
+
+  
+  - label: "👷🏻‍♂️ status: awaiting triage"
+    regexs:
+      - /docs/i
+    events: [pull_request]
+    targets: [title]
+  - label: "📄 aspect: docs"
+    regexs:
+      - /docs/i
+    events: [pull_request]
+    targets: [title]
+
+  
+  - label: "👷🏻‍♂️ status: awaiting triage"
+    regexs:
+      - /fix/i
+    events: [pull_request]
+    targets: [title]
+  - label: "🛠 goal: fix"
+    regexs:
+      - /fix/i
+    events: [pull_request]
+    targets: [title]
+
+  
+  - label: "👷🏻‍♂️ status: awaiting triage"
+    regexs:
+      - /build/i
+    events: [pull_request]
+    targets: [title]
+  - label: "🛠 goal: fix"
+    regexs:
+      - /build/i
+    events: [pull_request]
+    targets: [title]

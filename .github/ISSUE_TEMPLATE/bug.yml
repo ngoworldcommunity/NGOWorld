@@ -3,7 +3,7 @@ description: Report an issue to help improve the project.
 title: "[BUG] write a small description here"
 labels:
   [
-    "🧿 status: awaiting triage",
+    "👷🏻‍♂️ status: awaiting triage",
     "🛠 goal: fix"
   ]
 body:

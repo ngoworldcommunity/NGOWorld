@@ -1,43 +1,24 @@
-name: Add Label to PR
+name: PR Triage Labeler
 
 on:
-  pull_request:
-    types: [opened, reopened]
+  pull_request_target:
+    types:
+      - opened
+      - reopened
 
 jobs:
-  add-label:
+  main:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Add label to PR
-        env:
-          PAT_TOKEN: ${{ secrets.ADDLABELPAT }}
-        run: |
-          # Get the PR title
-          PR_TITLE=$(echo "${{ github.event.pull_request.title }}")
-
-          # Set the labels based on PR title
-          if [[ $PR_TITLE == fix*:* ]]; then
-            LABELS=("🧿 status: awaiting triage" "🛠 goal: fix")
-          elif [[ $PR_TITLE == feat*:* ]]; then
-            LABELS=("🧿 status: awaiting triage" "⭐ goal: addition")
-          elif [[ $PR_TITLE == docs*:* ]]; then
-            LABELS=("🧿 status: awaiting triage" "📄 aspect: docs")
-          elif [[ $PR_TITLE == build*:* ]]; then
-            LABELS=("🧿 status: awaiting triage" "🛠 goal: fix")
-          else
-            echo "No label matched the PR title"
-            exit 0
-          fi
-
-          # Add labels to the pull request using GitHub API
-          for label in "${LABELS[@]}"; do
-            curl -X POST \
-              -H "Authorization: Bearer $PAT_TOKEN" \
-              -H "Accept: application/vnd.github.v3+json" \
-              -d "{\"labels\": [\"$label\"]}" \
-              "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/labels"
-          done
+      - name: Run PR Triage Labeler
+        uses: hoho4190/issue-pr-labeler@v1.3.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          disable-bot: false
+          config-file-name: labeler-config.yml

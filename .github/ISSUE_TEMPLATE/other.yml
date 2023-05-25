@@ -3,8 +3,7 @@ description: Use this for any other issues. Please do NOT create blank issues
 title: "[OTHER] write a small description here"
 labels:
   [
-    "🧿 status: awaiting triage",
-    "✨ goal: improvement"
+   "👷🏻‍♂️ status: awaiting triage"
   ]
 body:
   - type: textarea
