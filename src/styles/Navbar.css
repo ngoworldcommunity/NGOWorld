@@ -79,6 +79,10 @@
   .nav-buttons {
     flex-direction: column;
     margin: auto;
+    gap: 0px;
+  }
+  .navbar-nav {
+    gap: 5px;
   }
 }
 
