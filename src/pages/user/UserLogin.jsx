@@ -97,7 +97,7 @@ function UserLogin() {
       <section className="vh-100">
         <div className="container py-5 h-100">
           <div className="d-flex align-items-top justify-content-center h-100 gap-1 ">
-            <div className="col-md-8 col-lg-7 col-xl-6">
+            <div className="authBannerImageContainer col-lg-7 col-xl-6">
               <AuthBanner className="auth-img" />
             </div>
 
