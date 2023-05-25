@@ -107,23 +107,6 @@
   }
 }
 
-.nav_signup_btn {
-  background: #e26959;
-  box-shadow: 0 0 50px -10px #9747ff14;
-  font-family: Poppins, sans-serif;
-  border: none;
-  border-radius: 6px;
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.896);
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.nav_signup_btn:hover {
-  cursor: pointer;
-  background: #f68475;
-}
-
 .signUpModalHeader > h1 {
   font-family: Poppins, sans-serif;
   color: #000000;

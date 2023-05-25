@@ -102,7 +102,12 @@ const Navbar = () => {
             </ul>
             <div className="nav-buttons">
               <div className="nav-item home">
-                <Button size="sm" className=" nav_signup_btn" to="/user/login">
+                <Button
+                  size="sm"
+                  variant="outlined"
+                  className=" nav_signup_btn"
+                  to="/user/login"
+                >
                   Sign in
                 </Button>
               </div>
