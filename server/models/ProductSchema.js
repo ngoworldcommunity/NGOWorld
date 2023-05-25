@@ -32,6 +32,7 @@ const ProductSchema = new mongoose.Schema(
     productSlug: {
       type: String,
       required: true,
+      unique: true,
     },
   },
   { timetamps: true },
