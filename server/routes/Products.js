@@ -4,32 +4,28 @@ const express = require("express");
 const Products = require("../models/productSchema");
 const router = express.Router();
 
+//* Route 1  -  Adding Products
+
+/**
+ * @description Add Product
+ * @route POST /addproduct
+ * @access Public
+ * @requires productSlug (string), other fields (as per the productSchema)
+ * @returns Saved product object (JSON)
+ */
+
 router.post("/addproduct", async (req, res) => {
   try {
-    const {
-      productType,
-      productName,
-      productPrice,
-      productDescription,
-      productImage,
-      productQty,
-      productSize,
-      productSlug,
-    } = req.body;
+    const { productSlug, ...data } = req.body;
 
-    //we can reduce this extra code by just using the req.body as all the fields are same
+    const existingSlug = await Products.findOne({ productSlug }); //productSlug should be unique
+
+    if (existingSlug) {
+      return res.status(409).json({ message: "productSlug already exists" });
+    }
 
     // Create a new product object based on the schema
-    const newProduct = new Products({
-      productType,
-      productName,
-      productPrice,
-      productDescription,
-      productImage,
-      productQty,
-      productSize,
-      productSlug,
-    });
+    const newProduct = new Products({ ...data, productSlug });
 
     // Save the new product to the database
     const savedProduct = await newProduct.save();
