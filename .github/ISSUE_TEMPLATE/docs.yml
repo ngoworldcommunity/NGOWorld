@@ -3,7 +3,7 @@ description: Found an issue in the documentation? You can use this one!
 title: "[DOCS] write a small description here"
 labels:
   [
-   "🧿 status: awaiting triage",
+   "👷🏻‍♂️ status: awaiting triage",
     "📄 aspect: docs",
   ]
 body:
