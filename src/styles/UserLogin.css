@@ -106,6 +106,20 @@ form .btn-container-desktop {
   display: none;
 }
 
+.toggle-button{
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  float: right;
+  margin-top: -3.25rem;
+  margin-right: 0.9rem;
+}
+
+#password{
+  padding-right: 2.5rem;
+}
+
 @media only screen and (max-width: 430px) {
   .userreg_mob_firstname {
     display: block;
