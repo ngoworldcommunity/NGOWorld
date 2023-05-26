@@ -26,9 +26,6 @@ const ProductSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    productSize: {
-      type: String,
-    },
     productSlug: {
       type: String,
       required: true,
