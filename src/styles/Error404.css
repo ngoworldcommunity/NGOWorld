@@ -1,0 +1,21 @@
+.home-btn{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.error-img{
+    padding-inline: 25%;
+}
+
+
+@media screen and (max-width: 870px) {
+    .error-img{
+        padding-inline: 5rem;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .error-img{
+        padding-inline: 0rem;
+    }
+}
