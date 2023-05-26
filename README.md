@@ -3,7 +3,8 @@
 <div align="center">
     
 <img src="https://img.shields.io/github/repo-size/IAmTamal/Milan?style=for-the-badge" />
-<img src="https://img.shields.io/github/package-json/v/IAmTamal/Milan?style=for-the-badge" />
+    <a href="https://github.com/IAmTamal/Milan/releases">
+        <img src="https://img.shields.io/github/package-json/v/IAmTamal/Milan?style=for-the-badge" /></a>
     <a href="./LICENSE">
         <img src="https://img.shields.io/github/license/IAmTamal/Milan?style=for-the-badge" /></a>
 </div>
