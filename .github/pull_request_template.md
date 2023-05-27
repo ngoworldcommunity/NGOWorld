@@ -1,6 +1,8 @@
 <!--- THESE ARE COMMENTS, AND WON'T BE VISIBLE, DON'T WORRY -->
 
-<!--- PLEASE USE PROPER PR TITLE, IT'S SUPER IMPORTANT -->
+<!--- 🔴🔴🔴 PLEASE USE PROPER PR TITLE, IT'S SUPER IMPORTANT -->
+<!--- 🔴🔴🔴 ALL LOWER CASE CHARACTERS ONLY -->
+
 <!--- EXAMPLES👇🏻👇🏻  -->
 
 <!--- 
