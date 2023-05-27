@@ -1,7 +1,7 @@
 //* All routes related to Product's
 
 const express = require("express");
-const Products = require("../models/productSchema");
+const Products = require("../models/ProductSchema");
 const router = express.Router();
 
 //* Route 1  -  Adding Products
