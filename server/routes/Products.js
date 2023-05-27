@@ -36,4 +36,22 @@ router.post("/addproduct", async (req, res) => {
     res.status(500).json({ message: "Failed to add product" });
   }
 });
+
+//* Route 2  -  Fetching all Products
+/**
+ * @description Get all products
+ * @route GET /products
+ * @access Public
+ * @returns Array of all products
+ */
+router.get("/allproducts", async (req, res) => {
+  try {
+    const allProducts = await Products.find();
+    res.json(allProducts);
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    res.status(500).json({ message: "Failed to fetch products" });
+  }
+});
+
 module.exports = router;
