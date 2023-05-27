@@ -25,6 +25,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./styles/App.css";
 import ShopCategory from "./pages/shops/ShopCategory";
+import Error404 from "./pages/Error404";
 
 const App = () => {
   return (
@@ -86,6 +87,7 @@ const App = () => {
             {/* //* Shop */}
             <Route exact path="/shop" element={<ShopLanding />} />
             <Route exact path="/shop/:category" element={<ShopCategory />} />
+            <Route path={"/*"} element={<Error404/>}/>
           </Routes>
           {/* <Footer /> */}
           <Footer />
