@@ -45,7 +45,7 @@ const Navbar = () => {
               }
               alt="Milan-logo"
               className="nav_bramhin_img"
-            />
+            /> <span className="brand-name">MILAN</span>
           </Link>
 
           <button
