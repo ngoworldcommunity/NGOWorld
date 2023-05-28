@@ -28,22 +28,8 @@ system.
 We use a `.env` file using the `dotenv` package inside the root of the `server`
 directory.
 
-You can use the following values as denoted below, remember that if you are
-using your own database the data might vary.
+You must create a `.env` file similar to [.env.example](../.env.example) file, remember that if you are using your own database the data might vary.
 
-```bash
-
-<!-- WE USE RAZORPAY DETAILS (TEST ACCOUNT) -->
-RAZORPAY_KEY_ID=
-RAZORPAY_KEY_SECRET=
-
-<!-- YOU CAN PUT YOUR OWN MONGODB CREDENTIALS HERE -->
-MONGO_URI=
-PORT=""
-
-<!-- YOU CAN PUT YOUR OWN SECRET RANDOM STRING HERE -->
-JWT_SECRET=
-```
 
 ## Setting up `razorpay api key`
 - Head on to [Razorpay API reference](https://razorpay.com/docs/api) and Sign Up to razor pay rembember you don't need to KYC. 

@@ -14,6 +14,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { isSignUpModalOpen, toggleSignUpModal } = useContext(MilanContext);
+  const { isSignInModalOpen, toggleSignInModal } = useContext(MilanContext);
   const { isNavbarOpen, toggleNavbar } = useContext(MilanContext);
 
   const handleNavigate = () => {
@@ -27,7 +28,8 @@ const Navbar = () => {
   };
 
   const navigateToURL = (url) => {
-    toggleSignUpModal();
+    isSignUpModalOpen && toggleSignUpModal();
+    isSignInModalOpen && toggleSignInModal();
     navigate(url);
   };
 
@@ -99,7 +101,8 @@ const Navbar = () => {
                   }
                 ></div>
               </li>
-
+            </ul>
+            <div className="nav-buttons">
               {Cookies.get("token") || Cookies.get("club") ? (
                 <img
                   onClick={handleNavigate}
@@ -108,17 +111,29 @@ const Navbar = () => {
                   className="nav_user_img"
                 />
               ) : (
-                <li className="nav-item home">
-                  <Button
-                    size="sm"
-                    className=" nav_signup_btn"
-                    onClick={toggleSignUpModal}
-                  >
-                    Sign up
-                  </Button>
-                </li>
+                <>
+                  <div className="nav-item home">
+                    <Button
+                      size="sm"
+                      variant="outlined"
+                      className=" nav_signin_btn"
+                      onClick={toggleSignInModal}
+                    >
+                      Sign in
+                    </Button>
+                  </div>
+                  <div className="nav-item home">
+                    <Button
+                      size="sm"
+                      className=" nav_signup_btn"
+                      onClick={toggleSignUpModal}
+                    >
+                      Sign up
+                    </Button>
+                  </div>
+                </>
               )}
-            </ul>
+            </div>
           </div>
         </div>
       </nav>
@@ -141,6 +156,32 @@ const Navbar = () => {
                 className="btn modal-btn"
                 id="club-signup-modal-btn"
                 onClick={() => navigateToURL("/clubs/register")}
+              >
+                Continue as a Club/NGO
+              </Button>
+            </div>
+          </div>
+        </Modal>
+      )}
+      {isSignInModalOpen && (
+        <Modal onClose={toggleSignInModal}>
+          <div className="signUpModalHeader">
+            <h1>Sign In!</h1>
+          </div>
+          <hr />
+          <div>
+            <div className="text-center button-wrapper">
+              <Button
+                className="btn modal-btn"
+                id="user-signup-modal-btn"
+                onClick={() => navigateToURL("/user/login")}
+              >
+                Continue as an User
+              </Button>
+              <Button
+                className="btn modal-btn"
+                id="club-signup-modal-btn"
+                onClick={() => navigateToURL("/clubs/login")}
               >
                 Continue as a Club/NGO
               </Button>
