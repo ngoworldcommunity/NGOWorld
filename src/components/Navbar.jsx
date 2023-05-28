@@ -37,7 +37,7 @@ const Navbar = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-light sticky-top navbar_main ">
         <div className="container">
-          <Link to={"/"}>
+          <Link className="Link" to={"/"}>
             <img
               src={
                 solidarity ||
