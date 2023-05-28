@@ -6,13 +6,13 @@
   box-shadow: 0 20px 30px rgba(255, 255, 255, 0.15);
   z-index: 10;
 }
-.Link{
+.nav_brand_parent{
   display: flex;
   align-items: center;
 }
 
 
-.brand-name{
+.nav_brand_name{
   color: #e26959;
   text-decoration: none;
   padding-left: 5px;
@@ -102,7 +102,7 @@
   }
 }
 
-.nav_bramhin_img {
+.nav_brand_img {
   width: 45px;
   height: 45px;
   border-radius: 50%;
