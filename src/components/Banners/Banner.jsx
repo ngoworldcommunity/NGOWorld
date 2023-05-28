@@ -41,18 +41,14 @@ const Banner = () => {
                     >
                       Explore our brand new shop !
                     </Button>
-
-                    <a
-                      href="https://github.com/IAmTamal/Milan"
+                    <Button
+                      to="https://github.com/IAmTamal/Milan"
                       target="_blank"
-                      style={{ textDecoration: "none" }}
                       rel="noreferrer"
                     >
-                      <button className="btn btn-warning banner_signup_btn banner_contribute_btn ">
-                        <ImGithub className="banner_contribute_logo" />
-                        <p>Contribute to Milan</p>
-                      </button>
-                    </a>
+                      <ImGithub className="banner_contribute_logo" />
+                      Contribute to Milan
+                    </Button>
                   </div>
                 ) : (
                   <div className="banner_btn_div">
