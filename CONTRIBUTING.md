@@ -64,6 +64,8 @@ Some of them are automatically fixed, while some needs manual fixing.
 
 #### Pull Request Title Format 🔐
 
+🔴🔴🔴 **All LowerCase**
+
 The title of the pull request should be in the format of `type(scope): subject` where `scope` is optional `type` is one of the following:
 
 Available types:
@@ -75,6 +77,8 @@ Available types:
 - `refactor` : Use this when you are refactoring the code.
 - `test` : Use this when you are adding tests.
 - `chore` : Use this when you are changing the build process or auxiliary tools and libraries such as documentation generation.
+
+
 
 #### Reviewing a Pull Request 📌
 
