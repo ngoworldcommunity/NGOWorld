@@ -202,9 +202,9 @@ const UserRegister = () => {
                     required
                     aria-label="Password"
                   />
-                  <button onClick={passwordToggle} className="toggle-button">
+                  <div onClick={passwordToggle} className="toggle-button">
                     {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
-                  </button>
+                  </div>
                 </div>
                 {/* //* Address */}
                 <div className="form-outline mb-4">
