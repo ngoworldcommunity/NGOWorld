@@ -206,7 +206,7 @@ const Footer = () => {
                 >
                   here
                 </a>
-                !
+                
               </p>
             )}
           </div>

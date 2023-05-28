@@ -364,6 +364,11 @@
   color: #e26959;
   position: relative;
   text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+
+.underline-animation:hover{
+  color: #e26959;
 }
 
 .underline-animation::after {
