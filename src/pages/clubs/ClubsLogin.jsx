@@ -8,7 +8,9 @@ import { Helmet } from "react-helmet-async";
 import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 import ClipLoader from "react-spinners/ClipLoader";
 import { showErrorToast, showSuccessToast } from "../../utils/showToast";
+import "../../styles/UserLogin.css";
 import Button from "../../components/Button";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 function ClubLogin() {
   const Navigate = useNavigate();
@@ -64,6 +66,14 @@ function ClubLogin() {
     }).catch(() => {
       showErrorToast("Server error, please try later !");
     });
+  };
+
+  const [passwordType, setPasswordType] = useState("password");
+
+  const passwordToggle = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+    } else setPasswordType("password");
   };
 
   return (
@@ -137,7 +147,7 @@ function ClubLogin() {
                     Password
                   </label>
                   <input
-                    type="password"
+                    type={passwordType}
                     className="desktop form-control form-control-lg color"
                     id="desktopClubPassword"
                     placeholder=""
@@ -149,7 +159,7 @@ function ClubLogin() {
                   />
 
                   <input
-                    type="password"
+                    type={passwordType}
                     className="mobile form-control form-control-lg color"
                     id="mobileClubPassword"
                     name="password"
@@ -158,6 +168,10 @@ function ClubLogin() {
                     onChange={handleChange}
                     required
                   />
+
+                  <div onClick={passwordToggle} className="toggle-button">
+                    {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
+                  </div>
                 </div>
 
                 {/* RememberMe Tab  */}

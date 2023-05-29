@@ -10,9 +10,18 @@ import { Helmet } from "react-helmet-async";
 import { toast } from "react-toastify";
 import { showSuccessToast } from "../../utils/showToast";
 import Button from "../../components/Button";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 const UserRegister = () => {
   const navigate = useNavigate();
+
+  const [passwordType, setPasswordType] = useState("password");
+
+  const passwordToggle = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+    } else setPasswordType("password");
+  };
 
   function Anchor(props) {
     return (
@@ -183,7 +192,7 @@ const UserRegister = () => {
                   </label>
 
                   <input
-                    type="password"
+                    type={passwordType}
                     className="form-control form-control-lg remove_placeholder_desktop"
                     id="password"
                     name="password"
@@ -193,6 +202,9 @@ const UserRegister = () => {
                     required
                     aria-label="Password"
                   />
+                  <div onClick={passwordToggle} className="toggle-button">
+                    {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
+                  </div>
                 </div>
                 {/* //* Address */}
                 <div className="form-outline mb-4">
