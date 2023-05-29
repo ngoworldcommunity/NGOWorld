@@ -7,7 +7,9 @@ import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/au
 import { Helmet } from "react-helmet-async";
 import { showSuccessToast } from "../../utils/showToast";
 import Button from "../../components/Button";
+import "../../styles/UserLogin.css";
 import { toast } from "react-toastify";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 const ClubLogin = () => {
   document.title = "Milan | Club Register";
@@ -56,6 +58,22 @@ const ClubLogin = () => {
     setIsLoading(false);
     showSuccessToast("Registered sueccessfully, please log in !");
     navigate("/clubs/login");
+  };
+
+  const [passwordType, setPasswordType] = useState("password");
+
+  const passwordToggle = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+    } else setPasswordType("password");
+  };
+
+  const [confirmPasswordType, setConfirmPasswordType] = useState("password");
+
+  const confirmPasswordToggle = () => {
+    if (confirmPasswordType === "password") {
+      setConfirmPasswordType("text");
+    } else setConfirmPasswordType("password");
   };
 
   return (
@@ -185,7 +203,7 @@ const ClubLogin = () => {
                     Password
                   </label>
                   <input
-                    type="password"
+                    type={passwordType}
                     className="clubreg_des form-control color"
                     name="password"
                     value={credentials.password}
@@ -194,7 +212,7 @@ const ClubLogin = () => {
                     id="password-des"
                   />
                   <input
-                    type="password"
+                    type={passwordType}
                     className="clubreg_mob form-control color"
                     name="password"
                     value={credentials.password}
@@ -203,6 +221,13 @@ const ClubLogin = () => {
                     required
                     id="password-mob"
                   />
+                  <div
+                    onClick={passwordToggle}
+                    className="toggle-button"
+                    style={{ paddingTop: 5 }}
+                  >
+                    {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
+                  </div>
                 </div>
 
                 <div style={{ width: "45%" }}>
@@ -213,7 +238,7 @@ const ClubLogin = () => {
                     Confirm Password
                   </label>
                   <input
-                    type="password"
+                    type={confirmPasswordType}
                     className="clubreg_des form-control color"
                     name="confirmPassword"
                     value={credentials.confirmPassword}
@@ -223,7 +248,7 @@ const ClubLogin = () => {
                   />
 
                   <input
-                    type="password"
+                    type={confirmPasswordType}
                     className="clubreg_mob form-control color"
                     name="confirmPassword"
                     value={credentials.confirmPassword}
@@ -232,6 +257,18 @@ const ClubLogin = () => {
                     required
                     id="confirm-password-mob"
                   />
+
+                  <div
+                    onClick={confirmPasswordToggle}
+                    className="toggle-button"
+                    style={{ paddingTop: 5 }}
+                  >
+                    {confirmPasswordType === "password" ? (
+                      <FiEyeOff />
+                    ) : (
+                      <FiEye />
+                    )}
+                  </div>
                 </div>
               </div>
               {/* Password end */}
