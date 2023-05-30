@@ -47,7 +47,7 @@ router.post("/addproduct", async (req, res) => {
 router.get("/allproducts", async (req, res) => {
   try {
     const allProducts = await Products.find();
-    res.json(allProducts);
+    res.status(200).json(allProducts);
   } catch (error) {
     console.error("Error fetching products:", error);
     res.status(500).json({ message: "Failed to fetch products" });
