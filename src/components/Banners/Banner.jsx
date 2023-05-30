@@ -5,7 +5,8 @@ import Cookies from "js-cookie";
 import { ImGithub } from "react-icons/im";
 import MilanContext from "../../context/MilanContext";
 import Button from "../Button";
-
+import { motion } from "framer-motion";
+import { fadeIn } from "../../animmation/Anim";
 const Banner = () => {
   const nav = useNavigate();
   const { toggleSignUpModal } = useContext(MilanContext);
@@ -16,21 +17,35 @@ const Banner = () => {
         <div className="banner_mainparent">
           <div className="banner_subparent">
             <div className="banner_textdiv">
-              <h1 className="banner_header1">
+              <motion.h1
+                variants={fadeIn}
+                initial="hidden"
+                whileInView="visible"
+                transition={{ delay: 0.35, duration: 0.4 }}
+                viewport={{ once: true, amount: 0.25 }}
+                className="banner_header1"
+              >
                 Welcome to
                 <br />
                 MILAN
-              </h1>
+              </motion.h1>
               {/*  <p className="banner_header2">MILAN</p> */}
-              <div>
+              <motion.div
+                variants={fadeIn}
+                initial="hidden"
+                whileInView="visible"
+                transition={{ duration: 0.4, delay: 0.45 }}
+                viewport={{ once: true, amount: 0.25 }}
+                className="banner_header1"
+              >
                 <p className="banner_header3">
                   We are a hub, trying to connect help and need. Join us and
                   make earth a better place for all to live!
                 </p>
-              </div>
+              </motion.div>
               <div className="banner_signup_btndiv">
                 {Cookies.get("token") || Cookies.get("club") ? (
-                  <div className="banner_btn_div">
+                  <motion.div className="banner_btn_div">
                     <Button
                       variant="outline"
                       onClick={() => {
@@ -53,7 +68,7 @@ const Banner = () => {
                         <p>Contribute to Milan</p>
                       </button>
                     </a>
-                  </div>
+                  </motion.div>
                 ) : (
                   <div className="banner_btn_div">
                     <Button
