@@ -37,15 +37,15 @@ const Navbar = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-light sticky-top navbar_main ">
         <div className="container">
-          <Link to={"/"}>
+          <Link className="nav_brand_parent" to={"/"}>
             <img
               src={
                 solidarity ||
                 "https://www.shareicon.net/data/512x512/2016/09/15/829452_user_512x512.png"
               }
               alt="Milan-logo"
-              className="nav_bramhin_img"
-            />
+              className="nav_brand_img"
+            /> <span className="nav_brand_name">MILAN</span>
           </Link>
 
           <button

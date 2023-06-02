@@ -202,11 +202,11 @@ const Footer = () => {
                   href="https://github.com/IAmTamal/Milan"
                   target="_blank"
                   rel="noreferrer"
-                  style={{ color: "#e26959" }}
+                className="underline-animation"
                 >
                   here
                 </a>
-                !
+                
               </p>
             )}
           </div>
