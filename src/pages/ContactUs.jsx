@@ -66,7 +66,7 @@ const ContactUs = () => {
                   Reach out to us !
                 </h1>
                 <label
-                  htmlFor="Full Name"
+                  htmlFor="firstName"
                   className="col-form-label col-form-label-lg"
                   style={{ fontFamily: "Open Sans, sans-serif" }}
                 >
@@ -81,14 +81,6 @@ const ContactUs = () => {
                     className="userreg_des_firstname form-control form-control-lg me-md-2"
                     onChange={handleChange}
                     autoFocus
-                  />
-                  <input
-                    type="text"
-                    placeholder="First name"
-                    id="firstName"
-                    value={formData.firstName}
-                    className="userreg_mob_firstname form-control form-control-lg me-md-2"
-                    onChange={handleChange}
                   />
                   <input
                     type="text"
@@ -107,6 +99,7 @@ const ContactUs = () => {
                   Email address
                 </label>
                 <input
+                  autoComplete="on"
                   type="email"
                   placeholder="Email"
                   id="email"
