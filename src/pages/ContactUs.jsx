@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import "../styles/ContactUs.css";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import contactImage from "../assets/pictures/contactUs.svg";
 import { Contact } from "../service/MilanApi";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 
 const ContactUs = () => {
@@ -16,6 +14,7 @@ const ContactUs = () => {
   };
 
   const isEmailValid = (email) => {
+    // eslint-disable-next-line no-useless-escape
     const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (regex.test(email)) {
       return true;
@@ -31,7 +30,7 @@ const ContactUs = () => {
       // Email Validation
       toast.warn("Please provide a correct email.");
     } else {
-      Contact(formData, toast);
+      Contact(formData);
       setFormData(initialState);
     }
   };
@@ -46,7 +45,6 @@ const ContactUs = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-      <ToastContainer />
       <section className="vh-100">
         <div className="container py-5 h-100">
           <div className="row d-flex align-items-center justify-content-center h-100">
