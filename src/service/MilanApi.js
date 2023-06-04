@@ -141,7 +141,7 @@ export const Contact = async (formData, toast) => {
     const response = await Axios.post(Contact_Us, formData);
     toast.success(response.data.message);
   } catch (error) {
-    toast.error(error.response.data.message);
+    toast.error(error.message);
   }
 };
 
