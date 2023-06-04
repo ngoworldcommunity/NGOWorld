@@ -45,7 +45,7 @@ const ContactUs = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-      <section className="vh-100">
+      <section>
         <div className="container py-5 h-100">
           <div className="row d-flex align-items-center justify-content-center h-100">
             <div className="contact-img col-md-8 col-lg-7 col-xl-6">
