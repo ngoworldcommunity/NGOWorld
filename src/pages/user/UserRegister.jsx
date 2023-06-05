@@ -52,7 +52,7 @@ const UserRegister = () => {
       email: { type: "string", format: "email" },
       password: { type: "string", minLength: 8 },
       address: { type: "string" },
-      pincode: { type: "number", pattern: "[0-9]+", minLength: 6 },
+      pincode: { type: "string", pattern: "[0-9]+", minLength: 6 , maxLength: 6},
     },
     required: [
       "firstname",
@@ -73,7 +73,6 @@ const UserRegister = () => {
     e.preventDefault();
     var validator = SchemaValidator(FormDataProto, {
       ...credentials,
-      pincode: Number(credentials.pincode),
     });
 
     if (validator.valid) {
@@ -131,7 +130,7 @@ const UserRegister = () => {
                       </label>
                       <input
                         type="text"
-                        className="userreg_des_firstname form-control form-control-lg"
+                        className="form-control form-control-lg"
                         placeholder="First name"
                         name="firstname"
                         value={credentials.firstname}
