@@ -106,6 +106,21 @@ form .btn-container-desktop {
   display: none;
 }
 
+.toggle-button{
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  float: right;
+  margin-top: -3.25rem;
+  margin-right: 0.9rem;
+}
+
+#password, #mobileClubPassword, #desktopClubPassword, #desktopUserPassword, 
+#password-mob, #password-des, #confirm-password-mob, #confirm-password-des{
+  padding-right: 2.5rem;
+}
+
 @media only screen and (max-width: 430px) {
   .userreg_mob_firstname {
     display: block;
@@ -122,5 +137,11 @@ form .btn-container-desktop {
   .loginform h1,
   .userregister_header {
     font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .authBannerImageContainer {
+    display: none;
   }
 }

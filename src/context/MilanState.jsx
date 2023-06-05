@@ -11,6 +11,7 @@ const MilanState = (props) => {
     right: false,
   });
   const [isSignUpModalOpen, setIsSignUpModalOpen] = react.useState(false);
+  const [isSignInModalOpen, setIsSignInModalOpen] = react.useState(false);
   const [isNavbarOpen, setIsNavbarOpen] = react.useState(false);
 
   const toggleSignUpModal = () => {
@@ -23,12 +24,21 @@ const MilanState = (props) => {
     document.body.style.overflow = "hidden";
   };
 
-  const toggleNavbar = () => {
-    if(isNavbarOpen){
-      setIsNavbarOpen(false);
+  const toggleSignInModal = () => {
+    if (isSignInModalOpen) {
+      setIsSignInModalOpen(false);
+      document.body.style.overflow = "unset";
       return;
     }
-    else{
+    setIsSignInModalOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const toggleNavbar = () => {
+    if (isNavbarOpen) {
+      setIsNavbarOpen(false);
+      return;
+    } else {
       setIsNavbarOpen(true);
     }
   };
@@ -44,8 +54,11 @@ const MilanState = (props) => {
         setState,
         isSignUpModalOpen,
         toggleSignUpModal,
+        isSignInModalOpen,
+        toggleSignInModal,
         isNavbarOpen,
-        toggleNavbar
+        setIsNavbarOpen,
+        toggleNavbar,
       }}
     >
       {props.children}
