@@ -29,6 +29,8 @@ Follow the below steps to setup the Frontend locally. We are using `npm` as the 
 - **Remember**, writing readable and clean code while following the coding standards is the best thing for any developer.
 ## Next steps 🚀
 
-So now you have the the frontend up and running locally. Now you can start working on the issues. Now follow the below steps to setup the backend locally.
+So now you have the the frontend up and running locally. Now you can start working on the issues. 
 
-1. [Setting up the backend locally](/rules/BackendSetup.md)
+- If you don't need to modify/work on anything related to the backend, you can skip the backend setup and simply setup a `.env` file in the root.
+- Inside that `.env` file you can put `VITE_MILANAPI="https://milan-server.vercel.app"`
+- If you need your own backend and want to make changes there as well, you can follow [Setting up the backend locally](/rules/BackendSetup.md)
