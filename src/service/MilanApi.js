@@ -4,7 +4,8 @@
 import Axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const API = import.meta.env.VITE_MILANAPI;
+// const API = import.meta.env.VITE_MILANAPI;
+const API = "http://localhost:5000";
 
 const User_Log = `${API}/user/login`;
 const User_Reg = `${API}/user/register`;
@@ -41,6 +42,7 @@ export const UpdateUser = async (credentials) => {
 export const LoginUser = async (credentials) => {
   try {
     const User = await Axios.post(User_Log, credentials);
+    console.log(User);
     return User;
   } catch (error) {
     toast.error(error.response.data.message, {
