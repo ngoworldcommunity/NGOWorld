@@ -80,9 +80,9 @@ const Donate = () => {
         >
           <h1 className="mb-4">Yes, you help live !!</h1>
           <p>
-            Donations does play an important part as our annual funds, donations
-            from your ends helps thousands of unfortunate people live their
-            lives.
+            Donations do play an important part in our annual funds, donations
+            from your end help thousands of unfortunate people live their
+            lives..
           </p>
           <p>
             Choose any club, donate whatever you want, even 5 rupees helps !

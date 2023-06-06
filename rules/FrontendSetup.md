@@ -23,7 +23,7 @@ Follow the below steps to setup the Frontend locally. We are using `npm` as the 
 - Maintain the same coding standards as the rest of the codebase. 
 - Follow good naming conventions for the files, variables and functions along with proper documentation (if needed).
 - We also use `husky` and `lint-staged` to run the linter and formatter before every commit. Read about this in our [Contributing Guidelines](/CONTRIBUTING.md).
-- Maintain a good folder structure, incase you use anu new components or pages make sure you put them in the right folder.
+- Maintain a good folder structure, incase you use any new components or pages make sure you put them in the right folder.
 - If you are using any new dependencies, make sure you mention them in the PR.
 - If you are using any new Image , compress it using [online tools]("https://www.iloveimg.com/compress-image") and then use it in the project.
 - **Remember**, writing readable and clean code while following the coding standards is the best thing for any developer.
