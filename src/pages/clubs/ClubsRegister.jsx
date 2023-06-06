@@ -11,6 +11,14 @@ import "../../styles/UserLogin.css";
 import { toast } from "react-toastify";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
+//Pushpendra code
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import { useForm } from "react-hook-form";
+// import { GlobalForm, GlobalInput } from "../../components/GlobalComponents";
+// import { registerSchema } from "../../Validation/Validation";
+// import { manageUndefined } from "../../common";
+//pushpendra code ends here
+
 const ClubLogin = () => {
   document.title = "Milan | Club Register";
   const navigate = useNavigate();
@@ -76,6 +84,34 @@ const ClubLogin = () => {
     } else setConfirmPasswordType("password");
   };
 
+  // //Pushpendra code
+  // const [form, setForm] = useState({});
+  // const {
+  //   register: registerSignIn,
+  //   formState: { errors: errorSignIn },
+  //   handleSubmit: handleSubmitSignIn,
+  //   reset: resetSignIn,
+  //   watch,
+  // } = useForm({
+  //   mode: "all",
+  //   resolver: yupResolver(registerSchema),
+  // });
+
+  // const handleInputChange = (event, data) => {
+  //   setForm({ ...form, [data.name]: data.value });
+  // };
+
+  // const handleSubmit = async (data, event) => {
+  //   toast.clearWaitingQueue();
+  //   e.preventDefault();
+  //   setIsLoading(true);
+  //   await RegisterClub({ ...form });
+  //   setIsLoading(false);
+  //   showSuccessToast("Registered sueccessfully, please log in !");
+  //   navigate("/clubs/login");
+  // };
+  // // pushpendra code ends here
+
   return (
     <>
       <Helmet>
@@ -95,6 +131,12 @@ const ClubLogin = () => {
 
           <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
             <form onSubmit={handleSubmit}>
+              {/* Pushpendra code
+            <GlobalForm
+              style={{ width: "auto" }}
+              id={"RegisterForm"}
+              onSubmit={handleSubmitSignIn(handleSubmit)}
+            > */}
               <h1 className="mobile-txt clubregisterheading1">
                 Register your club with Milan !
               </h1>
@@ -382,6 +424,7 @@ const ClubLogin = () => {
                 link="/clubs/login"
                 className="link-info anchor-container-desktop"
               />
+              {/* </GlobalForm> */}
             </form>
           </div>
         </div>
