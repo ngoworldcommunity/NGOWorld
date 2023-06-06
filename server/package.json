@@ -22,8 +22,6 @@
     "mongoose": "^6.1.10",
     "nodemon": "^2.0.20",
     "passport": "^0.6.0",
-    "passport-google-oauth": "^2.0.0",
-    "passport-google-oauth2": "^0.2.0",
     "passport-google-oauth20": "^2.0.0",
     "razorpay": "^2.8.3",
     "shortid": "^2.2.16"
