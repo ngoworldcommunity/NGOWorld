@@ -6,6 +6,19 @@
   box-shadow: 0 20px 30px rgba(255, 255, 255, 0.15);
   z-index: 10;
 }
+.nav_brand_parent{
+  display: flex;
+  align-items: center;
+}
+
+
+.nav_brand_name{
+  color: #e26959;
+  text-decoration: none;
+  padding-left: 5px;
+  font-family: Montserrat, sans-serif;
+  font-size: 1.5rem;
+}
 
 .navbar-nav {
   margin: auto;
@@ -30,7 +43,10 @@
   font-family: Poppins, sans-serif;
   color: #28183b;
   font-size: 1rem;
+  /* position: relative; */
 }
+
+
 
 .nav-item a:hover {
   color: #28183b;
@@ -86,7 +102,7 @@
   }
 }
 
-.nav_bramhin_img {
+.nav_brand_img {
   width: 45px;
   height: 45px;
   border-radius: 50%;

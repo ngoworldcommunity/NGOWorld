@@ -36,4 +36,46 @@ router.post("/addproduct", async (req, res) => {
     res.status(500).json({ message: "Failed to add product" });
   }
 });
+
+//* Route 2  -  Fetching all Products
+/**
+ * @description Get all products
+ * @route GET /products
+ * @access Public
+ * @returns Array of all products
+ */
+router.get("/allproducts", async (req, res) => {
+  try {
+    const allProducts = await Products.find();
+    res.status(200).json(allProducts);
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    res.status(500).json({ message: "Failed to fetch products" });
+  }
+});
+
+// Route 3 - Fetching a single product by slug
+/**
+ * @description Get a product by slug
+ * @route GET /products/:productSlug
+ * @access Public
+ * @returns Product object (JSON)
+ */
+router.get("/:productSlug", async (req, res) => {
+  try {
+    const { productSlug } = req.params;
+
+    const product = await Products.findOne({ productSlug });
+
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+
+    res.status(200).json(product);
+  } catch (error) {
+    console.error("Error fetching product:", error);
+    res.status(500).json({ message: "Failed to fetch product" });
+  }
+});
+
 module.exports = router;

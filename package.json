@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^14.4.3",
     "aos": "^2.3.4",
     "axios": "^1.4.0",
-    "cypress": "^12.12.0",
+    "cypress": "^12.13.0",
     "dotenv": "^16.0.3",
     "js-cookie": "^3.0.5",
     "jsonschema": "^1.4.1",
@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",
-    "eslint": "^8.38.0",
+    "eslint": "^8.42.0",
     "eslint-plugin-cypress": "^2.13.3",
     "eslint-plugin-react": "^7.32.2",
     "husky": "^8.0.0",

@@ -57,6 +57,7 @@ const MilanState = (props) => {
         isSignInModalOpen,
         toggleSignInModal,
         isNavbarOpen,
+        setIsNavbarOpen,
         toggleNavbar,
       }}
     >
