@@ -3,6 +3,7 @@ import "../styles/ContactUs.css";
 import contactImage from "../assets/pictures/contactUs.svg";
 import { Contact } from "../service/MilanApi";
 import { toast } from "react-toastify";
+import { showErrorToast, showSuccessToast } from "../utils/showToast";
 import { Helmet } from "react-helmet-async";
 
 const ContactUs = () => {
@@ -32,9 +33,9 @@ const ContactUs = () => {
     } else {
       const response = await Contact(formData);
       if (response.status === 201) {
-        toast.success(response.data.message);
+        showSuccessToast(response.data.message);
       } else {
-        toast.error(response.message);
+        showErrorToast(response.message);
       }
       setFormData(initialState);
     }
