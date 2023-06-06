@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import "../styles/ContactUs.css";
 import Navbar from "../components/Navbar";
@@ -16,6 +17,7 @@ const ContactUs = () => {
   };
 
   const isEmailValid = (email) => {
+    // eslint-disable-next-line no-useless-escape
     const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (regex.test(email)) {
       return true;
