@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../styles/ContactUs.css";
+// eslint-disable-next-line no-unused-vars
 import Navbar from "../components/Navbar";
+// eslint-disable-next-line no-unused-vars
 import Footer from "../components/Footer";
 import contactImage from "../assets/pictures/contactUs.svg";
 import { Contact } from "../service/MilanApi";
@@ -16,6 +18,7 @@ const ContactUs = () => {
   };
 
   const isEmailValid = (email) => {
+    // eslint-disable-next-line no-useless-escape
     const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (regex.test(email)) {
       return true;

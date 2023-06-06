@@ -5,6 +5,8 @@
   "dependencies": {
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",
+    "@reach/combobox": "^0.18.0",
+    "@react-google-maps/api": "^2.18.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/user-event": "^14.4.3",
     "aos": "^2.3.4",
@@ -24,6 +26,7 @@
     "react-toastify": "^9.1.1",
     "swr": "^2.1.0",
     "url": "^0.11.0",
+    "use-places-autocomplete": "^4.0.0",
     "vite-plugin-svgr": "^2.2.2",
     "web-vitals": "^3.3.1"
   },
