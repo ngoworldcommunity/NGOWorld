@@ -22,7 +22,7 @@ const ContactUs = () => {
     return false;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     // validation
     if (!formData.firstName || !formData.lastName || !formData.message) {
       toast.warn("Please fill out all the fields.");
@@ -30,7 +30,12 @@ const ContactUs = () => {
       // Email Validation
       toast.warn("Please provide a correct email.");
     } else {
-      Contact(formData);
+      const response = await Contact(formData);
+      if (response.status === 201) {
+        toast.success(response.data.message);
+      } else {
+        toast.error(response.message);
+      }
       setFormData(initialState);
     }
   };

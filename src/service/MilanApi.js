@@ -139,9 +139,9 @@ export const GetAllEvents = async () => {
 export const Contact = async (formData) => {
   try {
     const response = await Axios.post(Contact_Us, formData);
-    toast.success(response.data.message);
+    return response;
   } catch (error) {
-    toast.error(error.message);
+    return error;
   }
 };
 
