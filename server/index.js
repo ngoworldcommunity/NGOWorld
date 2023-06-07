@@ -30,4 +30,4 @@ app.use("/payment", require("./routes/Payment"));
 //* Product routes
 app.use("/product", require("./routes/Products"));
 
-app.listen(port, () => console.log("API IS RUNNING 🚀"));
+app.listen(port, () => console.log("API IS RUNNING 🚀 at port:", port));

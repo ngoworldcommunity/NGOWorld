@@ -21,7 +21,7 @@ const Banner = () => {
                 <br />
                 MILAN
               </h1>
-              {/*  <p className="banner_header2">MILAN</p> */}
+
               <div>
                 <p className="banner_header3">
                   We are a hub, trying to connect help and need. Join us and
