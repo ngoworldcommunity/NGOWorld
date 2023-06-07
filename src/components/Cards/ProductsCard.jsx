@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/Products.css";
+import FormatPrice from "../Helpers/FormatPrice";
 
 const ProductsCard = ({ product }) => {
   return (
@@ -28,7 +29,9 @@ const ProductsCard = ({ product }) => {
 
             <div>
               <p>⭐⭐⭐⭐⭐</p>
-              <p className="pb_price">₹ 100</p>
+              <p className="pb_price">
+                <FormatPrice price={1000} />
+              </p>
             </div>
           </div>
           <div className="card_cart">
