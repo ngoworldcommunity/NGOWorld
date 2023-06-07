@@ -54,7 +54,7 @@
 
 .active-link {
   border-bottom: 2px solid #e26959;
-  width: 30%;
+  width: 100%;
   border-radius: 20%;
   margin: auto;
 }
