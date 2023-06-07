@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
 });
 
 //* user routes
-app.use("/user", require("./routes/user"));
+app.use("/user", require("./routes/User"));
 
 //* club routes
 app.use("/club", require("./routes/Clubs"));
@@ -56,7 +56,7 @@ app.use("/product", require("./routes/Products"));
 
 
 //* Google Auth routes
-app.use("/auth", require("./routes/user"));
+app.use("/auth", require("./routes/User"));
 
 app.listen(port, () => console.log("API IS RUNNING 🚀 at port:", port));
 
