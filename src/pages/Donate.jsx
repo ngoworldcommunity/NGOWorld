@@ -82,7 +82,7 @@ const Donate = () => {
           <p>
             Donations do play an important part in our annual funds, donations
             from your end help thousands of unfortunate people live their
-            lives..
+            lives.
           </p>
           <p>
             Choose any club, donate whatever you want, even 5 rupees helps !
