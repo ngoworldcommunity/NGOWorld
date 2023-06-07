@@ -21,7 +21,7 @@ const EventsBanner = () => {
       >
         <h1 className="mb-4">Check out our events!!</h1>
         <p className="donate-details">
-        All our partnered NGOs, host various events be they educational,
+        All our partnered NGOs, host various events be it educational,
           cleaning mother earth, funding events, health camps, and many more  !!
         </p>
         <p>Join us at the events, and help the community !! </p>
