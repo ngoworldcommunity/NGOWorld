@@ -101,12 +101,14 @@ const Navbar = () => {
               </li>
 
               {Cookies.get("token") || Cookies.get("club") ? (
-                <img
-                  onClick={handleNavigate}
-                  src={ProfilePicture}
-                  alt="lol"
-                  className="nav_user_img"
-                />
+                <li className="nav-item home">
+                  <img
+                    onClick={handleNavigate}
+                    src={ProfilePicture}
+                    alt="lol"
+                    className="nav_user_img"
+                  />
+                </li>
               ) : (
                 <li className="nav-item home">
                   <Button
