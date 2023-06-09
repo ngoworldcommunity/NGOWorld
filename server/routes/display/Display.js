@@ -1,9 +1,9 @@
 //* All routes related to club's LOGIN AND REGISTER
 
 const express = require("express");
-const Club = require("../models/ClubsSchema");
-const User = require("../models/UserSchema");
-const Events = require("../models/EventsSchema");
+const Club = require("../../schema/club/ClubSchema");
+const User = require("../../schema/user/UserSchema");
+const Events = require("../../schema/club/EventSchema");
 const router = express.Router();
 
 //* Route 1  - Show all avaialble Users in the DB
