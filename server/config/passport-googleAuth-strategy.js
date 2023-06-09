@@ -1,7 +1,7 @@
 const passport = require("passport");
 const googleStrategy = require("passport-google-oauth20").Strategy;
 const crypto = require("crypto");
-const User = require("../models/UserSchema");
+const User = require("../schema/user/UserSchema");
 
 passport.use(
   /* This code is creating a new instance of the Google OAuth2 authentication strategy for Passport.js.
