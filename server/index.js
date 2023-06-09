@@ -40,23 +40,21 @@ app.get("/", (req, res) => {
 });
 
 //* user routes
-app.use("/user", require("./routes/User"));
+app.use("/user", require("./routes/user/User"));
 
 //* club routes
-app.use("/club", require("./routes/Clubs"));
+app.use("/club", require("./routes/club/Club"));
 
 //* Display routes
-app.use("/display", require("./routes/Display"));
+app.use("/display", require("./routes/display/Display"));
 
 //* Payment routes
-app.use("/payment", require("./routes/Payment"));
+app.use("/payment", require("./routes/payment/Payment"));
 
 //* Product routes
-app.use("/product", require("./routes/Products"));
-
+app.use("/product", require("./routes/shop/Products"));
 
 //* Google Auth routes
-app.use("/auth", require("./routes/User"));
+app.use("/auth", require("./routes/user/Auth"));
 
 app.listen(port, () => console.log("API IS RUNNING 🚀 at port:", port));
-
