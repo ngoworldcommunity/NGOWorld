@@ -23,7 +23,7 @@ We are using `pre-commit hooks, linting packages` to make sure that the code is 
 
 So whenever you try and make any commit, it will automatically run the `linting` and `prettier` on the staged/changed files and if there are any errors, it will not let you commit the code until you fix those.
 
-Some of them are automatically fixed, while some needs manual fixing.
+Some of them are automatically fixed, while some need manual fixing.
 
 ---
 ## Issues 👮
@@ -32,7 +32,7 @@ Some of them are automatically fixed, while some needs manual fixing.
 #### Creating an issue 📝
 
 - There are different types in the issues section such as `Bug` , `Documentation` , `Feature` . You can choose, create any of the types of issues.
-- In case you need to crete something else, you can use the `Other` type. Blank issues are not recommended at all.
+- In case you need to create something else, you can use the `Other` type. Blank issues are not recommended at all.
 - When creating an issue make sure you fill up the fields properly and also make sure that you are **not raising a duplicate issue.**
 - The `labels` are used to categorize the issues and it will be auto added based on the type of issue you are creating.
 
@@ -41,7 +41,7 @@ Some of them are automatically fixed, while some needs manual fixing.
 - Only ask to be assigned 1 issue at a time.
 - **Do not** enable GitHub Actions on your fork
 - You can assign yourself to an issue if you want to work on it by checking the `I am willing to work on this issue (blank for no)` checkbox.
-- Incase someone else has left that box empty, you can assign yourself to that issue by commenting `I would like to work on this issue` on that issue.
+- In case someone else has left that box empty, you can assign yourself to that issue by commenting `I would like to work on this issue` on that issue.
 - We assign on a **first come first serve basis**.
 
 
@@ -57,7 +57,7 @@ Some of them are automatically fixed, while some needs manual fixing.
 
 #### Creating a Pull Request 📝
 
-- Donot raise a PR if you are not assigned to the issue. Donot try and make spam pull requests as you might be **banned** from the organization.
+- Do not raise a PR if you are not assigned to the issue. Do not try and make spam pull requests as you might be **banned** from the organization.
 - Whenever making a Pull request, make sure you fill up the fields properly.
 - We use `Lint PR title` workflow which makes sure that the PR titles are in the correct format. If you are not sure about the format, you can check the `Pull Request Title Format` section below.
 
