@@ -135,6 +135,7 @@ const Footer = () => {
                 required
                 type="email"
                 className="form-control"
+                aria-label="Enter your Email"
                 placeholder="Enter your Email*"
                 value={reportEmail}
                 onChange={(e) => setReportEmail(e.target.value)}
@@ -146,7 +147,8 @@ const Footer = () => {
               <input
                 required
                 type="text"
-                className="form-control "
+                className="form-control"
+                aria-label="Enter your First Name"
                 placeholder="First Name*"
                 value={reportFirstName}
                 onChange={(e) => setReportFirstName(e.target.value)}
@@ -155,6 +157,7 @@ const Footer = () => {
                 required
                 type="text"
                 className="form-control ml-1"
+                aria-label="Enter your Second Name"
                 placeholder="Last Name*"
                 value={reportLastName}
                 onChange={(e) => setReportLastName(e.target.value)}
@@ -166,6 +169,7 @@ const Footer = () => {
                 required
                 type="text"
                 className="form-control"
+                aria-label="Please briefly describe the issue that you are currently facing"
                 placeholder="Brief the issue that you are facing*"
                 rows={6}
                 value={reportIssue}
@@ -173,7 +177,7 @@ const Footer = () => {
               />
             </div>
             <div className="text-center">
-              <Button className="btn-hover" onClick={handleReportSubmit}>
+              <Button className="btn-hover" role="button" onClick={handleReportSubmit}>
                 Submit
               </Button>
             </div>
@@ -202,10 +206,11 @@ const Footer = () => {
                   href="https://github.com/IAmTamal/Milan"
                   target="_blank"
                   rel="noreferrer"
-                  className="underline-animation"
+                className="underline-animation"
                 >
                   here
                 </a>
+                
               </p>
             )}
           </div>
@@ -261,8 +266,8 @@ const Footer = () => {
                 <li className="mb-2">
                   <a
                     href="https://twitter.com/mrTamall"
-                    rel="noreferrer"
                     target="_blank"
+                    rel="noopener noreferrer" 
                     className="text-decoration-none footer_auth_text"
                   >
                     Twitter
@@ -271,8 +276,8 @@ const Footer = () => {
                 <li className="mb-2">
                   <a
                     href="https://github.com/IAmTamal/Milan"
-                    rel="noreferrer"
                     target="_blank"
+                    rel="noopener noreferrer" 
                     className="text-decoration-none footer_auth_text"
                   >
                     GitHub
@@ -294,7 +299,7 @@ const Footer = () => {
               Got something to report ?
             </h1>
             <p className="text-center mb-lg-4" style={{ color: "#d8d7d7" }}>
-              You can submit a report to us by filling a form below !
+              You can submit a report to us by filling the form below !
             </p>
             <div className="d-flex justify-content-center rounded mx-auto">
               <button
@@ -312,7 +317,8 @@ const Footer = () => {
           <div className="twitter social-btn">
             <a
               href="https://twitter.com/mrTamall"
-              rel="noreferrer"
+              rel="noopener noreferrer" 
+              aria-label="Follow me on Twitter"
               target="_blank"
             >
               <i className="fa-brands fa-twitter"></i>
@@ -321,19 +327,23 @@ const Footer = () => {
           <div className="github social-btn">
             <a
               href="https://github.com/IAmTamal/Milan"
-              rel="noreferrer"
+              rel="noopener noreferrer" 
+              aria-label="Follow me on Github"
               target="_blank"
             >
               <i className="fa-brands fa-github"></i>
             </a>
           </div>
           <div className="cont social-btn">
-            <Link to={"/contact"}>
+            <Link 
+              to={"/contact"} 
+              aria-label="Contact Us"
+            >
               <i className="cont-icon fa-solid fa-message"></i>
             </Link>
           </div>
         </div>
-        <p className="text-light text-center">
+        <p className="text-light text-center" role="contentinfo">
           Developed by team Milan &copy; {new Date().getFullYear()}
         </p>
       </div>

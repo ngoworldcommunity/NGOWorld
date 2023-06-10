@@ -43,9 +43,9 @@ const Milaninfobanner = () => {
 
             <div>
               <p className="mib_header2">
-                Milan connects over 1000 charities, ngos, individuals with a
+              Milan connects over 1000 charities, NGOs, and individuals with a
                 common goal - connecting help with people that needs it. You can
-                donate, buy for charity, share fundraising events and much more.
+                donate, buy for charity, share fundraising events, and much more.
               </p>
             </div>
           </div>
@@ -60,8 +60,8 @@ const Milaninfobanner = () => {
 
             <div>
               <p className="mib_header2">
-                Over 80% of our funds comes directly from the love and support
-                you all show. We also donate directly to emergencies, natural
+                Over 80% of our funds come directly from the love and support
+                you all show. We also donate directly to emergencies and natural
                 disasters. Donations, small or big, can help people in need
                 survive.
               </p>
