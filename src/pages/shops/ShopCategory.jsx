@@ -25,7 +25,7 @@ const ShopCategory = () => {
 
               <p className="shop_header2">
                 All the products listed here, are made by our members, local
-                charities, NGOs, orphanages. We don't take any profit from the
+                charities, NGOs, and orphanages. We don't take any profit from the
                 sales.
               </p>
             </div>
