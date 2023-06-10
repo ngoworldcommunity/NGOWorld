@@ -10,7 +10,7 @@
 
 - After the fork is done, you will be redirected to your forked repo.
 - The next step is to clone the repo to your local storage.
-- Open your termnial and enter the following command. Remember to replace `YOUR_USERNAME` with your GitHub username.
+- Open your terminal and enter the following command. Remember to replace `YOUR_USERNAME` with your GitHub username.
 
 ```bash
 git clone https://github.com/<YOUR_USERNAME>/Milan.git

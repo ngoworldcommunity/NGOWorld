@@ -32,7 +32,7 @@ You must create a `.env` file similar to [.env.example](../.env.example) file, r
 
 
 ## Setting up `razorpay api key`
-- Head on to [Razorpay API reference](https://razorpay.com/docs/api) and Sign Up to razor pay rembember you don't need to KYC. 
+- Head on to [Razorpay API reference](https://razorpay.com/docs/api) and Sign Up to razor pay remember you don't need to KYC. 
 - Login after Signing Up then you will see this interface, you can use the test mode.
 
 <img width="945" alt="image" src="https://github.com/tejaskh3/Milan/assets/98630752/2de85099-8167-4db2-9fc7-9d539c5bcf64">
