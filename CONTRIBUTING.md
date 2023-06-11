@@ -19,7 +19,7 @@ The commit message should be in the format of `type(scope): subject` where the `
 
 #### ESLint & Prettier ✨
 
-We are using `pre-commit hooks, and linting packages` to make sure that the code is in the correct format. 
+We are using `pre-commit hooks` and `linting packages` to make sure that the code is in the correct format. 
 
 So whenever you try and make any commit, it will automatically run the `linting` and `prettier` on the staged/changed files and if there are any errors, it will not let you commit the code until you fix those.
 
@@ -34,7 +34,7 @@ Some of them are automatically fixed, while some need manual fixing.
 - There are different types in the issues section such as `Bug` , `Documentation` , `Feature` . You can choose, or create any of the types of issues.
 - In case you need to create something else, you can use the `Other` type. Blank issues are not recommended at all.
 - When creating an issue make sure you fill up the fields properly and also make sure that you are **not raising a duplicate issue.**
-- The `labels` are used to categorize the issues and they will be auto-added based on the type of issue you are creating.
+- The `labels` are used to categorize the issues and they will be automatically added based on the type of issue you are creating.
 
 #### Working on an Issue 🛠️
 
@@ -58,7 +58,7 @@ Some of them are automatically fixed, while some need manual fixing.
 #### Creating a Pull Request 📝
 
 - Do not raise a PR if you are not assigned to the issue. Do not try and make spam pull requests as you might be **banned** from the organization.
-- Whenever making a Pull request, make sure you fill-up the fields properly.
+- Whenever making a Pull request, make sure you fill up the fields properly.
 - We use `Lint PR title` workflow which makes sure that the PR titles are in the correct format. If you are not sure about the format, you can check the `Pull Request Title Format` section below.
 
 
@@ -91,7 +91,7 @@ We welcome everyone to review Pull Requests, it is a great way to learn and netw
 ##### DON'Ts
 - Don't be rude, disrespectful or aggressive
 - Do not repeat feedback, this creates more noise than value (check the existing conversation), use GitHub reactions if you agree/disagree with a comment
-- Do not blindly approve pull requests to improve your GitHub contributor's graph
+- Do not blindly approve pull requests to improve your GitHub contribution graph
 
 
 ##### NOTE
