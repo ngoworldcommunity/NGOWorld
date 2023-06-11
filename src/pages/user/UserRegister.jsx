@@ -52,8 +52,7 @@ const UserRegister = () => {
       email: { type: "string", format: "email" },
       password: { type: "string", minLength: 8 },
       address: { type: "string" },
-      pincode: { type: "number", pattern: "[0-9]+"},
-      pincodeString: {type: "string", pattern: "[0-9]+", minLength: 6 , maxLength: 6}
+      pincode: { type: "string", pattern: "[0-9]+", minLength: 6 , maxLength: 6},
     },
     required: [
       "firstname",
@@ -62,7 +61,6 @@ const UserRegister = () => {
       "password",
       "address",
       "pincode",
-      "pincodeString",
     ],
   };
 
@@ -75,8 +73,7 @@ const UserRegister = () => {
     e.preventDefault();
     var validator = SchemaValidator(FormDataProto, {
       ...credentials,
-      pincode : Number(credentials.pincode),
-      pincodeString: credentials.pincode.toString(),
+      pincode : credentials.pincode.toString(),
     });
 
     if (validator.valid) {
@@ -88,10 +85,10 @@ const UserRegister = () => {
       navigate("/user/login");
     } else {
       validator.errors.map(function (e) {
-        console.log(e);
-        if(e.path[0]==='pincodeString'){
-          e.path[0] = "pincode";
-        }
+        // console.log(e);
+        // if(e.path[0]==='pincodeString'){
+        //   e.path[0] = "pincode";
+        // }
         return toast(`${e.path[0]} : ${msgLocalise(e)}`, {
           position: "top-right",
           autoClose: 1000,
