@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import "../../styles/EventCreate.css";
 import Events from "../../assets/pictures/CreateEventsPic.svg";
@@ -90,7 +88,7 @@ export default function EventCreate() {
                     className="col-form-label col-form-label-lg"
                     style={{ fontFamily: "Open Sans, sans-serif" }}
                   >
-                    What's your event called?
+                     What&apos;s your event called?
                   </label>
                   <input
                     type="text"
