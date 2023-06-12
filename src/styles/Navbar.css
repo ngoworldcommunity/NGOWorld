@@ -47,19 +47,24 @@
   /* position: relative; */
 }
 
-
-
-.nav-item:hover div{
+.nav-item div:not(.active-link) {
   border-bottom: 2px solid #e26959;
-  width: 30%;
-  /* border-radius: 20%; */
+  width: 0%;
   margin: auto;
+  transition: all 0.2s ease-in;
+
+}
+
+
+.nav-item:hover div {
+  border-bottom: 2px solid #e26959;
+  width: 50%;
+  animation: all 0.5 infinite;
 }
 
 .active-link {
   border-bottom: 2px solid #e26959;
-  width: 30%;
-  border-radius: 20%;
+  width: 50%;
   margin: auto;
 }
 
