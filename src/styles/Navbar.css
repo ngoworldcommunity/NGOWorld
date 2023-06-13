@@ -6,6 +6,25 @@
   box-shadow: 0 20px 30px rgba(255, 255, 255, 0.15);
   z-index: 10;
 }
+.nav_brand_parent{
+  display: flex;
+  align-items: center;
+}
+
+
+.nav_brand_name{
+  color: #e26959;
+  text-decoration: none;
+  padding-left: 5px;
+  font-family: Montserrat, sans-serif;
+  font-size: 1.5rem;
+}
+
+.navbar-nav {
+  margin: auto;
+  gap: 30px;
+  padding-left: 100px;
+}
 
 .navbar-brand {
   font-size: 1.8em;
@@ -24,7 +43,10 @@
   font-family: Poppins, sans-serif;
   color: #28183b;
   font-size: 1rem;
+  /* position: relative; */
 }
+
+
 
 .nav-item a:hover {
   color: #28183b;
@@ -47,7 +69,6 @@
 .home {
   font-weight: 600;
   margin: auto;
-  padding-right: 30px;
 }
 
 .shop_icon {
@@ -55,7 +76,12 @@
   height: 10px;
 }
 
-@media (max-width: 1024px) and (min-width: 769px) {
+.nav-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+@media (max-width: 1024px) {
   .navbar-brand {
     font-size: 1.7rem;
   }
@@ -63,9 +89,20 @@
     margin: auto;
     padding: 8px;
   }
+  .navbar-nav {
+    padding-left: 0px;
+  }
+  .nav-buttons {
+    flex-direction: column;
+    margin: auto;
+    gap: 0px;
+  }
+  .navbar-nav {
+    gap: 5px;
+  }
 }
 
-.nav_bramhin_img {
+.nav_brand_img {
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -88,23 +125,6 @@
   .container-fluid {
     padding: 1rem 3rem;
   }
-}
-
-.nav_signup_btn {
-  background: #e26959;
-  box-shadow: 0 0 50px -10px #9747ff14;
-  font-family: Poppins, sans-serif;
-  border: none;
-  border-radius: 6px;
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.896);
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.nav_signup_btn:hover {
-  cursor: pointer;
-  background: #f68475;
 }
 
 .signUpModalHeader > h1 {

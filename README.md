@@ -1,5 +1,15 @@
 # What is Milan ? 
 
+<div align="center">
+    
+<img src="https://img.shields.io/github/repo-size/IAmTamal/Milan?style=for-the-badge" />
+    <a href="https://github.com/IAmTamal/Milan/releases">
+        <img src="https://img.shields.io/github/package-json/v/IAmTamal/Milan?style=for-the-badge" /></a>
+    <a href="./LICENSE">
+        <img src="https://img.shields.io/github/license/IAmTamal/Milan?style=for-the-badge" /></a>
+</div>
+<br>
+
 **With Milan we help users, NGOs, Clubs & Charities connect with the world.**
 
 Join as a User, NGO, Club, or Charity, and help us make the world a better place. You can donate, buy, sell, volunteer, and help us in multiple ways. We also have an events tab for organizations to post their events for users to attend without a lot of hassle.
@@ -44,8 +54,9 @@ It is expected that all the contributors, especially the `first time contributor
 7. Always look for **[OPEN TO CONTRIBUTE](https://github.com/IAmTamal/Milan/issues?q=is%3Aissue+is%3Aopen+label%3A%22%F0%9F%A4%A9+status+%3A++Up+for+Grab%22)** issues, you can go & get assigned.
 
 ## License 👮
-
 Milan is Licensed under the <a href="./LICENSE">MIT License</a>. Please go through the License atleast once before contributing. 
+
+
 
 ## Support 🙏
 

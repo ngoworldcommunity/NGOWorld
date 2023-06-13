@@ -3,7 +3,7 @@ description: Report an issue to help improve the project.
 title: "[BUG] write a small description here"
 labels:
   [
-    "🧿 status: awaiting triage",
+    "👷🏻‍♂️ status: awaiting triage",
     "🛠 goal: fix"
   ]
 body:
@@ -46,7 +46,7 @@ body:
         - label: "I checked and didn't find similar issue"
           required: true
 
-        - label: "I have read the [Contributing Guidelines](https://github.com/IAmTamal/Milan/blob/main/CONTRIBUTING.md)"
+        - label: "I have read the [Contributing Guidelines](https://github.com/tamalCodes/Milan/blob/main/CONTRIBUTING.md)"
           required: true
 
         - label: "I am willing to work on this issue (blank for no)"
@@ -56,4 +56,4 @@ body:
     attributes:
       value: |
         In case of emergencies contact me on [Twitter](https://twitter.com/mrTamall)
-        Feel free to check out other cool repositories [here](https://github.com/IAmTamal)
+        Feel free to check out other cool repositories [here](https://github.com/tamalCodes)
