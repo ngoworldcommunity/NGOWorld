@@ -10,7 +10,7 @@
     data-rh="true" />
   <meta name="google-site-verification" content="ISkkPcMaQwANRR5_0CPjjxQJ3SyWzUt94nSP7wc1JdA" />
   <link rel="apple-touch-icon" href="/logo192.png" />
-
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="manifest" href="/manifest.json" />
 
   <!-- //* CSS and Bootstrap -->
@@ -60,6 +60,22 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  
+<!-- Adding the Moon icon from Boxicons -->
+  <button class="theme-toggle" id="theme-toggle">
+    <i class='bx bxs-moon'></i>
+  </button>
+
+<!-- The JavaScript to toggle the theme -->
+<script>
+const button = document.getElementById("theme-toggle");
+
+button.addEventListener("click", () => {
+  // Change the theme of the website
+  document.body.classList.toggle("dark");
+});
+</script>
+
 </body>
 
 
