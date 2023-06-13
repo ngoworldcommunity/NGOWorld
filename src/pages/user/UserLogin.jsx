@@ -3,15 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import "../../styles/UserLogin.css";
 import { LoginUser } from "../../service/MilanApi";
 import Cookies from "js-cookie";
-import { toast } from "react-toastify";
-
-import SchemaValidator, { msgLocalise } from "../../utils/validation";
-import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 import { showErrorToast, showSuccessToast } from "../../utils/showToast";
 import Button from "../../components/Button";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import useValidation from "../../hooks/useValidation";
 
 function UserLogin() {
   const Navigate = useNavigate();
@@ -32,55 +29,33 @@ function UserLogin() {
     password: "",
   });
 
-  const FormDataProto = {
-    id: "/LoginForm",
-    type: "object",
-    properties: {
-      email: { type: "string", format: "email" },
-      password: { type: "string", minLength: 4 },
-    },
-    required: ["email", "password"],
-  };
-
   //* To set the value as soon as we input
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
-  //* Submit to backend
-  //* If alright we get a cookie with token
+  const callUserLoginAPI = async () => {
+    const Data = await LoginUser(credentials);
+    if (Data?.data.token) {
+      Cookies.set("token", Data.data.token);
+      showSuccessToast("Logged you in !");
+      Navigate("/");
+    } else {
+      setCredentials({ email: "", password: "" });
+    }
+  };
+
   const handleSubmit = (e) => {
-    toast.clearWaitingQueue();
     e.preventDefault();
-    var validator = SchemaValidator(FormDataProto, { ...credentials });
 
-    if (validator.valid) {
-      const Data = LoginUser(credentials);
-
-      Data.then((response) => {
-        if (response?.data.token) {
-          Cookies.set("token", response.data.token);
-          showSuccessToast("Logged you in !");
-          Navigate("/");
-        } else {
-          setCredentials({ email: "", password: "" });
-        }
-      }).catch(() => {
-        showErrorToast("Server error, try again later !");
+    const validationErrors = useValidation(credentials);
+    if (validationErrors.length > 0) {
+      validationErrors.forEach((error) => {
+        showErrorToast(error.message);
       });
     } else {
-      validator.errors.map(function (e) {
-        return toast(`${e.path[0]} : ${msgLocalise(e)}`, {
-          position: "top-right",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          closeButton: false,
-        });
-      });
+      callUserLoginAPI();
+      console.log("Validation successful");
     }
   };
 
@@ -163,9 +138,6 @@ function UserLogin() {
                   </div>
                 </div>
 
-                {/* RememberMe Tab  */}
-
-                {/* Login Button */}
                 <div className="btn-container btn-container-desktop">
                   <Button type="submit" className="login-btn">
                     Login
