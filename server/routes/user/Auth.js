@@ -15,7 +15,7 @@ router.get("/google", (req, res) => {
   });
 
   const redirectURL = `${googleAuthURL}?${params}`;
-  res.redirect(redirectURL);
+  return res.json({ url: redirectURL });
 });
 
 //* Route 6  - google authentication callback

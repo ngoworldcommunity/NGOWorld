@@ -4,7 +4,13 @@
 import Axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const API = import.meta.env.VITE_MILANAPI;
+/* `// const API = import.meta.env.VITE_MILANAPI;` is a commented out line of code that is likely used
+to import an environment variable called `VITE_MILANAPI` using the `import.meta.env` object in a
+Vite.js project. This variable would contain the URL for the backend API and would be used in the
+API calls made in the file. However, since it is commented out, the API URL is hardcoded as
+`localhost:5000` instead. */
+// const API = import.meta.env.VITE_MILANAPI;
+const API = "http://localhost:5000";
 
 const User_Log = `${API}/user/login`;
 const User_Reg = `${API}/user/register`;
@@ -151,6 +157,34 @@ export const CreateEvent = async (eventdata) => {
   try {
     const response = await Axios.post(Create_Event, eventdata);
     return response;
+  } catch (error) {
+    toast.error(error, {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+    console.log(error);
+  }
+};
+
+//* Google Auth screen
+
+export const GoogleAuth = async () => {
+  try {
+    const response = await Axios.get(`${API}/auth/google`);
+
+    return response.data.url;
+  } catch (error) {
+    toast.error(error, {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+    console.log(error);
+  }
+};
+
+//* Google Auth callback
+export const successCallback = async () => {
+  try {
+    const response = await Axios.get(`${API}/auth/login/success`);
+    return response.data.accessToken;
   } catch (error) {
     toast.error(error, {
       position: toast.POSITION.TOP_RIGHT,

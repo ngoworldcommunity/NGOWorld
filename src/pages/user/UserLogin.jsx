@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/UserLogin.css";
-import { LoginUser } from "../../service/MilanApi";
+import { LoginUser, GoogleAuth, successCallback } from "../../service/MilanApi";
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
 
@@ -49,6 +49,7 @@ function UserLogin() {
 
   //* Submit to backend
   //* If alright we get a cookie with token
+
   const handleSubmit = (e) => {
     toast.clearWaitingQueue();
     e.preventDefault();
@@ -82,6 +83,14 @@ function UserLogin() {
         });
       });
     }
+  };
+
+  //* Google Login
+  const GoogleLogin = async () => {
+    const url = await GoogleAuth();
+    window.location.href = await url;
+    const token = await successCallback();
+    Cookies.set("token", token);
   };
 
   const [passwordType, setPasswordType] = useState("password");
@@ -170,6 +179,18 @@ function UserLogin() {
                   <Button type="submit" className="login-btn">
                     Login
                   </Button>
+
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/300/300221.png"
+                    onClick={GoogleLogin}
+                    alt="Google Login"
+                    style={{
+                      width: 55,
+                      height: 55,
+                      padding: 10,
+                      cursor: "pointer",
+                    }}
+                  />
                 </div>
                 <br></br>
                 <br></br>
