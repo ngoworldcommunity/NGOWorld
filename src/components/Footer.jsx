@@ -206,10 +206,11 @@ const Footer = () => {
                   href="https://github.com/IAmTamal/Milan"
                   target="_blank"
                   rel="noreferrer"
-                  className="underline-animation"
+                className="underline-animation"
                 >
                   here
                 </a>
+                
               </p>
             )}
           </div>
@@ -298,7 +299,7 @@ const Footer = () => {
               Got something to report ?
             </h1>
             <p className="text-center mb-lg-4" style={{ color: "#d8d7d7" }}>
-              You can submit a report to us by filling a form below !
+              You can submit a report to us by filling the form below !
             </p>
             <div className="d-flex justify-content-center rounded mx-auto">
               <button

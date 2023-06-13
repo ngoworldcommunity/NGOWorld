@@ -20,11 +20,11 @@ const UserSchema = mongoose.Schema({
   },
   address: {
     type: String,
-    required: true,
+    required: false,
   },
   pincode: {
     type: Number,
-    required: true,
+    required: false,
   },
 });
 
