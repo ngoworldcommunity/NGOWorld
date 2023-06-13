@@ -43,19 +43,26 @@
 }
 
 .cp_card {
-  max-width: 18rem;
-  min-width: 18rem;
+  max-width: 25rem;
+  min-width: 25rem;
   background-color: #f2f2f2;
   border-radius: 10px;
-  max-height: 536px;
-  min-height: 536px;
+  max-height: 525px;
+  min-height: 525px;
   position: relative;
+  transition: box-shadow 0.6s ease;
+}
+
+.cp_card:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .cp_card_imgdiv img {
   max-width: 18rem;
   object-fit: cover;
   border-radius: 10px 10px 0px 0px;
+  margin-left: 3.5rem;
 }
 
 .cp_card_textdiv {
@@ -82,11 +89,11 @@
 }
 
 .cp_card_button {
-  width: 150px;
-  height: 40px;
+  width: 180px;
+  height: 50px;
   position: absolute;
-  bottom: 15px;
-  left: 24%;
+  bottom: 30px;
+  left: 29%;
   /* border: 1px solid rgb(137, 134, 134); */
   /* font-weight: 600; */
   border-radius: 4px;
