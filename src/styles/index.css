@@ -13,6 +13,27 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.theme-toggle {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background-color: #000;
+}
+
+.theme-toggle i {
+  color: #fff;
+}
+
+.theme-toggle:hover i {
+  color: #000;
+}
+
 
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
