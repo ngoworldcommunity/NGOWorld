@@ -12,6 +12,10 @@ import { showSuccessToast } from "../../utils/showToast";
 import Button from "../../components/Button";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
+//* api calls for google login
+import { GoogleAuth, successCallback } from "../../service/MilanApi";
+import Cookies from "js-cookie";
+
 const UserRegister = () => {
   const navigate = useNavigate();
 
@@ -97,6 +101,13 @@ const UserRegister = () => {
         });
       });
     }
+  };
+  //* Google Login
+  const GoogleLogin = async () => {
+    const url = await GoogleAuth();
+    window.location.href = await url;
+    const token = await successCallback();
+    Cookies.set("token", token);
   };
 
   return (
@@ -252,6 +263,17 @@ const UserRegister = () => {
                 <Button type="submit" className="login-btn">
                   Register
                 </Button>
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/300/300221.png"
+                  onClick={GoogleLogin}
+                  alt="Google Login"
+                  style={{
+                    width: 55,
+                    height: 55,
+                    padding: 10,
+                    cursor: "pointer",
+                  }}
+                />
                 <br></br> <br></br>
                 <Anchor
                   para="Already have an account? "
