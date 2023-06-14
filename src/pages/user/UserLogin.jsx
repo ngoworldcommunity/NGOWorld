@@ -36,11 +36,13 @@ function UserLogin() {
 
   const callUserLoginAPI = async () => {
     const Data = await LoginUser(credentials);
-    if (Data?.data.token) {
-      Cookies.set("token", Data.data.token);
-      showSuccessToast("Logged you in !");
+
+    if (Data?.status === 201) {
+      Cookies.set("token", Data?.data?.token);
+      showSuccessToast(Data?.data?.message);
       Navigate("/");
     } else {
+      showErrorToast(Data?.data?.message);
       setCredentials({ email: "", password: "" });
     }
   };

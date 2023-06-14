@@ -1,6 +1,7 @@
 const useValidation = (credentials, userSignup, clubSignup) => {
   const errors = [];
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const nameRegex = /^[a-zA-Z]+$/;
 
   if (!credentials.email) {
     errors.push({ error: true, message: "Please enter your email" });
@@ -20,7 +21,7 @@ const useValidation = (credentials, userSignup, clubSignup) => {
   if (userSignup) {
     if (!credentials.firstname) {
       errors.push({ error: true, message: "Please enter your first name" });
-    } else if (typeof credentials.firstname !== "string") {
+    } else if (!nameRegex.test(credentials.firstname)) {
       errors.push({ error: true, message: "Please enter a valid first name" });
     } else if (
       credentials.firstname.length < 3 ||
@@ -34,7 +35,7 @@ const useValidation = (credentials, userSignup, clubSignup) => {
 
     if (!credentials.lastname) {
       errors.push({ error: true, message: "Please enter your last name" });
-    } else if (typeof credentials.lastname !== "string") {
+    } else if (!nameRegex.test(credentials.lastname)) {
       errors.push({ error: true, message: "Please enter a valid last name" });
     } else if (
       credentials.lastname.length < 3 ||
@@ -50,7 +51,7 @@ const useValidation = (credentials, userSignup, clubSignup) => {
   if (clubSignup) {
     if (!credentials.name) {
       errors.push({ error: true, message: "Please enter your club name" });
-    } else if (typeof credentials.name !== "string") {
+    } else if (!nameRegex.test(credentials.name)) {
       errors.push({ error: true, message: "Please enter a valid club name" });
     } else if (credentials.name.length < 3 || credentials.name.length > 30) {
       errors.push({
@@ -61,7 +62,7 @@ const useValidation = (credentials, userSignup, clubSignup) => {
 
     if (!credentials.tagLine) {
       errors.push({ error: true, message: "Please enter your club tagline" });
-    } else if (typeof credentials.tagLine !== "string") {
+    } else if (!nameRegex.test(credentials.tagLine)) {
       errors.push({
         error: true,
         message: "Please enter a valid club tagline",
@@ -80,8 +81,6 @@ const useValidation = (credentials, userSignup, clubSignup) => {
   if (userSignup || clubSignup) {
     if (!credentials.address) {
       errors.push({ error: true, message: "Please enter your address" });
-    } else if (typeof credentials.address !== "string") {
-      errors.push({ error: true, message: "Please enter a valid address" });
     } else if (
       credentials.address.length < 20 ||
       credentials.address.length > 200
@@ -94,8 +93,6 @@ const useValidation = (credentials, userSignup, clubSignup) => {
 
     if (!credentials.pincode) {
       errors.push({ error: true, message: "Please enter your pincode" });
-    } else if (typeof credentials.pincode !== "number") {
-      errors.push({ error: true, message: "Please enter a valid pincode" });
     }
   }
 

@@ -2,18 +2,15 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { RegisterUser } from "../../service/MilanApi";
 import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
-import SchemaValidator, { msgLocalise } from "../../utils/validation";
-
-//* The styles for Login and Register are essentially same
 import "../../styles/UserLogin.css";
 import { Helmet } from "react-helmet-async";
-import { toast } from "react-toastify";
-import { showSuccessToast } from "../../utils/showToast";
+import { showErrorToast, showSuccessToast } from "../../utils/showToast";
 import Button from "../../components/Button";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import useValidation from "../../hooks/useValidation";
 
 const UserRegister = () => {
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
 
   const [passwordType, setPasswordType] = useState("password");
 
@@ -43,59 +40,50 @@ const UserRegister = () => {
     pincode: "",
   });
 
-  const FormDataProto = {
-    id: "/SignUpForm",
-    type: "object",
-    properties: {
-      firstname: { type: "string" },
-      lastname: { type: "string" },
-      email: { type: "string", format: "email" },
-      password: { type: "string", minLength: 8 },
-      address: { type: "string" },
-      pincode: { type: "number", pattern: "[0-9]+", minLength: 6 },
-    },
-    required: [
-      "firstname",
-      "lastname",
-      "email",
-      "password",
-      "address",
-      "pincode",
-    ],
-  };
+  const [initialState] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    address: "",
+    pincode: "",
+  });
 
   const handleChange = (e) => {
+    if (e.target.name === "pincode") {
+      if (
+        e.target.value.toString().length < 7 &&
+        !e.target.value.toString().includes(".")
+      ) {
+        setCredentials({ ...credentials, [e.target.name]: e.target.value });
+      }
+      return;
+    }
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    toast.clearWaitingQueue();
-    e.preventDefault();
-    var validator = SchemaValidator(FormDataProto, {
-      ...credentials,
-      pincode: Number(credentials.pincode),
-    });
-
-    if (validator.valid) {
-      await RegisterUser({
-        ...credentials,
-        pincode: Number(credentials.pincode),
-      });
-      showSuccessToast("Registered successfully, please log in !");
-      navigate("/user/login");
+  const callUserSignupAPI = async () => {
+    const Data = await RegisterUser(credentials);
+    if (Data?.status === 201) {
+      showSuccessToast(Data?.data?.message);
+      Navigate("/user/login");
     } else {
-      validator.errors.map(function (e) {
-        return toast(`${e.path[0]} : ${msgLocalise(e)}`, {
-          position: "top-right",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          closeButton: false,
-        });
+      showErrorToast(Data?.data?.message);
+      setCredentials(initialState);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validationErrors = useValidation(credentials, true, false);
+
+    if (validationErrors.length > 0) {
+      validationErrors.forEach((error) => {
+        showErrorToast(error.message);
       });
+    } else {
+      callUserSignupAPI();
+      console.log("Validation successful");
     }
   };
 
@@ -131,7 +119,7 @@ const UserRegister = () => {
                       </label>
                       <input
                         type="text"
-                        className="userreg_des_firstname form-control form-control-lg"
+                        className="form-control form-control-lg"
                         placeholder="First name"
                         name="firstname"
                         value={credentials.firstname}
