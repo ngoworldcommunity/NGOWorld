@@ -6,11 +6,16 @@ import Cookies from "js-cookie";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
-import ClipLoader from "react-spinners/ClipLoader";
 import { showErrorToast, showSuccessToast } from "../../utils/showToast";
 import "../../styles/UserLogin.css";
 import Button from "../../components/Button";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { GlobalForm, GlobalInput } from "../../components/globals";
+import { loginSchema } from "../../utils/validation/Validation";
+import { manageUndefined } from "../../utils/common";
 
 function ClubLogin() {
   const Navigate = useNavigate();
@@ -26,47 +31,47 @@ function ClubLogin() {
     );
   }
 
-  const [credentials, setCredentials] = useState({
-    email: "",
-    password: "",
-  });
+  // const [credentials, setCredentials] = useState({
+  //   email: "",
+  //   password: "",
+  // });
 
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (e) => {
-    setCredentials({ ...credentials, [e.target.name]: e.target.value });
-    if (
-      e.target.name === "email" &&
-      e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
-    )
-      setIsEmailValid(true);
-  };
+  // const handleChange = (e) => {
+  //   setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  //   if (
+  //     e.target.name === "email" &&
+  //     e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
+  //   )
+  //     setIsEmailValid(true);
+  // };
 
-  //* SUBMIT
-  const handleSubmit = (e) => {
-    toast.clearWaitingQueue();
-    e.preventDefault();
+  // //* SUBMIT
+  // const handleSubmit = (e) => {
+  //   toast.clearWaitingQueue();
+  //   e.preventDefault();
 
-    setIsLoading(true);
-    const Data = LoginClub(credentials);
-    setIsLoading(false);
+  //   setIsLoading(true);
+  //   const Data = LoginClub(credentials);
+  //   setIsLoading(false);
 
-    Data.then((response) => {
-      if (response?.data.token) {
-        Cookies.set("club", response.data.token);
-        showSuccessToast("Logged you in !");
-        Navigate("/");
-      } else {
-        setCredentials({
-          email: "",
-          password: "",
-        });
-      }
-    }).catch(() => {
-      showErrorToast("Server error, please try later !");
-    });
-  };
+  //   Data.then((response) => {
+  //     if (response?.data.token) {
+  //       Cookies.set("club", response.data.token);
+  //       showSuccessToast("Logged you in !");
+  //       Navigate("/");
+  //     } else {
+  //       setCredentials({
+  //         email: "",
+  //         password: "",
+  //       });
+  //     }
+  //   }).catch(() => {
+  //     showErrorToast("Server error, please try later !");
+  //   });
+  // };
 
   const [passwordType, setPasswordType] = useState("password");
 
@@ -74,6 +79,41 @@ function ClubLogin() {
     if (passwordType === "password") {
       setPasswordType("text");
     } else setPasswordType("password");
+  };
+
+  const [form, setForm] = useState({});
+  const {
+    register: registerSignIn,
+    formState: { errors: errorSignIn },
+    handleSubmit: handleSubmitSignIn,
+    reset: resetSignIn,
+    // watch,
+  } = useForm({
+    mode: "all",
+    resolver: yupResolver(loginSchema),
+  });
+
+  const handleInputChange = (event, data) => {
+    setForm({ ...form, [data.name]: data.value });
+  };
+
+  const handleSubmit = (data, e) => {
+    toast.clearWaitingQueue();
+    e.preventDefault();
+    
+    const Data = LoginClub(form);
+
+    Data.then((response) => {
+      if (response?.data.token) {
+        Cookies.set("club", response.data.token);
+        showSuccessToast("Logged you in !");
+        Navigate("/");
+      } else {
+        resetSignIn();
+      }
+    }).catch(() => {
+      showErrorToast("Server error, please try later !");
+    });
   };
 
   return (
@@ -95,7 +135,12 @@ function ClubLogin() {
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form style={{ width: "auto" }} onSubmit={handleSubmit}>
+            <GlobalForm
+                style={{ width: "auto" }}
+                className="loginform"
+                id={"loginForm"}
+                onSubmit={handleSubmitSignIn(handleSubmit)}
+              >
                 <h1
                   style={{
                     letterSpacing: "1px",
@@ -106,7 +151,26 @@ function ClubLogin() {
                   Log in with your Club!
                 </h1>
                 <div className="form-outline mb-4">
-                  <label
+                <GlobalInput
+                    label={"Email address"}
+                    labelClassName="col-form-label col-form-label-lg regformlabels"
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoFocus
+                    className="desktop form-control form-control-lg color"
+                    placeholder="Please enter email"
+                    value={form.email || ""}
+                    {...registerSignIn("email")}
+                    onChange={(e, data) => {
+                      registerSignIn("email").onChange(e),
+                        handleInputChange(e, data);
+                    }}
+                    errorType={manageUndefined(errorSignIn?.email)}
+                    errorMessage={manageUndefined(errorSignIn?.email?.message)}
+                  />
+               
+                  {/* <label
                     htmlFor="exampleInputEmail1"
                     className="col-form-label col-form-label-lg regformlabels"
                   >
@@ -136,11 +200,37 @@ function ClubLogin() {
                     value={credentials.email}
                     onChange={handleChange}
                     required
-                  />
+                  /> */}
                 </div>
 
                 <div className="form-outline mb-4">
-                  <label
+                <GlobalInput
+                    label={"Password"}
+                    labelClassName={
+                      "col-form-label col-form-label-lg regformlabels color"
+                    }
+                    id="password"
+                    name="password"
+                    // type="password"
+                    type={passwordType}
+                    className="desktop form-control form-control-lg color"
+                    placeholder="Please enter password"
+                    value={form.password || ""}
+                    {...registerSignIn("password")}
+                    onChange={(e, data) => {
+                      registerSignIn("password").onChange(e),
+                        handleInputChange(e, data);
+                    }}
+                    errorType={manageUndefined(errorSignIn?.password)}
+                    errorMessage={manageUndefined(
+                      errorSignIn?.password?.message,
+                    )}
+                  />
+                  <div onClick={passwordToggle} className="toggle-button">
+                    {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
+                  </div>
+
+                  {/* <label
                     htmlFor="exampleInputPassword1"
                     className="col-form-label col-form-label-lg regformlabels color"
                   >
@@ -171,7 +261,7 @@ function ClubLogin() {
 
                   <div onClick={passwordToggle} className="toggle-button">
                     {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* RememberMe Tab  */}
@@ -191,13 +281,16 @@ function ClubLogin() {
                 </div>
                 <br />
                 <div className="btn-container btn-container-desktop">
-                  <Button
+                <Button type="submit" className="login-btn">
+                    Login
+                  </Button>
+                  {/* <Button
                     disabled={credentials.password.length <= 4 || !isEmailValid}
                     type="submit"
                     className="login-btn"
                   >
                     {isLoading ? <ClipLoader color="#e26959" /> : "LOGIN"}
-                  </Button>
+                  </Button> */}
                 </div>
                 <br></br>
                 <br></br>
@@ -216,7 +309,7 @@ function ClubLogin() {
                     className="link-info"
                   />
                 </div>
-              </form>
+              </GlobalForm>
             </div>
           </div>
         </div>

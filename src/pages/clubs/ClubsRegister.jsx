@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ClipLoader from "react-spinners/ClipLoader";
 import { Link, useNavigate } from "react-router-dom";
 import { RegisterClub } from "../../service/MilanApi";
 import "../../styles/ClubsRegister.css";
@@ -11,13 +10,15 @@ import "../../styles/UserLogin.css";
 import { toast } from "react-toastify";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
-//Pushpendra code
-// import { yupResolver } from "@hookform/resolvers/yup";
-// import { useForm } from "react-hook-form";
-// import { GlobalForm, GlobalInput } from "../../components/GlobalComponents";
-// import { registerSchema } from "../../Validation/Validation";
-// import { manageUndefined } from "../../common";
-//pushpendra code ends here
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import {
+  GlobalForm,
+  GlobalInput,
+  GlobalTextarea,
+} from "../../components/globals";
+import { clubRegisterSchema } from "../../utils/validation/Validation";
+import { manageUndefined } from "../../utils/common";
 
 const ClubLogin = () => {
   document.title = "Milan | Club Register";
@@ -34,39 +35,39 @@ const ClubLogin = () => {
     );
   }
 
-  const [credentials, setCredentials] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    address: "",
-    pincode: "",
-    description: "",
-    tagLine: "",
-  });
+  // const [credentials, setCredentials] = useState({
+  //   name: "",
+  //   email: "",
+  //   password: "",
+  //   confirmPassword: "",
+  //   address: "",
+  //   pincode: "",
+  //   description: "",
+  //   tagLine: "",
+  // });
 
-  const [isEmailValid, setIsEmailValid] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isEmailValid, setIsEmailValid] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (e) => {
-    setCredentials({ ...credentials, [e.target.name]: e.target.value });
-    if (
-      e.target.name === "email" &&
-      e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
-    )
-      setIsEmailValid(true);
-  };
+  // const handleChange = (e) => {
+  //   setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  //   if (
+  //     e.target.name === "email" &&
+  //     e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
+  //   )
+  //     setIsEmailValid(true);
+  // };
 
-  //* Submitting form
-  const handleSubmit = async (e) => {
-    toast.clearWaitingQueue();
-    e.preventDefault();
-    setIsLoading(true);
-    await RegisterClub({ ...credentials });
-    setIsLoading(false);
-    showSuccessToast("Registered sueccessfully, please log in !");
-    navigate("/clubs/login");
-  };
+  // //* Submitting form
+  // const handleSubmit = async (e) => {
+  //   toast.clearWaitingQueue();
+  //   e.preventDefault();
+  //   setIsLoading(true);
+  //   await RegisterClub({ ...credentials });
+  //   setIsLoading(false);
+  //   showSuccessToast("Registered sueccessfully, please log in !");
+  //   navigate("/clubs/login");
+  // };
 
   const [passwordType, setPasswordType] = useState("password");
 
@@ -84,33 +85,29 @@ const ClubLogin = () => {
     } else setConfirmPasswordType("password");
   };
 
-  // //Pushpendra code
-  // const [form, setForm] = useState({});
-  // const {
-  //   register: registerSignIn,
-  //   formState: { errors: errorSignIn },
-  //   handleSubmit: handleSubmitSignIn,
-  //   reset: resetSignIn,
-  //   watch,
-  // } = useForm({
-  //   mode: "all",
-  //   resolver: yupResolver(registerSchema),
-  // });
+  const [form, setForm] = useState({});
+  const {
+    register: registerSignIn,
+    formState: { errors: errorSignIn },
+    handleSubmit: handleSubmitSignIn,
+    // reset: resetSignIn,
+    // watch,
+  } = useForm({
+    mode: "all",
+    resolver: yupResolver(clubRegisterSchema),
+  });
 
-  // const handleInputChange = (event, data) => {
-  //   setForm({ ...form, [data.name]: data.value });
-  // };
+  const handleInputChange = (event, data) => {
+    setForm({ ...form, [data.name]: data.value });
+  };
 
-  // const handleSubmit = async (data, event) => {
-  //   toast.clearWaitingQueue();
-  //   e.preventDefault();
-  //   setIsLoading(true);
-  //   await RegisterClub({ ...form });
-  //   setIsLoading(false);
-  //   showSuccessToast("Registered sueccessfully, please log in !");
-  //   navigate("/clubs/login");
-  // };
-  // // pushpendra code ends here
+  const handleSubmit = async (data, e) => {
+    toast.clearWaitingQueue();
+    e.preventDefault();
+    await RegisterClub({ ...form });
+    showSuccessToast("Registered sueccessfully, please log in !");
+    navigate("/clubs/login");
+  };
 
   return (
     <>
@@ -130,19 +127,39 @@ const ClubLogin = () => {
           </div>
 
           <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-            <form onSubmit={handleSubmit}>
-              {/* Pushpendra code
+            {/* <form onSubmit={handleSubmit}> */}
+
             <GlobalForm
               style={{ width: "auto" }}
               id={"RegisterForm"}
               onSubmit={handleSubmitSignIn(handleSubmit)}
-            > */}
+            >
               <h1 className="mobile-txt clubregisterheading1">
                 Register your club with Milan !
               </h1>
 
               <div className="form-outline mb-4">
-                <label
+                <GlobalInput
+                  label={"Enter your club name"}
+                  labelClassName={
+                    "col-form-label col-form-label-lg regformlabels"
+                  }
+                  id="name"
+                  name="name"
+                  type="text"
+                  className="clubreg_des form-control color"
+                  placeholder="Please enter club name"
+                  value={form.name || ""}
+                  {...registerSignIn("name")}
+                  onChange={(e, data) => {
+                    registerSignIn("name").onChange(e),
+                      handleInputChange(e, data);
+                  }}
+                  errorType={manageUndefined(errorSignIn?.name)}
+                  errorMessage={manageUndefined(errorSignIn?.name?.message)}
+                />
+
+                {/* <label
                   htmlFor="club-name"
                   className="col-form-label col-form-label-lg regformlabels"
                 >
@@ -168,10 +185,31 @@ const ClubLogin = () => {
                   onChange={handleChange}
                   required
                   aria-label="Club name"
-                />
+                /> */}
               </div>
               <div className="form-outline mb-4">
-                <label
+                <GlobalInput
+                  label={"Club Tagline (Max 50 Characters)"}
+                  labelClassName={
+                    "col-form-label col-form-label-lg regformlabels"
+                  }
+                  id="tagLine"
+                  name="tagLine"
+                  type="text"
+                  length={50}
+                  className="clubreg_des form-control color"
+                  placeholder="Please enter club tagline"
+                  value={form.tagLine || ""}
+                  {...registerSignIn("tagLine")}
+                  onChange={(e, data) => {
+                    registerSignIn("tagLine").onChange(e),
+                      handleInputChange(e, data);
+                  }}
+                  errorType={manageUndefined(errorSignIn?.tagLine)}
+                  errorMessage={manageUndefined(errorSignIn?.tagLine?.message)}
+                />
+
+                {/* <label
                   htmlFor="club-tagLine"
                   className="col-form-label col-form-label-lg regformlabels"
                 >
@@ -198,11 +236,30 @@ const ClubLogin = () => {
                   required
                   aria-label="Club TagLine"
                   maxLength={50}
-                />
+                /> */}
               </div>
 
               <div className="form-outline mb-4">
-                <label
+                <GlobalInput
+                  label={"Email"}
+                  labelClassName={
+                    "col-form-label col-form-label-lg regformlabels"
+                  }
+                  id="email"
+                  name="email"
+                  type="email"
+                  className="clubreg_des form-control color"
+                  placeholder="Please enter email"
+                  value={form.email || ""}
+                  {...registerSignIn("email")}
+                  onChange={(e, data) => {
+                    registerSignIn("email").onChange(e),
+                      handleInputChange(e, data);
+                  }}
+                  errorType={manageUndefined(errorSignIn?.email)}
+                  errorMessage={manageUndefined(errorSignIn?.email?.message)}
+                />
+                {/* <label
                   htmlFor="email-des"
                   className="col-form-label col-form-label-lg regformlabels"
                 >
@@ -228,7 +285,7 @@ const ClubLogin = () => {
                   required
                   aria-label="Club email"
                   id="email-mob"
-                />
+                /> */}
               </div>
 
               {/* Password start */}
@@ -238,7 +295,30 @@ const ClubLogin = () => {
                 style={{ justifyContent: "space-between" }}
               >
                 <div style={{ width: "45%" }}>
-                  <label
+                  <GlobalInput
+                    label={"Password"}
+                    labelClassName={
+                      "col-form-label col-form-label-lg regformlabels"
+                    }
+                    id="password"
+                    name="password"
+                    // type="password"
+                    type={passwordType}
+                    className="clubreg_des form-control color"
+                    placeholder="Please enter password"
+                    value={form.password || ""}
+                    {...registerSignIn("password")}
+                    onChange={(e, data) => {
+                      registerSignIn("password").onChange(e),
+                        handleInputChange(e, data);
+                    }}
+                    errorType={manageUndefined(errorSignIn?.password)}
+                    errorMessage={manageUndefined(
+                      errorSignIn?.password?.message,
+                    )}
+                  />
+
+                  {/* <label
                     htmlFor="password-des"
                     className="col-form-label col-form-label-lg regformlabels"
                   >
@@ -262,7 +342,7 @@ const ClubLogin = () => {
                     onChange={handleChange}
                     required
                     id="password-mob"
-                  />
+                  /> */}
                   <div
                     onClick={passwordToggle}
                     className="toggle-button"
@@ -273,7 +353,28 @@ const ClubLogin = () => {
                 </div>
 
                 <div style={{ width: "45%" }}>
-                  <label
+                  <GlobalInput
+                    label={"Confirm Password"}
+                    labelClassName={
+                      "col-form-label col-form-label-lg regformlabels"
+                    }
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type={confirmPasswordType}
+                    className="clubreg_des form-control color"
+                    value={form.confirmPassword || ""}
+                    {...registerSignIn("confirmPassword")}
+                    onChange={(e, data) => {
+                      registerSignIn("confirmPassword").onChange(e),
+                        handleInputChange(e, data);
+                    }}
+                    errorType={manageUndefined(errorSignIn?.confirmPassword)}
+                    errorMessage={manageUndefined(
+                      errorSignIn?.confirmPassword?.message,
+                    )}
+                  />
+
+                  {/* <label
                     htmlFor="confirm-password-des"
                     className="col-form-label col-form-label-lg regformlabels"
                   >
@@ -298,7 +399,7 @@ const ClubLogin = () => {
                     onChange={handleChange}
                     required
                     id="confirm-password-mob"
-                  />
+                  /> */}
 
                   <div
                     onClick={confirmPasswordToggle}
@@ -316,13 +417,29 @@ const ClubLogin = () => {
               {/* Password end */}
 
               <div className="form-outline mb-4">
-                <label
+                <GlobalTextarea
+                  label={"Address"}
+                  labelClassName={
+                    "col-form-label col-form-label-lg regformlabels"
+                  }
+                  maxLength={200}
+                  placeholder={"please enter address"}
+                  name="address"
+                  value={form?.address}
+                  {...registerSignIn("address")}
+                  onChange={(e, data) => {
+                    registerSignIn("address").onChange(e),
+                      handleInputChange(e, data);
+                  }}
+                  errorType={manageUndefined(errorSignIn?.address)}
+                  errorMessage={manageUndefined(errorSignIn?.address?.message)}
+                />
+                {/* <label
                   htmlFor="address-des"
                   className="col-form-label col-form-label-lg regformlabels"
                 >
                   Address
                 </label>
-                {/* textarea for address */}
                 <textarea
                   className="clubreg_des form-control color"
                   name="address"
@@ -341,9 +458,29 @@ const ClubLogin = () => {
                   required
                   aria-label="Club address"
                   id="address-mob"
-                />
+                /> */}
               </div>
-              <label
+              <div className="form-outline mb-4">
+                <GlobalInput
+                  label={" Pincode / Zipcode"}
+                  labelClassName={
+                    "col-form-label col-form-label-lg regformlabels"
+                  }
+                  id="pincode"
+                  name="pincode"
+                  type="number"
+                  className="clubreg_des form-control color"
+                  placeholder="Please enter pin code"
+                  value={form.pincode || ""}
+                  {...registerSignIn("pincode")}
+                  onChange={(e, data) => {
+                    registerSignIn("pincode").onChange(e),
+                      handleInputChange(e, data);
+                  }}
+                  errorType={manageUndefined(errorSignIn?.pincode)}
+                  errorMessage={manageUndefined(errorSignIn?.pincode?.message)}
+                />
+                {/* <label
                 htmlFor="pincode-des"
                 className="col-form-label col-form-label-lg regformlabels"
               >
@@ -370,40 +507,64 @@ const ClubLogin = () => {
                   onChange={handleChange}
                   required
                   id="pincode-mob"
-                />
+                /> */}
               </div>
-              <label
-                htmlFor="description-des"
-                className="col-form-label col-form-label-lg regformlabels"
-              >
-                Club description
-              </label>
-              <textarea
-                type="text"
-                className="clubreg_des form-control color"
-                aria-describedby="textDemo"
-                name="description"
-                value={credentials.description}
-                onChange={handleChange}
-                required
-                id="description-des"
-              />
-              <textarea
-                type="text"
-                className="clubreg_mob form-control color"
-                aria-describedby="textDemo"
-                name="description"
-                placeholder="Enter club description"
-                value={credentials.description}
-                onChange={handleChange}
-                required
-                id="description-mob"
-              />
+              <div className="form-outline mb-4">
+                <GlobalTextarea
+                  label={"Club description"}
+                  labelClassName={
+                    "col-form-label col-form-label-lg regformlabels"
+                  }
+                  placeholder={"please enter club description"}
+                  name="description"
+                  value={form?.description}
+                  {...registerSignIn("description")}
+                  onChange={(e, data) => {
+                    registerSignIn("description").onChange(e),
+                      handleInputChange(e, data);
+                  }}
+                  errorType={manageUndefined(errorSignIn?.description)}
+                  errorMessage={manageUndefined(
+                    errorSignIn?.description?.message,
+                  )}
+                />
+
+                {/* <label
+                  htmlFor="description-des"
+                  className="col-form-label col-form-label-lg regformlabels"
+                >
+                  Club description
+                </label>
+                <textarea
+                  type="text"
+                  className="clubreg_des form-control color"
+                  aria-describedby="textDemo"
+                  name="description"
+                  value={credentials.description}
+                  onChange={handleChange}
+                  required
+                  id="description-des"
+                />
+                <textarea
+                  type="text"
+                  className="clubreg_mob form-control color"
+                  aria-describedby="textDemo"
+                  name="description"
+                  placeholder="Enter club description"
+                  value={credentials.description}
+                  onChange={handleChange}
+                  required
+                  id="description-mob"
+                /> */}
+              </div>
               <small id="textDemo" className="form-text text-muted"></small>
               <br />
 
               <div>
-                <Button
+                <Button type="submit" className="login-btn">
+                  Register
+                </Button>
+                {/* <Button
                   disabled={
                     credentials.description.trim().length < 20 ||
                     credentials.password.length <= 4 ||
@@ -413,7 +574,7 @@ const ClubLogin = () => {
                   className="login-btn"
                 >
                   {isLoading ? <ClipLoader color="#e26959" /> : "Register"}
-                </Button>
+                </Button> */}
                 <br />
                 <br />
               </div>
@@ -424,8 +585,8 @@ const ClubLogin = () => {
                 link="/clubs/login"
                 className="link-info anchor-container-desktop"
               />
-              {/* </GlobalForm> */}
-            </form>
+            </GlobalForm>
+            {/* </form> */}
           </div>
         </div>
       </div>
