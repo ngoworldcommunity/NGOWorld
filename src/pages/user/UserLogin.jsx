@@ -12,6 +12,11 @@ import useValidation from "../../hooks/useValidation";
 
 function UserLogin() {
   const Navigate = useNavigate();
+  const [passwordType, setPasswordType] = useState("password");
+  const [credentials, setCredentials] = useState({
+    email: "",
+    password: "",
+  });
 
   function Anchor(props) {
     return (
@@ -24,12 +29,6 @@ function UserLogin() {
     );
   }
 
-  const [credentials, setCredentials] = useState({
-    email: "",
-    password: "",
-  });
-
-  //* To set the value as soon as we input
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
@@ -57,11 +56,8 @@ function UserLogin() {
       });
     } else {
       callUserLoginAPI();
-      console.log("Validation successful");
     }
   };
-
-  const [passwordType, setPasswordType] = useState("password");
 
   const passwordToggle = () => {
     if (passwordType === "password") {

@@ -12,6 +12,22 @@ import useValidation from "../../hooks/useValidation";
 const UserRegister = () => {
   const Navigate = useNavigate();
 
+  const [credentials, setCredentials] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    address: "",
+    pincode: "",
+  });
+  const [initialState] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    address: "",
+    pincode: "",
+  });
   const [passwordType, setPasswordType] = useState("password");
 
   const passwordToggle = () => {
@@ -31,24 +47,6 @@ const UserRegister = () => {
     );
   }
 
-  const [credentials, setCredentials] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    address: "",
-    pincode: "",
-  });
-
-  const [initialState] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    address: "",
-    pincode: "",
-  });
-
   const handleChange = (e) => {
     if (e.target.name === "pincode") {
       if (
@@ -64,6 +62,7 @@ const UserRegister = () => {
 
   const callUserSignupAPI = async () => {
     const Data = await RegisterUser(credentials);
+
     if (Data?.status === 201) {
       showSuccessToast(Data?.data?.message);
       Navigate("/user/login");
@@ -83,7 +82,6 @@ const UserRegister = () => {
       });
     } else {
       callUserSignupAPI();
-      console.log("Validation successful");
     }
   };
 
