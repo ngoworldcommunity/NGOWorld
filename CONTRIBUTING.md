@@ -1,5 +1,5 @@
 # Contributing Guidelines 
-Please go through the documentation atleast once before you start contributing. 
+Please go through the documentation at least once before you start contributing. 
 
 ## Commits 👮
 
@@ -7,7 +7,7 @@ Try and make small commits, it will be easier for us to review and merge them an
 
 #### Commit Message Format 🔐
 
-The commit message should be in the format of `type(scope): subject` where `scope` is optional `type` is one of the following:
+The commit message should be in the format of `type(scope): subject` where the `scope` is optional `type` is one of the following:
 
 - `feat` : Use this when you are adding a new feature.
 - `fix` : Use this when you are fixing a bug.
@@ -19,7 +19,7 @@ The commit message should be in the format of `type(scope): subject` where `scop
 
 #### ESLint & Prettier ✨
 
-We are using `pre-commit hooks, linting packages` to make sure that the code is in the correct format. 
+We are using `pre-commit hooks` and `linting packages` to make sure that the code is in the correct format. 
 
 So whenever you try and make any commit, it will automatically run the `linting` and `prettier` on the staged/changed files and if there are any errors, it will not let you commit the code until you fix those.
 
@@ -31,10 +31,10 @@ Some of them are automatically fixed, while some need manual fixing.
 
 #### Creating an issue 📝
 
-- There are different types in the issues section such as `Bug` , `Documentation` , `Feature` . You can choose, create any of the types of issues.
+- There are different types in the issues section such as `Bug` , `Documentation` , `Feature` . You can choose, or create any of the types of issues.
 - In case you need to create something else, you can use the `Other` type. Blank issues are not recommended at all.
 - When creating an issue make sure you fill up the fields properly and also make sure that you are **not raising a duplicate issue.**
-- The `labels` are used to categorize the issues and it will be auto added based on the type of issue you are creating.
+- The `labels` are used to categorize the issues and they will be automatically added based on the type of issue you are creating.
 
 #### Working on an Issue 🛠️
 
@@ -47,7 +47,7 @@ Some of them are automatically fixed, while some need manual fixing.
 
 #### Closing an Issue 📌
 
-- If you are the one who has created the issue, and want to close it you can close it by yourself.
+- If you are the one who has created the issue and want to close it you can close it by yourself.
 - If you are working on the issue, you can reference the issue in the pull request in `closes #issue_number` format & the issue will be closed automatically when the PR is merged.
 
 
@@ -66,7 +66,7 @@ Some of them are automatically fixed, while some need manual fixing.
 
 🔴🔴🔴 **All LowerCase**
 
-The title of the pull request should be in the format of `type(scope): subject` where `scope` is optional `type` is one of the following:
+The title of the pull request should be in the format of `type(scope): subject` where the `scope` is optional `type` is one of the following:
 
 Available types:
 
@@ -85,13 +85,13 @@ Available types:
 We welcome everyone to review Pull Requests, it is a great way to learn and network.
 
 ##### DOs
-- Be kind and respectful, we use inclusive, gender neutral language (for example they/them instead of guy/man)
+- Be kind and respectful, we use inclusive, gender-neutral language (for example they/them instead of guy/man)
 - Use inline comments to explain your suggestions
 - Use inline suggestions to propose changes
 ##### DON'Ts
 - Don't be rude, disrespectful or aggressive
 - Do not repeat feedback, this creates more noise than value (check the existing conversation), use GitHub reactions if you agree/disagree with a comment
-- Do not blindly approve pull requests to improve your GitHub contributors graph
+- Do not blindly approve pull requests to improve your GitHub contribution graph
 
 
 ##### NOTE
