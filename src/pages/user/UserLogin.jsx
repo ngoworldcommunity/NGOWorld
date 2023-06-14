@@ -13,12 +13,11 @@ import { showErrorToast, showSuccessToast } from "../../utils/showToast";
 import Button from "../../components/Button";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
-//Pushpendra code
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { GlobalForm, GlobalInput } from "../../components/GlobalComponents";
-import { loginSchema } from "../../Validation/Validation";
-import { manageUndefined } from "../../common";
+import { GlobalForm, GlobalInput } from "../../components/globals";
+import { loginSchema } from "../../utils/validation/Validation";
+import { manageUndefined } from "../../utils/common";
 
 function UserLogin() {
   const Navigate = useNavigate();
@@ -99,7 +98,6 @@ function UserLogin() {
     } else setPasswordType("password");
   };
 
-  //Pushpendra code
   const [form, setForm] = useState({});
   const {
     register: registerSignIn,
@@ -133,7 +131,6 @@ function UserLogin() {
       showErrorToast("Server error, try again later !");
     });
   };
-  //
 
   return (
     <>
@@ -160,7 +157,7 @@ function UserLogin() {
                 className="loginform"
               > */}
 
-              {/* Pushpendra code */}
+              {/*  */}
               <GlobalForm
                 style={{ width: "auto" }}
                 className="loginform"
@@ -190,7 +187,6 @@ function UserLogin() {
                     autoFocus
                   /> */}
 
-                  {/* Pushpendra code */}
                   <GlobalInput
                     label={"Email address"}
                     labelClassName={
@@ -211,7 +207,6 @@ function UserLogin() {
                     errorType={manageUndefined(errorSignIn?.email)}
                     errorMessage={manageUndefined(errorSignIn?.email?.message)}
                   />
-                  {/* Pushpendra code ends here*/}
                 </div>
 
                 {/* <label
@@ -236,7 +231,6 @@ function UserLogin() {
                     {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                   </div> */}
 
-                  {/* Pushpendra code */}
                   <GlobalInput
                     label={"Password"}
                     labelClassName={
@@ -259,7 +253,7 @@ function UserLogin() {
                       errorSignIn?.password?.message,
                     )}
                   />
-                  {/* Pushpendra code ends here*/}
+
                   <div onClick={passwordToggle} className="toggle-button">
                     {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                   </div>

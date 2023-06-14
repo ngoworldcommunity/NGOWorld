@@ -1,4 +1,4 @@
-//pushpendra code
+//
 import React from "react";
 
 export const GlobalInput = React.forwardRef(

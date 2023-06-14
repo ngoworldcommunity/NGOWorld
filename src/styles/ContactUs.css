@@ -1,3 +1,19 @@
+.contact-us-label {
+  font-family: Poppins, sans-serif;
+  color: #000;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+.contact-us-header {
+  font-family: Montserrat, sans-serif;
+  font-size: 2rem;
+  line-height: 60px;
+  margin-bottom: 1.5rem !important;
+  color: #28183b;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
 .contact-us-container {
   display: flex;
   justify-content: center;

@@ -12,13 +12,11 @@ import { showSuccessToast } from "../../utils/showToast";
 import Button from "../../components/Button";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
-//Pushpendra code
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { GlobalForm, GlobalInput } from "../../components/GlobalComponents";
-import { registerSchema } from "../../Validation/Validation";
-import { manageUndefined } from "../../common";
-//pushpendra code ends here
+import { GlobalForm, GlobalInput } from "../../components/globals";
+import { registerSchema } from "../../utils/validation/Validation";
+import { manageUndefined } from "../../utils/common";
 
 const UserRegister = () => {
   const navigate = useNavigate();
@@ -107,7 +105,6 @@ const UserRegister = () => {
   //   }
   // };
 
-  //Pushpendra code
   const [form, setForm] = useState({});
   const {
     register: registerSignIn,
@@ -134,7 +131,6 @@ const UserRegister = () => {
     showSuccessToast("Registered successfully, please log in !");
     navigate("/user/login");
   };
-  // pushpendra code ends here
 
   return (
     <>
@@ -157,7 +153,7 @@ const UserRegister = () => {
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
               {/* <form style={{ width: "auto" }} onSubmit={handleSubmit}> */}
 
-              {/* Pushpendra code */}
+              {/*  */}
               <GlobalForm
                 style={{ width: "auto" }}
                 id={"RegisterForm"}
@@ -175,7 +171,7 @@ const UserRegister = () => {
                       </label>
                       <input
                         type="text"
-                        className="userreg_des_firstname form-control form-control-lg"
+                        className="form-control form-control-lg"
                         placeholder="First name"
                         name="firstname"
                         value={credentials.firstname}
@@ -185,7 +181,7 @@ const UserRegister = () => {
                         aria-label="First name"
                       /> */}
 
-                      {/* Pushpendra code */}
+                     
                       <GlobalInput
                         label={"First Name"}
                         labelClassName={
@@ -194,7 +190,7 @@ const UserRegister = () => {
                         id="firstname"
                         name="firstname"
                         type="text"
-                        className="userreg_des_firstname form-control form-control-lg"
+                        className="form-control form-control-lg"
                         placeholder="Please enter first name"
                         value={form.firstname || ""}
                         {...registerSignIn("firstname")}
@@ -207,7 +203,7 @@ const UserRegister = () => {
                           errorSignIn?.firstname?.message,
                         )}
                       />
-                      {/* Pushpendra code ends here*/}
+                    
                     </div>
                     <div className="ms-md-2">
                       {/* <label
@@ -227,7 +223,6 @@ const UserRegister = () => {
                         aria-label="Last name"
                       /> */}
 
-                      {/* Pushpendra code */}
                       <GlobalInput
                         label={"Last Name"}
                         labelClassName={
@@ -236,7 +231,7 @@ const UserRegister = () => {
                         id="lastname"
                         name="lastname"
                         type="text"
-                        className="userreg_des_firstname form-control form-control-lg"
+                        className="form-control form-control-lg"
                         placeholder="Please enter last name"
                         value={form.lastname || ""}
                         {...registerSignIn("lastname")}
@@ -249,11 +244,9 @@ const UserRegister = () => {
                           errorSignIn?.lastname?.message,
                         )}
                       />
-                      {/* Pushpendra code ends here */}
                     </div>
                   </div>
                 </div>
-                {/* //* Email */}
                 <div className="form-outline mb-4">
                   {/* <label
                     htmlFor="emailInput"
@@ -274,7 +267,6 @@ const UserRegister = () => {
                     required
                   /> */}
 
-                  {/* Pushpendra code */}
                   <GlobalInput
                     label={"Email"}
                     labelClassName={
@@ -283,7 +275,7 @@ const UserRegister = () => {
                     id="email"
                     name="email"
                     type="email"
-                    className="userreg_des_firstname form-control form-control-lg"
+                    className="form-control form-control-lg"
                     placeholder="Please enter email"
                     value={form.email || ""}
                     {...registerSignIn("email")}
@@ -294,7 +286,6 @@ const UserRegister = () => {
                     errorType={manageUndefined(errorSignIn?.email)}
                     errorMessage={manageUndefined(errorSignIn?.email?.message)}
                   />
-                  {/* Pushpendra code ends here*/}
                 </div>
                 {/* //* Password */}
                 <div className="form-outline mb-4">
@@ -320,7 +311,6 @@ const UserRegister = () => {
                     {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                   </div> */}
 
-                  {/* Pushpendra code */}
                   <GlobalInput
                     label={"Password"}
                     labelClassName={
@@ -330,7 +320,7 @@ const UserRegister = () => {
                     name="password"
                     // type="password"
                     type={passwordType}
-                    className="userreg_des_firstname form-control form-control-lg"
+                    className="form-control form-control-lg"
                     placeholder="Please enter password"
                     value={form.password || ""}
                     {...registerSignIn("password")}
@@ -343,7 +333,7 @@ const UserRegister = () => {
                       errorSignIn?.password?.message,
                     )}
                   />
-                  {/* Pushpendra code ends here */}
+
                   <div onClick={passwordToggle} className="toggle-button">
                     {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                   </div>
@@ -369,7 +359,6 @@ const UserRegister = () => {
                     aria-label="Address"
                   /> */}
 
-                  {/* Pushpendra code */}
                   <GlobalInput
                     label={"Address"}
                     labelClassName={
@@ -378,7 +367,7 @@ const UserRegister = () => {
                     id="address"
                     name="address"
                     type="text"
-                    className="userreg_des_firstname form-control form-control-lg"
+                    className="form-control form-control-lg"
                     placeholder="Please enter address"
                     value={form.address || ""}
                     {...registerSignIn("address")}
@@ -391,7 +380,6 @@ const UserRegister = () => {
                       errorSignIn?.address?.message,
                     )}
                   />
-                  {/* Pushpendra code ends here */}
                 </div>
                 {/* //* Pincode */}
                 <div className="form-outline mb-4">
@@ -414,7 +402,6 @@ const UserRegister = () => {
                     aria-label="Pincode"
                   /> */}
 
-                  {/* Pushpendra code */}
                   <GlobalInput
                     label={"Pincode"}
                     labelClassName={
@@ -423,7 +410,7 @@ const UserRegister = () => {
                     id="pincode"
                     name="pincode"
                     type="number"
-                    className="userreg_des_firstname form-control form-control-lg"
+                    className="form-control form-control-lg"
                     placeholder="Please enter pin code"
                     value={form.pincode || ""}
                     {...registerSignIn("pincode")}
@@ -436,7 +423,6 @@ const UserRegister = () => {
                       errorSignIn?.pincode?.message,
                     )}
                   />
-                  {/* Pushpendra code ends here*/}
                 </div>
                 <br />
                 <Button type="submit" className="login-btn">

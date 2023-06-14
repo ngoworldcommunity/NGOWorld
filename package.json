@@ -6,6 +6,8 @@
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",
     "@hookform/resolvers": "^3.1.0",
+    "@geoapify/geocoder-autocomplete": "^1.5.1",
+    "@geoapify/react-geocoder-autocomplete": "^1.5.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/user-event": "^14.4.3",
     "aos": "^2.3.4",
@@ -26,6 +28,7 @@
     "react-toastify": "^9.1.1",
     "swr": "^2.1.0",
     "url": "^0.11.0",
+    "use-places-autocomplete": "^4.0.0",
     "vite-plugin-svgr": "^2.2.2",
     "web-vitals": "^3.3.1",
     "yup": "^1.2.0"
@@ -52,7 +55,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",
-    "eslint": "^8.38.0",
+    "eslint": "^8.42.0",
     "eslint-plugin-cypress": "^2.13.3",
     "eslint-plugin-react": "^7.32.2",
     "husky": "^8.0.0",
