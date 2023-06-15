@@ -52,7 +52,8 @@ const UserRegister = () => {
       email: { type: "string", format: "email" },
       password: { type: "string", minLength: 8 },
       address: { type: "string" },
-      pincode: { type: "number", pattern: "[0-9]+", minLength: 6 },
+      pincode: { type: "number", pattern: "[0-9]+"},
+      pincodeString: {type: "string", pattern: "[0-9]+", minLength: 6 , maxLength: 6}
     },
     required: [
       "firstname",
@@ -61,10 +62,18 @@ const UserRegister = () => {
       "password",
       "address",
       "pincode",
+      "pincodeString",
     ],
   };
 
   const handleChange = (e) => {
+    console.log(e.target.value)
+    if(e.target.name==="pincode"){
+      if(e.target.value.toString().length<7 && !e.target.value.toString().includes('.')){
+        setCredentials({ ...credentials, [e.target.name]: e.target.value });
+      }
+      return;
+    }
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
@@ -73,7 +82,8 @@ const UserRegister = () => {
     e.preventDefault();
     var validator = SchemaValidator(FormDataProto, {
       ...credentials,
-      pincode: Number(credentials.pincode),
+      pincode : Number(credentials.pincode),
+      pincodeString: credentials.pincode.toString(),
     });
 
     if (validator.valid) {
@@ -85,6 +95,10 @@ const UserRegister = () => {
       navigate("/user/login");
     } else {
       validator.errors.map(function (e) {
+        console.log(e);
+        if(e.path[0]==='pincodeString'){
+          e.path[0] = "pincode";
+        }
         return toast(`${e.path[0]} : ${msgLocalise(e)}`, {
           position: "top-right",
           autoClose: 1000,
@@ -131,7 +145,7 @@ const UserRegister = () => {
                       </label>
                       <input
                         type="text"
-                        className="userreg_des_firstname form-control form-control-lg"
+                        className="form-control form-control-lg"
                         placeholder="First name"
                         name="firstname"
                         value={credentials.firstname}
