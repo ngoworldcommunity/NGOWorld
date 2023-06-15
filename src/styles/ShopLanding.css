@@ -17,8 +17,8 @@
 
 .shop_header1 {
   font-family: Montserrat, sans-serif;
-  font-size: 76px;
-  line-height: 80px;
+  font-size: 70px;
+  line-height: 70px;
   margin-bottom: 1.5rem !important;
   color: #28183b;
 }
@@ -26,7 +26,7 @@
 .shop_header2 {
   font-family: Poppins, sans-serif;
   color: black;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   line-height: 1.5;
   letter-spacing: 1px;
 }
@@ -131,7 +131,7 @@
 .products_header h1 {
   font-family: Montserrat, sans-serif;
   font-size: 70px;
-  line-height: 80px;
+  line-height: 70px;
   margin-bottom: 1.5rem !important;
   color: #28183b;
   text-align: center;

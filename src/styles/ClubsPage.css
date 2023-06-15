@@ -10,21 +10,24 @@
   justify-content: center;
   text-align: center;
 }
+
 .cp_textdiv {
   width: 80%;
 }
+
 .cp_header1 {
   font-family: Montserrat, sans-serif;
-  font-size: 76px;
-  line-height: 80px;
+  font-size: 70px;
+  line-height: 1;
   margin-bottom: 1.5rem !important;
   color: #28183b;
 }
+
 .cp_header2 {
   font-family: Poppins, sans-serif;
   color: black;
-  font-size: 1.4rem;
-  line-height: 1.5;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
   letter-spacing: 1px;
 }
 
@@ -135,6 +138,7 @@
     word-wrap: break-word;
     word-break: break-word;
   }
+
   .filter-options-tabs {
     width: 25%;
   }
@@ -145,11 +149,49 @@
     margin-bottom: 1.5rem !important;
     color: #28183b;
   }
+
   .cp_header2 {
     font-family: Poppins, sans-serif;
     color: black;
     font-size: 1rem;
     line-height: 1.5;
     letter-spacing: 1px;
+  }
+}
+
+/* Clubs Heading Responsiveness */
+@media screen and (max-width: 1400px) {
+  .cp_header1 {
+    font-size: 60px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .cp_header1 {
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .cp_header1 {
+    font-size: 46px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cp_header1 {
+    font-size: 42px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cp_header1 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .cp_header1 {
+    font-size: 35px;
   }
 }

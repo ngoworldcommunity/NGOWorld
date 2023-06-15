@@ -27,7 +27,8 @@ describe("All auth checks", () => {
     cy.get('[ data-cy="desktop-club-password"]').type("rotary", {
       force: true,
     });
-    cy.get(".login-btn").click();
+    cy.get(".login-btn").scrollIntoView();
+    cy.get(".login-btn").click({ force: true });
     cy.getCookie("clubToken");
   });
 
@@ -35,7 +36,8 @@ describe("All auth checks", () => {
     cy.visit("/user/login");
     cy.get("#desktopUserEmail").type("gyansujan69@gmail.com", { force: true });
     cy.get("#desktopUserPassword").type("tamaldas69", { force: true });
-    cy.get(".login-btn").click();
+    cy.get(".login-btn").scrollIntoView();
+    cy.get(".login-btn").click({ force: true });
     cy.getCookie("token ");
   });
 });

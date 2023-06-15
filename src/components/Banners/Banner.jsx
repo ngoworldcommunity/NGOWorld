@@ -25,7 +25,7 @@ const Banner = () => {
               <div>
                 <p className="banner_header3">
                   We are a hub, trying to connect help and need. Join us and
-                  make earth a better place for all to live!
+                  make the Earth a better place for all to live!
                 </p>
               </div>
               <div className="banner_signup_btndiv">

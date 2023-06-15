@@ -9,13 +9,6 @@
   font-family: poppins;
 }
 
-/* .join{
-  border: 2px solid red;
-}
-.join-us{
-  border: 2px solid red;
-} */
-
 .page-footer {
   background-color: rgb(48, 47, 47);
   padding: 30px 80px;
@@ -108,23 +101,30 @@
 
 .socials {
   display: flex;
-  margin-top: 8px;
+  margin-top: 20px;
+  margin-bottom: 2px;
 }
 .headings {
   font-family: Montserrat, sans-serif;
 }
 .social-btn {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: row;
-  width: 25px;
-  height: 25px;
-  margin: 5px 5px;
-  padding: 15px;
+  margin: 0 5px;
   border-radius: 100%;
-  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: all 0.3s ease-in;
+  cursor: pointer;
+}
+.social-btn:hover {
+  transform: scale(1.1);
+  border-radius: 100%;
+}
+
+.social-btn i {
+  color: #ff725e;
 }
 
 .twitter:hover {
@@ -133,37 +133,24 @@
 .github:hover {
   background-color: black;
 }
-
+.cont:hover {
+  background-color: #ff725e;
+}
 .fa-brands {
   font-size: 20px;
   border-radius: 100%;
 }
 
 .cont-icon {
-  color: #ff725e;
-  transition: all 0.3s ease-in;
-}
-
-.cont:hover {
-  background-color: #ff725e;
-}
-
-.cont i {
-  transition: all 0.3s ease-in;
-}
-
-.cont:hover i {
-  color: white;
+  margin-top: 8px;
 }
 
 .fa-twitter {
-  color: #00acee;
-  transition: all 0.3s ease-in;
+  margin-top: 5px;
 }
 
 .fa-github {
-  color: black;
-  transition: all 0.3s ease-in;
+  margin-top: 4px;
 }
 
 .social-btn:hover i {
@@ -212,7 +199,7 @@
 }
 
 .btn-report:hover {
-  background-color:#fae0b4ff;
+  background-color: #fae0b4ff;
   transform: scale(1.1);
 }
 
@@ -372,4 +359,30 @@
   .join {
     margin-left: -70px;
   }
+}
+.underline-animation {
+  color: #e26959;
+  position: relative;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+
+.underline-animation:hover{
+  color: #e26959;
+}
+
+.underline-animation::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: #e26959;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.underline-animation:hover::after {
+  transform: scaleX(1);
 }
