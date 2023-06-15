@@ -4,56 +4,63 @@ import Loading from "../../components/Loading";
 import SingleClubEvent from "../../components/SingleClubEvent";
 import useSWR from "swr";
 import { defaultfetcher } from "../../utils/fetcher";
-import { sortEventsByCity } from "../../helper";
+import { sortEventsByPlaces } from "../../helper";
+import states from "./StatesData";
 
-const cities = [
-  "Saltlake Stadium",
-  "New Delhi",
-  "Goa",
-  "Wankahde",
-  "Bangalore",
-  "Hyderabad",
-  "Chennai",
-];
 const EventsPage = () => {
   const { data: eventsData, isLoading } = useSWR(
-    `https://milan-server.vercel.app/display/allevents`,
+    `${import.meta.env.VITE_MILANAPI}/display/allevents`,
     defaultfetcher,
   );
 
-  const [chosenCity, setChosenCity] = useState([]);
+  const [chosenFilter, setChosenFilter] = useState("");
   const [showFilter, setShowFilter] = useState(false);
-  // const [cities, setCities] = useState([]);
-  // let city_arr = [];
-  // console.log(eventsData);
-  // for (let event in eventsData) {
-  //   console.log(event);
-  //   city_arr.push(eventsData[event].Eventlocation);
-  // }
-  // useEffect(() => {
-  //   console.log(eventsData);
-  //   if (!isLoading) {
-  //     let city_arr = [];
-  //     for (let event in eventsData) {
-  //       console.log(event);
-  //       city_arr.push(event.Eventlocation);
-  //     }
-  //     console.log(city_arr);
+  const [chosenData, setChosenData] = useState({});
+  const [searchLoading, setSearchLoading] = useState(false);
 
-  //     setCities(city_arr);
-  //   }
-  // }, [isLoading]);
-
-  const handleCityEvents = (city) => {
-    chosenCity.push(city);
-    console.log(chosenCity);
-    setChosenCity([...chosenCity]);
-    // setChosenCity(city);
-    // setShowFilter(false);
+  const handleStateEvents = (state) => {
+    if (chosenData && chosenData.data === state) {
+      setChosenData({});
+    } else {
+      setChosenData({ data: state });
+    }
+    setChosenFilter("place");
   };
 
-  const handleShowFilter = () => {
-    setShowFilter(!showFilter);
+  const handleChooseFilter = (type) => {
+    if (type === "place") {
+      setShowFilter(!showFilter);
+    }
+    if (type === "location") {
+      if (chosenFilter === "location") {
+        setChosenFilter("");
+      } else {
+        getPositionFilter();
+        setChosenFilter("location");
+      }
+    }
+  };
+  const getPositionFilter = async () => {
+    const position = await getPosition();
+    setChosenData({
+      data: { lat: position.coords.latitude, lon: position.coords.longitude },
+    });
+    setSearchLoading(false);
+  };
+
+  const getPosition = async () => {
+    setSearchLoading(true);
+    // naviagtor
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          resolve(position);
+        },
+        (error) => {
+          reject(error);
+        },
+      );
+    });
   };
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -82,47 +89,72 @@ const EventsPage = () => {
               </p>
             </div>
           </div>
-          <div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <button
-              className="bg-black-500 flex cursor-pointer items-stretch rounded-xl border border-gray-400 bg-gray-100 py-2 px-4 font-semibold text-gray-800 shadow "
-              onClick={() => handleShowFilter()}
+              className="cursor-pointer  border border-gray-400  py-2 px-4 m-2 shadow  "
+              onClick={() => handleChooseFilter("location")}
+              style={{
+                background: chosenFilter === "location" ? "#e26959" : "",
+              }}
             >
               {" "}
-              <h3>Filter</h3>{" "}
-              <span className="pt-3 pl-4">{/* <BsFillFunnelFill /> */}</span>
+              <h3>Find Events near You</h3>{" "}
             </button>
-
-            <div className="filter-option">
-              {showFilter &&
-                !isLoading &&
-                cities.map((city, index) => (
-                  <div
-                    key={index}
-                    onClick={() => handleCityEvents(city)}
-                    className="filter-options-tabs"
-                  >
-                    <p>{city}</p>
-                  </div>
-                ))}
-            </div>
+            <button
+              className={`cursor-pointer rounded-xl border border-gray-400  py-2 px-4 m-2  shadow `}
+              style={{ background: showFilter ? "#e26959" : "" }}
+              onClick={() => handleChooseFilter("place")}
+            >
+              {" "}
+              <h3>Find Events by States</h3>{" "}
+            </button>
           </div>
+          <div className="filter-option">
+            {showFilter &&
+              !isLoading &&
+              states.map((state, index) => (
+                <div
+                  key={index}
+                  onClick={() => handleStateEvents(state)}
+                  className="filter-options-tabs"
+                  style={
+                    chosenData && chosenData.data === state
+                      ? { background: "#e26959", color: "white" }
+                      : { background: "", color: "" }
+                  }
+                >
+                  <p>{state}</p>
+                </div>
+              ))}
+          </div>
+
           <div className="cp_cardsdiv">
             {isLoading ? (
               <Loading />
             ) : (
               <>
-                {eventsData &&
-                  sortEventsByCity(eventsData, chosenCity, "events").map(
-                    (event) => {
-                      return (
-                        <SingleClubEvent
-                          key={event?._id}
-                          event={event}
-                          type="events"
-                        />
-                      );
-                    },
-                  )}
+                {searchLoading && <Loading />}
+                {!searchLoading &&
+                  sortEventsByPlaces(
+                    eventsData,
+                    chosenFilter,
+                    chosenData,
+                    "Eventlocation",
+                  ).map((event) => {
+                    return (
+                      <SingleClubEvent
+                        key={event?._id}
+                        event={event}
+                        type="events"
+                      />
+                    );
+                  })}
               </>
             )}
           </div>

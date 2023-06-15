@@ -4,47 +4,68 @@ import Loading from "../../components/Loading";
 import SingleClubEvent from "../../components/SingleClubEvent";
 import useSWR from "swr";
 import { defaultfetcher } from "../../utils/fetcher";
-import { sortEventsByCity } from "../../helper";
-
-const cities = [
-  "Kolkata",
-  "New Delhi",
-  "Goa",
-  "Mumbai",
-  "Bangalore",
-  "Hyderabad",
-  "Chennai",
-];
+import { sortEventsByPlaces } from "../../helper";
+import states from "./StatesData";
 
 const ClubsPage = () => {
   const { data: clubData, isLoading } = useSWR(
-    `https://milan-server.vercel.app/display/clubs`,
+    `${import.meta.env.VITE_MILANAPI}/display/clubs`,
     defaultfetcher,
   );
-  const [chosenCity, setChosenCity] = useState([]);
-  const [showFilter, setShowFilter] = useState(false);
 
-  // let city_arr = [];
-  // console.log(clubData);
-  // for (let club in clubData) {
-  //   console.log(club);
-  //   city_arr.push(clubData[club].address);
-  // }
+  const [chosenFilter, setChosenFilter] = useState("");
+  const [showFilter, setShowFilter] = useState(false);
+  const [chosenData, setChosenData] = useState({});
+  const [searchLoading, setSearchLoading] = useState(false);
+
+  const handleStateClubs = (state) => {
+    //if a state is already chosen then it will be deselected
+    if (chosenData && chosenData.data === state) {
+      setChosenData({});
+    } else {
+      setChosenData({ data: state });
+    }
+    setChosenFilter("place");
+  };
+
+  const handleChooseFilter = (type) => {
+    if (type === "place") {
+      setShowFilter(!showFilter);
+    }
+    if (type === "location") {
+      if (chosenFilter === "location") {
+        setChosenFilter("");
+      } else {
+        getPositionFilter();
+        setChosenFilter("location");
+      }
+    }
+  };
+  const getPositionFilter = async () => {
+    const position = await getPosition();
+    setChosenData({
+      data: { lat: position.coords.latitude, lon: position.coords.longitude },
+    });
+    setSearchLoading(false);
+  };
+
+  const getPosition = async () => {
+    setSearchLoading(true);
+    // navigator.geolocation.getCurrentPosition is asynchronous function
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          resolve(position);
+        },
+        (error) => {
+          reject(error);
+        },
+      );
+    });
+  };
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const handleCityEvents = (city) => {
-    console.log(city);
-    chosenCity.push(city);
-    setChosenCity([...chosenCity]);
-    // setChosenCity(city);
-    // setShowFilter(false);
-  };
-
-  const handleShowFilter = () => {
-    setShowFilter(!showFilter);
-  };
 
   return (
     <>
@@ -68,43 +89,66 @@ const ClubsPage = () => {
               </p>
             </div>
           </div>
-          <div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <button
-              className="bg-black-500 cursor-pointer border  py-2 px-4 font-semibold text-gray-800 shadow "
-              onClick={() => handleShowFilter()}
+              className="cursor-pointer border border-gray-400  py-2 px-4 m-2 font-semibold shadow"
+              onClick={() => handleChooseFilter("location")}
+              style={{
+                background: chosenFilter === "location" ? "#e26959" : "",
+              }}
             >
               {" "}
-              <h3>Filter</h3>{" "}
-              <span className="pt-3 pl-4">{/* <BsFillFunnelFill /> */}</span>
+              <h3>Find Clubs near You</h3>{" "}
             </button>
-
-            <div className="filter-option">
-              {showFilter &&
-                !isLoading &&
-                cities.map((city, index) => (
-                  <div
-                    key={index}
-                    onClick={() => handleCityEvents(city)}
-                    className="filter-options-tabs"
-                  >
-                    <p>{city}</p>
-                  </div>
-                ))}
-            </div>
+            <button
+              className={`cursor-pointer  border border-gray-400  py-2 px-4 m-2 font-semibold shadow `}
+              style={{ background: showFilter ? "#e26959" : "" }}
+              onClick={() => handleChooseFilter("place")}
+            >
+              {" "}
+              <h3>Find Clubs by States</h3>{" "}
+            </button>
           </div>
+          <div className="filter-option">
+            {showFilter &&
+              !isLoading &&
+              states.map((state, index) => (
+                <div
+                  key={index}
+                  onClick={() => handleStateClubs(state)}
+                  className="filter-options-tabs"
+                  style={
+                    chosenData && chosenData.data === state
+                      ? { background: "#e26959", color: "white" }
+                      : { background: "", color: "" }
+                  }
+                >
+                  <p>{state}</p>
+                </div>
+              ))}
+          </div>
+
           <div className="cp_cardsdiv">
             {isLoading ? (
               <Loading />
             ) : (
               <>
-                {clubData.length > 0 &&
-                sortEventsByCity(clubData, chosenCity, "clubs").length > 0
-                  ? sortEventsByCity(clubData, chosenCity, "clubs").map(
-                      (club) => {
-                        return <SingleClubEvent key={club?._id} club={club} />;
-                      },
-                    )
-                  : "No data"}
+                {searchLoading && <Loading />}
+                {!searchLoading &&
+                  sortEventsByPlaces(
+                    clubData,
+                    chosenFilter,
+                    chosenData,
+                    "address",
+                  ).map((club) => {
+                    return <SingleClubEvent key={club?._id} club={club} />;
+                  })}
               </>
             )}
           </div>
