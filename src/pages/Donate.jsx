@@ -71,7 +71,7 @@ const Donate = () => {
 
       <div id="donate_banner" className="container">
         <div id="donateCol2">
-          <img src={donate_image1} alt="" className="donate_img" />
+          <img src={donate_image1} alt="woman sitting in a chair with a doctor and a woman in a chair" className="donate_img" />
         </div>
 
         <div

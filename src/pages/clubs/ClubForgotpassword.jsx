@@ -14,7 +14,7 @@ const ClubForgotpassword = () => {
               <img
                 src={forgotpassword}
                 className="mobile-img"
-                alt="profile-img"
+                alt="man standing next to a large locker"
               ></img>
             </div>
 
