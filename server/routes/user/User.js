@@ -7,11 +7,13 @@ const bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
 const ReportProblem = require("../../schema/user/ReportProblemSchema");
 const ContactUs = require("../../schema/user/ContactUsSchema");
+const {userRegisterSchema, userPasswordUpdateSchema, userLoginSchema, userReportSchema, userContactSchema} = require('../../validation/user');
 
 //* Route 1  - User Registration
 router.post("/register", async (req, res) => {
   try {
-    const { email, ...data } = req.body;
+    const payload = await userRegisterSchema.validateAsync(req.body);
+    const { email, ...data } = payload
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
@@ -27,14 +29,15 @@ router.post("/register", async (req, res) => {
     await newUser.save();
     res.status(201).json({ message: "Registration successful, please login" });
   } catch (e) {
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: e.message });
   }
 });
 
 //* Route 1a - User Update
 router.post("/update", async (req, res) => {
   try {
-    const { email, oldPassword, newPassword } = req.body;
+    const payload = await userPasswordUpdateSchema.validateAsync(req.body);
+    const { email, oldPassword, newPassword } = payload
     const existingUser = await User.findOne({ email: email });
     if (!existingUser) {
       return res.status(404).json({ message: "User not found" });
@@ -73,7 +76,7 @@ router.post("/update", async (req, res) => {
     res.status(201).json({ message: "Password Updated Successfully" });
   } catch (error) {
     // User Password Updated
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: error.message });
   }
 });
 
@@ -87,7 +90,8 @@ router.post("/update", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const payload = await userLoginSchema.validateAsync(req.body);
+    const { email, password } = payload
     const existingUser = await User.findOne({ email });
 
     if (!existingUser) {
@@ -98,20 +102,21 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ message: "Invalid Credentials" });
     }
 
-    const payload = { User: { id: existingUser.email } };
+    const jwtPayload = { User: { id: existingUser.email } };
 
-    jwt.sign(payload, process.env.JWT_SECRET, (err, token) => {
+    jwt.sign(jwtPayload, process.env.JWT_SECRET, (err, token) => {
       if (err) throw new Error("Something Went Wrong!");
       res.status(201).json({ token, isuser: true });
     });
   } catch (err) {
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: err.message });
   }
 });
 
 //* Route 3  - Report a Problem
 router.post("/userreport", async (req, res) => {
   try {
+    const payload = await userReportSchema.validateAsync(req.body);
     const currentHour = new Date().getMinutes();
     const previousReports = await ReportProblem.find({
       email: req.body.email,
@@ -130,7 +135,7 @@ router.post("/userreport", async (req, res) => {
       }
     }
 
-    const data = req.body;
+    const data = payload;
 
     const ReportData = ReportProblem({
       firstname: data.firstname,
@@ -142,14 +147,15 @@ router.post("/userreport", async (req, res) => {
     await ReportData.save();
     res.status(200).json({ success: true });
   } catch (e) {
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: e.message });
   }
 });
 
 //* Route 4  - Contact Us
 router.post("/contactus", async (req, res) => {
   try {
-    const data = req.body;
+    const payload = await userContactSchema.validateAsync(req.body);
+    const data = payload;
     const email = data.email;
 
     const SenderData = {
@@ -169,7 +175,7 @@ router.post("/contactus", async (req, res) => {
 
     res.status(201).json({ message: "Thank you for getting in touch!" });
   } catch (e) {
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: e.message });
   }
 });
 

@@ -6,14 +6,16 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const Events = require("../../schema/club/EventSchema");
 var jwt = require("jsonwebtoken");
+const {clubRegisterSchema, clubLoginSchema, clubEventSchema} = require('../../validation/club')
 
 //* Route 1  - Club Registration
 
 router.post("/register", async (req, res) => {
   try {
-    const data = req.body;
+    const payload = await clubRegisterSchema.validateAsync(req.body);
+    const data = payload
 
-    const { email } = req.body;
+    const { email } = data;
     const existingUser = await Club.findOne({ email: email });
 
     if (existingUser) {
@@ -35,7 +37,7 @@ router.post("/register", async (req, res) => {
     await ClubData.save();
     res.status(201).json({ message: "Registration successful, please login" });
   } catch (error) {
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: error.message });
   }
 });
 
@@ -44,7 +46,8 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const payload = await clubLoginSchema.validateAsync(req.body);
+    const { email, password } = payload
 
     const existingUser = await Club.findOne({ email });
     if (!existingUser) {
@@ -56,15 +59,15 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ message: "Invalid Credentials" });
     }
 
-    const payload = { Club: { id: existingUser.email } };
+    const jwtPayload = { Club: { id: existingUser.email } };
 
-    jwt.sign(payload, process.env.JWT_SECRET, (err, token) => {
+    jwt.sign(jwtPayload, process.env.JWT_SECRET, (err, token) => {
       // console.log(token);
       if (err) throw new Error("Something Went Wrong!!");
       res.status(201).json({ token, isuser: false });
     });
   } catch (e) {
-    res.status(500).json({ success: false });
+    res.status(500).json({ success: false, message: e.message });
   }
 });
 
@@ -72,7 +75,8 @@ router.post("/login", async (req, res) => {
 
 router.post("/createevent", async (req, res) => {
   try {
-    const { eventname, eventlocation, eventdate, eventdescription } = req.body;
+    const payload = await clubEventSchema.validateAsync(req.body);
+    const { eventname, eventlocation, eventdate, eventdescription } = payload;
     const eventData = Events({
       Eventname: eventname,
       Eventdate: eventdate,
@@ -83,7 +87,7 @@ router.post("/createevent", async (req, res) => {
     res.status(200).json(eventData);
   } catch (e) {
     // console.log(`Error in creating a event: ${e}`);
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: e.message });
   }
 });
 module.exports = router;

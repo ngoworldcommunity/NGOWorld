@@ -3,6 +3,7 @@
 const express = require("express");
 const Products = require("../../schema/shop/ProductSchema");
 const router = express.Router();
+const {addProductSchema} = require('../../validation/shop');
 
 //* Route 1  -  Adding Products
 
@@ -16,7 +17,8 @@ const router = express.Router();
 
 router.post("/addproduct", async (req, res) => {
   try {
-    const { productSlug, ...data } = req.body;
+    const payload = await addProductSchema.validateAsync(req.body);
+    const { productSlug, ...data } = payload
 
     const existingSlug = await Products.findOne({ productSlug }); //productSlug should be unique
 
@@ -33,7 +35,7 @@ router.post("/addproduct", async (req, res) => {
     res.status(201).json(savedProduct); // Return the saved product as a response
   } catch (error) {
     console.error("Error adding product:", error);
-    res.status(500).json({ message: "Failed to add product" });
+    res.status(500).json({ message: error.message });
   }
 });
 
