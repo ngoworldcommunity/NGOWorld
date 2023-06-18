@@ -1,11 +1,7 @@
-//* All routes related to Product's
-
-const express = require("express");
 const Products = require("../../schema/shop/ProductSchema");
-const router = express.Router();
-const {addProductSchema} = require('../../validation/shop');
+const { addProductSchema } = require('../../validation/shop');
 
-//* Route 1  -  Adding Products
+//* Controller 1  -  Adding Products
 
 /**
  * @description Add Product
@@ -15,7 +11,7 @@ const {addProductSchema} = require('../../validation/shop');
  * @returns Saved product object (JSON)
  */
 
-router.post("/addproduct", async (req, res) => {
+const addProduct = async (req, res) => {
   try {
     const payload = await addProductSchema.validateAsync(req.body);
     const { productSlug, ...data } = payload
@@ -37,16 +33,16 @@ router.post("/addproduct", async (req, res) => {
     console.error("Error adding product:", error);
     res.status(500).json({ message: error.message });
   }
-});
+};
 
-//* Route 2  -  Fetching all Products
+//* Controller 2  -  Fetching all Products
 /**
  * @description Get all products
  * @route GET /products
  * @access Public
  * @returns Array of all products
  */
-router.get("/allproducts", async (req, res) => {
+const getAllProduct = async (req, res) => {
   try {
     const allProducts = await Products.find();
     res.status(200).json(allProducts);
@@ -54,16 +50,16 @@ router.get("/allproducts", async (req, res) => {
     console.error("Error fetching products:", error);
     res.status(500).json({ message: "Failed to fetch products" });
   }
-});
+};
 
-// Route 3 - Fetching a single product by slug
+// Controller 3 - Fetching a single product by slug
 /**
  * @description Get a product by slug
  * @route GET /products/:productSlug
  * @access Public
  * @returns Product object (JSON)
  */
-router.get("/:productSlug", async (req, res) => {
+const getproductSlugById = async (req, res) => {
   try {
     const { productSlug } = req.params;
 
@@ -78,6 +74,10 @@ router.get("/:productSlug", async (req, res) => {
     console.error("Error fetching product:", error);
     res.status(500).json({ message: "Failed to fetch product" });
   }
-});
+};
 
-module.exports = router;
+module.exports = {
+  addProduct,
+  getAllProduct,
+  getproductSlugById
+};

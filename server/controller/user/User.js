@@ -1,16 +1,13 @@
-//* All routes related to user's LOGIN AND REGISTER
 
-const express = require("express");
 const User = require("../../schema/user/UserSchema");
-const router = express.Router();
 const bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
 const ReportProblem = require("../../schema/user/ReportProblemSchema");
 const ContactUs = require("../../schema/user/ContactUsSchema");
-const {userRegisterSchema, userPasswordUpdateSchema, userLoginSchema, userReportSchema, userContactSchema} = require('../../validation/user');
+const { userRegisterSchema, userPasswordUpdateSchema, userLoginSchema, userReportSchema, userContactSchema } = require('../../validation/user');
 
-//* Route 1  - User Registration
-router.post("/register", async (req, res) => {
+//* Controller 1  - User Registration
+const userRegister = async (req, res) => {
   try {
     const payload = await userRegisterSchema.validateAsync(req.body);
     const { email, ...data } = payload
@@ -31,10 +28,10 @@ router.post("/register", async (req, res) => {
   } catch (e) {
     res.status(500).json({ message: e.message });
   }
-});
+};
 
-//* Route 1a - User Update
-router.post("/update", async (req, res) => {
+//* Controller 1a - User Update
+const userPasswordUpdate = async (req, res) => {
   try {
     const payload = await userPasswordUpdateSchema.validateAsync(req.body);
     const { email, oldPassword, newPassword } = payload
@@ -78,17 +75,9 @@ router.post("/update", async (req, res) => {
     // User Password Updated
     res.status(500).json({ message: error.message });
   }
-});
+};
 
-/**
- * @description Login User
- * @route POST /user/login
- * @access Public
- * @requires email,password
- * @returns token (string) and isuser (boolean)
- */
-
-router.post("/login", async (req, res) => {
+const userLogin = async (req, res) => {
   try {
     const payload = await userLoginSchema.validateAsync(req.body);
     const { email, password } = payload
@@ -111,10 +100,10 @@ router.post("/login", async (req, res) => {
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
-});
+};
 
-//* Route 3  - Report a Problem
-router.post("/userreport", async (req, res) => {
+//* Controller 3  - Report a Problem
+const userReport = async (req, res) => {
   try {
     const payload = await userReportSchema.validateAsync(req.body);
     const currentHour = new Date().getMinutes();
@@ -149,10 +138,10 @@ router.post("/userreport", async (req, res) => {
   } catch (e) {
     res.status(500).json({ message: e.message });
   }
-});
+};
 
-//* Route 4  - Contact Us
-router.post("/contactus", async (req, res) => {
+//* Controller 4  - Contact Us
+const contactUs = async (req, res) => {
   try {
     const payload = await userContactSchema.validateAsync(req.body);
     const data = payload;
@@ -177,6 +166,12 @@ router.post("/contactus", async (req, res) => {
   } catch (e) {
     res.status(500).json({ message: e.message });
   }
-});
+};
 
-module.exports = router;
+module.exports = {
+  userRegister,
+  userLogin,
+  userPasswordUpdate,
+  contactUs,
+  userReport
+};

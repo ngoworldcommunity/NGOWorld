@@ -1,10 +1,7 @@
-const express = require("express");
-const router = express.Router();
 var jwt = require("jsonwebtoken");
-const passport = require("passport");
 
-//* Route 5  - google authentication
-router.get("/google", (req, res) => {
+//* Controller 5  - google authentication
+const googleAuth = async (req, res) => {
   const googleAuthURL = "https://accounts.google.com/o/oauth2/v2/auth";
 
   const params = new URLSearchParams({
@@ -16,26 +13,17 @@ router.get("/google", (req, res) => {
 
   const redirectURL = `${googleAuthURL}?${params}`;
   res.redirect(redirectURL);
-});
+};
 
-//* Route 6  - google authentication callback
-router.get(
-  "/google/callback",
-  passport.authenticate("google", {
-    successRedirect: process.env.successURL,
-    failureRedirect: "/login/failed",
-  }),
-);
-
-//* Route 7  - google authentication failed
-router.get("/login/failed", (req, res) => {
+//* Controller 6  - google authentication failed
+const googleAuthFail = async (req, res) => {
   res
     .status(401)
     .json({ error: true, message: "User failed to authenticate." });
-});
+};
 
-//* Route 8  - google authentication success
-router.get("/login/success", (req, res) => {
+//* Controller 7  - google authentication success
+const googleAuthSuccess = async (req, res) => {
   if (req.user) {
     const data = { User: { id: req.user.email } };
 
@@ -49,10 +37,10 @@ router.get("/login/success", (req, res) => {
   } else {
     res.status(403).json({ error: true, message: "Not Authorized" });
   }
-});
+};
 
-//* Route 9  - google authentication logout
-router.get("/logout", (req, res) => {
+//* Controller 8  - google authentication logout
+const googleLogout = async (req, res) => {
   req.logout(function (err) {
     if (err) {
       console.log(err);
@@ -60,6 +48,11 @@ router.get("/logout", (req, res) => {
     }
     res.json({ success: true });
   });
-});
+};
 
-module.exports = router;
+module.exports = {
+  googleAuth,
+  googleAuthFail,
+  googleAuthSuccess,
+  googleLogout
+};

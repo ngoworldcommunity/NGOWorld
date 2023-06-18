@@ -1,16 +1,14 @@
-//* All routes related to club's LOGIN AND REGISTER
+//* All Controller related to club's LOGIN AND REGISTER
 
-const express = require("express");
 const Club = require("../../schema/club/ClubSchema");
-const router = express.Router();
 const bcrypt = require("bcryptjs");
 const Events = require("../../schema/club/EventSchema");
 var jwt = require("jsonwebtoken");
-const {clubRegisterSchema, clubLoginSchema, clubEventSchema} = require('../../validation/club')
+const { clubRegisterSchema, clubLoginSchema, clubEventSchema } = require('../../validation/club')
 
-//* Route 1  - Club Registration
+//* Controller 1  - Club Registration
 
-router.post("/register", async (req, res) => {
+const clubRegister = async (req, res) => {
   try {
     const payload = await clubRegisterSchema.validateAsync(req.body);
     const data = payload
@@ -39,12 +37,12 @@ router.post("/register", async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-});
+};
 
 //* ---------------------------------------------------------------------------------------------------------------------------------------------
-//* Route 2 - Club Login
+//* Controller 2 - Club Login
 
-router.post("/login", async (req, res) => {
+const clubLogin = async (req, res) => {
   try {
     const payload = await clubLoginSchema.validateAsync(req.body);
     const { email, password } = payload
@@ -69,11 +67,11 @@ router.post("/login", async (req, res) => {
   } catch (e) {
     res.status(500).json({ success: false, message: e.message });
   }
-});
+};
 
-//* Route 3 - Create Event
+//* Controller 3 - Create Event
 
-router.post("/createevent", async (req, res) => {
+const createClubEvent = async (req, res) => {
   try {
     const payload = await clubEventSchema.validateAsync(req.body);
     const { eventname, eventlocation, eventdate, eventdescription } = payload;
@@ -89,5 +87,10 @@ router.post("/createevent", async (req, res) => {
     // console.log(`Error in creating a event: ${e}`);
     res.status(500).json({ message: e.message });
   }
-});
-module.exports = router;
+};
+
+module.exports = {
+  clubLogin,
+  clubRegister,
+  createClubEvent
+}
