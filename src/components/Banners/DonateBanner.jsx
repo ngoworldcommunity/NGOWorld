@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../styles/DonateBanner.css";
-import donateImg from "../../assets/pictures/donate_image1.svg";
+import donateImg from "../../assets/pictures/donate-banner-image.svg";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
