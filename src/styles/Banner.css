@@ -127,10 +127,10 @@
 
   .banner_btn_div {
     gap: 1rem;
+    margin-top: 3rem;
   }
 
   .banner_signup_btn {
-    width: auto;
     margin: auto;
   }
 }
