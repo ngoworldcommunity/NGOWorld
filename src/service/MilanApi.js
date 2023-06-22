@@ -5,7 +5,8 @@ import Axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const API = import.meta.env.VITE_MILANAPI;
+// const API = import.meta.env.VITE_MILANAPI;
+const API = "http://localhost:5000";
 
 const User_Log = `${API}/user/login`;
 const User_Reg = `${API}/user/register`;
@@ -18,6 +19,7 @@ const Report_Log = `${API}/user/userreport`;
 const All_Events = `${API}/display/allevents`;
 const Contact_Us = `${API}/user/contactus`;
 const Create_Event = `${API}/club/createevent`;
+const loginSuccess = `${API}/auth/login/success`;
 
 //^ `````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 //* Axios call to login a User
@@ -165,7 +167,7 @@ export const CreateEvent = async (eventdata) => {
 export const GoogleAuth = async () => {
   try {
     const response = await Axios.get(`${API}/auth/google`);
-
+    console.log(response.data.url);
     return response.data.url;
   } catch (error) {
     toast.error(error, {
@@ -178,12 +180,37 @@ export const GoogleAuth = async () => {
 //* Google Auth callback
 export const successCallback = async () => {
   try {
-    const response = await Axios.get(`${API}/auth/login/success`);
-    return response.data.accessToken;
-  } catch (error) {
-    toast.error(error, {
-      position: toast.POSITION.TOP_RIGHT,
+    const response = await Axios.get(loginSuccess, {
+      withCredentials: true,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
     });
+
+    if (response.status === 200) {
+      const resObject = response.data;
+      console.log("this is accessToken", resObject.accessToken);
+
+      return resObject.accessToken;
+    } else {
+      throw new Error("Authentication has failed");
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+//* Google logout
+
+export const logoutCallback = async () => {
+  try {
+    const response = await Axios.get(`${API}/auth/logout`);
+    console.log(response.data.success);
+    if (response.data.success) {
+      return true;
+    }
+  } catch (error) {
     console.log(error);
   }
 };

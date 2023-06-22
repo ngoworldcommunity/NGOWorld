@@ -8,7 +8,9 @@ connectToMongo();
 const app = express();
 let port = process.env.PORT || 5000;
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+
 app.use(express.json());
 
 const session = require("express-session");
@@ -22,7 +24,7 @@ app.use(cookieParser());
 
 app.use(
   session({
-    name: "SSID",
+    name: "ssid",
 
     secret: process.env.SECRET_KEY,
     saveUninitialized: false,
@@ -32,6 +34,7 @@ app.use(
     },
   }),
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
 

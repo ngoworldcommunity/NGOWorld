@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
+// import Navbar from "../../components/Navbar";
 import { useNavigate } from "react-router-dom";
-import { UpdateUser } from "../../service/MilanApi";
+import { UpdateUser, logoutCallback } from "../../service/MilanApi";
 import Cookies from "js-cookie";
 import "../../styles/UserLogin.css";
 
@@ -25,8 +25,13 @@ export default function UserProfile() {
     }
   };
 
-  const handleLogout = () => {
-    Cookies.remove("token");
+  const handleLogout = async () => {
+    const logout = await logoutCallback();
+    console.log(logout);
+    if (logout) {
+      Cookies.remove("ssid");
+      Cookies.remove("token");
+    }
 
     Navigate("/user/login");
   };

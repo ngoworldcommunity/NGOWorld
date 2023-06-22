@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/UserLogin.css";
 import { LoginUser, GoogleAuth, successCallback } from "../../service/MilanApi";
+
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
 
@@ -61,7 +62,7 @@ function UserLogin() {
       Data.then((response) => {
         if (response?.data.token) {
           Cookies.set("token", response.data.token);
-          showSuccessToast("Logged you in !");
+          showSuccessToast("Logged you in!");
           Navigate("/");
         } else {
           setCredentials({ email: "", password: "" });
@@ -85,13 +86,29 @@ function UserLogin() {
     }
   };
 
-  //* Google Login
-  const GoogleLogin = async () => {
-    const url = await GoogleAuth();
-    window.location.href = await url;
-    const token = await successCallback();
-    Cookies.set("token", token);
+  //  Google Login
+
+  const handleGoogleAuth = async () => {
+    // Make a request to the backend to get the Google OAuth URL
+    const response = await GoogleAuth();
+    console.log(response);
+    // const data = await response.json();
+    window.location.href = response;
   };
+
+  useEffect(() => {
+    const handleToken = async () => {
+      const token = await successCallback();
+      console.log("Incoming token", token);
+      if (token) {
+        Cookies.set("token", token);
+        showSuccessToast("Logged you in succesfully!");
+        Navigate("/");
+      }
+    };
+
+    handleToken();
+  }, []);
 
   const [passwordType, setPasswordType] = useState("password");
 
@@ -182,7 +199,7 @@ function UserLogin() {
 
                   <img
                     src="https://cdn-icons-png.flaticon.com/512/300/300221.png"
-                    onClick={GoogleLogin}
+                    onClick={handleGoogleAuth}
                     alt="Google Login"
                     style={{
                       width: 55,
