@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { RegisterUser } from "../../service/MilanApi";
 import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
@@ -126,12 +126,27 @@ const UserRegister = () => {
   };
   //* Google Login
   const GoogleLogin = async () => {
-    const url = await GoogleAuth();
-    window.location.href = await url;
-    const token = await successCallback();
-    Cookies.set("token", token);
+    // Make a request to the backend to get the Google OAuth URL
+    const response = await GoogleAuth();
+    console.log(response);
+    // const data = await response.json();
+    window.location.href = response;
   };
 
+  //* check for success or failure
+  useEffect(() => {
+    const handleToken = async () => {
+      const token = await successCallback();
+      console.log("Incoming token", token);
+      if (token) {
+        Cookies.set("token", token);
+        showSuccessToast("Logged you in succesfully!");
+        navigate("/");
+      }
+    };
+
+    handleToken();
+  }, []);
   return (
     <>
       <Helmet>
@@ -285,13 +300,25 @@ const UserRegister = () => {
                 <Button type="submit" className="login-btn">
                   Register
                 </Button>
+                <span>
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/649/649686.png"
+                    alt=""
+                    style={{
+                      height: "43px",
+                      width: "30px",
+                      paddingLeft: "10px",
+                    }}
+                  />
+                </span>
                 <img
-                  src="https://cdn-icons-png.flaticon.com/512/300/300221.png"
+                  // src="https://developers.google.com/static/identity/images/btn_google_signin_light_normal_web.png"
+                  src="https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png"
                   onClick={GoogleLogin}
                   alt="Google Login"
                   style={{
-                    width: 55,
-                    height: 55,
+                    // width: 55,
+                    // height: 55,
                     padding: 10,
                     cursor: "pointer",
                   }}

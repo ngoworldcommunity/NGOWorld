@@ -190,7 +190,7 @@ export const successCallback = async () => {
 
     if (response.status === 200) {
       const resObject = response.data;
-      console.log("this is accessToken", resObject.accessToken);
+      // console.log("this is accessToken", resObject.accessToken);
 
       return resObject.accessToken;
     } else {
@@ -206,7 +206,7 @@ export const successCallback = async () => {
 export const logoutCallback = async () => {
   try {
     const response = await Axios.get(`${API}/auth/logout`);
-    console.log(response.data.success);
+
     if (response.data.success) {
       return true;
     }
