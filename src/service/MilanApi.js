@@ -52,8 +52,8 @@ export const LoginUser = async (credentials) => {
 //* REGISTER USER
 export const RegisterUser = async (credentials) => {
   try {
-    const response = await Axios.post(User_Reg, credentials);
-    console.log(response);
+    const User = await Axios.post(User_Reg, credentials);
+    return User;
   } catch (error) {
     toast.warning(error.response.data.message, {
       position: toast.POSITION.TOP_RIGHT,
