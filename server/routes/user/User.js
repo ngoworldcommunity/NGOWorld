@@ -15,7 +15,9 @@ router.post("/register", async (req, res) => {
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
-      return res.status(409).json({ message: "User already exists" });
+      return res
+        .status(409)
+        .json({ message: "User already exists, please login." });
     }
 
     const hashedPassword = await bcrypt.hash(data.password, 10);
@@ -25,7 +27,7 @@ router.post("/register", async (req, res) => {
       password: hashedPassword,
     });
     await newUser.save();
-    res.status(201).json({ message: "Registration successful, please login" });
+    res.status(201).json({ message: "Signed you up, please login." });
   } catch (e) {
     res.status(500).json({ message: "Internal Server Error" });
   }
@@ -102,7 +104,7 @@ router.post("/login", async (req, res) => {
 
     jwt.sign(payload, process.env.JWT_SECRET, (err, token) => {
       if (err) throw new Error("Something Went Wrong!");
-      res.status(201).json({ token, isuser: true });
+      res.status(201).json({ token, isuser: true, message: "Logged you in !" });
     });
   } catch (err) {
     res.status(500).json({ message: "Internal Server Error" });
