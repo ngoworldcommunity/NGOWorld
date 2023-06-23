@@ -4,7 +4,7 @@ const express = require("express");
 const User = require("../../schema/user/UserSchema");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
-var jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 const ReportProblem = require("../../schema/user/ReportProblemSchema");
 const ContactUs = require("../../schema/user/ContactUsSchema");
 
@@ -168,6 +168,24 @@ router.post("/contactus", async (req, res) => {
     }
 
     res.status(201).json({ message: "Thank you for getting in touch!" });
+  } catch (e) {
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+//* Route 5  - Get User Information
+router.get("/profile", async (req, res) => {
+  try {
+    const token = req.headers.authorization;
+
+    const decodedToken = jwt.decode(token);
+    let email = decodedToken.User.id;
+
+    const userInfo = await User.findOne({ email }).select(
+      "firstname lastname email address",
+    );
+
+    res.status(202).json({ success: true, data: userInfo });
   } catch (e) {
     res.status(500).json({ message: "Internal Server Error" });
   }

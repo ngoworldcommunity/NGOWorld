@@ -9,6 +9,7 @@ const API = import.meta.env.VITE_MILANAPI;
 const User_Log = `${API}/user/login`;
 const User_Reg = `${API}/user/register`;
 const User_Updt = `${API}/user/update`;
+const User_Info = `${API}/user/profile`;
 const Club_Log = `${API}/club/login`;
 const Club_Reg = `${API}/club/register`;
 const All_Clubs = `${API}/display/clubs`;
@@ -54,6 +55,24 @@ export const RegisterUser = async (credentials) => {
   try {
     const response = await Axios.post(User_Reg, credentials);
     console.log(response);
+  } catch (error) {
+    toast.warning(error.response.data.message, {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  }
+};
+
+//* GET USER DATA
+export const GetUserData = async (token) => {
+  try {
+    const response = await Axios.get(User_Info, {
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+    });
+
+    return response;
   } catch (error) {
     toast.warning(error.response.data.message, {
       position: toast.POSITION.TOP_RIGHT,

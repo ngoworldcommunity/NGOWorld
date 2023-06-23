@@ -10,6 +10,7 @@ import {
   UserRegister,
   UserLogin,
   UserProfile,
+  UpdateProfile,
   ContactPage,
   AboutUs,
   EventCreate,
@@ -42,6 +43,11 @@ const App = () => {
             <Route exact path="/user/register" element={<UserRegister />} />
             <Route exact path="/user/login" element={<UserLogin />} />
             <Route exact path="/user/profile" element={<UserProfile />} />
+            <Route
+              exact
+              path="/user/profile/update"
+              element={<UpdateProfile />}
+            />
 
             <Route
               exact

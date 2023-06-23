@@ -1,0 +1,85 @@
+body {
+  background: #eee;
+}
+
+.card {
+  border: none;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 5%;
+}
+
+.fonts {
+  font-size: 11px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+/* Tabs container */
+.tab-container {
+  max-width: 600px;
+  margin: 4% auto 2% auto;
+}
+
+.tab-navigation {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: stretch;
+  border: 1px solid #f3f4f6;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  padding: 15px;
+  transition: background-color 0.3s ease;
+  background: #f3f4f6;
+}
+
+.tab-item.active {
+  text-align: center;
+  background: #e26959;
+  border-radius: 0.5rem;
+}
+
+.tab-item span {
+  font-weight: 600;
+}
+
+.tab-content-container {
+  border-radius: 0.5rem;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.tab-content {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: none;
+}
+
+.tab-content.active {
+  opacity: 1;
+  display: block;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .tab-navigation {
+    flex-direction: column;
+  }
+
+  .tab-item {
+    flex: none;
+    margin-bottom: 10px;
+  }
+}

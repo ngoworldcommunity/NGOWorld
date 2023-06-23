@@ -4,6 +4,7 @@ export { default as Home } from "./Home";
 export { default as Donate } from "./Donate";
 export { default as UserLogin } from "./user/UserLogin";
 export { default as UserProfile } from "./user/UserProfile";
+export { default as UpdateProfile } from "./user/UpdateProfile";
 export { default as UserRegister } from "./user/UserRegister";
 export { default as ShopLanding } from "./shops/ShopLanding";
 export { default as ClubsPage } from "./display/ClubsPage";
