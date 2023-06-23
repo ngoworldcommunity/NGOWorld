@@ -63,10 +63,10 @@ export default function UserProfile() {
 
                 <div className="text-center mt-3">
                   <h2 className="name">
-                    {data.firstname + " " + data.lastname}
+                    {data?.firstname + " " + data?.lastname}
                   </h2>
-                  <p className="pt-2 text-sm text-gray-900">{data.email}</p>
-                  <p className="pt-2 text-sm text-gray-900">{data.address}</p>
+                  <p className="pt-2 text-sm text-gray-900">{data?.email}</p>
+                  <p className="pt-2 text-sm text-gray-900">{data?.address}</p>
                   <div className="tab-container">
                     <div className="tab-navigation">
                       {tabItems.map((tab, index) => (
