@@ -4,8 +4,9 @@ import Loading from "../../components/Loading";
 import SingleClubEvent from "../../components/SingleClubEvent";
 import useSWR from "swr";
 import { defaultfetcher } from "../../utils/fetcher";
-import { sortEventsByPlaces } from "../../helper";
+import { filter } from "../../utils/filter";
 import states from "./StatesData";
+import Button from "../../components/Button";
 
 const EventsPage = () => {
   const { data: eventsData, isLoading } = useSWR(
@@ -13,55 +14,91 @@ const EventsPage = () => {
     defaultfetcher,
   );
 
-  const [chosenFilter, setChosenFilter] = useState("");
-  const [showFilter, setShowFilter] = useState(false);
-  const [chosenData, setChosenData] = useState({});
-  const [searchLoading, setSearchLoading] = useState(false);
+  const [filterState, setFilterState] = useState({
+    chosenFilter: "",
+    showFilter: false,
+    chosenData: {},
+    searchLoading: false,
+  });
+
+  const { chosenFilter, showFilter, chosenData, searchLoading } = filterState;
 
   const handleStateEvents = (state) => {
     if (chosenData && chosenData.data === state) {
-      setChosenData({});
+      setFilterState((prevState) => ({
+        ...prevState,
+        chosenData: {},
+        chosenFilter: "place",
+      }));
     } else {
-      setChosenData({ data: state });
+      setFilterState((prevState) => ({
+        ...prevState,
+        chosenData: { data: state },
+        chosenFilter: "place",
+      }));
     }
-    setChosenFilter("place");
   };
 
   const handleChooseFilter = (type) => {
     if (type === "place") {
-      setShowFilter(!showFilter);
+      setFilterState((prevState) => ({
+        ...prevState,
+        chosenFilter: "",
+        showFilter: !prevState.showFilter,
+      }));
     }
     if (type === "location") {
       if (chosenFilter === "location") {
-        setChosenFilter("");
+        setFilterState((prevState) => ({
+          ...prevState,
+          chosenFilter: "",
+          showFilter: false,
+        }));
       } else {
         getPositionFilter();
-        setChosenFilter("location");
+        setFilterState((prevState) => ({
+          ...prevState,
+          chosenFilter: "location",
+          showFilter: false,
+        }));
       }
     }
   };
+
   const getPositionFilter = async () => {
-    const position = await getPosition();
-    setChosenData({
-      data: { lat: position.coords.latitude, lon: position.coords.longitude },
-    });
-    setSearchLoading(false);
+    try {
+      setFilterState((prevState) => ({
+        ...prevState,
+        searchLoading: true,
+      }));
+
+      const position = await getPosition();
+
+      setFilterState((prevState) => ({
+        ...prevState,
+        chosenData: {
+          data: {
+            lat: position.coords.latitude,
+            lon: position.coords.longitude,
+          },
+        },
+      }));
+    } catch (error) {
+      console.error("Error getting geolocation:", error);
+    } finally {
+      setFilterState((prevState) => ({
+        ...prevState,
+        searchLoading: false,
+      }));
+    }
   };
 
-  const getPosition = async () => {
-    setSearchLoading(true);
-    // naviagtor
+  const getPosition = () => {
     return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          resolve(position);
-        },
-        (error) => {
-          reject(error);
-        },
-      );
+      navigator.geolocation.getCurrentPosition(resolve, reject);
     });
   };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -81,11 +118,11 @@ const EventsPage = () => {
         <div className="cp_main_parent">
           <div className="cp_subparent">
             <div className="cp_textdiv">
-              <p className="cp_header1">Events happening now !</p>
+              <p className="cp_header1">Events happening now!</p>
               <p className="cp_header2">
-                All our partnered NGOs , hosts various events be it educational,
-                cleaning mother earth, funding events, health camps and many
-                more !
+                All our partnered NGOs host various events, be it educational,
+                cleaning mother earth, funding events, health camps, and many
+                more!
               </p>
             </div>
           </div>
@@ -96,28 +133,34 @@ const EventsPage = () => {
               alignItems: "center",
             }}
           >
-            <button
-              className="cursor-pointer  border border-gray-400  py-2 px-4 m-2 shadow  "
+            <Button
+              variant="outline"
+              className="cursor-pointer border py-2 px-4 m-2 font-semibold shadow"
               onClick={() => handleChooseFilter("location")}
-              style={{
-                background: chosenFilter === "location" ? "#e26959" : "",
-              }}
+              style={
+                chosenFilter === "location"
+                  ? { background: "#e26959", color: "white" }
+                  : { background: "white", color: "#e26959" }
+              }
             >
-              {" "}
-              <h3>Find Events near You</h3>{" "}
-            </button>
-            <button
-              className={`cursor-pointer rounded-xl border border-gray-400  py-2 px-4 m-2  shadow `}
-              style={{ background: showFilter ? "#e26959" : "" }}
+              <h3>Find Events near You</h3>
+            </Button>
+            <Button
+              variant="outline"
+              className="cursor-pointer border  py-2 px-4 m-2 font-semibold shadow"
+              style={
+                showFilter
+                  ? { background: "#e26959", color: "white" }
+                  : { background: "white", color: "#e26959" }
+              }
               onClick={() => handleChooseFilter("place")}
             >
-              {" "}
-              <h3>Find Events by States</h3>{" "}
-            </button>
+              <h3>Find Events by States</h3>
+            </Button>
           </div>
           <div className="filter-option">
             {showFilter &&
-              !isLoading &&
+              // !isLoading &&
               states.map((state, index) => (
                 <div
                   key={index}
@@ -141,7 +184,7 @@ const EventsPage = () => {
               <>
                 {searchLoading && <Loading />}
                 {!searchLoading &&
-                  sortEventsByPlaces(
+                  filter(
                     eventsData,
                     chosenFilter,
                     chosenData,

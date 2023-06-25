@@ -4,8 +4,9 @@ import Loading from "../../components/Loading";
 import SingleClubEvent from "../../components/SingleClubEvent";
 import useSWR from "swr";
 import { defaultfetcher } from "../../utils/fetcher";
-import { sortEventsByPlaces } from "../../helper";
+import { filter } from "../../utils/filter";
 import states from "./StatesData";
+import Button from "../../components/Button";
 
 const ClubsPage = () => {
   const { data: clubData, isLoading } = useSWR(
@@ -13,56 +14,91 @@ const ClubsPage = () => {
     defaultfetcher,
   );
 
-  const [chosenFilter, setChosenFilter] = useState("");
-  const [showFilter, setShowFilter] = useState(false);
-  const [chosenData, setChosenData] = useState({});
-  const [searchLoading, setSearchLoading] = useState(false);
+  const [filterState, setFilterState] = useState({
+    chosenFilter: "",
+    showFilter: false,
+    chosenData: {},
+    searchLoading: false,
+  });
+
+  const { chosenFilter, showFilter, chosenData, searchLoading } = filterState;
 
   const handleStateClubs = (state) => {
-    //if a state is already chosen then it will be deselected
     if (chosenData && chosenData.data === state) {
-      setChosenData({});
+      setFilterState((prevState) => ({
+        ...prevState,
+        chosenData: {},
+        chosenFilter: "place",
+      }));
     } else {
-      setChosenData({ data: state });
+      setFilterState((prevState) => ({
+        ...prevState,
+        chosenData: { data: state },
+        chosenFilter: "place",
+      }));
     }
-    setChosenFilter("place");
   };
 
   const handleChooseFilter = (type) => {
     if (type === "place") {
-      setShowFilter(!showFilter);
+      setFilterState((prevState) => ({
+        ...prevState,
+        chosenFilter: "",
+        showFilter: !prevState.showFilter,
+      }));
     }
     if (type === "location") {
       if (chosenFilter === "location") {
-        setChosenFilter("");
+        setFilterState((prevState) => ({
+          ...prevState,
+          chosenFilter: "",
+          showFilter: false,
+        }));
       } else {
         getPositionFilter();
-        setChosenFilter("location");
+        setFilterState((prevState) => ({
+          ...prevState,
+          chosenFilter: "location",
+          showFilter: false,
+        }));
       }
     }
   };
+
   const getPositionFilter = async () => {
-    const position = await getPosition();
-    setChosenData({
-      data: { lat: position.coords.latitude, lon: position.coords.longitude },
-    });
-    setSearchLoading(false);
+    try {
+      setFilterState((prevState) => ({
+        ...prevState,
+        searchLoading: true,
+      }));
+
+      const position = await getPosition();
+
+      setFilterState((prevState) => ({
+        ...prevState,
+        chosenData: {
+          data: {
+            lat: position.coords.latitude,
+            lon: position.coords.longitude,
+          },
+        },
+      }));
+    } catch (error) {
+      console.error("Error getting geolocation:", error);
+    } finally {
+      setFilterState((prevState) => ({
+        ...prevState,
+        searchLoading: false,
+      }));
+    }
   };
 
-  const getPosition = async () => {
-    setSearchLoading(true);
-    // navigator.geolocation.getCurrentPosition is asynchronous function
+  const getPosition = () => {
     return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          resolve(position);
-        },
-        (error) => {
-          reject(error);
-        },
-      );
+      navigator.geolocation.getCurrentPosition(resolve, reject);
     });
   };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -70,10 +106,10 @@ const ClubsPage = () => {
   return (
     <>
       <Helmet>
-        <title>Milan | Clubs </title>
+        <title>Milan | Clubs</title>
         <meta
           name="description"
-          content="These are the clubs and communities you can follow, you can attend charity/club events and even get notified about it once you subscribe !"
+          content="These are the clubs and communities you can follow. You can attend charity/club events and even get notified about them once you subscribe!"
         />
         <link rel="canonical" href="/" />
       </Helmet>
@@ -82,10 +118,10 @@ const ClubsPage = () => {
         <div className="cp_main_parent">
           <div className="cp_subparent">
             <div className="cp_textdiv">
-              <p className="cp_header1">Clubs and communities !</p>
+              <p className="cp_header1">Clubs and communities!</p>
               <p className="cp_header2">
-                Here are some clubs you can follow, you can attend charity/club
-                events and even get notified about it once you subscribe !
+                Here are some clubs you can follow. You can attend charity/club
+                events and even get notified about them once you subscribe!
               </p>
             </div>
           </div>
@@ -96,24 +132,30 @@ const ClubsPage = () => {
               alignItems: "center",
             }}
           >
-            <button
-              className="cursor-pointer border border-gray-400  py-2 px-4 m-2 font-semibold shadow"
+            <Button
+              variant="outline"
+              className="cursor-pointer border border-gray-400 py-2 px-4 m-2 font-semibold shadow"
               onClick={() => handleChooseFilter("location")}
-              style={{
-                background: chosenFilter === "location" ? "#e26959" : "",
-              }}
+              style={
+                chosenFilter === "location"
+                  ? { background: "#e26959", color: "white" }
+                  : { background: "white", color: "#e26959" }
+              }
             >
-              {" "}
-              <h3>Find Clubs near You</h3>{" "}
-            </button>
-            <button
-              className={`cursor-pointer  border border-gray-400  py-2 px-4 m-2 font-semibold shadow `}
-              style={{ background: showFilter ? "#e26959" : "" }}
+              <h3>Find Clubs near You</h3>
+            </Button>
+            <Button
+              variant="outline"
+              className={`cursor-pointer border border-gray-400 py-2 px-4 m-2 font-semibold shadow`}
+              style={
+                showFilter
+                  ? { background: "#e26959", color: "white" }
+                  : { background: "white", color: "#e26959" }
+              }
               onClick={() => handleChooseFilter("place")}
             >
-              {" "}
-              <h3>Find Clubs by States</h3>{" "}
-            </button>
+              <h3>Find Clubs by States</h3>
+            </Button>
           </div>
           <div className="filter-option">
             {showFilter &&
@@ -141,14 +183,9 @@ const ClubsPage = () => {
               <>
                 {searchLoading && <Loading />}
                 {!searchLoading &&
-                  sortEventsByPlaces(
-                    clubData,
-                    chosenFilter,
-                    chosenData,
-                    "address",
-                  ).map((club) => {
-                    return <SingleClubEvent key={club?._id} club={club} />;
-                  })}
+                  filter(clubData, chosenFilter, chosenData, "address").map(
+                    (club) => <SingleClubEvent key={club?._id} club={club} />,
+                  )}
               </>
             )}
           </div>

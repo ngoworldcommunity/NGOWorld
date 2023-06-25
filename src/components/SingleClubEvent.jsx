@@ -6,20 +6,24 @@ import "../styles/ClubsPage.css";
 import Button from "./Button";
 
 export default function SingleClubEvent({ club, type, event }) {
-  const [location, setLocation] = useState();
+  const [location, setLocation] = useState("");
 
   useEffect(() => {
-    try {
-      if (event.Eventlocation && JSON.parse(event.Eventlocation).data) {
-        let placeInfo = JSON.parse(event.Eventlocation).data.properties;
-        let formattedName =
-          placeInfo.name + ", " + placeInfo.city + ", " + placeInfo.state;
-        setLocation(formattedName);
+    const parseEventLocation = () => {
+      try {
+        if (event.Eventlocation) {
+          const { name, city, state } = JSON.parse(event.Eventlocation).data
+            .properties;
+          const formattedName = `${name}, ${city}, ${state}`;
+          setLocation(formattedName);
+        }
+      } catch {
+        setLocation("");
       }
-    } catch {
-      setLocation("");
-    }
-  }, []);
+    };
+
+    parseEventLocation();
+  }, [event.Eventlocation]);
 
   const nav = useNavigate();
 
