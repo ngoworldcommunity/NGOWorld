@@ -137,12 +137,12 @@ export const GetAllEvents = async () => {
 };
 
 //* CONTACT
-export const Contact = async (formData, toast) => {
+export const Contact = async (formData) => {
   try {
     const response = await Axios.post(Contact_Us, formData);
-    toast.success(response.data.message);
+    return response;
   } catch (error) {
-    toast.error(error.response.data.message);
+    return error;
   }
 };
 

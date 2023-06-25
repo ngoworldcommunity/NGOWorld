@@ -1,5 +1,15 @@
 # Backend Setup
 
+## Don't need the backend ?
+
+If you are working just on the Frontend and don't need to modify anything in the backend, you can skip setting up the backend and simply setup a `.env` file in the root (not inside the `/server` directory).
+
+Inside that `.env` file you have to put `VITE_MILANAPI="https://milan-server.vercel.app"`, so that you can use the deployed backend. 
+
+Else you can use `VITE_MILANAPI="http://localhost:5000"` to use the local backend.
+  
+## Setting up the backend locally 🚀
+
 Follow the below setup to setup the backend locally. We are using `npm` as the
 package manager. So make sure you have `node` and `npm` installed in your
 system.
@@ -14,7 +24,7 @@ system.
 - Type `npm install` to install all the dependencies.
 - Once the installation is done, you can start the frontend server by typing
   `npm start`.
-- This should start the frontend server on `localhost:5000`.
+- This should start the frontend server on `http://localhost:5000/`.
 
 ## Techstack overview 🌀
 
@@ -28,25 +38,11 @@ system.
 We use a `.env` file using the `dotenv` package inside the root of the `server`
 directory.
 
-You can use the following values as denoted below, remember that if you are
-using your own database the data might vary.
+You must create a `.env` file similar to [.env.example](../server/.env.example) file, remember that if you are using your own database the data might vary.
 
-```bash
 
-<!-- WE USE RAZORPAY DETAILS (TEST ACCOUNT) -->
-RAZORPAY_KEY_ID=
-RAZORPAY_KEY_SECRET=
-
-<!-- YOU CAN PUT YOUR OWN MONGODB CREDENTIALS HERE -->
-MONGO_URI=
-PORT=""
-
-<!-- YOU CAN PUT YOUR OWN SECRET RANDOM STRING HERE -->
-JWT_SECRET=
-```
-
-## Setting up `razorpay api key`
-- Head on to [Razorpay API reference](https://razorpay.com/docs/api) and Sign Up to razor pay rembember you don't need to KYC. 
+### Setting up `razorpay api key` for `.env`
+- Head on to [Razorpay API reference](https://razorpay.com/docs/api) and Sign Up to razor pay remember you don't need to KYC. 
 - Login after Signing Up then you will see this interface, you can use the test mode.
 
 <img width="945" alt="image" src="https://github.com/tejaskh3/Milan/assets/98630752/2de85099-8167-4db2-9fc7-9d539c5bcf64">

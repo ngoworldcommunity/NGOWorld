@@ -18,8 +18,8 @@
 
 .banner_header1 {
   font-family: Montserrat, sans-serif;
-  font-size: 70px;
-  line-height: 70px;
+  font-size: 76px;
+  line-height: 76px;
   margin-bottom: 1.5rem !important;
   color: #28183b;
 }
@@ -126,10 +126,10 @@
 
   .banner_btn_div {
     gap: 1rem;
+    margin-top: 3rem;
   }
 
   .banner_signup_btn {
-    width: auto;
     margin: auto;
   }
 }

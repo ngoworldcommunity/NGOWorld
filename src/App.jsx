@@ -20,28 +20,16 @@ import MilanState from "./context/MilanState";
 import ClubForgotpassword from "./pages/clubs/ClubForgotpassword";
 import ClubDetailsCard from "./pages/clubs/ClubDetails";
 import UserForgotpassword from "./pages/user/UserForgotpassword";
-import { ToastContainer } from "react-toastify";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./styles/App.css";
 import ShopCategory from "./pages/shops/ShopCategory";
+import Error404 from "./pages/Error404";
 
 const App = () => {
   return (
     <>
       <MilanState>
-        <ToastContainer
-          position="top-right"
-          autoClose={1200}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable={false}
-          pauseOnHover
-          closeButton={false}
-        />
         <Router>
           <Navbar />
           <Routes>
@@ -86,6 +74,7 @@ const App = () => {
             {/* //* Shop */}
             <Route exact path="/shop" element={<ShopLanding />} />
             <Route exact path="/shop/:category" element={<ShopCategory />} />
+            <Route path={"/*"} element={<Error404 />} />
           </Routes>
           {/* <Footer /> */}
           <Footer />

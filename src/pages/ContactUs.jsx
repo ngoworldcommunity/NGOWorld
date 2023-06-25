@@ -1,11 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import "../styles/ContactUs.css";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import contactImage from "../assets/pictures/contactUs.svg";
 import { Contact } from "../service/MilanApi";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
+import { showErrorToast, showSuccessToast } from "../utils/showToast";
 import { Helmet } from "react-helmet-async";
 
 const ContactUs = () => {
@@ -25,7 +24,7 @@ const ContactUs = () => {
     return false;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     // validation
     if (!formData.firstName || !formData.lastName || !formData.message) {
       toast.warn("Please fill out all the fields.");
@@ -33,7 +32,12 @@ const ContactUs = () => {
       // Email Validation
       toast.warn("Please provide a correct email.");
     } else {
-      Contact(formData, toast);
+      const response = await Contact(formData);
+      if (response.status === 201) {
+        showSuccessToast(response.data.message);
+      } else {
+        showErrorToast(response.message);
+      }
       setFormData(initialState);
     }
   };
@@ -48,69 +52,60 @@ const ContactUs = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-      <ToastContainer />
-      <section className="vh-100">
+      <section>
         <div className="container py-5 h-100">
           <div className="row d-flex align-items-center justify-content-center h-100">
-            <div className="contact-img col-md-8 col-lg-7 col-xl-6">
+            <div className="contact-us-img col-md-8 col-lg-7 col-xl-6 d-none d-lg-block">
               <img src={contactImage} className="img-fluid" alt="Contact-Us" />
             </div>
-            <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <h1 style={{ letterSpacing: "1px", fontSize: "2rem" }}>
-                Have something to say?
+            <div className="col-md-8 col-lg-5 col-xl-5 offset-xl-1">
+              <h1 className="contact-us-header">
+                Have something to say? <br /> Reach out to us !
               </h1>
               <div className="inputs">
-                <h1
-                  style={{
-                    letterSpacing: "1px",
-                    marginBottom: "2rem",
-                    fontSize: "2rem",
-                  }}
-                >
-                  Reach out to us !
-                </h1>
-                <label
-                  htmlFor="Full Name"
-                  className="col-form-label col-form-label-lg"
-                  style={{ fontFamily: "Open Sans, sans-serif" }}
-                >
-                  Enter your name
-                </label>
-                <div className="d-flex flex-column flex-md-row name">
-                  <input
-                    type="text"
-                    placeholder="First name"
-                    id="firstName"
-                    value={formData.firstName}
-                    className="userreg_des_firstname form-control form-control-lg me-md-2"
-                    onChange={handleChange}
-                    autoFocus
-                  />
-                  <input
-                    type="text"
-                    placeholder="First name"
-                    id="firstName"
-                    value={formData.firstName}
-                    className="userreg_mob_firstname form-control form-control-lg me-md-2"
-                    onChange={handleChange}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Last name"
-                    id="lastName"
-                    value={formData.lastName}
-                    className="form-control form-control-lg ms-md-2"
-                    onChange={handleChange}
-                  />
+                <div className="d-flex flex-column flex-md-row">
+                  <div className="me-md-2">
+                    <label
+                      htmlFor="firstName"
+                      className="col-form-label col-form-label-lg contact-us-label"
+                    >
+                      First Name
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="First name"
+                      id="firstName"
+                      value={formData.firstName}
+                      className="userreg_des_firstname form-control form-control-lg"
+                      onChange={handleChange}
+                      autoFocus
+                    />
+                  </div>
+                  <div className="ms-md-2">
+                    <label
+                      htmlFor="lastName"
+                      className="col-form-label col-form-label-lg contact-us-label"
+                    >
+                      Last Name
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Last name"
+                      id="lastName"
+                      value={formData.lastName}
+                      className="form-control form-control-lg"
+                      onChange={handleChange}
+                    />
+                  </div>
                 </div>
                 <label
                   htmlFor="email"
-                  className="col-form-label col-form-label-lg"
-                  style={{ fontFamily: "Open Sans, sans-serif" }}
+                  className="col-form-label col-form-label-lg contact-us-label"
                 >
                   Email address
                 </label>
                 <input
+                  autoComplete="on"
                   type="email"
                   placeholder="Email"
                   id="email"
@@ -120,8 +115,7 @@ const ContactUs = () => {
                 />
                 <label
                   htmlFor="message"
-                  className="col-form-label col-form-label-lg"
-                  style={{ fontFamily: "Open Sans, sans-serif" }}
+                  className="col-form-label col-form-label-lg contact-us-label"
                 >
                   Enter your message
                 </label>
@@ -135,32 +129,13 @@ const ContactUs = () => {
                   onChange={handleChange}
                   className="form-control form-control-lg"
                 />
+                <br />
                 <button
                   type="submit"
+                  className="btn _btn_1987m_1 login-btn _solid_1987m_26 "
                   onClick={handleSubmit}
-                  className="submit-btn btn py-2 mb-3"
-                  aria-label="Submit"
                 >
-                  Just Send
-                  <svg
-                    style={{
-                      height: "20px",
-                      width: "20px",
-                      transform: "rotate(-40deg)",
-                    }}
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    className="bi bi-arrow-right"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                      fill="#fffff"
-                    />
-                  </svg>
+                  Send
                 </button>
               </div>
             </div>

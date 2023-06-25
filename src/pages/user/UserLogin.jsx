@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet-async";
 import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 import { showErrorToast, showSuccessToast } from "../../utils/showToast";
 import Button from "../../components/Button";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 function UserLogin() {
   const Navigate = useNavigate();
@@ -83,6 +84,14 @@ function UserLogin() {
     }
   };
 
+  const [passwordType, setPasswordType] = useState("password");
+
+  const passwordToggle = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+    } else setPasswordType("password");
+  };
+
   return (
     <>
       <Helmet>
@@ -139,7 +148,7 @@ function UserLogin() {
                 </label>
                 <div className="form-outline mb-4">
                   <input
-                    type="password"
+                    type={passwordType}
                     className="desktop form-control form-control-lg"
                     id="desktopUserPassword"
                     placeholder="Enter your password"
@@ -149,6 +158,9 @@ function UserLogin() {
                     required
                     aria-label="password"
                   />
+                  <div onClick={passwordToggle} className="toggle-button">
+                    {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
+                  </div>
                 </div>
 
                 {/* RememberMe Tab  */}

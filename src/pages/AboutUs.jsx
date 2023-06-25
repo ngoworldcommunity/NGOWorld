@@ -1,7 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import "../styles/AboutUs.css";
+// eslint-disable-next-line no-unused-vars
 import Navbar from "../components/Navbar";
+// eslint-disable-next-line no-unused-vars
 import Footer from "../components/Footer";
 import abtImg from "../assets/pictures/aboutus/about-pana.png";
 
@@ -23,11 +25,11 @@ export default function AboutUs() {
             to English means ‘conjugation’.
           </p>
           <p className="mt-2">
-            With Milan we aim at bringing all the various NGOs and donors under
+            With Milan ,we aim at bringing all the various NGOs and donors under
             one single roof to ease the burden of going to find their
             appropriate donors and the appropriate communities to donate to.
             With the help of our search filters and ask platform, it becomes
-            easier for the people to find their right community to serve.
+            easier for the people to find the right community to serve.
           </p>
         </div>
       </div>
