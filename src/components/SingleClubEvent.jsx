@@ -23,7 +23,7 @@ export default function SingleClubEvent({ club, type, event }) {
     };
 
     parseEventLocation();
-  }, [event.Eventlocation]);
+  }, [event]);
 
   const nav = useNavigate();
 

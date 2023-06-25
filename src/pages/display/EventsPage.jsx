@@ -160,7 +160,7 @@ const EventsPage = () => {
           </div>
           <div className="filter-option">
             {showFilter &&
-              // !isLoading &&
+              !isLoading &&
               states.map((state, index) => (
                 <div
                   key={index}
