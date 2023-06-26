@@ -201,6 +201,7 @@ function UserLogin() {
                     <img
                       src="https://cdn-icons-png.flaticon.com/512/649/649686.png"
                       alt=""
+                      className="divider"
                       style={{
                         height: "43px",
                         width: "30px",
@@ -213,10 +214,9 @@ function UserLogin() {
                     // src="https://developers.google.com/static/identity/images/btn_google_signin_light_normal_web.png"
                     src="https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png"
                     onClick={handleGoogleAuth}
+                    className="googleLogin"
                     alt="Google Login"
                     style={{
-                      // width: 55,
-                      // height: 55,
                       padding: 10,
                       cursor: "pointer",
                     }}

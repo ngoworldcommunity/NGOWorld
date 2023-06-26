@@ -303,6 +303,7 @@ const UserRegister = () => {
                 <span>
                   <img
                     src="https://cdn-icons-png.flaticon.com/512/649/649686.png"
+                    className="divider"
                     alt=""
                     style={{
                       height: "43px",
@@ -314,6 +315,7 @@ const UserRegister = () => {
                 <img
                   // src="https://developers.google.com/static/identity/images/btn_google_signin_light_normal_web.png"
                   src="https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png"
+                  className="googleRegister"
                   onClick={GoogleLogin}
                   alt="Google Login"
                   style={{
