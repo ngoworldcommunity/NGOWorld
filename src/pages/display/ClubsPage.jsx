@@ -77,7 +77,7 @@ const ClubsPage = () => {
         name: "geolocation",
       });
 
-      if (permissionStatus.state === "denied") {
+      if (permissionStatus.state !== "granted") {
         setFilterState((prevState) => ({
           ...prevState,
           chosenData: {
@@ -86,6 +86,7 @@ const ClubsPage = () => {
               lon: 0,
             },
           },
+          searchLoading: false,
         }));
       }
 

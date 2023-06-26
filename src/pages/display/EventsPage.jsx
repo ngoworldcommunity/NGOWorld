@@ -77,7 +77,7 @@ const EventsPage = () => {
         name: "geolocation",
       });
 
-      if (permissionStatus.state === "denied") {
+      if (permissionStatus.state !== "granted") {
         setFilterState((prevState) => ({
           ...prevState,
           chosenData: {
@@ -95,8 +95,8 @@ const EventsPage = () => {
         ...prevState,
         chosenData: {
           data: {
-            lat: position?.coords.latitude,
-            lon: position?.coords.longitude,
+            lat: position.coords.latitude,
+            lon: position.coords.longitude,
           },
         },
       }));

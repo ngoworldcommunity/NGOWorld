@@ -5,7 +5,7 @@ export const filter = (data, filterName, filterData, type) => {
   }
 
   //when you search based on location eg: lat & lon
-  if (filterName === "location") {
+  if (filterName === "location" && filterData.data) {
     return searchEventsByLocation(
       data,
       filterData.data.lat,
