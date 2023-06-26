@@ -43,9 +43,7 @@ export const LoginUser = async (credentials) => {
     const User = await Axios.post(User_Log, credentials);
     return User;
   } catch (error) {
-    toast.error(error.response.data.message, {
-      position: toast.POSITION.TOP_RIGHT,
-    });
+    return error.response.data;
   }
 };
 
@@ -55,32 +53,27 @@ export const RegisterUser = async (credentials) => {
     const User = await Axios.post(User_Reg, credentials);
     return User;
   } catch (error) {
-    toast.warning(error.response.data.message, {
-      position: toast.POSITION.TOP_RIGHT,
-    });
+    return error.response.data;
   }
 };
 
 //* LOGIN CLUB
 export const LoginClub = async (credentials) => {
   try {
-    const Post = await Axios.post(Club_Log, credentials);
-    return Post;
+    const Data = await Axios.post(Club_Log, credentials);
+    return Data;
   } catch (error) {
-    toast.error(error.response.data.message, {
-      position: toast.POSITION.TOP_RIGHT,
-    });
+    return error.response.data;
   }
 };
 
 //* REGISTER CLUB
 export const RegisterClub = async (credentials) => {
   try {
-    const response = await Axios.post(Club_Reg, credentials);
-    console.log(response);
+    const Data = await Axios.post(Club_Reg, credentials);
+    return Data;
   } catch (error) {
-    console.log(error);
-    alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+    return error.response.data;
   }
 };
 
