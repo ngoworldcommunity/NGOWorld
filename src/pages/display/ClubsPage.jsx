@@ -7,6 +7,7 @@ import { defaultfetcher } from "../../utils/fetcher";
 import { filter } from "../../utils/filter";
 import states from "./StatesData";
 import Button from "../../components/Button";
+import { showErrorToast } from "../../utils/showToast";
 
 const ClubsPage = () => {
   const { data: clubData, isLoading } = useSWR(
@@ -72,19 +73,35 @@ const ClubsPage = () => {
         searchLoading: true,
       }));
 
+      const permissionStatus = await navigator.permissions.query({
+        name: "geolocation",
+      });
+
+      if (permissionStatus.state === "denied") {
+        setFilterState((prevState) => ({
+          ...prevState,
+          chosenData: {
+            data: {
+              lat: 0,
+              lon: 0,
+            },
+          },
+        }));
+      }
+
       const position = await getPosition();
 
       setFilterState((prevState) => ({
         ...prevState,
         chosenData: {
           data: {
-            lat: position.coords.latitude,
-            lon: position.coords.longitude,
+            lat: position?.coords.latitude,
+            lon: position?.coords.longitude,
           },
         },
       }));
     } catch (error) {
-      console.error("Error getting geolocation:", error);
+      showErrorToast("Error getting location");
     } finally {
       setFilterState((prevState) => ({
         ...prevState,
