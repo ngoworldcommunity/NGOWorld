@@ -210,6 +210,10 @@ function UserLogin() {
                     />
                   </span>
 
+                  <div className="left-right-divider pt-2 ">
+                    <p className="px-2">or</p>
+                  </div>
+
                   <img
                     // src="https://developers.google.com/static/identity/images/btn_google_signin_light_normal_web.png"
                     src="https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png"
