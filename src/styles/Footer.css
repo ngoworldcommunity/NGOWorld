@@ -47,17 +47,6 @@
   color: #6b7280 !important;
 }
 
-#reportForm input:-ms-input-placeholder,
-#reportForm textarea:-ms-input-placeholder {
-  /* Internet Explorer */
-  color: #6b7280 !important;
-}
-
-#reportForm input::placeholder,
-#reportForm textarea::placeholder {
-  color: #6b7280 !important;
-}
-
 .btn-close:focus {
   outline: 0;
   box-shadow: none;
@@ -367,7 +356,7 @@
   transition: 0.3s ease-in-out;
 }
 
-.underline-animation:hover{
+.underline-animation:hover {
   color: #e26959;
 }
 
