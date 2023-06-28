@@ -74,7 +74,7 @@ export default function EventCreate() {
         <div className="container py-5 h-100">
           <div className="row d-flex align-items-center justify-content-center ">
             <div className="col-md-8 col-lg-7 col-xl-6">
-              <img src={Events} width="90%" alt="profile-img" />
+              <img src={Events} width="90%" alt="man sitting at a desk with a laptop and a light bulb above his head" />
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">

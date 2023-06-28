@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../styles/DonateBanner.css";
-import donateImg from "../../assets/pictures/donate-banner.png";
+import donateImg from "../../assets/pictures/donate-banner-image.svg";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
@@ -39,7 +39,7 @@ const DonateBanner = () => {
         </button>
       </div>
       <div id="donateCol2">
-        <img src={donateImg} alt="" className="donateImg" />
+        <img src={donateImg} alt="woman sitting in a chair with a doctor and a woman in a chair" className="donateImg" />
       </div>
     </div>
   );
