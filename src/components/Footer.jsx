@@ -349,7 +349,12 @@ const Footer = () => {
         </div>
         <p className="text-light text-center" role="contentinfo">
           Developed by team{" "}
-          <span onClick={clickMilan} style={{ cursor: "pointer" }}>
+          <span
+            onClick={clickMilan}
+            style={{ cursor: "pointer", textDecoration: "none" }}
+            onMouseOver={(e) => (e.target.style.textDecoration = "underline")}
+            onMouseOut={(e) => (e.target.style.textDecoration = "none")}
+          >
             Milan
           </span>{" "}
           &copy; {new Date().getFullYear()}
