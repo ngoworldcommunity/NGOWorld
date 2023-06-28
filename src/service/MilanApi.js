@@ -41,7 +41,6 @@ export const UpdateUser = async (credentials) => {
 export const LoginUser = async (credentials) => {
   try {
     const User = await Axios.post(User_Log, credentials);
-    console.log(User);
     return User;
   } catch (error) {
     toast.error(error.response.data.message, {

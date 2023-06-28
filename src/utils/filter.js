@@ -5,25 +5,28 @@ export const filter = (data, filterName, filterData, type) => {
   }
 
   //when you search based on location eg: lat & lon
-  if (filterName === "location" && filterData.data) {
-    return searchEventsByLocation(
-      data,
-      filterData.data.lat,
-      filterData.data.lon,
-      type,
-    );
+  if (filterName === "location") {
+    if (filterData.data) {
+      return searchByLocation(
+        data,
+        filterData.data.lat,
+        filterData.data.lon,
+        type,
+      );
+    } else {
+      return [];
+    }
   }
 
   //when you search based on places eg: state
   if (filterName === "place") {
     try {
       if (filterData.data) {
-        const filteredData = data.filter((event) => {
-          if (event[type]) {
-            const eventLocation = JSON.parse(event[type]).data.properties;
+        const filteredData = data.filter((item) => {
+          if (item[type]) {
+            const itemLocation = JSON.parse(item[type]).data.properties;
             return (
-              eventLocation.state.toLowerCase() ===
-              filterData.data.toLowerCase()
+              itemLocation.state.toLowerCase() === filterData.data.toLowerCase()
             );
           }
           return false;
@@ -39,24 +42,28 @@ export const filter = (data, filterName, filterData, type) => {
 };
 
 //check which lat and lon value is within the target range
-const searchEventsByLocation = (data, currLat, currLon, type) => {
+const searchByLocation = (data, currLat, currLon, type) => {
   const thresholdDistance = 100; // Threshold distance in kilometers
 
-  const filteredData = data.filter((event) => {
-    if (event.Eventlocation) {
-      const eventLocation = JSON.parse(event[type]).data.properties;
-      const distance = calculateDistance(
-        currLat,
-        currLon,
-        eventLocation.lat,
-        eventLocation.lon,
-      );
-      return distance <= thresholdDistance;
-    }
-    return false;
-  });
+  try {
+    const filteredData = data.filter((item) => {
+      if (item[type]) {
+        const itemLocation = JSON.parse(item[type]).data.properties;
+        const distance = calculateDistance(
+          currLat,
+          currLon,
+          itemLocation.lat,
+          itemLocation.lon,
+        );
+        return distance <= thresholdDistance;
+      }
+      return false;
+    });
 
-  return filteredData;
+    return filteredData;
+  } catch (error) {
+    return [];
+  }
 };
 
 const calculateDistance = (lat1, lon1, lat2, lon2) => {

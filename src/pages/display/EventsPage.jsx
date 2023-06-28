@@ -80,12 +80,8 @@ const EventsPage = () => {
       if (permissionStatus.state !== "granted") {
         setFilterState((prevState) => ({
           ...prevState,
-          chosenData: {
-            data: {
-              lat: 0,
-              lon: 0,
-            },
-          },
+          chosenData: {},
+          searchLoading: true,
         }));
       }
 
@@ -95,7 +91,7 @@ const EventsPage = () => {
         ...prevState,
         chosenData: {
           data: {
-            lat: position.coords.latitude,
+            lat: position?.coords?.latitude,
             lon: position.coords.longitude,
           },
         },

@@ -80,13 +80,8 @@ const ClubsPage = () => {
       if (permissionStatus.state !== "granted") {
         setFilterState((prevState) => ({
           ...prevState,
-          chosenData: {
-            data: {
-              lat: 0,
-              lon: 0,
-            },
-          },
-          searchLoading: false,
+          chosenData: {},
+          searchLoading: true,
         }));
       }
 
