@@ -351,9 +351,19 @@ const Footer = () => {
           Developed by team{" "}
           <span
             onClick={clickMilan}
-            style={{ cursor: "pointer", textDecoration: "none" }}
-            onMouseOver={(e) => (e.target.style.textDecoration = "underline")}
-            onMouseOut={(e) => (e.target.style.textDecoration = "none")}
+            style={{
+              cursor: "pointer",
+              textDecoration: "none",
+              color: "inherit",
+            }}
+            onMouseOver={(e) => {
+              e.target.style.textDecoration = "underline";
+              e.target.style.color = "pink"; // Change to the desired color on hover
+            }}
+            onMouseOut={(e) => {
+              e.target.style.textDecoration = "none";
+              e.target.style.color = "inherit"; // Reset the color on hover out
+            }}
           >
             Milan
           </span>{" "}
