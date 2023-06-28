@@ -170,9 +170,7 @@ export const GoogleAuth = async () => {
     console.log(response.data.url);
     return response.data.url;
   } catch (error) {
-    toast.error(error, {
-      position: toast.POSITION.TOP_RIGHT,
-    });
+    alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
     console.log(error);
   }
 };
