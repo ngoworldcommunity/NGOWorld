@@ -4,18 +4,20 @@ import "../../styles/UserLogin.css";
 import { LoginUser, GoogleAuth, successCallback } from "../../service/MilanApi";
 
 import Cookies from "js-cookie";
-import { toast } from "react-toastify";
-
-import SchemaValidator, { msgLocalise } from "../../utils/validation";
-import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 import { showErrorToast, showSuccessToast } from "../../utils/showToast";
 import Button from "../../components/Button";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import useValidation from "../../hooks/useValidation";
 
 function UserLogin() {
   const Navigate = useNavigate();
+  const [passwordType, setPasswordType] = useState("password");
+  const [credentials, setCredentials] = useState({
+    email: "",
+    password: "",
+  });
 
   function Anchor(props) {
     return (
@@ -28,33 +30,31 @@ function UserLogin() {
     );
   }
 
-  const [credentials, setCredentials] = useState({
-    email: "",
-    password: "",
-  });
-
-  const FormDataProto = {
-    id: "/LoginForm",
-    type: "object",
-    properties: {
-      email: { type: "string", format: "email" },
-      password: { type: "string", minLength: 4 },
-    },
-    required: ["email", "password"],
-  };
-
-  //* To set the value as soon as we input
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
+
   //* Submit to backend
   //* If alright we get a cookie with token
 
+  const callUserLoginAPI = async () => {
+    const Data = await LoginUser(credentials);
+
+    if (Data?.status === 201) {
+      Cookies.set("token", Data?.data?.token);
+      showSuccessToast(Data?.data?.message);
+      Navigate("/");
+    } else {
+      showErrorToast(Data?.data?.message);
+      setCredentials({ email: "", password: "" });
+    }
+  };
+
+
   const handleSubmit = (e) => {
-    toast.clearWaitingQueue();
     e.preventDefault();
-    var validator = SchemaValidator(FormDataProto, { ...credentials });
+
 
     if (validator.valid) {
       const Data = LoginUser(credentials);
@@ -69,22 +69,18 @@ function UserLogin() {
         }
       }).catch(() => {
         showErrorToast("Server error, try again later !");
+
+    const validationErrors = useValidation(credentials);
+    if (validationErrors.length > 0) {
+      validationErrors.forEach((error) => {
+        showErrorToast(error.message);
+
       });
     } else {
-      validator.errors.map(function (e) {
-        return toast(`${e.path[0]} : ${msgLocalise(e)}`, {
-          position: "top-right",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          closeButton: false,
-        });
-      });
+      callUserLoginAPI();
     }
   };
+
 
   //  Google Login
 
@@ -190,9 +186,6 @@ function UserLogin() {
                   </div>
                 </div>
 
-                {/* RememberMe Tab  */}
-
-                {/* Login Button */}
                 <div className="btn-container btn-container-desktop">
                   <Button type="submit" className="login-btn">
                     Login

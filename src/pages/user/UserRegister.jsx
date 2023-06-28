@@ -2,23 +2,36 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { RegisterUser } from "../../service/MilanApi";
 import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
-import SchemaValidator, { msgLocalise } from "../../utils/validation";
-
-//* The styles for Login and Register are essentially same
 import "../../styles/UserLogin.css";
 import { Helmet } from "react-helmet-async";
-import { toast } from "react-toastify";
-import { showSuccessToast } from "../../utils/showToast";
+import { showErrorToast, showSuccessToast } from "../../utils/showToast";
 import Button from "../../components/Button";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import useValidation from "../../hooks/useValidation";
 
 //* api calls for google login
 import { GoogleAuth, successCallback } from "../../service/MilanApi";
 import Cookies from "js-cookie";
 
 const UserRegister = () => {
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
 
+  const [credentials, setCredentials] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    address: "",
+    pincode: "",
+  });
+  const [initialState] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    address: "",
+    pincode: "",
+  });
   const [passwordType, setPasswordType] = useState("password");
 
   const passwordToggle = () => {
@@ -38,14 +51,15 @@ const UserRegister = () => {
     );
   }
 
-  const [credentials, setCredentials] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    address: "",
-    pincode: "",
-  });
+
+//   const [credentials, setCredentials] = useState({
+//     firstname: "",
+//     lastname: "",
+//     email: "",
+//     password: "",
+//     address: "",
+//     pincode: "",
+//   });
 
   const FormDataProto = {
     id: "/SignUpForm",
@@ -75,8 +89,11 @@ const UserRegister = () => {
     ],
   };
 
+//   const handleChange = (e) => {
+//     console.log(e.target.value);
+
   const handleChange = (e) => {
-    console.log(e.target.value);
+
     if (e.target.name === "pincode") {
       if (
         e.target.value.toString().length < 7 &&
@@ -89,22 +106,34 @@ const UserRegister = () => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
+  const callUserSignupAPI = async () => {
+    const Data = await RegisterUser(credentials);
+
+    if (Data?.status === 201) {
+      showSuccessToast(Data?.data?.message);
+      Navigate("/user/login");
+    } else {
+      showErrorToast(Data?.data?.message);
+      setCredentials(initialState);
+    }
+  };
+
   const handleSubmit = async (e) => {
-    toast.clearWaitingQueue();
     e.preventDefault();
+
     var validator = SchemaValidator(FormDataProto, {
       ...credentials,
       pincode: Number(credentials.pincode),
       pincodeString: credentials.pincode.toString(),
     });
 
-    if (validator.valid) {
-      await RegisterUser({
-        ...credentials,
-        pincode: Number(credentials.pincode),
+    const validationErrors = useValidation(credentials, true, false);
+
+
+    if (validationErrors.length > 0) {
+      validationErrors.forEach((error) => {
+        showErrorToast(error.message);
       });
-      showSuccessToast("Registered successfully, please log in !");
-      navigate("/user/login");
     } else {
       validator.errors.map(function (e) {
         console.log(e);
@@ -122,6 +151,7 @@ const UserRegister = () => {
           closeButton: false,
         });
       });
+      callUserSignupAPI();
     }
   };
   //* Google Login
