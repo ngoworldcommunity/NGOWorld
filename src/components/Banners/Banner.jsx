@@ -24,8 +24,9 @@ const Banner = () => {
               {/*  <p className="banner_header2">MILAN</p> */}
               <div>
                 <p className="banner_header3">
-                  We are a hub, trying to connect help and need. Join us and
-                  make the Earth a better place for all to live!
+                  We are a hub which aims to connect NGOs, Charities and users
+                  to collaborate and work together for a better tomorrow. We are
+                  working hard, to connect HELP and NEED.
                 </p>
               </div>
               <div className="banner_signup_btndiv">

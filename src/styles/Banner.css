@@ -98,10 +98,10 @@
   }
 
   .banner_header1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     text-align: center;
     line-height: 60px;
-    margin-bottom: 0px !important;
+    margin-bottom: 0px;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
@@ -118,7 +118,7 @@
   .banner_header3 {
     text-align: center;
     width: 100%;
-    font-size: 1rem;
+    font-size: 18px;
   }
 
   .banner_signup_btndiv {

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import { UpdateUser } from "../../service/MilanApi";
 import Cookies from "js-cookie";
@@ -27,8 +26,7 @@ export default function UserProfile() {
 
   const handleLogout = () => {
     Cookies.remove("token");
-
-    Navigate("/user/login");
+    Navigate("/");
   };
 
   const handleSubmit = (e) => {
