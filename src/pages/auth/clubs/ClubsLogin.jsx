@@ -127,6 +127,7 @@ function ClubLogin() {
                   aria-label="Club email"
                   id="email-des"
                   placeholder="peepal@farm.io"
+                  data-cy="desktop-club-email"
                 />
               </div>
 
@@ -143,6 +144,7 @@ function ClubLogin() {
                   required
                   id="password-des"
                   placeholder="Strg@Pass#122&&S"
+                  data-cy="desktop-club-password"
                 />
 
                 <div

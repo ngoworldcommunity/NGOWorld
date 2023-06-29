@@ -125,7 +125,7 @@ function ClubLogin() {
                   onChange={handleChange}
                   required
                   aria-label="Club email"
-                  id="email-des"
+                  id="desktopUserEmail"
                   placeholder="peepal@farm.io"
                 />
               </div>
@@ -141,7 +141,7 @@ function ClubLogin() {
                   value={credentials.password}
                   onChange={handleChange}
                   required
-                  id="password-des"
+                  id="desktopUserPassword"
                   placeholder="Strg@Pass#122&&S"
                 />
 
