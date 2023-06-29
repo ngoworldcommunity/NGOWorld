@@ -23,7 +23,7 @@ const UserSchema = mongoose.Schema({
     required: false,
   },
   pincode: {
-    type: Number,
+    type: String,
     required: false,
   },
 });
