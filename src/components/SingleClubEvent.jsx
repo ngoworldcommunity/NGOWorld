@@ -16,7 +16,7 @@ export default function SingleClubEvent({ club, type, event }) {
     <>
       <div className="cp_card" onClick={cardButtonHandler}>
         <div className="cp_card_imgdiv">
-          <img src={ClubUpperImage} alt="" />
+          <img src={ClubUpperImage} alt="woman sitting in a lotus pose" />
         </div>
         <div className="cp_card_textdiv">
           <p className="cp_card_name">
