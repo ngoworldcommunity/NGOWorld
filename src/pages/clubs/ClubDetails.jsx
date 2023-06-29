@@ -5,6 +5,7 @@ import displayRazorpay from "../../service/PaymentGateway";
 import Modal from "../../components/Modal";
 import useSWR from "swr";
 import { defaultfetcher } from "../../utils/fetcher";
+import Navbar from "../../components/Navbar";
 
 function ClubDetailsCard() {
   const params = useParams();
@@ -27,12 +28,14 @@ function ClubDetailsCard() {
 
   useEffect(() => {
     loadScript("https://checkout.razorpay.com/v1/checkout.js");
-  });
+  }, []);
 
   const { data: clubdetails } = useSWR(
     `${import.meta.env.VITE_MILANAPI}/display/clubs?id=${params.id}`,
     defaultfetcher,
   );
+
+  console.log(clubdetails);
 
   const closePayModal = () => {
     setshowPaymodal(false);
@@ -41,9 +44,14 @@ function ClubDetailsCard() {
 
   return (
     <>
+      <Navbar />
+
       <div className="clubdetails_parent">
         <div className="clubdetails_imagediv">
-          <img src="https://i.ibb.co/88dTvtR/We-love-earth.png" alt={clubdetails.name} />
+          <img
+            src="https://i.ibb.co/88dTvtR/We-love-earth.png"
+            alt={clubdetails?.name}
+          />
         </div>
 
         <div className="clubdetails_textdiv">
