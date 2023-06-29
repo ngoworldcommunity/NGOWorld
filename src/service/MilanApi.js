@@ -167,7 +167,6 @@ export const CreateEvent = async (eventdata) => {
 export const GoogleAuth = async () => {
   try {
     const response = await Axios.get(`${API}/auth/google`);
-    console.log(response.data.url);
     return response.data.url;
   } catch (error) {
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");

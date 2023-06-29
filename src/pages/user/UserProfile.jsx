@@ -28,7 +28,7 @@ export default function UserProfile() {
 
   const handleLogout = async () => {
     const logout = await logoutCallback();
-    console.log(logout);
+
     if (logout) {
       Cookies.remove("ssid");
       Cookies.remove("token");

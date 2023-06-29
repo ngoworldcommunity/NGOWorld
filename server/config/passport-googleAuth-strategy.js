@@ -35,8 +35,9 @@ passport.use(
           // if not found, create the use and set it as req.user
           let firstname = profile.displayName.split(" ")[0];
           let lastname = profile.displayName.split(" ")[1];
-          // const userAddress = addressProfile.data.addresses[0]?.formattedValue;
-          // const userPincode = addressProfile.data.addresses[0]?.postalCode;
+
+          if (!lastname) lastname = " ";
+
           User.create(
             {
               firstname: firstname,
