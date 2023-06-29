@@ -114,7 +114,7 @@ const Navbar = () => {
                   <img
                     onClick={handleNavigate}
                     src={ProfilePicture}
-                    alt="lol"
+                    alt="user profile"
                     className="nav_user_img"
                   />
                 ) : (

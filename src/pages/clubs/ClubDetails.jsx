@@ -43,7 +43,7 @@ function ClubDetailsCard() {
     <>
       <div className="clubdetails_parent">
         <div className="clubdetails_imagediv">
-          <img src="https://i.ibb.co/88dTvtR/We-love-earth.png" alt="" />
+          <img src="https://i.ibb.co/88dTvtR/We-love-earth.png" alt={clubdetails.name} />
         </div>
 
         <div className="clubdetails_textdiv">
