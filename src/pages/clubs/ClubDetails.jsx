@@ -35,7 +35,6 @@ function ClubDetailsCard() {
     defaultfetcher,
   );
 
-  console.log(clubdetails);
 
   const closePayModal = () => {
     setshowPaymodal(false);
