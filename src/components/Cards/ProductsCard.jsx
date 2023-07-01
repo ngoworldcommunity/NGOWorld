@@ -22,7 +22,7 @@ const ProductsCard = ({ product }) => {
       <Link passHref href={`/products`}>
         <div className="pb_cardmain">
           <div className="pb_cardimgdiv">
-            <img src={product.img} alt="" />
+            <img src={product.img} alt={product.name} />
           </div>
           <div className="pb_cardtextdiv">
             <p>{product.name}</p>

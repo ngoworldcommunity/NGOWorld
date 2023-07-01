@@ -57,7 +57,7 @@
 .outline:hover,
 .outline:active {
   background-color: #e26959;
-  color: #fff;
+  color: #000;
 }
 
 .outline:disabled {

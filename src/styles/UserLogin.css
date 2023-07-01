@@ -43,10 +43,10 @@ form .btn-container-desktop {
   letter-spacing: 1px;
 }
 
-.form-control:focus {
+/* .form-control:focus {
   box-shadow: 0 0 11px 0.1rem #e26959 !important;
   border: none;
-}
+} */
 
 @media screen and (max-width: 800px) {
   h1 {
@@ -106,7 +106,7 @@ form .btn-container-desktop {
   display: none;
 }
 
-.toggle-button{
+.toggle-button {
   border: none;
   background: none;
   outline: none;
@@ -116,8 +116,14 @@ form .btn-container-desktop {
   margin-right: 0.9rem;
 }
 
-#password, #mobileClubPassword, #desktopClubPassword, #desktopUserPassword, 
-#password-mob, #password-des, #confirm-password-mob, #confirm-password-des{
+#password,
+#mobileClubPassword,
+#desktopClubPassword,
+#desktopUserPassword,
+#password-mob,
+#password-des,
+#confirm-password-mob,
+#confirm-password-des {
   padding-right: 2.5rem;
 }
 

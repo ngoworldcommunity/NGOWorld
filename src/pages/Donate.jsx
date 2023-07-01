@@ -1,7 +1,6 @@
 // This is the donate page where we come and select clubs to donate an amount !
 
 import React, { useEffect, useState } from "react";
-import donate_image1 from "../assets/pictures/donate_image1.svg";
 import SingleClubEvent from "../components/SingleClubEvent";
 import { GetAllClubs } from "../service/MilanApi";
 import "../styles/Donate.css";
@@ -70,9 +69,9 @@ const Donate = () => {
       </Helmet>
 
       <div id="donate_banner" className="container">
-        <div id="donateCol2">
-          <img src={donate_image1} alt="" className="donate_img" />
-        </div>
+        {/* <div id="donateCol2">
+          <img src={donate_image1} alt="woman sitting in a chair with a doctor and a woman in a chair" className="donate_img" />
+        </div> */}
 
         <div
           id="donatecol_1"
@@ -81,8 +80,7 @@ const Donate = () => {
           <h1 className="mb-4">Yes, you help live !!</h1>
           <p>
             Donations do play an important part in our annual funds, donations
-            from your end help thousands of unfortunate people live their
-            lives.
+            from your end help thousands of unfortunate people live their lives.
           </p>
           <p>
             Choose any club, donate whatever you want, even 5 rupees helps !
