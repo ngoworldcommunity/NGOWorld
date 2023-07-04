@@ -23,6 +23,7 @@ import UserForgotpassword from "./pages/user/UserForgotpassword";
 import "./styles/App.css";
 import ShopCategory from "./pages/shops/ShopCategory";
 import Error404 from "./pages/Error404";
+import DetailedProduct from "./pages/shops/DetailedProduct";
 
 const App = () => {
   return (
@@ -72,6 +73,13 @@ const App = () => {
             <Route exact path="/shop" element={<ShopLanding />} />
             <Route exact path="/shop/:category" element={<ShopCategory />} />
             <Route path={"/*"} element={<Error404 />} />
+
+            {/* //* Product */}
+            <Route
+              exact
+              path="/shop/:category/:slug"
+              element={<DetailedProduct />}
+            />
           </Routes>
         </Router>
       </MilanState>

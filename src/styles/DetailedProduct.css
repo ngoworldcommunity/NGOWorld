@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.singleProduct{
+    padding: 100px;
+    display: flex;
+}
+
+.singleProduct .Details{
+    display: flex;
+    flex-direction: column;
+}
+
+.Details h1,h5,h4{
+    padding: 10px;
+    word-spacing: 2px;
+}

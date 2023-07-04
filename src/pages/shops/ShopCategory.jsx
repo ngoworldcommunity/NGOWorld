@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Products from "../../components/shop/Products";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 const ShopCategory = () => {
   const { category } = useParams();
@@ -11,6 +13,7 @@ const ShopCategory = () => {
 
   return (
     <>
+      <Navbar />
       <div className="container">
         <div className="shop_main_parent">
           <div className="shop_subparent">
@@ -25,8 +28,8 @@ const ShopCategory = () => {
 
               <p className="shop_header2">
                 All the products listed here, are made by our members, local
-                charities, NGOs, and orphanages. We don't take any profit from the
-                sales.
+                charities, NGOs, and orphanages. We don&apos;t take any profit
+                from the sales.
               </p>
             </div>
           </div>
@@ -34,6 +37,7 @@ const ShopCategory = () => {
           <Products showtitle={false} category={category} />
         </div>
       </div>
+      <Footer />
     </>
   );
 };

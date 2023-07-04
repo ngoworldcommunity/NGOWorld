@@ -19,31 +19,31 @@ const ProductsCard = ({ product }) => {
         </div>
       </div> */}
 
-      <Link passHref href={`/products`}>
-        <div className="pb_cardmain">
-          <div className="pb_cardimgdiv">
-            <img src={product.img} alt={product.name} />
-          </div>
-          <div className="pb_cardtextdiv">
+      <div className="pb_cardmain">
+        <div className="pb_cardimgdiv">
+          <img src={product.img} alt="" />
+        </div>
+        <div className="pb_cardtextdiv">
+          <Link to={`/shop/${product.category}/${product.slug}`}>
             <p>{product.name}</p>
+          </Link>
 
-            <div>
-              <p>⭐⭐⭐⭐⭐</p>
-              <p className="pb_price">
-                <FormatPrice price={1000} />
-              </p>
-            </div>
-          </div>
-          <div className="card_cart">
-            <img
-              src="https://shop-coders.vercel.app/_next/static/media/cart.a9a33008.svg"
-              width={32}
-              height={32}
-              alt="cart"
-            />
+          <div>
+            <p>⭐⭐⭐⭐⭐</p>
+            <p className="pb_price">
+              <FormatPrice price={1000} />
+            </p>
           </div>
         </div>
-      </Link>
+        <div className="card_cart">
+          <img
+            src="https://shop-coders.vercel.app/_next/static/media/cart.a9a33008.svg"
+            width={32}
+            height={32}
+            alt="cart"
+          />
+        </div>
+      </div>
     </>
   );
 };
