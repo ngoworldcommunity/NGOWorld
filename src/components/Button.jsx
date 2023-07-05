@@ -10,6 +10,7 @@ const Button = ({
   className = "",
   size = "",
   to = "",
+  disabled = false,
   ...props
 }) => {
   const classes = `btn ${styles.btn} ${className} ${styles[variant]} ${
@@ -25,7 +26,13 @@ const Button = ({
   }
 
   return (
-    <button type={type} className={classes} onClick={onClick} {...props}>
+    <button
+      type={type}
+      disabled={disabled}
+      className={classes}
+      onClick={onClick}
+      {...props}
+    >
       {children}
     </button>
   );

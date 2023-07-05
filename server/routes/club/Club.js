@@ -59,9 +59,8 @@ router.post("/login", async (req, res) => {
     const payload = { Club: { id: existingUser.email } };
 
     jwt.sign(payload, process.env.JWT_SECRET, (err, token) => {
-      // console.log(token);
       if (err) throw new Error("Something Went Wrong!!");
-      res.status(201).json({ token, isuser: false });
+      res.status(201).json({ token, isuser: false, message: "Logged you in!" });
     });
   } catch (e) {
     res.status(500).json({ success: false });

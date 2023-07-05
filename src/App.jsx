@@ -20,8 +20,6 @@ import MilanState from "./context/MilanState";
 import ClubForgotpassword from "./pages/clubs/ClubForgotpassword";
 import ClubDetailsCard from "./pages/clubs/ClubDetails";
 import UserForgotpassword from "./pages/user/UserForgotpassword";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import "./styles/App.css";
 import ShopCategory from "./pages/shops/ShopCategory";
 import Error404 from "./pages/Error404";
@@ -31,7 +29,6 @@ const App = () => {
     <>
       <MilanState>
         <Router>
-          <Navbar />
           <Routes>
             {/* //* Home routes */}
 
@@ -76,8 +73,6 @@ const App = () => {
             <Route exact path="/shop/:category" element={<ShopCategory />} />
             <Route path={"/*"} element={<Error404 />} />
           </Routes>
-          {/* <Footer /> */}
-          <Footer />
         </Router>
       </MilanState>
     </>

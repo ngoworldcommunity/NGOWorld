@@ -2,6 +2,7 @@ const useValidation = (credentials, userSignup, clubSignup) => {
   const errors = [];
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const nameRegex = /^[a-zA-Z]+$/;
+  const clubnameRegex = /^[a-zA-Z\s]+$/;
 
   if (!credentials.email) {
     errors.push({ error: true, message: "Please enter your email" });
@@ -51,7 +52,7 @@ const useValidation = (credentials, userSignup, clubSignup) => {
   if (clubSignup) {
     if (!credentials.name) {
       errors.push({ error: true, message: "Please enter your club name" });
-    } else if (!nameRegex.test(credentials.name)) {
+    } else if (!clubnameRegex.test(credentials.name)) {
       errors.push({ error: true, message: "Please enter a valid club name" });
     } else if (credentials.name.length < 3 || credentials.name.length > 30) {
       errors.push({
@@ -62,11 +63,6 @@ const useValidation = (credentials, userSignup, clubSignup) => {
 
     if (!credentials.tagLine) {
       errors.push({ error: true, message: "Please enter your club tagline" });
-    } else if (!nameRegex.test(credentials.tagLine)) {
-      errors.push({
-        error: true,
-        message: "Please enter a valid club tagline",
-      });
     } else if (
       credentials.tagLine.length < 3 ||
       credentials.tagLine.length > 100
@@ -74,6 +70,21 @@ const useValidation = (credentials, userSignup, clubSignup) => {
       errors.push({
         error: true,
         message: "Club tagline must be between 3 and 100 characters long",
+      });
+    }
+
+    if (!credentials.description) {
+      errors.push({
+        error: true,
+        message: "Please enter your club description",
+      });
+    } else if (
+      credentials.description.length < 3 ||
+      credentials.description.length > 1000
+    ) {
+      errors.push({
+        error: true,
+        message: "Club description must be between 3 and 1000 characters long",
       });
     }
   }
@@ -91,8 +102,12 @@ const useValidation = (credentials, userSignup, clubSignup) => {
       });
     }
 
+    const pincode = credentials?.pincode?.toString();
+
     if (!credentials.pincode) {
       errors.push({ error: true, message: "Please enter your pincode" });
+    } else if (pincode.length !== 6) {
+      errors.push({ error: true, message: "Please enter a valid pincode" });
     }
   }
 
