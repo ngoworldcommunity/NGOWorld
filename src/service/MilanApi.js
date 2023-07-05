@@ -83,7 +83,6 @@ export const GetAllClubs = async () => {
     const response = await Axios.get(All_Clubs);
     return response.data;
   } catch (error) {
-    console.log(error);
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
   }
 };
@@ -95,7 +94,6 @@ export const getClubDetails = async (id) => {
     const response = await Axios.get(`${API}/display/clubs?id=${id}`);
     return response.data;
   } catch (error) {
-    console.log(error);
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
   }
 };
@@ -112,7 +110,6 @@ export const ReportProblem = async (credentials) => {
       return false;
     }
   } catch (error) {
-    console.log(error);
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
   }
 };
@@ -123,7 +120,6 @@ export const GetAllEvents = async () => {
     const response = await Axios.get(All_Events);
     return response.data;
   } catch (error) {
-    console.log(error);
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
   }
 };
@@ -148,6 +144,5 @@ export const CreateEvent = async (eventdata) => {
     toast.error(error, {
       position: toast.POSITION.TOP_RIGHT,
     });
-    console.log(error);
   }
 };
