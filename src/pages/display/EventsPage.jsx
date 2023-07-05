@@ -4,6 +4,8 @@ import Loading from "../../components/Loading";
 import SingleClubEvent from "../../components/SingleClubEvent";
 import useSWR from "swr";
 import { defaultfetcher } from "../../utils/fetcher";
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
 
 const EventsPage = () => {
   const { data: eventsData, isLoading } = useSWR(
@@ -25,7 +27,7 @@ const EventsPage = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-
+      <Navbar />
       <div className="container">
         <div className="cp_main_parent">
           <div className="cp_subparent">
@@ -58,6 +60,7 @@ const EventsPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

@@ -46,9 +46,7 @@ export const LoginUser = async (credentials) => {
     const User = await Axios.post(User_Log, credentials);
     return User;
   } catch (error) {
-    toast.error(error.response.data.message, {
-      position: toast.POSITION.TOP_RIGHT,
-    });
+    return error.response.data;
   }
 };
 
@@ -58,32 +56,27 @@ export const RegisterUser = async (credentials) => {
     const User = await Axios.post(User_Reg, credentials);
     return User;
   } catch (error) {
-    toast.warning(error.response.data.message, {
-      position: toast.POSITION.TOP_RIGHT,
-    });
+    return error.response.data;
   }
 };
 
 //* LOGIN CLUB
 export const LoginClub = async (credentials) => {
   try {
-    const Post = await Axios.post(Club_Log, credentials);
-    return Post;
+    const Data = await Axios.post(Club_Log, credentials);
+    return Data;
   } catch (error) {
-    toast.error(error.response.data.message, {
-      position: toast.POSITION.TOP_RIGHT,
-    });
+    return error.response.data;
   }
 };
 
 //* REGISTER CLUB
 export const RegisterClub = async (credentials) => {
   try {
-    const response = await Axios.post(Club_Reg, credentials);
-    console.log(response);
+    const Data = await Axios.post(Club_Reg, credentials);
+    return Data;
   } catch (error) {
-    console.log(error);
-    alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+    return error.response.data;
   }
 };
 
@@ -93,7 +86,6 @@ export const GetAllClubs = async () => {
     const response = await Axios.get(All_Clubs);
     return response.data;
   } catch (error) {
-    console.log(error);
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
   }
 };
@@ -105,7 +97,6 @@ export const getClubDetails = async (id) => {
     const response = await Axios.get(`${API}/display/clubs?id=${id}`);
     return response.data;
   } catch (error) {
-    console.log(error);
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
   }
 };
@@ -122,7 +113,6 @@ export const ReportProblem = async (credentials) => {
       return false;
     }
   } catch (error) {
-    console.log(error);
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
   }
 };
@@ -133,7 +123,6 @@ export const GetAllEvents = async () => {
     const response = await Axios.get(All_Events);
     return response.data;
   } catch (error) {
-    console.log(error);
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
   }
 };
@@ -158,7 +147,6 @@ export const CreateEvent = async (eventdata) => {
     toast.error(error, {
       position: toast.POSITION.TOP_RIGHT,
     });
-    console.log(error);
   }
 };
 

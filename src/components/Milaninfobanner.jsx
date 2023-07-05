@@ -75,7 +75,7 @@ const Milaninfobanner = () => {
           >
             <img
               src={MilanLanding2}
-              alt="a group of people in different poses"
+              alt="group of people holding boxes"
               width={430}
               height={430}
             />
@@ -88,7 +88,7 @@ const Milaninfobanner = () => {
           <div className="mib_imgdiv">
             <img
               src={LandingMobile}
-              alt="a group of people in different poses"
+              alt="collage of images of people shaking hands"
               width={324}
               height={324}
             />

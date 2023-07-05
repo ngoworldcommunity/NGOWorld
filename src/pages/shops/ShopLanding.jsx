@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Products from "../../components/shop/Products";
 import "../../styles/ShopLanding.css";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 const ShopLanding = () => {
   React.useEffect(() => {
@@ -19,7 +21,7 @@ const ShopLanding = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-
+      <Navbar />
       <div className="container">
         <div className="shop_main_parent">
           <div className="shop_subparent">
@@ -62,6 +64,8 @@ const ShopLanding = () => {
           <br />
         </div>
       </div>
+
+      <Footer />
     </>
   );
 };
