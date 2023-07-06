@@ -32,6 +32,7 @@ const Navbar = () => {
   const navigateToURL = (url) => {
     isSignUpModalOpen && toggleSignUpModal();
     isSignInModalOpen && toggleSignInModal();
+    setIsNavbarOpen(false); // Close the navbar
     navigate(url);
   };
 
@@ -73,7 +74,9 @@ const Navbar = () => {
             >
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li className="nav-item home">
-                  <Link to={"/"}>Home</Link>
+                  <Link to={"/"} onClick={() => setIsNavbarOpen(false)}>
+                    Home
+                  </Link>
                   <div
                     className={
                       "" + (location.pathname === "/" ? "active-link" : "")
@@ -82,7 +85,9 @@ const Navbar = () => {
                 </li>
 
                 <li className="nav-item home">
-                  <Link to={"/clubs"}>Clubs</Link>
+                  <Link to={"/clubs"} onClick={() => setIsNavbarOpen(false)}>
+                    Clubs
+                  </Link>
                   <div
                     className={
                       "" + (location.pathname === "/clubs" ? "active-link" : "")
@@ -91,7 +96,9 @@ const Navbar = () => {
                 </li>
 
                 <li className="nav-item home">
-                  <Link to="/events">Events</Link>
+                  <Link to="/events" onClick={() => setIsNavbarOpen(false)}>
+                    Events
+                  </Link>
                   <div
                     className={
                       "" +
@@ -101,7 +108,9 @@ const Navbar = () => {
                 </li>
 
                 <li className="nav-item home">
-                  <Link to="/shop">Shop</Link>
+                  <Link to="/shop" onClick={() => setIsNavbarOpen(false)}>
+                    Shop
+                  </Link>
                   <div
                     className={
                       "" + (location.pathname === "/shop" ? "active-link" : "")
