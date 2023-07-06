@@ -10,9 +10,9 @@
 </div>
 <br>
 
-**With Milan we help users, NGOs, Clubs & Charities connect with the world.**
+**Connecting Help and Need.**
 
-Join as a User, NGO, Club, or Charity, and help us make the world a better place. You can donate, buy, sell, volunteer, and help us in multiple ways. We also have an events tab for organizations to post their events for users to attend without a lot of hassle.
+We are a hub that aims to connect NGOs, Charities, and users to collaborate and work together for a better tomorrow. We are working hard, to connect HELP and NEED. You can join us as a club/NGO/Charity OR as a User. Post events, join events, gather funds, and set up your shop to support yourself. 
 
 <br/>
 
