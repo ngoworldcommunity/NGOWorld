@@ -13,7 +13,7 @@ export default function AboutUs() {
         className="d-flex justify-content-between align-items-center"
       >
         <div className="abtCol1 me-5">
-          <img src={abtImg} alt="" className="abtImg" />
+          <img src={abtImg} alt="group of people holding devices" className="abtImg" />
         </div>
         <div className="abtCol2 d-flex flex-column align-items-start ms-5">
           <h1>MILAN</h1>

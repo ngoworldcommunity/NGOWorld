@@ -13,7 +13,7 @@ export default function ClubBanner() {
   return (
     <div id="events-banner" className="d-flex justify-content-evenly">
       <div id="eventsCol1" className="me-4">
-        <img src={clubCuate} alt="events" className="eventsImg" />
+        <img src={clubCuate} alt="man holding a pencil next to a calendar" className="eventsImg" />
       </div>
       <div
         id="eventsCol2"

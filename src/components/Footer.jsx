@@ -19,6 +19,10 @@ const Footer = () => {
   const [logged, setLogged] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
+  const clickMilan = () => {
+    window.open("https://milaan.vercel.app/");
+  };
+
   const handleReportModalOpen = () => {
     document.previousTitle = document.title;
     document.title = "Milan | Report an issue";
@@ -177,7 +181,11 @@ const Footer = () => {
               />
             </div>
             <div className="text-center">
-              <Button className="btn-hover" role="button" onClick={handleReportSubmit}>
+              <Button
+                className="btn-hover"
+                role="button"
+                onClick={handleReportSubmit}
+              >
                 Submit
               </Button>
             </div>
@@ -192,7 +200,7 @@ const Footer = () => {
         <div className="row">
           <div className="col-lg-5 col-md-5 mb-lg-0 px-5">
             <div className="col-sm-3 col-6  col-lg-3 mx-auto mx-lg-0">
-              <img src={solidarity} alt="" className="mt-4 mx-auto img-fluid" />
+              <img src={solidarity} alt="milan logo" className="mt-4 mx-auto img-fluid" />
             </div>
             {isMobile ? (
               <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4 mt-2">
@@ -206,11 +214,10 @@ const Footer = () => {
                   href="https://github.com/IAmTamal/Milan"
                   target="_blank"
                   rel="noreferrer"
-                className="underline-animation"
+                  className="underline-animation"
                 >
                   here
                 </a>
-                
               </p>
             )}
           </div>
@@ -267,7 +274,7 @@ const Footer = () => {
                   <a
                     href="https://twitter.com/mrTamall"
                     target="_blank"
-                    rel="noopener noreferrer" 
+                    rel="noopener noreferrer"
                     className="text-decoration-none footer_auth_text"
                   >
                     Twitter
@@ -277,7 +284,7 @@ const Footer = () => {
                   <a
                     href="https://github.com/IAmTamal/Milan"
                     target="_blank"
-                    rel="noopener noreferrer" 
+                    rel="noopener noreferrer"
                     className="text-decoration-none footer_auth_text"
                   >
                     GitHub
@@ -317,7 +324,7 @@ const Footer = () => {
           <div className="twitter social-btn">
             <a
               href="https://twitter.com/mrTamall"
-              rel="noopener noreferrer" 
+              rel="noopener noreferrer"
               aria-label="Follow me on Twitter"
               target="_blank"
             >
@@ -327,7 +334,7 @@ const Footer = () => {
           <div className="github social-btn">
             <a
               href="https://github.com/IAmTamal/Milan"
-              rel="noopener noreferrer" 
+              rel="noopener noreferrer"
               aria-label="Follow me on Github"
               target="_blank"
             >
@@ -335,16 +342,32 @@ const Footer = () => {
             </a>
           </div>
           <div className="cont social-btn">
-            <Link 
-              to={"/contact"} 
-              aria-label="Contact Us"
-            >
+            <Link to={"/contact"} aria-label="Contact Us">
               <i className="cont-icon fa-solid fa-message"></i>
             </Link>
           </div>
         </div>
         <p className="text-light text-center" role="contentinfo">
-          Developed by team Milan &copy; {new Date().getFullYear()}
+          Developed by team{" "}
+          <span
+            onClick={clickMilan}
+            style={{
+              cursor: "pointer",
+              textDecoration: "none",
+              color: "inherit",
+            }}
+            onMouseOver={(e) => {
+              e.target.style.textDecoration = "underline";
+              e.target.style.color = "pink"; // Change to the desired color on hover
+            }}
+            onMouseOut={(e) => {
+              e.target.style.textDecoration = "none";
+              e.target.style.color = "inherit"; // Reset the color on hover out
+            }}
+          >
+            Milan
+          </span>{" "}
+          &copy; {new Date().getFullYear()}
         </p>
       </div>
     </footer>

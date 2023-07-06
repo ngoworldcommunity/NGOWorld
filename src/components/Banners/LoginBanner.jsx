@@ -1,10 +1,10 @@
 import "../../styles/LoginBanner.css";
-import picture from "../../assets/pictures/loginBanner.svg";
+import picture from "../../assets/pictures/authpages/authbannerimg.svg";
 
 const LoginBanner = () => {
   return (
     <div className="login-banner-container">
-      <img src={picture} alt="login-img" />
+      <img src={picture} alt="woman standing next to a circle with a tree and arrow" />
       <br />
       <div className="login-banner-content">
         <h1>Welcome to Milan, a place where help meets need !!</h1>

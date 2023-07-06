@@ -8,6 +8,9 @@ import { filter } from "../../utils/filter";
 import states from "./StatesData";
 import Button from "../../components/Button";
 import { showErrorToast } from "../../utils/showToast";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+
 
 const ClubsPage = () => {
   const { data: clubData, isLoading } = useSWR(
@@ -119,6 +122,8 @@ const ClubsPage = () => {
         <link rel="canonical" href="/" />
       </Helmet>
 
+      <Navbar />
+
       <div className="container">
         <div className="cp_main_parent">
           <div className="cp_subparent">
@@ -196,6 +201,8 @@ const ClubsPage = () => {
           </div>
         </div>
       </div>
+
+      <Footer />
     </>
   );
 };
