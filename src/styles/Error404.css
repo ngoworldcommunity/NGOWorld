@@ -4,7 +4,11 @@
 }
 
 .error-img{
-    padding-inline: 25%;
+    height: 60%;
+    width:60%;
+    display: flex;
+    margin: 8vh auto;
+    margin-bottom: 0;
 }
 
 
