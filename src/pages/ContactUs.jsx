@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import "../styles/ContactUs.css";
 import contactImage from "../assets/pictures/contactUs.svg";

@@ -25,19 +25,11 @@ const EventsPage = () => {
   const { chosenFilter, showFilter, chosenData, searchLoading } = filterState;
 
   const handleStateEvents = (state) => {
-    if (chosenData && chosenData.data === state) {
-      setFilterState((prevState) => ({
-        ...prevState,
-        chosenData: {},
-        chosenFilter: "place",
-      }));
-    } else {
-      setFilterState((prevState) => ({
-        ...prevState,
-        chosenData: { data: state },
-        chosenFilter: "place",
-      }));
-    }
+    setFilterState((prevState) => ({
+      ...prevState,
+      chosenData: prevState.chosenData.data === state ? {} : { data: state },
+      chosenFilter: "place",
+    }));
   };
 
   const handleChooseFilter = (type) => {

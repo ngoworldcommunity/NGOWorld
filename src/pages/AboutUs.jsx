@@ -1,10 +1,7 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
 import "../styles/AboutUs.css";
-// eslint-disable-next-line no-unused-vars
-import Navbar from "../components/Navbar";
-// eslint-disable-next-line no-unused-vars
-import Footer from "../components/Footer";
+// import Navbar from "../components/Navbar";
+// import Footer from "../components/Footer";
 import abtImg from "../assets/pictures/aboutus/about-pana.png";
 
 export default function AboutUs() {
