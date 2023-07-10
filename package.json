@@ -60,7 +60,7 @@
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.8",
     "semantic-release": "^19.0.5",
-    "vite": "^4.3.8"
+    "vite": "^4.4.2"
   },
   "lint-staged": {
     "*.{js,jsx}": [
