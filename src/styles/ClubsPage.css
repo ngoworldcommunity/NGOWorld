@@ -53,6 +53,12 @@
   max-height: 536px;
   min-height: 536px;
   position: relative;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.cp_card:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .cp_card_imgdiv img {
@@ -90,16 +96,14 @@
   position: absolute;
   bottom: 15px;
   left: 24%;
-  /* border: 1px solid rgb(137, 134, 134); */
-  /* font-weight: 600; */
   border-radius: 4px;
 }
 
-/* .cp_card_button:hover {
+.cp_card_button:hover {
   background-color: #e26959;
   border: none;
   transition: 500ms;
-} */
+} 
 .filter-option {
   margin-top: 2rem;
   display: flex;

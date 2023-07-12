@@ -8,6 +8,9 @@ import { filter } from "../../utils/filter";
 import states from "./StatesData";
 import Button from "../../components/Button";
 import { showErrorToast } from "../../utils/showToast";
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
+
 
 const EventsPage = () => {
   const { data: eventsData, isLoading } = useSWR(
@@ -118,7 +121,7 @@ const EventsPage = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-
+      <Navbar />
       <div className="container">
         <div className="cp_main_parent">
           <div className="cp_subparent">
@@ -212,6 +215,7 @@ const EventsPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

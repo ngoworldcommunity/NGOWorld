@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import { UpdateUser } from "../../service/MilanApi";
 import Cookies from "js-cookie";
@@ -27,8 +26,7 @@ export default function UserProfile() {
 
   const handleLogout = () => {
     Cookies.remove("token");
-
-    Navigate("/user/login");
+    Navigate("/");
   };
 
   const handleSubmit = (e) => {
@@ -54,7 +52,7 @@ export default function UserProfile() {
               <img
                 src="https://www.getillustrations.com/packs/plastic-illustrations-scene-builder-pack/scenes/_1x/accounts%20_%20man,%20workspace,%20desk,%20laptop,%20login,%20user_md.png"
                 className="img-fluid"
-                alt="Phone"
+                alt="woman sitting in a chair with a laptop"
               />
             </div>
 

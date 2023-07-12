@@ -137,10 +137,13 @@
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
+    font-size: 2.6rem !important;
+    line-height: 2.8rem !important;
   }
 
   .mib_header2 {
     width: 100%;
+    font-size: 18px !important;
   }
 
   .mib_subparent3 .mib_imgdiv img {
