@@ -139,45 +139,48 @@ const ClubsPage = () => {
           >
             <Button
               variant="outline"
-              className="cursor-pointer border border-gray-400 py-2 px-4 m-2 font-semibold shadow"
               onClick={() => handleChooseFilter("location")}
               style={
                 chosenFilter === "location"
                   ? { background: "#e26959", color: "white" }
                   : { background: "white", color: "#e26959" }
               }
+              className="mx-2"
+              id="landingpage-club-signup"
             >
-              <h3>Find Clubs near You</h3>
+              <h4>Find Clubs near You</h4>
             </Button>
             <Button
               variant="outline"
-              className={`cursor-pointer border border-gray-400 py-2 px-4 m-2 font-semibold shadow`}
+              id="landingpage-club-signup"
+              className="mx-2"
+              onClick={() => handleChooseFilter("place")}
               style={
                 showFilter
                   ? { background: "#e26959", color: "white" }
                   : { background: "white", color: "#e26959" }
               }
-              onClick={() => handleChooseFilter("place")}
             >
-              <h3>Find Clubs by States</h3>
+              <h4>Find Clubs by States</h4>
             </Button>
           </div>
           <div className="filter-option">
             {showFilter &&
               !isLoading &&
               states.map((state, index) => (
-                <div
+                <Button
+                  variant="outline"
+                  id="landingpage-club-signup"
                   key={index}
                   onClick={() => handleStateClubs(state)}
-                  className="filter-options-tabs"
                   style={
                     chosenData && chosenData.data === state
                       ? { background: "#e26959", color: "white" }
-                      : { background: "", color: "" }
+                      : { background: "white", color: "#e26959" }
                   }
                 >
-                  <p>{state}</p>
-                </div>
+                  {state}
+                </Button>
               ))}
           </div>
 

@@ -108,29 +108,7 @@
   gap: 2rem;
 }
 
-.filter-options-tabs {
-  font-size: 1rem;
-  height: 10%;
-  width: 15%;
-  padding-top: 2px;
-  padding: 7px;
-  border: 1px solid #e26959;
-  color: #e26959;
-  border-radius: 15px;
 
-  cursor: pointer;
-  text-align: center;
-}
-
-.filter-options-tabs:hover {
-  background: #e26959;
-  color: rgb(237, 241, 244);
-}
-@media screen and (max-width: 1080px) {
-  .filter-options-tabs {
-    width: 25%;
-  }
-}
 
 @media screen and (max-width: 430px) {
   .cp_textdiv {
@@ -140,9 +118,7 @@
     word-break: break-word;
   }
 
-  .filter-options-tabs {
-    width: 25%;
-  }
+
   .cp_header1 {
     font-family: Montserrat, sans-serif;
     font-size: 3rem;
