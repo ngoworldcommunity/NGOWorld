@@ -59,7 +59,7 @@
     "husky": "^8.0.0",
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.8",
-    "semantic-release": "^19.0.5",
+    "semantic-release": "^21.0.7",
     "vite": "^4.4.2"
   },
   "lint-staged": {
