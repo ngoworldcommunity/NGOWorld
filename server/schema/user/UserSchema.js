@@ -26,6 +26,7 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: false,
   },
+   cart:[{id:{type:String}}]
 });
 
 module.exports = mongoose.model("user", UserSchema);
