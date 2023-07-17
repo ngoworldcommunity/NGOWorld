@@ -28,7 +28,7 @@
     "url": "^0.11.0",
     "use-places-autocomplete": "^4.0.0",
     "vite-plugin-svgr": "^2.2.2",
-    "web-vitals": "^3.3.1",
+    "web-vitals": "^3.4.0",
     "zustand": "^4.3.8"
   },
   "scripts": {
