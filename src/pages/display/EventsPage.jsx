@@ -11,7 +11,6 @@ import { showErrorToast } from "../../utils/showToast";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 
-
 const EventsPage = () => {
   const { data: eventsData, isLoading } = useSWR(
     `${import.meta.env.VITE_MILANAPI}/display/allevents`,
@@ -134,6 +133,31 @@ const EventsPage = () => {
               </p>
             </div>
           </div>
+          {/* <>
+            <Button
+              variant="outlined"
+              className=" nav_signin_btn"
+              onClick={() => handleChooseFilter("location")}
+              style={
+                chosenFilter === "location"
+                  ? { background: "#e26959", color: "white" }
+                  : { background: "", color: "" }
+              }
+            >
+              <h4>Find Events near You</h4>
+            </Button>
+            
+            <div className="nav-item home">
+              <Button
+                // size="sm"
+                className=" nav_signup_btn"
+
+                // onClick={toggleSignUpModal}
+              >
+                Sign up
+              </Button>
+            </div>
+          </> */}
           <div
             style={{
               display: "flex",
@@ -142,29 +166,20 @@ const EventsPage = () => {
             }}
           >
             <Button
-              variant="outline"
+              variant="outlined"
+              className="mx-2 nav_signin_btn"
+              style={{
+                background: chosenFilter === "location" ? "#e26959" : "",
+              }}
               onClick={() => handleChooseFilter("location")}
-              style={
-                chosenFilter === "location"
-                  ? { background: "#e26959", color: "white" }
-                  : { background: "white", color: "#e26959" }
-              }
-              className="mx-2"
-              id="landingpage-club-signup"
             >
               <h4>Find Events near You</h4>
             </Button>
-
             <Button
-              variant="outline"
-              id="landingpage-club-signup"
-              className="mx-2"
+              variant="outlined"
+              className="mx-2 nav_signin_btn"
+              style={{ background: showFilter ? "#e26959" : "" }}
               onClick={() => handleChooseFilter("place")}
-              style={
-                showFilter
-                  ? { background: "#e26959", color: "white" }
-                  : { background: "white", color: "#e26959" }
-              }
             >
               <h4>Find Events by States</h4>
             </Button>
@@ -174,15 +189,14 @@ const EventsPage = () => {
               !isLoading &&
               states.map((state, index) => (
                 <Button
-                  variant="outline"
-                  id="landingpage-club-signup"
+                  variant="outlined"
+                  className="nav_signin_btn"
+                  style={{
+                    background:
+                      chosenData && chosenData.data === state ? "#e26959" : "",
+                  }}
                   key={index}
                   onClick={() => handleStateEvents(state)}
-                  style={
-                    chosenData && chosenData.data === state
-                      ? { background: "#e26959", color: "white" }
-                      : { background: "white", color: "#e26959" }
-                  }
                 >
                   {state}
                 </Button>
@@ -196,20 +210,25 @@ const EventsPage = () => {
               <>
                 {searchLoading && <Loading />}
                 {!searchLoading &&
-                  filter(
-                    eventsData,
-                    chosenFilter,
-                    chosenData,
-                    "Eventlocation",
-                  ).map((event) => {
-                    return (
-                      <SingleClubEvent
-                        key={event?._id}
-                        event={event}
-                        type="events"
-                      />
+                  (() => {
+                    const filteredEvents = filter(
+                      eventsData,
+                      chosenFilter,
+                      chosenData,
+                      "Eventlocation",
                     );
-                  })}
+                    if (filteredEvents.length === 0) {
+                      return <p className="cp_header2">No Events Found</p>;
+                    } else {
+                      return filteredEvents.map((event) => (
+                        <SingleClubEvent
+                          key={event?._id}
+                          event={event}
+                          type="events"
+                        />
+                      ));
+                    }
+                  })()}
               </>
             )}
           </div>

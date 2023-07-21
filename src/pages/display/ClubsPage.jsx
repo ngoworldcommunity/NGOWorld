@@ -11,7 +11,6 @@ import { showErrorToast } from "../../utils/showToast";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
-
 const ClubsPage = () => {
   const { data: clubData, isLoading } = useSWR(
     `${import.meta.env.VITE_MILANAPI}/display/clubs`,
@@ -143,28 +142,20 @@ const ClubsPage = () => {
             }}
           >
             <Button
-              variant="outline"
+              variant="outlined"
+              className="mx-2 nav_signin_btn"
+              style={{
+                background: chosenFilter === "location" ? "#e26959" : "",
+              }}
               onClick={() => handleChooseFilter("location")}
-              style={
-                chosenFilter === "location"
-                  ? { background: "#e26959", color: "white" }
-                  : { background: "white", color: "#e26959" }
-              }
-              className="mx-2"
-              id="landingpage-club-signup"
             >
               <h4>Find Clubs near You</h4>
             </Button>
             <Button
-              variant="outline"
-              id="landingpage-club-signup"
-              className="mx-2"
+              variant="outlined"
+              className="mx-2 nav_signin_btn"
+              style={{ background: showFilter ? "#e26959" : "" }}
               onClick={() => handleChooseFilter("place")}
-              style={
-                showFilter
-                  ? { background: "#e26959", color: "white" }
-                  : { background: "white", color: "#e26959" }
-              }
             >
               <h4>Find Clubs by States</h4>
             </Button>
@@ -174,15 +165,14 @@ const ClubsPage = () => {
               !isLoading &&
               states.map((state, index) => (
                 <Button
-                  variant="outline"
-                  id="landingpage-club-signup"
+                  variant="outlined"
+                  className="nav_signin_btn"
+                  style={{
+                    background:
+                      chosenData && chosenData.data === state ? "#e26959" : "",
+                  }}
                   key={index}
                   onClick={() => handleStateClubs(state)}
-                  style={
-                    chosenData && chosenData.data === state
-                      ? { background: "#e26959", color: "white" }
-                      : { background: "white", color: "#e26959" }
-                  }
                 >
                   {state}
                 </Button>
@@ -196,9 +186,21 @@ const ClubsPage = () => {
               <>
                 {searchLoading && <Loading />}
                 {!searchLoading &&
-                  filter(clubData, chosenFilter, chosenData, "address").map(
-                    (club) => <SingleClubEvent key={club?._id} club={club} />,
-                  )}
+                  (() => {
+                    const filteredClubs = filter(
+                      clubData,
+                      chosenFilter,
+                      chosenData,
+                      "address",
+                    );
+                    if (filteredClubs.length === 0) {
+                      return <p className="cp_header2">No Clubs Found</p>;
+                    } else {
+                      return filteredClubs.map((club) => (
+                        <SingleClubEvent key={club?._id} club={club} />
+                      ));
+                    }
+                  })()}
               </>
             )}
           </div>
