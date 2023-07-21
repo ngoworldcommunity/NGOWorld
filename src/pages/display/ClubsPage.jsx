@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Loading from "../../components/Loading";
@@ -134,7 +135,7 @@ const ClubsPage = () => {
               </p>
             </div>
           </div>
-          <div
+          {/* <div
             style={{
               display: "flex",
               justifyContent: "center",
@@ -178,6 +179,32 @@ const ClubsPage = () => {
                 </Button>
               ))}
           </div>
+
+          <div className="cp_cardsdiv">
+            {isLoading ? (
+              <Loading />
+            ) : (
+              <>
+                {searchLoading && <Loading />}
+                {!searchLoading &&
+                  (() => {
+                    const filteredClubs = filter(
+                      clubData,
+                      chosenFilter,
+                      chosenData,
+                      "address",
+                    );
+                    if (filteredClubs.length === 0) {
+                      return <p className="cp_header2">No Clubs Found</p>;
+                    } else {
+                      return filteredClubs.map((club) => (
+                        <SingleClubEvent key={club?._id} club={club} />
+                      ));
+                    }
+                  })()}
+              </>
+            )}
+          </div> */}
 
           <div className="cp_cardsdiv">
             {isLoading ? (

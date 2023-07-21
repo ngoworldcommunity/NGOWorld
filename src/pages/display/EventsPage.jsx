@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Loading from "../../components/Loading";
@@ -133,7 +134,7 @@ const EventsPage = () => {
               </p>
             </div>
           </div>
-          <div
+          {/* <div
             style={{
               display: "flex",
               justifyContent: "center",
@@ -176,7 +177,7 @@ const EventsPage = () => {
                   {state}
                 </Button>
               ))}
-          </div>
+          </div> */}
 
           <div className="cp_cardsdiv">
             {isLoading ? (
