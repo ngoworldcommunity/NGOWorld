@@ -141,8 +141,8 @@ const EventsPage = () => {
             }}
           >
             <Button
-              variant="outlined"
-              className="mx-2 nav_signin_btn"
+              variant="outline"
+              className="mx-2 "
               style={{
                 background: chosenFilter === "location" ? "#e26959" : "",
               }}
@@ -151,8 +151,8 @@ const EventsPage = () => {
               <h4>Find Events near You</h4>
             </Button>
             <Button
-              variant="outlined"
-              className="mx-2 nav_signin_btn"
+              variant="outline"
+              className="mx-2 "
               style={{ background: showFilter ? "#e26959" : "" }}
               onClick={() => handleChooseFilter("place")}
             >
@@ -164,8 +164,8 @@ const EventsPage = () => {
               !isLoading &&
               states.map((state, index) => (
                 <Button
-                  variant="outlined"
-                  className="nav_signin_btn"
+                  variant="outline"
+                  className=""
                   style={{
                     background:
                       chosenData && chosenData.data === state ? "#e26959" : "",

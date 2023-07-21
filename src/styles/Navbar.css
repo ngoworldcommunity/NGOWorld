@@ -157,10 +157,6 @@
   margin: 20px;
 }
 
-.btn:hover {
-  background-color: #e26959;
-}
-
 @media screen and (max-width: 525px) {
   .signUpModalHeader {
     justify-content: center;
