@@ -13,6 +13,15 @@
   font-family: "Mulish", sans-serif;
 }
 
+.city-tabs {
+  position: relative;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 323px));
+  column-gap: 8%;
+  row-gap: 50px;
+  color: red;
+}
 @media screen and (max-width: 1217px) {
   .cards {
     /* padding: 8% 4%; */
