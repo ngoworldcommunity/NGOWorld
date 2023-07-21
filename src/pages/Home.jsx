@@ -2,7 +2,6 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import Banner from "../components/Banners/Banner.jsx";
 import Milaninfobanner from "../components/Milaninfobanner";
-import Navbar from "../components/Navbar.jsx";
 const Home = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -10,7 +9,6 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
       <Helmet>
         <title>Milan | Home</title>
         <meta

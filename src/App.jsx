@@ -24,13 +24,14 @@ import {
 import MilanState from "./context/MilanState";
 import "./styles/App.css";
 import Loading from "./components/Loading";
-
+import Navbar from "./components/Navbar.jsx";
 const App = () => {
   return (
     <>
       <MilanState>
-        <Suspense fallback={<Loading />}>
-          <Router>
+        <Router>
+          <Navbar />
+          <Suspense fallback={<Loading />}>
             <Routes>
               {/* //* Home routes */}
 
@@ -79,8 +80,8 @@ const App = () => {
               <Route exact path="/shop/:category" element={<ShopCategory />} />
               <Route path={"/*"} element={<Error404 />} />
             </Routes>
-          </Router>
-        </Suspense>
+          </Suspense>
+        </Router>
       </MilanState>
     </>
   );

@@ -4,7 +4,6 @@ import Loading from "../../components/Loading";
 import SingleClubEvent from "../../components/SingleClubEvent";
 import useSWR from "swr";
 import { defaultfetcher } from "../../utils/fetcher";
-import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
 const ClubsPage = () => {
@@ -27,8 +26,6 @@ const ClubsPage = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-
-      <Navbar />
 
       <div className="container">
         <div className="cp_main_parent">

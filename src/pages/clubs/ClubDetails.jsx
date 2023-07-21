@@ -5,7 +5,6 @@ import displayRazorpay from "../../service/PaymentGateway";
 import Modal from "../../components/Modal";
 import useSWR from "swr";
 import { defaultfetcher } from "../../utils/fetcher";
-import Navbar from "../../components/Navbar";
 
 function ClubDetailsCard() {
   const params = useParams();
@@ -35,7 +34,6 @@ function ClubDetailsCard() {
     defaultfetcher,
   );
 
-
   const closePayModal = () => {
     setshowPaymodal(false);
     document.body.style.overflow = "auto";
@@ -43,8 +41,6 @@ function ClubDetailsCard() {
 
   return (
     <>
-      <Navbar />
-
       <div className="clubdetails_parent">
         <div className="clubdetails_imagediv">
           <img
