@@ -22,7 +22,7 @@
     "js-yaml": "^4.1.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.1.10",
-    "nodemon": "^2.0.20",
+    "nodemon": "^3.0.1",
     "passport": "^0.6.0",
     "passport-google-oauth20": "^2.0.0",
     "razorpay": "^2.8.3",
