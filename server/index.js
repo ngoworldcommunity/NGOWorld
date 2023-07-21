@@ -8,6 +8,8 @@ const passport = require("passport");
 require("./config/passport-googleAuth-strategy");
 const { swaggerServe, swaggerSetup } = require("./config/swagger");
 
+const path = require("path");
+
 let port = process.env.PORT || 5000;
 const app = express();
 dotenv.config();
@@ -31,7 +33,15 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(express.static(path.join(__dirname, "public")));
 app.use("/api-docs", swaggerServe, swaggerSetup);
+
+app.use(
+  "/docs",
+  express.static("node_modules/swagger-ui-dist/", { index: false }),
+  swaggerServe,
+  swaggerSetup,
+);
 
 //* Home route
 app.get("/", (req, res) => {
