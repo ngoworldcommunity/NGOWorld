@@ -30,7 +30,7 @@ const Banner = () => {
                 {Cookies.get("token") || Cookies.get("club") ? (
                   <div className="banner_btn_div">
                     <Button
-                      className="banner_signup_btn banner_contribute_btn "
+                      className="banner_signup_btn  "
                       to="https://github.com/IAmTamal/Milan"
                       target="_blank"
                       rel="noreferrer"
@@ -40,7 +40,7 @@ const Banner = () => {
                     </Button>
 
                     <Button
-                      className="banner_signup_btn banner_contribute_btn "
+                      className="banner_signup_btn  "
                       to="https://github.com/IAmTamal/Milan"
                       target="_blank"
                       rel="noreferrer"
@@ -56,15 +56,17 @@ const Banner = () => {
                       onClick={toggleSignUpModal}
                       data-cy="landingpage-club-signup"
                       id="landingpage-club-signup"
+                      variant="outline"
                     >
                       Sign up now
                     </Button>
 
                     <Button
-                      className="banner_signup_btn banner_contribute_btn "
-                      to="https://github.com/IAmTamal/Milan"
+                      className="banner_signup_btn  "
+                      to="https://github.com/tamalCodes/Milan"
                       target="_blank"
                       rel="noreferrer"
+                      variant="solid"
                     >
                       <ImGithub className="banner_contribute_logo" />
                       Contribute to Milan
