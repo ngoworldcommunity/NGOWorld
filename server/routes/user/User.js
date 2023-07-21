@@ -112,7 +112,7 @@ router.post("/login", async (req, res) => {
 });
 
 //* Route 3  - Report a Problem
-router.post("/userreport", async (req, res) => {
+router.post("/report", async (req, res) => {
   try {
     const currentHour = new Date().getMinutes();
     const previousReports = await ReportProblem.find({

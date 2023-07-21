@@ -14,7 +14,7 @@ import Navbar from "../../components/Navbar";
 
 const EventsPage = () => {
   const { data: eventsData, isLoading } = useSWR(
-    `${import.meta.env.VITE_MILANAPI}/display/allevents`,
+    `${import.meta.env.VITE_MILANAPI}/display/events`,
     defaultfetcher,
   );
 
@@ -193,10 +193,10 @@ const EventsPage = () => {
                       chosenData,
                       "Eventlocation",
                     );
-                    if (filteredEvents.length === 0) {
+                    if (filteredEvents?.length === 0) {
                       return <p className="cp_header2">No Events Found</p>;
                     } else {
-                      return filteredEvents.map((event) => (
+                      return filteredEvents?.map((event) => (
                         <SingleClubEvent
                           key={event?._id}
                           event={event}

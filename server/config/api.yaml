@@ -1,0 +1,147 @@
+openapi: 3.0.0
+info:
+  title: Milan API
+  description: Feel free to raise an issue or PR [here](https://github.com/tamalCodes/Milan/issues/new/choose).
+  version: 1.0 
+  
+
+servers:
+  - url: http://localhost:5000/
+    description:  Local server 
+  - url: https://test.com/
+    description:  Production server
+  
+
+ 
+components:
+  securitySchemes:
+    ApiTokenss:       
+      type: http
+      scheme: bearer
+    
+    ApiKey:        
+      type: apiKey
+      in: header      
+      name: apikey
+      
+paths:
+  /display/users:
+    get:
+      tags:
+       - Get Data API
+      security:
+       - ApiTokenss: []
+       - ApiKey: []
+      summary: Returns all the users.
+      responses: 
+        '200':
+          description: OK
+          
+  /display/clubs:
+    get:
+      tags:
+       - Get Data API
+      security:
+       - ApiTokenss: []
+       - ApiKey: []
+      summary: Returns all the clubs/NGOs.
+      responses: 
+        '200':
+          description: OK
+
+  /display/events:
+    get:
+      tags:
+       - Get Data API
+      security:
+       - ApiTokenss: []
+       - ApiKey: []
+      summary: Returns all the events.
+      responses: 
+        '200':
+          description: OK
+  
+  /user/register:
+    post:
+      tags:
+        - User Authentication API
+      summary: Creates a new user in the database. 
+      description: <b> Request (required) </b> <br /> <br />
+              - <b> firstname </b> <br /> 
+              - <b> lastname </b> <br /> 
+              - <b> email </b> <br /> 
+              - <b> password </b> <br /> <br /> <br />
+        <b> Request (optional) </b> <br /> <br /> 
+          - <b> address </b> <br /> 
+          - <b> pincode </b> <br /> 
+    
+      post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: 
+                firstname:         
+                  type: string
+                  example: "Tamal"
+                lastname:       
+                  type: string
+                  example: "Das" 
+                email:
+                  type: string
+                  example: "tamalcodes@gmail.com"
+                password:
+                  type: string 
+                  format: password
+                  example: "HelloWorld@123$11"
+                address:
+                  type: string
+                  example: "Salt Lake city, Kolkata"
+                pincode:
+                  type: string
+                  example: "700001"
+         
+      responses:
+        '201':
+          description: User has been signed up. 
+        '409':
+          description: User already exists, must login.
+        '404':
+          description: Not found.
+        default:
+          description: Internal Server Error.
+
+  /user/login:
+    post:
+      tags:
+        - User Authentication API
+      summary: Logs in an user. 
+      description: <b> Request (required) </b> <br /> <br />
+              - <b> email </b> <br /> 
+              - <b> password </b> <br /> 
+    
+      post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: 
+                email:
+                  type: string
+                  example: "tamalcodes@gmail.com"
+                password:
+                  type: string 
+                  format: password
+                  example: "HelloWorld@123$11"
+         
+      responses:
+        '201':
+          description: User has logged in. 
+        '401':
+          description: Invalid Credentials.
+        '404':
+          description: USer was not found.
+        default:
+          description: Internal Server Error.
