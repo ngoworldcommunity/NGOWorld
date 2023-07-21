@@ -23,8 +23,8 @@ import {
 } from "./pages";
 import MilanState from "./context/MilanState";
 import "./styles/App.css";
-import Loading from "./components/Loading";
 import Navbar from "./components/Navbar.jsx";
+import Loading from "./components/Loading";
 const App = () => {
   return (
     <>
