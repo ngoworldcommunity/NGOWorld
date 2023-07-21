@@ -1,4 +1,4 @@
-# What is Milan ? 
+# What is Milan ?
 
 <div align="center">
     
@@ -12,15 +12,13 @@
 
 **Connecting Help and Need.**
 
-We are a hub that aims to connect NGOs, Charities, and users to collaborate and work together for a better tomorrow. We are working hard, to connect HELP and NEED. You can join us as a club/NGO/Charity OR as a User. Post events, join events, gather funds, and set up your shop to support yourself. 
+We are a hub that aims to connect NGOs, Charities, and users to collaborate and work together for a better tomorrow. We are working hard, to connect HELP and NEED. You can join us as a club/NGO/Charity OR as a User. Post events, join events, gather funds, and set up your shop to support yourself.
 
 <br/>
 
 ![TekHub Banner (1)](https://user-images.githubusercontent.com/72851613/207783151-1d2f19cf-afa4-477b-8823-dcabb86adbf5.png)
 
 <br>
-
-
 
 ## Tech Stack 💻
 
@@ -41,25 +39,32 @@ We are a hub that aims to connect NGOs, Charities, and users to collaborate and 
 
 </br>
 
-## Contributing to Milan, Guidelines 🔐
+## Contributing to Milan 🔐
 
-It is expected that all the contributors, especially the `first time contributors` must go through these atleast once while setting up, contributing to this project :
+Remember, Good PR makes you a Good contributor !
 
-1. [Contributing Guidelines](/CONTRIBUTING.md)
-2. [Code of conduct](/CODE_OF_CONDUCT.md)
-3. [Getting the repo on your system](/rules/CloneSetup.md)
-4. [Setting up frontend locally](/rules/FrontendSetup.md)
-5. [Setting up the backend locally](/rules/BackendSetup.md)
-6. [Setting up the app with docker](/rules/DockerSetup.md)
-7. Always look for **[OPEN TO CONTRIBUTE](https://github.com/IAmTamal/Milan/issues?q=is%3Aissue+is%3Aopen+label%3A%22%F0%9F%A4%A9+status+%3A++Up+for+Grab%22)** issues, you can go & get assigned.
+We at Milan work hard to maintain the structure, and use conventional Pull request titles and commits. Without a proper template for the PR, not following the guidelines and spam might get the pull request closed, or banned.
+
+  ### 🚧 Basic guidelines, setup 
+
+  - [Contributing Guidelines](/CONTRIBUTING.md), without following these your PR/issue might be rejected.
+  - [Clone the repo](/rules/CloneSetup.md) properly to avoid any issues.
+  - [Proper API documentation](https://milan-server.onrender.com/docs/) to understand the API endpoints.
+
+  ### 🚧 Code setups
+
+  - [Setting up the Frontend](/rules/FrontendSetup.md)
+  - [Setting up the Backend](/rules/BackendSetup.md)
+  - [Setting up with docker](/rules/DockerSetup.md)
+
+  ### 🚧 Special
+
+  - [Ooen to contribute](https://github.com/IAmTamal/Milan/issues?q=is%3Aissue+is%3Aopen+label%3A%22%F0%9F%A4%A9+status+%3A++Up+for+Grab%22) issues are the issues that are open to contributions, you can work on them.
 
 ## License 👮
-Milan is Licensed under the <a href="./LICENSE">MIT License</a>. Please go through the License atleast once before contributing. 
 
-
+Milan is Licensed under the <a href="./LICENSE">MIT License</a>. Please go through the License atleast once before contributing.
 
 ## Support 🙏
 
 **Don't forget to drop a star ⭐.** A heartfelt thank you to those who have contributed to this project. We are really grateful towards your contribution.You all are amazing. Opensource for the win 🚀
-
-
