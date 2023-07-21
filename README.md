@@ -12,7 +12,7 @@
 
 **Connecting Help and Need.**
 
-We are a hub that aims to connect NGOs, Charities, and users to collaborate and work together for a better tomorrow. We are working hard, to connect HELP and NEED. You can join us as a club/NGO/Charity OR as a User. Post events, join events, gather funds, and set up your shop to support yourself.
+We are a hub that aims to connect NGOs, Charities, and users to collaborate and work together for a better tomorrow. We are working hard, to connect HELP and NEED. You can join us as a club/NGO/Charity OR as a User. Post events, join, gather funds, and set up your shop to support yourself.
 
 <br/>
 
@@ -47,7 +47,7 @@ We at Milan work hard to maintain the structure, and use conventional Pull reque
 
   ### 🚧 Basic guidelines, setup 
 
-  - [Contributing Guidelines](/CONTRIBUTING.md), without following these your PR/issue might be rejected.
+  - [Contributing Guidelines](/CONTRIBUTING.md), your PR/issue might be rejected without following these.
   - [Clone the repo](/rules/CloneSetup.md) properly to avoid any issues.
   - [Proper API documentation](https://milan-server.onrender.com/docs/) to understand the API endpoints.
 
@@ -59,12 +59,12 @@ We at Milan work hard to maintain the structure, and use conventional Pull reque
 
   ### 🚧 Special
 
-  - [Ooen to contribute](https://github.com/IAmTamal/Milan/issues?q=is%3Aissue+is%3Aopen+label%3A%22%F0%9F%A4%A9+status+%3A++Up+for+Grab%22) issues are the issues that are open to contributions, you can work on them.
+  - [Open to contribute](https://github.com/IAmTamal/Milan/issues?q=is%3Aissue+is%3Aopen+label%3A%22%F0%9F%A4%A9+status+%3A++Up+for+Grab%22) issues are the issues that are open to contributions, you can work on them.
 
 ## License 👮
 
-Milan is Licensed under the <a href="./LICENSE">MIT License</a>. Please go through the License atleast once before contributing.
+Milan is Licensed under the <a href="./LICENSE">MIT License</a>. Please go through the License at least once before contributing.
 
 ## Support 🙏
 
-**Don't forget to drop a star ⭐.** A heartfelt thank you to those who have contributed to this project. We are really grateful towards your contribution.You all are amazing. Opensource for the win 🚀
+**Don't forget to drop a star ⭐.** A heartfelt thank you to those who have contributed to this project. We are really grateful for your contribution. You all are amazing. Opensource for the win 🚀
