@@ -133,31 +133,6 @@ const EventsPage = () => {
               </p>
             </div>
           </div>
-          {/* <>
-            <Button
-              variant="outlined"
-              className=" nav_signin_btn"
-              onClick={() => handleChooseFilter("location")}
-              style={
-                chosenFilter === "location"
-                  ? { background: "#e26959", color: "white" }
-                  : { background: "", color: "" }
-              }
-            >
-              <h4>Find Events near You</h4>
-            </Button>
-            
-            <div className="nav-item home">
-              <Button
-                // size="sm"
-                className=" nav_signup_btn"
-
-                // onClick={toggleSignUpModal}
-              >
-                Sign up
-              </Button>
-            </div>
-          </> */}
           <div
             style={{
               display: "flex",
