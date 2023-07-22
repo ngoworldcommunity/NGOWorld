@@ -131,8 +131,8 @@ const Navbar = () => {
                     <div className="nav-item home">
                       <Button
                         size="sm"
-                        variant="outlined"
-                        className=" nav_signin_btn"
+                        variant="outline"
+                        className=" "
                         onClick={toggleSignInModal}
                       >
                         Sign in
