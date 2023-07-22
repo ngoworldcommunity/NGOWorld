@@ -3,6 +3,7 @@ const router = express.Router();
 var jwt = require("jsonwebtoken");
 const passport = require("passport");
 
+let loggedIn = false;
 //* Route 5  - google authentication
 router.get("/google", (req, res) => {
   const googleAuthURL = "https://accounts.google.com/o/oauth2/v2/auth";
@@ -15,16 +16,19 @@ router.get("/google", (req, res) => {
   });
 
   const redirectURL = `${googleAuthURL}?${params}`;
-  res.redirect(redirectURL);
+  return res.json({ url: redirectURL });
 });
 
 //* Route 6  - google authentication callback
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: process.env.successURL,
-    failureRedirect: "/login/failed",
+    failureRedirect: "auth/login/failed",
   }),
+  (req, res) => {
+    loggedIn = false;
+    res.redirect(process.env.successURL);
+  },
 );
 
 //* Route 7  - google authentication failed
@@ -36,15 +40,17 @@ router.get("/login/failed", (req, res) => {
 
 //* Route 8  - google authentication success
 router.get("/login/success", (req, res) => {
-  if (req.user) {
+  if (req.user && !loggedIn) {
     const data = { User: { id: req.user.email } };
+    const token = jwt.sign(data, process.env.JWT_SECRET);
+    loggedIn = true;
 
     res.status(200).json({
       success: true,
       error: false,
       message: "Successfully Loged In",
       user: req.user,
-      accessToken: jwt.sign(data, process.env.JWT_SECRET),
+      accessToken: token,
     });
   } else {
     res.status(403).json({ error: true, message: "Not Authorized" });

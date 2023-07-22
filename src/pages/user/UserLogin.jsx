@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/UserLogin.css";
-import { LoginUser } from "../../service/MilanApi";
+import { LoginUser, GoogleAuth, successCallback } from "../../service/MilanApi";
+
 import Cookies from "js-cookie";
 import { Helmet } from "react-helmet-async";
 import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
@@ -33,6 +34,10 @@ function UserLogin() {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
+
+  //* Submit to backend
+  //* If alright we get a cookie with token
+
   const callUserLoginAPI = async () => {
     const Data = await LoginUser(credentials);
 
@@ -46,18 +51,62 @@ function UserLogin() {
     }
   };
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+
+    if (validator.valid) {
+      const Data = LoginUser(credentials);
+
+      Data.then((response) => {
+        if (response?.data.token) {
+          Cookies.set("token", response.data.token);
+          showSuccessToast("Logged you in!");
+          Navigate("/");
+        } else {
+          setCredentials({ email: "", password: "" });
+        }
+      }).catch(() => {
+        showErrorToast("Server error, try again later !");
 
     const validationErrors = useValidation(credentials);
     if (validationErrors.length > 0) {
       validationErrors.forEach((error) => {
         showErrorToast(error.message);
+
       });
     } else {
       callUserLoginAPI();
     }
   };
+
+
+  //  Google Login
+
+  const handleGoogleAuth = async () => {
+    // Make a request to the backend to get the Google OAuth URL
+    const response = await GoogleAuth();
+    // console.log(response);
+    // const data = await response.json();
+    window.location.href = response;
+  };
+
+  useEffect(() => {
+    const handleToken = async () => {
+      const token = await successCallback();
+      // console.log("Incoming token", token);
+      if (token) {
+        Cookies.set("token", token);
+        showSuccessToast("Logged you in succesfully!");
+        Navigate("/");
+      }
+    };
+
+    handleToken();
+  }, []);
+
+  const [passwordType, setPasswordType] = useState("password");
 
   const passwordToggle = () => {
     if (passwordType === "password") {
@@ -90,6 +139,7 @@ function UserLogin() {
                 className="loginform"
               >
                 <h1 className="mb-2">Login as an User !</h1>
+
                 <div className="form-outline mb-4">
                   <label
                     htmlFor="exampleInputEmail1"
@@ -140,7 +190,36 @@ function UserLogin() {
                   <Button type="submit" className="login-btn">
                     Login
                   </Button>
+                  <span>
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/649/649686.png"
+                      alt=""
+                      className="divider"
+                      style={{
+                        height: "43px",
+                        width: "30px",
+                        paddingLeft: "10px",
+                      }}
+                    />
+                  </span>
+
+                  <div className="left-right-divider pt-2 ">
+                    <p className="px-2">or</p>
+                  </div>
+
+                  <img
+                    // src="https://developers.google.com/static/identity/images/btn_google_signin_light_normal_web.png"
+                    src="https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png"
+                    onClick={handleGoogleAuth}
+                    className="googleLogin"
+                    alt="Google Login"
+                    style={{
+                      padding: 10,
+                      cursor: "pointer",
+                    }}
+                  />
                 </div>
+
                 <br></br>
                 <br></br>
                 <div className="anchor-container anchor-container-desktop">

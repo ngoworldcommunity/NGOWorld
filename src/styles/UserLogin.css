@@ -116,6 +116,7 @@ form .btn-container-desktop {
   margin-right: 0.9rem;
 }
 
+
 #password,
 #mobileClubPassword,
 #desktopClubPassword,
@@ -124,7 +125,33 @@ form .btn-container-desktop {
 #password-des,
 #confirm-password-mob,
 #confirm-password-des {
+
   padding-right: 2.5rem;
+}
+
+.left-right-divider {
+  display: none;
+  align-items: center;
+  text-align: center;
+}
+/* .pb-3 {
+  padding-bottom: 24px;
+} */
+.pt-2 {
+  padding-top: 16px;
+}
+.left-right-divider::before, .left-right-divider::after {
+  height: 1px;
+  width: auto;
+  background-color: rgb(0 0 0 / .35);
+  --tw-content: '';
+  content: var(--tw-content);
+  flex-grow: 1;
+}
+.px-2 {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  margin-bottom: 0.5rem;
 }
 
 @media only screen and (max-width: 430px) {
@@ -151,3 +178,57 @@ form .btn-container-desktop {
     display: none;
   }
 }
+       
+@media only screen and (max-width: 527) {
+.googleRegister{
+margin: 0px;
+width: 10px
+}
+}
+@media only screen and (max-width: 1200px) {
+.googleRegister {
+width: 11rem;
+height: 4rem;
+
+}
+
+}
+@media only screen and (max-width: 801px) {
+  .left-right-divider{
+    display: flex;
+  }
+.googleLogin,
+.googleRegister {
+width: 18rem;
+height: 4.8rem;
+}
+
+.divider {
+display: none;
+}
+
+.googleRegister {
+margin-left: 23px;
+}
+} 
+@media only screen and (max-width: 768px) {
+.googleRegister{
+margin-left: 5.5rem;
+}
+}
+@media only screen and (max-width: 516px) {
+.googleRegister{
+  margin-left: 2.5rem;
+}
+}
+@media only screen and (max-width: 462px) {
+  .googleRegister{
+    margin-left: 0;
+    width: 19rem;
+  }
+  }
+  @media only screen and (max-width: 360px) {
+    .googleRegister{
+      width: 17rem;
+    }
+    }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { RegisterUser } from "../../service/MilanApi";
 import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
@@ -8,6 +8,10 @@ import { showErrorToast, showSuccessToast } from "../../utils/showToast";
 import Button from "../../components/Button";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import useValidation from "../../hooks/useValidation";
+
+//* api calls for google login
+import { GoogleAuth, successCallback } from "../../service/MilanApi";
+import Cookies from "js-cookie";
 
 const UserRegister = () => {
   const Navigate = useNavigate();
@@ -47,7 +51,49 @@ const UserRegister = () => {
     );
   }
 
+
+//   const [credentials, setCredentials] = useState({
+//     firstname: "",
+//     lastname: "",
+//     email: "",
+//     password: "",
+//     address: "",
+//     pincode: "",
+//   });
+
+  const FormDataProto = {
+    id: "/SignUpForm",
+    type: "object",
+    properties: {
+      firstname: { type: "string" },
+      lastname: { type: "string" },
+      email: { type: "string", format: "email" },
+      password: { type: "string", minLength: 8 },
+      address: { type: "string" },
+      pincode: { type: "number", pattern: "[0-9]+" },
+      pincodeString: {
+        type: "string",
+        pattern: "[0-9]+",
+        minLength: 6,
+        maxLength: 6,
+      },
+    },
+    required: [
+      "firstname",
+      "lastname",
+      "email",
+      "password",
+      "address",
+      "pincode",
+      "pincodeString",
+    ],
+  };
+
+//   const handleChange = (e) => {
+//     console.log(e.target.value);
+
   const handleChange = (e) => {
+
     if (e.target.name === "pincode") {
       if (
         e.target.value.toString().length < 7 &&
@@ -74,17 +120,63 @@ const UserRegister = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    var validator = SchemaValidator(FormDataProto, {
+      ...credentials,
+      pincode: Number(credentials.pincode),
+      pincodeString: credentials.pincode.toString(),
+    });
+
     const validationErrors = useValidation(credentials, true, false);
+
 
     if (validationErrors.length > 0) {
       validationErrors.forEach((error) => {
         showErrorToast(error.message);
       });
     } else {
+      validator.errors.map(function (e) {
+        console.log(e);
+        if (e.path[0] === "pincodeString") {
+          e.path[0] = "pincode";
+        }
+        return toast(`${e.path[0]} : ${msgLocalise(e)}`, {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          closeButton: false,
+        });
+      });
       callUserSignupAPI();
     }
   };
+  //* Google Login
+  const GoogleLogin = async () => {
+    // Make a request to the backend to get the Google OAuth URL
+    const response = await GoogleAuth();
+    console.log(response);
+    // const data = await response.json();
+    window.location.href = response;
+  };
 
+  //* check for success or failure
+  useEffect(() => {
+    const handleToken = async () => {
+      const token = await successCallback();
+      console.log("Incoming token", token);
+      if (token) {
+        Cookies.set("token", token);
+        showSuccessToast("Logged you in succesfully!");
+        navigate("/");
+      }
+    };
+
+    handleToken();
+  }, []);
   return (
     <>
       <Helmet>
@@ -238,6 +330,31 @@ const UserRegister = () => {
                 <Button type="submit" className="login-btn">
                   Register
                 </Button>
+                <span>
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/649/649686.png"
+                    className="divider"
+                    alt=""
+                    style={{
+                      height: "43px",
+                      width: "30px",
+                      paddingLeft: "10px",
+                    }}
+                  />
+                </span>
+                <img
+                  // src="https://developers.google.com/static/identity/images/btn_google_signin_light_normal_web.png"
+                  src="https://developers.google.com/static/identity/images/btn_google_signin_dark_normal_web.png"
+                  className="googleRegister"
+                  onClick={GoogleLogin}
+                  alt="Google Login"
+                  style={{
+                    // width: 55,
+                    // height: 55,
+                    padding: 10,
+                    cursor: "pointer",
+                  }}
+                />
                 <br></br> <br></br>
                 <Anchor
                   para="Already have an account? "
