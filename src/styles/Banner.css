@@ -57,14 +57,13 @@
 }
 
 .banner_signup_btn {
-  border-radius: 6px;
+  /* border-radius: 6px;
   margin-top: 2rem;
   padding: 10px 20px;
   font-weight: 600;
-  font-size: 15px;
-  width: 310px;
-  /* text-transform: capitalize; */
-  /* letter-spacing: normal; */
+  font-size: 15px; */
+  margin-top: 2rem;
+  min-width: 320px;
 }
 
 .banner_contribute_logo {

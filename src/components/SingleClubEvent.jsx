@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import ClubUpperImage from "../assets/pictures/ClubUpperImage.svg";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
@@ -6,6 +6,25 @@ import "../styles/ClubsPage.css";
 import Button from "./Button";
 
 export default function SingleClubEvent({ club, type, event }) {
+  const [location, setLocation] = useState("");
+
+  useEffect(() => {
+    const parseEventLocation = () => {
+      try {
+        if (event.Eventlocation) {
+          const { name, city, state } = JSON.parse(event.Eventlocation).data
+            .properties;
+          const formattedName = `${name}, ${city}, ${state}`;
+          setLocation(formattedName);
+        }
+      } catch {
+        setLocation("");
+      }
+    };
+
+    parseEventLocation();
+  }, [event]);
+
   const nav = useNavigate();
 
   const cardButtonHandler = () => {
@@ -26,7 +45,7 @@ export default function SingleClubEvent({ club, type, event }) {
             {type === "events" ? event.Eventdate : club.tagLine}
           </p>
           <p className="cp_card_address">
-            {type === "events" ? event.Eventlocation : null}
+            {type === "events" && location ? location : null}
           </p>
           {/* <p className='cp_card_tag' >{type === "events" ? event.Eventdescription : club.tagLine}</p> */}
           <Button className="cp_card_button" variant="outline">
