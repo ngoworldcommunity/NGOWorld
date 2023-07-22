@@ -1,9 +1,7 @@
 import React from "react";
 import "../styles/AboutUs.css";
-// eslint-disable-next-line no-unused-vars
-import Navbar from "../components/Navbar";
-// eslint-disable-next-line no-unused-vars
-import Footer from "../components/Footer";
+// import Navbar from "../components/Navbar";
+// import Footer from "../components/Footer";
 import abtImg from "../assets/pictures/aboutus/about-pana.png";
 
 export default function AboutUs() {
@@ -15,7 +13,11 @@ export default function AboutUs() {
         className="d-flex justify-content-between align-items-center"
       >
         <div className="abtCol1 me-5">
-          <img src={abtImg} alt="group of people holding devices" className="abtImg" />
+          <img
+            src={abtImg}
+            alt="group of people holding devices"
+            className="abtImg"
+          />
         </div>
         <div className="abtCol2 d-flex flex-column align-items-start ms-5">
           <h1>MILAN</h1>

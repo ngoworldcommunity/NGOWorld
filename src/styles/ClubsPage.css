@@ -103,7 +103,16 @@
   background-color: #e26959;
   border: none;
   transition: 500ms;
+} 
+.filter-option {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
 }
+
+
 
 @media screen and (max-width: 430px) {
   .cp_textdiv {
@@ -111,6 +120,15 @@
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
+  }
+
+
+  .cp_header1 {
+    font-family: Montserrat, sans-serif;
+    font-size: 3rem;
+    line-height: 60px;
+    margin-bottom: 1.5rem !important;
+    color: #28183b;
   }
 
   .cp_header2 {

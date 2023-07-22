@@ -44,7 +44,7 @@ describe("All auth checks", () => {
 
 describe("Checking if the backend is working properly or not", () => {
   it("Check if the backend is working", () => {
-    cy.request("https://milan-server.vercel.app/display/allusers").then(
+    cy.request("https://milan-server.vercel.app/display/users").then(
       (response) => {
         expect(response.status).to.eq(200);
       },

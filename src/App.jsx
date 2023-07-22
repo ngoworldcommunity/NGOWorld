@@ -24,19 +24,17 @@ import {
 import MilanState from "./context/MilanState";
 import "./styles/App.css";
 import Navbar from "./components/Navbar.jsx";
-import Loading from "./components/Loading";
+import DisplayLoading from "./components/Loading/DisplayLoading";
+import AuthLoading from "./components/Loading/AuthLoading";
+
 const App = () => {
   return (
     <>
       <MilanState>
         <Router>
           <Navbar />
-          <Suspense fallback={<Loading />}>
+          <Suspense fallback={<AuthLoading />}>
             <Routes>
-              {/* //* Home routes */}
-
-              <Route exact path="/" element={<Home />} />
-
               {/* //* Auth routes - USER*/}
 
               <Route exact path="/user/register" element={<UserRegister />} />
@@ -59,6 +57,14 @@ const App = () => {
                 path="/clubs/forgotpass"
                 element={<ClubForgotpassword />}
               />
+            </Routes>
+          </Suspense>
+
+          <Suspense fallback={<DisplayLoading />}>
+            <Routes>
+              {/* //* Home routes */}
+
+              <Route exact path="/" element={<Home />} />
 
               {/* //* Display Routes */}
               <Route exact path="/clubs" element={<ClubsPage />} />
