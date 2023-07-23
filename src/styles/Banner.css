@@ -18,8 +18,7 @@
 
 .banner_header1 {
   font-family: Montserrat, sans-serif;
-  font-size: 76px;
-  line-height: 76px;
+  font-size: 65px;
   margin-bottom: 1.5rem !important;
   margin-top: 8rem;
   color: #28183b;
@@ -27,7 +26,7 @@
 
 .banner_header2 {
   font-family: Montserrat, sans-serif;
-  font-size: 70px;
+  font-size: 65px;
   line-height: 80px;
   margin-bottom: 1.5rem !important;
   color: #28183b;
@@ -42,7 +41,7 @@
 .banner_header3 {
   font-family: Poppins, sans-serif;
   color: black;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   line-height: 1.5;
   letter-spacing: 1px;
   width: 70%;

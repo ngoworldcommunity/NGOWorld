@@ -145,3 +145,168 @@ paths:
           description: USer was not found.
         default:
           description: Internal Server Error.
+
+  /auth/logout:
+    get:
+      tags:
+       - User Authentication API
+      security:
+       - ApiTokenss: []
+       - ApiKey: []
+      summary: Log out the user.
+      responses: 
+        '200':
+          description: OK
+     
+
+  /user/report:
+    post:
+      tags:
+        - User Contact API
+      summary: Report a problem.
+      description: <b> Request (required) </b> <br /> <br />
+              - <b> firstname </b> <br /> 
+              - <b> lastname </b> <br /> 
+              - <b> email </b> <br /> 
+              - <b> reportmessage </b> <br /> 
+
+      post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstname:
+                  type: string
+                  example: "John"
+                lastname:
+                  type: string
+                  example: "Doe"
+                email:
+                  type: string
+                  example: "john.doe@example.com"
+                reportmessage:
+                  type: string
+                  example: "I encountered an issue with the website."
+
+      responses:
+        '200':
+          description: Report has been submitted sucessfully. 
+        '429':
+          description: Too many requests in 2 hours.
+        default:
+          description: Internal Server Error.
+
+  /user/contact:
+    post:
+      tags:
+         - User Contact API
+      summary: Send a message through the contact form.
+      description: <b> Request (required) </b> <br /> <br />
+              - <b> firstname </b> <br /> 
+              - <b> lastname </b> <br /> 
+              - <b> email </b> <br /> 
+              - <b> message </b> <br /> 
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                  example: "John"
+                lastName:
+                  type: string
+                  example: "Doe"
+                email:
+                  type: string
+                  example: "john.doe@example.com"
+                message:
+                  type: string
+                  example: "Hello, I have a question."
+
+      responses:
+        '201':
+          description: Message has been submitted sucessfully. 
+        default:
+          description: Internal Server Error.
+          
+  /club/register:
+    post:
+      tags:
+        - Club Authentication API
+      summary: Register a new club account.
+      description: <b> Request (required) </b> <br /> <br />
+                - <b> name </b> <br /> 
+                - <b> email </b> <br /> 
+                - <b> password </b> <br /> 
+                - <b> address </b> <br /> 
+                - <b> pincode </b> <br /> 
+                - <b> description </b> <br /> 
+                - <b> tagLine </b> <br /> 
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "Example Club"
+                email:
+                  type: string
+                  example: "club@example.com"
+                password:
+                  type: string
+                  example: "Password@123"
+                address:
+                  type: string
+                  example: "123 Main Street"
+                pincode:
+                  type: string
+                  example: "12345"
+                description:
+                  type: string
+                  example: "A description of the club"
+                tagLine:
+                  type: string
+                  example: "Our club, our pride"
+      responses:
+        '201':
+          description: Registration successful, please login.
+        '409':
+          description: Account already exists.
+        default:
+          description: Internal Server Error.
+
+  /club/login:
+    post:
+      tags:
+        - Club Authentication API
+      summary: Log in to a club account.
+      description: <b> Request (required) </b> <br /> <br />
+                - <b> email </b> <br /> 
+                - <b> password </b> <br /> 
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: "club@example.com"
+                password:
+                  type: string
+                  example: "Password@123"
+      responses:
+        '201':
+          description: Registration successful, please login.
+        '404':
+          description: Account doesnot exists.
+        '401':
+          description: Invalid credentials.'
+        default:
+          description: Internal Server Error.

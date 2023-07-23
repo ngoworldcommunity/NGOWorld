@@ -31,8 +31,8 @@
 
 .mib_header1 {
   font-family: Montserrat, sans-serif;
-  font-size: 3.5rem;
-  line-height: 70px;
+  font-size: 65px;
+  line-height: 65px;
   margin-bottom: 1.5rem !important;
   color: #28183b;
 }
@@ -47,7 +47,7 @@
   font-family: Poppins, sans-serif;
   color: black;
   font-size: 1.2rem;
-  line-height: 1.8;
+  line-height: 1.5;
   letter-spacing: 1px;
   width: 80%;
 }
