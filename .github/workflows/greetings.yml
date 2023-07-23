@@ -17,9 +17,16 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           issue-message: |
             ### Hello, @${{ github.actor }}, thank you for opening an issue. </br>
+
+            Currently the issue is marked as https://github.com/tamalCodes/Milan/labels/%F0%9F%91%B7%F0%9F%8F%BB%E2%80%8D%E2%99%82%EF%B8%8F%20status%3A%20awaiting%20triage which means we are waiting for the maintainers/owner to review it and provide you with feedback/suggestions.
+            If you think it's something urgent, feel free to reach out to [Tamal](https://twitter.com/tamalCodes) on **Twitter**.
+
+            **Give us a ⭐ to show some support**
+            **Happy OpenSource 🚀**
+
           pr-message: |
             ### Hello, @${{ github.actor }}, thank you for opening a pull request. </br>
-          footer: |
+
             Currently the issue is marked as https://github.com/tamalCodes/Milan/labels/%F0%9F%91%B7%F0%9F%8F%BB%E2%80%8D%E2%99%82%EF%B8%8F%20status%3A%20awaiting%20triage which means we are waiting for the maintainers/owner to review it and provide you with feedback/suggestions.
             If you think it's something urgent, feel free to reach out to [Tamal](https://twitter.com/tamalCodes) on **Twitter**.
 
