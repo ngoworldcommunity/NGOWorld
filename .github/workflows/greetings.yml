@@ -15,6 +15,18 @@ jobs:
       - uses: EddieHubCommunity/gh-action-community/src/welcome@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          issue-message: "<h3>Hello, @${{ github.actor }},  thank you for opening an issue.</h3>"
-          pr-message: "<h3>Hello, @${{ github.actor }},  thank you for opening a pull request.</h3>"
-          footer: "Soon the maintainers/owner will review it and provide you with feedback/suggestions.<br>If you think it's something urgent, feel free to reach out to <a href='https://twitter.com/mrTamall'>Tamal</a> on <b>Twitter</b>.<br><br><br><b>Give us a ⭐ to show some support</b><br><b>Happy OpenSource 🚀</b>"
+          issue-message:
+            "<h3>Hello, @${{ github.actor }},  thank you for opening an
+            issue.</h3>"
+          pr-message:
+            "<h3>Hello, @${{ github.actor }},  thank you for opening a pull
+            request.</h3>"
+          footer:
+            "Currently the issue is marked as
+            https://github.com/tamalCodes/Milan/labels/%F0%9F%91%B7%F0%9F%8F%BB%E2%80%8D%E2%99%82%EF%B8%8F%20status%3A%20awaiting%20triage
+            which means we are waiting for the maintainers/owner to review it
+            and provide you with feedback/suggestions.<br>If you think it's
+            something urgent, feel free to reach out to <a
+            href='https://twitter.com/tamalCodes'>Tamal</a> on
+            <b>Twitter</b>.<br><br><br><b>Give us a ⭐ to show some
+            support</b><br><b>Happy OpenSource 🚀</b>"
