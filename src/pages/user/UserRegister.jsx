@@ -104,7 +104,11 @@ const UserRegister = () => {
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form style={{ width: "auto" }} onSubmit={handleSubmit}>
+              <form
+                style={{ width: "auto" }}
+                onSubmit={handleSubmit}
+                aria-label="User registration form"
+              >
                 <h1 className="userregister_header">Register as an User !</h1>
                 <div className="form-outline mb-2">
                   <div className="d-flex flex-column flex-md-row">
@@ -125,6 +129,7 @@ const UserRegister = () => {
                         required
                         autoFocus
                         aria-label="First name"
+                        aria-required="true"
                       />
                     </div>
                     <div className="ms-md-2">
@@ -143,6 +148,7 @@ const UserRegister = () => {
                         onChange={handleChange}
                         required
                         aria-label="Last name"
+                        aria-required="true"
                       />
                     </div>
                   </div>
@@ -166,6 +172,7 @@ const UserRegister = () => {
                     onChange={handleChange}
                     aria-label="Email Address"
                     required
+                    aria-required="true"
                   />
                 </div>
                 {/* //* Password */}
@@ -187,8 +194,17 @@ const UserRegister = () => {
                     onChange={handleChange}
                     required
                     aria-label="Password"
+                    aria-required="true"
                   />
-                  <div onClick={passwordToggle} className="toggle-button">
+                  <div
+                    onClick={passwordToggle}
+                    className="toggle-button"
+                    aria-label={
+                      passwordType === "password"
+                        ? "Show password"
+                        : "Hide password"
+                    }
+                  >
                     {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                   </div>
                 </div>
@@ -211,6 +227,7 @@ const UserRegister = () => {
                     onChange={handleChange}
                     required
                     aria-label="Address"
+                    aria-required="true"
                   />
                 </div>
                 {/* //* Pincode */}
@@ -232,6 +249,7 @@ const UserRegister = () => {
                     onChange={handleChange}
                     required
                     aria-label="Pincode"
+                    aria-required="true"
                   />
                 </div>
                 <br />

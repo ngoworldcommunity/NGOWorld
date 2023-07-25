@@ -95,7 +95,11 @@ function ClubLogin() {
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form style={{ width: "auto" }} onSubmit={handleSubmit}>
+              <form
+                style={{ width: "auto" }}
+                onSubmit={handleSubmit}
+                aria-label="Clubs login form"
+              >
                 <h1
                   style={{
                     letterSpacing: "1px",
@@ -124,6 +128,7 @@ function ClubLogin() {
                     required
                     data-cy="desktop-club-email"
                     autoFocus
+                    aria-required="true"
                   />
 
                   <input
@@ -136,6 +141,7 @@ function ClubLogin() {
                     value={credentials.email}
                     onChange={handleChange}
                     required
+                    aria-required="true"
                   />
                 </div>
 
@@ -156,6 +162,7 @@ function ClubLogin() {
                     onChange={handleChange}
                     required
                     data-cy="desktop-club-password"
+                    aria-required="true"
                   />
 
                   <input
@@ -167,9 +174,18 @@ function ClubLogin() {
                     placeholder="Enter your password"
                     onChange={handleChange}
                     required
+                    aria-required="true"
                   />
 
-                  <div onClick={passwordToggle} className="toggle-button">
+                  <div
+                    onClick={passwordToggle}
+                    className="toggle-button"
+                    aria-label={
+                      passwordType === "password"
+                        ? "Show password"
+                        : "Hide password"
+                    }
+                  >
                     {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                   </div>
                 </div>

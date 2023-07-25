@@ -57,7 +57,11 @@ export default function UserProfile() {
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form style={{ width: "auto" }} onSubmit={handleSubmit}>
+              <form
+                style={{ width: "auto" }}
+                onSubmit={handleSubmit}
+                aria-label="User profile update form"
+              >
                 <h1 style={{ letterSpacing: "1px", marginBottom: "2rem" }}>
                   Update User profile
                 </h1>
@@ -79,6 +83,7 @@ export default function UserProfile() {
                     value={credentials.email}
                     onChange={handleChange}
                     required
+                    aria-required="true"
                   />
                 </div>
                 <div className="form-outline mb-4">
@@ -99,6 +104,7 @@ export default function UserProfile() {
                     value={credentials.oldPassword}
                     onChange={handleChange}
                     required
+                    aria-required="true"
                   />
                 </div>
                 <div className="form-outline mb-4">
@@ -119,6 +125,7 @@ export default function UserProfile() {
                     value={credentials.newPassword}
                     onChange={handleChange}
                     required
+                    aria-required="true"
                   />
                 </div>
                 <br />

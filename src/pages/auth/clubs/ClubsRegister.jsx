@@ -132,7 +132,11 @@ const ClubsRegister = () => {
             >
               <FiArrowLeft style={{ fontSize: "15px" }} /> Go back
             </button>
-            <form onSubmit={handleSubmit} className="authform">
+            <form
+              onSubmit={handleSubmit}
+              className="authform"
+              aria-label="Clubs sign up form"
+            >
               <h1 className="">Join Milan Today</h1>
 
               <div className="authform_container">
@@ -150,6 +154,7 @@ const ClubsRegister = () => {
                   aria-label="Club name"
                   id="club-name"
                   placeholder="Peepal Farm"
+                  aria-required="true"
                 />
               </div>
               <div className="authform_container ">
@@ -167,6 +172,7 @@ const ClubsRegister = () => {
                   id="club-tagLine"
                   maxLength={50}
                   placeholder="A place for all the animals"
+                  aria-required="true"
                 />
               </div>
 
@@ -184,6 +190,7 @@ const ClubsRegister = () => {
                   aria-label="Club email"
                   id="email-des"
                   placeholder="peepal@farm.io"
+                  aria-required="true"
                 />
               </div>
 
@@ -201,12 +208,18 @@ const ClubsRegister = () => {
                     required
                     id="password-des"
                     placeholder="Strg@Pass#122&&S"
+                    aria-required="true"
                   />
 
                   <div
                     onClick={passwordToggle}
                     className="toggle-button"
                     style={{ paddingTop: 5 }}
+                    aria-label={
+                      passwordType === "password"
+                        ? "Show password"
+                        : "Hide password"
+                    }
                   >
                     {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                   </div>
@@ -225,12 +238,18 @@ const ClubsRegister = () => {
                     required
                     placeholder="Strg@Pass#122&&S"
                     id="confirm-password-des"
+                    aria-required="true"
                   />
 
                   <div
                     onClick={confirmPasswordToggle}
                     className="toggle-button"
                     style={{ paddingTop: 5 }}
+                    aria-label={
+                      confirmPasswordType === "password"
+                        ? "Show password"
+                        : "Hide password"
+                    }
                   >
                     {confirmPasswordType === "password" ? (
                       <FiEyeOff />
@@ -256,6 +275,7 @@ const ClubsRegister = () => {
                   aria-label="Club address"
                   id="address-des"
                   placeholder="Peepal Farm, Raipur Rani, Haryana"
+                  aria-required="true"
                 />
               </div>
 
@@ -273,6 +293,7 @@ const ClubsRegister = () => {
                   required
                   id="pincode-des"
                   placeholder="134204"
+                  aria-required="true"
                 />
               </div>
 
@@ -290,6 +311,7 @@ const ClubsRegister = () => {
                   required
                   id="description-des"
                   placeholder="We are a non-profit organization working for the welfare of animals."
+                  aria-required="true"
                 />
               </div>
 

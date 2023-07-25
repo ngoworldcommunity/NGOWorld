@@ -74,14 +74,18 @@ export default function EventCreate() {
         <div className="container py-5 h-100">
           <div className="row d-flex align-items-center justify-content-center ">
             <div className="col-md-8 col-lg-7 col-xl-6">
-              <img src={Events} width="90%" alt="man sitting at a desk with a laptop and a light bulb above his head" />
+              <img
+                src={Events}
+                width="90%"
+                alt="man sitting at a desk with a laptop and a light bulb above his head"
+              />
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
               <h1 className="eventCreateWelcome  mr-10 mb-15">
                 Create event for your club
               </h1>
-              <form style={{ width: "auto" }}>
+              <form style={{ width: "auto" }} aria-label="Create event form">
                 <div className="form-outline mb-4">
                   <label
                     htmlFor="name"
@@ -99,6 +103,7 @@ export default function EventCreate() {
                     placeholder="What's your event called?"
                     value={eventdetails.eventname}
                     onChange={handleChange}
+                    aria-required="true"
                   />
                 </div>
                 <div className="form-outline mb-4">
@@ -118,6 +123,7 @@ export default function EventCreate() {
                     placeholder="Date of the event?"
                     value={eventdetails.eventdate}
                     onChange={handleChange}
+                    aria-required="true"
                   />
                 </div>
                 <div className="form-outline mb-4">
@@ -137,6 +143,7 @@ export default function EventCreate() {
                     placeholder="Time of the event? (24 Hours format, IST)"
                     value={eventdetails.eventtime}
                     onChange={handleChange}
+                    aria-required="true"
                   />
                 </div>
                 <div className="form-outline mb-4">

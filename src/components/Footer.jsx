@@ -133,7 +133,7 @@ const Footer = () => {
 
           {/* Report form  */}
 
-          <form id="reportForm">
+          <form id="reportForm" aria-label="Report form">
             <div className="form-group">
               <input
                 required
@@ -144,6 +144,7 @@ const Footer = () => {
                 value={reportEmail}
                 onChange={(e) => setReportEmail(e.target.value)}
                 autoFocus
+                aria-required="true"
               />
             </div>
 
@@ -156,6 +157,7 @@ const Footer = () => {
                 placeholder="First Name*"
                 value={reportFirstName}
                 onChange={(e) => setReportFirstName(e.target.value)}
+                aria-required="true"
               />
               <input
                 required
@@ -165,6 +167,7 @@ const Footer = () => {
                 placeholder="Last Name*"
                 value={reportLastName}
                 onChange={(e) => setReportLastName(e.target.value)}
+                aria-required="true"
               />
             </div>
 
@@ -178,6 +181,7 @@ const Footer = () => {
                 rows={6}
                 value={reportIssue}
                 onChange={(e) => setReportIssue(e.target.value)}
+                aria-required="true"
               />
             </div>
             <div className="text-center">
@@ -200,7 +204,11 @@ const Footer = () => {
         <div className="row">
           <div className="col-lg-5 col-md-5 mb-lg-0 px-5">
             <div className="col-sm-3 col-6  col-lg-3 mx-auto mx-lg-0">
-              <img src={solidarity} alt="milan logo" className="mt-4 mx-auto img-fluid" />
+              <img
+                src={solidarity}
+                alt="milan logo"
+                className="mt-4 mx-auto img-fluid"
+              />
             </div>
             {isMobile ? (
               <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4 mt-2">

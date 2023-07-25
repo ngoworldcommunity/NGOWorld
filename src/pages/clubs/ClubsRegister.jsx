@@ -94,7 +94,7 @@ const ClubLogin = () => {
           </div>
 
           <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} aria-label="Clubs registration form">
               <h1 className="mobile-txt clubregisterheading1">
                 Register your club with Milan !
               </h1>
@@ -116,6 +116,7 @@ const ClubLogin = () => {
                   autoFocus
                   aria-label="Club name"
                   id="club-name"
+                  aria-required="true"
                 />
                 <input
                   type="text"
@@ -126,6 +127,7 @@ const ClubLogin = () => {
                   onChange={handleChange}
                   required
                   aria-label="Club name"
+                  aria-required="true"
                 />
               </div>
               <div className="form-outline mb-4">
@@ -145,6 +147,7 @@ const ClubLogin = () => {
                   aria-label="Club Tagline"
                   id="club-tagLine"
                   maxLength={50}
+                  aria-required="true"
                 />
                 <input
                   type="text"
@@ -156,6 +159,7 @@ const ClubLogin = () => {
                   required
                   aria-label="Club TagLine"
                   maxLength={50}
+                  aria-required="true"
                 />
               </div>
 
@@ -175,6 +179,7 @@ const ClubLogin = () => {
                   required
                   aria-label="Club email"
                   id="email-des"
+                  aria-required="true"
                 />
                 <input
                   type="email"
@@ -186,6 +191,7 @@ const ClubLogin = () => {
                   required
                   aria-label="Club email"
                   id="email-mob"
+                  aria-required="true"
                 />
               </div>
 
@@ -210,6 +216,7 @@ const ClubLogin = () => {
                     onChange={handleChange}
                     required
                     id="password-des"
+                    aria-required="true"
                   />
                   <input
                     type={passwordType}
@@ -220,11 +227,17 @@ const ClubLogin = () => {
                     onChange={handleChange}
                     required
                     id="password-mob"
+                    aria-required="true"
                   />
                   <div
                     onClick={passwordToggle}
                     className="toggle-button"
                     style={{ paddingTop: 5 }}
+                    aria-label={
+                      passwordType === "password"
+                        ? "Show password"
+                        : "Hide password"
+                    }
                   >
                     {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                   </div>
@@ -245,6 +258,7 @@ const ClubLogin = () => {
                     onChange={handleChange}
                     required
                     id="confirm-password-des"
+                    aria-required="true"
                   />
 
                   <input
@@ -256,12 +270,18 @@ const ClubLogin = () => {
                     onChange={handleChange}
                     required
                     id="confirm-password-mob"
+                    aria-required="true"
                   />
 
                   <div
                     onClick={confirmPasswordToggle}
                     className="toggle-button"
                     style={{ paddingTop: 5 }}
+                    aria-label={
+                      confirmPasswordType === "password"
+                        ? "Show password"
+                        : "Hide password"
+                    }
                   >
                     {confirmPasswordType === "password" ? (
                       <FiEyeOff />
@@ -289,6 +309,7 @@ const ClubLogin = () => {
                   required
                   aria-label="Club address"
                   id="address-des"
+                  aria-required="true"
                 />
                 <textarea
                   className="clubreg_mob form-control color"
@@ -299,6 +320,7 @@ const ClubLogin = () => {
                   required
                   aria-label="Club address"
                   id="address-mob"
+                  aria-required="true"
                 />
               </div>
               <label
@@ -317,6 +339,7 @@ const ClubLogin = () => {
                   onChange={handleChange}
                   required
                   id="pincode-des"
+                  aria-required="true"
                 />
                 <input
                   type="text"
@@ -328,6 +351,7 @@ const ClubLogin = () => {
                   onChange={handleChange}
                   required
                   id="pincode-mob"
+                  aria-required="true"
                 />
               </div>
               <label
@@ -345,6 +369,7 @@ const ClubLogin = () => {
                 onChange={handleChange}
                 required
                 id="description-des"
+                aria-required="true"
               />
               <textarea
                 type="text"
@@ -356,6 +381,7 @@ const ClubLogin = () => {
                 onChange={handleChange}
                 required
                 id="description-mob"
+                aria-required="true"
               />
               <small id="textDemo" className="form-text text-muted"></small>
               <br />

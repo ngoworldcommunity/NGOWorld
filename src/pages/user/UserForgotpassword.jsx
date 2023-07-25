@@ -20,7 +20,10 @@ const UserForgotpassword = () => {
             </div>
 
             <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form style={{ width: "auto" }}>
+              <form
+                style={{ width: "auto" }}
+                aria-label="User reset password form"
+              >
                 <h1 className="userregister_header">Reset Your Password!</h1>
                 <div className="form-outline mb-4">
                   <label

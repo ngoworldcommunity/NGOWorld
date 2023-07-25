@@ -110,7 +110,11 @@ function ClubLogin() {
             >
               <FiArrowLeft style={{ fontSize: "15px" }} /> Go back
             </button>
-            <form className="authform" onSubmit={handleSubmit}>
+            <form
+              className="authform"
+              onSubmit={handleSubmit}
+              aria-label="User login form"
+            >
               <h1 className=""> Sign In</h1>
 
               <div className="authform_container mb-4">
@@ -127,6 +131,7 @@ function ClubLogin() {
                   aria-label="Club email"
                   id="desktopUserEmail"
                   placeholder="peepal@farm.io"
+                  aria-required="true"
                 />
               </div>
 
@@ -143,12 +148,18 @@ function ClubLogin() {
                   required
                   id="desktopUserPassword"
                   placeholder="Strg@Pass#122&&S"
+                  aria-required="true"
                 />
 
                 <div
                   onClick={passwordToggle}
                   className="toggle-button"
                   style={{ paddingTop: 5 }}
+                  aria-label={
+                    passwordType === "password"
+                      ? "Show password"
+                      : "Hide password"
+                  }
                 >
                   {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                 </div>

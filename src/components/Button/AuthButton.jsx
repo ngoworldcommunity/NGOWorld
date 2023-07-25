@@ -20,6 +20,7 @@ const AuthButton = ({ isLoading, goTo }) => {
               onClick={() => {
                 handleButtonClick("/login");
               }}
+              aria-label="Go to login page"
             >
               Login
             </span>
@@ -31,6 +32,7 @@ const AuthButton = ({ isLoading, goTo }) => {
               onClick={() => {
                 handleButtonClick("/register");
               }}
+              aria-label="Go to sign up page"
             >
               Sign Up
             </span>
@@ -38,7 +40,12 @@ const AuthButton = ({ isLoading, goTo }) => {
         )}
       </p>
 
-      <Button type="submit" className="login-btn" disabled={isLoading}>
+      <Button
+        type="submit"
+        className="login-btn"
+        disabled={isLoading}
+        role="button"
+      >
         {isLoading ? (
           <ClipLoader color="#000000" size={25} />
         ) : window.location.pathname.includes("register") ? (

@@ -88,6 +88,7 @@ function UserLogin() {
                 style={{ width: "auto" }}
                 onSubmit={handleSubmit}
                 className="loginform"
+                aria-label="User login form"
               >
                 <h1 className="mb-2">Login as an User !</h1>
                 <div className="form-outline mb-4">
@@ -130,8 +131,17 @@ function UserLogin() {
                     onChange={handleChange}
                     required
                     aria-label="password"
+                    aria-required="true"
                   />
-                  <div onClick={passwordToggle} className="toggle-button">
+                  <div
+                    onClick={passwordToggle}
+                    className="toggle-button"
+                    aria-label={
+                      passwordType === "password"
+                        ? "Show password"
+                        : "Hide password"
+                    }
+                  >
                     {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                   </div>
                 </div>
