@@ -163,6 +163,7 @@
 
 @media screen and (430px < width < 1008px) {
   .mib_subparent1 {
+    
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -206,5 +207,11 @@
 
   .mib_main_parent2 > .mib_subparent3 > .mib_textdiv {
     width: 100%;
+  }
+}
+
+@media(max-width:380px) {
+  .mib_header1{
+    margin-top: 40%;
   }
 }
