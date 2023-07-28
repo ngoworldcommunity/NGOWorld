@@ -1,6 +1,6 @@
 name: 🐞 Bug
 description: Report an issue to help improve the project.
-title: "[BUG] write a small description here"
+title: "[BUG] Write a small description here"
 labels:
   [
     "👷🏻‍♂️ status: awaiting triage",
@@ -49,14 +49,14 @@ body:
         - label: "I have read the [Contributing Guidelines](https://github.com/tamalCodes/Milan/blob/main/CONTRIBUTING.md)"
           required: true
 
-        - label: "I am willing to work on this issue (blank for no)"
+        - label: "I am willing to work on this issue (blank for no)."
           required: false
 
-        - label: "I am a GSSoC23 contributor."
+        - label: "I am a GSSoC23 contributor (blank for no)".
           required: false
 
   - type: markdown
     attributes:
       value: |
-        In case of emergencies contact me on [Twitter](https://twitter.com/mrTamall)
+        In case of emergencies contact me on [Twitter](https://twitter.com/tamalCodes)
         Feel free to check out other cool repositories [here](https://github.com/tamalCodes)
