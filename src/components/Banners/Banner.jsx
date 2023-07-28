@@ -31,7 +31,7 @@ const Banner = () => {
                   <div className="banner_btn_div">
                     <Button
                       className="banner_signup_btn  "
-                      to="https://github.com/IAmTamal/Milan"
+                      to="https://github.com/tamalCodes/Milan"
                       target="_blank"
                       rel="noreferrer"
                       variant="outline"
@@ -41,7 +41,7 @@ const Banner = () => {
 
                     <Button
                       className="banner_signup_btn  "
-                      to="https://github.com/IAmTamal/Milan"
+                      to="https://github.com/tamalCodes/Milan"
                       target="_blank"
                       rel="noreferrer"
                     >
