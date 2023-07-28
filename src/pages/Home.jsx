@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet-async";
 import Banner from "../components/Banners/Banner.jsx";
 import Milaninfobanner from "../components/Milaninfobanner";
 import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
+
 const Home = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -22,6 +24,7 @@ const Home = () => {
 
       <Banner />
       <Milaninfobanner />
+      <Footer />
     </>
   );
 };
