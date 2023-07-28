@@ -34,7 +34,7 @@
   font-size: 65px;
   line-height: 65px;
   margin-bottom: 1.5rem !important;
-  color: #28183b;
+  color: var(--font-color);
 }
 
 .mib_textdiv div {
@@ -45,7 +45,7 @@
 
 .mib_header2 {
   font-family: Poppins, sans-serif;
-  color: black;
+  color: var(--text-color);
   font-size: 1.2rem;
   line-height: 1.5;
   letter-spacing: 1px;
@@ -79,7 +79,7 @@
   font-size: 3.5rem;
   line-height: 70px;
   margin-bottom: 1.5rem !important;
-  color: #28183b;
+  color: var(--font-color);
 }
 
 .mib_subparent3 .mib_textdiv div {
@@ -90,7 +90,7 @@
 
 .mib_subparent3 .mib_textdiv div .mib_header2 {
   font-family: Poppins, sans-serif;
-  color: rgb(0, 0, 0);
+  color: var(--text-color);
   font-size: 1.2rem;
   line-height: 1.8;
   letter-spacing: 1px;
@@ -158,7 +158,12 @@
   /* padding: 10px 20px; */
   font-weight: 600;
   cursor: pointer;
+  color: var(--font-color);
   /* font-size: 1.2rem !important; */
+}
+
+.mib_explore_btn:hover {
+  color: var(--font-color);
 }
 
 @media screen and (430px < width < 1008px) {

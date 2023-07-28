@@ -1,5 +1,5 @@
 .navbar_main {
-  background-color: rgba(255, 255, 255, 0.6);
+  /* background-color: rgba(255, 255, 255, 0.6); */
   padding-bottom: 10px;
   padding-top: 10px;
   backdrop-filter: blur(8px);
@@ -43,7 +43,7 @@
   text-decoration: none;
   cursor: pointer;
   font-family: Poppins, sans-serif;
-  color: #28183b;
+  color: var(--font-color);
   font-size: 1rem;
 }
 
@@ -64,6 +64,14 @@
   border-bottom: 2px solid #e26959;
   width: 50%;
   margin: auto;
+}
+
+.nav_btn {
+  color: var(--font-color);
+}
+
+.nav_btn:hover {
+  color: var(--font-color);
 }
 
 .shop_tag {

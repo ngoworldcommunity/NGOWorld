@@ -20,13 +20,13 @@
   font-size: 65px;
   line-height: 70px;
   margin-bottom: 1.5rem !important;
-  color: #28183b;
+  color: var(--font-color);
   margin-top: 4rem;
 }
 
 .shop_header2 {
   font-family: Poppins, sans-serif;
-  color: black;
+  color: var(--text-color);
   font-size: 1.2rem;
   line-height: 1.5;
   letter-spacing: 1px;
@@ -134,7 +134,7 @@
   font-size: 65px;
   line-height: 70px;
   margin-bottom: 1.5rem !important;
-  color: #28183b;
+  color: var(--font-color);
   text-align: center;
   overflow-wrap: break-word;
   word-wrap: break-word;

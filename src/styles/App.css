@@ -2,3 +2,7 @@
   background: #e26959;
   color: white;
 }
+
+body {
+  background-color: var(--bg-color);
+}

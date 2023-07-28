@@ -10,6 +10,7 @@ import { FaBars } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import Button from "./Button";
 import ClickAwayListener from "../utils/clickAwayListener";
+import DarkMode from "./DarkMode";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -132,7 +133,7 @@ const Navbar = () => {
                       <Button
                         size="sm"
                         variant="outline"
-                        className=" "
+                        className="nav_btn"
                         onClick={toggleSignInModal}
                       >
                         Sign in
@@ -141,12 +142,13 @@ const Navbar = () => {
                     <div className="nav-item home">
                       <Button
                         size="sm"
-                        className=" nav_signup_btn"
+                        className=" nav_btn"
                         onClick={toggleSignUpModal}
                       >
                         Sign up
                       </Button>
                     </div>
+                    <DarkMode />
                   </>
                 )}
               </div>

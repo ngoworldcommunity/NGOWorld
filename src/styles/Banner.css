@@ -21,7 +21,7 @@
   font-size: 65px;
   margin-bottom: 1.5rem !important;
   margin-top: 8rem;
-  color: #28183b;
+  color: var(--font-color);
 }
 
 .banner_header2 {
@@ -29,7 +29,7 @@
   font-size: 65px;
   line-height: 80px;
   margin-bottom: 1.5rem !important;
-  color: #28183b;
+  color: var(--font-color);
 }
 
 .banner_textdiv div {
@@ -40,7 +40,7 @@
 
 .banner_header3 {
   font-family: Poppins, sans-serif;
-  color: black;
+  color: var(--text-color);
   font-size: 1.2rem;
   line-height: 1.5;
   letter-spacing: 1px;
@@ -69,7 +69,7 @@
   width: 25px;
   height: 25px;
   margin-bottom: 0px;
-  color: #000;
+  color: var(--font-color);
 }
 
 .banner_imgdiv img {

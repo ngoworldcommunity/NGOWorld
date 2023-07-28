@@ -58,16 +58,16 @@
   top: 15px;
   left: 15px;
   z-index: 1;
-  background-color: #000000;
-  color: white;
+  background-color: var(--font-color);
+  color: var(--bg-color);
   border-radius: 15px;
   font-size: 10px;
   font-family: "Poppins", sans-serif;
 }
 
 .authpage_floatingbtn:hover {
-  background-color: #000000;
-  color: white;
+  background-color: var(--font-color);
+  color: var(--bg-color);
 }
 
 .authpage_goback {
@@ -82,7 +82,7 @@
 .authform > h1 {
   font-size: 45px;
   font-weight: 600;
-  color: #000000;
+  color: var(--font-color);
   margin-bottom: 1rem;
 }
 
@@ -99,6 +99,7 @@
   font-family: "Poppins", sans-serif;
   margin-bottom: 5px;
   font-size: 1rem;
+  color: var(--text-color);
 }
 
 .authform_container > input {
@@ -130,6 +131,14 @@ textarea::placeholder {
 
 .authpage_mediumchangebtn {
   display: none;
+}
+
+.login-btn {
+  color: var(--font-color);
+}
+
+.login-btn:hover {
+  color: var(--font-color);
 }
 
 @media screen and (max-width: 1200px) {

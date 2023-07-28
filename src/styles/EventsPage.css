@@ -22,6 +22,15 @@
   row-gap: 50px;
   color: red;
 }
+
+.cp_header1 {
+  color: var(--font-color);
+}
+
+.cp_header2 {
+  color: var(--text-color);
+}
+
 @media screen and (max-width: 1217px) {
   .cards {
     /* padding: 8% 4%; */

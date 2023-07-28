@@ -4,6 +4,18 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg-color: #fff;
+  --font-color: #28183b;
+  --text-color: #000;
+}
+
+[data-theme="dark"] {
+  --bg-color: #252D3B;
+  --font-color: #fff;
+  --text-color: #8a72a7;
+}
+
 body {
   margin: 0;
   overflow-x: hidden;
