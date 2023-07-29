@@ -3,7 +3,7 @@ const SocialIcons = () => {
     <ul className="social-icons list-inline mt-5">
       <li className="list-inline-item">
         <a
-          href="https://twitter.com/mrTamall"
+          href="https://twitter.com/tamalCodes"
           target="_blank"
           rel="noopener noreferrer"
           title="twitter"
@@ -13,7 +13,7 @@ const SocialIcons = () => {
       </li>
       <li className="list-inline-item">
         <a
-          href="https://github.com/IAmTamal/Milan"
+          href="https://github.com/tamalCodes/Milan"
           target="_blank"
           rel="noopener noreferrer"
           title="github"
