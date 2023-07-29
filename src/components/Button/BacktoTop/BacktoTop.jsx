@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "../styles/GoToTop.css";
-import { FaArrowUp } from "react-icons/fa";
+import "../BacktoTop/BacktoTop.css";
+import { BsArrowUpShort } from "react-icons/bs";
 import { useEffect } from "react";
 
 const GoToTop = () => {
@@ -32,8 +32,7 @@ const GoToTop = () => {
         <div className="top-btn" onClick={goToBtn}>
           <div className="icon-container">
             {" "}
-            {/* Wrap the icon inside a container */}
-            <FaArrowUp className="icon" />
+            <BsArrowUpShort className="icon" />
           </div>
         </div>
       )}
