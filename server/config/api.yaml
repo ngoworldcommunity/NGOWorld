@@ -1,0 +1,312 @@
+openapi: 3.0.0
+info:
+  title: Milan API
+  description: Feel free to raise an issue or PR [here](https://github.com/tamalCodes/Milan/issues/new/choose).
+  version: 1.0 
+  
+
+servers:
+  - url: http://localhost:5000/
+    description:  Local server 
+  - url: https://test.com/
+    description:  Production server
+  
+
+ 
+components:
+  securitySchemes:
+    ApiTokenss:       
+      type: http
+      scheme: bearer
+    
+    ApiKey:        
+      type: apiKey
+      in: header      
+      name: apikey
+      
+paths:
+  /display/users:
+    get:
+      tags:
+       - Get Data API
+      security:
+       - ApiTokenss: []
+       - ApiKey: []
+      summary: Returns all the users.
+      responses: 
+        '200':
+          description: OK
+          
+  /display/clubs:
+    get:
+      tags:
+       - Get Data API
+      security:
+       - ApiTokenss: []
+       - ApiKey: []
+      summary: Returns all the clubs/NGOs.
+      responses: 
+        '200':
+          description: OK
+
+  /display/events:
+    get:
+      tags:
+       - Get Data API
+      security:
+       - ApiTokenss: []
+       - ApiKey: []
+      summary: Returns all the events.
+      responses: 
+        '200':
+          description: OK
+  
+  /user/register:
+    post:
+      tags:
+        - User Authentication API
+      summary: Creates a new user in the database. 
+      description: <b> Request (required) </b> <br /> <br />
+              - <b> firstname </b> <br /> 
+              - <b> lastname </b> <br /> 
+              - <b> email </b> <br /> 
+              - <b> password </b> <br /> <br /> <br />
+        <b> Request (optional) </b> <br /> <br /> 
+          - <b> address </b> <br /> 
+          - <b> pincode </b> <br /> 
+    
+      post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: 
+                firstname:         
+                  type: string
+                  example: "Tamal"
+                lastname:       
+                  type: string
+                  example: "Das" 
+                email:
+                  type: string
+                  example: "tamalcodes@gmail.com"
+                password:
+                  type: string 
+                  format: password
+                  example: "HelloWorld@123$11"
+                address:
+                  type: string
+                  example: "Salt Lake city, Kolkata"
+                pincode:
+                  type: string
+                  example: "700001"
+         
+      responses:
+        '201':
+          description: User has been signed up. 
+        '409':
+          description: User already exists, must login.
+        '404':
+          description: Not found.
+        default:
+          description: Internal Server Error.
+
+  /user/login:
+    post:
+      tags:
+        - User Authentication API
+      summary: Logs in an user. 
+      description: <b> Request (required) </b> <br /> <br />
+              - <b> email </b> <br /> 
+              - <b> password </b> <br /> 
+    
+      post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: 
+                email:
+                  type: string
+                  example: "tamalcodes@gmail.com"
+                password:
+                  type: string 
+                  format: password
+                  example: "HelloWorld@123$11"
+         
+      responses:
+        '201':
+          description: User has logged in. 
+        '401':
+          description: Invalid Credentials.
+        '404':
+          description: USer was not found.
+        default:
+          description: Internal Server Error.
+
+  /auth/logout:
+    get:
+      tags:
+       - User Authentication API
+      security:
+       - ApiTokenss: []
+       - ApiKey: []
+      summary: Log out the user.
+      responses: 
+        '200':
+          description: OK
+     
+
+  /user/report:
+    post:
+      tags:
+        - User Contact API
+      summary: Report a problem.
+      description: <b> Request (required) </b> <br /> <br />
+              - <b> firstname </b> <br /> 
+              - <b> lastname </b> <br /> 
+              - <b> email </b> <br /> 
+              - <b> reportmessage </b> <br /> 
+
+      post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstname:
+                  type: string
+                  example: "John"
+                lastname:
+                  type: string
+                  example: "Doe"
+                email:
+                  type: string
+                  example: "john.doe@example.com"
+                reportmessage:
+                  type: string
+                  example: "I encountered an issue with the website."
+
+      responses:
+        '200':
+          description: Report has been submitted sucessfully. 
+        '429':
+          description: Too many requests in 2 hours.
+        default:
+          description: Internal Server Error.
+
+  /user/contact:
+    post:
+      tags:
+         - User Contact API
+      summary: Send a message through the contact form.
+      description: <b> Request (required) </b> <br /> <br />
+              - <b> firstname </b> <br /> 
+              - <b> lastname </b> <br /> 
+              - <b> email </b> <br /> 
+              - <b> message </b> <br /> 
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                  example: "John"
+                lastName:
+                  type: string
+                  example: "Doe"
+                email:
+                  type: string
+                  example: "john.doe@example.com"
+                message:
+                  type: string
+                  example: "Hello, I have a question."
+
+      responses:
+        '201':
+          description: Message has been submitted sucessfully. 
+        default:
+          description: Internal Server Error.
+          
+  /club/register:
+    post:
+      tags:
+        - Club Authentication API
+      summary: Register a new club account.
+      description: <b> Request (required) </b> <br /> <br />
+                - <b> name </b> <br /> 
+                - <b> email </b> <br /> 
+                - <b> password </b> <br /> 
+                - <b> address </b> <br /> 
+                - <b> pincode </b> <br /> 
+                - <b> description </b> <br /> 
+                - <b> tagLine </b> <br /> 
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "Example Club"
+                email:
+                  type: string
+                  example: "club@example.com"
+                password:
+                  type: string
+                  example: "Password@123"
+                address:
+                  type: string
+                  example: "123 Main Street"
+                pincode:
+                  type: string
+                  example: "12345"
+                description:
+                  type: string
+                  example: "A description of the club"
+                tagLine:
+                  type: string
+                  example: "Our club, our pride"
+      responses:
+        '201':
+          description: Registration successful, please login.
+        '409':
+          description: Account already exists.
+        default:
+          description: Internal Server Error.
+
+  /club/login:
+    post:
+      tags:
+        - Club Authentication API
+      summary: Log in to a club account.
+      description: <b> Request (required) </b> <br /> <br />
+                - <b> email </b> <br /> 
+                - <b> password </b> <br /> 
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: "club@example.com"
+                password:
+                  type: string
+                  example: "Password@123"
+      responses:
+        '201':
+          description: Registration successful, please login.
+        '404':
+          description: Account doesnot exists.
+        '401':
+          description: Invalid credentials.'
+        default:
+          description: Internal Server Error.

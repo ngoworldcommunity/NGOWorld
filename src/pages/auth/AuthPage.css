@@ -208,11 +208,16 @@ textarea::placeholder {
 }
 
 @media screen and (max-width: 500px) {
+  .authform {
+    padding-left: 0px;
+  }
+
   .authform > h1 {
     font-size: 30px;
     font-weight: 600;
     color: #000000;
     margin-bottom: 1rem;
+    text-align: left;
   }
   .authpage_goback {
     left: 1rem;
