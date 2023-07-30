@@ -23,6 +23,7 @@ import UserForgotpassword from "./pages/user/UserForgotpassword";
 import "./styles/App.css";
 import ShopCategory from "./pages/shops/ShopCategory";
 import Error404 from "./pages/Error404";
+import BacktoTop from "../src/components/Button/BacktoTop/BacktoTop.jsx";
 
 const App = () => {
   return (
@@ -74,6 +75,7 @@ const App = () => {
             <Route path={"/*"} element={<Error404 />} />
           </Routes>
         </Router>
+        <BacktoTop />
       </MilanState>
     </>
   );
