@@ -3,7 +3,7 @@ import "../../styles/Banner.css";
 import Cookies from "js-cookie";
 import { ImGithub } from "react-icons/im";
 import MilanContext from "../../context/MilanContext";
-import Button from "../Button";
+import Button from "../Button/GlobalButton/Button";
 
 const Banner = () => {
   const { toggleSignUpModal } = useContext(MilanContext);

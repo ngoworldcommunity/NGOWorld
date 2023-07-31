@@ -8,7 +8,7 @@ import MilanContext from "../context/MilanContext";
 import Modal from "./Modal";
 import { FaBars } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
-import Button from "./Button";
+import Button from "./Button/GlobalButton/Button";
 import ClickAwayListener from "../utils/clickAwayListener";
 
 const Navbar = () => {

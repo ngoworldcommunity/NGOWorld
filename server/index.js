@@ -15,7 +15,6 @@ const app = express();
 dotenv.config();
 connectToMongo();
 
-// app.use(cors());
 app.use(cors({ origin: process.env.ORIGIN_URL, credentials: true }));
 
 app.use(express.json());

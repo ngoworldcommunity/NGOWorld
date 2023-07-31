@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import Modal from "./Modal";
 import solidarity from "../assets/pictures/solidarity.png";
-import Button from "./Button";
+import Button from "./Button/GlobalButton/Button";
 
 const Footer = () => {
   const [reportModal, setReportModal] = useState(false);
