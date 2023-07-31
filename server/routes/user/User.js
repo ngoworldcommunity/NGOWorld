@@ -125,9 +125,9 @@ router.post("/report", async (req, res) => {
       ).getMinutes();
 
       if (hourOfThisReport >= currentHour - 120) {
-        return res.json({
+        return res.status(429).json({
           success: false,
-          message: "tryagain",
+          message: "You have already reported a problem in the last 2 hours.",
         });
       }
     }
@@ -149,7 +149,7 @@ router.post("/report", async (req, res) => {
 });
 
 //* Route 4  - Contact Us
-router.post("/contactus", async (req, res) => {
+router.post("/contact", async (req, res) => {
   try {
     const data = req.body;
     const email = data.email;

@@ -17,7 +17,7 @@
 
 .cp_header1 {
   font-family: Montserrat, sans-serif;
-  font-size: 70px;
+  font-size: 65px;
   line-height: 1;
   margin-bottom: 1.5rem !important;
   color: #28183b;
@@ -103,7 +103,7 @@
   background-color: #e26959;
   border: none;
   transition: 500ms;
-} 
+}
 .filter-option {
   margin-top: 2rem;
   display: flex;
@@ -112,8 +112,6 @@
   gap: 2rem;
 }
 
-
-
 @media screen and (max-width: 430px) {
   .cp_textdiv {
     width: 100%;
@@ -121,7 +119,6 @@
     word-wrap: break-word;
     word-break: break-word;
   }
-
 
   .cp_header1 {
     font-family: Montserrat, sans-serif;

@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-btn {
+    font-size: 2.4rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: black;
+    background-color: #e76f51;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+    z-index: 999; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.top-btn:hover {
+    background-color: transparent;
+    border: 2px solid #e76f51;
+}

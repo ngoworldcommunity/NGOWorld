@@ -64,7 +64,7 @@ router.get("/logout", (req, res) => {
       console.log(err);
       return;
     }
-    res.json({ success: true });
+    res.status(200).json({ success: true });
   });
 });
 
