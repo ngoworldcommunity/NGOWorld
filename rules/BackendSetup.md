@@ -4,10 +4,16 @@
 
 If you are working just on the Frontend and don't need to modify anything in the backend, you can skip setting up the backend and simply setup a `.env` file in the root (not inside the `/server` directory).
 
-Inside that `.env` file you have to put `VITE_MILANAPI="https://milan-server.vercel.app"`, so that you can use the deployed backend. 
+Inside that `.env` file you have to put the following line of code so that you can use the deployed backend.
+``` sh
+  VITE_MILANAPI="https://milan-server.vercel.app"
+```  
 
-Else you can use `VITE_MILANAPI="http://localhost:5000"` to use the local backend.
-  
+Else you can use the following command to use the local backend.
+``` sh
+  VITE_MILANAPI="http://localhost:5000"
+```
+
 ## Setting up the backend locally 🚀
 
 Follow the below setup to setup the backend locally. We are using `npm` as the
@@ -20,10 +26,18 @@ system.
 ## Installing dependencies ⏳
 
 - Open your terminal and navigate to the `Milan` directory.
-- After that navigate to the `server` directory by typing `cd server`.
-- Type `npm install` to install all the dependencies.
+- After that navigate to the `server` directory by typing the following command
+``` sh
+  cd server
+``` 
+- Type the following command to install all the dependencies.
+``` sh
+  npm install
+``` 
 - Once the installation is done, you can start the frontend server by typing
-  `npm start`.
+ ``` sh
+  npm start
+```
 - This should start the frontend server on `http://localhost:5000/`.
 
 ## Techstack overview 🌀
