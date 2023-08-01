@@ -15,16 +15,12 @@ const Club_Log = `${API}/club/login`;
 const Club_Reg = `${API}/club/register`;
 const All_Clubs = `${API}/display/clubs`;
 const Report_Log = `${API}/user/userreport`;
-
 const All_Events = `${API}/display/allevents`;
 const Contact_Us = `${API}/user/contactus`;
 const Create_Event = `${API}/club/createevent`;
+const loginAuth = `${API}/auth/google`;
 const loginSuccess = `${API}/auth/login/success`;
-
-//^ `````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
-//* Axios call to login a User
-//* IF success we alert user made else we alert user failed
-//* we get the credentials from the Awb.jsx
+const logoutRoute = `${API}/auth/logout`;
 
 //* UPDATE USER
 export const UpdateUser = async (credentials) => {
@@ -155,7 +151,7 @@ export const CreateEvent = async (eventdata) => {
 
 export const GoogleAuth = async () => {
   try {
-    const response = await Axios.get(`${API}/auth/google`);
+    const response = await Axios.get(loginAuth);
     return response.data.url;
   } catch (error) {
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
@@ -180,10 +176,9 @@ export const successCallback = async () => {
 };
 
 //* Google logout
-
 export const logoutCallback = async () => {
   try {
-    const response = await Axios.post(`${API}/auth/logout`, {
+    const response = await Axios.post(logoutRoute, {
       withCredentials: true,
     });
 

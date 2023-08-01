@@ -22,8 +22,21 @@ const GoToTop = () => {
     }
   };
 
+  const debounce = (callback, delay) => {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        callback(...args);
+      }, delay);
+    };
+  };
+
+  const debouncedFilter = debounce(listenToScroll, 300);
+
   useEffect(() => {
-    window.addEventListener("scroll", listenToScroll);
+    window.addEventListener("scroll", debouncedFilter);
+    return () => window.removeEventListener("scroll", debouncedFilter);
   }, []);
 
   return (
