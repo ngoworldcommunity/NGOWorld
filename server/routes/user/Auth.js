@@ -65,13 +65,15 @@ router.get("/login/success", (req, res) => {
 });
 
 //* Route 9  - google authentication logout
-router.get("/logout", (req, res) => {
+router.post("/logout", function (req, res, next) {
   req.logout(function (err) {
     if (err) {
-      console.log(err);
-      return;
+      return next(err);
     }
-    res.status(200).json({ success: true });
+
+    res.cookie("ssid", "", { expires: new Date(0), httpOnly: true });
+    res.cookie("Token", "", { expires: new Date(0), httpOnly: true });
+    res.status(201).redirect("/");
   });
 });
 

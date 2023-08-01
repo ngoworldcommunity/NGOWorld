@@ -8,13 +8,10 @@ const TopButton = ({ GoogleButton, isGoBack }) => {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
-    console.log("goback was called");
     navigate(-1);
   };
 
   const handleNavigatePages = () => {
-    console.log("navigate was called");
-    console.log(isGoBack);
     navigate(
       window.location.pathname.includes("register")
         ? "/user/login"
@@ -24,16 +21,8 @@ const TopButton = ({ GoogleButton, isGoBack }) => {
 
   const handleGoogle = async () => {
     const response = await GoogleAuth();
-
     window.location.href = response;
   };
-
-  // useEffect(() => {
-  //   const handleToken = async () => {
-  //     await successCallback();
-  //   };
-  //   handleToken();
-  // }, []);
 
   return (
     <>

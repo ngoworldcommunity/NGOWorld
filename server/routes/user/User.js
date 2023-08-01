@@ -105,7 +105,6 @@ router.post("/login", async (req, res) => {
       })
       .json({ token, isuser: true, message: "Logged you in !" });
   } catch (err) {
-    console.log(err);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
@@ -125,7 +124,6 @@ router.post("/generate-token", async (req, res) => {
       })
       .json({ token, isuser: true, message: "Logged you in !" });
   } catch (err) {
-    console.log(err);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });

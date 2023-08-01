@@ -26,7 +26,6 @@ function ClubLogin() {
 
   const callUserLoginAPI = async () => {
     const Data = await LoginUser(credentials);
-    console.log(Data);
 
     if (Data?.status === 201) {
       Cookies.set("isLoggedIn", true);

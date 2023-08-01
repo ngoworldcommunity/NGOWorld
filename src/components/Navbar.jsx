@@ -12,7 +12,6 @@ import Button from "./Button/GlobalButton/Button";
 import ClickAwayListener from "../utils/clickAwayListener";
 
 const Navbar = () => {
-  console.log("I was re rendered");
   const navigate = useNavigate();
   const location = useLocation();
   const { isSignUpModalOpen, toggleSignUpModal } = useContext(MilanContext);

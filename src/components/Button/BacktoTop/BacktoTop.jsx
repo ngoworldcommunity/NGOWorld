@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../BacktoTop/BacktoTop.css";
-import { BsArrowUpShort } from "react-icons/bs";
 import { useEffect } from "react";
+import { IoIosArrowUp } from "react-icons/io";
 
 const GoToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -30,10 +30,7 @@ const GoToTop = () => {
     <div className="wrapper">
       {isVisible && (
         <div className="top-btn" onClick={goToBtn}>
-          <div className="icon-container">
-            {" "}
-            <BsArrowUpShort className="icon" />
-          </div>
+          <IoIosArrowUp className="icon" />
         </div>
       )}
     </div>

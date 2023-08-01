@@ -16,7 +16,6 @@ passport.use(
         user,
       ) {
         if (err) {
-          console.log("error in google-strategy-passport", err);
           return;
         }
 
@@ -37,13 +36,8 @@ passport.use(
             },
             function (err, user) {
               if (err) {
-                console.log(
-                  "error in creating user google-strategy-passport",
-                  err,
-                );
                 return;
               }
-              console.log(user._id);
               return done(null, user);
             },
           );
@@ -54,7 +48,6 @@ passport.use(
 );
 
 passport.serializeUser(function (user, done) {
-  console.log("serializeUser");
   done(null, user.id);
 });
 
@@ -62,7 +55,6 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (id, done) {
   User.findById(id, function (err, user) {
     if (err) {
-      console.log("Error in finding user");
       return done(null, user);
     }
     return done(null, user);

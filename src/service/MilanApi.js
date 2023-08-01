@@ -159,7 +159,6 @@ export const GoogleAuth = async () => {
     return response.data.url;
   } catch (error) {
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
-    console.log(error);
   }
 };
 
@@ -176,7 +175,7 @@ export const successCallback = async () => {
 
     return response;
   } catch (err) {
-    console.log(err);
+    return err;
   }
 };
 
@@ -184,12 +183,12 @@ export const successCallback = async () => {
 
 export const logoutCallback = async () => {
   try {
-    const response = await Axios.get(`${API}/auth/logout`);
+    const response = await Axios.post(`${API}/auth/logout`, {
+      withCredentials: true,
+    });
 
-    if (response.data.success) {
-      return true;
-    }
+    return response;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
