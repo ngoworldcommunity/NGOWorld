@@ -1,28 +1,32 @@
 .wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .top-btn {
-    font-size: 2.4rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    color: black;
-    background-color: #e76f51;
-    border-radius: 10px;
-    position: fixed;
-    bottom: 5rem;
-    right: 5rem;
-    z-index: 999; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: black;
+  background-color: #e76f51;
+  border-radius: 10px;
+  position: fixed;
+  bottom: 5rem;
+  right: 5rem;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.icon {
+  font-size: 1.8rem;
+  font-family: "Poppins", sans-serif;
 }
 
 .top-btn:hover {
-    background-color: transparent;
-    border: 2px solid #e76f51;
+  background-color: transparent;
+  border: 2px solid #e76f51;
 }

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import MilanLanding1 from "../assets/pictures/landing/MilanLanding1.png";
 import MilanLanding2 from "../assets/pictures/landing/MilanLanding2.png";
 import LandingMobile from "../assets/pictures/landing/LandingMobile.png";
-import Button from "./Button";
+import Button from "./Button/GlobalButton/Button";
 
 const Milaninfobanner = () => {
   const nav = useNavigate();
@@ -43,9 +43,10 @@ const Milaninfobanner = () => {
 
             <div>
               <p className="mib_header2">
-              Milan connects over 1000 charities, NGOs, and individuals with a
+                Milan connects over 1000 charities, NGOs, and individuals with a
                 common goal - connecting help with people that needs it. You can
-                donate, buy for charity, share fundraising events, and much more.
+                donate, buy for charity, share fundraising events, and much
+                more.
               </p>
             </div>
           </div>

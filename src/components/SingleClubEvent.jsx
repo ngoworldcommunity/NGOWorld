@@ -3,7 +3,7 @@ import ClubUpperImage from "../assets/pictures/ClubUpperImage.svg";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/ClubsPage.css";
-import Button from "./Button";
+import Button from "./Button/GlobalButton/Button";
 
 export default function SingleClubEvent({ club, type, event }) {
   const [location, setLocation] = useState("");

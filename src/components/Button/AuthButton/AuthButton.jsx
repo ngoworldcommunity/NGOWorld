@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Button";
+import Button from "../GlobalButton/Button";
 import { ClipLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
 
