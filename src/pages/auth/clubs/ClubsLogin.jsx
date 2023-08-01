@@ -9,7 +9,7 @@ import useValidation from "../../../hooks/useValidation";
 import Cookies from "js-cookie";
 import { ToastContainer } from "react-toastify";
 import AuthButton from "../../../components/Button/AuthButton/AuthButton";
-import TopButton from "../user/TopButton";
+import TopButton from "../../../components/Button/AuthButton/TopButton";
 
 function ClubLogin() {
   const navigate = useNavigate();

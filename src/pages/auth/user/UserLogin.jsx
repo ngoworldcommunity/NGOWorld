@@ -9,7 +9,7 @@ import useValidation from "../../../hooks/useValidation";
 import Cookies from "js-cookie";
 import { ToastContainer } from "react-toastify";
 import AuthButton from "../../../components/Button/AuthButton/AuthButton";
-import TopButton from "./TopButton";
+import TopButton from "../../../components/Button/AuthButton/TopButton";
 
 function ClubLogin() {
   const navigate = useNavigate();
@@ -26,9 +26,10 @@ function ClubLogin() {
 
   const callUserLoginAPI = async () => {
     const Data = await LoginUser(credentials);
+    console.log(Data);
 
     if (Data?.status === 201) {
-      Cookies.set("token", Data?.data?.token);
+      Cookies.set("isLoggedIn", true);
       showSuccessToast(Data?.data?.message);
 
       setTimeout(() => {

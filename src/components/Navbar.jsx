@@ -12,6 +12,7 @@ import Button from "./Button/GlobalButton/Button";
 import ClickAwayListener from "../utils/clickAwayListener";
 
 const Navbar = () => {
+  console.log("I was re rendered");
   const navigate = useNavigate();
   const location = useLocation();
   const { isSignUpModalOpen, toggleSignUpModal } = useContext(MilanContext);
@@ -20,7 +21,7 @@ const Navbar = () => {
     useContext(MilanContext);
 
   const handleNavigate = () => {
-    if (Cookies.get("token")) {
+    if (Cookies.get("isLoggedIn")) {
       navigate("/user/profile");
     }
 
@@ -32,7 +33,7 @@ const Navbar = () => {
   const navigateToURL = (url) => {
     isSignUpModalOpen && toggleSignUpModal();
     isSignInModalOpen && toggleSignInModal();
-    setIsNavbarOpen(false); // Close the navbar
+    setIsNavbarOpen(false);
     navigate(url);
   };
 
@@ -119,7 +120,9 @@ const Navbar = () => {
                 </li>
               </ul>
               <div className="nav-buttons">
-                {Cookies.get("token") || Cookies.get("club") ? (
+                {Cookies.get("isLoginInitiated") ||
+                Cookies.get("isLoggedIn") ||
+                Cookies.get("club") ? (
                   <img
                     onClick={handleNavigate}
                     src={ProfilePicture}

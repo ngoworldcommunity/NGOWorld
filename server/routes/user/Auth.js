@@ -3,7 +3,6 @@ const router = express.Router();
 var jwt = require("jsonwebtoken");
 const passport = require("passport");
 
-let loggedIn = false;
 //* Route 5  - google authentication
 router.get("/google", (req, res) => {
   const googleAuthURL = "https://accounts.google.com/o/oauth2/v2/auth";
@@ -26,8 +25,11 @@ router.get(
     failureRedirect: "auth/login/failed",
   }),
   (req, res) => {
-    loggedIn = false;
-    res.redirect(process.env.successURL);
+    res
+      .cookie("isLoginInitiated", true, {
+        expires: new Date(new Date().getTime() + 5 * 60 * 1000),
+      })
+      .redirect(process.env.successURL);
   },
 );
 
@@ -40,18 +42,23 @@ router.get("/login/failed", (req, res) => {
 
 //* Route 8  - google authentication success
 router.get("/login/success", (req, res) => {
-  if (req.user && !loggedIn) {
+  if (req.user) {
     const data = { User: { id: req.user.email } };
     const token = jwt.sign(data, process.env.JWT_SECRET);
-    loggedIn = true;
-
-    res.status(200).json({
-      success: true,
-      error: false,
-      message: "Successfully Loged In",
-      user: req.user,
-      accessToken: token,
-    });
+    res
+      .status(201)
+      .cookie("Token", token, {
+        sameSite: "strict",
+        httpOnly: true,
+        path: "/",
+        expires: new Date(new Date().getTime() + 60 * 60 * 1000),
+        secure: true,
+      })
+      .json({
+        token,
+        isuser: true,
+        message: "Logged you in !",
+      });
   } else {
     res.status(403).json({ error: true, message: "Not Authorized" });
   }

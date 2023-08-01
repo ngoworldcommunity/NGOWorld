@@ -2,6 +2,7 @@ import React from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
+import { GoogleAuth } from "../../../service/MilanApi";
 
 const TopButton = ({ GoogleButton, isGoBack }) => {
   const navigate = useNavigate();
@@ -20,6 +21,19 @@ const TopButton = ({ GoogleButton, isGoBack }) => {
         : "/user/register",
     );
   };
+
+  const handleGoogle = async () => {
+    const response = await GoogleAuth();
+
+    window.location.href = response;
+  };
+
+  // useEffect(() => {
+  //   const handleToken = async () => {
+  //     await successCallback();
+  //   };
+  //   handleToken();
+  // }, []);
 
   return (
     <>
@@ -45,12 +59,14 @@ const TopButton = ({ GoogleButton, isGoBack }) => {
       </button>
 
       {GoogleButton && (
-        <button className="btn authpage_googlebtn">
+        <button
+          className="btn authpage_googlebtn"
+          onClick={() => {
+            handleGoogle();
+          }}
+        >
           <FcGoogle style={{ fontSize: "20px", marginRight: "0.7rem" }} />
-
-          {window.location.pathname.includes("register")
-            ? "Sign up"
-            : "Sign in"}
+          Continue with Google
         </button>
       )}
     </>

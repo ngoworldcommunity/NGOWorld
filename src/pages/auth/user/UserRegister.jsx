@@ -8,7 +8,7 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import useValidation from "../../../hooks/useValidation";
 import { ToastContainer } from "react-toastify";
 import AuthButton from "../../../components/Button/AuthButton/AuthButton";
-import TopButton from "./TopButton";
+import TopButton from "../../../components/Button/AuthButton/TopButton";
 
 const ClubsRegister = () => {
   const navigate = useNavigate();

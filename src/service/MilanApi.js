@@ -41,6 +41,7 @@ export const UpdateUser = async (credentials) => {
 };
 
 //* LOGIN USER
+Axios.defaults.withCredentials = true;
 export const LoginUser = async (credentials) => {
   try {
     const User = await Axios.post(User_Log, credentials);
@@ -173,14 +174,7 @@ export const successCallback = async () => {
       },
     });
 
-    if (response.status === 200) {
-      const resObject = response.data;
-      // console.log("this is accessToken", resObject.accessToken);
-
-      return resObject.accessToken;
-    } else {
-      throw new Error("Authentication has failed");
-    }
+    return response;
   } catch (err) {
     console.log(err);
   }

@@ -25,17 +25,16 @@ export default function UserProfile() {
     }
   };
 
-
   const handleLogout = async () => {
     const logout = await logoutCallback();
 
     if (logout) {
       Cookies.remove("ssid");
       Cookies.remove("token");
+      Cookies.remove("isLoggedIn");
     }
     showSuccessToast("Logged out successfully");
     Navigate("/user/login");
-
   };
 
   const handleSubmit = (e) => {
