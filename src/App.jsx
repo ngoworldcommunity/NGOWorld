@@ -17,15 +17,15 @@ import {
   Donate,
   Error404,
   ShopCategory,
-  UserForgotpassword,
   ClubDetailsCard,
   ClubForgotpassword,
 } from "./pages";
 import MilanState from "./context/MilanState";
 import "./styles/App.css";
 import Navbar from "./components/Navbar.jsx";
-import DisplayLoading from "./components/Loading/DisplayLoading";
+import BacktoTop from "../src/components/Button/BacktoTop/BacktoTop.jsx";
 import AuthLoading from "./components/Loading/AuthLoading";
+import DisplayLoading from "./components/Loading/DisplayLoading";
 
 const App = () => {
   return (
@@ -40,12 +40,6 @@ const App = () => {
               <Route exact path="/user/register" element={<UserRegister />} />
               <Route exact path="/user/login" element={<UserLogin />} />
               <Route exact path="/user/profile" element={<UserProfile />} />
-
-              <Route
-                exact
-                path="/user/forgotpass"
-                element={<UserForgotpassword />}
-              />
 
               {/* //* Auth routes - CLUBS*/}
 
@@ -88,6 +82,7 @@ const App = () => {
             </Routes>
           </Suspense>
         </Router>
+        <BacktoTop />
       </MilanState>
     </>
   );

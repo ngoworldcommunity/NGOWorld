@@ -16,7 +16,6 @@ const ClubLogin = lazy(() => import("./auth/clubs/ClubsLogin"));
 const ClubProfile = lazy(() => import("./clubs/ClubProfile"));
 const Error404 = lazy(() => import("./Error404"));
 const ShopCategory = lazy(() => import("./shops/ShopCategory"));
-const UserForgotpassword = lazy(() => import("./user/UserForgotpassword"));
 const ClubDetailsCard = lazy(() => import("./clubs/ClubDetails"));
 const ClubForgotpassword = lazy(() => import("./clubs/ClubForgotpassword"));
 
@@ -37,7 +36,6 @@ export {
   Donate,
   Error404,
   ShopCategory,
-  UserForgotpassword,
   ClubDetailsCard,
   ClubForgotpassword,
 };

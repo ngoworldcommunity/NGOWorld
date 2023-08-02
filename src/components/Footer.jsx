@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import Modal from "./Modal";
 import solidarity from "../assets/pictures/solidarity.png";
-import Button from "./Button";
+import Button from "./Button/GlobalButton/Button";
 
 const Footer = () => {
   const [reportModal, setReportModal] = useState(false);
@@ -200,7 +200,11 @@ const Footer = () => {
         <div className="row">
           <div className="col-lg-5 col-md-5 mb-lg-0 px-5">
             <div className="col-sm-3 col-6  col-lg-3 mx-auto mx-lg-0">
-              <img src={solidarity} alt="milan logo" className="mt-4 mx-auto img-fluid" />
+              <img
+                src={solidarity}
+                alt="milan logo"
+                className="mt-4 mx-auto img-fluid"
+              />
             </div>
             {isMobile ? (
               <h1 className="h6 join-us text-uppercase text-light font-weight-bold mb-4 mt-2">
@@ -211,7 +215,7 @@ const Footer = () => {
                 Want to make Milan better ?<br />
                 <span className=""> Contribute </span>
                 <a
-                  href="https://github.com/IAmTamal/Milan"
+                  href="https://github.com/tamalCodes/Milan"
                   target="_blank"
                   rel="noreferrer"
                   className="underline-animation"
@@ -272,7 +276,7 @@ const Footer = () => {
               <ul className="join-us-list list-unstyled mb-0">
                 <li className="mb-2">
                   <a
-                    href="https://twitter.com/mrTamall"
+                    href="https://twitter.com/tamalCodes"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-decoration-none footer_auth_text"
@@ -282,7 +286,7 @@ const Footer = () => {
                 </li>
                 <li className="mb-2">
                   <a
-                    href="https://github.com/IAmTamal/Milan"
+                    href="https://github.com/tamalCodes/Milan"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-decoration-none footer_auth_text"
@@ -323,7 +327,7 @@ const Footer = () => {
         <div className="socials justify-content-center">
           <div className="twitter social-btn">
             <a
-              href="https://twitter.com/mrTamall"
+              href="https://twitter.com/tamalCodes"
               rel="noopener noreferrer"
               aria-label="Follow me on Twitter"
               target="_blank"
@@ -333,7 +337,7 @@ const Footer = () => {
           </div>
           <div className="github social-btn">
             <a
-              href="https://github.com/IAmTamal/Milan"
+              href="https://github.com/tamalCodes/Milan"
               rel="noopener noreferrer"
               aria-label="Follow me on Github"
               target="_blank"

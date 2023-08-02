@@ -18,7 +18,7 @@
   align-items: center;
   position: relative;
   border-radius: 15px;
-  background-image: url(../../assets/pictures/authpages/authbannerimg.svg);
+  background-image: url(../../assets/pictures/authpages/authbannerimg.webp);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -53,6 +53,13 @@
   background-color: #e2695900; /* color of the scrollbar thumb */
 }
 
+.authpage_floatingbtn_div {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 1;
+}
+
 .authpage_floatingbtn {
   position: absolute;
   top: 15px;
@@ -60,18 +67,34 @@
   z-index: 1;
   background-color: #000000;
   color: white;
-  border-radius: 15px;
-  font-size: 10px;
+  border-radius: 10px;
+  font-size: 15px !important;
   font-family: "Poppins", sans-serif;
+  width: 250px;
 }
 
-.authpage_floatingbtn:hover {
+.authpage_googlebtn {
+  position: absolute;
+  top: 70px;
+  left: 15px;
+  z-index: 1;
+  background-color: #000000;
+  color: white;
+  border-radius: 10px;
+  font-size: 15px !important;
+  font-family: "Poppins", sans-serif;
+  width: 250px;
+}
+
+.authpage_floatingbtn:hover,
+.authpage_googlebtn:hover {
   background-color: #000000;
   color: white;
 }
 
 .authpage_goback {
   left: 7rem;
+  width: auto;
 }
 
 .authform {
@@ -208,11 +231,16 @@ textarea::placeholder {
 }
 
 @media screen and (max-width: 500px) {
+  .authform {
+    padding-left: 0px;
+  }
+
   .authform > h1 {
     font-size: 30px;
     font-weight: 600;
     color: #000000;
     margin-bottom: 1rem;
+    text-align: left;
   }
   .authpage_goback {
     left: 1rem;

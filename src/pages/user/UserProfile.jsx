@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { UpdateUser } from "../../service/MilanApi";
+import { UpdateUser, logoutCallback } from "../../service/MilanApi";
 import Cookies from "js-cookie";
 import "../../styles/UserLogin.css";
+import { showSuccessToast } from "../../utils/showToast";
 
 export default function UserProfile() {
   document.title = "Milan | User Profile";
@@ -24,9 +25,14 @@ export default function UserProfile() {
     }
   };
 
-  const handleLogout = () => {
-    Cookies.remove("token");
-    Navigate("/");
+  const handleLogout = async () => {
+    const logout = await logoutCallback();
+
+    if (logout?.status === 200) {
+      Cookies.remove("isLoggedIn");
+      showSuccessToast("Logged out successfully");
+      Navigate("/");
+    }
   };
 
   const handleSubmit = (e) => {

@@ -15,16 +15,22 @@ router.get("/google", (req, res) => {
   });
 
   const redirectURL = `${googleAuthURL}?${params}`;
-  res.redirect(redirectURL);
+  return res.json({ url: redirectURL });
 });
 
 //* Route 6  - google authentication callback
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: process.env.successURL,
-    failureRedirect: "/login/failed",
+    failureRedirect: "auth/login/failed",
   }),
+  (req, res) => {
+    res
+      .cookie("isLoginInitiated", true, {
+        expires: new Date(new Date().getTime() + 5 * 60 * 1000),
+      })
+      .redirect(process.env.successURL);
+  },
 );
 
 //* Route 7  - google authentication failed
@@ -38,27 +44,36 @@ router.get("/login/failed", (req, res) => {
 router.get("/login/success", (req, res) => {
   if (req.user) {
     const data = { User: { id: req.user.email } };
-
-    res.status(200).json({
-      success: true,
-      error: false,
-      message: "Successfully Loged In",
-      user: req.user,
-      accessToken: jwt.sign(data, process.env.JWT_SECRET),
-    });
+    const token = jwt.sign(data, process.env.JWT_SECRET);
+    res
+      .status(201)
+      .cookie("Token", token, {
+        sameSite: "strict",
+        httpOnly: true,
+        path: "/",
+        expires: new Date(new Date().getTime() + 60 * 60 * 1000),
+        secure: true,
+      })
+      .json({
+        token,
+        isuser: true,
+        message: "Logged you in !",
+      });
   } else {
     res.status(403).json({ error: true, message: "Not Authorized" });
   }
 });
 
 //* Route 9  - google authentication logout
-router.get("/logout", (req, res) => {
+router.post("/logout", function (req, res, next) {
   req.logout(function (err) {
     if (err) {
-      console.log(err);
-      return;
+      return next(err);
     }
-    res.json({ success: true });
+
+    res.cookie("ssid", "", { expires: new Date(0), httpOnly: true });
+    res.cookie("Token", "", { expires: new Date(0), httpOnly: true });
+    res.status(201).redirect("/");
   });
 });
 

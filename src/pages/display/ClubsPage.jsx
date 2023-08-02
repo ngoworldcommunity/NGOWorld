@@ -6,8 +6,8 @@ import SingleClubEvent from "../../components/SingleClubEvent";
 import useSWR from "swr";
 import { defaultfetcher } from "../../utils/fetcher";
 import { filter } from "../../utils/filter";
-import states from "./StatesData";
-import Button from "../../components/Button";
+// import states from "./StatesData";
+// import Button from "../../components/Button";
 import { showErrorToast } from "../../utils/showToast";
 import Footer from "../../components/Footer";
 
