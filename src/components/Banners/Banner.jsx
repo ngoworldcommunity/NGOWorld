@@ -3,7 +3,7 @@ import "../../styles/Banner.css";
 import Cookies from "js-cookie";
 import { ImGithub } from "react-icons/im";
 import MilanContext from "../../context/MilanContext";
-import Button from "../Button";
+import Button from "../Button/GlobalButton/Button";
 
 const Banner = () => {
   const { toggleSignUpModal } = useContext(MilanContext);
@@ -31,7 +31,7 @@ const Banner = () => {
                   <div className="banner_btn_div">
                     <Button
                       className="banner_signup_btn  "
-                      to="https://github.com/IAmTamal/Milan"
+                      to="https://github.com/tamalCodes/Milan"
                       target="_blank"
                       rel="noreferrer"
                       variant="outline"
@@ -41,7 +41,7 @@ const Banner = () => {
 
                     <Button
                       className="banner_signup_btn  "
-                      to="https://github.com/IAmTamal/Milan"
+                      to="https://github.com/tamalCodes/Milan"
                       target="_blank"
                       rel="noreferrer"
                     >

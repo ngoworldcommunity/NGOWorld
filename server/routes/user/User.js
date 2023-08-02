@@ -79,14 +79,6 @@ router.post("/update", async (req, res) => {
   }
 });
 
-/**
- * @description Login User
- * @route POST /user/login
- * @access Public
- * @requires email,password
- * @returns token (string) and isuser (boolean)
- */
-
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -101,11 +93,36 @@ router.post("/login", async (req, res) => {
     }
 
     const payload = { User: { id: existingUser.email } };
+    const token = jwt.sign(payload, process.env.JWT_SECRET);
+    res
+      .status(201)
+      .cookie("Token", token, {
+        sameSite: "strict",
+        httpOnly: true,
+        path: "/",
+        expires: new Date(new Date().getTime() + 60 * 60 * 1000),
+        secure: true,
+      })
+      .json({ token, isuser: true, message: "Logged you in !" });
+  } catch (err) {
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
 
-    jwt.sign(payload, process.env.JWT_SECRET, (err, token) => {
-      if (err) throw new Error("Something Went Wrong!");
-      res.status(201).json({ token, isuser: true, message: "Logged you in !" });
-    });
+router.post("/generate-token", async (req, res) => {
+  try {
+    const payload = { User: { id: req.body.email } };
+    const token = jwt.sign(payload, process.env.JWT_SECRET);
+    res
+      .status(201)
+      .cookie("Token", token, {
+        sameSite: "strict",
+        httpOnly: true,
+        path: "/",
+        expires: new Date(new Date().getTime() + 60 * 60 * 1000),
+        secure: true,
+      })
+      .json({ token, isuser: true, message: "Logged you in !" });
   } catch (err) {
     res.status(500).json({ message: "Internal Server Error" });
   }

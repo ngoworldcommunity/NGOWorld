@@ -16,6 +16,7 @@ module.exports = {
     semi: ["error", "always"],
     "no-multiple-empty-lines": "error",
     "react/prop-types": ["off"],
+    "react/react-in-jsx-scope": "off",
   },
   settings: {
     react: {
