@@ -5,7 +5,7 @@ import displayRazorpay from "../../service/PaymentGateway";
 import Modal from "../../components/Modal";
 import useSWR from "swr";
 import { defaultfetcher } from "../../utils/fetcher";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 
 function ClubDetailsCard() {
   const params = useParams();
@@ -34,7 +34,6 @@ function ClubDetailsCard() {
     `${import.meta.env.VITE_MILANAPI}/display/clubs?id=${params.id}`,
     defaultfetcher,
   );
-
 
   const closePayModal = () => {
     setshowPaymodal(false);

@@ -9,7 +9,7 @@ import { filter } from "../../utils/filter";
 // import states from "./StatesData";
 import { showErrorToast } from "../../utils/showToast";
 import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 
 const EventsPage = () => {
   const { data: eventsData, isLoading } = useSWR(

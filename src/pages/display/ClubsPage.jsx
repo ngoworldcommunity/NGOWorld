@@ -9,7 +9,7 @@ import { filter } from "../../utils/filter";
 // import states from "./StatesData";
 // import Button from "../../components/Button";
 import { showErrorToast } from "../../utils/showToast";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer";
 
 const ClubsPage = () => {
