@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Loading from "../../components/Loading";
-import SingleClubEvent from "../../components/SingleClubEvent";
+import SingleClubEvent from "../../components/Cards/SingleClubEvent/SingleClubEvent";
 import useSWR from "swr";
 import { defaultfetcher } from "../../utils/fetcher";
 import { filter } from "../../utils/filter";
@@ -122,11 +122,11 @@ const EventsPage = () => {
       </Helmet>
       <Navbar />
       <div className="container">
-        <div className="cp_main_parent">
-          <div className="cp_subparent">
-            <div className="cp_textdiv">
-              <p className="cp_header1">Events happening now!</p>
-              <p className="cp_header2">
+        <div className="clubspage_main_parent">
+          <div className="clubspage_subparent">
+            <div className="clubspage_textdiv">
+              <p className="clubspage_header1">Events happening now!</p>
+              <p className="clubspage_header2">
                 All our partnered NGOs host various events, be it educational,
                 cleaning mother earth, funding events, health camps, and many
                 more!
@@ -178,7 +178,7 @@ const EventsPage = () => {
               ))}
           </div> */}
 
-          <div className="cp_cardsdiv">
+          <div className="clubspage_cardsdiv">
             {isLoading ? (
               <Loading />
             ) : (
@@ -193,7 +193,9 @@ const EventsPage = () => {
                       "Eventlocation",
                     );
                     if (filteredEvents?.length === 0) {
-                      return <p className="cp_header2">No Events Found</p>;
+                      return (
+                        <p className="clubspage_header2">No Events Found</p>
+                      );
                     } else {
                       return filteredEvents?.map((event) => (
                         <SingleClubEvent

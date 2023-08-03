@@ -6,7 +6,6 @@ import {
   ClubProfile,
   ShopLanding,
   ClubRegister,
-  ClubsPage,
   UserRegister,
   UserLogin,
   UserProfile,
@@ -23,6 +22,7 @@ import "./styles/App.css";
 import ShopCategory from "./pages/shops/ShopCategory";
 import Error404 from "./pages/Error404";
 import BacktoTop from "../src/components/Button/BacktoTop/BacktoTop.jsx";
+import AllClubs from "./pages/Views/Clubs/AllClubs/AllClubs";
 
 const App = () => {
   return (
@@ -52,7 +52,7 @@ const App = () => {
             />
 
             {/* //* Display Routes */}
-            <Route exact path="/clubs" element={<ClubsPage />} />
+            <Route exact path="/clubs" element={<AllClubs />} />
             <Route exact path="/contact" element={<ContactPage />} />
             <Route exact path="/aboutus" element={<AboutUs />} />
             <Route exact path="/clubs/createevent" element={<EventCreate />} />
