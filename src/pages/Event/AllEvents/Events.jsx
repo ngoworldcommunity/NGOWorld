@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 import Loading from "../../../components/Loading";
 import SingleClubEvent from "../../../components/Cards/SingleClubEvent/SingleClubEvent";
 import useSWR from "swr";
-import { defaultfetcher } from "../../../utils/fetcher";
+import { defaultfetcher } from "../../../utils/Fetcher";
 import { filter } from "../../../utils/Filter";
 // import states from "./StatesData";
 import { showErrorToast } from "../../../utils/Toasts";

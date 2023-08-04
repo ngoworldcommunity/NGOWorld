@@ -2,12 +2,12 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import useSWR from "swr";
-import { defaultfetcher } from "../../../utils/fetcher";
+import { defaultfetcher } from "../../../utils/Fetcher";
 import Navbar from "../../../components/Navbar/Navbar";
 import Loading from "../../../components/Loading";
 import SingleClubEvent from "../../../components/Cards/SingleClubEvent/SingleClubEvent";
 import Footer from "../../../components/Footer/Footer";
-import { filter } from "../../../utils/filter";
+import { filter } from "../../../utils/Filter";
 import { showErrorToast } from "../../../utils/Toasts";
 import "./Clubs.css";
 

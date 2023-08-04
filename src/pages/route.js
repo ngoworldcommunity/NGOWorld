@@ -2,8 +2,8 @@ export { default as Home } from "./Home";
 
 // User Routes
 export { default as UserRegister } from "./Auth/User/UserRegister";
-export { default as UserLogin } from "./Auth/user/UserLogin";
-export { default as UserProfile } from "./user/UserProfile";
+export { default as UserLogin } from "./Auth/User/UserLogin";
+export { default as UserProfile } from "./User/UserProfile";
 
 // Club Routes
 export { default as ClubRegister } from "./Auth/Club/ClubsRegister";

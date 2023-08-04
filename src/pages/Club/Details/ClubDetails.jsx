@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import displayRazorpay from "../../../../service/PaymentGateway";
 import Modal from "../../../../components/Modal";
 import useSWR from "swr";
-import { defaultfetcher } from "../../../../utils/fetcher";
+import { defaultfetcher } from "../../../../utils/Fetcher";
 import Navbar from "../../../../components/Navbar/Navbar";
 
 function ClubDetailsCard() {
