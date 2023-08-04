@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap");
 
 .banner_mainparent {
   display: flex;
@@ -111,7 +111,7 @@
   .banner_header1 {
     font-size: 55px;
     text-align: center;
-    line-height: 50px;
+    line-height: 40px;
     margin-bottom: 0px;
     margin-top: 0px;
   }

@@ -12,7 +12,7 @@
 
 .navbar_main > .navbar_betabtn {
   position: absolute;
-  left: 10px;
+  left: 15px;
   top: 15px;
   z-index: 1;
   background-color: #000000;
@@ -169,6 +169,10 @@
 }
 
 @media screen and (max-width: 525px) {
+  .navbar_betabtn {
+    left: 145px;
+    top: 19px;
+  }
   .signUpModalHeader {
     justify-content: center;
     align-items: center;
