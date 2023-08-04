@@ -88,7 +88,11 @@
   }
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 500px) {
+  .banner_mainparent {
+    height: 100vh;
+  }
+
   .banner_subparent {
     flex-direction: column;
     align-items: center;
@@ -101,13 +105,13 @@
   }
 
   .banner_textdiv {
-    margin-top: 200px;
+    margin-top: 10vh;
   }
 
   .banner_header1 {
-    font-size: 60px;
+    font-size: 55px;
     text-align: center;
-    line-height: 2.5rem;
+    line-height: 50px;
     margin-bottom: 0px;
     margin-top: 0px;
   }
@@ -141,211 +145,7 @@
   }
 }
 
-/* Milan Info Banner */
-
-/* .mib_main_parent {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-  padding: 0 20.5px;
-}
-
-.mib_main_parent2 {
-  margin-top: 8rem;
-  margin-bottom: 5rem;
-  padding: 0 20.5px;
-}
-.mib_subparent1 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.mib_subparent2 > .mib_textdiv > div {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.mib_imgdiv img {
-  max-width: 430px;
-}
-
-.mib_textdiv {
-  text-align: right;
-  width: 70%;
-}
-
-.mib_header1 {
-  font-size: 90px;
-  color: #28183b;
-  line-height: 100px;
-  font-weight: 900;
-  font-family: "Inter", sans-serif;
-}
-
-.mib_textdiv div {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.mib_header2 {
-  font-family: "Poppins", sans-serif;
-  color: black;
-  font-size: 20px;
-  margin-top: 10px;
-  letter-spacing: 1px;
-  width: 80%;
-}
-
-.mib_subparent2 {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 12rem;
-  align-items: center;
-}
-
-.mib_subparent2 .mib_textdiv {
-  text-align: left;
-  width: 60%;
-}
-
-.mib_subparent3 {
-  text-align: center;
-  margin-top: 12rem;
-  margin-bottom: 6rem;
-  display: flex;
-  justify-content: center;
-}
-
-.mib_subparent3 .mib_textdiv {
-  text-align: center;
-  width: 70%;
-}
-
-.mib_subparent3 .mib_textdiv div {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.mib_subparent3 .mib_imgdiv img {
-  display: none;
-}
-
-@media screen and (max-width: 430px) {
-  .mib_main_parent {
-    margin-top: 12rem;
-  }
-  .mib_main_parent2,
-  .mib_subparent2 {
-    margin-top: 8rem;
-  }
-  .mib_subparent1,
-  .mib_subparent2,
-  .mib_subparent3 {
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .mib_textdiv {
-    width: 100% !important;
-    text-align: center !important;
-  }
-
-  .mib_subparent1 .mib_imgdiv {
-    display: flex;
-    justify-content: center;
-  }
-
-  .mib_subparent1 .mib_imgdiv img {
-    margin-top: 30px;
-    width: 100%;
-  }
-
-  .mib_subparent2 .mib_imgdiv {
-    display: none;
-  }
-
-  .mib_header1 {
-    font-size: 60px;
-    text-align: center;
-    line-height: 3.5rem;
-    margin-bottom: 0px;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
-  }
-
-  .mib_header2 {
-    width: 90%;
-    font-size: 16px;
-    margin: auto;
-    margin-top: 30px;
-  }
-
-  .mib_subparent3 .mib_imgdiv img {
-    display: flex;
-    margin-top: 3rem;
-    width: 100%;
-  }
-}
-
-.mib_explore_btn {
-  margin-top: 2rem;
-
-  font-weight: 600;
-  cursor: pointer;
-}
-
-@media screen and (430px < width < 1008px) {
-  .mib_subparent1 {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-  }
-
-  .mib_imgdiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 50px;
-    margin-top: 50px;
-  }
-
-  .mib_textdiv {
-    width: auto;
-    text-align: center;
-  }
-
-  .mib_textdiv div {
-    display: flex;
-    justify-content: center;
-  }
-
-  .mib_subparent2 {
-    flex-direction: column;
-  }
-
-  .mib_subparent2 > .mib_textdiv > div {
-    display: flex;
-    justify-content: center;
-  }
-
-  .mib_subparent2 > .mib_textdiv {
-    width: auto;
-    text-align: center;
-  }
-
-  .mib_subparent3 > .mib_imgdiv {
-    display: none;
-  }
-
-  .mib_main_parent2 > .mib_subparent3 > .mib_textdiv {
-    width: 100%;
-  }
-} */
+/* MilaninfoBanner stylings below */
 
 .mib_mainparent {
   margin-top: 7rem;
@@ -465,4 +265,61 @@
   font-size: 18px;
   margin-top: 0px;
   letter-spacing: 1px;
+}
+
+@media screen and (max-width: 500px) {
+  .mib_mainparent {
+    padding: 0 10.5px;
+  }
+
+  .mib_numbercircle {
+    width: 25px;
+    height: 25px;
+    font-size: 13px;
+  }
+
+  .mib_top_intro > h1 {
+    font-size: 23px;
+    font-weight: 900;
+  }
+
+  .mib_collab_bottom_middle > h1 {
+    font-size: 45px;
+    line-height: 50px;
+    margin-top: 1rem;
+  }
+
+  .mib_collab_bottom_middle > p {
+    font-size: 17px;
+    width: 95%;
+  }
+
+  .mib_sidewise {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+    width: 100%;
+    margin-bottom: 7rem;
+  }
+
+  .mib_collab_bottom_right h1 {
+    font-size: 25px;
+  }
+
+  .mib_collab_bottom_right p {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .mib_collab_bottom_left > img {
+    width: 90%;
+  }
+
+  .mib_collab_parent:nth-child(3)
+    > .mib_collab_bottom
+    > .mib_sidewise
+    > .mib_collab_bottom_left {
+    display: none;
+  }
 }

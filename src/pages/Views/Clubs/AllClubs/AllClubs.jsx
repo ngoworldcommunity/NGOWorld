@@ -130,11 +130,18 @@ const AllClubs = () => {
               <h1 className="clubspage_header1">
                 Caring Hands, Changing Futures.
               </h1>
-              <p className="clubspage_header2">
-                Here are some of the Charities, NGOs and Organizations you can
-                follow. You can attend charity/club events and even get notified
-                about them once you subscribe to them!
-              </p>
+              {window.innerWidth < 800 ? (
+                <p className="clubspage_header2">
+                  Discover and follow Charities, NGOs, and Organizations to
+                  attend events and get notified after subscribing.
+                </p>
+              ) : (
+                <p className="clubspage_header2">
+                  Here are some of the Charities, NGOs and Organizations you can
+                  follow. You can attend charity/club events and even get
+                  notified about them once you subscribe to them!
+                </p>
+              )}
             </div>
           </div>
           {/* <div

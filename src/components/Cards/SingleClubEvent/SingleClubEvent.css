@@ -54,3 +54,42 @@
   padding: 15px 5px !important;
   height: 45px;
 }
+
+@media screen and (max-width: 430px) {
+  .sc_parent {
+    width: 100%;
+    padding: 12px;
+    min-height: 236px;
+    max-height: none;
+  }
+
+  .sc_header {
+    margin-bottom: 1rem;
+  }
+
+  .sc_header h1 {
+    font-size: 21px;
+    text-align: left;
+  }
+
+  .sc_header img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .sc_body p {
+    font-size: 15px;
+    width: 100%;
+  }
+  .sc_cta {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .sc_cta button {
+    margin-top: 0rem;
+    height: 40px;
+  }
+}

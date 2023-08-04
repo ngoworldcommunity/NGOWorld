@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Milaninfobanner from "../components/Banners/HomeBanner/Milaninfobanner";
 import Navbar from "../components/Navbar/Navbar.jsx";
-import Footer from "../components/Footer.jsx";
 import { successCallback } from "../service/MilanApi.js";
 import { showErrorToast, showSuccessToast } from "../utils/showToast.js";
 import Cookies from "js-cookie";
@@ -48,7 +47,8 @@ const Home = () => {
 
       <HomeBanner />
       <Milaninfobanner />
-      <Footer />
+      {/* 
+      <Footer /> */}
     </>
   );
 };

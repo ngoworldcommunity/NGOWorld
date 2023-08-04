@@ -48,3 +48,52 @@
   column-gap: 1.5rem;
   row-gap: 1.5rem;
 }
+
+@media screen and (max-width: 500px) {
+  .clubspage_main_parent {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  /* .clubspage_subparent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  } */
+
+  .clubspage_textdiv {
+    margin-top: 2rem;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .clubspage_header1 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  .clubspage_header2 {
+    font-family: "Poppins", sans-serif;
+    color: black;
+    font-size: 18px;
+    margin-top: 0px;
+    letter-spacing: 1px;
+    width: 95%;
+    text-align: center;
+  }
+
+  .clubspage_cardsdiv {
+    margin-top: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 1.5rem;
+    row-gap: 1.5rem;
+  }
+}

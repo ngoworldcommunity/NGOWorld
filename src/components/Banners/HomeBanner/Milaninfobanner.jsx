@@ -35,11 +35,18 @@ const Milaninfobanner = () => {
               : {})}
           >
             <h1>United, We Achieve Greatness.</h1>
-            <p>
-              Users can join as a charity, NGO, or individual to create a
-              collaboration hub for connecting, collaborating, and raising
-              funds.
-            </p>
+            {window.innerWidth < 800 ? (
+              <p>
+                Collaborate with us as a charity, NGO, or individual to create
+                an impact.
+              </p>
+            ) : (
+              <p>
+                Users can join as a charity, NGO, or individual to create a
+                collaboration hub for connecting, collaborating, and raising
+                funds.
+              </p>
+            )}
           </div>
 
           <div className="mib_sidewise container">
@@ -48,20 +55,35 @@ const Milaninfobanner = () => {
             </div>
             <div className="mib_collab_bottom_right">
               <h1>Join us, right away !</h1>
-              <p>
-                You can join us as a Charity, Non profit organisation, or a
-                club. We are open to all. Collaborate, and build a better
-                tommorow.
-              </p>
+
+              {window.innerWidth < 800 ? (
+                <p>
+                  You can join us as a Charity, Non profit organisation, or a
+                  club. Collaborate, and build a better tommorow.
+                </p>
+              ) : (
+                <p>
+                  You can join us as a Charity, Non profit organisation, or a
+                  club. We are open to all. Collaborate, and build a better
+                  tommorow.
+                </p>
+              )}
 
               <br />
 
               <h1>Events, Funds and more.</h1>
-              <p>
-                As a verified NGO, Club or Charity, you can collaborate with
-                others to create events, raise funds, and promote charity
-                campaigns.
-              </p>
+              {window.innerWidth < 800 ? (
+                <p>
+                  Collaborate with others to raise funds, promote charity
+                  events, get sponsored and much more.
+                </p>
+              ) : (
+                <p>
+                  As a verified NGO, Club or Charity, you can collaborate with
+                  others to create events, raise funds, and promote charity
+                  campaigns.
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -87,10 +109,17 @@ const Milaninfobanner = () => {
           >
             <h1>Linked, for a brighter tomorrow.</h1>
 
-            <p>
-              You can subscribe to your favourite NGOs, Charities, and clubs to
-              get updates about their events, campaigns, and more.
-            </p>
+            {window.innerWidth < 800 ? (
+              <p>
+                Subscribe to your favorite NGOs, Charities,clubs and be a part
+                of their impact.
+              </p>
+            ) : (
+              <p>
+                You can subscribe to your favourite NGOs, Charities, and clubs
+                to get updates about their events, campaigns, and more.
+              </p>
+            )}
           </div>
 
           <div className="mib_sidewise container">
@@ -99,19 +128,34 @@ const Milaninfobanner = () => {
             </div>
             <div className="mib_collab_bottom_right">
               <h1>Donate, for a cause!</h1>
-              <p>
-                You can help people survive. You can support events, campaigns,
-                and other verified organisations. We take 0% commission.
-              </p>
+              {window.innerWidth < 800 ? (
+                <p>
+                  Support events, campaigns, and other organisations. We take 0
+                  charges.
+                </p>
+              ) : (
+                <p>
+                  You can help people survive. You can support events,
+                  campaigns, and other verified organisations. We take 0%
+                  commission.
+                </p>
+              )}
 
               <br />
 
               <h1>Campaigns, to change world.</h1>
-              <p>
-                Connect with Veified NGOs, charities and other clubs to
-                participate in different campaigns related to environment,
-                education, and more.
-              </p>
+              {window.innerWidth < 800 ? (
+                <p>
+                  Be a part of the impact, subscribe to your favourite NGOs,
+                  Charities and Clubs.
+                </p>
+              ) : (
+                <p>
+                  Connect with Veified NGOs, charities and other clubs to
+                  participate in different campaigns related to environment,
+                  education, and more.
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -136,11 +180,15 @@ const Milaninfobanner = () => {
               : {})}
           >
             <h1>Crafting Tomorrow, Together.</h1>
-            <p>
-              We are building a shop, to make another source of income for the
-              NGOs, Charities, and clubs. We are also building a platform to
-              connect people with verified professionals to build charities.
-            </p>
+            {window.innerWidth < 800 ? (
+              <p>What&apos;s cooking ? A shop, Sponserships, Funds ! </p>
+            ) : (
+              <p>
+                We are building a shop, to make another source of income for the
+                NGOs, Charities, and clubs. We are also building a platform to
+                connect people with verified professionals to build charities.
+              </p>
+            )}
           </div>
 
           <div className="mib_sidewise container">
@@ -149,11 +197,18 @@ const Milaninfobanner = () => {
             </div>
             <div className="mib_collab_bottom_right">
               <h1>Got something to sell ?</h1>
-              <p>
-                You, as a verified NGO, Charity, orphanage or indiviual can put
-                up your handmade products on our shop. We take 2% commission on
-                the sales.
-              </p>
+              {window.innerWidth < 800 ? (
+                <p>
+                  Verified organizations can put up their handmade products for
+                  sale. We take 2% commission.
+                </p>
+              ) : (
+                <p>
+                  You, as a verified NGO, Charity, orphanage or indiviual can
+                  put up your handmade products on our shop. We take 2%
+                  commission on the sales.
+                </p>
+              )}
 
               <br />
 
