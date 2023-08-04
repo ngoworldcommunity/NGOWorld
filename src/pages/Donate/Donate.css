@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200;400;500;700;800&display=swap");
+
+.donate_img {
+  min-width: 470px;
+  width: 100%;
+}
+
+div#donate_banner {
+  width: 80%;
+  margin-top: 3rem;
+  font-family: "Mulish", sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#donatecol_1 {
+  margin-left: 20px;
+}
+
+#donatecol_1 h1 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 60px;
+  color: #2e8e83;
+}
+
+#donatecol_1 p {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+}
+
+@media (max-width: 428px) {
+  div#donate_banner {
+    width: 100%;
+    margin-top: 1rem;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .donate_img {
+    min-width: 400px !important;
+    max-width: 400px !important;
+  }
+}

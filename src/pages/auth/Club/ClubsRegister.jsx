@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { RegisterUser } from "../../../service/MilanApi";
+import { RegisterClub } from "../../../service/MilanApi";
 import "../AuthPage.css";
 import { Helmet } from "react-helmet-async";
 import { showErrorToast, showSuccessToast } from "../../../utils/Toasts";
@@ -14,48 +14,42 @@ const ClubsRegister = () => {
   const navigate = useNavigate();
 
   const [credentials, setCredentials] = useState({
-    firstname: "",
-    lastname: "",
+    name: "",
     email: "",
     password: "",
     confirmPassword: "",
     address: "",
     pincode: "",
+    description: "",
+    tagLine: "",
   });
+
   const [initialState] = useState({
-    firstname: "",
-    lastname: "",
+    name: "",
     email: "",
     password: "",
     confirmPassword: "",
     address: "",
     pincode: "",
+    description: "",
+    tagLine: "",
   });
 
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
-    if (e.target.name === "pincode") {
-      if (
-        e.target.value.toString().length < 7 &&
-        !e.target.value.toString().includes(".")
-      ) {
-        setCredentials({ ...credentials, [e.target.name]: e.target.value });
-      }
-      return;
-    }
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
-  const callUserSignupAPI = async () => {
-    const Data = await RegisterUser(credentials);
+  const callSignupClubAPI = async () => {
+    const Data = await RegisterClub(credentials);
 
     if (Data?.status === 201) {
       showSuccessToast(Data?.data?.message);
 
       setTimeout(() => {
         setIsLoading(false);
-        navigate("/user/login");
+        navigate("/clubs/login");
       }, 3000);
     } else {
       showErrorToast(Data?.message);
@@ -67,11 +61,10 @@ const ClubsRegister = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     setIsLoading(true);
     e.preventDefault();
-    const validationErrors = useValidation(credentials, true, false);
-
+    const validationErrors = useValidation(credentials, false, true);
     if (validationErrors.length > 0) {
       validationErrors.forEach((error) => {
         showErrorToast(error.message);
@@ -80,7 +73,7 @@ const ClubsRegister = () => {
         setIsLoading(false);
       }, 1000);
     } else {
-      callUserSignupAPI();
+      callSignupClubAPI();
     }
   };
 
@@ -103,10 +96,10 @@ const ClubsRegister = () => {
   return (
     <>
       <Helmet>
-        <title>Milan | User Register</title>
+        <title>Milan | Club Register</title>
         <meta
           name="description"
-          content="Welcome to the User's registration page. Provide all the needed credentials and join us."
+          content="Welcome to the Club's registration page. Provide all the needed credentials and join us."
         />
         <link rel="canonical" href="/" />
       </Helmet>
@@ -123,38 +116,39 @@ const ClubsRegister = () => {
             <form onSubmit={handleSubmit} className="authform">
               <h1 className="">Join Milan Today</h1>
 
-              <div className="auth_namediv">
-                <div className="authform_container">
-                  <label htmlFor="password-des" className="auth_label">
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    className=" form-control "
-                    name="firstname"
-                    value={credentials.firstname}
-                    onChange={handleChange}
-                    required
-                    id="password-des"
-                    placeholder="Rahul"
-                  />
-                </div>
-
-                <div className="authform_container">
-                  <label htmlFor="confirm-password-des" className="auth_label">
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    className=" form-control "
-                    name="lastname"
-                    value={credentials.lastname}
-                    onChange={handleChange}
-                    required
-                    placeholder="Kumar"
-                    id="confirm-password-des"
-                  />
-                </div>
+              <div className="authform_container">
+                <label htmlFor="club-name" className="auth_label">
+                  Enter your club name
+                </label>
+                <input
+                  type="text"
+                  className=" form-control "
+                  name="name"
+                  value={credentials.name}
+                  onChange={handleChange}
+                  required
+                  autoFocus
+                  aria-label="Club name"
+                  id="club-name"
+                  placeholder="Peepal Farm"
+                />
+              </div>
+              <div className="authform_container ">
+                <label htmlFor="club-tagLine" className="auth_label">
+                  Club Tagline (Max 50 Characters)
+                </label>
+                <input
+                  type="text"
+                  className=" form-control "
+                  name="tagLine"
+                  value={credentials.tagLine}
+                  onChange={handleChange}
+                  required
+                  aria-label="Club Tagline"
+                  id="club-tagLine"
+                  maxLength={50}
+                  placeholder="A place for all the animals"
+                />
               </div>
 
               <div className="authform_container ">
@@ -170,7 +164,7 @@ const ClubsRegister = () => {
                   required
                   aria-label="Club email"
                   id="email-des"
-                  placeholder="rahul@email.com"
+                  placeholder="peepal@farm.io"
                 />
               </div>
 
@@ -227,11 +221,13 @@ const ClubsRegister = () => {
                   </div>
                 </div>
               </div>
+              {/* Password end */}
 
               <div className="authform_container ">
                 <label htmlFor="address-des" className="auth_label">
                   Address
                 </label>
+                {/* textarea for address */}
                 <textarea
                   className=" form-control "
                   name="address"
@@ -261,10 +257,27 @@ const ClubsRegister = () => {
                 />
               </div>
 
+              <div className="authform_container">
+                <label htmlFor="description-des" className="auth_label">
+                  Club description
+                </label>
+                <textarea
+                  type="text"
+                  className=" form-control "
+                  aria-describedby="textDemo"
+                  name="description"
+                  value={credentials.description}
+                  onChange={handleChange}
+                  required
+                  id="description-des"
+                  placeholder="We are a non-profit organization working for the welfare of animals."
+                />
+              </div>
+
               <small id="textDemo" className="form-text text-muted"></small>
               <br />
 
-              <AuthButton isLoading={isLoading} goTo="/user" />
+              <AuthButton isLoading={isLoading} goTo="/clubs" />
             </form>
           </div>
         </div>

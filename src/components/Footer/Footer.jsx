@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
-import Modal from "../Modal";
+import Modal from "../Modal/Modal";
 import solidarity from "../../assets/pictures/solidarity.png";
 import Button from "../Button/GlobalButton/Button";
 

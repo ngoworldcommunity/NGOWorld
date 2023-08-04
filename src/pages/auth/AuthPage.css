@@ -165,6 +165,16 @@ textarea::placeholder {
   }
 }
 
+.toggle-button {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  float: right;
+  margin-top: -3.25rem;
+  margin-right: 0.9rem;
+}
+
 @media screen and (max-width: 1000px) {
   .authpage_goback {
     left: 3rem;

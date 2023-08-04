@@ -4,10 +4,10 @@ import { Helmet } from "react-helmet-async";
 import Loading from "../../components/Loading";
 import SingleClubEvent from "../../components/Cards/SingleClubEvent/SingleClubEvent";
 import useSWR from "swr";
-import { defaultfetcher } from "../../Utils/fetcher";
-import { filter } from "../../Utils/filter";
+import { defaultfetcher } from "../../utils/fetcher";
+import { filter } from "../../utils/Filter";
 // import states from "./StatesData";
-import { showErrorToast } from "../../Utils/Toasts";
+import { showErrorToast } from "../../utils/Toasts";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
 

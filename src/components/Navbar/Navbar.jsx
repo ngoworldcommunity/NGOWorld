@@ -5,11 +5,11 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import ProfilePicture from "../../assets/pictures/ProfilePicture.png";
 import Cookies from "js-cookie";
 import MilanContext from "../../context/MilanContext";
-import Modal from "../Modal";
+import Modal from "../Modal/Modal";
 import { FaBars } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import Button from "../Button/GlobalButton/Button";
-import ClickAwayListener from "../../Utils/clickAwayListener";
+import ClickAwayListener from "../../utils/ClickAwayListener";
 
 const Navbar = () => {
   const navigate = useNavigate();

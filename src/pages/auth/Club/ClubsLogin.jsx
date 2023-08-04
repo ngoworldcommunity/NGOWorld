@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LoginUser } from "../../../service/MilanApi";
+import { LoginClub } from "../../../service/MilanApi";
 import "../AuthPage.css";
 import { Helmet } from "react-helmet-async";
 import { showErrorToast, showSuccessToast } from "../../../utils/Toasts";
@@ -24,11 +24,11 @@ function ClubLogin() {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
-  const callUserLoginAPI = async () => {
-    const Data = await LoginUser(credentials);
+  const callLoginClubAPI = async () => {
+    const Data = await LoginClub(credentials);
 
     if (Data?.status === 201) {
-      Cookies.set("isLoggedIn", true);
+      Cookies.set("club", Data?.data?.token);
       showSuccessToast(Data?.data?.message);
 
       setTimeout(() => {
@@ -58,7 +58,7 @@ function ClubLogin() {
         setIsLoading(false);
       }, 1000);
     } else {
-      callUserLoginAPI();
+      callLoginClubAPI();
     }
   };
 
@@ -73,10 +73,10 @@ function ClubLogin() {
   return (
     <>
       <Helmet>
-        <title>Milan | User login</title>
+        <title>Milan | Club Register</title>
         <meta
           name="description"
-          content="Welcome to the User's login page. Login to Milan with your email and password."
+          content="Welcome to the Club's registration page. Provide all the needed credentials and join us."
         />
         <link rel="canonical" href="/" />
       </Helmet>
@@ -106,8 +106,9 @@ function ClubLogin() {
                   onChange={handleChange}
                   required
                   aria-label="Club email"
-                  id="desktopUserEmail"
+                  id="email-des"
                   placeholder="peepal@farm.io"
+                  data-cy="desktop-club-email"
                 />
               </div>
 
@@ -122,8 +123,9 @@ function ClubLogin() {
                   value={credentials.password}
                   onChange={handleChange}
                   required
-                  id="desktopUserPassword"
+                  id="password-des"
                   placeholder="Strg@Pass#122&&S"
+                  data-cy="desktop-club-password"
                 />
 
                 <div
@@ -138,7 +140,7 @@ function ClubLogin() {
               <small id="textDemo" className="form-text text-muted"></small>
               <br />
 
-              <AuthButton isLoading={isLoading} goTo="/user" />
+              <AuthButton isLoading={isLoading} goTo="/clubs" />
             </form>
           </div>
         </div>

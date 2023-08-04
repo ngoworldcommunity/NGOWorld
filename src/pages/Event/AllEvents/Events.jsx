@@ -1,18 +1,19 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import Loading from "../../components/Loading";
-import SingleClubEvent from "../../components/Cards/SingleClubEvent/SingleClubEvent";
+import Loading from "../../../components/Loading";
+import SingleClubEvent from "../../../components/Cards/SingleClubEvent/SingleClubEvent";
 import useSWR from "swr";
-import { defaultfetcher } from "../../utils/fetcher";
-import { filter } from "../../utils/filter";
-import { showErrorToast } from "../../utils/Toasts";
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
+import { defaultfetcher } from "../../../utils/fetcher";
+import { filter } from "../../../utils/Filter";
+// import states from "./StatesData";
+import { showErrorToast } from "../../../utils/Toasts";
+import Footer from "../../../components/Footer/Footer";
+import Navbar from "../../../components/Navbar/Navbar";
 
-const ClubsPage = () => {
-  const { data: clubData, isLoading } = useSWR(
-    `${import.meta.env.VITE_MILANAPI}/display/clubs`,
+const Events = () => {
+  const { data: eventsData, isLoading } = useSWR(
+    `${import.meta.env.VITE_MILANAPI}/display/events`,
     defaultfetcher,
   );
 
@@ -25,7 +26,7 @@ const ClubsPage = () => {
 
   const { chosenFilter, showFilter, chosenData, searchLoading } = filterState;
 
-  const handleStateClubs = (state) => {
+  const handleStateEvents = (state) => {
     setFilterState((prevState) => ({
       ...prevState,
       chosenData: prevState.chosenData.data === state ? {} : { data: state },
@@ -84,8 +85,8 @@ const ClubsPage = () => {
         ...prevState,
         chosenData: {
           data: {
-            lat: position?.coords.latitude,
-            lon: position?.coords.longitude,
+            lat: position?.coords?.latitude,
+            lon: position.coords.longitude,
           },
         },
       }));
@@ -112,24 +113,23 @@ const ClubsPage = () => {
   return (
     <>
       <Helmet>
-        <title>Milan | Clubs</title>
+        <title>Milan | Events </title>
         <meta
           name="description"
-          content="These are the clubs and communities you can follow. You can attend charity/club events and even get notified about them once you subscribe!"
+          content="This is the events page of Milan, where you can find all the events happening in the community."
         />
         <link rel="canonical" href="/" />
       </Helmet>
-
       <Navbar />
-
       <div className="container">
         <div className="clubspage_main_parent">
           <div className="clubspage_subparent">
             <div className="clubspage_textdiv">
-              <p className="clubspage_header1">Clubs and communities!</p>
+              <p className="clubspage_header1">Events happening now!</p>
               <p className="clubspage_header2">
-                Here are some clubs you can follow. You can attend charity/club
-                events and even get notified about them once you subscribe!
+                All our partnered NGOs host various events, be it educational,
+                cleaning mother earth, funding events, health camps, and many
+                more!
               </p>
             </div>
           </div>
@@ -148,7 +148,7 @@ const ClubsPage = () => {
               }}
               onClick={() => handleChooseFilter("location")}
             >
-              <h4>Find Clubs near You</h4>
+              <h4>Find Events near You</h4>
             </Button>
             <Button
               variant="outline"
@@ -156,7 +156,7 @@ const ClubsPage = () => {
               style={{ background: showFilter ? "#e26959" : "" }}
               onClick={() => handleChooseFilter("place")}
             >
-              <h4>Find Clubs by States</h4>
+              <h4>Find Events by States</h4>
             </Button>
           </div>
           <div className="filter-option">
@@ -171,37 +171,11 @@ const ClubsPage = () => {
                       chosenData && chosenData.data === state ? "#e26959" : "",
                   }}
                   key={index}
-                  onClick={() => handleStateClubs(state)}
+                  onClick={() => handleStateEvents(state)}
                 >
                   {state}
                 </Button>
               ))}
-          </div>
-
-          <div className="clubspage_cardsdiv">
-            {isLoading ? (
-              <Loading />
-            ) : (
-              <>
-                {searchLoading && <Loading />}
-                {!searchLoading &&
-                  (() => {
-                    const filteredClubs = filter(
-                      clubData,
-                      chosenFilter,
-                      chosenData,
-                      "address",
-                    );
-                    if (filteredClubs.length === 0) {
-                      return <p className="clubspage_header2">No Clubs Found</p>;
-                    } else {
-                      return filteredClubs.map((club) => (
-                        <SingleClubEvent key={club?._id} club={club} />
-                      ));
-                    }
-                  })()}
-              </>
-            )}
           </div> */}
 
           <div className="clubspage_cardsdiv">
@@ -212,19 +186,23 @@ const ClubsPage = () => {
                 {searchLoading && <Loading />}
                 {!searchLoading &&
                   (() => {
-                    const filteredClubs = filter(
-                      clubData,
+                    const filteredEvents = filter(
+                      eventsData,
                       chosenFilter,
                       chosenData,
-                      "address",
+                      "Eventlocation",
                     );
-                    if (filteredClubs.length === 0) {
+                    if (filteredEvents?.length === 0) {
                       return (
-                        <p className="clubspage_header2">No Clubs Found</p>
+                        <p className="clubspage_header2">No Events Found</p>
                       );
                     } else {
-                      return filteredClubs.map((club) => (
-                        <SingleClubEvent key={club?._id} club={club} />
+                      return filteredEvents?.map((event) => (
+                        <SingleClubEvent
+                          key={event?._id}
+                          event={event}
+                          type="events"
+                        />
                       ));
                     }
                   })()}
@@ -233,10 +211,9 @@ const ClubsPage = () => {
           </div>
         </div>
       </div>
-
       <Footer />
     </>
   );
 };
 
-export default ClubsPage;
+export default Events;
