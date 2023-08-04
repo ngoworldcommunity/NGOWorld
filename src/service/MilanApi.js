@@ -37,10 +37,11 @@ export const UpdateUser = async (credentials) => {
 };
 
 //* LOGIN USER
-Axios.defaults.withCredentials = true;
 export const LoginUser = async (credentials) => {
   try {
-    const User = await Axios.post(User_Log, credentials);
+    const User = await Axios.post(User_Log, credentials, {
+      withCredentials: true,
+    });
     return User;
   } catch (error) {
     return error.response.data;
@@ -178,10 +179,9 @@ export const successCallback = async () => {
 //* Google logout
 export const logoutCallback = async () => {
   try {
-    const response = await Axios.post(logoutRoute, {
+    const response = await Axios.get(logoutRoute, {
       withCredentials: true,
     });
-
     return response;
   } catch (error) {
     return error;

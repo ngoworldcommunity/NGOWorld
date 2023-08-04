@@ -1,7 +1,7 @@
 // This is the donate page where we come and select clubs to donate an amount !
 
 import React, { useEffect, useState } from "react";
-import SingleClubEvent from "../components/SingleClubEvent";
+import SingleClubEvent from "../components/Cards/SingleClubEvent/SingleClubEvent";
 import { GetAllClubs } from "../service/MilanApi";
 import "../styles/Donate.css";
 import { toast } from "react-toastify";

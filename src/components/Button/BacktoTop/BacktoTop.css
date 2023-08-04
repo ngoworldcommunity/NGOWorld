@@ -30,3 +30,17 @@
   background-color: transparent;
   border: 2px solid #e76f51;
 }
+
+@media screen and (max-width: 500px) {
+  .top-btn {
+    width: 2rem;
+    height: 2rem;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .icon {
+    font-size: 1.2rem;
+    font-family: "Poppins", sans-serif;
+  }
+}

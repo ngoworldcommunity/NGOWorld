@@ -28,6 +28,10 @@ router.get(
     res
       .cookie("isLoginInitiated", true, {
         expires: new Date(new Date().getTime() + 5 * 60 * 1000),
+        httpOnly: false,
+        secure: true,
+        sameSite: "none",
+        domain: process.env.ORIGIN_DOMAIN,
       })
       .redirect(process.env.successURL);
   },
@@ -42,20 +46,30 @@ router.get("/login/failed", (req, res) => {
 
 //* Route 8  - google authentication success
 router.get("/login/success", (req, res) => {
+  console.log(req.user);
   if (req.user) {
     const data = { User: { id: req.user.email } };
     const token = jwt.sign(data, process.env.JWT_SECRET);
+    console.log("Token is:", token);
+
+    res.cookie("Token", token, {
+      sameSite: "none",
+      httpOnly: true,
+      expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+      secure: true,
+      domain: process.env.ORIGIN_DOMAIN,
+    });
+
     res
       .status(201)
-      .cookie("Token", token, {
-        sameSite: "strict",
-        httpOnly: true,
-        path: "/",
-        expires: new Date(new Date().getTime() + 60 * 60 * 1000),
+      .cookie("isLoginInitiated", false, {
+        expires: new Date(0),
+        httpOnly: false,
         secure: true,
+        sameSite: "none",
+        domain: process.env.ORIGIN_DOMAIN,
       })
       .json({
-        token,
         isuser: true,
         message: "Logged you in !",
       });
@@ -65,15 +79,32 @@ router.get("/login/success", (req, res) => {
 });
 
 //* Route 9  - google authentication logout
-router.post("/logout", function (req, res, next) {
+// router.post("/logout", function (req, res, next) {
+//   req.logout(function (err) {
+//     if (err) {
+//       return next(err);
+//     }
+
+//     console.log("Hello from Logout API");
+//     res.status(201).json({ message: "Logged you out !" });
+//   });
+// });
+
+router.get("/logout", (req, res) => {
   req.logout(function (err) {
     if (err) {
-      return next(err);
+      return res.status(500).json({ message: "Error while logging out." });
     }
 
-    res.cookie("ssid", "", { expires: new Date(0), httpOnly: true });
-    res.cookie("Token", "", { expires: new Date(0), httpOnly: true });
-    res.status(201).redirect("/");
+    res.cookie("Token", "", {
+      expires: new Date(0),
+      sameSite: "strict",
+      httpOnly: true,
+      domain: process.env.ORIGIN_DOMAIN,
+      secure: true,
+    });
+
+    res.status(201).json({ message: "Logged you out !" });
   });
 });
 

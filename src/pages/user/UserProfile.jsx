@@ -27,9 +27,15 @@ export default function UserProfile() {
 
   const handleLogout = async () => {
     const logout = await logoutCallback();
+    console.log(logout);
 
-    if (logout?.status === 200) {
+    if (logout?.status === 201) {
       Cookies.remove("isLoggedIn");
+
+      // Cookies.set("Token", false, {
+      //   expires: new Date(0),
+      // });
+
       showSuccessToast("Logged out successfully");
       Navigate("/");
     }

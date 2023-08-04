@@ -1,0 +1,114 @@
+      <div className="mib_main_parent">
+        <div className="mib_subparent1">
+          <div
+            className="mib_imgdiv"
+            {...(window.innerWidth > 800
+              ? { "data-aos": "fade-right", "data-aos-duration": "500" }
+              : {})}
+          >
+            <img
+              src={MilanLanding1}
+              alt="a group of people in different poses"
+              width={430}
+              height={430}
+            />
+          </div>
+
+          <div
+            className="mib_textdiv"
+            {...(window.innerWidth > 800
+              ? { "data-aos": "fade-left", "data-aos-duration": "500" }
+              : {})}
+          >
+            <p className="mib_header1">How we do it ?</p>
+
+            <div>
+              {window.innerWidth < 800 ? (
+                <p className="mib_header2">
+                  Users can sign up as a charity, NGO, or individual to create a
+                  collaboration hub for connecting and helping each other. They
+                  can join events, clubs, donate, and raise funds for NGOs.
+                </p>
+              ) : (
+                <p className="mib_header2">
+                  Our users can signup as a charity, NGO, or an individual. We
+                  have a simple goal which is to make a collaboration hub where
+                  people can connect and help each other. You as can join
+                  events, clubs, donate. And if you are an NGO, you can raise
+                  funds, promote events, and much more.
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="mib_subparent2">
+          <div
+            className="mib_textdiv"
+            {...(window.innerWidth > 800
+              ? { "data-aos": "fade-right", "data-aos-duration": "500" }
+              : {})}
+          >
+            <p className="mib_header1">You help people survive.</p>
+
+            <div>
+              <p className="mib_header2">
+                You donate directly to the charity or NGO, be it money or any
+                other resources. We do not take any cut from the donations.
+                Additionaly we allow verified orgs to raise funds, promote
+                charity events, and much more. Remember, every penny/resource
+                counts.
+              </p>
+            </div>
+          </div>
+
+          <div
+            className="mib_imgdiv"
+            {...(window.innerWidth > 800
+              ? { "data-aos": "fade-left", "data-aos-duration": "500" }
+              : {})}
+          >
+            <img
+              src={MilanLanding2}
+              alt="group of people holding boxes"
+              width={430}
+              height={430}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="mib_main_parent2">
+        <div className="mib_subparent3">
+          <div className="mib_imgdiv">
+            <img
+              src={LandingMobile}
+              alt="collage of images of people shaking hands"
+              width={324}
+              height={324}
+            />
+          </div>
+
+          <div className="mib_textdiv">
+            <p className="mib_header1">Got something to sell ?</p>
+            <div>
+              <p className="mib_header2">
+                We now have a shop where clubs, chairities and other Non profit
+                organizations can sell thei handmade products. We do not take
+                any cut from the sales. We are just a platform to connect the
+                sellers and buyers.
+              </p>
+            </div>
+            <div className="banner_signup_btndiv">
+              <Button
+                className="mib_explore_btn"
+                onClick={() => {
+                  nav("/shop");
+                  window.scrollTo(0, 0);
+                }}
+              >
+                Explore the shop
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>

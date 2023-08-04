@@ -10,6 +10,20 @@
   width: 100%;
 }
 
+.navbar_main > .navbar_betabtn {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  z-index: 1;
+  background-color: #000000;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px !important;
+  font-family: "Poppins", sans-serif;
+  width: auto;
+  padding: 0 1rem;
+}
+
 .nav_brand_parent {
   display: flex;
   align-items: center;
@@ -114,9 +128,6 @@
 }
 
 .nav_brand_img {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
   margin-left: 10px;
   object-fit: cover;
   cursor: pointer;

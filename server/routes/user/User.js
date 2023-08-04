@@ -94,13 +94,21 @@ router.post("/login", async (req, res) => {
 
     const payload = { User: { id: existingUser.email } };
     const token = jwt.sign(payload, process.env.JWT_SECRET);
+
+    res.cookie("DemoCookie", true, {
+      expires: new Date(new Date().getTime() + 5 * 60 * 1000),
+      httpOnly: false,
+      secure: true,
+      sameSite: "none",
+      domain: process.env.ORIGIN_DOMAIN,
+    });
+
     res
       .status(201)
       .cookie("Token", token, {
-        sameSite: "strict",
+        sameSite: "none",
         httpOnly: true,
-        path: "/",
-        expires: new Date(new Date().getTime() + 60 * 60 * 1000),
+        expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
         secure: true,
       })
       .json({ token, isuser: true, message: "Logged you in !" });
@@ -119,7 +127,7 @@ router.post("/generate-token", async (req, res) => {
         sameSite: "strict",
         httpOnly: true,
         path: "/",
-        expires: new Date(new Date().getTime() + 60 * 60 * 1000),
+        expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
         secure: true,
       })
       .json({ token, isuser: true, message: "Logged you in !" });
@@ -191,5 +199,17 @@ router.post("/contact", async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
+// router.get("/checkauth", async (req, res) => {
+//   try {
+//     if (!req.user) {
+//       return res.status(401).json({ message: "Not Authorized" });
+//     } else {
+//       return res.status(200).json({ message: "Authorized" });
+//     }
+//   } catch (error) {
+//     res.status(500).json({ message: "Internal Server Error" });
+//   }
+// });
 
 module.exports = router;

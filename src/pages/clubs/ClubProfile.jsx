@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import comingsoon from "../../assets/pictures/comingsoon.svg";
-import Navbar from "../../components/Navbar";
 import Cookies from "js-cookie";
 
 const ClubProfile = () => {
@@ -20,7 +19,11 @@ const ClubProfile = () => {
         className="container"
         style={{ textAlign: "center", marginTop: "2rem" }}
       >
-        <img src={comingsoon} alt="group of men carrying a wooden structure" style={{ width: "60%" }} />
+        <img
+          src={comingsoon}
+          alt="group of men carrying a wooden structure"
+          style={{ width: "60%" }}
+        />
         <h1 style={{ marginTop: "1rem" }}>Coming Soon 🚀</h1>
 
         <button
