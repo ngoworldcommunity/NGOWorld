@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 import ClipLoader from "react-spinners/ClipLoader";
-import { showErrorToast, showSuccessToast } from "../../utils/showToast";
+import { showErrorToast, showSuccessToast } from "../../Utils/Toasts";
 import "../../styles/UserLogin.css";
 import Button from "../../components/Button";
 import { FiEye, FiEyeOff } from "react-icons/fi";

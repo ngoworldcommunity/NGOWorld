@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { LoginUser } from "../../../service/MilanApi";
 import "../AuthPage.css";
 import { Helmet } from "react-helmet-async";
-import { showErrorToast, showSuccessToast } from "../../../utils/showToast";
+import { showErrorToast, showSuccessToast } from "../../../Utils/Toasts";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import useValidation from "../../../hooks/useValidation";
 import Cookies from "js-cookie";

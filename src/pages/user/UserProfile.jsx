@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { UpdateUser, logoutCallback } from "../../service/MilanApi";
 import Cookies from "js-cookie";
 import "../../styles/UserLogin.css";
-import { showSuccessToast } from "../../utils/showToast";
+import { showSuccessToast } from "../../Utils/Toasts";
 
 export default function UserProfile() {
   document.title = "Milan | User Profile";

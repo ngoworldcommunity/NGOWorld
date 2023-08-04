@@ -3,7 +3,7 @@ import "../styles/ContactUs.css";
 import contactImage from "../assets/pictures/contactUs.svg";
 import { Contact } from "../service/MilanApi";
 import { toast } from "react-toastify";
-import { showErrorToast, showSuccessToast } from "../utils/showToast";
+import { showErrorToast, showSuccessToast } from "../Utils/Toasts";
 import { Helmet } from "react-helmet-async";
 
 const ContactUs = () => {
@@ -55,7 +55,11 @@ const ContactUs = () => {
         <div className="container py-5 h-100">
           <div className="row d-flex align-items-center justify-content-center h-100">
             <div className="contact-us-img col-md-8 col-lg-7 col-xl-6 d-none d-lg-block">
-              <img src={contactImage} className="img-fluid" alt="woman sitting on a stool using a laptop" />
+              <img
+                src={contactImage}
+                className="img-fluid"
+                alt="woman sitting on a stool using a laptop"
+              />
             </div>
             <div className="col-md-8 col-lg-5 col-xl-5 offset-xl-1">
               <h1 className="contact-us-header">

@@ -3,11 +3,11 @@ import { Helmet } from "react-helmet-async";
 import Milaninfobanner from "../components/Banners/HomeBanner/Milaninfobanner";
 import Navbar from "../components/Navbar/Navbar.jsx";
 import { successCallback } from "../service/MilanApi.js";
-import { showErrorToast, showSuccessToast } from "../utils/showToast.js";
+import { showErrorToast, showSuccessToast } from "../Utils/Toasts.js";
 import Cookies from "js-cookie";
 import { ToastContainer } from "react-toastify";
 import HomeBanner from "../components/Banners/HomeBanner/HomeBanner";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 
 const Home = () => {
   React.useEffect(() => {

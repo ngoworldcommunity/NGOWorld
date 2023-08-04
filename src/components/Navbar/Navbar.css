@@ -169,10 +169,11 @@
 }
 
 @media screen and (max-width: 525px) {
-  .navbar_betabtn {
+  .navbar_main > .navbar_betabtn {
     left: 145px;
     top: 19px;
   }
+
   .signUpModalHeader {
     justify-content: center;
     align-items: center;

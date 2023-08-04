@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Products from "../../components/shop/Products";
 import "../../styles/ShopLanding.css";
 import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 
 const ShopLanding = () => {
   React.useEffect(() => {

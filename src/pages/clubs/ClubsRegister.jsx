@@ -5,7 +5,7 @@ import { RegisterClub } from "../../service/MilanApi";
 import "../../styles/ClubsRegister.css";
 import { ReactComponent as AuthBanner } from "../../assets/pictures/authpages/authbannerimg.svg";
 import { Helmet } from "react-helmet-async";
-import { showSuccessToast } from "../../utils/showToast";
+import { showSuccessToast } from "../../Utils/Toasts";
 import Button from "../../components/Button";
 import "../../styles/UserLogin.css";
 import { toast } from "react-toastify";

@@ -2,13 +2,13 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import useSWR from "swr";
-import { defaultfetcher } from "../../../../utils/fetcher";
+import { defaultfetcher } from "../../../../Utils/fetcher";
 import Navbar from "../../../../components/Navbar/Navbar";
 import Loading from "../../../../components/Loading";
 import SingleClubEvent from "../../../../components/Cards/SingleClubEvent/SingleClubEvent";
-import Footer from "../../../../components/Footer";
-import { filter } from "../../../../utils/filter";
-import { showErrorToast } from "../../../../utils/showToast";
+import Footer from "../../../../components/Footer/Footer";
+import { filter } from "../../../../Utils/filter";
+import { showErrorToast } from "../../../../Utils/Toasts";
 import "./AllClubs.css";
 
 const AllClubs = () => {
