@@ -6,6 +6,10 @@
   max-height: 236px;
   min-height: 236px;
   transition: all 0.3s ease-in-out;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .sc_parent:hover {

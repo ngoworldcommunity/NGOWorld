@@ -61,7 +61,8 @@ import React from "react";
 import Button from "../../Button/GlobalButton/Button";
 import "./SingleClubEvent.css";
 
-const SingleClubEvent = () => {
+const SingleClubEvent = ({ club }) => {
+  console.log(club);
   return (
     <>
       <div className="sc_parent">

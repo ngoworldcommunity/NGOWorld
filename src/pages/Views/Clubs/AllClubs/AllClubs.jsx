@@ -215,7 +215,7 @@ const AllClubs = () => {
                 )}
               </div> */}
 
-          {/* <div className="clubspage_cardsdiv">
+          <div className="clubspage_cardsdiv">
             {isLoading ? (
               <Loading />
             ) : (
@@ -241,18 +241,18 @@ const AllClubs = () => {
                   })()}
               </>
             )}
-          </div> */}
-
-          <div className="clubspage_cardsdiv">
-            <SingleClubEvent />
-            <SingleClubEvent />
-            <SingleClubEvent />
-            <SingleClubEvent />
-            <SingleClubEvent />
-            <SingleClubEvent />
-            <SingleClubEvent />
-            <SingleClubEvent />
           </div>
+
+          {/* <div className="clubspage_cardsdiv">
+            <SingleClubEvent />
+            <SingleClubEvent />
+            <SingleClubEvent />
+            <SingleClubEvent />
+            <SingleClubEvent />
+            <SingleClubEvent />
+            <SingleClubEvent />
+            <SingleClubEvent />
+          </div> */}
         </div>
       </div>
 
