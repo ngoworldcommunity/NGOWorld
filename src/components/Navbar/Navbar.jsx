@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import "./Navbar.css";
-// import solidarity from "../assets/pictures/solidarity.png";
 import navbarbrand from "../../assets/pictures/Navbar/MilanNavBrand.svg";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ProfilePicture from "../../assets/pictures/ProfilePicture.png";
@@ -41,6 +40,7 @@ const Navbar = () => {
     <>
       <ClickAwayListener onClickAway={() => setIsNavbarOpen(false)}>
         <nav className="navbar navbar-expand-lg navbar-light sticky-top navbar_main ">
+          <button className="navbar_betabtn">Beta</button>
           <div className="container">
             <Link className="nav_brand_parent" to={"/"}>
               <img

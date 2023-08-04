@@ -7,6 +7,7 @@ import { showErrorToast, showSuccessToast } from "../utils/showToast.js";
 import Cookies from "js-cookie";
 import { ToastContainer } from "react-toastify";
 import HomeBanner from "../components/Banners/HomeBanner/HomeBanner";
+import Footer from "../components/Footer";
 
 const Home = () => {
   React.useEffect(() => {
@@ -47,8 +48,7 @@ const Home = () => {
 
       <HomeBanner />
       <Milaninfobanner />
-      {/* 
-      <Footer /> */}
+      <Footer />
     </>
   );
 };
