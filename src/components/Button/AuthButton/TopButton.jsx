@@ -20,7 +20,9 @@ const TopButton = ({ GoogleButton, isGoBack }) => {
   };
 
   const handleGoogle = async () => {
-    const response = await GoogleAuth();
+    const response = await GoogleAuth(
+      window.location.pathname.includes("user") ? true : false,
+    );
     window.location.href = response;
   };
 

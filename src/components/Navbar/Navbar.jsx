@@ -116,7 +116,7 @@ const Navbar = () => {
                 </li>
               </ul>
               <div className="nav-buttons">
-                {Cookies.get("isLoginInitiated") ||
+                {Cookies.get("OAuthLoginInitiated") ||
                 Cookies.get("isLoggedIn") ||
                 Cookies.get("club") ? (
                   <img

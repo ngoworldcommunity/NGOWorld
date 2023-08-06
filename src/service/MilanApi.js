@@ -18,7 +18,7 @@ const Report_Log = `${API}/user/userreport`;
 const All_Events = `${API}/display/allevents`;
 const Contact_Us = `${API}/user/contactus`;
 const Create_Event = `${API}/club/createevent`;
-const loginAuth = `${API}/auth/google`;
+const GoogleAuthLogin = `${API}/auth/google`;
 const loginSuccess = `${API}/auth/login/success`;
 const logoutRoute = `${API}/auth/logout`;
 
@@ -152,9 +152,11 @@ export const CreateEvent = async (eventdata) => {
 
 //* Google Auth screen
 
-export const GoogleAuth = async () => {
+export const GoogleAuth = async (isuser) => {
   try {
-    const response = await Axios.get(loginAuth);
+    const response = await Axios.get(`${GoogleAuthLogin}?isuser=${isuser}`, {
+      withCredentials: true,
+    });
     return response.data.url;
   } catch (error) {
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
