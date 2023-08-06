@@ -4,10 +4,11 @@ import { RegisterClub } from "../../../service/MilanApi";
 import "../AuthPage.css";
 import { Helmet } from "react-helmet-async";
 import { showErrorToast, showSuccessToast } from "../../../utils/showToast";
-import { FiEye, FiEyeOff, FiArrowLeft } from "react-icons/fi";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 import useValidation from "../../../hooks/useValidation";
 import { ToastContainer } from "react-toastify";
-import AuthButton from "../../../components/Button/AuthButton";
+import AuthButton from "../../../components/Button/AuthButton/AuthButton";
+import TopButton from "../../../components/Button/AuthButton/TopButton";
 
 const ClubsRegister = () => {
   const navigate = useNavigate();
@@ -107,31 +108,11 @@ const ClubsRegister = () => {
       <div className="authpage_godparent">
         <div className="authpage_parent">
           <div className="authpage_leftdiv">
-            <button
-              className="btn authpage_floatingbtn"
-              onClick={() => {
-                navigate(
-                  window.location.pathname.includes("register")
-                    ? "/clubs/login"
-                    : "/clubs/register",
-                );
-              }}
-            >
-              {window.location.pathname.includes("register")
-                ? "Have an account? Login"
-                : "Don't have an account? Register"}
-            </button>
+            <TopButton isGoBack={false} GoogleButton={true} />
           </div>
 
           <div className="authpage_rightdiv">
-            <button
-              className="btn authpage_floatingbtn authpage_goback"
-              onClick={() => {
-                navigate(-1);
-              }}
-            >
-              <FiArrowLeft style={{ fontSize: "15px" }} /> Go back
-            </button>
+            <TopButton isGoBack={true} />
             <form onSubmit={handleSubmit} className="authform">
               <h1 className="">Join Milan Today</h1>
 

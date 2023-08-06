@@ -19,10 +19,10 @@ import {
 import MilanState from "./context/MilanState";
 import ClubForgotpassword from "./pages/clubs/ClubForgotpassword";
 import ClubDetailsCard from "./pages/clubs/ClubDetails";
-import UserForgotpassword from "./pages/user/UserForgotpassword";
 import "./styles/App.css";
 import ShopCategory from "./pages/shops/ShopCategory";
 import Error404 from "./pages/Error404";
+import BacktoTop from "../src/components/Button/BacktoTop/BacktoTop.jsx";
 
 const App = () => {
   return (
@@ -39,12 +39,6 @@ const App = () => {
             <Route exact path="/user/register" element={<UserRegister />} />
             <Route exact path="/user/login" element={<UserLogin />} />
             <Route exact path="/user/profile" element={<UserProfile />} />
-
-            <Route
-              exact
-              path="/user/forgotpass"
-              element={<UserForgotpassword />}
-            />
 
             {/* //* Auth routes - CLUBS*/}
 
@@ -74,6 +68,7 @@ const App = () => {
             <Route path={"/*"} element={<Error404 />} />
           </Routes>
         </Router>
+        <BacktoTop />
       </MilanState>
     </>
   );

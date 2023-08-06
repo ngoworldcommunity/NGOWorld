@@ -81,7 +81,6 @@ router.post("/createevent", async (req, res) => {
     await eventData.save();
     res.status(200).json(eventData);
   } catch (e) {
-    // console.log(`Error in creating a event: ${e}`);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });

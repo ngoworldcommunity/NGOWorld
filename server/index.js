@@ -15,13 +15,14 @@ const app = express();
 dotenv.config();
 connectToMongo();
 
-app.use(cors());
+app.use(cors({ origin: process.env.ORIGIN_URL, credentials: true }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
   session({
-    name: "SSID",
+    name: "ssid",
 
     secret: process.env.SECRET_KEY,
     saveUninitialized: false,
@@ -31,6 +32,7 @@ app.use(
     },
   }),
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, "public")));

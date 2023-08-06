@@ -2,11 +2,11 @@
 
 <div align="center">
     
-<img src="https://img.shields.io/github/repo-size/IAmTamal/Milan?style=for-the-badge" />
-    <a href="https://github.com/IAmTamal/Milan/releases">
-        <img src="https://img.shields.io/github/package-json/v/IAmTamal/Milan?style=for-the-badge" /></a>
+<img src="https://img.shields.io/github/repo-size/tamalCodes/Milan?style=for-the-badge" />
+    <a href="https://github.com/tamalCodes/Milan/releases">
+        <img src="https://img.shields.io/github/package-json/v/tamalCodes/Milan?style=for-the-badge" /></a>
     <a href="./LICENSE">
-        <img src="https://img.shields.io/github/license/IAmTamal/Milan?style=for-the-badge" /></a>
+        <img src="https://img.shields.io/github/license/tamalCodes/Milan?style=for-the-badge" /></a>
 </div>
 <br>
 
@@ -59,7 +59,7 @@ We at Milan work hard to maintain the structure, and use conventional Pull reque
 
   ### 🚧 Special
 
-  - [Open to contribute](https://github.com/IAmTamal/Milan/issues?q=is%3Aissue+is%3Aopen+label%3A%22%F0%9F%A4%A9+status+%3A++Up+for+Grab%22) issues are the issues that are open to contributions, you can work on them.
+  - [Open to contribute](https://github.com/tamalCodes/Milan/issues?q=is%3Aissue+is%3Aopen+label%3A%22%F0%9F%A4%A9+status+%3A++Up+for+Grab%22) issues are the issues that are open to contributions, you can work on them.
 
 ## License 👮
 

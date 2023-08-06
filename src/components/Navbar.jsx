@@ -8,7 +8,7 @@ import MilanContext from "../context/MilanContext";
 import Modal from "./Modal";
 import { FaBars } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
-import Button from "./Button";
+import Button from "./Button/GlobalButton/Button";
 import ClickAwayListener from "../utils/clickAwayListener";
 
 const Navbar = () => {
@@ -20,7 +20,7 @@ const Navbar = () => {
     useContext(MilanContext);
 
   const handleNavigate = () => {
-    if (Cookies.get("token")) {
+    if (Cookies.get("isLoggedIn")) {
       navigate("/user/profile");
     }
 
@@ -32,7 +32,7 @@ const Navbar = () => {
   const navigateToURL = (url) => {
     isSignUpModalOpen && toggleSignUpModal();
     isSignInModalOpen && toggleSignInModal();
-    setIsNavbarOpen(false); // Close the navbar
+    setIsNavbarOpen(false);
     navigate(url);
   };
 
@@ -119,7 +119,9 @@ const Navbar = () => {
                 </li>
               </ul>
               <div className="nav-buttons">
-                {Cookies.get("token") || Cookies.get("club") ? (
+                {Cookies.get("isLoginInitiated") ||
+                Cookies.get("isLoggedIn") ||
+                Cookies.get("club") ? (
                   <img
                     onClick={handleNavigate}
                     src={ProfilePicture}
