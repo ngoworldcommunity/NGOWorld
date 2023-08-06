@@ -6,10 +6,10 @@ import { Helmet } from "react-helmet-async";
 import { showErrorToast, showSuccessToast } from "../../../utils/Toasts";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import useValidation from "../../../hooks/useValidation";
-import Cookies from "js-cookie";
 import { ToastContainer } from "react-toastify";
 import AuthButton from "../../../components/Button/AuthButton/AuthButton";
 import TopButton from "../../../components/Button/AuthButton/TopButton";
+import { SetAuthCookies } from "../../../utils/Cookies";
 
 function ClubLogin() {
   const navigate = useNavigate();
@@ -28,13 +28,13 @@ function ClubLogin() {
     const Data = await LoginClub(credentials);
 
     if (Data?.status === 201) {
-      Cookies.set("club", Data?.data?.token);
+      SetAuthCookies(Data);
       showSuccessToast(Data?.data?.message);
 
       setTimeout(() => {
         setIsLoading(false);
         navigate("/");
-      }, 3000);
+      }, 2000);
     } else {
       showErrorToast(Data?.message);
       setCredentials({ email: "", password: "" });

@@ -61,8 +61,10 @@ export const RegisterUser = async (credentials) => {
 //* LOGIN CLUB
 export const LoginClub = async (credentials) => {
   try {
-    const Data = await Axios.post(Club_Log, credentials);
-    return Data;
+    const Club = await Axios.post(Club_Log, credentials, {
+      withCredentials: true,
+    });
+    return Club;
   } catch (error) {
     return error.response.data;
   }
@@ -177,7 +179,7 @@ export const successCallback = async () => {
 };
 
 //* Google logout
-export const logoutCallback = async () => {
+export const Logout = async () => {
   try {
     const response = await Axios.get(logoutRoute, {
       withCredentials: true,

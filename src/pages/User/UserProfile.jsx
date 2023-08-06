@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { UpdateUser, logoutCallback } from "../../service/MilanApi";
-import Cookies from "js-cookie";
+import { UpdateUser, Logout } from "../../service/MilanApi";
 import { showSuccessToast } from "../../utils/Toasts";
+import { ClearCookies } from "../../utils/Cookies";
+import { ToastContainer } from "react-toastify";
 
 export default function UserProfile() {
   document.title = "Milan | User Profile";
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [credentials, setCredentials] = useState({
     email: "",
@@ -25,18 +26,14 @@ export default function UserProfile() {
   };
 
   const handleLogout = async () => {
-    const logout = await logoutCallback();
-    console.log(logout);
+    const Data = await Logout();
 
-    if (logout?.status === 201) {
-      Cookies.remove("isLoggedIn");
-
-      // Cookies.set("Token", false, {
-      //   expires: new Date(0),
-      // });
-
-      showSuccessToast("Logged out successfully");
-      Navigate("/");
+    if (Data?.status === 201) {
+      ClearCookies();
+      showSuccessToast(Data?.data?.message);
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
     }
   };
 
@@ -56,6 +53,7 @@ export default function UserProfile() {
 
   return (
     <>
+      <ToastContainer />
       <section className="vh-100">
         <div className="container py-5 h-100">
           <div className="row d-flex align-items-center justify-content-center h-100">
