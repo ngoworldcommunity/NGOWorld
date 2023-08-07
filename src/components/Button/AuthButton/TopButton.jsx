@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
@@ -49,7 +50,7 @@ const TopButton = ({ GoogleButton, isGoBack }) => {
         )}
       </button>
 
-      {GoogleButton && (
+      {/* {GoogleButton && (
         <button
           className="btn authpage_googlebtn"
           onClick={() => {
@@ -59,7 +60,7 @@ const TopButton = ({ GoogleButton, isGoBack }) => {
           <FcGoogle style={{ fontSize: "20px", marginRight: "0.7rem" }} />
           Continue with Google
         </button>
-      )}
+      )} */}
     </>
   );
 };

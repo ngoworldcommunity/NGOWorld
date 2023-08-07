@@ -64,12 +64,12 @@ const useValidation = (credentials, userSignup, clubSignup) => {
     if (!credentials.tagLine) {
       errors.push({ error: true, message: "Please enter your club tagline" });
     } else if (
-      credentials.tagLine.length < 3 ||
+      credentials.tagLine.length < 20 ||
       credentials.tagLine.length > 100
     ) {
       errors.push({
         error: true,
-        message: "Club tagline must be between 3 and 100 characters long",
+        message: "Club tagline must be between 20 and 100 characters long.",
       });
     }
 
@@ -79,12 +79,13 @@ const useValidation = (credentials, userSignup, clubSignup) => {
         message: "Please enter your club description",
       });
     } else if (
-      credentials.description.length < 3 ||
+      credentials.description.length < 100 ||
       credentials.description.length > 1000
     ) {
       errors.push({
         error: true,
-        message: "Club description must be between 3 and 1000 characters long",
+        message:
+          "Club description must be between 100 and 1000 characters long",
       });
     }
   }

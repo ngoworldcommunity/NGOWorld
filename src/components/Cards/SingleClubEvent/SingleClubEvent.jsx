@@ -61,21 +61,18 @@ import React from "react";
 import Button from "../../Button/GlobalButton/Button";
 import "./SingleClubEvent.css";
 
-const SingleClubEvent = ({ club }) => {
-  console.log(club);
+const SingleClubEvent = ({ item }) => {
+  console.log(item);
   return (
     <>
       <div className="sc_parent">
         <div className="sc_header">
-          <h1>Microcredit Marvels</h1>
+          <h1>{item?.name || item?.Eventname}</h1>
           <img src="https://i.ibb.co/FXwG2MH/pict-large.jpg" alt="" />
         </div>
 
         <div className="sc_body">
-          <p>
-            We empower women through microfinance, promoting economic
-            independence and entrepreneurship.
-          </p>
+          <p>{item?.tagLine}</p>
         </div>
 
         <div className="sc_cta">

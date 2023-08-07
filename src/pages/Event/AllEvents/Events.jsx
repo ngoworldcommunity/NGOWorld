@@ -10,6 +10,8 @@ import { filter } from "../../../utils/Filter";
 import { showErrorToast } from "../../../utils/Toasts";
 import Footer from "../../../components/Footer/Footer";
 import Navbar from "../../../components/Navbar/Navbar";
+import ComingSoon from "../../../components/Cards/ComingSoon/ComingSoon";
+import Header from "../../../components/PageHeader/Header";
 
 const Events = () => {
   const { data: eventsData, isLoading } = useSWR(
@@ -122,17 +124,8 @@ const Events = () => {
       </Helmet>
       <Navbar />
       <div className="container">
+        <ComingSoon launchitem={`event's page.`} />
         <div className="clubspage_main_parent">
-          <div className="clubspage_subparent">
-            <div className="clubspage_textdiv">
-              <p className="clubspage_header1">Events happening now!</p>
-              <p className="clubspage_header2">
-                All our partnered NGOs host various events, be it educational,
-                cleaning mother earth, funding events, health camps, and many
-                more!
-              </p>
-            </div>
-          </div>
           {/* <div
             style={{
               display: "flex",
@@ -183,7 +176,7 @@ const Events = () => {
               <Loading />
             ) : (
               <>
-                {searchLoading && <Loading />}
+                {/* {searchLoading && <Loading />}
                 {!searchLoading &&
                   (() => {
                     const filteredEvents = filter(
@@ -200,12 +193,12 @@ const Events = () => {
                       return filteredEvents?.map((event) => (
                         <SingleClubEvent
                           key={event?._id}
-                          event={event}
+                          item={event}
                           type="events"
                         />
                       ));
                     }
-                  })()}
+                  })()} */}
               </>
             )}
           </div>
