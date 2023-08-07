@@ -17,7 +17,13 @@ connectToMongo();
 
 app.use(
   cors({
-    origin: process.env.ORIGIN_URL,
+    origin: (origin, callback) => {
+      if (process.env.IGNORE_ORIGINS) {
+        callback(null, true);
+      } else {
+        callback(null, process.env.ORIGIN_URL);
+      }
+    },
     credentials: true,
     allowedHeaders: ["Set-Cookie", "Content-Type"],
   }),

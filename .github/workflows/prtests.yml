@@ -10,6 +10,8 @@ env:
 on:
   pull_request_target:
     types: [opened, synchronize, reopened]
+    branches:
+      - main
 
 jobs:
   cypress-run:
@@ -78,12 +80,3 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           DEPLOY_PR_FROM_FORK: true
           DELETE_EXISTING_COMMENT: true
-
-      - name: Delete branch
-        if:
-          ${{github.event.pull_request.head.ref !='main' && github.event.action
-          == 'closed' && github.event.pull_request.merged == true }}
-        uses: dawidd6/action-delete-branch@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branches: ${{ github.event.pull_request.head.ref }}
