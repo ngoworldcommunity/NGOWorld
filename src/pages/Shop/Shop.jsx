@@ -8,7 +8,7 @@ const Shop = () => {
       <Navbar />
       <div className="shop_parent">
         <div className="shop_comingSoon">
-          <ComingSoon />
+          <ComingSoon launchitem={`shop's page.`} />
         </div>
       </div>
     </>

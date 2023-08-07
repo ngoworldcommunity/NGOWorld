@@ -28,7 +28,7 @@ const Home = () => {
       }
     };
 
-    if (Cookies.get("isLoginInitiated")) {
+    if (Cookies.get("OAuthLoginInitiated")) {
       handleToken();
     }
   }, []);

@@ -10,6 +10,7 @@ import Footer from "../../../components/Footer/Footer";
 import { filter } from "../../../utils/Filter";
 import { showErrorToast } from "../../../utils/Toasts";
 import "./Clubs.css";
+import Header from "../../../components/PageHeader/Header";
 
 const Clubs = () => {
   const { data: clubData, isLoading } = useSWR(
@@ -125,25 +126,7 @@ const Clubs = () => {
 
       <div className="container">
         <div className="clubspage_main_parent">
-          <div className="clubspage_subparent">
-            <div className="clubspage_textdiv">
-              <h1 className="clubspage_header1">
-                Caring Hands, Changing Futures.
-              </h1>
-              {window.innerWidth < 800 ? (
-                <p className="clubspage_header2">
-                  Discover and follow Charities, NGOs, and Organizations to
-                  attend events and get notified after subscribing.
-                </p>
-              ) : (
-                <p className="clubspage_header2">
-                  Here are some of the Charities, NGOs and Organizations you can
-                  follow. You can attend charity/club events and even get
-                  notified about them once you subscribe to them!
-                </p>
-              )}
-            </div>
-          </div>
+          <Header type="clubs" />
           {/* <div
                 style={{
                   display: "flex",
@@ -235,24 +218,13 @@ const Clubs = () => {
                       );
                     } else {
                       return filteredClubs.map((club) => (
-                        <SingleClubEvent key={club?._id} club={club} />
+                        <SingleClubEvent key={club?._id} item={club} />
                       ));
                     }
                   })()}
               </>
             )}
           </div>
-
-          {/* <div className="clubspage_cardsdiv">
-            <SingleClubEvent />
-            <SingleClubEvent />
-            <SingleClubEvent />
-            <SingleClubEvent />
-            <SingleClubEvent />
-            <SingleClubEvent />
-            <SingleClubEvent />
-            <SingleClubEvent />
-          </div> */}
         </div>
       </div>
 

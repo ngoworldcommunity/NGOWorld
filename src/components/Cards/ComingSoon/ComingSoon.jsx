@@ -4,7 +4,7 @@ import ComingSoonLogo from "../../../assets/pictures/comingsoon.svg";
 import "./ComingSoon.css";
 import MilanContext from "../../../context/MilanContext";
 
-const ComingSoon = () => {
+const ComingSoon = ({ launchitem }) => {
   const { toggleSignUpModal } = useContext(MilanContext);
 
   return (
@@ -12,10 +12,11 @@ const ComingSoon = () => {
       <div className="comingsoon_parent">
         <img src={ComingSoonLogo} alt="" />
         <h1>Launching Soon !</h1>
-        <p>We will let you know whenever we launch our brand new shop.</p>
-        <Button onClick={toggleSignUpModal}>
-          Sign up to get notified
-        </Button>{" "}
+        <p>
+          We will let you know whenever we launch our{" "}
+          {launchitem ? launchitem : "page"}.
+        </p>
+        <Button onClick={toggleSignUpModal}>Sign up to get notified</Button>{" "}
       </div>
     </>
   );

@@ -15,7 +15,17 @@ router.get("/google", (req, res) => {
   });
 
   const redirectURL = `${googleAuthURL}?${params}`;
-  return res.json({ url: redirectURL });
+
+  return res
+    .status(201)
+    .cookie("isuser", req?.query?.isuser, {
+      expires: new Date(new Date().getTime() + 5 * 60 * 1000),
+      httpOnly: false,
+      secure: true,
+      sameSite: "none",
+      domain: process.env.ORIGIN_DOMAIN,
+    })
+    .json({ url: redirectURL });
 });
 
 //* Route 6  - google authentication callback
@@ -26,7 +36,7 @@ router.get(
   }),
   (req, res) => {
     res
-      .cookie("isLoginInitiated", true, {
+      .cookie("OAuthLoginInitiated", true, {
         expires: new Date(new Date().getTime() + 5 * 60 * 1000),
         httpOnly: false,
         secure: true,
@@ -62,7 +72,7 @@ router.get("/login/success", (req, res) => {
 
     res
       .status(201)
-      .cookie("isLoginInitiated", false, {
+      .cookie("OAuthLoginInitiated", false, {
         expires: new Date(0),
         httpOnly: false,
         secure: true,
