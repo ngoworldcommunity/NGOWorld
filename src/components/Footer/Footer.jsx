@@ -1,14 +1,13 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { ReportProblem } from "../../service/MilanApi";
-import "./Footer.css";
+import Cookies from "js-cookie";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link } from "react-router-dom";
-import Cookies from "js-cookie";
-import Modal from "../Modal/Modal";
 import solidarity from "../../assets/pictures/solidarity.png";
+import { ReportProblem } from "../../service/MilanApi";
 import Button from "../Button/GlobalButton/Button";
+import Modal from "../Modal/Modal";
+import "./Footer.css";
 
 const Footer = () => {
   const [reportModal, setReportModal] = useState(false);
@@ -234,7 +233,7 @@ const Footer = () => {
                 <li className="mb-2">
                   {logged ? (
                     <Link
-                      to="/display/events"
+                      to="/events"
                       className="text-decoration-none footer_auth_text"
                     >
                       Events
@@ -251,7 +250,7 @@ const Footer = () => {
                 <li className="mb-2">
                   {logged ? (
                     <Link
-                      to="/shops/shop"
+                      to="/shop"
                       className="text-decoration-none footer_auth_text"
                     >
                       Shop
