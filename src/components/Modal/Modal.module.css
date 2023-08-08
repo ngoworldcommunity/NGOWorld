@@ -33,11 +33,10 @@
 }
 
 .crossButton {
-  padding: 0;
+  padding: 9;
   margin: 0;
   position: absolute;
-  right: 12px;
-  top: 7px;
+  right: 18px;
   font-size: 14px;
   border: 0;
   box-shadow: none;
