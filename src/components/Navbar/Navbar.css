@@ -1,0 +1,187 @@
+.navbar_main {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding-bottom: 10px;
+  padding-top: 10px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 30px rgba(255, 255, 255, 0.15);
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar_main > .navbar_betabtn {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  z-index: 1;
+  background-color: #000000;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px !important;
+  font-family: "Poppins", sans-serif;
+  width: auto;
+  padding: 0 1rem;
+}
+
+.nav_brand_parent {
+  display: flex;
+  align-items: center;
+}
+
+.nav_brand_name {
+  color: #e26959;
+  text-decoration: none;
+  padding-left: 5px;
+  font-family: Montserrat, sans-serif;
+  font-size: 1.5rem;
+}
+
+.navbar-nav {
+  margin: auto;
+  gap: 30px;
+}
+
+.navbar-brand {
+  font-size: 1.8em;
+  color: #28183b;
+  font-family: "Indie Flower", cursive;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  margin-left: 30px;
+}
+
+.nav-item a {
+  text-decoration: none;
+  cursor: pointer;
+  font-family: Poppins, sans-serif;
+  color: #28183b;
+  font-size: 1rem;
+}
+
+.nav-item div:not(.active-link) {
+  border-bottom: 2px solid #e26959;
+  width: 0%;
+  margin: auto;
+  transition: all 0.2s ease-in;
+}
+
+.nav-item:hover div {
+  border-bottom: 2px solid #e26959;
+  width: 50%;
+  animation: all 0.5 infinite;
+}
+
+.active-link {
+  border-bottom: 2px solid #e26959;
+  width: 50%;
+  margin: auto;
+}
+
+.shop_tag {
+  font-weight: 600;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.home {
+  font-weight: 600;
+  margin: auto;
+}
+
+.shop_icon {
+  width: 10px;
+  height: 10px;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+@media (max-width: 1024px) {
+  .navbar-brand {
+    font-size: 1.7rem;
+  }
+
+  .home {
+    margin: auto;
+    padding: 8px;
+  }
+
+  .navbar-nav {
+    padding-left: 0px;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+    margin: auto;
+    gap: 0px;
+  }
+
+  .navbar-nav {
+    gap: 5px;
+  }
+}
+
+.nav_brand_img {
+  margin-left: 10px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.nav_user_img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 10px;
+  object-fit: cover;
+  cursor: pointer;
+  align-self: center;
+}
+
+@media (min-width: 769px) {
+  .container-fluid {
+    padding: 1rem 3rem;
+  }
+}
+
+.signUpModalHeader > h1 {
+  font-family: Poppins, sans-serif;
+  color: #000000;
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+
+.modal-btn {
+  margin: 20px;
+}
+
+@media screen and (max-width: 525px) {
+  .navbar_main > .navbar_betabtn {
+    left: 145px;
+    top: 19px;
+  }
+
+  .signUpModalHeader {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .signUpModalHeader > h1 {
+    font-size: 1.2rem;
+    margin-left: 1.4rem;
+    flex: auto;
+  }
+}

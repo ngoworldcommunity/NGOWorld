@@ -2,15 +2,13 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Loading from "../../components/Loading";
-import SingleClubEvent from "../../components/SingleClubEvent";
+import SingleClubEvent from "../../components/Cards/SingleClubEvent/SingleClubEvent";
 import useSWR from "swr";
-import { defaultfetcher } from "../../utils/fetcher";
-import { filter } from "../../utils/filter";
-// import states from "./StatesData";
-// import Button from "../../components/Button";
-import { showErrorToast } from "../../utils/showToast";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+import { defaultfetcher } from "../../utils/Fetcher";
+import { filter } from "../../utils/Filter";
+import { showErrorToast } from "../../utils/Toasts";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 const ClubsPage = () => {
   const { data: clubData, isLoading } = useSWR(
@@ -125,11 +123,11 @@ const ClubsPage = () => {
       <Navbar />
 
       <div className="container">
-        <div className="cp_main_parent">
-          <div className="cp_subparent">
-            <div className="cp_textdiv">
-              <p className="cp_header1">Clubs and communities!</p>
-              <p className="cp_header2">
+        <div className="clubspage_main_parent">
+          <div className="clubspage_subparent">
+            <div className="clubspage_textdiv">
+              <p className="clubspage_header1">Clubs and communities!</p>
+              <p className="clubspage_header2">
                 Here are some clubs you can follow. You can attend charity/club
                 events and even get notified about them once you subscribe!
               </p>
@@ -180,7 +178,7 @@ const ClubsPage = () => {
               ))}
           </div>
 
-          <div className="cp_cardsdiv">
+          <div className="clubspage_cardsdiv">
             {isLoading ? (
               <Loading />
             ) : (
@@ -195,7 +193,7 @@ const ClubsPage = () => {
                       "address",
                     );
                     if (filteredClubs.length === 0) {
-                      return <p className="cp_header2">No Clubs Found</p>;
+                      return <p className="clubspage_header2">No Clubs Found</p>;
                     } else {
                       return filteredClubs.map((club) => (
                         <SingleClubEvent key={club?._id} club={club} />
@@ -206,7 +204,7 @@ const ClubsPage = () => {
             )}
           </div> */}
 
-          <div className="cp_cardsdiv">
+          <div className="clubspage_cardsdiv">
             {isLoading ? (
               <Loading />
             ) : (
@@ -221,7 +219,9 @@ const ClubsPage = () => {
                       "address",
                     );
                     if (filteredClubs.length === 0) {
-                      return <p className="cp_header2">No Clubs Found</p>;
+                      return (
+                        <p className="clubspage_header2">No Clubs Found</p>
+                      );
                     } else {
                       return filteredClubs.map((club) => (
                         <SingleClubEvent key={club?._id} club={club} />

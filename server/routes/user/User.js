@@ -94,13 +94,13 @@ router.post("/login", async (req, res) => {
 
     const payload = { User: { id: existingUser.email } };
     const token = jwt.sign(payload, process.env.JWT_SECRET);
+
     res
       .status(201)
       .cookie("Token", token, {
-        sameSite: "strict",
+        sameSite: "none",
         httpOnly: true,
-        path: "/",
-        expires: new Date(new Date().getTime() + 60 * 60 * 1000),
+        expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
         secure: true,
       })
       .json({ token, isuser: true, message: "Logged you in !" });
@@ -119,7 +119,7 @@ router.post("/generate-token", async (req, res) => {
         sameSite: "strict",
         httpOnly: true,
         path: "/",
-        expires: new Date(new Date().getTime() + 60 * 60 * 1000),
+        expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
         secure: true,
       })
       .json({ token, isuser: true, message: "Logged you in !" });

@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap");
+
+.comingsoon_parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.comingsoon_parent > img {
+  width: 300px;
+}
+
+.comingsoon_parent > h1 {
+  font-size: 60px;
+  color: #28183b;
+  line-height: 80px;
+  font-weight: 900;
+  font-family: "Inter", sans-serif;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.comingsoon_parent > p {
+  font-family: "Poppins", sans-serif;
+  color: black;
+  font-size: 18px;
+  margin-top: 0px;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 50px;
+}

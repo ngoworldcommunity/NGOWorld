@@ -18,7 +18,7 @@ const Report_Log = `${API}/user/userreport`;
 const All_Events = `${API}/display/allevents`;
 const Contact_Us = `${API}/user/contactus`;
 const Create_Event = `${API}/club/createevent`;
-const loginAuth = `${API}/auth/google`;
+const GoogleAuthLogin = `${API}/auth/google`;
 const loginSuccess = `${API}/auth/login/success`;
 const logoutRoute = `${API}/auth/logout`;
 
@@ -37,10 +37,11 @@ export const UpdateUser = async (credentials) => {
 };
 
 //* LOGIN USER
-Axios.defaults.withCredentials = true;
 export const LoginUser = async (credentials) => {
   try {
-    const User = await Axios.post(User_Log, credentials);
+    const User = await Axios.post(User_Log, credentials, {
+      withCredentials: true,
+    });
     return User;
   } catch (error) {
     return error.response.data;
@@ -60,8 +61,10 @@ export const RegisterUser = async (credentials) => {
 //* LOGIN CLUB
 export const LoginClub = async (credentials) => {
   try {
-    const Data = await Axios.post(Club_Log, credentials);
-    return Data;
+    const Club = await Axios.post(Club_Log, credentials, {
+      withCredentials: true,
+    });
+    return Club;
   } catch (error) {
     return error.response.data;
   }
@@ -149,9 +152,11 @@ export const CreateEvent = async (eventdata) => {
 
 //* Google Auth screen
 
-export const GoogleAuth = async () => {
+export const GoogleAuth = async (isuser) => {
   try {
-    const response = await Axios.get(loginAuth);
+    const response = await Axios.get(`${GoogleAuthLogin}?isuser=${isuser}`, {
+      withCredentials: true,
+    });
     return response.data.url;
   } catch (error) {
     alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
@@ -176,12 +181,11 @@ export const successCallback = async () => {
 };
 
 //* Google logout
-export const logoutCallback = async () => {
+export const Logout = async () => {
   try {
-    const response = await Axios.post(logoutRoute, {
+    const response = await Axios.get(logoutRoute, {
       withCredentials: true,
     });
-
     return response;
   } catch (error) {
     return error;

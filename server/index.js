@@ -15,7 +15,19 @@ const app = express();
 dotenv.config();
 connectToMongo();
 
-app.use(cors({ origin: process.env.ORIGIN_URL, credentials: true }));
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (process.env.IGNORE_ORIGINS) {
+        callback(null, true);
+      } else {
+        callback(null, process.env.ORIGIN_URL);
+      }
+    },
+    credentials: true,
+    allowedHeaders: ["Set-Cookie", "Content-Type"],
+  }),
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -28,7 +40,7 @@ app.use(
     saveUninitialized: false,
     resave: false,
     cookie: {
-      maxAge: 1000 * 60 * 100,
+      maxAge: 1000 * 60 * 60 * 24 * 30,
     },
   }),
 );

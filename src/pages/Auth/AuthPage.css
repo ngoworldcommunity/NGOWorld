@@ -1,0 +1,266 @@
+.authpage_parent {
+  display: flex;
+
+  flex-direction: row-reverse;
+  padding: 1rem 1rem;
+  max-width: 100vw;
+  max-height: 100vh;
+  min-height: 100vh;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+.authpage_leftdiv {
+  flex-grow: 1;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 15px;
+  background-image: url(../../assets/pictures/authpages/authbannerimg.webp);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.authpage_leftdiv > img {
+  width: 100%;
+  border-radius: 15px;
+  height: 100%;
+  object-fit: contain;
+}
+
+.authpage_rightdiv {
+  flex-grow: 1;
+  width: 50%;
+  font-family: "Poppins", sans-serif;
+  overflow-y: scroll;
+  padding-top: 6rem;
+  position: relative;
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+.authpage_logindiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.authpage_rightdiv::-webkit-scrollbar-thumb {
+  background-color: #e2695900; /* color of the scrollbar thumb */
+}
+
+.authpage_floatingbtn_div {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 1;
+}
+
+.authpage_floatingbtn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 1;
+  background-color: #000000;
+  color: white;
+  border-radius: 10px;
+  font-size: 15px !important;
+  font-family: "Poppins", sans-serif;
+  width: 250px;
+}
+
+.authpage_googlebtn {
+  position: absolute;
+  top: 70px;
+  left: 15px;
+  z-index: 1;
+  background-color: #000000;
+  color: white;
+  border-radius: 10px;
+  font-size: 15px !important;
+  font-family: "Poppins", sans-serif;
+  width: 250px;
+}
+
+.authpage_floatingbtn:hover,
+.authpage_googlebtn:hover {
+  background-color: #000000;
+  color: white;
+}
+
+.authpage_goback {
+  left: 7rem;
+  width: auto;
+}
+
+.authform {
+  padding-left: 20px;
+  width: 100%;
+}
+
+.authform > h1 {
+  font-size: 45px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+.authform_container {
+  margin-top: 30px;
+}
+
+.auth_passworddiv > .authform_container,
+.auth_namediv > .authform_container {
+  margin-top: 10px;
+}
+
+.auth_label {
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.authform_container > input {
+  font-size: 1.1rem;
+}
+
+.authform_container > input:focus,
+.authform_container > textarea:focus {
+  box-shadow: none;
+  border: 1.2px solid #e26959 !important;
+}
+
+.authform_container > input::placeholder,
+textarea::placeholder {
+  font-family: "Poppins", sans-serif;
+  font-size: 10px !important;
+}
+
+.auth_passworddiv,
+.auth_namediv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.auth_passworddiv > div,
+.auth_namediv > div {
+  width: 48%;
+}
+
+.authpage_mediumchangebtn {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .authpage_goback {
+    left: 4rem;
+  }
+  .authpage_rightdiv {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.toggle-button {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  float: right;
+  margin-top: -3.25rem;
+  margin-right: 0.9rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .authpage_goback {
+    left: 3rem;
+  }
+  .authpage_rightdiv {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .authpage_goback {
+    left: 2rem;
+  }
+  .authpage_rightdiv {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .authpage_leftdiv {
+    display: none;
+  }
+  .authpage_goback {
+    left: 3rem;
+  }
+  .authpage_rightdiv {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  .authpage_mediumchangebtn {
+    display: block;
+    font-family: "Poppins", sans-serif;
+    font-size: 17px;
+  }
+
+  .authpage_mediumchangebtn > span {
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .authpage_goback {
+    left: 2rem;
+  }
+  .authpage_rightdiv {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .auth_passworddiv,
+  .auth_namediv {
+    display: block;
+    justify-content: space-between;
+  }
+
+  .auth_passworddiv > div,
+  .auth_namediv > div {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .authform {
+    padding-left: 0px;
+  }
+
+  .authform > h1 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  .authpage_goback {
+    left: 1rem;
+  }
+  .authpage_rightdiv {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .authform_container > textarea {
+    height: 80px;
+  }
+}
