@@ -168,7 +168,7 @@ const Navbar = () => {
                 id="user-signup-modal-btn"
                 onClick={() => navigateToURL("/user/register")}
               >
-                Continue as an User
+                Continue as a User
               </Button>
               <Button
                 className="btn modal-btn"
@@ -194,7 +194,7 @@ const Navbar = () => {
                 id="user-signup-modal-btn"
                 onClick={() => navigateToURL("/user/login")}
               >
-                Continue as an User
+                Continue as a User
               </Button>
               <Button
                 className="btn modal-btn"
