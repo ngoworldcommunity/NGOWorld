@@ -40,7 +40,9 @@ const Navbar = () => {
     <>
       <ClickAwayListener onClickAway={() => setIsNavbarOpen(false)}>
         <nav className="navbar navbar-expand-lg navbar-light sticky-top navbar_main ">
-          <button className="navbar_betabtn">Beta</button>
+          {window.location.href.includes("beta") && (
+            <button className="navbar_betabtn">Beta</button>
+          )}
           <div className="container">
             <Link className="nav_brand_parent" to={"/"}>
               <img
