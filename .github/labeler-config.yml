@@ -5,7 +5,7 @@ filters:
     events: [pull_request]
     targets: [title]
     
-  - label: "⭐ goal: addition"
+  - label: "📈 Minor"
     regexs:
       - /feat/i
     events: [pull_request]
@@ -29,7 +29,7 @@ filters:
       - /fix/i
     events: [pull_request]
     targets: [title]
-  - label: "🛠 goal: fix"
+  - label: "📈 Patch"
     regexs:
       - /fix/i
     events: [pull_request]
@@ -41,7 +41,7 @@ filters:
       - /build/i
     events: [pull_request]
     targets: [title]
-  - label: "🛠 goal: fix"
+  - label: "📈 Patch"
     regexs:
       - /build/i
     events: [pull_request]

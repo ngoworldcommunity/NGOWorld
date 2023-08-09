@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap");
+
+.clubspage_main_parent {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.clubspage_cardsdiv {
+  margin-top: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+}
+
+@media screen and (max-width: 500px) {
+  .clubspage_main_parent {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .clubspage_cardsdiv {
+    margin-top: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 1.5rem;
+    row-gap: 1.5rem;
+  }
+}

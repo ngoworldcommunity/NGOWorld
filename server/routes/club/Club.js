@@ -57,11 +57,17 @@ router.post("/login", async (req, res) => {
     }
 
     const payload = { Club: { id: existingUser.email } };
+    const token = jwt.sign(payload, process.env.JWT_SECRET);
 
-    jwt.sign(payload, process.env.JWT_SECRET, (err, token) => {
-      if (err) throw new Error("Something Went Wrong!!");
-      res.status(201).json({ token, isuser: false, message: "Logged you in!" });
-    });
+    res
+      .status(201)
+      .cookie("Token", token, {
+        sameSite: "none",
+        httpOnly: true,
+        expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+        secure: true,
+      })
+      .json({ token, isuser: false, message: "Logged you in !" });
   } catch (e) {
     res.status(500).json({ success: false });
   }
@@ -81,7 +87,6 @@ router.post("/createevent", async (req, res) => {
     await eventData.save();
     res.status(200).json(eventData);
   } catch (e) {
-    // console.log(`Error in creating a event: ${e}`);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });

@@ -4,7 +4,9 @@
 import Axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 const API = import.meta.env.VITE_MILANAPI;
+// const API = "http://localhost:5000";
 
 const User_Log = `${API}/user/login`;
 const User_Reg = `${API}/user/register`;
@@ -13,15 +15,12 @@ const Club_Log = `${API}/club/login`;
 const Club_Reg = `${API}/club/register`;
 const All_Clubs = `${API}/display/clubs`;
 const Report_Log = `${API}/user/userreport`;
-
 const All_Events = `${API}/display/allevents`;
 const Contact_Us = `${API}/user/contactus`;
 const Create_Event = `${API}/club/createevent`;
-
-//^ `````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
-//* Axios call to login a User
-//* IF success we alert user made else we alert user failed
-//* we get the credentials from the Awb.jsx
+const GoogleAuthLogin = `${API}/auth/google`;
+const loginSuccess = `${API}/auth/login/success`;
+const logoutRoute = `${API}/auth/logout`;
 
 //* UPDATE USER
 export const UpdateUser = async (credentials) => {
@@ -40,7 +39,9 @@ export const UpdateUser = async (credentials) => {
 //* LOGIN USER
 export const LoginUser = async (credentials) => {
   try {
-    const User = await Axios.post(User_Log, credentials);
+    const User = await Axios.post(User_Log, credentials, {
+      withCredentials: true,
+    });
     return User;
   } catch (error) {
     return error.response.data;
@@ -60,8 +61,10 @@ export const RegisterUser = async (credentials) => {
 //* LOGIN CLUB
 export const LoginClub = async (credentials) => {
   try {
-    const Data = await Axios.post(Club_Log, credentials);
-    return Data;
+    const Club = await Axios.post(Club_Log, credentials, {
+      withCredentials: true,
+    });
+    return Club;
   } catch (error) {
     return error.response.data;
   }
@@ -144,5 +147,47 @@ export const CreateEvent = async (eventdata) => {
     toast.error(error, {
       position: toast.POSITION.TOP_RIGHT,
     });
+  }
+};
+
+//* Google Auth screen
+
+export const GoogleAuth = async (isuser) => {
+  try {
+    const response = await Axios.get(`${GoogleAuthLogin}?isuser=${isuser}`, {
+      withCredentials: true,
+    });
+    return response.data.url;
+  } catch (error) {
+    alert("INTERNAL ERROR, PLEASE TRY AGAIN LATER");
+  }
+};
+
+//* Google Auth callback
+export const successCallback = async () => {
+  try {
+    const response = await Axios.get(loginSuccess, {
+      withCredentials: true,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
+
+    return response;
+  } catch (err) {
+    return err;
+  }
+};
+
+//* Google logout
+export const Logout = async () => {
+  try {
+    const response = await Axios.get(logoutRoute, {
+      withCredentials: true,
+    });
+    return response;
+  } catch (error) {
+    return error;
   }
 };
