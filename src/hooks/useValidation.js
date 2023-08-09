@@ -3,6 +3,7 @@ const useValidation = (credentials, userSignup, clubSignup) => {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const nameRegex = /^[a-zA-Z]+$/;
   const clubnameRegex = /^[a-zA-Z\s]+$/;
+  const passwordRegex = /[0-9]/;
 
   if (!credentials.email) {
     errors.push({ error: true, message: "Please enter your email" });
@@ -16,6 +17,11 @@ const useValidation = (credentials, userSignup, clubSignup) => {
     errors.push({
       error: true,
       message: "Password must be at least 6 characters long",
+    });
+  } else if (!passwordRegex.test(credentials.password)) {
+    errors.push({
+      error: true,
+      message: "Password must contain at leat 1 digit",
     });
   }
 
