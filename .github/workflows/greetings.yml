@@ -1,3 +1,5 @@
+name: Welcome to MilanCommunity
+
 on:
   fork:
   push:
@@ -18,7 +20,7 @@ jobs:
           issue-message: |
             ### Hello @${{ github.actor }}, thank you for raising the issue. </br></br>
 
-            Currently, the issue is marked as https://github.com/tamalCodes/Milan/labels/%F0%9F%91%B7%F0%9F%8F%BB%E2%80%8D%E2%99%82%EF%B8%8F%20status%3A%20awaiting%20triage which means that work for this issue is on hold and we are waiting for the maintainers/owner to review it and provide you with feedback/suggestions to proceed further.
+            Currently, the issue is marked as https://github.com/MilanCommunity/Milan/labels/%F0%9F%91%B7%F0%9F%8F%BB%E2%80%8D%E2%99%82%EF%B8%8F%20status%3A%20awaiting%20triage which means that work for this issue is on hold and we are waiting for the maintainers/owner to review it and provide you with feedback/suggestions to proceed further.
 
 
             Feel free to reach out to [Tamal](https://twitter.com/tamalCodes) on **Twitter**, or drop a mail at tamalcodes@gmail.com if you think that this issue is of critical priority. </br></br>
@@ -29,7 +31,7 @@ jobs:
           pr-message: |
             ### Hello @${{ github.actor }}, thank you for raising a pull request. </br></br>
 
-            Currently, the pull request is marked as https://github.com/tamalCodes/Milan/labels/%F0%9F%91%B7%F0%9F%8F%BB%E2%80%8D%E2%99%82%EF%B8%8F%20status%3A%20awaiting%20triage which means that work for this issue is on hold and we are waiting for the maintainers/owner to review it and provide you with feedback/suggestions to proceed further.
+            Currently, the pull request is marked as https://github.com/MilanCommunity/Milan/labels/%F0%9F%91%B7%F0%9F%8F%BB%E2%80%8D%E2%99%82%EF%B8%8F%20status%3A%20awaiting%20triage which means that work for this issue is on hold and we are waiting for the maintainers/owner to review it and provide you with feedback/suggestions to proceed further.
 
 
             Feel free to reach out to [Tamal](https://twitter.com/tamalCodes) on **Twitter**, or drop a mail at tamalcodes@gmail.com if you think that this pull request is of critical priority. </br></br>
