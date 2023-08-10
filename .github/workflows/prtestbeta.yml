@@ -1,4 +1,4 @@
-name: E2E Tests + Preview deploy (BETA)
+name: 👩🏻‍🚀 BETA -> E2E Tests + Preview Deploy (Frontend)
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

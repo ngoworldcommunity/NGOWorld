@@ -1,4 +1,4 @@
-name: PR Triage Labeler
+name: 📢 Add Labels to PRs
 
 on:
   pull_request_target:

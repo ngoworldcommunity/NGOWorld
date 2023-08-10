@@ -1,4 +1,4 @@
-name: Welcome to MilanCommunity
+name: 🏡 Greet users
 
 on:
   fork:
