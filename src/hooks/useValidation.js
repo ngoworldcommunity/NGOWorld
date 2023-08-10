@@ -3,7 +3,12 @@ const useValidation = (credentials, userSignup, clubSignup) => {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const nameRegex = /^[a-zA-Z]+$/;
   const clubnameRegex = /^[a-zA-Z\s]+$/;
-  const passwordRegex = /[0-9]/;
+  const passwordRegex = {
+    digit: /[0-9]/,
+    lowerCase: /[a-z]/,
+    upperCase: /[A-Z]/,
+    specialSymbol: /[^A-Za-z0-9]/,
+  };
 
   if (!credentials.email) {
     errors.push({ error: true, message: "Please enter your email" });
@@ -18,10 +23,25 @@ const useValidation = (credentials, userSignup, clubSignup) => {
       error: true,
       message: "Password must be at least 6 characters long",
     });
-  } else if (!passwordRegex.test(credentials.password)) {
+  } else if (!passwordRegex.digit.test(credentials.password)) {
     errors.push({
       error: true,
-      message: "Password must contain at leat 1 digit",
+      message: "Password must contain at least 1 digit",
+    });
+  } else if (!passwordRegex.lowerCase.test(credentials.password)) {
+    errors.push({
+      error: true,
+      message: "Password must contain at least 1 lowercase letter",
+    });
+  } else if (!passwordRegex.upperCase.test(credentials.password)) {
+    errors.push({
+      error: true,
+      message: "Password must contain at least 1 uppercase letter",
+    });
+  } else if (!passwordRegex.specialSymbol.test(credentials.password)) {
+    errors.push({
+      error: true,
+      message: "Password must contain at least 1 special symbol",
     });
   }
 
