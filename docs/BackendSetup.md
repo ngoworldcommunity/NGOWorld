@@ -66,4 +66,4 @@ You must create a `.env` file similar to [.env.example](../server/.env.example) 
 So now you have the the frontend up and running locally. Now you can start
 working on the issues. Now follow the below steps to setup the backend locally.
 
-1. [Setting up the frontend locally](/rules/FrontendSetup.md)
+1. [Setting up the frontend locally](/docs/FrontendSetup.md)

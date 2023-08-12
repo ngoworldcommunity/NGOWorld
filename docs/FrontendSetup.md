@@ -38,4 +38,4 @@ We use a `.env` file using the `dotenv` package inside the root of the directory
 
 So now you have the the frontend up and running locally. Now you can start working on the issues. 
 
-- If you need your own backend and want to make changes there as well, you can follow [Setting up the backend locally](/rules/BackendSetup.md).
+- If you need your own backend and want to make changes there as well, you can follow [Setting up the backend locally](/docs/BackendSetup.md).

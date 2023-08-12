@@ -1,5 +1,26 @@
+
+<!-- TOC -->
+
+- [Contributing Guidelines](#contributing-guidelines)
+  - [Commits 👮](#commits-)
+      - [Commit Message Format 🔐](#commit-message-format-)
+      - [ESLint \& Prettier ✨](#eslint--prettier-)
+  - [Issues 👮](#issues-)
+      - [Creating an issue 📝](#creating-an-issue-)
+      - [Working on an Issue 🛠️](#working-on-an-issue-️)
+      - [Closing an Issue 📌](#closing-an-issue-)
+  - [Pull requests 👮](#pull-requests-)
+      - [Creating a Pull Request 📝](#creating-a-pull-request-)
+      - [Pull Request Title Format 🔐](#pull-request-title-format-)
+      - [Reviewing a Pull Request 📌](#reviewing-a-pull-request-)
+        - [DOs](#dos)
+        - [DON'Ts](#donts)
+        - [NOTE](#note)
+
+<!-- /TOC -->
+
 # Contributing Guidelines 
-Please go through the documentation at least once before you start contributing. 
+Please go through the documentation at least once before you start contributing as it will help you understand the project, and how we work better.
 
 ## Commits 👮
 
@@ -78,6 +99,11 @@ Available types:
 - `test` : Use this when you are adding tests.
 - `chore` : Use this when you are changing the build process or auxiliary tools and libraries such as documentation generation.
 
+**Examples:**
+
+- `feat: customized icon for plates`
+- `chore(refactor): remove unused dependencies`
+- `fix: updated broken link in the footer`
 
 
 #### Reviewing a Pull Request 📌
@@ -85,13 +111,13 @@ Available types:
 We welcome everyone to review Pull Requests, it is a great way to learn and network.
 
 ##### DOs
-- Be kind and respectful, we use inclusive, gender-neutral language (for example they/them instead of guy/man)
+- Be kind and respectful, we use inclusive, gender-neutral language (for example `they/them` instead of `guy/man`)
 - Use inline comments to explain your suggestions
 - Use inline suggestions to propose changes
 ##### DON'Ts
 - Don't be rude, disrespectful or aggressive
 - Do not repeat feedback, this creates more noise than value (check the existing conversation), use GitHub reactions if you agree/disagree with a comment
-- Do not blindly approve pull requests to improve your GitHub contribution graph
+- Do not spam Pull requests/issues.
 
 
 ##### NOTE

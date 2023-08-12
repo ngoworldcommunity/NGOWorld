@@ -1,18 +1,8 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![GitHub release (latest by date)](https://img.shields.io/github/v/release/MilanCommunity/Milan)](https://github.com/MilanCommunity/Milan/releases) ![GitHub repo size](https://img.shields.io/github/repo-size/MilanCommunity/Milan)
+
 # What is Milan ?
 
-<div align="center">
-    
-<img src="https://img.shields.io/github/repo-size/tamalCodes/Milan?style=for-the-badge" />
-    <a href="https://github.com/tamalCodes/Milan/releases">
-        <img src="https://img.shields.io/github/package-json/v/tamalCodes/Milan?style=for-the-badge" /></a>
-    <a href="./LICENSE">
-        <img src="https://img.shields.io/github/license/tamalCodes/Milan?style=for-the-badge" /></a>
-</div>
-<br>
-
-**Connecting Help and Need.**
-
-We are a hub that aims to connect NGOs, Charities, and users to collaborate and work together for a better tomorrow. We are working hard, to connect HELP and NEED. You can join us as a club/NGO/Charity OR as a User. Post events, join, gather funds, and set up your shop to support yourself.
+Milan is a hub to **connect** NGOs, Charities, and the world to **collaborate** and **build** a better tommorow. Join us in our journey to make the world a better place. Don't forget to drop a star ⭐ to support the project.
 
 <br/>
 
@@ -45,21 +35,23 @@ Remember, Good PR makes you a Good contributor !
 
 We at Milan work hard to maintain the structure, and use conventional Pull request titles and commits. Without a proper template for the PR, not following the guidelines and spam might get the pull request closed, or banned.
 
-  ### 🚧 Basic guidelines, setup 
+### 🚧 Setting up the project
 
-  - [Contributing Guidelines](/CONTRIBUTING.md), your PR/issue might be rejected without following these.
-  - [Clone the repo](/rules/CloneSetup.md) properly to avoid any issues.
-  - [Proper API documentation](https://milan-server.onrender.com/docs/) to understand the API endpoints.
+Here's a list of all the things you need to set up the project locally. Make sure you follow all the steps to avoid any errors.
 
-  ### 🚧 Code setups
+- [Forking + Cloning](/docs/CloneSetup.md)
+- [Setting up the Frontend](/docs/FrontendSetup.md)
+- [Setting up the Backend](/docs/BackendSetup.md)
+- [Setting up with docker](/docs/DockerSetup.md)
 
-  - [Setting up the Frontend](/rules/FrontendSetup.md)
-  - [Setting up the Backend](/rules/BackendSetup.md)
-  - [Setting up with docker](/rules/DockerSetup.md)
 
-  ### 🚧 Special
+### 🚧 Contributing guidelines & More
 
-  - [Open to contribute](https://github.com/tamalCodes/Milan/issues?q=is%3Aissue+is%3Aopen+label%3A%22%F0%9F%A4%A9+status+%3A++Up+for+Grab%22) issues are the issues that are open to contributions, you can work on them.
+These are must follow guidelines, resources that you need to go though, before contributing to the project. Super important to follow these.
+
+- [Contributing Guidelines](/CONTRIBUTING.md) to be followed.
+- [Workflow Overview](/docs/Workflow.md) of our project.
+- [Proper API documentation](https://milan-server.onrender.com/docs/) for developers.
 
 ## License 👮
 
