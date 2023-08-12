@@ -2,7 +2,7 @@
 
 # What is Milan ?
 
-Milan is a hub to **connect** NGOs, Charities, and the world to **collaborate** and **build** a better tommorow. Join us in our journey to make the world a better place. Don't forget to drop a star ⭐ to support the project.
+Milan is a hub to **connect** NGOs, Charities, and the world to **collaborate** and **build** a better tommorow. Sign up as a organization/user and be a cause for change. Don't forget to drop a star ⭐.
 
 <br/>
 
