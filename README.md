@@ -6,7 +6,11 @@ Milan is a hub to **connect** NGOs, Charities, and the world to **collaborate** 
 
 <br/>
 
-![TekHub Banner (1)](https://user-images.githubusercontent.com/72851613/207783151-1d2f19cf-afa4-477b-8823-dcabb86adbf5.png)
+<div  align="center" >
+
+<img alt="Milan Readme Banner" src="https://raw.githubusercontent.com/MilanCommunity/Milan/beta/.github/MilanReadmeBanner.png" width="700px"/>
+    
+</div>
 
 <br>
 
