@@ -1,0 +1,24 @@
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  automate_invite:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Invite on label
+        uses: vj-abigo/invite-on-label@v1.4
+        with:
+          organization: MilanCommunity
+          label: invite me to the organisation
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          comment:
+            "<b>Hi @${{ github.actor }}, We just made a new organization, and
+            have sent you an invite. Welcome to the community
+            🎉</b><br><br>Don't forget after accepting to make it public so it
+            appears on your GitHub profile for everyone else to see. You can do
+            this by finding your name in the GitHub organisation list and change
+            the dropdown to public
+            https://github.com/orgs/MilanCommunity/people<br>"
+        env:
+          INVITE_TOKEN: ${{ secrets.INVITE_TOKEN }}
