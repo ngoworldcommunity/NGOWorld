@@ -1,4 +1,4 @@
-name: 'Auto Author Assign'
+name: 📢 Add Authors to PRs
 
 on:
   pull_request_target:

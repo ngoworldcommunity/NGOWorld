@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  app:
+    restart: always
+    container_name: milan-frontend-container
+    image: milan-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/app/src
+    ports:
+      - 3000:3000
+    env_file:
+      - .env

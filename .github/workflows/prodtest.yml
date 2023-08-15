@@ -1,4 +1,4 @@
-name: E2E Tests + Production deploy
+name: 🚀 MAIN -> E2E Tests + Production Deploy (Frontend)
 
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
