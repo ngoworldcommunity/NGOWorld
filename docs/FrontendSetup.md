@@ -32,7 +32,7 @@ Follow the below steps to setup the Frontend locally. We are using `npm` as the 
 
 We use a `.env` file using the `dotenv` package inside the root of the directory. You must create a `.env` file similar to [.env.example](../.env.example) file.
 
-**Remember**, if you are working on **THE FRONTEND ONLY**, you can skip the backend setup and simply setup a put `VITE_MILANAPI="https://milan-server.vercel.app"` in the file, else you need to setup the backend locally as well and then put the local backend url in the `.env` file.
+**Remember**, if you are working on **THE FRONTEND ONLY**, you can skip the backend setup and simply setup a put `VITE_MILANAPI="https://milan-server.vercel.app"` in the file, else you need to [setup the backend locally](/docs/BackendSetup.md) as well and then put the local backend url in the `.env` file.
 
 ## Next steps 🚀
 
