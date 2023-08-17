@@ -9,6 +9,7 @@ import AuthButton from "../../components/Button/AuthButton/AuthButton";
 import TopButton from "../../components/Button/AuthButton/TopButton";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import "./AuthPage.css";
+import { SetAuthCookies } from "../../utils/Cookies";
 
 const AuthLogin = () => {
   const navigate = useNavigate();
@@ -49,9 +50,11 @@ const AuthLogin = () => {
       if (userType === "user") {
         const data = await LoginUser(credentials);
         handleApiResponse(data);
+        SetAuthCookies(data);
       } else if (userType === "club") {
         const data = await LoginClub(credentials);
         handleApiResponse(data);
+        SetAuthCookies(data);
       }
     }
   };

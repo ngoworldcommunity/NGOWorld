@@ -19,11 +19,13 @@ const useValidation = (credentials, userSignup, clubSignup) => {
     });
   }
 
-  if (credentials.password !== credentials.confirmPassword) {
-    errors.push({
-      error: true,
-      message: "Password and confirm password do not match",
-    });
+  if (credentials.confirmPassword) {
+    if (credentials.password !== credentials.confirmPassword) {
+      errors.push({
+        error: true,
+        message: "Password and confirm password do not match",
+      });
+    }
   }
 
   if (userSignup) {
