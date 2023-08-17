@@ -1,15 +1,21 @@
+# Use an official Node.js image as the base image
 FROM node:16-alpine
-WORKDIR '/app'
 
-COPY package.json .
-RUN npm install 
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json to the container
+COPY package*.json ./
+COPY vite.config.js .
+
+# Install project dependencies
+RUN npm install
+
+# Copy the rest of the application code to the container
 COPY . .
 
-CMD ["npm","start"]
+# Expose the port that the Vite server will run on
+EXPOSE 3000
 
-
-
-# if facing error while building image, paste there two command in terminal.
-
-# export DOCKER_BUILDKIT=0
-# export COMPOSE_DOCKER_CLI_BUILD=0
+# Start the Vite development server
+CMD ["npm", "run", "dev"]
