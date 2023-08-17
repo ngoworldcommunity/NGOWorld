@@ -5,8 +5,6 @@ node_modules
 /node_modules
 /.pnp
 .pnp.js
-./package-lock.json
-package-lock.json
 
 # testing
 /coverage
@@ -27,10 +25,6 @@ package-lock.json
 .env.test.local
 .env.production.local
 
-# next.js
-/.next/
-/out/
-
 # Logs
 logs
 *.log
@@ -45,9 +39,6 @@ lerna-debug.log*
 
 # typescript cache
 *.tsbuildinfo
-
-# typeScript declaration
-next-env.d.ts
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -102,22 +93,8 @@ web_modules/
 .rts2_cache_es/
 .rts2_cache_umd/
 
-# Optional REPL history
-.node_repl_history
-
 # Output of 'npm pack'
 *.tgz
-
-# Yarn Integrity file
-.yarn-integrity
-
-
-# dotenv environment variable files
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
