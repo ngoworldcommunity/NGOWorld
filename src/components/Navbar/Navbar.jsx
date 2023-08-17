@@ -36,6 +36,14 @@ const Navbar = () => {
     navigate(url);
   };
 
+  const handleSignUp = () => {
+    navigate("/user/register");
+  };
+
+  const handleSignIn = () => {
+    navigate("/user/login");
+  };
+
   return (
     <>
       <ClickAwayListener onClickAway={() => setIsNavbarOpen(false)}>
@@ -134,7 +142,9 @@ const Navbar = () => {
                         size="sm"
                         variant="outline"
                         className=" "
-                        onClick={toggleSignInModal}
+                        onClick={() => {
+                          handleSignIn();
+                        }}
                       >
                         Sign in
                       </Button>
@@ -143,7 +153,9 @@ const Navbar = () => {
                       <Button
                         size="sm"
                         className=" nav_signup_btn"
-                        onClick={toggleSignUpModal}
+                        onClick={() => {
+                          handleSignUp();
+                        }}
                       >
                         Sign up
                       </Button>
