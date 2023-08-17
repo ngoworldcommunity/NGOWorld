@@ -4,7 +4,7 @@ title: "[BUG] Write a small description here"
 labels:
   [
     "👷🏻‍♂️ status: awaiting triage",
-    "📈 Patch"
+    "🐞 Bug"
   ]
 body:
   - type: textarea

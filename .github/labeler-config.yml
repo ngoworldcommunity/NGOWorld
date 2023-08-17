@@ -5,7 +5,7 @@ filters:
     events: [pull_request]
     targets: [title]
     
-  - label: "📈 Minor"
+  - label: "🛠 Feature"
     regexs:
       - /feat/i
     events: [pull_request]
@@ -29,20 +29,8 @@ filters:
       - /fix/i
     events: [pull_request]
     targets: [title]
-  - label: "📈 Patch"
+  - label: "🐞 Bug"
     regexs:
       - /fix/i
-    events: [pull_request]
-    targets: [title]
-
-  
-  - label: "👷🏻‍♂️ status: awaiting triage"
-    regexs:
-      - /build/i
-    events: [pull_request]
-    targets: [title]
-  - label: "📈 Patch"
-    regexs:
-      - /build/i
     events: [pull_request]
     targets: [title]
