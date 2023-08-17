@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import solidarity from "../../assets/pictures/solidarity.png";
 import { ReportProblem } from "../../service/MilanApi";
@@ -114,6 +114,7 @@ const Footer = () => {
 
   return (
     <>
+      <ToastContainer />
       {reportModal && (
         <Modal onClose={handleReportModalClose} className="reportModal">
           <div className="reportModalHeader">
