@@ -9,7 +9,7 @@ import useValidation from "../../../hooks/useValidation";
 import { ToastContainer } from "react-toastify";
 import AuthButton from "../../../components/Button/AuthButton/AuthButton";
 import TopButton from "../../../components/Button/AuthButton/TopButton";
-
+import validatePassword from "../../../utils/PasswordValidation";
 const ClubsRegister = () => {
   const navigate = useNavigate();
 
@@ -70,6 +70,18 @@ const ClubsRegister = () => {
   const handleSubmit = async (e) => {
     setIsLoading(true);
     e.preventDefault();
+    let validationResult = validatePassword({
+      password: credentials.password,
+      confirmedPassword: credentials.confirmPassword,
+    });
+    if (!validationResult.auth) {
+      showErrorToast(validationResult.message);
+      setCredentials(initialState);
+
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
+    }
     const validationErrors = useValidation(credentials, true, false);
 
     if (validationErrors.length > 0) {
