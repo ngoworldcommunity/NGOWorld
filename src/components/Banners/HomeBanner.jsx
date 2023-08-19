@@ -3,15 +3,8 @@ import "./Banner.css";
 import Cookies from "js-cookie";
 import { ImGithub } from "react-icons/im";
 import Button from "../Button/GlobalButton/Button";
-import { useNavigate } from "react-router-dom";
 
 const HomeBanner = () => {
-  const navigate = useNavigate();
-
-  const handleSignUp = () => {
-    navigate("/user/register");
-  };
-
   return (
     <>
       <div className="container">
@@ -72,9 +65,7 @@ const HomeBanner = () => {
                   <div className="banner_btn_div">
                     <Button
                       className="banner_signup_btn"
-                      onClick={() => {
-                        handleSignUp();
-                      }}
+                      action="signup"
                       data-cy="landingpage-club-signup"
                       id="landingpage-club-signup"
                       variant="outline"

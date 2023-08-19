@@ -8,12 +8,13 @@ import { ToastContainer } from "react-toastify";
 import AuthButton from "../../components/Button/AuthButton/AuthButton";
 import TopButton from "../../components/Button/AuthButton/TopButton";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { FaChevronDown } from "react-icons/fa";
 import "./AuthPage.css";
 
 const AuthRegister = () => {
   const navigate = useNavigate();
 
-  const [userType, setUserType] = useState("user");
+  const [userType, setUserType] = useState("individual");
 
   const [credentials, setCredentials] = useState({
     firstname: "",
@@ -65,7 +66,7 @@ const AuthRegister = () => {
     e.preventDefault();
     const validationErrors = useValidation(
       credentials,
-      userType === "user",
+      userType === "individual",
       userType === "club",
     );
 
@@ -77,7 +78,7 @@ const AuthRegister = () => {
         setIsLoading(false);
       }, 1000);
     } else {
-      if (userType === "user") {
+      if (userType === "individual") {
         const data = await RegisterUser(credentials);
         handleApiResponse(data);
       } else if (userType === "club") {
@@ -93,11 +94,7 @@ const AuthRegister = () => {
 
       setTimeout(() => {
         setIsLoading(false);
-        if (userType === "user") {
-          navigate("/user/login");
-        } else if (userType === "club") {
-          navigate("/clubs/login");
-        }
+        navigate("/auth/login");
       }, 3000);
     } else {
       showErrorToast(response?.message);
@@ -154,19 +151,22 @@ const AuthRegister = () => {
                 <label htmlFor="userType" className="auth_label">
                   User Type
                 </label>
-                <select
-                  id="userType"
-                  name="userType"
-                  value={userType}
-                  onChange={handleUserTypeChange}
-                  className="form-control"
-                >
-                  <option value="user">User</option>
-                  <option value="club">Club</option>
-                </select>
+                <div className="user-type-dropdown">
+                  <select
+                    id="userType"
+                    name="userType"
+                    value={userType}
+                    onChange={handleUserTypeChange}
+                    className="form-control user-type-select"
+                  >
+                    <option value="individual">Individual</option>
+                    <option value="club">Charity/Club/NGO</option>
+                  </select>
+                  <FaChevronDown className="dropdown-icon" />
+                </div>
               </div>
               <div className="auth_namediv">
-                {userType === "user" && (
+                {userType === "individual" && (
                   <>
                     <div className="authform_container">
                       <label htmlFor="firstname" className="auth_label">
@@ -202,7 +202,7 @@ const AuthRegister = () => {
                   </>
                 )}
                 {userType === "club" && (
-                  <div className="authform_container">
+                  <div className="authform_container" style={{ width: "100%" }}>
                     <label htmlFor="name" className="auth_label">
                       Club Name
                     </label>
@@ -333,10 +333,11 @@ const AuthRegister = () => {
 
               <div className="authform_container ">
                 <label htmlFor="pincode" className="auth_label">
-                  Pincode
+                  Pincode / Zipcode
                 </label>
                 <input
-                  type="number"
+                  type="text
+                  "
                   className=" form-control "
                   name="pincode"
                   value={credentials.pincode}

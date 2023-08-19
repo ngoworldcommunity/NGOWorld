@@ -8,13 +8,14 @@ import { ToastContainer } from "react-toastify";
 import AuthButton from "../../components/Button/AuthButton/AuthButton";
 import TopButton from "../../components/Button/AuthButton/TopButton";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { FaChevronDown } from "react-icons/fa";
 import "./AuthPage.css";
 import { SetAuthCookies } from "../../utils/Cookies";
 
 const AuthLogin = () => {
   const navigate = useNavigate();
 
-  const [userType, setUserType] = useState("user");
+  const [userType, setUserType] = useState("individual");
 
   const [credentials, setCredentials] = useState({
     email: "",
@@ -47,7 +48,7 @@ const AuthLogin = () => {
         setIsLoading(false);
       }, 1000);
     } else {
-      if (userType === "user") {
+      if (userType === "individual") {
         const data = await LoginUser(credentials);
         handleApiResponse(data);
         SetAuthCookies(data);
@@ -113,16 +114,19 @@ const AuthLogin = () => {
                 <label htmlFor="userType" className="auth_label">
                   User Type
                 </label>
-                <select
-                  id="userType"
-                  name="userType"
-                  value={userType}
-                  onChange={handleUserTypeChange}
-                  className="form-control"
-                >
-                  <option value="user">User</option>
-                  <option value="club">Club</option>
-                </select>
+                <div className="user-type-dropdown">
+                  <select
+                    id="userType"
+                    name="userType"
+                    value={userType}
+                    onChange={handleUserTypeChange}
+                    className="form-control user-type-select"
+                  >
+                    <option value="individual">Individual</option>
+                    <option value="club">Charity/Club/NGO</option>
+                  </select>
+                  <FaChevronDown className="dropdown-icon" />
+                </div>
               </div>
               <div className="authform_container mb-4">
                 <label htmlFor="email-des" className="auth_label">
@@ -137,7 +141,11 @@ const AuthLogin = () => {
                   required
                   aria-label="Club email"
                   id="email-des"
-                  placeholder="peepal@farm.io"
+                  placeholder={
+                    userType === "individual"
+                      ? "john@example.com"
+                      : 'peepal@farm.io"'
+                  }
                   data-cy="desktop-club-email"
                 />
               </div>
