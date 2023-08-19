@@ -114,6 +114,7 @@ const Footer = () => {
 
   return (
     <>
+      <ToastContainer />
       {reportModal && (
         <Modal onClose={handleReportModalClose} className="reportModal">
           <div className="reportModalHeader">
@@ -188,7 +189,6 @@ const Footer = () => {
         </Modal>
       )}
       <footer className="bg-white m-0 main-font">
-        <ToastContainer />
         <div
           className="px-5 py-2 main-footer"
           style={{ backgroundColor: "#272626" }}
