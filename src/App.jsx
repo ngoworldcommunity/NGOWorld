@@ -2,11 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   Home,
-  UserRegister,
-  UserLogin,
   UserProfile,
-  ClubRegister,
-  ClubLogin,
   ClubProfile,
   Clubs,
   Events,
@@ -14,6 +10,8 @@ import {
   Error404,
   ContactUs,
   Donate,
+  AuthRegister,
+  AuthLogin,
 } from "./pages/route";
 import MilanState from "./context/MilanState";
 import "./styles/App.css";
@@ -26,13 +24,11 @@ const App = () => {
         <Router>
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route exact path="/user/register" element={<UserRegister />} />
-            <Route exact path="/user/login" element={<UserLogin />} />
+            <Route exact path="/auth/register" element={<AuthRegister />} />
+            <Route exact path="/auth/login" element={<AuthLogin />} />
             <Route exact path="/user/profile" element={<UserProfile />} />
 
             <Route exact path="/clubs" element={<Clubs />} />
-            <Route exact path="/clubs/login" element={<ClubLogin />} />
-            <Route exact path="/clubs/register" element={<ClubRegister />} />
             <Route exact path="/clubs/profile" element={<ClubProfile />} />
             <Route exact path="/events" element={<Events />} />
 

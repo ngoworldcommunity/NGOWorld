@@ -134,7 +134,7 @@ const Navbar = () => {
                         size="sm"
                         variant="outline"
                         className=" "
-                        onClick={toggleSignInModal}
+                        action="login"
                       >
                         Sign in
                       </Button>
@@ -143,7 +143,7 @@ const Navbar = () => {
                       <Button
                         size="sm"
                         className=" nav_signup_btn"
-                        onClick={toggleSignUpModal}
+                        action="signup"
                       >
                         Sign up
                       </Button>
