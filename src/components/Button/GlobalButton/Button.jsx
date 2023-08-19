@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./Button.module.css";
 
 const Button = ({
@@ -11,11 +11,26 @@ const Button = ({
   size = "",
   to = "",
   disabled = false,
+  action = "",
   ...props
 }) => {
+  const navigate = useNavigate();
+
   const classes = `btn ${styles.btn} ${className} ${styles[variant]} ${
     size ? styles[size] : ""
   }`;
+
+  const handleClick = () => {
+    if (action === "login") {
+      navigate("/auth/login");
+    } else if (action === "signup") {
+      navigate("/auth/register");
+    } else {
+      if (onClick) {
+        onClick;
+      }
+    }
+  };
 
   if (to) {
     return (
@@ -30,7 +45,7 @@ const Button = ({
       type={type}
       disabled={disabled}
       className={classes}
-      onClick={onClick}
+      onClick={handleClick}
       {...props}
     >
       {children}

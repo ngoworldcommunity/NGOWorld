@@ -19,6 +19,15 @@ const useValidation = (credentials, userSignup, clubSignup) => {
     });
   }
 
+  if (credentials.confirmPassword) {
+    if (credentials.password !== credentials.confirmPassword) {
+      errors.push({
+        error: true,
+        message: "Password and confirm password do not match",
+      });
+    }
+  }
+
   if (userSignup) {
     if (!credentials.firstname) {
       errors.push({ error: true, message: "Please enter your first name" });
