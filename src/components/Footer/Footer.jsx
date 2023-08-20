@@ -344,11 +344,6 @@ const Footer = () => {
               <i className="fa-brands fa-github"></i>
             </a>
           </div>
-          <div className="cont social-btn">
-            <Link to={"/contact"} aria-label="Contact Us">
-              <i className="cont-icon fa-solid fa-message"></i>
-            </Link>
-          </div>
         </div>
         <p className="text-light text-center" role="contentinfo">
           Developed by team{" "}
