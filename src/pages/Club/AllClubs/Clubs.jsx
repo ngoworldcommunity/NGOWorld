@@ -212,12 +212,12 @@ const Clubs = () => {
                       chosenData,
                       "address",
                     );
-                    if (filteredClubs.length === 0) {
+                    if (filteredClubs?.length === 0) {
                       return (
                         <p className="clubspage_header2">No Clubs Found</p>
                       );
                     } else {
-                      return filteredClubs.map((club) => (
+                      return filteredClubs?.map((club) => (
                         <SingleClubEvent key={club?._id} item={club} />
                       ));
                     }
