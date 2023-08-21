@@ -15,8 +15,8 @@ const TopButton = ({ GoogleButton, isGoBack }) => {
   const handleNavigatePages = () => {
     navigate(
       window.location.pathname.includes("register")
-        ? "/user/login"
-        : "/user/register",
+        ? "/auth/login"
+        : "/auth/register",
     );
   };
 

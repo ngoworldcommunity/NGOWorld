@@ -38,7 +38,12 @@ const AuthButton = ({ isLoading, goTo }) => {
         )}
       </p>
 
-      <Button type="submit" className="login-btn" disabled={isLoading}>
+      <Button
+        type="submit"
+        className="login-btn"
+        disabled={isLoading}
+        cypressfield="loginbutton"
+      >
         {isLoading ? (
           <ClipLoader color="#000000" size={25} />
         ) : window.location.pathname.includes("register") ? (

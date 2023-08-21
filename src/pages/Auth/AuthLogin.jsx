@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LoginUser } from "../../../service/MilanApi";
-import "../AuthPage.css";
+import useValidation from "../../hooks/useValidation";
+import { showErrorToast, showSuccessToast } from "../../utils/Toasts";
+import { LoginClub, LoginUser } from "../../service/MilanApi";
 import { Helmet } from "react-helmet-async";
-import { showErrorToast, showSuccessToast } from "../../../utils/Toasts";
-import { FiEye, FiEyeOff } from "react-icons/fi";
-import useValidation from "../../../hooks/useValidation";
 import { ToastContainer } from "react-toastify";
-import AuthButton from "../../../components/Button/AuthButton/AuthButton";
-import TopButton from "../../../components/Button/AuthButton/TopButton";
-import { SetAuthCookies } from "../../../utils/Cookies";
+import AuthButton from "../../components/Button/AuthButton/AuthButton";
+import TopButton from "../../components/Button/AuthButton/TopButton";
+import { FiEye, FiEyeOff } from "react-icons/fi";
+import { FaChevronDown } from "react-icons/fa";
+import "./AuthPage.css";
+import { SetAuthCookies } from "../../utils/Cookies";
 
-function ClubLogin() {
+const AuthLogin = () => {
   const navigate = useNavigate();
+
+  const [userType, setUserType] = useState("individual");
+
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -24,32 +28,18 @@ function ClubLogin() {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
-  const callUserLoginAPI = async () => {
-    const Data = await LoginUser(credentials);
-
-    if (Data?.status === 201) {
-      SetAuthCookies(Data);
-      showSuccessToast(Data?.data?.message);
-
-      setTimeout(() => {
-        setIsLoading(false);
-        navigate("/");
-      }, 2000);
-    } else {
-      showErrorToast(Data?.message);
-      setCredentials({ email: "", password: "" });
-
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
-    }
+  const handleUserTypeChange = (e) => {
+    setUserType(e.target.value);
+    setCredentials({
+      email: "",
+      password: "",
+    });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     setIsLoading(true);
     e.preventDefault();
     const validationErrors = useValidation(credentials);
-
     if (validationErrors.length > 0) {
       validationErrors.forEach((error) => {
         showErrorToast(error.message);
@@ -58,7 +48,33 @@ function ClubLogin() {
         setIsLoading(false);
       }, 1000);
     } else {
-      callUserLoginAPI();
+      if (userType === "individual") {
+        const data = await LoginUser(credentials);
+        handleApiResponse(data);
+        SetAuthCookies(data);
+      } else if (userType === "club") {
+        const data = await LoginClub(credentials);
+        handleApiResponse(data);
+        SetAuthCookies(data);
+      }
+    }
+  };
+
+  const handleApiResponse = (response) => {
+    if (response?.status === 201) {
+      showSuccessToast(response?.data?.message);
+
+      setTimeout(() => {
+        setIsLoading(false);
+        navigate("/");
+      }, 2000);
+    } else {
+      showErrorToast(response?.message);
+      setCredentials({ ...credentials });
+
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
     }
   };
 
@@ -67,20 +83,21 @@ function ClubLogin() {
   const passwordToggle = () => {
     if (passwordType === "password") {
       setPasswordType("text");
-    } else setPasswordType("password");
+    } else {
+      setPasswordType("password");
+    }
   };
 
   return (
     <>
       <Helmet>
-        <title>Milan | User login</title>
+        <title>Milan | Login</title>
         <meta
           name="description"
-          content="Welcome to the User's login page. Login to Milan with your email and password."
+          content="Welcome to the Club's registration page. Provide all the needed credentials and join us."
         />
         <link rel="canonical" href="/" />
       </Helmet>
-
       <ToastContainer />
 
       <div className="authpage_godparent">
@@ -93,7 +110,24 @@ function ClubLogin() {
             <TopButton isGoBack={true} />
             <form className="authform" onSubmit={handleSubmit}>
               <h1 className=""> Sign In</h1>
-
+              <div className="authform_container">
+                <label htmlFor="userType" className="auth_label">
+                  User Type
+                </label>
+                <div className="user-type-dropdown">
+                  <select
+                    id="userType"
+                    name="userType"
+                    value={userType}
+                    onChange={handleUserTypeChange}
+                    className="form-control user-type-select"
+                  >
+                    <option value="individual">Individual</option>
+                    <option value="club">Charity/Club/NGO</option>
+                  </select>
+                  <FaChevronDown className="dropdown-icon" />
+                </div>
+              </div>
               <div className="authform_container mb-4">
                 <label htmlFor="email-des" className="auth_label">
                   Email address
@@ -106,8 +140,13 @@ function ClubLogin() {
                   onChange={handleChange}
                   required
                   aria-label="Club email"
-                  id="desktopUserEmail"
-                  placeholder="peepal@farm.io"
+                  id="email-des"
+                  placeholder={
+                    userType === "individual"
+                      ? "john@example.com"
+                      : 'peepal@farm.io"'
+                  }
+                  data-cy="email"
                 />
               </div>
 
@@ -122,8 +161,9 @@ function ClubLogin() {
                   value={credentials.password}
                   onChange={handleChange}
                   required
-                  id="desktopUserPassword"
+                  id="password-des"
                   placeholder="Strg@Pass#122&&S"
+                  data-cy="password"
                 />
 
                 <div
@@ -138,13 +178,13 @@ function ClubLogin() {
               <small id="textDemo" className="form-text text-muted"></small>
               <br />
 
-              <AuthButton isLoading={isLoading} goTo="/user" />
+              <AuthButton isLoading={isLoading} goTo="/clubs" />
             </form>
           </div>
         </div>
       </div>
     </>
   );
-}
+};
 
-export default ClubLogin;
+export default AuthLogin;

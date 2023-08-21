@@ -4,7 +4,7 @@ title: "[FEATURE] write a small description here"
 labels:
   [
     "👷🏻‍♂️ status: awaiting triage",
-    "📈 Minor"
+    "🛠 Feature"
   ]
 body:
   - type: textarea
