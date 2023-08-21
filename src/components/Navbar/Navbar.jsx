@@ -5,7 +5,6 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import ProfilePicture from "../../assets/pictures/ProfilePicture.png";
 import Cookies from "js-cookie";
 import MilanContext from "../../context/MilanContext";
-import Modal from "../Modal/Modal";
 import { FaBars } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import Button from "../Button/GlobalButton/Button";
@@ -14,8 +13,6 @@ import ClickAwayListener from "../../utils/ClickAwayListener";
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { isSignUpModalOpen, toggleSignUpModal } = useContext(MilanContext);
-  const { isSignInModalOpen, toggleSignInModal } = useContext(MilanContext);
   const { isNavbarOpen, setIsNavbarOpen, toggleNavbar } =
     useContext(MilanContext);
 
@@ -27,13 +24,6 @@ const Navbar = () => {
     if (Cookies.get("club")) {
       navigate("/clubs/profile");
     }
-  };
-
-  const navigateToURL = (url) => {
-    isSignUpModalOpen && toggleSignUpModal();
-    isSignInModalOpen && toggleSignInModal();
-    setIsNavbarOpen(false);
-    navigate(url);
   };
 
   return (
@@ -73,7 +63,11 @@ const Navbar = () => {
             >
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li className="nav-item home">
-                  <Link to={"/"} onClick={() => setIsNavbarOpen(false)}>
+                  <Link
+                    to={"/"}
+                    onClick={() => setIsNavbarOpen(false)}
+                    data-cy="home"
+                  >
                     Home
                   </Link>
                   <div
@@ -155,58 +149,6 @@ const Navbar = () => {
           </div>
         </nav>
       </ClickAwayListener>
-      {isSignUpModalOpen && (
-        <Modal onClose={toggleSignUpModal}>
-          <div className="signUpModalHeader">
-            <h1>Sign Up!</h1>
-          </div>
-          <hr />
-          <div>
-            <div className="text-center button-wrapper">
-              <Button
-                className="btn modal-btn"
-                id="user-signup-modal-btn"
-                onClick={() => navigateToURL("/user/register")}
-              >
-                Continue as an User
-              </Button>
-              <Button
-                className="btn modal-btn"
-                id="club-signup-modal-btn"
-                onClick={() => navigateToURL("/clubs/register")}
-              >
-                Continue as a Club/NGO
-              </Button>
-            </div>
-          </div>
-        </Modal>
-      )}
-      {isSignInModalOpen && (
-        <Modal onClose={toggleSignInModal}>
-          <div className="signUpModalHeader">
-            <h1>Sign In!</h1>
-          </div>
-          <hr />
-          <div>
-            <div className="text-center button-wrapper">
-              <Button
-                className="btn modal-btn"
-                id="user-signup-modal-btn"
-                onClick={() => navigateToURL("/user/login")}
-              >
-                Continue as an User
-              </Button>
-              <Button
-                className="btn modal-btn"
-                id="club-signup-modal-btn"
-                onClick={() => navigateToURL("/clubs/login")}
-              >
-                Continue as a Club/NGO
-              </Button>
-            </div>
-          </div>
-        </Modal>
-      )}
     </>
   );
 };

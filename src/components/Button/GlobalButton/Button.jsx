@@ -12,6 +12,7 @@ const Button = ({
   to = "",
   disabled = false,
   action = "",
+  cypressfield = "",
   ...props
 }) => {
   const navigate = useNavigate();
@@ -46,6 +47,7 @@ const Button = ({
       disabled={disabled}
       className={classes}
       onClick={handleClick}
+      data-cy={cypressfield}
       {...props}
     >
       {children}

@@ -146,7 +146,7 @@ const AuthLogin = () => {
                       ? "john@example.com"
                       : 'peepal@farm.io"'
                   }
-                  data-cy="desktop-club-email"
+                  data-cy="email"
                 />
               </div>
 
@@ -163,7 +163,7 @@ const AuthLogin = () => {
                   required
                   id="password-des"
                   placeholder="Strg@Pass#122&&S"
-                  data-cy="desktop-club-password"
+                  data-cy="password"
                 />
 
                 <div
