@@ -2,11 +2,21 @@
 
 # What is Milan ?
 
-Milan is a hub to **connect** NGOs, Charities, and the world to **collaborate** and **build** a better tommorow. Sign up as a organization/user and be a cause for change. Don't forget to drop a star ⭐.
+Milan is a hub to **connect** NGOs, Charities, and the world to **collaborate** and **build** a better tomorrow. Sign up as an organization/user and be a cause for change. Don't forget to drop a star ⭐.
 
 <br/>
 
+
+
 <div  align="center" >
+
+<div  align="center" >
+
+<a href="https://beta.milanhub.org/"><img alt="C" src="https://img.shields.io/badge/Beta%20Release-FFA116?style=for-the-badge&logo=vercel&logoColor=white"></a> <a href="https://milanhub.org/"><img alt="C" src="https://img.shields.io/badge/Production%20Release-07C160?style=for-the-badge&logo=vercel&logoColor=white"></a>
+
+
+    
+</div>
 
 <img alt="Milan Readme Banner" src="https://raw.githubusercontent.com/MilanCommunity/Milan/beta/.github/MilanReadmeBanner.png" width="700px"/>
     
