@@ -9,7 +9,7 @@ const TopButton = ({ GoogleButton, isGoBack }) => {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
-    navigate(-1);
+    navigate("/");
   };
 
   const handleNavigatePages = () => {
