@@ -12,10 +12,35 @@ const useValidation = (credentials, userSignup, clubSignup) => {
 
   if (!credentials.password) {
     errors.push({ error: true, message: "Please enter your password" });
-  } else if (credentials.password.length < 6) {
+  }
+  const isStrongPassword = (password) =>
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+      password,
+    ); //checking the strong password
+
+  if (!isStrongPassword(credentials.password)) {
     errors.push({
       error: true,
-      message: "Password must be at least 6 characters long",
+      message:
+        "Your Password Must Contain At Least One Uppercase Letter ,One Lower Case Letters and one Number one speacial character",
+    });
+    if (credentials.password.length < 6) {
+      errors.push({
+        error: true,
+        message: "Password must be at least 6 characters long",
+      });
+    }
+  }
+
+  if (!credentials.confirmPassword) {
+    //checking the confirm password if it is there
+    errors.push({ error: true, message: "Confirm Password is required" });
+  }
+  if (credentials.password !== credentials.confirmPassword) {
+    //checking the confirm passsoword if matches with password
+    errors.push({
+      error: true,
+      message: "Password and Confirm Password does not match",
     });
   }
 
