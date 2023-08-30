@@ -116,7 +116,7 @@ const useValidation = (credentials, userSignup, clubSignup) => {
 
     if (!credentials.pincode) {
       errors.push({ error: true, message: "Please enter your pincode" });
-    } else if (pincode.length !== 6) {
+    } else if (pincode.length !== 6 && pincode.length !== 5) {
       errors.push({ error: true, message: "Please enter a valid pincode" });
     }
   }
