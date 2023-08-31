@@ -1,47 +1,27 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {
-  Home,
-  UserProfile,
-  ClubProfile,
-  Clubs,
-  Events,
-  Shop,
-  Error404,
-  ContactUs,
-  Donate,
-  AuthRegister,
-  AuthLogin,
-} from "./pages/route";
 import MilanState from "./context/MilanState";
 import "./styles/App.css";
 import BacktoTop from "../src/components/Button/BacktoTop/BacktoTop.jsx";
+import routesConfig from "./utils/routesConfig";
 
 const App = () => {
   return (
-    <>
-      <MilanState>
-        <Router>
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/auth/register" element={<AuthRegister />} />
-            <Route exact path="/auth/login" element={<AuthLogin />} />
-            <Route exact path="/user/profile" element={<UserProfile />} />
-
-            <Route exact path="/clubs" element={<Clubs />} />
-            <Route exact path="/clubs/profile" element={<ClubProfile />} />
-            <Route exact path="/events" element={<Events />} />
-
-            <Route exact path="/shop" element={<Shop />} />
-
-            <Route exact path="/contact" element={<ContactUs />} />
-            <Route exact path="/donateus" element={<Donate />} />
-            <Route path={"/*"} element={<Error404 />} />
-          </Routes>
-        </Router>
-        <BacktoTop />
-      </MilanState>
-    </>
+    <MilanState>
+      <Router>
+        <Routes>
+          {routesConfig.map((route, index) => (
+            <Route
+              key={index}
+              exact
+              path={route?.path}
+              element={route?.element}
+            />
+          ))}
+        </Routes>
+      </Router>
+      <BacktoTop />
+    </MilanState>
   );
 };
 

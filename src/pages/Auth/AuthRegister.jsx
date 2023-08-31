@@ -1,7 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import useValidation from "../../hooks/useValidation";
-import { showErrorToast, showSuccessToast } from "../../utils/Toasts";
 import { RegisterClub, RegisterUser } from "../../service/MilanApi";
 import { Helmet } from "react-helmet-async";
 import { ToastContainer } from "react-toastify";
@@ -10,118 +7,43 @@ import TopButton from "../../components/Button/AuthButton/TopButton";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { FaChevronDown } from "react-icons/fa";
 import "./AuthPage.css";
+import { useFormLogic } from "./AuthFormmodule";
 
 const AuthRegister = () => {
-  const navigate = useNavigate();
-
   const [userType, setUserType] = useState("individual");
 
-  const [credentials, setCredentials] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    address: "",
-    pincode: "",
+  const userTypeOptions = [
+    { value: "individual", label: "Individual" },
+    { value: "club", label: "Charity/Club/NGO" },
+  ];
 
-    name: "",
-    description: "",
-    tagLine: "",
-  });
+  const { formState, isLoading, handleChange, handleSubmit } = useFormLogic(
+    { email: "", password: "" },
+    handleLoginSubmit,
+    "/auth/login",
+  );
 
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleChange = (e) => {
-    if (e.target.name === "pincode") {
-      if (
-        e.target.value.toString().length < 7 &&
-        !e.target.value.toString().includes(".")
-      ) {
-        setCredentials({ ...credentials, [e.target.name]: e.target.value });
-      }
-      return;
+  async function handleLoginSubmit(credentials) {
+    if (userType === "individual") {
+      const data = await RegisterUser(credentials);
+      return data;
+    } else if (userType === "club") {
+      const data = await RegisterClub(credentials);
+      return data;
     }
-    setCredentials({ ...credentials, [e.target.name]: e.target.value });
-  };
-
-  const handleUserTypeChange = (e) => {
-    setUserType(e.target.value);
-    setCredentials({
-      firstname: "",
-      lastname: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      address: "",
-      pincode: "",
-      name: "",
-      description: "",
-      tagLine: "",
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    setIsLoading(true);
-    e.preventDefault();
-    const validationErrors = useValidation(
-      credentials,
-      userType === "individual",
-      userType === "club",
-    );
-
-    if (validationErrors.length > 0) {
-      validationErrors.forEach((error) => {
-        showErrorToast(error.message);
-      });
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
-    } else {
-      if (userType === "individual") {
-        const data = await RegisterUser(credentials);
-        handleApiResponse(data);
-      } else if (userType === "club") {
-        const data = await RegisterClub(credentials);
-        handleApiResponse(data);
-      }
-    }
-  };
-
-  const handleApiResponse = (response) => {
-    if (response?.status === 201) {
-      showSuccessToast(response?.data?.message);
-
-      setTimeout(() => {
-        setIsLoading(false);
-        navigate("/auth/login");
-      }, 3000);
-    } else {
-      showErrorToast(response?.message);
-      setCredentials({ ...credentials });
-
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
-    }
-  };
+  }
 
   const [passwordType, setPasswordType] = useState("password");
-
-  const passwordToggle = () => {
-    if (passwordType === "password") {
-      setPasswordType("text");
-    } else {
-      setPasswordType("password");
-    }
-  };
-
   const [confirmPasswordType, setConfirmPasswordType] = useState("password");
 
+  const passwordToggle = () => {
+    setPasswordType(passwordType === "password" ? "text" : "password");
+  };
+
   const confirmPasswordToggle = () => {
-    if (confirmPasswordType === "password") {
-      setConfirmPasswordType("text");
-    } else setConfirmPasswordType("password");
+    setConfirmPasswordType(
+      confirmPasswordType === "password" ? "text" : "password",
+    );
   };
 
   return (
@@ -156,11 +78,14 @@ const AuthRegister = () => {
                     id="userType"
                     name="userType"
                     value={userType}
-                    onChange={handleUserTypeChange}
+                    onChange={(e) => setUserType(e.target.value)}
                     className="form-control user-type-select"
                   >
-                    <option value="individual">Individual</option>
-                    <option value="club">Charity/Club/NGO</option>
+                    {userTypeOptions.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
                   </select>
                   <FaChevronDown className="dropdown-icon" />
                 </div>
@@ -176,7 +101,7 @@ const AuthRegister = () => {
                         type="text"
                         className=" form-control "
                         name="firstname"
-                        value={credentials.firstname}
+                        value={formState.firstname}
                         onChange={handleChange}
                         required
                         id="firstname"
@@ -192,7 +117,7 @@ const AuthRegister = () => {
                         type="text"
                         className=" form-control "
                         name="lastname"
-                        value={credentials.lastname}
+                        value={formState.lastname}
                         onChange={handleChange}
                         required
                         id="lastname"
@@ -210,7 +135,7 @@ const AuthRegister = () => {
                       type="text"
                       className=" form-control "
                       name="name"
-                      value={credentials.name}
+                      value={formState.name}
                       onChange={handleChange}
                       required
                       id="name"
@@ -228,7 +153,7 @@ const AuthRegister = () => {
                   type="email"
                   className=" form-control "
                   name="email"
-                  value={credentials.email}
+                  value={formState.email}
                   onChange={handleChange}
                   required
                   id="email"
@@ -244,7 +169,7 @@ const AuthRegister = () => {
                     type={passwordType}
                     className=" form-control "
                     name="password"
-                    value={credentials.password}
+                    value={formState.password}
                     onChange={handleChange}
                     required
                     id="password"
@@ -262,7 +187,7 @@ const AuthRegister = () => {
                     type={confirmPasswordType}
                     className=" form-control "
                     name="confirmPassword"
-                    value={credentials.confirmPassword}
+                    value={formState.confirmPassword}
                     onChange={handleChange}
                     required
                     id="confirmPassword"
@@ -290,7 +215,7 @@ const AuthRegister = () => {
                     type="text"
                     className=" form-control "
                     name="tagLine"
-                    value={credentials.tagLine}
+                    value={formState.tagLine}
                     onChange={handleChange}
                     required
                     id="tagLine"
@@ -307,7 +232,7 @@ const AuthRegister = () => {
                   <textarea
                     className="form-control"
                     name="description"
-                    value={credentials.description}
+                    value={formState.description}
                     onChange={handleChange}
                     required
                     id="description"
@@ -323,7 +248,7 @@ const AuthRegister = () => {
                 <textarea
                   className="form-control"
                   name="address"
-                  value={credentials.address}
+                  value={formState.address}
                   onChange={handleChange}
                   required
                   id="address"
@@ -340,7 +265,7 @@ const AuthRegister = () => {
                   "
                   className=" form-control "
                   name="pincode"
-                  value={credentials.pincode}
+                  value={formState.pincode}
                   onChange={handleChange}
                   required
                   id="pincode"

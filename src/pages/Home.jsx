@@ -1,33 +1,30 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import Milaninfobanner from "../components/Banners/Milaninfobanner";
 import Navbar from "../components/Navbar/Navbar.jsx";
 import { successCallback } from "../service/MilanApi.js";
 import { showErrorToast, showSuccessToast } from "../utils/Toasts.js";
 import Cookies from "js-cookie";
 import { ToastContainer } from "react-toastify";
 import HomeBanner from "../components/Banners/HomeBanner";
+import Milaninfobanner from "../components/Banners/Milaninfobanner";
 import Footer from "../components/Footer/Footer";
 
 const Home = () => {
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  const handleToken = async () => {
+    const authData = await successCallback();
+
+    if (authData?.status === 201) {
+      showSuccessToast(authData?.data?.message);
+      Cookies.set("isLoggedIn", true, {
+        expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+      });
+    } else {
+      showErrorToast(authData?.message);
+    }
+  };
 
   useEffect(() => {
-    const handleToken = async () => {
-      const authData = await successCallback();
-
-      if (authData?.status === 201) {
-        showSuccessToast(authData?.data?.message);
-        Cookies.set("isLoggedIn", true, {
-          expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
-        });
-      } else {
-        showErrorToast(authData?.message);
-      }
-    };
-
+    window.scrollTo(0, 0);
     if (Cookies.get("OAuthLoginInitiated")) {
       handleToken();
     }
@@ -35,8 +32,6 @@ const Home = () => {
 
   return (
     <>
-      <ToastContainer />
-      <Navbar />
       <Helmet>
         <title>Milan | Home</title>
         <meta
@@ -45,6 +40,9 @@ const Home = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
+
+      <ToastContainer />
+      <Navbar />
 
       <HomeBanner />
       <Milaninfobanner />

@@ -1,7 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import useValidation from "../../hooks/useValidation";
-import { showErrorToast, showSuccessToast } from "../../utils/Toasts";
 import { LoginClub, LoginUser } from "../../service/MilanApi";
 import { Helmet } from "react-helmet-async";
 import { ToastContainer } from "react-toastify";
@@ -10,82 +7,36 @@ import TopButton from "../../components/Button/AuthButton/TopButton";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { FaChevronDown } from "react-icons/fa";
 import "./AuthPage.css";
-import { SetAuthCookies } from "../../utils/Cookies";
+import { useFormLogic } from "./AuthFormmodule";
 
 const AuthLogin = () => {
-  const navigate = useNavigate();
-
   const [userType, setUserType] = useState("individual");
 
-  const [credentials, setCredentials] = useState({
-    email: "",
-    password: "",
-  });
+  const userTypeOptions = [
+    { value: "individual", label: "Individual" },
+    { value: "club", label: "Charity/Club/NGO" },
+  ];
 
-  const [isLoading, setIsLoading] = useState(false);
+  const { formState, isLoading, handleChange, handleSubmit } = useFormLogic(
+    { email: "", password: "" },
+    handleLoginSubmit,
+    "/",
+  );
 
-  const handleChange = (e) => {
-    setCredentials({ ...credentials, [e.target.name]: e.target.value });
-  };
-
-  const handleUserTypeChange = (e) => {
-    setUserType(e.target.value);
-    setCredentials({
-      email: "",
-      password: "",
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    setIsLoading(true);
-    e.preventDefault();
-    const validationErrors = useValidation(credentials);
-    if (validationErrors.length > 0) {
-      validationErrors.forEach((error) => {
-        showErrorToast(error.message);
-      });
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
-    } else {
-      if (userType === "individual") {
-        const data = await LoginUser(credentials);
-        handleApiResponse(data);
-        SetAuthCookies(data);
-      } else if (userType === "club") {
-        const data = await LoginClub(credentials);
-        handleApiResponse(data);
-        SetAuthCookies(data);
-      }
+  async function handleLoginSubmit(credentials) {
+    if (userType === "individual") {
+      const data = await LoginUser(credentials);
+      return data;
+    } else if (userType === "club") {
+      const data = await LoginClub(credentials);
+      return data;
     }
-  };
-
-  const handleApiResponse = (response) => {
-    if (response?.status === 201) {
-      showSuccessToast(response?.data?.message);
-
-      setTimeout(() => {
-        setIsLoading(false);
-        navigate("/");
-      }, 2000);
-    } else {
-      showErrorToast(response?.message);
-      setCredentials({ ...credentials });
-
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
-    }
-  };
+  }
 
   const [passwordType, setPasswordType] = useState("password");
 
   const passwordToggle = () => {
-    if (passwordType === "password") {
-      setPasswordType("text");
-    } else {
-      setPasswordType("password");
-    }
+    setPasswordType(passwordType === "password" ? "text" : "password");
   };
 
   return (
@@ -119,11 +70,14 @@ const AuthLogin = () => {
                     id="userType"
                     name="userType"
                     value={userType}
-                    onChange={handleUserTypeChange}
+                    onChange={(e) => setUserType(e.target.value)}
                     className="form-control user-type-select"
                   >
-                    <option value="individual">Individual</option>
-                    <option value="club">Charity/Club/NGO</option>
+                    {userTypeOptions.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
                   </select>
                   <FaChevronDown className="dropdown-icon" />
                 </div>
@@ -136,7 +90,7 @@ const AuthLogin = () => {
                   type="email"
                   className=" form-control "
                   name="email"
-                  value={credentials.email}
+                  value={formState.email}
                   onChange={handleChange}
                   required
                   aria-label="Club email"
@@ -158,7 +112,7 @@ const AuthLogin = () => {
                   type={passwordType}
                   className=" form-control "
                   name="password"
-                  value={credentials.password}
+                  value={formState.password}
                   onChange={handleChange}
                   required
                   id="password-des"
