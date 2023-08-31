@@ -11,7 +11,7 @@
     "@testing-library/user-event": "^14.4.3",
     "aos": "^2.3.4",
     "axios": "^1.4.0",
-    "cypress": "^12.17.2",
+    "cypress": "^13.0.0",
     "dotenv": "^16.3.1",
     "js-cookie": "^3.0.5",
     "jsonschema": "^1.4.1",
