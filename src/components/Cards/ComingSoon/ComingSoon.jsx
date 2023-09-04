@@ -16,7 +16,9 @@ const ComingSoon = ({ launchitem }) => {
           We will let you know whenever we launch our{" "}
           {launchitem ? launchitem : "page"}.
         </p>
-        <Button onClick={toggleSignUpModal}>Sign up to get notified</Button>{" "}
+        <Button onClick={toggleSignUpModal} action="signup">
+          Sign up to get notified
+        </Button>{" "}
       </div>
     </>
   );
