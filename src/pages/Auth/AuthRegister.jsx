@@ -326,16 +326,6 @@ const AuthRegister = () => {
                 <Select options={countries} isClearable ref={selectedOption} />
               </div>
 
-              <h1
-                onClick={() => {
-                  console.log(
-                    selectedOption?.current?.state?.prevProps?.value?.label,
-                  );
-                }}
-              >
-                Hello
-              </h1>
-
               <div className="authform_container ">
                 <label htmlFor="pincode" className="auth_label">
                   Pincode / Zipcode
