@@ -159,6 +159,14 @@ textarea::placeholder {
   display: none;
 }
 
+.separator_header {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
 @media screen and (max-width: 1200px) {
   .authpage_goback {
     left: 4rem;

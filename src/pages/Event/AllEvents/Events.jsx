@@ -12,10 +12,11 @@ import Footer from "../../../components/Footer/Footer";
 import Navbar from "../../../components/Navbar/Navbar";
 import ComingSoon from "../../../components/Cards/ComingSoon/ComingSoon";
 import Header from "../../../components/PageHeader/Header";
+import { eventEndpoints } from "../../../assets/data/ApiEndpoints";
 
 const Events = () => {
   const { data: eventsData, isLoading } = useSWR(
-    `${import.meta.env.VITE_MILANAPI}/display/events`,
+    eventEndpoints.all,
     defaultfetcher,
   );
 

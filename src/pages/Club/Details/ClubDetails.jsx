@@ -1,87 +1,55 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
+import Navbar from "../../../components/Navbar/Navbar";
 import { useParams } from "react-router-dom";
-import displayRazorpay from "../../../../service/PaymentGateway";
-import Modal from "../../../../components/Modal";
+// import displayRazorpay from "../../../../service/PaymentGateway";
+// import Modal from "../../../../components/Modal";
 import useSWR from "swr";
-import { defaultfetcher } from "../../../../utils/Fetcher";
-import Navbar from "../../../../components/Navbar/Navbar";
+import { defaultfetcher } from "../../../utils/Fetcher";
+import { clubEndpoints } from "../../../assets/data/ApiEndpoints";
+import { GoLocation } from "react-icons/go";
+import "./ClubDetails.css";
 
 function ClubDetailsCard() {
   const params = useParams();
-  const inputRef = useRef(null);
-  const [showPaymodal, setshowPaymodal] = React.useState(false);
+  console.log(params);
+  // const inputRef = useRef(null);
+  // const [showPaymodal, setshowPaymodal] = React.useState(false);
 
-  const loadScript = (src) => {
-    return new Promise((resolve) => {
-      const script = document.createElement("script");
-      script.src = src;
-      script.onload = () => {
-        resolve(true);
-      };
-      script.onerror = () => {
-        resolve(false);
-      };
-      document.body.appendChild(script);
-    });
-  };
+  // const loadScript = (src) => {
+  //   return new Promise((resolve) => {
+  //     const script = document.createElement("script");
+  //     script.src = src;
+  //     script.onload = () => {
+  //       resolve(true);
+  //     };
+  //     script.onerror = () => {
+  //       resolve(false);
+  //     };
+  //     document.body.appendChild(script);
+  //   });
+  // };
 
-  useEffect(() => {
-    loadScript("https://checkout.razorpay.com/v1/checkout.js");
-  }, []);
+  // useEffect(() => {
+  //   loadScript("https://checkout.razorpay.com/v1/checkout.js");
+  // }, []);
 
   const { data: clubdetails } = useSWR(
-    `${import.meta.env.VITE_MILANAPI}/display/clubs?id=${params.id}`,
+    clubEndpoints.bySlug(params.slug),
     defaultfetcher,
   );
 
-  const closePayModal = () => {
-    setshowPaymodal(false);
-    document.body.style.overflow = "auto";
-  };
+  console.log(clubdetails);
+
+  // const closePayModal = () => {
+  //   setshowPaymodal(false);
+  //   document.body.style.overflow = "auto";
+  // };
 
   return (
     <>
       <Navbar />
 
-      <div className="clubdetails_parent">
-        <div className="clubdetails_imagediv">
-          <img
-            src="https://i.ibb.co/88dTvtR/We-love-earth.png"
-            alt={clubdetails?.name}
-          />
-        </div>
-
-        <div className="clubdetails_textdiv">
-          <h1>{clubdetails?.name}</h1>
-          <h2>{clubdetails?.tagLine}</h2>
-
-          <div className="clubdetails_description flexed">
-            <p>
-              <span>Find us at : </span> {clubdetails?.address}
-            </p>
-            <p>{clubdetails?.description}</p>
-
-            <button
-              className="btn"
-              onClick={() => {
-                setshowPaymodal(true);
-                document.body.style.overflow = "hidden";
-              }}
-            >
-              Help us grow
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="clubdetails_description  clubdetails_description_landscape">
-        <p>
-          <span>Find us at : </span> {clubdetails?.address}
-        </p>
-        <p>{clubdetails?.description}</p>
-
-        <button className="btn">Help us grow</button>
-      </div>
+      {/* 
 
       {showPaymodal && (
         <Modal onClose={closePayModal}>
@@ -115,7 +83,28 @@ function ClubDetailsCard() {
             </button>
           </div>
         </Modal>
-      )}
+      )} */}
+
+      <div className="cd_parent">
+        <div className="cd_main">
+          <div className="cd_leftdiv">
+            <img src="https://i.ibb.co/FXwG2MH/pict-large.jpg" alt="" />
+          </div>
+
+          <div className="cd_rightdiv">
+            <h1>{clubdetails?.name}</h1>
+            <p>{clubdetails?.tagLine}</p>
+
+            <div>
+              <h2>What do we do ?</h2>
+              <p>{clubdetails?.description}</p>
+            </div>
+
+            <GoLocation style={{ color: "#e26959" }} />
+            <p>{clubdetails?.address}</p>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

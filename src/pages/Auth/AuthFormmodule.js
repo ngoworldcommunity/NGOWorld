@@ -5,7 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { SetAuthCookies } from "../../utils/Cookies";
 import useStore from "../../store";
 
-export function useFormLogic(initialState, submitCallback, redirectPath) {
+export function useFormLogic(
+  initialState,
+  submitCallback,
+  redirectPath,
+  userType,
+  isSignup,
+) {
   const navigate = useNavigate();
   const [formState, setFormState] = useState(initialState);
   const [isLoading, setIsLoading] = useState(false);
@@ -16,11 +22,17 @@ export function useFormLogic(initialState, submitCallback, redirectPath) {
     setFormState({ ...formState, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e, country) => {
     setIsLoading(true);
     e.preventDefault();
 
-    const validationErrors = useValidation(formState);
+    formState.country = country;
+
+    const validationErrors = isSignup
+      ? userType === "individual"
+        ? useValidation(formState, true, false)
+        : useValidation(formState, false, true)
+      : [];
 
     if (validationErrors.length > 0) {
       validationErrors.forEach((error) => {

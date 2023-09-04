@@ -21,6 +21,8 @@ const AuthLogin = () => {
     { email: "", password: "" },
     handleLoginSubmit,
     "/",
+    userType,
+    false,
   );
 
   async function handleLoginSubmit(credentials) {
