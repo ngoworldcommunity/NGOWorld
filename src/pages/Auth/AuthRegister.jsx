@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { RegisterClub, RegisterUser } from "../../service/MilanApi";
 import { Helmet } from "react-helmet-async";
 import { ToastContainer } from "react-toastify";
@@ -8,22 +8,41 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { FaChevronDown } from "react-icons/fa";
 import "./AuthPage.css";
 import { useFormLogic } from "./AuthFormmodule";
+import Select from "react-select";
+import countries from "../../assets/data/CountryList";
 
 const AuthRegister = () => {
   const [userType, setUserType] = useState("individual");
-
   const userTypeOptions = [
     { value: "individual", label: "Individual" },
     { value: "club", label: "Charity/Club/NGO" },
   ];
 
+  const selectedOption = useRef(null);
+
   const { formState, isLoading, handleChange, handleSubmit } = useFormLogic(
-    { email: "", password: "" },
-    handleLoginSubmit,
+    {
+      email: "",
+      password: "",
+      name: "",
+      confirmPassword: "",
+      tagLine: "",
+      description: "",
+      city: "",
+      state: "",
+      address: "",
+      country: "",
+      pincode: "",
+      firstname: "",
+      lastname: "",
+    },
+    handleSignupSubmit,
     "/auth/login",
+    userType,
+    true,
   );
 
-  async function handleLoginSubmit(credentials) {
+  async function handleSignupSubmit(credentials) {
     if (userType === "individual") {
       const data = await RegisterUser(credentials);
       return data;
@@ -66,8 +85,19 @@ const AuthRegister = () => {
 
           <div className="authpage_rightdiv">
             <TopButton isGoBack={true} />
-            <form onSubmit={handleSubmit} className="authform">
+            <form
+              onSubmit={(e) => {
+                handleSubmit(
+                  e,
+                  selectedOption?.current?.state?.prevProps?.value?.label,
+                );
+              }}
+              className="authform"
+            >
               <h1 className="">Join Milan Today</h1>
+
+              <br />
+              <h2 className="separator_header">Personal Details</h2>
 
               <div className="authform_container">
                 <label htmlFor="userType" className="auth_label">
@@ -90,44 +120,44 @@ const AuthRegister = () => {
                   <FaChevronDown className="dropdown-icon" />
                 </div>
               </div>
-              <div className="auth_namediv">
-                {userType === "individual" && (
-                  <>
-                    <div className="authform_container">
-                      <label htmlFor="firstname" className="auth_label">
-                        First Name
-                      </label>
-                      <input
-                        type="text"
-                        className=" form-control "
-                        name="firstname"
-                        value={formState.firstname}
-                        onChange={handleChange}
-                        required
-                        id="firstname"
-                        placeholder="John"
-                      />
-                    </div>
 
-                    <div className="authform_container">
-                      <label htmlFor="lastname" className="auth_label">
-                        Last Name
-                      </label>
-                      <input
-                        type="text"
-                        className=" form-control "
-                        name="lastname"
-                        value={formState.lastname}
-                        onChange={handleChange}
-                        required
-                        id="lastname"
-                        placeholder="Doe"
-                      />
-                    </div>
-                  </>
-                )}
-                {userType === "club" && (
-                  <div className="authform_container" style={{ width: "100%" }}>
+              {userType === "individual" ? (
+                <div className="auth_namediv">
+                  <div className="authform_container">
+                    <label htmlFor="firstname" className="auth_label">
+                      First Name
+                    </label>
+                    <input
+                      type="text"
+                      className=" form-control "
+                      name="firstname"
+                      value={formState.firstname}
+                      onChange={handleChange}
+                      required
+                      id="firstname"
+                      placeholder="John"
+                    />
+                  </div>
+
+                  <div className="authform_container">
+                    <label htmlFor="lastname" className="auth_label">
+                      Last Name
+                    </label>
+                    <input
+                      type="text"
+                      className=" form-control "
+                      name="lastname"
+                      value={formState.lastname}
+                      onChange={handleChange}
+                      required
+                      id="lastname"
+                      placeholder="Doe"
+                    />
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <div className="authform_container">
                     <label htmlFor="name" className="auth_label">
                       Club Name
                     </label>
@@ -142,8 +172,23 @@ const AuthRegister = () => {
                       placeholder="ABC Club"
                     />
                   </div>
-                )}
-              </div>
+                  <div className="authform_container">
+                    <label htmlFor="tagLine" className="auth_label">
+                      Club Tagline
+                    </label>
+                    <input
+                      type="text"
+                      className=" form-control "
+                      name="tagLine"
+                      value={formState.tagLine}
+                      onChange={handleChange}
+                      required
+                      id="tagLine"
+                      placeholder="Join us and make a difference!"
+                    />
+                  </div>
+                </>
+              )}
 
               <div className="authform_container ">
                 <label htmlFor="email" className="auth_label">
@@ -208,24 +253,6 @@ const AuthRegister = () => {
 
               {userType === "club" && (
                 <div className="authform_container">
-                  <label htmlFor="tagLine" className="auth_label">
-                    Club Tagline
-                  </label>
-                  <input
-                    type="text"
-                    className=" form-control "
-                    name="tagLine"
-                    value={formState.tagLine}
-                    onChange={handleChange}
-                    required
-                    id="tagLine"
-                    placeholder="Join us and make a difference!"
-                  />
-                </div>
-              )}
-
-              {userType === "club" && (
-                <div className="authform_container">
                   <label htmlFor="description" className="auth_label">
                     Club Description
                   </label>
@@ -241,9 +268,45 @@ const AuthRegister = () => {
                 </div>
               )}
 
+              <br />
+              <h2 className="separator_header">Location</h2>
+
+              <div className="auth_passworddiv">
+                <div className="authform_container">
+                  <label htmlFor="password" className="auth_label">
+                    City/Town
+                  </label>
+                  <input
+                    type="text"
+                    className=" form-control "
+                    name="city"
+                    value={formState.city}
+                    onChange={handleChange}
+                    required
+                    id="city"
+                    placeholder="New York"
+                  />
+                </div>
+                <div className="authform_container">
+                  <label htmlFor="confirmPassword" className="auth_label">
+                    State/Province/Region
+                  </label>
+                  <input
+                    type="text"
+                    className=" form-control "
+                    name="state"
+                    value={formState.state}
+                    onChange={handleChange}
+                    required
+                    id="state"
+                    placeholder="Texas"
+                  />
+                </div>
+              </div>
+
               <div className="authform_container ">
                 <label htmlFor="address" className="auth_label">
-                  Address
+                  Street Address
                 </label>
                 <textarea
                   className="form-control"
@@ -252,8 +315,15 @@ const AuthRegister = () => {
                   onChange={handleChange}
                   required
                   id="address"
-                  placeholder="123 Main St, City, Country"
+                  placeholder="22/B Baker Street"
                 />
+              </div>
+
+              <div className="authform_container ">
+                <label htmlFor="pincode" className="auth_label">
+                  Country
+                </label>
+                <Select options={countries} isClearable ref={selectedOption} />
               </div>
 
               <div className="authform_container ">

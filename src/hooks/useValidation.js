@@ -112,6 +112,10 @@ const useValidation = (credentials, userSignup, clubSignup) => {
       });
     }
 
+    if (!credentials.country) {
+      errors.push({ error: true, message: "Please enter your country" });
+    }
+
     const pincode = credentials?.pincode?.toString();
 
     if (!credentials.pincode) {

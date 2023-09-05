@@ -11,12 +11,15 @@ import { filter } from "../../../utils/Filter";
 import { showErrorToast } from "../../../utils/Toasts";
 import "./Clubs.css";
 import Header from "../../../components/PageHeader/Header";
+import { clubEndpoints } from "../../../assets/data/ApiEndpoints";
 
 const Clubs = () => {
   const { data: clubData, isLoading } = useSWR(
-    `${import.meta.env.VITE_MILANAPI}/display/clubs`,
+    clubEndpoints.all,
     defaultfetcher,
   );
+
+  console.log(clubData);
 
   const [filterState, setFilterState] = useState({
     chosenFilter: "",
