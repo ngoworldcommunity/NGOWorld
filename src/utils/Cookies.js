@@ -10,9 +10,12 @@ export const SetAuthCookies = (Data) => {
     expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
     isuser: Data?.data?.isuser,
   });
+
+  Cookies.set("token", Data?.data?.isuser);
 };
 
 export const ClearCookies = () => {
   Cookies.remove("isLoggedIn");
   Cookies.remove("isuser");
+  Cookies.remove("token");
 };
