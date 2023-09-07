@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import { GoogleAuth } from "../../../service/MilanApi";
 
-const TopButton = ({ GoogleButton, isGoBack }) => {
+const TopButton = ({ showGoogleButton, isGoBack }) => {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
@@ -50,7 +50,7 @@ const TopButton = ({ GoogleButton, isGoBack }) => {
         )}
       </button>
 
-      {/* {GoogleButton && (
+      {showGoogleButton && (
         <button
           className="btn authpage_googlebtn"
           onClick={() => {
@@ -60,7 +60,7 @@ const TopButton = ({ GoogleButton, isGoBack }) => {
           <FcGoogle style={{ fontSize: "20px", marginRight: "0.7rem" }} />
           Continue with Google
         </button>
-      )} */}
+      )}
     </>
   );
 };

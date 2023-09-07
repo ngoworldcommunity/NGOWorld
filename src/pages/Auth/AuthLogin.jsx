@@ -56,7 +56,7 @@ const AuthLogin = () => {
       <div className="authpage_godparent">
         <div className="authpage_parent">
           <div className="authpage_leftdiv">
-            <TopButton isGoBack={false} GoogleButton={true} />
+            <TopButton isGoBack={false} showGoogleButton={false} />
           </div>
 
           <div className="authpage_rightdiv authpage_logindiv">
