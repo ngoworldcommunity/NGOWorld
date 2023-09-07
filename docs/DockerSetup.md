@@ -8,7 +8,7 @@
 ## Step 1 - Clone the repository
 
 ```
- git clone https://github.com/tamalCodes/Milan.git
+ git clone https://github.com/MilanCommunity/Milan.git
 ```
 
 ## Step 2 - Change directory to Milan

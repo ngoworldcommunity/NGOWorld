@@ -13,7 +13,7 @@ const SocialIcons = () => {
       </li>
       <li className="list-inline-item">
         <a
-          href="https://github.com/tamalCodes/Milan"
+          href="https://github.com/MilanCommunity/Milan"
           target="_blank"
           rel="noopener noreferrer"
           title="github"

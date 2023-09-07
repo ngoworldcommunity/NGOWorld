@@ -43,7 +43,7 @@ const HomeBanner = () => {
                   <div className="banner_btn_div">
                     <Button
                       className="banner_signup_btn  "
-                      to="https://github.com/tamalCodes/Milan"
+                      to="https://github.com/MilanCommunity/Milan"
                       target="_blank"
                       rel="noreferrer"
                       variant="outline"
@@ -53,7 +53,7 @@ const HomeBanner = () => {
 
                     <Button
                       className="banner_signup_btn  "
-                      to="https://github.com/tamalCodes/Milan"
+                      to="https://github.com/MilanCommunity/Milan"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -75,7 +75,7 @@ const HomeBanner = () => {
 
                     <Button
                       className="banner_signup_btn"
-                      to="https://github.com/tamalCodes/Milan"
+                      to="https://github.com/MilanCommunity/Milan"
                       target="_blank"
                       rel="noreferrer"
                       variant="solid"
