@@ -8,14 +8,14 @@ import {
   Events,
   Shop,
   Error404,
-  AuthRegister,
+  AuthSignup,
   AuthLogin,
   ClubDetails,
 } from "../../pages/route";
 
 const routesConfig = [
   { path: "/", element: <Home /> },
-  { path: "/auth/register", element: <AuthRegister /> },
+  { path: "/auth/signup", element: <AuthSignup /> },
   { path: "/auth/login", element: <AuthLogin /> },
   { path: "/user/profile", element: <UserProfile /> },
   { path: "/clubs", element: <Clubs /> },

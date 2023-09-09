@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
-import { RegisterClub, RegisterUser } from "../../service/MilanApi";
+import { useState, useRef, useEffect } from "react";
+import { RegisterUser } from "../../service/MilanApi";
 import { Helmet } from "react-helmet-async";
 import { ToastContainer } from "react-toastify";
 import AuthButton from "../../components/Button/AuthButton/AuthButton";
@@ -7,49 +7,37 @@ import TopButton from "../../components/Button/AuthButton/TopButton";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { FaChevronDown } from "react-icons/fa";
 import "./AuthPage.css";
-import { useFormLogic } from "./AuthFormmodule";
+import {
+  clubInitialFormState,
+  individualInitialFormState,
+  useFormLogic,
+} from "./AuthFormmodule";
 import Select from "react-select";
 import countries from "../../assets/data/CountryList";
 
-const AuthRegister = () => {
+const AuthSignup = () => {
   const [userType, setUserType] = useState("individual");
   const userTypeOptions = [
-    { value: "individual", label: "Individual" },
-    { value: "club", label: "Charity/Club/NGO" },
+    { value: "individual", label: "Individual (You are a person)" },
+    { value: "club", label: "Organization (You are a Charity/Club/NGO)" },
   ];
 
   const selectedOption = useRef(null);
 
-  const { formState, isLoading, handleChange, handleSubmit } = useFormLogic(
-    {
-      email: "",
-      password: "",
-      name: "",
-      confirmPassword: "",
-      tagLine: "",
-      description: "",
-      city: "",
-      state: "",
-      address: "",
-      country: "",
-      pincode: "",
-      firstname: "",
-      lastname: "",
-    },
-    handleSignupSubmit,
-    "/auth/login",
-    userType,
-    true,
-  );
+  const { formState, setFormState, isLoading, handleChange, handleSubmit } =
+    useFormLogic({}, handleSignupSubmit, "/auth/login", true, userType);
+
+  useEffect(() => {
+    if (userType === "individual") {
+      setFormState({ ...individualInitialFormState });
+    } else {
+      setFormState({ ...clubInitialFormState });
+    }
+  }, [userType]);
 
   async function handleSignupSubmit(credentials) {
-    if (userType === "individual") {
-      const data = await RegisterUser(credentials);
-      return data;
-    } else if (userType === "club") {
-      const data = await RegisterClub(credentials);
-      return data;
-    }
+    const data = await RegisterUser(credentials);
+    return data;
   }
 
   const [passwordType, setPasswordType] = useState("password");
@@ -68,10 +56,10 @@ const AuthRegister = () => {
   return (
     <>
       <Helmet>
-        <title>Milan | Registration</title>
+        <title>Milan | Signup</title>
         <meta
           name="description"
-          content="Welcome to the User's registration page. Provide all the needed credentials and join us."
+          content="Welcome to the User's sign up page. Provide all the needed credentials and join us."
         />
         <link rel="canonical" href="/" />
       </Helmet>
@@ -80,11 +68,15 @@ const AuthRegister = () => {
       <div className="authpage_godparent">
         <div className="authpage_parent">
           <div className="authpage_leftdiv">
-            <TopButton isGoBack={false} GoogleButton={true} />
+            <TopButton
+              isGoBack={false}
+              showgooglebutton={true}
+              showleftGoogleButton={false}
+              type="column"
+            />
           </div>
 
           <div className="authpage_rightdiv">
-            <TopButton isGoBack={true} />
             <form
               onSubmit={(e) => {
                 handleSubmit(
@@ -94,9 +86,12 @@ const AuthRegister = () => {
               }}
               className="authform"
             >
+              <TopButton
+                isGoBack={true}
+                showleftGoogleButton={window.innerWidth <= 800 ? true : false}
+                showgooglebutton={window.innerWidth <= 800 ? true : false}
+              />
               <h1 className="">Join Milan Today</h1>
-
-              <br />
               <h2 className="separator_header">Personal Details</h2>
 
               <div className="authform_container">
@@ -112,13 +107,35 @@ const AuthRegister = () => {
                     className="form-control user-type-select"
                   >
                     {userTypeOptions.map((option) => (
-                      <option key={option.value} value={option.value}>
+                      <option
+                        key={option.value}
+                        value={option.value}
+                        className="user-type-options"
+                      >
                         {option.label}
                       </option>
                     ))}
                   </select>
                   <FaChevronDown className="dropdown-icon" />
                 </div>
+              </div>
+
+              <div className="authform_container ">
+                <label htmlFor="slug" className="auth_label">
+                  Username
+                </label>
+                <input
+                  type="text"
+                  className=" form-control "
+                  name="slug"
+                  value={formState.slug}
+                  onChange={handleChange}
+                  required
+                  id="slug"
+                  placeholder={
+                    userType === "individual" ? "john-doe" : "abc-club"
+                  }
+                />
               </div>
 
               {userType === "individual" ? (
@@ -342,7 +359,6 @@ const AuthRegister = () => {
                   placeholder="123456"
                 />
               </div>
-
               <AuthButton isLoading={isLoading} buttonText="Register" />
             </form>
           </div>
@@ -352,4 +368,4 @@ const AuthRegister = () => {
   );
 };
 
-export default AuthRegister;
+export default AuthSignup;

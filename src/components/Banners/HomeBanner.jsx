@@ -42,7 +42,7 @@ const HomeBanner = () => {
                 {Cookies.get("token") || Cookies.get("club") ? (
                   <div className="banner_btn_div">
                     <Button
-                      className="banner_signup_btn  "
+                      className="banner_signup_btn"
                       to="https://github.com/MilanCommunity/Milan"
                       target="_blank"
                       rel="noreferrer"
@@ -52,7 +52,7 @@ const HomeBanner = () => {
                     </Button>
 
                     <Button
-                      className="banner_signup_btn  "
+                      className="banner_signup_btn"
                       to="https://github.com/MilanCommunity/Milan"
                       target="_blank"
                       rel="noreferrer"
@@ -69,6 +69,7 @@ const HomeBanner = () => {
                       data-cy="landingpage-club-signup"
                       id="landingpage-club-signup"
                       variant="outline"
+                      to="/auth/signup"
                     >
                       Sign up now
                     </Button>

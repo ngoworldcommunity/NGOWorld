@@ -4,6 +4,7 @@ import { UpdateUser, Logout } from "../../service/MilanApi";
 import { showSuccessToast } from "../../utils/Toasts";
 import { ClearCookies } from "../../utils/Cookies";
 import { ToastContainer } from "react-toastify";
+import Navbar from "../../components/Navbar/Navbar";
 
 export default function UserProfile() {
   document.title = "Milan | User Profile";
@@ -53,6 +54,7 @@ export default function UserProfile() {
 
   return (
     <>
+      <Navbar />
       <ToastContainer />
       <section className="vh-100">
         <div className="container py-5 h-100">

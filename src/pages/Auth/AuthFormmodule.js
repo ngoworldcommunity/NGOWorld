@@ -2,21 +2,17 @@ import { useState } from "react";
 import useValidation from "../../hooks/useValidation";
 import { showErrorToast, showSuccessToast } from "../../utils/Toasts";
 import { useNavigate } from "react-router-dom";
-import { SetAuthCookies } from "../../utils/Cookies";
-import useStore from "../../store";
 
 export function useFormLogic(
   initialState,
   submitCallback,
   redirectPath,
-  userType,
   isSignup,
+  userType,
 ) {
   const navigate = useNavigate();
   const [formState, setFormState] = useState(initialState);
   const [isLoading, setIsLoading] = useState(false);
-
-  const userNeedsLogin = useStore((state) => state.userNeedsLogin);
 
   const handleChange = (e) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
@@ -44,7 +40,6 @@ export function useFormLogic(
     } else {
       const data = await submitCallback(formState);
       handleApiResponse(data);
-      SetAuthCookies(data);
     }
   };
 
@@ -53,9 +48,6 @@ export function useFormLogic(
 
     if (response?.status === 201) {
       showSuccessToast(response?.data?.message);
-
-      console.log(userNeedsLogin);
-
       setTimeout(() => {
         setIsLoading(false);
         navigate(redirectPath);
@@ -71,8 +63,40 @@ export function useFormLogic(
 
   return {
     formState,
+    setFormState,
     isLoading,
     handleChange,
     handleSubmit,
   };
 }
+
+export const individualInitialFormState = {
+  usertype: "individual",
+  slug: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+  city: "",
+  state: "",
+  address: "",
+  country: "",
+  pincode: "",
+  firstname: "",
+  lastname: "",
+};
+
+export const clubInitialFormState = {
+  usertype: "club",
+  slug: "",
+  email: "",
+  password: "",
+  name: "",
+  confirmPassword: "",
+  tagLine: "",
+  description: "",
+  city: "",
+  state: "",
+  address: "",
+  country: "",
+  pincode: "",
+};

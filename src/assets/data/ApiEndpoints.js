@@ -1,18 +1,12 @@
-// ApiEndpoints.js
-
 const API = import.meta.env.VITE_MILANAPI;
 
 const userEndpoints = {
-  login: `${API}/user/login`,
-  register: `${API}/user/register`,
   update: `${API}/user/update`,
   report: `${API}/user/userreport`,
 };
 
 const clubEndpoints = {
   all: `${API}/clubs`,
-  login: `${API}/clubs/login`,
-  register: `${API}/clubs/register`,
   bySlug: (slug) => `${API}/clubs?slug=${slug}`,
   createEvent: `${API}/club/createevent`,
 };
@@ -22,8 +16,10 @@ const eventEndpoints = {
 };
 
 const authEndpoints = {
-  googleLogin: (isuser) => `${API}/auth/google?isuser=${isuser}`,
-  loginSuccess: `${API}/auth/login/success`,
+  login: `${API}/user/login`,
+  signup: `${API}/user/register`,
+  googleLogin: `${API}/auth/google`,
+  googleLoginSuccess: `${API}/auth/login/success`,
   logout: `${API}/auth/logout`,
 };
 

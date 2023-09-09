@@ -5,7 +5,12 @@ import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import { GoogleAuth } from "../../../service/MilanApi";
 
-const TopButton = ({ showGoogleButton, isGoBack }) => {
+const TopButton = ({
+  showgooglebutton,
+  showleftGoogleButton,
+  isGoBack,
+  type,
+}) => {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
@@ -14,53 +19,65 @@ const TopButton = ({ showGoogleButton, isGoBack }) => {
 
   const handleNavigatePages = () => {
     navigate(
-      window.location.pathname.includes("register")
+      window.location.pathname.includes("signup")
         ? "/auth/login"
-        : "/auth/register",
+        : "/auth/signup",
     );
   };
 
   const handleGoogle = async () => {
-    const response = await GoogleAuth(
-      window.location.pathname.includes("user") ? true : false,
-    );
+    const response = await GoogleAuth();
     window.location.href = response;
   };
 
   return (
     <>
-      <button
-        className={`btn authpage_floatingbtn ${
-          isGoBack ? "authpage_goback" : ""
-        }`}
-        onClick={() => {
-          isGoBack ? handleGoBack() : handleNavigatePages();
-        }}
-      >
+      <div className="authpage_floatingbtn_div" style={{ flexDirection: type }}>
         {isGoBack ? (
-          <div>
+          <div
+            className="btn authpage_floatingbtn authpage_goback"
+            onClick={() => {
+              handleGoBack();
+            }}
+          >
             <FiArrowLeft style={{ fontSize: "15px" }} /> Go back
           </div>
         ) : (
-          <>
-            {window.location.pathname.includes("register")
+          <button
+            className="btn authpage_floatingbtn"
+            onClick={() => {
+              handleNavigatePages();
+            }}
+          >
+            {window.location.pathname.includes("signup")
               ? "Have an account? Login"
-              : "New to Milan? Register"}
-          </>
+              : "New to Milan? Sign up"}
+          </button>
         )}
-      </button>
 
-      {showGoogleButton && (
-        <button
-          className="btn authpage_googlebtn"
-          onClick={() => {
-            handleGoogle();
-          }}
-        >
-          <FcGoogle style={{ fontSize: "20px", marginRight: "0.7rem" }} />
-          Continue with Google
-        </button>
-      )}
+        {showgooglebutton &&
+          (showleftGoogleButton ? (
+            <button
+              className="btn authpage_googlebtn"
+              onClick={() => {
+                handleGoogle();
+              }}
+            >
+              <FcGoogle style={{ fontSize: "20px", marginRight: "0.7rem" }} />
+              Continue with Google
+            </button>
+          ) : (
+            <button
+              className="btn authpage_googlebtn"
+              onClick={() => {
+                handleGoogle();
+              }}
+            >
+              <FcGoogle style={{ fontSize: "20px", marginRight: "0.7rem" }} />
+              Continue with Google
+            </button>
+          ))}
+      </div>
     </>
   );
 };

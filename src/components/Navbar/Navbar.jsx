@@ -16,13 +16,9 @@ const Navbar = () => {
   const { isNavbarOpen, setIsNavbarOpen, toggleNavbar } =
     useContext(MilanContext);
 
-  const handleNavigate = () => {
+  const navigateToProfile = () => {
     if (Cookies.get("isLoggedIn")) {
       navigate("/user/profile");
-    }
-
-    if (Cookies.get("club")) {
-      navigate("/clubs/profile");
     }
   };
 
@@ -116,7 +112,9 @@ const Navbar = () => {
                 Cookies.get("isLoggedIn") ||
                 Cookies.get("club") ? (
                   <img
-                    onClick={handleNavigate}
+                    onClick={() => {
+                      navigateToProfile();
+                    }}
                     src={ProfilePicture}
                     alt="user profile"
                     className="nav_user_img"
@@ -128,7 +126,7 @@ const Navbar = () => {
                         size="sm"
                         variant="outline"
                         className=" "
-                        action="login"
+                        to="/auth/login"
                       >
                         Sign in
                       </Button>
@@ -137,7 +135,7 @@ const Navbar = () => {
                       <Button
                         size="sm"
                         className=" nav_signup_btn"
-                        action="signup"
+                        to="/auth/signup"
                       >
                         Sign up
                       </Button>
