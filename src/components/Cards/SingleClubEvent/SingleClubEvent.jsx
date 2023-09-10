@@ -76,8 +76,16 @@ const SingleClubEvent = ({ item }) => {
         </div>
 
         <div className="sc_cta">
-          <Button variant="solid">Donate</Button>
-          <Button variant="outline">Read More</Button>
+          <Button variant="solid" className="sc_ctabutton">
+            Donate
+          </Button>
+          <Button
+            variant="outline"
+            to={`/clubs/${item?.slug}`}
+            className="sc_ctabutton"
+          >
+            Read More
+          </Button>
         </div>
       </div>
     </>

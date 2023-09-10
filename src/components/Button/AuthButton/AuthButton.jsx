@@ -3,22 +3,18 @@ import Button from "../GlobalButton/Button";
 import { ClipLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
 
-const AuthButton = ({ isLoading, goTo }) => {
+const AuthButton = ({ isLoading }) => {
   const navigate = useNavigate();
-
-  const handleButtonClick = (here) => {
-    navigate(`${goTo}${here}`);
-  };
 
   return (
     <>
       <p className="authpage_mediumchangebtn">
-        {window.location.pathname.includes("register") ? (
+        {window.location.pathname.includes("signup") ? (
           <>
             Already have an account?{" "}
             <span
               onClick={() => {
-                handleButtonClick("/login");
+                navigate("/auth/login");
               }}
             >
               Login
@@ -29,7 +25,7 @@ const AuthButton = ({ isLoading, goTo }) => {
             Don&apos;t have an account?{" "}
             <span
               onClick={() => {
-                handleButtonClick("/register");
+                navigate("/auth/signup");
               }}
             >
               Sign Up
@@ -46,7 +42,7 @@ const AuthButton = ({ isLoading, goTo }) => {
       >
         {isLoading ? (
           <ClipLoader color="#000000" size={25} />
-        ) : window.location.pathname.includes("register") ? (
+        ) : window.location.pathname.includes("signup") ? (
           "Sign Up"
         ) : (
           "Login"

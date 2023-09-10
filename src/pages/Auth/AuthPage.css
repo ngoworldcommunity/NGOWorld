@@ -13,9 +13,8 @@
 .authpage_leftdiv {
   flex-grow: 1;
   width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-top: 15px;
+  padding-left: 15px;
   position: relative;
   border-radius: 15px;
   background-image: url(../../assets/pictures/authpages/authbannerimg.webp);
@@ -36,35 +35,23 @@
   width: 50%;
   font-family: "Poppins", sans-serif;
   overflow-y: scroll;
-  padding-top: 6rem;
+  padding-top: 2rem;
   position: relative;
   padding-left: 6rem;
   padding-right: 6rem;
 }
 
-.authpage_logindiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .authpage_rightdiv::-webkit-scrollbar-thumb {
-  background-color: #e2695900; /* color of the scrollbar thumb */
+  background-color: #e2695900;
 }
 
 .authpage_floatingbtn_div {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  z-index: 1;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .authpage_floatingbtn {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  z-index: 1;
   background-color: #000000;
   color: white;
   border-radius: 10px;
@@ -74,9 +61,15 @@
 }
 
 .authpage_googlebtn {
-  position: absolute;
-  top: 70px;
-  left: 15px;
+  background-color: #000000;
+  color: white;
+  border-radius: 10px;
+  font-size: 15px !important;
+  font-family: "Poppins", sans-serif;
+  width: 250px;
+}
+
+.authpage_googlebtnleft {
   z-index: 1;
   background-color: #000000;
   color: white;
@@ -98,15 +91,17 @@
 }
 
 .authform {
+  margin-bottom: 20px;
   padding-left: 20px;
   width: 100%;
 }
 
 .authform > h1 {
-  font-size: 45px;
+  font-size: 35px;
   font-weight: 600;
   color: #000000;
   margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 .authform_container {
@@ -157,6 +152,14 @@ textarea::placeholder {
 
 .authpage_mediumchangebtn {
   display: none;
+}
+
+.separator_header {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 1rem;
+  font-family: "Poppins", sans-serif;
 }
 
 @media screen and (max-width: 1200px) {
@@ -253,8 +256,8 @@ textarea::placeholder {
     font-size: 30px;
     font-weight: 600;
     color: #000000;
-    margin-bottom: 1rem;
     text-align: left;
+    line-height: 1;
   }
   .authpage_goback {
     left: 1rem;
@@ -273,6 +276,9 @@ textarea::placeholder {
   display: flex;
   align-items: center;
   position: relative;
+  width: 100%;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
 }
 
 .dropdown-icon {

@@ -100,6 +100,36 @@ const useValidation = (credentials, userSignup, clubSignup) => {
   }
 
   if (userSignup || clubSignup) {
+    if (!credentials.slug) {
+      errors.push({ error: true, message: "Please enter your username" });
+    } else if (
+      credentials.slug[0] === "/" ||
+      credentials.slug[credentials.slug.length - 1] === "/"
+    ) {
+      errors.push({
+        error: true,
+        message: "Username must not start or end with '/'",
+      });
+    } else if (/[^a-zA-Z0-9-]/.test(credentials.slug)) {
+      errors.push({
+        error: true,
+        message: "Username must contain only letters, numbers and '-'",
+      });
+    } else if (credentials.slug.length < 3 || credentials.slug.length > 30) {
+      errors.push({
+        error: true,
+        message: "Username must be between 3 and 30 characters long",
+      });
+    }
+
+    if (!credentials.city) {
+      errors.push({ error: true, message: "Please enter your city" });
+    }
+
+    if (!credentials.state) {
+      errors.push({ error: true, message: "Please enter your state" });
+    }
+
     if (!credentials.address) {
       errors.push({ error: true, message: "Please enter your address" });
     } else if (
@@ -110,6 +140,10 @@ const useValidation = (credentials, userSignup, clubSignup) => {
         error: true,
         message: "Address must be between 20 and 200 characters long",
       });
+    }
+
+    if (!credentials.country) {
+      errors.push({ error: true, message: "Please enter your country" });
     }
 
     const pincode = credentials?.pincode?.toString();

@@ -207,7 +207,7 @@ const Footer = () => {
                   Want to make Milan better ?<br />
                   <span className=""> Contribute </span>
                   <a
-                    href="https://github.com/tamalCodes/Milan"
+                    href="https://github.com/MilanCommunity/Milan"
                     target="_blank"
                     rel="noreferrer"
                     className="underline-animation"
@@ -278,7 +278,7 @@ const Footer = () => {
                   </li>
                   <li className="mb-2">
                     <a
-                      href="https://github.com/tamalCodes/Milan"
+                      href="https://github.com/MilanCommunity/Milan"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-decoration-none footer_auth_text"
@@ -329,7 +329,7 @@ const Footer = () => {
             </div>
             <div className="github social-btn">
               <a
-                href="https://github.com/tamalCodes/Milan"
+                href="https://github.com/MilanCommunity/Milan"
                 rel="noopener noreferrer"
                 aria-label="Follow me on Github"
                 target="_blank"

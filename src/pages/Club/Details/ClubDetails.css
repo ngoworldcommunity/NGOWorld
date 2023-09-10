@@ -1,0 +1,27 @@
+.cd_parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  height: 95vh;
+}
+
+.cd_main {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin: auto;
+  width: 60%;
+  gap: 5rem;
+}
+
+.cd_leftdiv {
+  flex-grow: 0;
+}
+
+.cd_leftdiv img {
+  width: 300px;
+  height: 300px;
+  border-radius: 8px;
+}

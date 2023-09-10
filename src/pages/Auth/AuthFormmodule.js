@@ -2,25 +2,33 @@ import { useState } from "react";
 import useValidation from "../../hooks/useValidation";
 import { showErrorToast, showSuccessToast } from "../../utils/Toasts";
 import { useNavigate } from "react-router-dom";
-import { SetAuthCookies } from "../../utils/Cookies";
-import useStore from "../../store";
 
-export function useFormLogic(initialState, submitCallback, redirectPath) {
+export function useFormLogic(
+  initialState,
+  submitCallback,
+  redirectPath,
+  isSignup,
+  userType,
+) {
   const navigate = useNavigate();
   const [formState, setFormState] = useState(initialState);
   const [isLoading, setIsLoading] = useState(false);
-
-  const userNeedsLogin = useStore((state) => state.userNeedsLogin);
 
   const handleChange = (e) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e, country) => {
     setIsLoading(true);
     e.preventDefault();
 
-    const validationErrors = useValidation(formState);
+    formState.country = country;
+
+    const validationErrors = isSignup
+      ? userType === "individual"
+        ? useValidation(formState, true, false)
+        : useValidation(formState, false, true)
+      : [];
 
     if (validationErrors.length > 0) {
       validationErrors.forEach((error) => {
@@ -32,7 +40,6 @@ export function useFormLogic(initialState, submitCallback, redirectPath) {
     } else {
       const data = await submitCallback(formState);
       handleApiResponse(data);
-      SetAuthCookies(data);
     }
   };
 
@@ -41,9 +48,6 @@ export function useFormLogic(initialState, submitCallback, redirectPath) {
 
     if (response?.status === 201) {
       showSuccessToast(response?.data?.message);
-
-      console.log(userNeedsLogin);
-
       setTimeout(() => {
         setIsLoading(false);
         navigate(redirectPath);
@@ -59,8 +63,40 @@ export function useFormLogic(initialState, submitCallback, redirectPath) {
 
   return {
     formState,
+    setFormState,
     isLoading,
     handleChange,
     handleSubmit,
   };
 }
+
+export const individualInitialFormState = {
+  usertype: "individual",
+  slug: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+  city: "",
+  state: "",
+  address: "",
+  country: "",
+  pincode: "",
+  firstname: "",
+  lastname: "",
+};
+
+export const clubInitialFormState = {
+  usertype: "club",
+  slug: "",
+  email: "",
+  password: "",
+  name: "",
+  confirmPassword: "",
+  tagLine: "",
+  description: "",
+  city: "",
+  state: "",
+  address: "",
+  country: "",
+  pincode: "",
+};
