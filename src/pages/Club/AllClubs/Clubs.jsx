@@ -1,20 +1,27 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import useSWR from "swr";
-import { defaultfetcher } from "../../../utils/Fetcher";
 import Navbar from "../../../components/Navbar/Navbar";
-import Loading from "../../../components/Loading";
 import SingleClubEvent from "../../../components/Cards/SingleClubEvent/SingleClubEvent";
 import Footer from "../../../components/Footer/Footer";
 import "./Clubs.css";
 import Header from "../../../components/PageHeader/Header";
-import { clubEndpoints } from "../../../assets/data/ApiEndpoints";
+import { GetAllClubs } from "../../../service/MilanApi";
 
 const Clubs = () => {
-  const { data: clubs, isLoading } = useSWR(clubEndpoints.all, defaultfetcher);
+  // const { data: clubs, isLoading } = useSWR(clubEndpoints.all, defaultfetcher);
+  const [allClubs, setAllClubs] = React.useState([]);
+
+  async function fetcher() {
+    const clubs = await GetAllClubs();
+
+    if (clubs?.status === 200) {
+      setAllClubs(clubs?.data);
+    }
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    fetcher();
   }, []);
 
   return (
@@ -35,15 +42,9 @@ const Clubs = () => {
           <Header type="clubs" />
 
           <div className="clubspage_cardsdiv">
-            {isLoading ? (
-              <Loading />
-            ) : (
-              <>
-                {clubs?.map((club) => (
-                  <SingleClubEvent key={club?._id} item={club} />
-                ))}
-              </>
-            )}
+            {allClubs?.map((club) => (
+              <SingleClubEvent key={club?._id} item={club} />
+            ))}
           </div>
         </div>
       </div>

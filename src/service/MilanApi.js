@@ -3,7 +3,11 @@
 
 import Axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
-import { userEndpoints, authEndpoints } from "../assets/data/ApiEndpoints";
+import {
+  userEndpoints,
+  authEndpoints,
+  clubEndpoints,
+} from "../assets/data/ApiEndpoints";
 
 //* LOGIN USER
 export const LoginUser = async (credentials) => {
@@ -22,6 +26,16 @@ export const RegisterUser = async (credentials) => {
   try {
     const User = await Axios.post(authEndpoints.signup, credentials);
     return User;
+  } catch (error) {
+    return error.response.data;
+  }
+};
+
+// get all clubs
+export const GetAllClubs = async () => {
+  try {
+    const clubs = await Axios.get(clubEndpoints.all);
+    return clubs;
   } catch (error) {
     return error.response.data;
   }
