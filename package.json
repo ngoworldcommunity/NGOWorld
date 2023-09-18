@@ -26,7 +26,7 @@
     "react-spinners": "^0.13.7",
     "react-toastify": "^9.1.1",
     "swr": "^2.1.0",
-    "url": "^0.11.0",
+    "url": "^0.11.3",
     "use-places-autocomplete": "^4.0.0",
     "vite-plugin-svgr": "^2.2.2",
     "web-vitals": "^3.3.1",
