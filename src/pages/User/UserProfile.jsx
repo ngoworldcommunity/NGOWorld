@@ -28,7 +28,7 @@ export default function UserProfile() {
   const handleLogout = async () => {
     const Data = await Logout();
 
-    if (Data?.status === 201) {
+    if (Data?.status === 200) {
       showSuccessToast(Data?.data?.message);
       setTimeout(() => {
         navigate("/");

@@ -14,7 +14,10 @@ Follow the below steps to setup the Frontend locally. We are using `npm` as the 
 
 - We are currently using `ReactJS v18` along with `vite v3` as the frontend framework.
 - We using `CSS (Bootstrap v5)` for the styling.
-- List of all the dependencies can be found in the `package.json` file.
+- We have also implemented `service workers` which might not run in the development environment but will be used in the production environment. Please clear your cache if you are facing any issues.
+- To test service workers in development environment, you can run `npm run build` and then `serve dist` to serve the production build locally.
+- Then you can navigate to `http://localhost:5000/` to see the production build running locally with service workers which can be found in `Application tab -> Service workers`  in the dev tools.
+- List of all the other dependencies can be found in the `package.json` file.
 
 
 ## Coding standards 🔐
@@ -32,10 +35,8 @@ Follow the below steps to setup the Frontend locally. We are using `npm` as the 
 
 We use a `.env` file using the `dotenv` package inside the root of the directory. You must create a `.env` file similar to [.env.example](../.env.example) file.
 
-**Remember**, if you are working on **THE FRONTEND ONLY**, you can skip the backend setup and simply setup a put `VITE_MILANAPI="https://milan-server.vercel.app"` in the file, else you need to [setup the backend locally](/docs/BackendSetup.md) as well and then put the local backend url in the `.env` file.
-
 ## Next steps 🚀
 
 So now you have the the frontend up and running locally. Now you can start working on the issues. 
 
-- If you need your own backend and want to make changes there as well, you can follow [Setting up the backend locally](/docs/BackendSetup.md).
+- To make sure all the API calls are made setup the backend too, you can follow these steps to [setup the backend locally](/docs/BackendSetup.md).

@@ -52,7 +52,7 @@ export function useFormLogic(
   const handleApiResponse = (response) => {
     setIsLoading(false);
 
-    if (response?.status === 201) {
+    if (response?.status === 201 || response?.status === 200) {
       showSuccessToast(response?.data?.message);
       setTimeout(() => {
         setIsLoading(false);
