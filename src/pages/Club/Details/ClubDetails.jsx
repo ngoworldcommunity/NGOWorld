@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 // import displayRazorpay from "../../../../service/PaymentGateway";
 // import Modal from "../../../../components/Modal";
 import useSWR from "swr";
-import { defaultfetcher } from "../../../utils/Fetcher";
+import fetcher from "../../../utils/Fetcher";
 import { clubEndpoints } from "../../../assets/data/ApiEndpoints";
 import { GoLocation } from "react-icons/go";
 import "./ClubDetails.css";
@@ -35,7 +35,7 @@ function ClubDetailsCard() {
 
   const { data: clubdetails } = useSWR(
     clubEndpoints.bySlug(params.slug),
-    defaultfetcher,
+    fetcher,
   );
 
   console.log(clubdetails);
@@ -101,6 +101,7 @@ function ClubDetailsCard() {
             </div>
 
             <GoLocation style={{ color: "#e26959" }} />
+            <h2>Find us at</h2>
             <p>{clubdetails?.address}</p>
           </div>
         </div>

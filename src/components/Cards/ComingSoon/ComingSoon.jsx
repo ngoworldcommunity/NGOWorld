@@ -1,12 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import Button from "../../Button/GlobalButton/Button";
 import ComingSoonLogo from "../../../assets/pictures/comingsoon.svg";
 import "./ComingSoon.css";
-import MilanContext from "../../../context/MilanContext";
 
 const ComingSoon = ({ launchitem }) => {
-  const { toggleSignUpModal } = useContext(MilanContext);
-
   return (
     <>
       <div className="comingsoon_parent">
@@ -16,9 +13,7 @@ const ComingSoon = ({ launchitem }) => {
           We will let you know whenever we launch our{" "}
           {launchitem ? launchitem : "page"}.
         </p>
-        <Button onClick={toggleSignUpModal} to="/auth/signup">
-          Sign up to get notified
-        </Button>{" "}
+        <Button to="/auth/signup">Sign up to get notified</Button>{" "}
       </div>
     </>
   );
