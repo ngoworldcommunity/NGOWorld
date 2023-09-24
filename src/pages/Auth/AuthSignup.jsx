@@ -186,7 +186,7 @@ const AuthSignup = () => {
                       onChange={handleChange}
                       required
                       id="name"
-                      placeholder="ABC Club"
+                      placeholder="The Life corporation"
                     />
                   </div>
                   <div className="authform_container">
@@ -201,7 +201,7 @@ const AuthSignup = () => {
                       onChange={handleChange}
                       required
                       id="tagLine"
-                      placeholder="Join us and make a difference!"
+                      placeholder="A crisp tagline/bio to describe your club"
                     />
                   </div>
                 </>
@@ -280,7 +280,7 @@ const AuthSignup = () => {
                     onChange={handleChange}
                     required
                     id="description"
-                    placeholder="Tell us about your club and its mission..."
+                    placeholder="Tell us in details about what you are, and what you do"
                   />
                 </div>
               )}
