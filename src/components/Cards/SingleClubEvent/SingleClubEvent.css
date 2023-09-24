@@ -38,13 +38,6 @@
   border-radius: 50%;
 }
 
-.sc_body p {
-  font-family: "Poppins", sans-serif;
-  color: black;
-  font-size: 16px;
-  margin-top: 0px;
-  letter-spacing: 1px;
-}
 .sc_cta {
   display: flex;
   flex-direction: row;
@@ -82,7 +75,6 @@
   }
 
   .sc_body p {
-    font-size: 15px;
     width: 100%;
   }
   .sc_cta {

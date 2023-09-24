@@ -11,26 +11,21 @@ Milan is a hub to **connect** NGOs, Charities, and the world to **collaborate** 
 <div  align="center" >
 
 <div  align="center" >
-
-<a href="https://beta.milanhub.org/"><img alt="C" src="https://img.shields.io/badge/Beta%20Release-FFA116?style=for-the-badge&logo=vercel&logoColor=white"></a> <a href="https://milanhub.org/"><img alt="C" src="https://img.shields.io/badge/Production%20Release-07C160?style=for-the-badge&logo=vercel&logoColor=white"></a>
-
+<a href="https://milanhub.org/"><img alt="C" src="https://img.shields.io/badge/Production%20Release-07C160?style=for-the-badge&logo=vercel&logoColor=white"></a> <a href="https://github.com/sponsors/tamalCodes"><img alt="Sponsor Tamal" src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white"></a>
 
     
 </div>
 
-<img alt="Milan Readme Banner" src="https://raw.githubusercontent.com/MilanCommunity/Milan/beta/.github/MilanReadmeBanner.png" width="700px"/>
+<img alt="Milan Readme Banner" src="./src/assets/pictures/readme/MilanBanner.png" width="700px"/>
     
 </div>
 
 <br>
 
-## Tech Stack 💻
+## Tech Stack (Frontend) 💻
 
 <p >
     <a href="https://react.dev/"><img alt="C" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"></a>
-    <a href="https://nodejs.org/it/docs"><img alt="C" src="https://img.shields.io/badge/node.js-%2343853D.svg?style=for-the-badge&logo=node.js&logoColor=white"></a>
-    <a href="https://expressjs.com/"><img alt="C" src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge"></a>
-    <a href="https://www.mongodb.com/docs/"><img alt="C" src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white"></a>
     <a href="https://getbootstrap.com/"><img alt="C" src="https://img.shields.io/badge/Bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white"></a>
     <a href="https://docs.github.com/en"><img alt="C" src="https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"></a>
     <a href="https://opensource.guide/how-to-contribute/"><img alt="C" src="https://img.shields.io/badge/Open%20Source-%23F05032.svg?style=for-the-badge&logo=open-source-initiative&logoColor=white"></a>
@@ -49,19 +44,15 @@ Remember, Good PR makes you a Good contributor !
 
 We at Milan work hard to maintain the structure, and use conventional Pull request titles and commits. Without a proper template for the PR, not following the guidelines and spam might get the pull request closed, or banned.
 
-### 🚧 Setting up the project
+### 1️⃣ Setting up the project locally
 
-Here's a list of all the things you need to set up the project locally. Make sure you follow all the steps to avoid any errors.
-
-- [Forking + Cloning](/docs/CloneSetup.md)
+- [Forking + Cloning Guide](/docs/CloneSetup.md)
 - [Setting up the Frontend](/docs/FrontendSetup.md)
 - [Setting up the Backend](/docs/BackendSetup.md)
 - [Setting up with docker](/docs/DockerSetup.md)
 
 
-### 🚧 Contributing guidelines & More
-
-These are must follow guidelines, resources that you need to go though, before contributing to the project. Super important to follow these.
+### 2️⃣ Contributing guidelines & More
 
 - [Contributing Guidelines](/CONTRIBUTING.md) to be followed.
 - [Workflow Overview](/docs/Workflow.md) of our project.

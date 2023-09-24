@@ -1,15 +1,5 @@
 # Backend Setup
 
-## Don't need the backend ?
-
-If you are working just on the Frontend and don't need to modify anything in the backend, you can skip setting up the backend and simply setup a `.env` file in the root (not inside the `/server` directory).
-
-Inside that `.env` file you have to put `VITE_MILANAPI="https://milan-server.vercel.app"`, so that you can use the deployed backend. 
-
-Else you can use `VITE_MILANAPI="http://localhost:5000"` to use the local backend.
-  
-## Setting up the backend locally 🚀
-
 Follow the below setup to setup the backend locally. We are using `npm` as the
 package manager. So make sure you have `node` and `npm` installed in your
 system.
@@ -19,8 +9,7 @@ system.
 
 ## Installing dependencies ⏳
 
-- Open your terminal and navigate to the `Milan` directory.
-- After that navigate to the `server` directory by typing `cd server`.
+- Open your terminal and navigate to the `Milan-Backend` directory.
 - Type `npm install` to install all the dependencies.
 - Once the installation is done, you can start the frontend server by typing
   `npm start`.
@@ -31,14 +20,14 @@ system.
 - We are currently using `ExpressJS v4` along with `MongoDB v6` as the backend
   framework.
 - We are using `Nodemon` for the hot reloading.
-- List of all the dependencies can be found in the `package.json` file.
+- List of all the other dependencies can be found in the `package.json` file.
 
 ## Setting up `.env`
 
 We use a `.env` file using the `dotenv` package inside the root of the `server`
 directory.
 
-You must create a `.env` file similar to [.env.example](../server/.env.example) file, remember that if you are using your own database the data might vary.
+You must create a `.env` file similar to **[.env.example](https://github.com/MilanCommunity/Milan-Backend/blob/main/.env.example)** file, remember that if you are using your own database the data might vary.
 
 
 ### Setting up `razorpay api key` for `.env`
@@ -59,7 +48,7 @@ You must create a `.env` file similar to [.env.example](../server/.env.example) 
 
 - Make sure to follow proper latest coding practices.
 - Maintain a good readable folder structure
-- Incase adding an API, do documment about it.
+- Incase adding an API, do document it.
 
 ## Next steps 🚀
 

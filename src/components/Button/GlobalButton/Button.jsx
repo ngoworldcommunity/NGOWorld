@@ -17,7 +17,7 @@ const Button = ({
     size ? styles[size] : ""
   }`;
 
-  if (to) {
+  if (to && navigator.onLine === true) {
     return (
       <Link to={to} className={classes} {...props}>
         {children}
