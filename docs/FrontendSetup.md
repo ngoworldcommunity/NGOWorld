@@ -35,8 +35,11 @@ Follow the below steps to setup the Frontend locally. We are using `npm` as the 
 
 We use a `.env` file using the `dotenv` package inside the root of the directory. You must create a `.env` file similar to [.env.example](../.env.example) file.
 
-## Next steps 🚀
+<br/>
+<br/>
 
-So now you have the the frontend up and running locally. Now you can start working on the issues. 
+# Next steps 🚀
 
-- To make sure all the API calls are made setup the backend too, you can follow these steps to [setup the backend locally](/docs/BackendSetup.md).
+So now you have the the frontend up and running locally. Now you can start working on the issues. You can follow the below steps to get started with the frontend.
+
+- [Setting up the backend locally](https://github.com/MilanCommunity/Milan-Backend/blob/main/docs/BackendSetup.md)
