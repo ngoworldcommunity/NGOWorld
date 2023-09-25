@@ -40,7 +40,7 @@ const HomeBanner = () => {
               </div>
 
               <div className="banner_signup_btndiv">
-                {Cookies.get("token") || Cookies.get("club") ? (
+                {Cookies.get("Token") || Cookies.get("club") ? (
                   <div className="banner_btn_div">
                     <Button
                       className="banner_signup_btn"

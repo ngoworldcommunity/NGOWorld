@@ -16,7 +16,7 @@ const Donate = () => {
 
   const [clubData, setClubData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [isLoggedIn] = useState(Cookies.get("token"));
+  const [isLoggedIn] = useState(Cookies.get("Token"));
   var navigate = useNavigate();
 
   useEffect(() => {

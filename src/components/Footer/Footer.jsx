@@ -38,7 +38,7 @@ const Footer = () => {
   };
 
   useEffect(() => {
-    if (Cookies.get("token")) setLogged(true);
+    if (Cookies.get("Token")) setLogged(true);
   }, []);
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const Footer = () => {
   const handleReportSubmit = async (e) => {
     e.preventDefault();
 
-    if (!Cookies.get("token")) {
+    if (!Cookies.get("Token")) {
       toast.error("You must be logged in to report an issue");
       return;
     }
