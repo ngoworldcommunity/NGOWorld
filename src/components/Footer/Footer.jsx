@@ -233,7 +233,7 @@ const Footer = () => {
                       </Link>
                     ) : (
                       <Link
-                        to="/user/login"
+                        to="/auth/login"
                         className="text-decoration-none footer_auth_text"
                       >
                         Login
@@ -250,7 +250,7 @@ const Footer = () => {
                       </Link>
                     ) : (
                       <Link
-                        to="/user/register"
+                        to="/auth/signup"
                         className="text-decoration-none footer_auth_text"
                       >
                         Register
