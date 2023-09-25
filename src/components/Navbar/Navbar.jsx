@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import navbarbrand from "../../assets/pictures/Navbar/MilanNavBrand.svg";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ProfilePicture from "../../assets/pictures/ProfilePicture.png";
 import Cookies from "js-cookie";
-import MilanContext from "../../context/MilanContext";
 import { FaBars } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import Button from "../Button/GlobalButton/Button";
@@ -13,8 +12,11 @@ import ClickAwayListener from "../../utils/ClickAwayListener";
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { isNavbarOpen, setIsNavbarOpen, toggleNavbar } =
-    useContext(MilanContext);
+
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const toggleNavbar = () => {
+    setIsNavbarOpen(!isNavbarOpen);
+  };
 
   const navigateToProfile = () => {
     if (Cookies.get("isLoggedIn")) {

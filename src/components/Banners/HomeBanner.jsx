@@ -38,6 +38,7 @@ const HomeBanner = () => {
                   </p>
                 )}
               </div>
+
               <div className="banner_signup_btndiv">
                 {Cookies.get("token") || Cookies.get("club") ? (
                   <div className="banner_btn_div">
@@ -84,6 +85,14 @@ const HomeBanner = () => {
                       <ImGithub className="banner_contribute_logo" />
                       Git Milan
                     </Button>
+
+                    {/* <button
+                      onClick={() => {
+                        console.log(navigator.onLine);
+                      }}
+                    >
+                      CHECK
+                    </button> */}
                   </div>
                 )}
               </div>

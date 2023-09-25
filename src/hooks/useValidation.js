@@ -74,11 +74,11 @@ const useValidation = (credentials, userSignup, clubSignup) => {
       errors.push({ error: true, message: "Please enter your club tagline" });
     } else if (
       credentials.tagLine.length < 20 ||
-      credentials.tagLine.length > 100
+      credentials.tagLine.length > 220
     ) {
       errors.push({
         error: true,
-        message: "Club tagline must be between 20 and 100 characters long.",
+        message: "Club tagline must be between 20 and 220 characters long.",
       });
     }
 

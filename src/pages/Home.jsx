@@ -13,11 +13,8 @@ const Home = () => {
   const handleToken = async () => {
     const authData = await successCallback();
 
-    if (authData?.status === 201) {
+    if (authData?.status === 200) {
       showSuccessToast(authData?.data?.message);
-      Cookies.set("isLoggedIn", true, {
-        expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
-      });
     } else {
       showErrorToast(authData?.message);
     }

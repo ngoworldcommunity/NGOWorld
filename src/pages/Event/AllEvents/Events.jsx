@@ -1,20 +1,16 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
-import { Helmet } from "react-helmet-async";
 import Loading from "../../../components/Loading";
 import SingleClubEvent from "../../../components/Cards/SingleClubEvent/SingleClubEvent";
 import useSWR from "swr";
-import { defaultfetcher } from "../../../utils/Fetcher";
+import fetcher from "../../../utils/Fetcher";
 import Footer from "../../../components/Footer/Footer";
 import Navbar from "../../../components/Navbar/Navbar";
 import ComingSoon from "../../../components/Cards/ComingSoon/ComingSoon";
 import { eventEndpoints } from "../../../assets/data/ApiEndpoints";
+import ComponentHelmet from "../../../utils/ComponentHelmet";
 
 const Events = () => {
-  const { data: events, isLoading } = useSWR(
-    eventEndpoints.all,
-    defaultfetcher,
-  );
+  const { data: events, isLoading } = useSWR(eventEndpoints.all, fetcher);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -22,14 +18,7 @@ const Events = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Milan | Events </title>
-        <meta
-          name="description"
-          content="This is the events page of Milan, where you can find all the events happening in the community."
-        />
-        <link rel="canonical" href="/" />
-      </Helmet>
+      <ComponentHelmet type="Events" />
       <Navbar />
       <div className="container">
         <ComingSoon launchitem={`event's page.`} />
