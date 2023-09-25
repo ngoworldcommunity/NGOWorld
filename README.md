@@ -22,7 +22,7 @@ Milan is a hub to **connect** NGOs, Charities, and the world to **collaborate** 
 
 <br>
 
-## Tech Stack (Frontend) 💻
+# Tech Stack (Frontend) 💻
 
 <p >
     <a href="https://react.dev/"><img alt="C" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"></a>
@@ -38,30 +38,29 @@ Milan is a hub to **connect** NGOs, Charities, and the world to **collaborate** 
 
 </br>
 
-## Contributing to Milan 🔐
+# Contributing to Milan 🔐
 
 Remember, Good PR makes you a Good contributor !
 
 We at Milan work hard to maintain the structure, and use conventional Pull request titles and commits. Without a proper template for the PR, not following the guidelines and spam might get the pull request closed, or banned.
 
-### 1️⃣ Setting up the project locally
+## 1️. Setting up the project locally
 
 - [Forking + Cloning Guide](/docs/CloneSetup.md)
-- [Setting up the Frontend](/docs/FrontendSetup.md)
-- [Setting up the Backend](/docs/BackendSetup.md)
+- [Setting up the Frontend (current repo)](/docs/FrontendSetup.md)
+- [Setting up the Backend](https://github.com/MilanCommunity/Milan-Backend/blob/main/docs/BackendSetup.md)
 - [Setting up with docker](/docs/DockerSetup.md)
 
 
-### 2️⃣ Contributing guidelines & More
+## 2️. Contributing guidelines & more
 
 - [Contributing Guidelines](/CONTRIBUTING.md) to be followed.
-- [Workflow Overview](/docs/Workflow.md) of our project.
 - [Proper API documentation](https://milan-server.onrender.com/docs/) for developers.
 
-## License 👮
+# License 👮
 
 Milan is Licensed under the <a href="./LICENSE">MIT License</a>. Please go through the License at least once before contributing.
 
-## Support 🙏
+# Support 🙏
 
 **Don't forget to drop a star ⭐.** A heartfelt thank you to those who have contributed to this project. We are really grateful for your contribution. You all are amazing. Opensource for the win 🚀
