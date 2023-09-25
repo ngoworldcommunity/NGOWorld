@@ -340,7 +340,7 @@
   .join-us-list {
     position: relative;
     top: -10px;
-    margin-left: 70px;
+    /* margin-left: 70px; */
   }
   .join h1 {
     margin-left: 60px;

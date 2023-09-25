@@ -286,23 +286,15 @@ const Footer = () => {
                       GitHub
                     </a>
                   </li>
-                  <li className="mb-2">
-                    <Link
-                      to="/contact"
-                      className="text-decoration-none footer_auth_text"
-                    >
-                      Contact Us
-                    </Link>
-                  </li>
                 </ul>
               </div>
             </div>
             <div className="mt-4 col-lg-4 col-md-6 mb-lg-0 mx-auto">
               <p className="h6 headings text-uppercase text-light font-weight-bold mb-2 text-center">
-                Got something to report ?
+                Talk to us
               </p>
               <p className="text-center mb-lg-4" style={{ color: "#d8d7d7" }}>
-                You can submit a report to us by filling the form below !
+                Ideas, problems, violations ? Reach out to us !
               </p>
               <div className="d-flex justify-content-center rounded mx-auto">
                 <button
@@ -310,7 +302,7 @@ const Footer = () => {
                   className=" btn-report d-flex align-items-center text-black"
                 >
                   <span>
-                    Report! <i className="fa-solid fa-bug"></i>
+                    Contact Us <i className="fa-solid fa-bug"></i>
                   </span>
                 </button>
               </div>
