@@ -1,12 +1,30 @@
 {
-  "name": "milan-app",
+  "name": "milan-frontend",
   "version": "0.3.7",
   "private": true,
+  "author": {
+    "name": "Tamal Das",
+    "email": "tamalcodes@gmail.com"
+  },
+  "description": "The frontend for Milan webapp.",
+  "license": "MIT",
+  "homepage": "https://milanhub.org/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MilanCommunity/Milan"
+  },
+  "keywords": [
+    "milan",
+    "milanhub",
+    "milan community",
+    "milan community app",
+    "milan community webapp",
+    "milan community frontend",
+    "milan community frontend app"
+  ],
   "dependencies": {
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",
-    "@geoapify/geocoder-autocomplete": "^1.5.1",
-    "@geoapify/react-geocoder-autocomplete": "^1.5.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/user-event": "^14.4.3",
     "aos": "^2.3.4",
@@ -14,21 +32,18 @@
     "cypress": "^13.2.0",
     "dotenv": "^16.3.1",
     "js-cookie": "^3.0.5",
-    "jsonschema": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^1.3.0",
     "react-icons": "^4.10.1",
-    "react-js-loader": "^0.1.0",
     "react-router-dom": "^6.11.2",
     "react-scripts": "^5.0.1",
-    "react-select": "^5.7.4",
+    "react-select": "^5.7.5",
     "react-spinners": "^0.13.7",
     "react-toastify": "^9.1.1",
     "swiper": "^10.3.0",
     "swr": "^2.1.0",
     "url": "^0.11.0",
-    "use-places-autocomplete": "^4.0.0",
     "vite-plugin-svgr": "^2.2.2",
     "web-vitals": "^3.3.1",
     "zustand": "^4.4.1"
@@ -62,7 +77,6 @@
     "husky": "^8.0.0",
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.8",
-    "semantic-release": "^19.0.5",
     "vite": "^4.4.2",
     "vite-plugin-pwa": "^0.16.5"
   },
