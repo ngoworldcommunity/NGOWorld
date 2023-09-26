@@ -38,7 +38,12 @@ const Footer = () => {
   };
 
   useEffect(() => {
-    if (Cookies.get("Token")) setLogged(true);
+    if (
+      Cookies.get("Token") ||
+      Cookies.get("OAuthLoginInitiated") ||
+      Cookies.get("isLoggedIn")
+    )
+      setLogged(true);
   }, []);
 
   useEffect(() => {
