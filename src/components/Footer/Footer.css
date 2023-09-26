@@ -149,6 +149,7 @@
 .join {
   margin-top: 27px;
   margin-left: -75px;
+  white-space: nowrap;
 }
 
 .join-us ul li a {
@@ -333,20 +334,15 @@
     text-align: center;
     display: flex;
     justify-content: center;
-    align-items: stretch;
-    gap: 30px;
+    white-space: nowrap;
+    padding: 2px;
   }
-
   .join-us-list {
     position: relative;
     top: -10px;
-    /* margin-left: 70px; */
-  }
-  .join h1 {
-    margin-left: 60px;
   }
   .join {
-    margin-left: -70px;
+    margin: auto;
   }
 }
 .underline-animation {
