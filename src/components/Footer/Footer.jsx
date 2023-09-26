@@ -61,7 +61,7 @@ const Footer = () => {
   const handleReportSubmit = async (e) => {
     e.preventDefault();
 
-    if (!Cookies.get("Token")) {
+    if (!Cookies.get("isLoggedIn")) {
       toast.error("You must be logged in to report an issue");
       return;
     }
