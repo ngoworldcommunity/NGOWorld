@@ -269,20 +269,36 @@ const AuthSignup = () => {
               </div>
 
               {userType === "club" && (
-                <div className="authform_container">
-                  <label htmlFor="description" className="auth_label">
-                    Club Description
-                  </label>
-                  <textarea
-                    className="form-control"
-                    name="description"
-                    value={formState.description}
-                    onChange={handleChange}
-                    required
-                    id="description"
-                    placeholder="Tell us in details about what you are, and what you do"
-                  />
-                </div>
+                <>
+                  <div className="authform_container">
+                    <label htmlFor="description" className="auth_label">
+                      Club Description
+                    </label>
+                    <textarea
+                      className="form-control"
+                      name="description"
+                      value={formState.description}
+                      onChange={handleChange}
+                      required
+                      id="description"
+                      placeholder="Tell us in details about what you are, and what you do"
+                    />
+                  </div>
+
+                  <div className="authform_container">
+                    <label htmlFor="website" className="auth_label">
+                      Club Website
+                    </label>
+                    <input
+                      className="form-control"
+                      name="website"
+                      value={formState.website}
+                      onChange={handleChange}
+                      id="website"
+                      placeholder="Tell us your website"
+                    />
+                  </div>
+                </>
               )}
 
               <br />
