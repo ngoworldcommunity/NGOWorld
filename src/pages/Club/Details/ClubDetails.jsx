@@ -68,10 +68,15 @@ function ClubDetailsCard() {
 
             <div className="clubdetails_contact">
               <a href="">Contact info</a>
-              <BsDot className="clubdetails_contact_dot" />
-              <a href={clubdetails?.website}>
-                Website <BiLinkExternal />
-              </a>
+              {clubdetails?.website && (
+                <>
+                  <BsDot className="clubdetails_contact_dot" />
+
+                  <a href={clubdetails?.website}>
+                    Website <BiLinkExternal />
+                  </a>
+                </>
+              )}
             </div>
 
             <div className="clubdetails_about">
