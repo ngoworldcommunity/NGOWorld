@@ -12,7 +12,7 @@ import {
 //* LOGIN USER
 export const LoginUser = async (credentials) => {
   try {
-    const User = await Axios.post(authEndpoints.login, credentials, {
+    const User = await Axios.post(authEndpoints.signin, credentials, {
       withCredentials: true,
     });
     return User;

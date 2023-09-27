@@ -16,8 +16,8 @@ const eventEndpoints = {
 };
 
 const authEndpoints = {
-  login: `${API}/user/login`,
-  signup: `${API}/user/register`,
+  signin: `${API}/auth/signin`,
+  signup: `${API}/auth/signup`,
   googleLogin: `${API}/auth/google`,
   googleLoginSuccess: `${API}/auth/login/success`,
   logout: `${API}/auth/logout`,
