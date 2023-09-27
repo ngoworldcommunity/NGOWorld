@@ -100,6 +100,7 @@ export const clubInitialFormState = {
   confirmPassword: "",
   tagLine: "",
   description: "",
+  website: "",
   city: "",
   state: "",
   address: "",
