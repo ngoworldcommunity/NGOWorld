@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import { RegisterUser } from "../../service/MilanApi";
 import { Helmet } from "react-helmet-async";
 import { ToastContainer } from "react-toastify";
-import AuthButton from "../../components/Button/AuthButton/AuthButton";
 import TopButton from "../../components/Button/AuthButton/TopButton";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { FaChevronDown } from "react-icons/fa";
@@ -11,9 +10,10 @@ import {
   clubInitialFormState,
   individualInitialFormState,
   useFormLogic,
-} from "./AuthFormmodule";
+} from "../../hooks/useFormLogic";
 import Select from "react-select";
 import countries from "../../assets/data/CountryList";
+import AuthButton from "../../components/Button/AuthButton/AuthButton";
 
 const AuthSignup = () => {
   const [userType, setUserType] = useState("individual");
@@ -375,7 +375,7 @@ const AuthSignup = () => {
                   placeholder="123456"
                 />
               </div>
-              <AuthButton isLoading={isLoading} buttonText="Register" />
+              <AuthButton isLoading={isLoading} />
             </form>
           </div>
         </div>

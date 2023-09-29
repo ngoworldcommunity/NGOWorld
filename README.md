@@ -33,6 +33,14 @@ Milan is a hub to **connect** NGOs, Charities, and the world to **collaborate** 
     <a href="https://www.canva.com/designschool/tutorials/getting-started/"><img alt="C" src="https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=canva&logoColor=white"></a>
     <a href="https://help.figma.com/hc/en-us/categories/360002051613-Get-started"><img alt="C" src="https://img.shields.io/badge/Figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white"></a>
     <a href="https://docs.github.com/en/actions"><img alt="C" src="https://img.shields.io/badge/GitHub%20Actions-%232671E5.svg?style=for-the-badge&logo=github-actions&logoColor=white"></a>
+    <a href="https://docs.github.com/en/actions"><img alt="C" src="https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white"></a>
+    <a href="https://docs.github.com/en/actions"><img alt="C" src="https://img.shields.io/badge/react%20zustand-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"></a>
+    <a href="https://docs.github.com/en/actions"><img alt="C" src="https://img.shields.io/badge/Axios-5A29E4?logo=axios&logoColor=fff&style=for-the-badge"></a>
+    <a href="https://docs.github.com/en/actions"><img alt="C" src="https://img.shields.io/badge/Passport-34E27A?logo=passport&logoColor=000&style=for-the-badge"></a>
+    <a href="https://docs.github.com/en/actions"><img alt="C" src="https://img.shields.io/badge/.ENV-ECD53F?logo=dotenv&logoColor=000&style=for-the-badge"></a>
+    
+
+    
 
 </p>
 

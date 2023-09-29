@@ -66,10 +66,9 @@ const HomeBanner = () => {
                   <div className="banner_btn_div">
                     <Button
                       className="banner_signup_btn"
-                      action="signup"
                       data-cy="landingpage-club-signup"
                       id="landingpage-club-signup"
-                      variant="outline"
+                      variant="solid"
                       to="/auth/signup"
                     >
                       Sign up now
@@ -80,7 +79,7 @@ const HomeBanner = () => {
                       to="https://github.com/MilanCommunity/Milan"
                       target="_blank"
                       rel="noreferrer"
-                      variant="solid"
+                      variant="outline"
                     >
                       <ImGithub className="banner_contribute_logo" />
                       Git Milan

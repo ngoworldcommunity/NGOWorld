@@ -26,46 +26,15 @@
   border-radius: 6px;
   left: 1rem;
   bottom: -4rem;
+  height: 150px;
+  object-fit: cover;
 }
 
 .clubdetails_subscribe {
   display: flex;
   justify-content: flex-end;
   margin-top: 1rem;
-}
-
-.clubdetails_subscribe > button {
-  border: none;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  text-align: center;
-  text-decoration: none;
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  font-size: 17px;
-  border-radius: 6px;
-  padding: 10px 20px;
-  background-size: 200% auto;
-  color: black;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  background-image: linear-gradient(
-    to right,
-    #e08fcf 0%,
-    #ffabf4 50%,
-    #e08fcf 100%
-  );
-  transition: 0.5s;
-}
-.clubdetails_subscribe > button > .money_icon {
-  width: 19px;
-  height: 19px;
-  color: yellow;
-  font-weight: 700;
-}
-
-.clubdetails_subscribe > button:hover {
-  background-position: right center;
+  gap: 1rem;
 }
 
 .clubdetails_body {
@@ -204,7 +173,7 @@
 /* Mobile screen */
 @media screen and (max-width: 500px) {
   .clubdetails_parent {
-    padding: 5rem 1.3rem;
+    padding: 4rem 1rem;
   }
 
   .clubdetails_header {
@@ -212,16 +181,31 @@
   }
 
   .clubdetails_header_pfp {
-    width: 100px;
+    width: 70px;
+    height: 70px;
     left: 0.5rem;
+    bottom: -3rem;
+  }
+
+  .clubdetails_subscribe {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    gap: 10px;
   }
 
   .clubdetails_subscribe > button {
-    font-size: 16px;
-    line-height: 1.1;
+    border-radius: 5px;
+    padding: 3px 10px;
+    gap: 5px;
   }
-  .clubdetails_subscribe > button > .money_icon {
-    display: none;
+  .clubdetails_subscribe > button > p {
+    font-size: 11px;
+  }
+
+  .clubdetails_subscribe > button > svg {
+    font-size: 15px;
+    margin-bottom: 3px;
   }
 
   .clubdetails_body {

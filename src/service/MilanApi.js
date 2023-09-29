@@ -106,6 +106,8 @@ export const Logout = async () => {
     const response = await Axios.get(authEndpoints.logout, {
       withCredentials: true,
     });
+
+    console.log(response);
     return response;
   } catch (error) {
     return error;
