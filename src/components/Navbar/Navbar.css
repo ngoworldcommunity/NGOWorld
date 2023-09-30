@@ -2,7 +2,7 @@
   background-color: rgba(255, 255, 255, 0.6);
   padding-bottom: 10px;
   padding-top: 10px;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
   box-shadow: 0 20px 30px rgba(255, 255, 255, 0.15);
   z-index: 10;
   position: fixed;
@@ -184,4 +184,17 @@
     margin-left: 1.4rem;
     flex: auto;
   }
+
+  .nav-buttons {
+    row-gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .nav-buttons > .btn {
+    width: 70%;
+    margin: auto;
+  }
+  /* .nav-buttons > .btn:nth-of-type(1) {
+    display: none;
+  } */
 }

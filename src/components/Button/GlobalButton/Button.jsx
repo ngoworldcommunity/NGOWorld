@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Button.module.css";
+import { ClipLoader } from "react-spinners";
 
 const Button = ({
   children,
@@ -8,14 +9,16 @@ const Button = ({
   variant = "solid",
   className = "",
   size = "",
+  fontweight = "",
   to = "",
   disabled = false,
   cypressfield = "",
+  isLoading = false,
   ...props
 }) => {
   const classes = `btn ${styles.btn} ${className} ${styles[variant]} ${
     size ? styles[size] : ""
-  }`;
+  } ${fontweight ? styles[fontweight] : ""}`;
 
   if (to && navigator.onLine === true) {
     return (
@@ -33,7 +36,7 @@ const Button = ({
       data-cy={cypressfield}
       {...props}
     >
-      {children}
+      {isLoading ? <ClipLoader color="#000000" size={25} /> : children}
     </button>
   );
 };

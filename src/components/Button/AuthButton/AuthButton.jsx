@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "../GlobalButton/Button";
-import { ClipLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
 
 const AuthButton = ({ isLoading }) => {
@@ -36,17 +35,11 @@ const AuthButton = ({ isLoading }) => {
 
       <Button
         type="submit"
-        className="login-btn"
+        isLoading={isLoading}
         disabled={isLoading}
         cypressfield="loginbutton"
       >
-        {isLoading ? (
-          <ClipLoader color="#000000" size={25} />
-        ) : window.location.pathname.includes("signup") ? (
-          "Sign Up"
-        ) : (
-          "Login"
-        )}
+        {window.location.pathname.includes("signup") ? "Sign Up" : "Sign In"}
       </Button>
     </>
   );

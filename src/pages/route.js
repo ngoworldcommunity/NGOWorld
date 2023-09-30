@@ -8,9 +8,8 @@ export { default as AuthLogin } from "./Auth/AuthLogin";
 export { default as UserProfile } from "./User/UserProfile";
 
 // Club Routes
-export { default as ClubProfile } from "./Club/Profile/ClubProfile";
 export { default as Clubs } from "./Club/AllClubs/Clubs";
-export { default as ClubDetails } from "./Club/Details/ClubDetails";
+export { default as ClubProfile } from "./Club/Profile/ClubProfile";
 export { default as Events } from "./Event/AllEvents/Events";
 
 // Shop Routes

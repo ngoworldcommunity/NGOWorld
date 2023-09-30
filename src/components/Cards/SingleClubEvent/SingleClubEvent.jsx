@@ -21,7 +21,7 @@ const SingleClubEvent = ({ item }) => {
           </Button>
           <Button
             variant="outline"
-            to={`/clubs/${item?.slug}`}
+            to={`/club/${item?.slug}`}
             className="sc_ctabutton"
           >
             Read More
