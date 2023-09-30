@@ -194,7 +194,7 @@
     width: 70%;
     margin: auto;
   }
-  .nav-buttons > .btn:nth-of-type(1) {
+  /* .nav-buttons > .btn:nth-of-type(1) {
     display: none;
-  }
+  } */
 }

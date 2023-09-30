@@ -23,20 +23,6 @@
   margin-bottom: 1rem;
 }
 
-/* .userprofile_pfp > button {
-  position: absolute;
-  bottom: 33px;
-  left: 6px;
-  background-color: white;
-  border: 2px solid #e26959;
-  border-radius: 6px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 3px 10px;
-  gap: 5px;
-} */
-
 .userprofile_body {
   width: 100%;
 }
@@ -198,7 +184,7 @@
     color: rgba(0, 0, 0, 0.782);
     font-family: "Poppins", sans-serif;
     margin: 0;
-    font-size: 11px;
+    font-size: 16px;
   }
 
   .userdetails_about {
@@ -211,7 +197,7 @@
   }
 
   .userdetails_about > p {
-    font-size: 17px;
+    font-size: 16px;
     color: black;
     font-family: "Poppins", sans-serif;
     font-weight: normal;
@@ -227,11 +213,19 @@
     column-gap: 10px;
   }
 
+  .cta_buttonsdiv > button > p {
+    font-size: 12px;
+  }
+
+  .cta_buttonsdiv > button > svg {
+    font-size: 16px;
+  }
+
   .userprofile_eventscontainer {
     position: relative;
     max-width: 1200px;
     margin: auto;
-    margin-top: 23rem;
+    margin-top: 20rem;
   }
 
   .userprofile_eventscontainer > h1 {
