@@ -16,7 +16,6 @@ const Donate = () => {
 
   const [clubData, setClubData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [isLoggedIn] = useState(Cookies.get("Token"));
   var navigate = useNavigate();
 
   useEffect(() => {
@@ -49,13 +48,13 @@ const Donate = () => {
 
   // Redirect user to login page if they are not logged in
   useEffect(() => {
-    if (!isLoggedIn) {
+    if (!Cookies.get("isLoggedIn")) {
       toast.error("Please log in before donating");
       navigate("/user/login");
     }
-  }, isLoggedIn);
+  }, []);
 
-  if (!isLoggedIn) return null;
+  if (!Cookies.get("isLoggedIn")) return null;
 
   return (
     <>
