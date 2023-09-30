@@ -15,7 +15,6 @@ const Footer = () => {
   const [reportFirstName, setReportFirstName] = useState("");
   const [reportLastName, setReportLastName] = useState("");
   const [reportIssue, setReportIssue] = useState("");
-  const [logged, setLogged] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   const clickMilan = () => {
@@ -36,15 +35,6 @@ const Footer = () => {
     setReportIssue("");
     setReportModal(false);
   };
-
-  useEffect(() => {
-    if (
-      Cookies.get("Token") ||
-      Cookies.get("OAuthLoginInitiated") ||
-      Cookies.get("isLoggedIn")
-    )
-      setLogged(true);
-  }, []);
 
   useEffect(() => {
     if (reportModal) {
@@ -225,11 +215,11 @@ const Footer = () => {
             <div className="join-us col-lg-4 col-md-3 mx-auto mb-lg-0 px-5">
               <div className="join">
                 <p className="h6 join-us text-uppercase text-light font-weight-bold mb-lg-2 mb-3 headings">
-                  {logged ? "Explore!" : "Join Us"}
+                  {Cookies.get("isLoggedIn") ? "Explore!" : "Join Us"}
                 </p>
                 <ul className="join-us-list list-unstyled mb-0">
                   <li className="mb-2">
-                    {logged ? (
+                    {Cookies.get("isLoggedIn") ? (
                       <Link
                         to="/events"
                         className="text-decoration-none footer_auth_text"
@@ -246,7 +236,7 @@ const Footer = () => {
                     )}
                   </li>
                   <li className="mb-2">
-                    {logged ? (
+                    {Cookies.get("isLoggedIn") ? (
                       <Link
                         to="/shop"
                         className="text-decoration-none footer_auth_text"
