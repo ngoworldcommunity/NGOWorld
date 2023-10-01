@@ -9,6 +9,7 @@ import Button from "../Button/GlobalButton/Button";
 import Modal from "../Modal/Modal";
 import "./Footer.css";
 
+
 const Footer = () => {
   const [reportModal, setReportModal] = useState(false);
   const [reportEmail, setReportEmail] = useState("");
@@ -316,7 +317,7 @@ const Footer = () => {
                 aria-label="Follow me on Twitter"
                 target="_blank"
               >
-                <i className="fa-brands fa-twitter"></i>
+               <i className="fa-brands fa-twitter"></i> 
               </a>
             </div>
             <div className="github social-btn">
