@@ -109,9 +109,9 @@ export default defineConfig({
             },
           },
           {
-            // Serves static resources from cache with a Stale While Revalidate strategy.
+            // serves static resources with a Network First strategy.
             urlPattern: /\.(?:js|css|jsx)$/,
-            handler: "StaleWhileRevalidate",
+            handler: "NetworkFirst",
             options: {
               cacheName: "static-resources",
               expiration: {
