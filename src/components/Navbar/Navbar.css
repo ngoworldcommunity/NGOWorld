@@ -119,7 +119,7 @@
   .nav-buttons {
     flex-direction: column;
     margin: auto;
-    gap: 0px;
+    gap: 10px;
   }
 
   .navbar-nav {
