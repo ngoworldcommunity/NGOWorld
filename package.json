@@ -45,7 +45,7 @@
     "swr": "^2.1.0",
     "url": "^0.11.0",
     "vite-plugin-svgr": "^2.2.2",
-    "web-vitals": "^3.3.1",
+    "web-vitals": "^3.5.0",
     "zustand": "^4.4.1"
   },
   "scripts": {
