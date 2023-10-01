@@ -117,13 +117,10 @@
 }
 
 .twitter:hover {
-  background-color: #00acee;
+  background-color: #020202;
 }
 .github:hover {
   background-color: black;
-}
-.cont:hover {
-  background-color: #ff725e;
 }
 .fa-brands {
   font-size: 20px;
