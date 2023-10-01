@@ -375,6 +375,26 @@ const AuthSignup = () => {
                   placeholder="123456"
                 />
               </div>
+
+              {userType === "club" && (
+                <div className="authform_container ">
+                  <label htmlFor="iframe" className="auth_label">
+                    Iframe code
+                  </label>
+                  <textarea
+                    type="text
+                  "
+                    className=" form-control "
+                    name="iframe"
+                    value={formState.iframe}
+                    onChange={handleChange}
+                    required
+                    id="iframe"
+                    placeholder="Iframe code"
+                  />
+                </div>
+              )}
+
               <AuthButton isLoading={isLoading} buttonText="Register" />
             </form>
           </div>

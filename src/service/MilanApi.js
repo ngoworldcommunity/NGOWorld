@@ -24,6 +24,7 @@ export const LoginUser = async (credentials) => {
 //* REGISTER USER
 export const RegisterUser = async (credentials) => {
   try {
+    console.log(credentials);
     const User = await Axios.post(authEndpoints.signup, credentials);
     return User;
   } catch (error) {
