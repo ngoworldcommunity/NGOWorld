@@ -42,6 +42,21 @@
   gap: 30px;
 }
 
+.navbar-collapse {
+  animation-name: navSlide;
+  animation-duration: 1s;
+  transform-origin: top;
+}
+
+@keyframes navSlide {
+  0% {
+    transform: translateY(-70%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .navbar-brand {
   font-size: 1.8em;
   color: #28183b;
