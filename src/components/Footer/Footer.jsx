@@ -317,7 +317,7 @@ const Footer = () => {
                 aria-label="Follow me on Twitter"
                 target="_blank"
               >
-               <FaSquareXTwitter size="1.55rem" color= "#E26959"/>
+               <FaSquareXTwitter className="twitter-icon"/>
               </a>
             </div>
             <div className="github social-btn">
@@ -327,7 +327,7 @@ const Footer = () => {
                 aria-label="Follow me on Github"
                 target="_blank"
               >
-                <FaGithub size="1.55rem" color= "#E26959 "/>
+                <FaGithub className="github-icon"/>
               </a>
             </div>
           </div>
