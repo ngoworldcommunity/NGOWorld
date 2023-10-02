@@ -25,7 +25,7 @@
   justify-content: space-between;
 }
 
-.sc_header h1 {
+.sc_header h2 {
   font-size: 25px;
   color: #28183b;
   font-weight: 800;
@@ -64,7 +64,7 @@
     margin-bottom: 1rem;
   }
 
-  .sc_header h1 {
+  .sc_header h2 {
     font-size: 21px;
     text-align: left;
   }
@@ -74,7 +74,7 @@
     height: 45px;
   }
 
-  .sc_body p {
+  .sc_body {
     width: 100%;
   }
   .sc_cta {
