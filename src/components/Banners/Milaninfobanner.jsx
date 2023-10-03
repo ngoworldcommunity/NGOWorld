@@ -52,7 +52,7 @@ const Milaninfobanner = () => {
           </div>
 
           <div className="mib_sidewise container">
-            <div className="mib_collab_bottom_left">
+            <div className="mib_collab_bottom_left" width="100" height="100">
               <img src={MilanCollaborate} alt="" />
             </div>
             <div className="mib_collab_bottom_right">
@@ -194,7 +194,7 @@ const Milaninfobanner = () => {
           </div>
 
           <div className="mib_sidewise container">
-            <div className="mib_collab_bottom_left">
+            <div className="mib_collab_bottom_left" width="100" height="100">
               <img src={MilanBuild} alt="" />
             </div>
             <div className="mib_collab_bottom_right">
