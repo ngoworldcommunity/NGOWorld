@@ -12,14 +12,21 @@
       id: description
       attributes:
         label: Description
-        description: A brief description of the enhancement you propose, also include what you tried and what worked.
+        description: Write a detailed description of the feature you propose.
+      validations:
+        required: true
+    - type: textarea
+      id: solution
+      attributes:
+        label: Proposed Solution
+        description: What needs to be done to implement this feature?
       validations:
         required: true
     - type: textarea
       id: screenshots
       attributes:
         label: Screenshots
-        description: Please add screenshots if applicable
+        description: Please add screenshots/videos if applicable
       validations:
         required: false
     
