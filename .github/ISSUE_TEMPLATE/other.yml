@@ -1,9 +1,9 @@
 name: Other
 description: Use this for any other issues. Please do NOT create blank issues
-title: "[OTHER] write a small description here"
+title: "📂Other: Write a small description here"
 labels:
   [
-   "👷🏻‍♂️ status: awaiting triage"
+    "🟣 status: todo",
   ]
 body:
   - type: textarea

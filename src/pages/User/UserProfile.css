@@ -1,0 +1,239 @@
+.userprofile_parentcontainer {
+  padding: 7rem 7rem;
+}
+
+.userprofile_maincontainer {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  gap: 5rem;
+}
+
+.userprofile_pfp {
+  position: relative;
+}
+
+.userprofile_pfp > img {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+
+.userprofile_body {
+  width: 100%;
+}
+
+.userprofile_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.userprofile_name {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.userprofile_name > h1 {
+  font-size: 30px;
+  color: #28183b;
+  font-weight: 800;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+}
+
+.userprofile_name > p {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.509);
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
+  margin: 0;
+}
+
+.userprofile_contact {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userprofile_contact > svg {
+  background-color: #fbfbfb;
+  color: black;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.userdetails_address {
+  margin-top: 10px;
+}
+
+.userdetails_address > p {
+  color: rgba(0, 0, 0, 0.782);
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  font-size: 11px;
+}
+
+.userdetails_about > p {
+  font-size: 17px;
+  color: black;
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
+  margin: 0;
+  margin-top: 1rem;
+}
+
+.cta_buttonsdiv {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cta_buttonsdiv > button {
+  border-radius: 5px;
+  padding: 3px 10px;
+}
+
+.userprofile_eventscontainer {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 4rem;
+}
+
+.userprofile_eventscontainer > h1 {
+  font-size: 25px;
+  color: #28183b;
+  font-weight: 800;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 500px) {
+  .userprofile_parentcontainer {
+    padding: 5rem 1.3rem;
+  }
+
+  .userprofile_maincontainer {
+    gap: 1rem;
+  }
+
+  .userprofile_pfp > img {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    margin: 0;
+  }
+
+  .userprofile_body {
+    width: 100%;
+  }
+
+  .userprofile_header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 10px;
+  }
+
+  .userprofile_name {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .userprofile_name > h1 {
+    font-size: 23px;
+    color: #28183b;
+  }
+
+  .userprofile_name > p {
+    font-size: 17px;
+  }
+
+  .userprofile_contact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .userprofile_contact > svg {
+    background-color: #fbfbfb;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .userdetails_address {
+    margin-top: 1.5rem;
+    position: absolute;
+    left: 0;
+  }
+
+  .userdetails_address > p {
+    color: rgba(0, 0, 0, 0.782);
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .userdetails_about {
+    margin-top: 5rem;
+    position: absolute;
+    left: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+  }
+
+  .userdetails_about > p {
+    font-size: 16px;
+    color: black;
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    margin: 0;
+    margin-top: 1rem;
+  }
+
+  .cta_buttonsdiv {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+    column-gap: 10px;
+  }
+
+  .cta_buttonsdiv > button > p {
+    font-size: 12px;
+  }
+
+  .cta_buttonsdiv > button > svg {
+    font-size: 16px;
+  }
+
+  .userprofile_eventscontainer {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 20rem;
+  }
+
+  .userprofile_eventscontainer > h1 {
+    font-size: 25px;
+    color: #28183b;
+    font-weight: 800;
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    margin-bottom: 1.5rem;
+  }
+}

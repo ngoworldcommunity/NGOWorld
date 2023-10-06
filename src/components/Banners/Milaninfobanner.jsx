@@ -14,6 +14,8 @@ const Milaninfobanner = () => {
     AOS.refresh();
   }, []);
 
+  console.log("WTF is wrong bro");
+
   return (
     <div className="container  mib_mainparent">
       <div className="mib_collab_parent">
@@ -23,7 +25,7 @@ const Milaninfobanner = () => {
             ? { "data-aos": "fade-up", "data-aos-duration": "500" }
             : {})}
         >
-          <div className="mib_numbercircle">1</div>
+          {/* <div className="mib_numbercircle">1</div> */}
           <h1>Collaborate.</h1>
         </div>
 

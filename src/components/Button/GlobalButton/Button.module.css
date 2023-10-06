@@ -1,21 +1,27 @@
 .btn {
-  padding: 15px 45px;
+  padding: 8px 15px;
   text-align: center;
   cursor: pointer;
-  text-transform: uppercase;
-  transition: 0.5s !important;
-  box-shadow: 0 0 50px -10px #9747ff14;
   border-radius: 8px;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  font-size: inherit;
-  font-family: "Poppins", sans-serif;
-  font-size: inherit;
-  font-weight: 600;
-  line-height: 1.5;
+  gap: 10px;
+  width: auto;
   letter-spacing: 1px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn > p {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  font-size: 16px;
+}
+.btn > svg {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  font-size: 17px;
 }
 
 .btn:focus {
@@ -26,20 +32,23 @@
 .solid {
   background: #e26959;
   border: 1px solid #e26959;
-  color: #000;
+  color: white;
+  transition: all 0.2s ease-in-out;
 }
 
 .outline {
   border: 1px solid #e26959;
-  color: #000;
+  color: black;
+  transition: all 0.2s ease-in-out;
 }
 
 .solid:hover,
 .solid:active,
 .solid:focus {
-  color: #000;
-  border: #e26959 solid 2px;
-  background: none;
+  color: black;
+  border: #e26959 solid 1px;
+  background-color: white;
+  transition: all 0.2s ease-in-out;
 }
 
 .solid:disabled {
@@ -53,23 +62,17 @@
 .outline:hover,
 .outline:active {
   background-color: #e26959;
-  color: #000;
+  color: white;
+  transition: all 0.2s ease-in-out;
 }
 
 .outline:disabled {
-  color: #000;
-  border: #000 solid 1px;
+  color: black;
+  border: black solid 1px;
   cursor: not-allowed;
   opacity: 0.3;
 }
 
-.btn.sm {
-  width: fit-content;
-  height: fit-content;
-  padding: 8px 15px;
-  font-size: 0.8rem;
-}
-
-.btn.full-width {
-  width: 100%;
+.btn.bold {
+  font-weight: 600;
 }

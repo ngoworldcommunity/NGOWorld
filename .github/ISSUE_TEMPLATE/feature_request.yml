@@ -1,59 +1,67 @@
-name: 💡 Feature Request
-description: Have a new idea/feature for Milan? Please suggest!
-title: "[FEATURE] write a small description here"
-labels:
-  [
-    "👷🏻‍♂️ status: awaiting triage",
-    "🛠 Feature"
-  ]
-body:
-  - type: textarea
-    id: description
-    attributes:
-      label: Description
-      description: A brief description of the enhancement you propose, also include what you tried and what worked.
-    validations:
-      required: true
-  - type: textarea
-    id: screenshots
-    attributes:
-      label: Screenshots
-      description: Please add screenshots if applicable
-    validations:
-      required: false
-  
-  - type: dropdown
-    id: browser
-    attributes:
-      label: "🥦 Browser"
-      description: "What browser are you using ?"
-      options:
-        - Google Chrome
-        - Brave
-        - Microsoft Edge
-        - Mozilla Firefox
-        - Safari
-        - Opera
-        - Other
-    validations:
-      required: true
+  name: 💡 Feature Request
+  description: Have a new idea/feature for Milan? Please suggest!
+  title: "💡Feature: Write a small description here"
+  labels:
+    [
+      "🟣 status: todo",
+      "💡 feature",
+      "hacktoberfest"
+    ]
+  body:
+    - type: textarea
+      id: description
+      attributes:
+        label: Description
+        description: Write a detailed description of the feature you propose.
+      validations:
+        required: true
+    - type: textarea
+      id: solution
+      attributes:
+        label: Proposed Solution
+        description: What needs to be done to implement this feature?
+      validations:
+        required: true
+    - type: textarea
+      id: screenshots
+      attributes:
+        label: Screenshots
+        description: Please add screenshots/videos if applicable
+      validations:
+        required: false
+    
+    - type: dropdown
+      id: browser
+      attributes:
+        label: "🥦 Browser"
+        description: "What browser are you using ?"
+        options:
+          - Google Chrome
+          - Brave
+          - Microsoft Edge
+          - Mozilla Firefox
+          - Safari
+          - Opera
+          - Other
+      validations:
+        required: true
 
-  - type: checkboxes
-    id: no-duplicate-issues
-    attributes:
-      label: "Checklist ✅"
-      options:
-        - label: "I checked and didn't find similar [issue](https://github.com/MilanCommunity/Milan/issues)"
-          required: true
+    - type: checkboxes
+      id: no-duplicate-issues
+      attributes:
+        label: "Checklist ✅"
+        options:
+          - label: "I checked and didn't find similar [issue](https://github.com/MilanCommunity/Milan/issues)"
+            required: true
 
-        - label: "I have read the [Contributing Guidelines](https://github.com/MilanCommunity/Milan/blob/main/CONTRIBUTING.md)"
-          required: true
+          - label: "I have read the [Contributing Guidelines](https://github.com/MilanCommunity/Milan/blob/main/CONTRIBUTING.md)"
+            required: true
 
-        - label: "I am willing to work on this issue (blank for no)"
-          required: false
+          - label: "I am willing to work on this issue (blank for no)"
+            required: false
 
-  - type: markdown
-    attributes:
-      value: |
-        In case of emergencies contact me on [Twitter](https://twitter.com/tamalCodes)
-        Feel free to check out other cool repositories [here](https://github.com/tamalCodes)
+    - type: markdown
+      attributes:
+        value: |
+          In case of emergencies contact me on [Twitter](https://twitter.com/tamalCodes)
+          Feel free to check out other cool repositories [here](https://github.com/tamalCodes)

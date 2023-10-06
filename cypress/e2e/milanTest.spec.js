@@ -8,7 +8,7 @@ Cypress.env("CI", false);
 describe("Checking if the backend is working properly or not", () => {
   it("GET request for users", () => {
     cy.request("https://api.milanhub.org/display/users").then((response) => {
-      expect(response.status).to.eq(200);
+      expect(response.body.length).to.be.greaterThan(100);
     });
   });
 });

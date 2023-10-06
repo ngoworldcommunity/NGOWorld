@@ -1,6 +1,7 @@
 const API = import.meta.env.VITE_MILANAPI;
 
 const userEndpoints = {
+  bySlug: (slug) => `${API}/user?slug=${slug}`,
   update: `${API}/user/update`,
   report: `${API}/user/userreport`,
 };
@@ -16,8 +17,8 @@ const eventEndpoints = {
 };
 
 const authEndpoints = {
-  login: `${API}/user/login`,
-  signup: `${API}/user/register`,
+  signin: `${API}/auth/signin`,
+  signup: `${API}/auth/signup`,
   googleLogin: `${API}/auth/google`,
   googleLoginSuccess: `${API}/auth/login/success`,
   logout: `${API}/auth/logout`,

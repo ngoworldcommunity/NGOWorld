@@ -1,168 +1,390 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { UpdateUser, Logout } from "../../service/MilanApi";
-import { showSuccessToast } from "../../utils/Toasts";
-import { ToastContainer } from "react-toastify";
 import Navbar from "../../components/Navbar/Navbar";
+import "./UserProfile.css";
 
-export default function UserProfile() {
-  document.title = "Milan | User Profile";
+import { BiEdit, BiLinkExternal, BiLogoGmail, BiLogOut } from "react-icons/bi";
+import { BsLinkedin } from "react-icons/bs";
+import { RiTwitterXFill } from "react-icons/ri";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import "swiper/css/navigation";
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
+import { Logout } from "../../service/MilanApi";
+import { useNavigate, useParams } from "react-router-dom";
+import { showErrorToast, showSuccessToast } from "../../utils/Toasts";
+import { ToastContainer } from "react-toastify";
+import useSWR from "swr";
+import { userEndpoints } from "../../assets/data/ApiEndpoints";
+import fetcher from "../../utils/Fetcher";
+import Button from "../../components/Button/GlobalButton/Button";
+import Cookies from "js-cookie";
+
+const UserProfile = () => {
   const navigate = useNavigate();
-  const [isEmailValid, setIsEmailValid] = useState(false);
-  const [credentials, setCredentials] = useState({
-    email: "",
-    oldPassword: "",
-    newPassword: "",
-  });
+  const params = useParams();
 
-  const handleChange = (e) => {
-    setCredentials({ ...credentials, [e.target.name]: e.target.value });
-    if (
-      e.target.name === "email" &&
-      e.target.value.match("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
-    ) {
-      setIsEmailValid(true);
-    }
-  };
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleLogout = async () => {
-    const Data = await Logout();
+  const { data: userdetails } = useSWR(
+    userEndpoints.bySlug(params.slug),
+    fetcher,
+  );
 
-    if (Data?.status === 200) {
-      showSuccessToast(Data?.data?.message);
+  console.log(userdetails);
+
+  async function handleLogout() {
+    setIsLoading(true);
+    const data = await Logout();
+
+    if (data?.status === 200) {
+      showSuccessToast(data?.data?.message);
       setTimeout(() => {
         navigate("/");
-      }, 1000);
+        setIsLoading(false);
+      }, 1500);
+    } else {
+      showErrorToast(data?.message);
+      setIsLoading(false);
     }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Updating...");
-    const Data = UpdateUser(credentials);
-
-    Data.then((response) => {
-      if (response?.data.message) {
-        handleLogout();
-      } else {
-        setCredentials({ email: "", oldPassword: "", newPassword: "" });
-      }
-    });
-  };
+  }
 
   return (
     <>
       <Navbar />
       <ToastContainer />
-      <section className="vh-100">
-        <div className="container py-5 h-100">
-          <div className="row d-flex align-items-center justify-content-center h-100">
-            <div className="col-md-8 col-lg-7 col-xl-6">
-              <img
-                src="https://www.getillustrations.com/packs/plastic-illustrations-scene-builder-pack/scenes/_1x/accounts%20_%20man,%20workspace,%20desk,%20laptop,%20login,%20user_md.png"
-                className="img-fluid"
-                alt="woman sitting in a chair with a laptop"
-              />
+      <div className="userprofile_parentcontainer">
+        <div className="userprofile_maincontainer">
+          <div className="userprofile_pfp">
+            <img
+              src={
+                userdetails?.profilepicture ||
+                "https://images.ctfassets.net/lzny33ho1g45/RdyJrgaCvIKpSB5EUmwNq/319552e88aac20cb8bdffbe307cc9d92/reddit-app-tips-00-hero.png"
+              }
+              alt=""
+            />
+          </div>
+
+          <div className="userprofile_body">
+            <div className="userprofile_header">
+              <div className="userprofile_name">
+                <h1>
+                  {userdetails?.firstname} {userdetails?.lastname}
+                </h1>
+                <p>(He/Him)</p>
+              </div>
+
+              <div className="userprofile_contact">
+                <RiTwitterXFill />
+                <BsLinkedin />
+                <BiLinkExternal />
+              </div>
             </div>
 
-            <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-              <form style={{ width: "auto" }} onSubmit={handleSubmit}>
-                <h1 style={{ letterSpacing: "1px", marginBottom: "2rem" }}>
-                  Update User profile
-                </h1>
-                <div className="form-outline mb-4">
-                  <label
-                    htmlFor="email"
-                    className="col-form-label col-form-label-lg"
-                    style={{ fontFamily: "Open Sans, sans-serif" }}
-                  >
-                    Enter email address
-                  </label>
-                  <input
-                    type="email"
-                    className="form-control form-control-lg remove_placeholder_desktop"
-                    id="email"
-                    aria-describedby="emailHelp"
-                    placeholder="Email"
-                    name="email"
-                    value={credentials.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="form-outline mb-4">
-                  <label
-                    htmlFor="oldPassword"
-                    className="col-form-label col-form-label-lg"
-                    style={{ fontFamily: "Open Sans, sans-serif" }}
-                  >
-                    Enter previous password
-                  </label>
-                  <input
-                    type="password"
-                    className="form-control form-control-lg remove_placeholder_desktop"
-                    id="oldPassword"
-                    name="oldPassword"
-                    placeholder="Previous Password"
-                    style={{ fontFamily: "Open Sans, sans-serif" }}
-                    value={credentials.oldPassword}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="form-outline mb-4">
-                  <label
-                    htmlFor="newPassword"
-                    className="col-form-label col-form-label-lg"
-                    style={{ fontFamily: "Open Sans, sans-serif" }}
-                  >
-                    Enter new password
-                  </label>
-                  <input
-                    type="password"
-                    className="form-control form-control-lg remove_placeholder_desktop"
-                    id="newpPassword"
-                    name="newPassword"
-                    placeholder="New Password"
-                    style={{ fontFamily: "Open Sans, sans-serif" }}
-                    value={credentials.newPassword}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <br />
-                <div className="btn-container-flex btn-container-flex-desktop">
-                  <button
-                    type="submit"
-                    className="btn btn-lg btn-block"
-                    disabled={
-                      credentials.newPassword.length <= 4 ||
-                      credentials.oldPassword.length <= 4 ||
-                      !isEmailValid
-                    }
-                    style={{
-                      backgroundColor: "#89b5f7",
-                      margin: 10,
-                      marginLeft: 0,
-                    }}
-                  >
-                    Update
-                  </button>
-                  <br />
-                  <button
-                    onClick={handleLogout}
-                    className="btn btn-lg btn-block"
-                    style={{ backgroundColor: "#89b5f7" }}
-                  >
-                    Logout
-                  </button>
-                </div>
-                <br></br> <br></br>
-              </form>
+            <div className="userdetails_address">
+              <p>{userdetails?.address}</p>
+              <p>
+                Kolkata, West Bengal, India
+                {userdetails?.city} {userdetails?.state} {userdetails?.country}
+              </p>
+            </div>
+
+            <div className="userdetails_about">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+                nihil repellat quam eum facilis eaque soluta magnam aut minima
+                provident dolores illo cum eos molestias, nemo praesentium
+                {userdetails?.about}
+              </p>
+
+              <div className="cta_buttonsdiv">
+                {Cookies.get("username") === params.slug ? (
+                  <>
+                    <Button type="button" variant="solid" disabled={isLoading}>
+                      <BiEdit /> <p>Edit Profile</p>
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => {
+                        handleLogout();
+                      }}
+                      isLoading={isLoading}
+                    >
+                      <BiLogOut /> <p>Logout</p>
+                    </Button>
+                  </>
+                ) : (
+                  <Button type="button" variant="solid" disabled={isLoading}>
+                    <BiLogoGmail /> <p>Drop me a mail</p>
+                  </Button>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </section>
+
+        <div className="userprofile_eventscontainer">
+          <h1>Events Attending</h1>
+          {window.innerWidth > 1200 ? (
+            <Swiper
+              slidesPerView={3}
+              spaceBetween={20}
+              loop={true}
+              autoplay={{
+                delay: 2000,
+                disableOnInteraction: false,
+              }}
+              navigation={false}
+              modules={[Pagination, Autoplay, Navigation]}
+              className="mySwiper carousel"
+            >
+              <SwiperSlide>
+                <div className="clubdetails_eventcard">
+                  <img
+                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                    alt=""
+                  />
+
+                  <div className="clubdetails_eventcard_body">
+                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                    <div className="clubdetails_eventcard_body_date">
+                      <p>01</p>
+                      <p>OCT</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="clubdetails_eventcard">
+                  <img
+                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                    alt=""
+                  />
+
+                  <div className="clubdetails_eventcard_body">
+                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                    <div className="clubdetails_eventcard_body_date">
+                      <p>01</p>
+                      <p>OCT</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="clubdetails_eventcard">
+                  <img
+                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                    alt=""
+                  />
+
+                  <div className="clubdetails_eventcard_body">
+                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                    <div className="clubdetails_eventcard_body_date">
+                      <p>01</p>
+                      <p>OCT</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="clubdetails_eventcard">
+                  <img
+                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                    alt=""
+                  />
+
+                  <div className="clubdetails_eventcard_body">
+                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                    <div className="clubdetails_eventcard_body_date">
+                      <p>01</p>
+                      <p>OCT</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="clubdetails_eventcard">
+                  <img
+                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                    alt=""
+                  />
+
+                  <div className="clubdetails_eventcard_body">
+                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                    <div className="clubdetails_eventcard_body_date">
+                      <p>01</p>
+                      <p>OCT</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="clubdetails_eventcard">
+                  <img
+                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                    alt=""
+                  />
+
+                  <div className="clubdetails_eventcard_body">
+                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                    <div className="clubdetails_eventcard_body_date">
+                      <p>01</p>
+                      <p>OCT</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          ) : (
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={40}
+              loop={true}
+              autoplay={{
+                delay: 2000,
+                disableOnInteraction: false,
+              }}
+              navigation={false}
+              modules={[Pagination, Autoplay, Navigation]}
+              className="mySwiper"
+            >
+              <SwiperSlide>
+                <div className="clubdetails_eventcard">
+                  <img
+                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                    alt=""
+                  />
+
+                  <div className="clubdetails_eventcard_body">
+                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                    <div className="clubdetails_eventcard_body_date">
+                      <p>01</p>
+                      <p>OCT</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="clubdetails_eventcard">
+                  <img
+                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                    alt=""
+                  />
+
+                  <div className="clubdetails_eventcard_body">
+                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                    <div className="clubdetails_eventcard_body_date">
+                      <p>01</p>
+                      <p>OCT</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="clubdetails_eventcard">
+                  <img
+                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                    alt=""
+                  />
+
+                  <div className="clubdetails_eventcard_body">
+                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                    <div className="clubdetails_eventcard_body_date">
+                      <p>01</p>
+                      <p>OCT</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="clubdetails_eventcard">
+                  <img
+                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                    alt=""
+                  />
+
+                  <div className="clubdetails_eventcard_body">
+                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                    <div className="clubdetails_eventcard_body_date">
+                      <p>01</p>
+                      <p>OCT</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="clubdetails_eventcard">
+                  <img
+                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                    alt=""
+                  />
+
+                  <div className="clubdetails_eventcard_body">
+                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                    <div className="clubdetails_eventcard_body_date">
+                      <p>01</p>
+                      <p>OCT</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="clubdetails_eventcard">
+                  <img
+                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                    alt=""
+                  />
+
+                  <div className="clubdetails_eventcard_body">
+                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                    <div className="clubdetails_eventcard_body_date">
+                      <p>01</p>
+                      <p>OCT</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="clubdetails_eventcard">
+                  <img
+                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                    alt=""
+                  />
+
+                  <div className="clubdetails_eventcard_body">
+                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                    <div className="clubdetails_eventcard_body_date">
+                      <p>01</p>
+                      <p>OCT</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="clubdetails_eventcard">
+                  <img
+                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                    alt=""
+                  />
+
+                  <div className="clubdetails_eventcard_body">
+                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                    <div className="clubdetails_eventcard_body_date">
+                      <p>01</p>
+                      <p>OCT</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          )}
+        </div>
+      </div>
     </>
   );
-}
+};
+
+export default UserProfile;

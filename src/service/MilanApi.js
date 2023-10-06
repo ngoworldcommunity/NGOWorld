@@ -12,7 +12,7 @@ import {
 //* LOGIN USER
 export const LoginUser = async (credentials) => {
   try {
-    const User = await Axios.post(authEndpoints.login, credentials, {
+    const User = await Axios.post(authEndpoints.signin, credentials, {
       withCredentials: true,
     });
     return User;
@@ -106,6 +106,8 @@ export const Logout = async () => {
     const response = await Axios.get(authEndpoints.logout, {
       withCredentials: true,
     });
+
+    console.log(response);
     return response;
   } catch (error) {
     return error;

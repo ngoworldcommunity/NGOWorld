@@ -3,6 +3,8 @@ const useValidation = (credentials, userSignup, clubSignup) => {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const nameRegex = /^[a-zA-Z]+$/;
   const clubnameRegex = /^[a-zA-Z\s]+$/;
+  const urlRegex =
+    /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-zA-Z0-9]+([a-zA-Z0-9-]+)?(\.[a-zA-Z0-9-]+)+([/?#][a-zA-Z0-9-]+)*$/;
 
   if (!credentials.email) {
     errors.push({ error: true, message: "Please enter your email" });
@@ -99,6 +101,11 @@ const useValidation = (credentials, userSignup, clubSignup) => {
     }
   }
 
+  if (credentials.website) {
+    if (!urlRegex.test(credentials.website)) {
+      errors.push({ error: true, message: "Please enter a valid website" });
+    }
+  }
   if (userSignup || clubSignup) {
     if (!credentials.slug) {
       errors.push({ error: true, message: "Please enter your username" });

@@ -6,11 +6,11 @@ categories:
       - "📈 Major"
   - title: "🚀 New Features"
     labels:
-      - "🛠 Feature"
+      - "💡 feature"
   - title: "🐛 Bug Fixes"
     labels:
-      - "🐞 Bug"
-      - "📄 aspect: docs"
+      - "🐞 bug"
+      - "📚 docs"
   - title: "🧰 Maintenance"
     labels: 
       - "chore"
@@ -23,12 +23,12 @@ version-resolver:
       - "📈 Major"
   minor:
     labels:
-      - "🛠 Feature"
+      - "💡 feature"
   patch:
     labels:
-      - "🐞 Bug"
+      - "🐞 bug"
       - "dependencies"
-      - "📄 aspect: docs"
+      - "📚 docs"
   default: patch
 template: |
 
