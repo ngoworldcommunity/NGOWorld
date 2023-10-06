@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./Navbar.css";
 import navbarbrand from "../../assets/pictures/Navbar/MilanNavBrand.svg";
 import { Link, useNavigate, useLocation } from "react-router-dom";
@@ -11,6 +11,8 @@ import ClickAwayListener from "../../utils/ClickAwayListener";
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const navRef = useRef(null);
+  useScroll(navRef);
 
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const toggleNavbar = () => {
@@ -26,7 +28,10 @@ const Navbar = () => {
   return (
     <>
       <ClickAwayListener onClickAway={() => setIsNavbarOpen(false)}>
-        <nav className="navbar navbar-expand-lg navbar-light sticky-top navbar_main ">
+        <nav
+          className="navbar navbar-expand-lg navbar-light sticky-top navbar_main "
+          ref={navRef}
+        >
           {window.location.href.includes("beta") && (
             <button className="navbar_betabtn">Beta</button>
           )}
@@ -144,3 +149,18 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+function useScroll(navRef) {
+  const lastScrollTop = useRef(0);
+  function handleScroll() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    navRef.current.style.top =
+      scrollTop > lastScrollTop.current ? "-80px" : "0px";
+    lastScrollTop.current = scrollTop;
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+}
