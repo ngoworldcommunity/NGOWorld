@@ -1,0 +1,32 @@
+// Javascript script to convert negative number
+// to positive number
+
+// Function to convert
+// given number to
+// positive number
+function convert_positive(a) {
+	// Check the number is negative
+	if (a < 0) {
+		// Multiply number with -1
+		// to make it positive
+		a = a * -1;
+	}
+	// Return the positive number
+	return a;
+}
+
+//Driver code
+let n = -10;
+let m = 5;
+
+// Call function
+n = convert_positive(n);
+
+// Print result
+console.log(n);
+
+// Call function
+m = convert_positive(m);
+
+// Print result
+console.log(m);
