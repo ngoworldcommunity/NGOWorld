@@ -302,7 +302,7 @@
 
 @media screen and (min-width: 526px) {
   body {
-    overflow: unset;
+    overflow-x: hidden !important;
   }
 }
 
