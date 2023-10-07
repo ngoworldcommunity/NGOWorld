@@ -2,11 +2,11 @@ import { useState } from "react";
 import { LoginUser } from "../../service/MilanApi";
 import { Helmet } from "react-helmet-async";
 import { ToastContainer } from "react-toastify";
-import AuthButton from "../../components/Button/AuthButton/AuthButton";
 import TopButton from "../../components/Button/AuthButton/TopButton";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import "./AuthPage.css";
-import { useFormLogic } from "./AuthFormmodule";
+import { useFormLogic } from "../../hooks/useFormLogic";
+import AuthButton from "../../components/Button/AuthButton/AuthButton";
 
 const AuthLogin = () => {
   const { formState, isLoading, handleChange, handleSubmit } = useFormLogic(
@@ -103,8 +103,7 @@ const AuthLogin = () => {
 
               <small id="textDemo" className="form-text text-muted"></small>
               <br />
-
-              <AuthButton isLoading={isLoading} goTo="/clubs" />
+              <AuthButton isLoading={isLoading} />
             </form>
           </div>
         </div>

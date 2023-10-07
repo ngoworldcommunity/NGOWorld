@@ -1,10 +1,11 @@
 name: 💡 Feature Request
 description: Have a new idea/feature for Milan? Please suggest!
-title: "[FEATURE] write a small description here"
+title: "💡Feature: Write a small description here"
 labels:
   [
     "👷🏻‍♂️ status: awaiting triage",
-    "🛠 Feature"
+    "💡 feature",
+    "hacktoberfest"
   ]
 body:
   - type: textarea

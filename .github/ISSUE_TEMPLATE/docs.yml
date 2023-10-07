@@ -1,10 +1,11 @@
 name: 📄 Documentation issue
 description: Found an issue in the documentation? You can use this one!
-title: "[DOCS] write a small description here"
+title: "📄Docs: Write a small description here"
 labels:
   [
    "👷🏻‍♂️ status: awaiting triage",
-    "📄 aspect: docs",
+    "📚 docs",
+    "hacktoberfest"
   ]
 body:
   - type: textarea

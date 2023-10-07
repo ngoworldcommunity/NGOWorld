@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import navbarbrand from "../../assets/pictures/Navbar/MilanNavBrand.svg";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import ProfilePicture from "../../assets/pictures/ProfilePicture.png";
 import Cookies from "js-cookie";
 import { FaBars } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
@@ -20,7 +19,7 @@ const Navbar = () => {
 
   const navigateToProfile = () => {
     if (Cookies.get("isLoggedIn")) {
-      navigate("/user/profile");
+      navigate(`/${Cookies.get("usertype")}/${Cookies.get("username")}`);
     }
   };
 
@@ -117,31 +116,22 @@ const Navbar = () => {
                     onClick={() => {
                       navigateToProfile();
                     }}
-                    src={ProfilePicture}
+                    src="https://images.ctfassets.net/lzny33ho1g45/RdyJrgaCvIKpSB5EUmwNq/319552e88aac20cb8bdffbe307cc9d92/reddit-app-tips-00-hero.png"
                     alt="user profile"
                     className="nav_user_img"
                   />
                 ) : (
                   <>
-                    <div className="nav-item home">
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className=" "
-                        to="/auth/login"
-                      >
-                        Sign in
-                      </Button>
-                    </div>
-                    <div className="nav-item home">
-                      <Button
-                        size="sm"
-                        className=" nav_signup_btn"
-                        to="/auth/signup"
-                      >
-                        Sign up
-                      </Button>
-                    </div>
+                    <Button
+                      variant="outline"
+                      to="/auth/login"
+                      fontweight="bold"
+                    >
+                      Sign in
+                    </Button>
+                    <Button to="/auth/signup" fontweight="bold" variant="solid">
+                      Sign up
+                    </Button>
                   </>
                 )}
               </div>

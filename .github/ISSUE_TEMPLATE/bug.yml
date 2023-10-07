@@ -1,10 +1,11 @@
 name: 🐞 Bug
 description: Report an issue to help improve the project.
-title: "[BUG] Write a small description here"
+title: "🐞Bug: Write a small description here"
 labels:
   [
     "👷🏻‍♂️ status: awaiting triage",
-    "🐞 Bug"
+    "🐞 bug",
+    "hacktoberfest"
   ]
 body:
   - type: textarea

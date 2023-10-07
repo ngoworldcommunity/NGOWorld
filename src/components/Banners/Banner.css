@@ -19,13 +19,17 @@
 }
 
 .banner_header1 {
-  font-size: 105px;
+  font-size: 90px;
   margin-bottom: 1.5rem !important;
   margin-top: 6rem;
   color: #28183b;
-  line-height: 115px;
+  line-height: 98px;
   font-weight: 900;
   font-family: "Inter", sans-serif;
+}
+
+.banner_header1 > br:nth-of-type(1) {
+  display: none;
 }
 
 .banner_header2 {
@@ -45,10 +49,9 @@
 .banner_header3 {
   font-family: "Poppins", sans-serif;
   color: black;
-  font-size: 22px;
-  margin-top: 30px;
+  font-size: 24px;
+  margin-top: 40px;
   letter-spacing: 1px;
-  width: 57%;
 }
 
 .banner_header3 > span {
@@ -81,14 +84,36 @@
   max-width: 400px;
 }
 
-@media screen and (max-width: 1000px) {
-  .banner_btn_div {
-    flex-direction: column;
-    gap: 0;
+@media screen and (max-width: 1200px) {
+  .banner_header1 {
+    font-size: 90px;
+    margin-bottom: 1.5rem !important;
+    margin-top: 6rem;
+    color: #28183b;
+    line-height: 98px;
+    font-weight: 900;
+    font-family: "Inter", sans-serif;
+  }
+
+  .banner_header3 {
+    font-size: 20px;
+    margin-top: 40px;
+    letter-spacing: 1px;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1000px) {
+  .banner_header1 {
+    margin-top: 3rem;
+    line-height: 88px;
+  }
+
+  .banner_header1 > br:nth-of-type(1) {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
   .banner_mainparent {
     height: 100vh;
   }
@@ -109,9 +134,9 @@
   }
 
   .banner_header1 {
-    font-size: 55px;
+    font-size: 60px;
     text-align: center;
-    line-height: 1;
+    line-height: 65px;
     margin-bottom: 0px;
     margin-top: 0px;
   }
@@ -126,8 +151,11 @@
 
   .banner_header3 {
     text-align: center;
-    width: 80%;
     font-size: 18px;
+  }
+
+  .banner_header3 > br {
+    display: none;
   }
 
   .banner_signup_btndiv {
@@ -142,6 +170,17 @@
   .banner_signup_btn {
     margin: auto;
     width: 60%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .banner_header1 {
+    font-size: 50px;
+    line-height: 55px;
+  }
+
+  .banner_header3 {
+    font-size: 16px;
   }
 }
 
@@ -197,14 +236,13 @@
 }
 
 .mib_top_intro > h1 {
-  font-size: 32px;
+  font-size: 25px;
   font-weight: 900;
 
   color: #e26959;
   background-image: -webkit-linear-gradient(45deg, #e26959 20%, #28183b 60%);
   background-clip: text;
   -webkit-background-clip: text;
-  text-fill-color: transparent;
   -webkit-text-fill-color: transparent;
   font-family: "Inter", sans-serif;
   letter-spacing: 1px;
@@ -219,19 +257,17 @@
 }
 
 .mib_collab_bottom_middle > h1 {
-  font-size: 75px;
+  font-size: 50px;
   color: #28183b;
-  line-height: 100px;
   font-weight: 900;
   font-family: "Inter", sans-serif;
-  margin-top: 2rem;
   text-align: center;
 }
 
 .mib_collab_bottom_middle > p {
   font-family: "Poppins", sans-serif;
   color: black;
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 0px;
   letter-spacing: 1px;
   width: 70%;
@@ -243,7 +279,7 @@
   flex-direction: row;
   gap: 8rem;
   width: 85%;
-  margin-top: 3.2rem;
+  margin-top: 4rem;
   align-items: center;
   margin-bottom: 12rem;
 }
@@ -253,7 +289,7 @@
 }
 
 .mib_collab_bottom_right h1 {
-  font-size: 30px;
+  font-size: 28px;
   color: #28183b;
   font-weight: 800;
   font-family: "Inter", sans-serif;
@@ -262,7 +298,7 @@
 .mib_collab_bottom_right p {
   font-family: "Poppins", sans-serif;
   color: black;
-  font-size: 18px;
+  font-size: 16px;
   margin-top: 0px;
   letter-spacing: 1px;
 }
