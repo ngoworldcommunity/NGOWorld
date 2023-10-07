@@ -11,90 +11,64 @@ const HomeBanner = () => {
         <div className="banner_mainparent">
           <div className="banner_subparent">
             <div className="banner_textdiv">
-              {window.innerWidth < 800 ? (
-                <>
-                  <h1 className="banner_header1">Collaborate. </h1>
-                  <h1 className="banner_header1">Connect.</h1>
-                  <h1 className="banner_header1">Build.</h1>
-                </>
-              ) : (
-                <h1 className="banner_header1">
-                  Collaborate. <br /> Connect. <br />
-                  Build.
-                </h1>
-              )}
+              <h1 className="banner_header1">
+                Collaborate. <br /> Connect. <br /> Build.
+              </h1>
               <div>
-                {window.innerWidth < 800 ? (
-                  <p className="banner_header3">
-                    Welcome to Milan, we are a hub to <span>connect</span> NGOs,
-                    Charities, and the world to <span>collaborate</span> and
-                    <span>build</span> a better tommorow.
-                  </p>
-                ) : (
-                  <p className="banner_header3">
-                    Welcome to Milan, we are a hub to <span>connect</span> NGOs,
-                    Charities, and the world to <span>collaborate</span> and
-                    <span> build</span> a better tommorow.
-                  </p>
-                )}
+                <p className="banner_header3">
+                  Welcome to Milan, a platform to <span>connect</span> NGOs,
+                  <br />
+                  Charities, and you to <span>collaborate</span> and <br />{" "}
+                  <span>build</span> a better tommorow.
+                </p>
               </div>
 
               <div className="banner_signup_btndiv">
-                {Cookies.get("isLoggedIn") ? (
-                  <div className="banner_btn_div">
+                <div className="banner_btn_div">
+                  {Cookies.get("isLoggedIn") ? (
+                    Cookies.get("usertype") === "club" ? (
+                      <Button
+                        className="banner_signup_btn"
+                        data-cy="landingpage-club-signup"
+                        id="landingpage-club-signup"
+                        variant="solid"
+                        to="/auth/signup"
+                      >
+                        Create an event
+                      </Button>
+                    ) : (
+                      <Button
+                        className="banner_signup_btn"
+                        data-cy="landingpage-club-signup"
+                        id="landingpage-club-signup"
+                        variant="solid"
+                        to="/shop"
+                      >
+                        Checkout our shop
+                      </Button>
+                    )
+                  ) : (
                     <Button
                       className="banner_signup_btn"
-                      to="https://github.com/MilanCommunity/Milan"
-                      target="_blank"
-                      rel="noreferrer"
-                      variant="outline"
-                    >
-                      Visit our shop
-                    </Button>
-
-                    <Button
-                      className="banner_signup_btn"
-                      to="https://github.com/MilanCommunity/Milan"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <ImGithub className="banner_contribute_logo" />
-                      Git Milan
-                    </Button>
-                  </div>
-                ) : (
-                  <div className="banner_btn_div">
-                    <Button
-                      className="banner_signup_btn"
-                      action="signup"
                       data-cy="landingpage-club-signup"
                       id="landingpage-club-signup"
-                      variant="outline"
+                      variant="solid"
                       to="/auth/signup"
                     >
                       Sign up now
                     </Button>
-
-                    <Button
-                      className="banner_signup_btn"
-                      to="https://github.com/MilanCommunity/Milan"
-                      target="_blank"
-                      rel="noreferrer"
-                      variant="solid"
-                    >
-                      <ImGithub className="banner_contribute_logo" />
-                      Git Milan
-                    </Button>
-
-                    {/* <button
-                      onClick={() => {
-                        console.log(navigator.onLine);
-                      }}
-                    >
-                      CHECK
-                    </button> */}
-                  </div>
-                )}
+                  )}
+                  <Button
+                    className="banner_signup_btn"
+                    to="https://github.com/MilanCommunity/Milan"
+                    target="_blank"
+                    rel="noreferrer"
+                    variant="outline"
+                  >
+                    <ImGithub className="banner_contribute_logo" />
+                    Git Milan
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
