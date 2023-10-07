@@ -8,6 +8,7 @@ import { ReportProblem } from "../../service/MilanApi";
 import Button from "../Button/GlobalButton/Button";
 import Modal from "../Modal/Modal";
 import "./Footer.css";
+import { FaSquareXTwitter, FaGithub } from "react-icons/fa6";
 
 const Footer = () => {
   const [reportModal, setReportModal] = useState(false);
@@ -311,7 +312,7 @@ const Footer = () => {
                 aria-label="Follow me on Twitter"
                 target="_blank"
               >
-                <i className="fa-brands fa-twitter"></i>
+               <FaSquareXTwitter className="twitter-icon"/>
               </a>
             </div>
             <div className="github social-btn">
@@ -321,13 +322,8 @@ const Footer = () => {
                 aria-label="Follow me on Github"
                 target="_blank"
               >
-                <i className="fa-brands fa-github"></i>
+                <FaGithub className="github-icon"/>
               </a>
-            </div>
-            <div className="cont social-btn">
-              <Link to={"/contact"} aria-label="Contact Us">
-                <i className="cont-icon fa-solid fa-message"></i>
-              </Link>
             </div>
           </div>
           <p className="text-light text-center" role="contentinfo">
