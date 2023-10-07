@@ -105,7 +105,7 @@
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease-in;
-  cursor: pointer;
+  cursor:pointer;
 }
 .social-btn:hover {
   transform: scale(1.1);
@@ -117,13 +117,10 @@
 }
 
 .twitter:hover {
-  background-color: #00acee;
+  background-color: #020202;
 }
 .github:hover {
   background-color: black;
-}
-.cont:hover {
-  background-color: #ff725e;
 }
 .fa-brands {
   font-size: 20px;
@@ -134,11 +131,22 @@
   margin-top: 8px;
 }
 
-.fa-twitter {
+.FaSquareXTwitter {
   margin-top: 5px;
+
 }
 
-.fa-github {
+.github-icon{
+  font-size: 1.55rem ;
+  color:#e26959;
+}
+
+.twitter-icon{
+  font-size: 1.55rem ;
+  color:#e26959;
+}
+
+.FaGithub {
   margin-top: 4px;
 }
 
@@ -149,6 +157,7 @@
 .join {
   margin-top: 27px;
   margin-left: -75px;
+  white-space: nowrap;
 }
 
 .join-us ul li a {
@@ -333,20 +342,15 @@
     text-align: center;
     display: flex;
     justify-content: center;
-    align-items: stretch;
-    gap: 30px;
+    white-space: nowrap;
+    padding: 2px;
   }
-
   .join-us-list {
     position: relative;
     top: -10px;
-    /* margin-left: 70px; */
-  }
-  .join h1 {
-    margin-left: 60px;
   }
   .join {
-    margin-left: -70px;
+    margin: auto;
   }
 }
 .underline-animation {
