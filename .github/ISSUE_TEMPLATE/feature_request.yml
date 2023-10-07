@@ -3,7 +3,7 @@
   title: "Feature: Write a small description here"
   labels:
     [
-      "🟣 status: todo",
+      "status: todo ⏳",
       "💡 feature",
       "hacktoberfest"
     ]

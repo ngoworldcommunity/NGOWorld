@@ -1,5 +1,5 @@
 filters:
-  - label: "🟣 status: todo"
+  - label: "status: todo ⏳"
     regexs:
       - /feat/i
     events: [pull_request]
@@ -18,7 +18,7 @@ filters:
     targets: [title]
 
   
-  - label: "🟣 status: todo"
+  - label: "status: todo ⏳"
     regexs:
       - /docs/i
     events: [pull_request]
@@ -38,7 +38,7 @@ filters:
 
 
   
-  - label: "🟣 status: todo"
+  - label: "status: todo ⏳"
     regexs:
       - /fix/i
     events: [pull_request]

@@ -3,7 +3,7 @@ description: Found an issue in the documentation? You can use this one!
 title: "Docs: Write a small description here"
 labels:
   [
-    "🟣 status: todo",
+    "status: todo ⏳",
     "📚 docs",
     "hacktoberfest"
   ]

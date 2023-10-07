@@ -3,7 +3,7 @@ description: Report an issue to help improve the project.
 title: "Bug: Write a small description here"
 labels:
   [
-    "🟣 status: todo",
+    "status: todo ⏳",
     "🐞 bug",
     "hacktoberfest"
   ]
