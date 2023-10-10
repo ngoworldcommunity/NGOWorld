@@ -22,17 +22,17 @@ const Clubs = () => {
       <ComponentHelmet type="Clubs" />
       <Navbar />
 
-      <div className="container">
+      <main className="container">
         <div className="clubspage_main_parent">
           <Header type="clubs" />
 
-          <div className="clubspage_cardsdiv">
+          <ul className="clubspage_cardsdiv">
             {clubs?.map((club) => (
               <SingleClubEvent key={club?._id} item={club} />
             ))}
-          </div>
+          </ul>
         </div>
-      </div>
+      </main>
 
       <Footer />
     </>
