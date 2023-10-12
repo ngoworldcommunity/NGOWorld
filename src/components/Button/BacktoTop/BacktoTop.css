@@ -26,11 +26,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-.top-btn:hover {
-  background-color: transparent;
-  border: 2px solid #e76f51;
-}
-
 @media screen and (max-width: 500px) {
   .top-btn {
     width: 2rem;
