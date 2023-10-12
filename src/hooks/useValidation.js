@@ -99,6 +99,13 @@ const useValidation = (credentials, userSignup, clubSignup) => {
           "Club description must be between 100 and 1000 characters long",
       });
     }
+
+    if (!credentials.iframe) {
+      errors.push({
+        error: true,
+        message: "Please enter your club iframe code",
+      });
+    }
   }
 
   if (credentials.website) {
