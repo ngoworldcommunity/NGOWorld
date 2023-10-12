@@ -205,7 +205,7 @@ const Footer = () => {
                 </p>
               ) : (
                 <p className="footer-text font-italic text-light text-left mt-4 headings">
-                  Want to make Milan better ?<br />
+                  Want to make UnityCause better ?<br />
                   <span className=""> Contribute </span>
                   <a
                     href="https://github.com/MilanCommunity/Milan"
@@ -269,7 +269,7 @@ const Footer = () => {
                 <ul className="join-us-list list-unstyled mb-0">
                   <li className="mb-2">
                     <a
-                      href="https://twitter.com/tamalCodes"
+                      href="https://twitter.com/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-decoration-none footer_auth_text"
@@ -279,7 +279,7 @@ const Footer = () => {
                   </li>
                   <li className="mb-2">
                     <a
-                      href="https://github.com/MilanCommunity/Milan"
+                      href="https://github.com/YashPimple/Milan"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-decoration-none footer_auth_text"
@@ -317,7 +317,7 @@ const Footer = () => {
                 aria-label="Follow me on Twitter"
                 target="_blank"
               >
-               <FaSquareXTwitter className="twitter-icon"/>
+                <FaSquareXTwitter className="twitter-icon" />
               </a>
             </div>
             <div className="github social-btn">
@@ -327,7 +327,7 @@ const Footer = () => {
                 aria-label="Follow me on Github"
                 target="_blank"
               >
-                <FaGithub className="github-icon"/>
+                <FaGithub className="github-icon" />
               </a>
             </div>
           </div>
@@ -349,7 +349,7 @@ const Footer = () => {
                 e.target.style.color = "inherit"; // Reset the color on hover out
               }}
             >
-              Milan
+              UnityCause
             </span>{" "}
             &copy; {new Date().getFullYear()}
           </p>
