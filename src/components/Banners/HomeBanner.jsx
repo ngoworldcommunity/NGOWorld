@@ -24,9 +24,9 @@ const HomeBanner = () => {
               </div>
 
               <div className="banner_signup_btndiv">
-                {Cookies.get("isLoggedIn") ? (
-                  Cookies.get("usertype") === "club" ? (
-                    <div className="banner_btn_div">
+                <div className="banner_btn_div">
+                  {Cookies.get("isLoggedIn") ? (
+                    Cookies.get("usertype") === "club" ? (
                       <Button
                         className="banner_signup_btn"
                         data-cy="landingpage-club-signup"
@@ -36,20 +36,7 @@ const HomeBanner = () => {
                       >
                         Create an event
                       </Button>
-
-                      <Button
-                        className="banner_signup_btn"
-                        to="https://github.com/MilanCommunity/Milan"
-                        target="_blank"
-                        rel="noreferrer"
-                        variant="outline"
-                      >
-                        <ImGithub className="banner_contribute_logo" />
-                        Git Milan
-                      </Button>
-                    </div>
-                  ) : (
-                    <div className="banner_btn_div">
+                    ) : (
                       <Button
                         className="banner_signup_btn"
                         data-cy="landingpage-club-signup"
@@ -59,21 +46,8 @@ const HomeBanner = () => {
                       >
                         Checkout our shop
                       </Button>
-
-                      <Button
-                        className="banner_signup_btn"
-                        to="https://github.com/MilanCommunity/Milan"
-                        target="_blank"
-                        rel="noreferrer"
-                        variant="outline"
-                      >
-                        <ImGithub className="banner_contribute_logo" />
-                        Git Milan
-                      </Button>
-                    </div>
-                  )
-                ) : (
-                  <div className="banner_btn_div">
+                    )
+                  ) : (
                     <Button
                       className="banner_signup_btn"
                       data-cy="landingpage-club-signup"
@@ -83,19 +57,18 @@ const HomeBanner = () => {
                     >
                       Sign up now
                     </Button>
-
-                    <Button
-                      className="banner_signup_btn"
-                      to="https://github.com/MilanCommunity/Milan"
-                      target="_blank"
-                      rel="noreferrer"
-                      variant="outline"
-                    >
-                      <ImGithub className="banner_contribute_logo" />
-                      Git Milan
-                    </Button>
-                  </div>
-                )}
+                  )}
+                  <Button
+                    className="banner_signup_btn"
+                    to="https://github.com/MilanCommunity/Milan"
+                    target="_blank"
+                    rel="noreferrer"
+                    variant="outline"
+                  >
+                    <ImGithub className="banner_contribute_logo" />
+                    Git Milan
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
