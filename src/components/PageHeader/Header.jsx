@@ -7,12 +7,12 @@ const Header = ({ type }) => {
 
   if (!headerData) {
     return (
-      <div className="pageheader_parent">
+      <header className="pageheader_parent">
         <div className="pageheader_textdiv">
           <h1 className="pageheader_header1">Default Header</h1>
           <p className="pageheader_header2">Default Description</p>
         </div>
-      </div>
+      </header>
     );
   }
 
@@ -20,7 +20,7 @@ const Header = ({ type }) => {
     headerData.value;
 
   return (
-    <div className="pageheader_parent">
+    <header className="pageheader_parent">
       <div className="pageheader_textdiv">
         <h1 className="pageheader_header1">{topheader_large}</h1>
         {window.innerWidth < 800 ? (
@@ -29,7 +29,7 @@ const Header = ({ type }) => {
           <p className="pageheader_header2">{bottomheader_large}</p>
         )}
       </div>
-    </div>
+    </header>
   );
 };
 
