@@ -303,6 +303,16 @@
   letter-spacing: 1px;
 }
 
+@media screen and (max-width : 992px) {
+  .mib_sidewise {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+    width: 100%;
+    margin-bottom: 7rem;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .mib_mainparent {
     padding: 0 10.5px;
@@ -330,13 +340,7 @@
     width: 95%;
   }
 
-  .mib_sidewise {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 2rem;
-    width: 100%;
-    margin-bottom: 7rem;
-  }
+ 
 
   .mib_collab_bottom_right h1 {
     text-align: center;
