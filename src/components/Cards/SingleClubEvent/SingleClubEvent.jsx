@@ -5,15 +5,13 @@ import "./SingleClubEvent.css";
 const SingleClubEvent = ({ item }) => {
   return (
     <>
-      <div className="sc_parent">
+      <li className="sc_parent">
         <div className="sc_header">
-          <h1>{item?.name || item?.Eventname}</h1>
+          <h2>{item?.name || item?.Eventname}</h2>
           <img src="https://i.ibb.co/FXwG2MH/pict-large.jpg" alt="" />
         </div>
 
-        <div className="sc_body">
-          <p>{item?.tagLine}</p>
-        </div>
+        <p className="sc_body">{item?.tagLine}</p>
 
         <div className="sc_cta">
           <Button variant="solid" className="sc_ctabutton">
@@ -27,7 +25,7 @@ const SingleClubEvent = ({ item }) => {
             Read More
           </Button>
         </div>
-      </div>
+      </li>
     </>
   );
 };

@@ -1,7 +1,11 @@
 import axios from "axios";
 
 const fetcher = async (url) => {
-  const data = await axios.get(url).then((res) => res.data);
+  const data = await axios
+    .get(url, {
+      withCredentials: true,
+    })
+    .then((res) => res.data);
   return data;
 };
 
