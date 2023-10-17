@@ -45,9 +45,8 @@
 .solid:hover,
 .solid:active,
 .solid:focus {
-  color: black;
-  border: #e26959 solid 1px;
-  background-color: white;
+  color: white;
+  background-color: #28183B;
   transition: all 0.2s ease-in-out;
 }
 
@@ -61,7 +60,7 @@
 .outline:focus,
 .outline:hover,
 .outline:active {
-  background-color: #e26959;
+  background-color: #28183B;
   color: white;
   transition: all 0.2s ease-in-out;
 }
