@@ -200,41 +200,6 @@
   gap: 1rem;
 }
 
-.mib_numbercircle {
-  background: hsla(7, 70%, 62%, 1);
-
-  background: linear-gradient(
-    45deg,
-    hsla(7, 70%, 62%, 1) 0%,
-    hsla(22, 100%, 68%, 1) 100%
-  );
-
-  background: -moz-linear-gradient(
-    45deg,
-    hsla(7, 70%, 62%, 1) 0%,
-    hsla(22, 100%, 68%, 1) 100%
-  );
-
-  background: -webkit-linear-gradient(
-    45deg,
-    hsla(7, 70%, 62%, 1) 0%,
-    hsla(22, 100%, 68%, 1) 100%
-  );
-
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#E26959", endColorstr="#FF985D", GradientType=1 );
-
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 800;
-  font-family: "Inter", sans-serif;
-  margin: auto;
-  border-radius: 50%;
-  color: #28183b;
-}
-
 .mib_top_intro > h1 {
   font-size: 25px;
   font-weight: 900;
@@ -306,12 +271,6 @@
 @media screen and (max-width: 500px) {
   .mib_mainparent {
     padding: 0 10.5px;
-  }
-
-  .mib_numbercircle {
-    width: 25px;
-    height: 25px;
-    font-size: 13px;
   }
 
   .mib_top_intro > h1 {
