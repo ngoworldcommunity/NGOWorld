@@ -14,8 +14,6 @@ const Milaninfobanner = () => {
     AOS.refresh();
   }, []);
 
-  console.log("WTF is wrong bro");
-
   return (
     <div className="container  mib_mainparent">
       <div className="mib_collab_parent">
