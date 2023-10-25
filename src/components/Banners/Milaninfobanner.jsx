@@ -58,13 +58,13 @@ const Milaninfobanner = () => {
               {window.innerWidth < 800 ? (
                 <p>
                   You can join us as a Charity, Non profit organisation, or a
-                  club. Collaborate, and build a better tommorow.
+                  club. Collaborate, and build a better tomorrow.
                 </p>
               ) : (
                 <p>
                   You can join us as a Charity, Non profit organisation, or a
                   club. We are open to all. Collaborate, and build a better
-                  tommorow.
+                  tomorrow.
                 </p>
               )}
 
