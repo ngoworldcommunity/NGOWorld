@@ -3,7 +3,7 @@
 
 ## Prerequisite
 
-- Install Docker Desktop
+- Install [Docker Desktop](https://docs.docker.com/get-docker/)
 
 ## Step 1 - Clone the repository
 
