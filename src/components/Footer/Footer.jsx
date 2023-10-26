@@ -312,7 +312,7 @@ const Footer = () => {
                 aria-label="Follow me on Twitter"
                 target="_blank"
               >
-               <FaSquareXTwitter className="twitter-icon"/>
+                <FaSquareXTwitter className="twitter-icon" />
               </a>
             </div>
             <div className="github social-btn">
@@ -322,7 +322,7 @@ const Footer = () => {
                 aria-label="Follow me on Github"
                 target="_blank"
               >
-                <FaGithub className="github-icon"/>
+                <FaGithub className="github-icon" />
               </a>
             </div>
           </div>
