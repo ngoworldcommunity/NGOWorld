@@ -50,7 +50,7 @@ Milan is a hub to **connect** NGOs, Charities, and the world to **collaborate** 
 
 Remember, Good PR makes you a Good contributor !
 
-We at Milan work hard to maintain the structure, and use conventional Pull request titles and commits. Without a proper template for the PR, not following the guidelines and spam might get the pull request closed, or banned.
+We at Milan work hard to maintain the structure, and [use conventional Pull](https://github.com/MilanCommunity/Milan/blob/main/CONTRIBUTING.md#pull-request-title-format-) request titles and commits. Without a proper template for the PR, not following the guidelines and spam might get the pull request closed, or banned.
 
 ## 1️. Setting up the project locally
 
