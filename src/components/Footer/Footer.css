@@ -31,7 +31,7 @@
 }
 
 .reportModal > h2 {
-  font-family: "Poppins";
+  font-family: "Poppins"sans-serif;
   color: #28183b;
   font-size: 0.9rem;
 }
