@@ -24,7 +24,7 @@
 }
 
 .reportModalHeader > h1 {
-  font-family: "Inter";
+  font-family: "Inter",sans-serif;
   color: #28183b;
   font-size: 1.5rem;
   font-weight: 600;
