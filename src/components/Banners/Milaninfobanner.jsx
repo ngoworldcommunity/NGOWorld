@@ -121,9 +121,6 @@ const Milaninfobanner = () => {
           </div>
 
           <div className="mib_sidewise container">
-            <div className="mib_collab_bottom_left">
-              <img src={MilanConnect} alt="" />
-            </div>
             <div className="mib_collab_bottom_right">
               <h1>Donate, for a cause!</h1>
               {window.innerWidth < 800 ? (
@@ -155,6 +152,10 @@ const Milaninfobanner = () => {
                 </p>
               )}
             </div>
+            <div className="mib_collab_bottom_left">
+              <img src={MilanConnect} alt="" />
+            </div>
+            
           </div>
         </div>
       </div>
