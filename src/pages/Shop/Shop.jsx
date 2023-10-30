@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import ComingSoon from "../../components/Cards/ComingSoon/ComingSoon";
+import Footer from "../../components/Footer/Footer";
 
 const Shop = () => {
   return (
@@ -11,6 +12,7 @@ const Shop = () => {
           <ComingSoon launchitem={`shop's page.`} />
         </div>
       </div>
+      <Footer />
     </>
   );
 };

@@ -21,6 +21,7 @@ import { userEndpoints } from "../../assets/data/ApiEndpoints";
 import fetcher from "../../utils/Fetcher";
 import Button from "../../components/Button/GlobalButton/Button";
 import Cookies from "js-cookie";
+import Footer from "../../components/Footer/Footer";
 
 const UserProfile = () => {
   const navigate = useNavigate();
@@ -383,6 +384,7 @@ const UserProfile = () => {
           )}
         </div>
       </div>
+      <Footer />
     </>
   );
 };
