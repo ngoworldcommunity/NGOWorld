@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Footer from "../../../components/Footer/Footer";
 import Navbar from "../../../components/Navbar/Navbar";
 import ComingSoon from "../../../components/Cards/ComingSoon/ComingSoon";
 import ComponentHelmet from "../../../utils/ComponentHelmet";
@@ -14,7 +13,6 @@ const Events = () => {
       <ComponentHelmet type="Events" />
       <Navbar />
       <ComingSoon launchitem={`event's page.`} />
-      <Footer />
     </>
   );
 };
