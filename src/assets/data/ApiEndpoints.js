@@ -3,7 +3,7 @@ const API = import.meta.env.VITE_MILANAPI;
 const userEndpoints = {
   bySlug: (slug) => `${API}/user?slug=${slug}`,
   update: `${API}/user/update`,
-  report: `${API}/user/userreport`,
+  report: `${API}/user/report`,
 };
 
 const clubEndpoints = {

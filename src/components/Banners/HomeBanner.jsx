@@ -19,7 +19,7 @@ const HomeBanner = () => {
                   Welcome to Milan, a platform to <span>connect</span> NGOs,
                   <br />
                   Charities, and you to <span>collaborate</span> and <br />{" "}
-                  <span>build</span> a better tommorow.
+                  <span>build</span> a better tomorrow.
                 </p>
               </div>
 
