@@ -60,7 +60,7 @@
 .outline:focus,
 .outline:hover,
 .outline:active {
-  background-color: #28183B;
+  background-color: #e26959;
   color: white;
   transition: all 0.2s ease-in-out;
 }
