@@ -1,5 +1,5 @@
-//* All the AXIOS API calls will be made from here to the backend
-//* These functions will be exported and then imported wherever needed
+// All the AXIOS API calls will be made from here to the backend
+// These functions will be exported and then imported wherever needed
 
 import Axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,7 +9,7 @@ import {
   clubEndpoints,
 } from "../assets/data/ApiEndpoints";
 
-//* LOGIN USER
+// LOGIN USER
 export const LoginUser = async (credentials) => {
   try {
     const User = await Axios.post(authEndpoints.signin, credentials, {
@@ -21,7 +21,7 @@ export const LoginUser = async (credentials) => {
   }
 };
 
-//* REGISTER USER
+// REGISTER USER
 export const RegisterUser = async (credentials) => {
   try {
     const User = await Axios.post(authEndpoints.signup, credentials);
@@ -41,7 +41,7 @@ export const GetAllClubs = async () => {
   }
 };
 
-//* REPORT PROBLEMS
+// REPORT PROBLEMS
 export const ReportProblem = async (credentials) => {
   try {
     const response = await Axios.post(userEndpoints.report, credentials);
@@ -57,7 +57,7 @@ export const ReportProblem = async (credentials) => {
   }
 };
 
-//* UPDATE USER
+// UPDATE USER
 export const UpdateUser = async (credentials) => {
   try {
     const response = await Axios.post(userEndpoints.update, credentials);
@@ -71,7 +71,7 @@ export const UpdateUser = async (credentials) => {
   }
 };
 
-//* Google Auth screen
+// Google Auth screen
 export const GoogleAuth = async () => {
   try {
     const response = await Axios.get(authEndpoints.googleLogin, {
@@ -83,7 +83,7 @@ export const GoogleAuth = async () => {
   }
 };
 
-//* Google Auth callback
+// Google Auth callback
 export const successCallback = async () => {
   try {
     const response = await Axios.get(authEndpoints.googleLoginSuccess, {
@@ -100,7 +100,7 @@ export const successCallback = async () => {
   }
 };
 
-//* Google logout
+// Google logout
 export const Logout = async () => {
   try {
     const response = await Axios.post(authEndpoints.logout, {
