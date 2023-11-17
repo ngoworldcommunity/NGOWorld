@@ -11,6 +11,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
+import Footer from "../../components/Footer/Footer";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import { Logout } from "../../service/MilanApi";
 import { useNavigate, useParams } from "react-router-dom";
@@ -383,6 +384,8 @@ const UserProfile = () => {
           )}
         </div>
       </div>
+
+      <Footer />
     </>
   );
 };
