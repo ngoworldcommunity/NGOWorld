@@ -53,6 +53,24 @@ const AuthSignup = () => {
     );
   };
 
+  const renderErrorMessage = (fieldName) => {
+    return (
+      formState?.errors?.length > 0 && (
+        <div className="authpage_error-div">
+          {formState.errors.map(
+            (error, index) =>
+              // Check if the error is related to the email field
+              error.field === fieldName && (
+                <div key={index} className="authpage_error-message">
+                  {error.message}
+                </div>
+              ),
+          )}
+        </div>
+      )
+    );
+  };
+
   return (
     <>
       <Helmet>
@@ -136,6 +154,7 @@ const AuthSignup = () => {
                     userType === "individual" ? "john-doe" : "abc-club"
                   }
                 />
+                {renderErrorMessage("slug")}
               </div>
 
               {userType === "individual" ? (
@@ -154,6 +173,7 @@ const AuthSignup = () => {
                       id="firstname"
                       placeholder="John"
                     />
+                    {renderErrorMessage("firstname")}
                   </div>
 
                   <div className="authform_container">
@@ -170,6 +190,7 @@ const AuthSignup = () => {
                       id="lastname"
                       placeholder="Doe"
                     />
+                    {renderErrorMessage("lastname")}
                   </div>
                 </div>
               ) : (
@@ -188,6 +209,7 @@ const AuthSignup = () => {
                       id="name"
                       placeholder="The Life corporation"
                     />
+                    {renderErrorMessage("name")}
                   </div>
                   <div className="authform_container">
                     <label htmlFor="tagLine" className="auth_label">
@@ -203,6 +225,7 @@ const AuthSignup = () => {
                       id="tagLine"
                       placeholder="A crisp tagline/bio to describe your club"
                     />
+                    {renderErrorMessage("tagLine")}
                   </div>
                 </>
               )}
@@ -221,6 +244,7 @@ const AuthSignup = () => {
                   id="email"
                   placeholder="john@example.com"
                 />
+                {renderErrorMessage("email")}
               </div>
               <div className="auth_passworddiv">
                 <div className="authform_container">
@@ -237,6 +261,7 @@ const AuthSignup = () => {
                     id="password"
                     placeholder="StrongPassword123"
                   />
+                  {renderErrorMessage("password")}
                   <div onClick={passwordToggle} className="toggle-button">
                     {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                   </div>
@@ -255,6 +280,7 @@ const AuthSignup = () => {
                     id="confirmPassword"
                     placeholder="StrongPassword123"
                   />
+                  {renderErrorMessage("confirmPassword")}
                   <div
                     onClick={confirmPasswordToggle}
                     className="toggle-button"
@@ -283,6 +309,7 @@ const AuthSignup = () => {
                       id="description"
                       placeholder="Tell us in details about what you are, and what you do"
                     />
+                    {renderErrorMessage("description")}
                   </div>
 
                   <div className="authform_container">
@@ -297,6 +324,7 @@ const AuthSignup = () => {
                       id="website"
                       placeholder="Tell us your website"
                     />
+                    {renderErrorMessage("website")}
                   </div>
                 </>
               )}
@@ -319,6 +347,7 @@ const AuthSignup = () => {
                     id="city"
                     placeholder="New York"
                   />
+                  {renderErrorMessage("city")}
                 </div>
                 <div className="authform_container">
                   <label htmlFor="confirmPassword" className="auth_label">
@@ -334,6 +363,7 @@ const AuthSignup = () => {
                     id="state"
                     placeholder="Texas"
                   />
+                  {renderErrorMessage("state")}
                 </div>
               </div>
 
@@ -350,6 +380,7 @@ const AuthSignup = () => {
                   id="address"
                   placeholder="22/B Baker Street"
                 />
+                {renderErrorMessage("address")}
               </div>
 
               <div className="authform_container ">
@@ -357,6 +388,7 @@ const AuthSignup = () => {
                   Country
                 </label>
                 <Select options={countries} isClearable ref={selectedOption} />
+                {renderErrorMessage("country")}
               </div>
 
               <div className="authform_container ">
@@ -374,6 +406,7 @@ const AuthSignup = () => {
                   id="pincode"
                   placeholder="123456"
                 />
+                {renderErrorMessage("pincode")}
               </div>
 
               {userType === "club" && (
@@ -392,6 +425,7 @@ const AuthSignup = () => {
                     id="iframe"
                     placeholder="Iframe code"
                   />
+                  {renderErrorMessage("iframe")}
                 </div>
               )}
 

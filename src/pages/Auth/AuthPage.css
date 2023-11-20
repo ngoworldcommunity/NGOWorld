@@ -154,6 +154,15 @@ textarea::placeholder {
   display: none;
 }
 
+.authpage_error-div {
+  font-size: 0.8rem;
+  color: red;
+}
+
+.authpage_error-message {
+  margin-top: 5px;
+}
+
 .separator_header {
   font-size: 1.4rem;
   font-weight: 600;

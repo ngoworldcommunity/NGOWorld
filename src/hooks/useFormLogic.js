@@ -37,9 +37,7 @@ export function useFormLogic(
       : [];
 
     if (validationErrors.length > 0) {
-      validationErrors.forEach((error) => {
-        showErrorToast(error.message);
-      });
+      formState.errors = validationErrors;
       setTimeout(() => {
         setIsLoading(false);
       }, 1000);
