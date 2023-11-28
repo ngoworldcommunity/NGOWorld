@@ -157,14 +157,12 @@ const useValidation = (credentials, userSignup, clubSignup) => {
     }
   }
 
-  if (credentials.website) {
-    if (!urlRegex.test(credentials.website)) {
-      errors.push({
-        error: true,
-        message: "Please enter a valid website",
-        field: "website",
-      });
-    }
+  if (credentials.website && !urlRegex.test(credentials.website)) {
+    errors.push({
+      error: true,
+      message: "Please enter a valid website",
+      field: "website",
+    });
   }
   if (userSignup || clubSignup) {
     if (!credentials.slug) {

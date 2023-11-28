@@ -246,6 +246,7 @@ const AuthSignup = () => {
                 />
                 {renderErrorMessage("email")}
               </div>
+
               <div className="auth_passworddiv">
                 <div className="authform_container">
                   <label htmlFor="password" className="auth_label">
@@ -261,10 +262,10 @@ const AuthSignup = () => {
                     id="password"
                     placeholder="StrongPassword123"
                   />
-                  {renderErrorMessage("password")}
                   <div onClick={passwordToggle} className="toggle-button">
                     {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                   </div>
+                  {renderErrorMessage("password")}
                 </div>
                 <div className="authform_container">
                   <label htmlFor="confirmPassword" className="auth_label">
@@ -280,7 +281,6 @@ const AuthSignup = () => {
                     id="confirmPassword"
                     placeholder="StrongPassword123"
                   />
-                  {renderErrorMessage("confirmPassword")}
                   <div
                     onClick={confirmPasswordToggle}
                     className="toggle-button"
@@ -291,6 +291,7 @@ const AuthSignup = () => {
                       <FiEye />
                     )}
                   </div>
+                  {renderErrorMessage("confirmPassword")}
                 </div>
               </div>
 
