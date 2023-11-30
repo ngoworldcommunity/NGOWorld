@@ -4,8 +4,7 @@
   labels:
     [
       "status: todo ⏳",
-      "💡 feature",
-      "hacktoberfest"
+      "💡 feature"
     ]
   body:
     - type: textarea

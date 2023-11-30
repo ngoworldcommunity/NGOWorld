@@ -4,8 +4,7 @@ title: "Docs: Write a small description here"
 labels:
   [
     "status: todo ⏳",
-    "📚 docs",
-    "hacktoberfest"
+    "📚 docs"
   ]
 body:
   - type: textarea

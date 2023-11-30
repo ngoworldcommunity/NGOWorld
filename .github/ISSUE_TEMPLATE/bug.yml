@@ -4,8 +4,7 @@ title: "Bug: Write a small description here"
 labels:
   [
     "status: todo ⏳",
-    "🐞 bug",
-    "hacktoberfest"
+    "🐞 bug"
   ]
 body:
   - type: textarea

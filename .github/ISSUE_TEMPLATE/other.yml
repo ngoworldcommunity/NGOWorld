@@ -3,7 +3,7 @@ description: Use this for any other issues. Please do NOT create blank issues
 title: "📂Other: Write a small description here"
 labels:
   [
-    "status: todo ⏳",
+    "status: todo ⏳"
   ]
 body:
   - type: textarea
