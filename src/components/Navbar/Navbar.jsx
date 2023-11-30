@@ -19,7 +19,11 @@ const Navbar = () => {
 
   const navigateToProfile = () => {
     if (Cookies.get("isLoggedIn")) {
-      navigate(`/${Cookies.get("usertype")}/${Cookies.get("username")}`);
+      navigate(
+        `/${
+          Cookies.get("usertype") === "individual" ? "user" : "club"
+        }/${Cookies.get("username")}`,
+      );
     }
   };
 

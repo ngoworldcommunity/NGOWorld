@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Button.module.css";
@@ -12,8 +13,8 @@ const Button = ({
   fontweight = "",
   to = "",
   disabled = false,
-  cypressfield = "",
   isLoading = false,
+  cypressfield = "",
   ...props
 }) => {
   const classes = `btn ${styles.btn} ${className} ${styles[variant]} ${
@@ -32,6 +33,7 @@ const Button = ({
     <button
       type={type}
       disabled={disabled}
+      isLoading={isLoading}
       className={classes}
       data-cy={cypressfield}
       {...props}

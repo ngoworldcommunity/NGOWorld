@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import "./UserProfile.css";
 
@@ -22,33 +22,35 @@ import { userEndpoints } from "../../assets/data/ApiEndpoints";
 import fetcher from "../../utils/Fetcher";
 import Button from "../../components/Button/GlobalButton/Button";
 import Cookies from "js-cookie";
+import useAuthStore from "../../store/useAuth";
 
 const UserProfile = () => {
   const navigate = useNavigate();
   const params = useParams();
 
-  const [isLoading, setIsLoading] = useState(false);
+  const { toggleLoading, isLoading } = useAuthStore((state) => ({
+    toggleLoading: state.toggleLoading,
+    isLoading: state.isLoading,
+  }));
 
   const { data: userdetails } = useSWR(
     userEndpoints.bySlug(params.slug),
     fetcher,
   );
 
-  console.log(userdetails);
-
   async function handleLogout() {
-    setIsLoading(true);
+    toggleLoading(true);
     const data = await Logout();
 
     if (data?.status === 200) {
       showSuccessToast(data?.data?.message);
       setTimeout(() => {
         navigate("/");
-        setIsLoading(false);
+        toggleLoading(false);
       }, 1500);
     } else {
       showErrorToast(data?.message);
-      setIsLoading(false);
+      toggleLoading(false);
     }
   }
 

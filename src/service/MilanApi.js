@@ -103,7 +103,7 @@ export const successCallback = async () => {
 // Google logout
 export const Logout = async () => {
   try {
-    const response = await Axios.post(authEndpoints.logout, {
+    const response = await Axios.get(authEndpoints.logout, {
       withCredentials: true,
     });
 

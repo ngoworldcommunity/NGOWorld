@@ -1,9 +1,14 @@
 import React from "react";
 import Button from "../GlobalButton/Button";
 import { useNavigate } from "react-router-dom";
+import useAuthStore from "../../../store/useAuth";
 
-const AuthButton = ({ isLoading }) => {
+const AuthButton = () => {
   const navigate = useNavigate();
+
+  const { isLoading } = useAuthStore((state) => ({
+    isLoading: state.isLoading,
+  }));
 
   return (
     <>
@@ -33,12 +38,7 @@ const AuthButton = ({ isLoading }) => {
         )}
       </p>
 
-      <Button
-        type="submit"
-        isLoading={isLoading}
-        disabled={isLoading}
-        cypressfield="loginbutton"
-      >
+      <Button type="submit" cypressfield="loginbutton" isLoading={isLoading}>
         {window.location.pathname.includes("signup") ? "Sign Up" : "Sign In"}
       </Button>
     </>

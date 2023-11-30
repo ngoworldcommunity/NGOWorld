@@ -19,18 +19,21 @@ import {
   passwordToggle,
 } from "../../utils/Auth/PasswordToggle";
 import { renderErrorMessage } from "../../utils/Auth/RenderErrorMessage";
+import { userTypeOptions } from "../../constants/Auth";
 
 const AuthSignup = () => {
   const [userType, setUserType] = useState("individual");
-  const userTypeOptions = [
-    { value: "individual", label: "Individual (You are a person)" },
-    { value: "club", label: "Organization (You are a Charity/Club/NGO)" },
-  ];
+  const [passwordType, setPasswordType] = useState("password");
+  const [confirmPasswordType, setConfirmPasswordType] = useState("password");
 
   const selectedOption = useRef(null);
-
-  const { formState, setFormState, isLoading, handleChange, handleSubmit } =
-    useFormLogic({}, handleSignupSubmit, "/auth/login", true, userType);
+  const { formState, setFormState, handleChange, handleSubmit } = useFormLogic(
+    {},
+    handleSignupSubmit,
+    "/auth/login",
+    true,
+    userType,
+  );
 
   useEffect(() => {
     if (userType === "individual") {
@@ -44,9 +47,6 @@ const AuthSignup = () => {
     const data = await RegisterUser(credentials);
     return data;
   }
-
-  const [passwordType, setPasswordType] = useState("password");
-  const [confirmPasswordType, setConfirmPasswordType] = useState("password");
 
   return (
     <>
@@ -417,7 +417,7 @@ const AuthSignup = () => {
                 </div>
               )}
 
-              <AuthButton isLoading={isLoading} />
+              <AuthButton />
             </form>
           </div>
         </div>

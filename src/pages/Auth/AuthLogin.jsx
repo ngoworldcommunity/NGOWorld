@@ -9,7 +9,7 @@ import { useFormLogic } from "../../hooks/useFormLogic";
 import AuthButton from "../../components/Button/AuthButton/AuthButton";
 
 const AuthLogin = () => {
-  const { formState, isLoading, handleChange, handleSubmit } = useFormLogic(
+  const { formState, handleChange, handleSubmit } = useFormLogic(
     { email: "", password: "" },
     handleLoginSubmit,
     "/",
@@ -57,7 +57,7 @@ const AuthLogin = () => {
                 showleftGoogleButton={window.innerWidth <= 800 ? true : false}
                 showgooglebutton={window.innerWidth <= 800 ? true : false}
               />
-              <h1 className=""> Sign In</h1>
+              <h1>Sign In</h1>
               <div className="authform_container mb-4">
                 <label htmlFor="email-des" className="auth_label">
                   Email address
@@ -103,7 +103,7 @@ const AuthLogin = () => {
 
               <small id="textDemo" className="form-text text-muted"></small>
               <br />
-              <AuthButton isLoading={isLoading} />
+              <AuthButton />
             </form>
           </div>
         </div>

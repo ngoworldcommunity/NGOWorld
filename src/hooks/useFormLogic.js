@@ -3,6 +3,7 @@ import useValidation from "./useValidation";
 import { showErrorToast, showSuccessToast } from "../utils/Toasts";
 import { useNavigate } from "react-router-dom";
 import checkInternetConnection from "../utils/CheckInternetConnection";
+import useAuthStore from "../store/useAuth";
 
 export function useFormLogic(
   initialState,
@@ -13,7 +14,9 @@ export function useFormLogic(
 ) {
   const navigate = useNavigate();
   const [formState, setFormState] = useState(initialState);
-  const [isLoading, setIsLoading] = useState(false);
+  const { toggleLoading } = useAuthStore((state) => ({
+    toggleLoading: state.toggleLoading,
+  }));
 
   const handleChange = (e) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
@@ -26,7 +29,7 @@ export function useFormLogic(
       return;
     }
 
-    setIsLoading(true);
+    toggleLoading(true);
 
     formState.country = country;
 
@@ -39,7 +42,7 @@ export function useFormLogic(
     if (validationErrors.length > 0) {
       setFormState({ ...formState, errors: validationErrors });
       setTimeout(() => {
-        setIsLoading(false);
+        toggleLoading(false);
       }, 1000);
     } else {
       const data = await submitCallback(formState);
@@ -51,14 +54,14 @@ export function useFormLogic(
     if (response?.status === 201 || response?.status === 200) {
       showSuccessToast(response?.data?.message);
       setTimeout(() => {
-        setIsLoading(false);
+        toggleLoading(false);
         navigate(redirectPath);
       }, 2000);
     } else {
       showErrorToast(response?.message);
       setFormState({ ...formState });
       setTimeout(() => {
-        setIsLoading(false);
+        toggleLoading(false);
       }, 1000);
     }
   };
@@ -66,7 +69,6 @@ export function useFormLogic(
   return {
     formState,
     setFormState,
-    isLoading,
     handleChange,
     handleSubmit,
   };

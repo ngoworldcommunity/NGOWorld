@@ -23,7 +23,7 @@
   background-repeat: no-repeat;
 }
 
-.authpage_leftdiv > img {
+.authpage_leftdiv>img {
   width: 100%;
   border-radius: 15px;
   height: 100%;
@@ -96,7 +96,7 @@
   width: 100%;
 }
 
-.authform > h1 {
+.authform>h1 {
   font-size: 35px;
   font-weight: 600;
   color: #000000;
@@ -108,8 +108,8 @@
   margin-top: 30px;
 }
 
-.auth_passworddiv > .authform_container,
-.auth_namediv > .authform_container {
+.auth_passworddiv>.authform_container,
+.auth_namediv>.authform_container {
   margin-top: 10px;
 }
 
@@ -119,23 +119,24 @@
   font-size: 1rem;
 }
 
-.authform_container > input {
+.authform_container>input {
   font-size: 1.1rem;
+  color: #000000;
 }
 
-.authform_container > input:focus,
-.authform_container > textarea:focus {
+.authform_container>input:focus,
+.authform_container>textarea:focus {
   box-shadow: none;
   border: 1.2px solid #e26959 !important;
 }
 
-.authform_container > input::placeholder,
+.authform_container>input::placeholder,
 textarea::placeholder {
   font-family: "Poppins", sans-serif;
   font-size: 10px !important;
 }
 
-.auth_namediv > .authform_container > input[name="name"] {
+.auth_namediv>.authform_container>input[name="name"] {
   width: 100%;
 }
 
@@ -145,8 +146,8 @@ textarea::placeholder {
   justify-content: space-between;
 }
 
-.auth_passworddiv > div,
-.auth_namediv > div {
+.auth_passworddiv>div,
+.auth_namediv>div {
   width: 48%;
 }
 
@@ -175,6 +176,7 @@ textarea::placeholder {
   .authpage_goback {
     left: 4rem;
   }
+
   .authpage_rightdiv {
     padding-left: 3rem;
     padding-right: 3rem;
@@ -195,6 +197,7 @@ textarea::placeholder {
   .authpage_goback {
     left: 3rem;
   }
+
   .authpage_rightdiv {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -205,6 +208,7 @@ textarea::placeholder {
   .authpage_goback {
     left: 2rem;
   }
+
   .authpage_rightdiv {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -215,9 +219,11 @@ textarea::placeholder {
   .authpage_leftdiv {
     display: none;
   }
+
   .authpage_goback {
     left: 3rem;
   }
+
   .authpage_rightdiv {
     padding-left: 4rem;
     padding-right: 4rem;
@@ -229,7 +235,7 @@ textarea::placeholder {
     font-size: 17px;
   }
 
-  .authpage_mediumchangebtn > span {
+  .authpage_mediumchangebtn>span {
     font-weight: 600;
     cursor: pointer;
   }
@@ -239,6 +245,7 @@ textarea::placeholder {
   .authpage_goback {
     left: 2rem;
   }
+
   .authpage_rightdiv {
     padding-left: 3rem;
     padding-right: 3rem;
@@ -250,8 +257,8 @@ textarea::placeholder {
     justify-content: space-between;
   }
 
-  .auth_passworddiv > div,
-  .auth_namediv > div {
+  .auth_passworddiv>div,
+  .auth_namediv>div {
     width: 100%;
   }
 }
@@ -261,22 +268,24 @@ textarea::placeholder {
     padding-left: 0px;
   }
 
-  .authform > h1 {
+  .authform>h1 {
     font-size: 30px;
     font-weight: 600;
     color: #000000;
     text-align: left;
     line-height: 1;
   }
+
   .authpage_goback {
     left: 1rem;
   }
+
   .authpage_rightdiv {
     padding-left: 2rem;
     padding-right: 2rem;
   }
 
-  .authform_container > textarea {
+  .authform_container>textarea {
     height: 80px;
   }
 }

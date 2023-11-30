@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useSWR from "swr";
 
@@ -23,6 +23,7 @@ import "swiper/css/navigation";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import Cookies from "js-cookie";
 import Button from "../../../components/Button/GlobalButton/Button";
+import useAuthStore from "../../../store/useAuth";
 
 function ClubProfile() {
   const params = useParams();
@@ -33,21 +34,23 @@ function ClubProfile() {
     fetcher,
   );
 
-  const [isLoading, setIsLoading] = useState(false);
+  const { toggleLoading } = useAuthStore((state) => ({
+    toggleLoading: state.toggleLoading,
+  }));
 
   async function handleLogout() {
-    setIsLoading(true);
+    toggleLoading(true);
     const data = await Logout();
 
     if (data?.status === 200) {
       showSuccessToast(data?.data?.message);
       setTimeout(() => {
         navigate("/");
-        setIsLoading(false);
+        toggleLoading(false);
       }, 1500);
     } else {
       showErrorToast(data?.message);
-      setIsLoading(false);
+      toggleLoading(false);
     }
   }
 
@@ -84,7 +87,7 @@ function ClubProfile() {
               </Button>
             ) : (
               <>
-                <Button type="button" variant="solid" disabled={isLoading}>
+                <Button type="button" variant="solid">
                   <BiEdit /> <p>Edit Profile</p>
                 </Button>
                 <Button
@@ -93,7 +96,6 @@ function ClubProfile() {
                   onClick={() => {
                     handleLogout();
                   }}
-                  isLoading={isLoading}
                 >
                   <BiLogOut /> <p>Logout</p>
                 </Button>
