@@ -78,9 +78,9 @@ function ClubProfile() {
 
           <div className="clubdetails_subscribe">
             {Cookies.get("username") !== params.slug ? (
-              <Button fontweight="bold">
+              <Button fontweight="regular">
                 <MdOutlineAttachMoney className="money_icon" />{" "}
-                <p>Sponsor Us</p>
+                <p>Help us continue</p>
               </Button>
             ) : (
               <>

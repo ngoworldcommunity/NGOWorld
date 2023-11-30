@@ -14,6 +14,11 @@ import {
 import Select from "react-select";
 import countries from "../../assets/data/CountryList";
 import AuthButton from "../../components/Button/AuthButton/AuthButton";
+import {
+  confirmPasswordToggle,
+  passwordToggle,
+} from "../../utils/Auth/PasswordToggle";
+import { renderErrorMessage } from "../../utils/Auth/RenderErrorMessage";
 
 const AuthSignup = () => {
   const [userType, setUserType] = useState("individual");
@@ -42,34 +47,6 @@ const AuthSignup = () => {
 
   const [passwordType, setPasswordType] = useState("password");
   const [confirmPasswordType, setConfirmPasswordType] = useState("password");
-
-  const passwordToggle = () => {
-    setPasswordType(passwordType === "password" ? "text" : "password");
-  };
-
-  const confirmPasswordToggle = () => {
-    setConfirmPasswordType(
-      confirmPasswordType === "password" ? "text" : "password",
-    );
-  };
-
-  const renderErrorMessage = (fieldName) => {
-    return (
-      formState?.errors?.length > 0 && (
-        <div className="authpage_error-div">
-          {formState.errors.map(
-            (error, index) =>
-              // Check if the error is related to the email field
-              error.field === fieldName && (
-                <div key={index} className="authpage_error-message">
-                  {error.message}
-                </div>
-              ),
-          )}
-        </div>
-      )
-    );
-  };
 
   return (
     <>
@@ -154,7 +131,7 @@ const AuthSignup = () => {
                     userType === "individual" ? "john-doe" : "abc-club"
                   }
                 />
-                {renderErrorMessage("slug")}
+                {renderErrorMessage("slug", formState)}
               </div>
 
               {userType === "individual" ? (
@@ -173,7 +150,7 @@ const AuthSignup = () => {
                       id="firstname"
                       placeholder="John"
                     />
-                    {renderErrorMessage("firstname")}
+                    {renderErrorMessage("firstname", formState)}
                   </div>
 
                   <div className="authform_container">
@@ -190,7 +167,7 @@ const AuthSignup = () => {
                       id="lastname"
                       placeholder="Doe"
                     />
-                    {renderErrorMessage("lastname")}
+                    {renderErrorMessage("lastname", formState)}
                   </div>
                 </div>
               ) : (
@@ -209,7 +186,7 @@ const AuthSignup = () => {
                       id="name"
                       placeholder="The Life corporation"
                     />
-                    {renderErrorMessage("name")}
+                    {renderErrorMessage("name", formState)}
                   </div>
                   <div className="authform_container">
                     <label htmlFor="tagLine" className="auth_label">
@@ -225,7 +202,7 @@ const AuthSignup = () => {
                       id="tagLine"
                       placeholder="A crisp tagline/bio to describe your club"
                     />
-                    {renderErrorMessage("tagLine")}
+                    {renderErrorMessage("tagLine", formState)}
                   </div>
                 </>
               )}
@@ -244,7 +221,7 @@ const AuthSignup = () => {
                   id="email"
                   placeholder="john@example.com"
                 />
-                {renderErrorMessage("email")}
+                {renderErrorMessage("email", formState)}
               </div>
 
               <div className="auth_passworddiv">
@@ -262,10 +239,15 @@ const AuthSignup = () => {
                     id="password"
                     placeholder="StrongPassword123"
                   />
-                  <div onClick={passwordToggle} className="toggle-button">
+                  <div
+                    onClick={() => {
+                      passwordToggle(passwordType, setPasswordType);
+                    }}
+                    className="toggle-button"
+                  >
                     {passwordType === "password" ? <FiEyeOff /> : <FiEye />}
                   </div>
-                  {renderErrorMessage("password")}
+                  {renderErrorMessage("password", formState)}
                 </div>
                 <div className="authform_container">
                   <label htmlFor="confirmPassword" className="auth_label">
@@ -282,7 +264,12 @@ const AuthSignup = () => {
                     placeholder="StrongPassword123"
                   />
                   <div
-                    onClick={confirmPasswordToggle}
+                    onClick={() => {
+                      confirmPasswordToggle(
+                        confirmPasswordType,
+                        setConfirmPasswordType,
+                      );
+                    }}
                     className="toggle-button"
                   >
                     {confirmPasswordType === "password" ? (
@@ -291,7 +278,7 @@ const AuthSignup = () => {
                       <FiEye />
                     )}
                   </div>
-                  {renderErrorMessage("confirmPassword")}
+                  {renderErrorMessage("confirmPassword", formState)}
                 </div>
               </div>
 
@@ -310,7 +297,7 @@ const AuthSignup = () => {
                       id="description"
                       placeholder="Tell us in details about what you are, and what you do"
                     />
-                    {renderErrorMessage("description")}
+                    {renderErrorMessage("description", formState)}
                   </div>
 
                   <div className="authform_container">
@@ -325,7 +312,7 @@ const AuthSignup = () => {
                       id="website"
                       placeholder="Tell us your website"
                     />
-                    {renderErrorMessage("website")}
+                    {renderErrorMessage("website", formState)}
                   </div>
                 </>
               )}
@@ -348,7 +335,7 @@ const AuthSignup = () => {
                     id="city"
                     placeholder="New York"
                   />
-                  {renderErrorMessage("city")}
+                  {renderErrorMessage("city", formState)}
                 </div>
                 <div className="authform_container">
                   <label htmlFor="confirmPassword" className="auth_label">
@@ -364,7 +351,7 @@ const AuthSignup = () => {
                     id="state"
                     placeholder="Texas"
                   />
-                  {renderErrorMessage("state")}
+                  {renderErrorMessage("state", formState)}
                 </div>
               </div>
 
@@ -381,7 +368,7 @@ const AuthSignup = () => {
                   id="address"
                   placeholder="22/B Baker Street"
                 />
-                {renderErrorMessage("address")}
+                {renderErrorMessage("address", formState)}
               </div>
 
               <div className="authform_container ">
@@ -389,7 +376,7 @@ const AuthSignup = () => {
                   Country
                 </label>
                 <Select options={countries} isClearable ref={selectedOption} />
-                {renderErrorMessage("country")}
+                {renderErrorMessage("country", formState)}
               </div>
 
               <div className="authform_container ">
@@ -407,7 +394,7 @@ const AuthSignup = () => {
                   id="pincode"
                   placeholder="123456"
                 />
-                {renderErrorMessage("pincode")}
+                {renderErrorMessage("pincode", formState)}
               </div>
 
               {userType === "club" && (
@@ -426,7 +413,7 @@ const AuthSignup = () => {
                     id="iframe"
                     placeholder="Iframe code"
                   />
-                  {renderErrorMessage("iframe")}
+                  {renderErrorMessage("iframe", formState)}
                 </div>
               )}
 
