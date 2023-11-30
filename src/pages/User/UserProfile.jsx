@@ -131,259 +131,126 @@ const UserProfile = () => {
 
         <div className="userprofile_eventscontainer">
           <h1>Events Attending</h1>
-          {window.innerWidth > 1200 ? (
-            <Swiper
-              slidesPerView={3}
-              spaceBetween={20}
-              loop={true}
-              autoplay={{
-                delay: 2000,
-                disableOnInteraction: false,
-              }}
-              navigation={false}
-              modules={[Pagination, Autoplay, Navigation]}
-              className="mySwiper carousel"
-            >
-              <SwiperSlide>
-                <div className="clubdetails_eventcard">
-                  <img
-                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
-                    alt=""
-                  />
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={20}
+            loop={true}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              940: {
+                slidesPerView: 2,
+              },
+              1280: {
+                slidesPerView: 3,
+              },
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={false}
+            modules={[Pagination, Autoplay, Navigation]}
+            className="mySwiper carousel"
+          >
+            <SwiperSlide>
+              <div className="clubdetails_eventcard">
+                <img
+                  src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                  alt=""
+                />
 
-                  <div className="clubdetails_eventcard_body">
-                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
-                    <div className="clubdetails_eventcard_body_date">
-                      <p>01</p>
-                      <p>OCT</p>
-                    </div>
+                <div className="clubdetails_eventcard_body">
+                  <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                  <div className="clubdetails_eventcard_body_date">
+                    <p>01</p>
+                    <p>OCT</p>
                   </div>
                 </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="clubdetails_eventcard">
-                  <img
-                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
-                    alt=""
-                  />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="clubdetails_eventcard">
+                <img
+                  src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                  alt=""
+                />
 
-                  <div className="clubdetails_eventcard_body">
-                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
-                    <div className="clubdetails_eventcard_body_date">
-                      <p>01</p>
-                      <p>OCT</p>
-                    </div>
+                <div className="clubdetails_eventcard_body">
+                  <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                  <div className="clubdetails_eventcard_body_date">
+                    <p>01</p>
+                    <p>OCT</p>
                   </div>
                 </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="clubdetails_eventcard">
-                  <img
-                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
-                    alt=""
-                  />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="clubdetails_eventcard">
+                <img
+                  src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                  alt=""
+                />
 
-                  <div className="clubdetails_eventcard_body">
-                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
-                    <div className="clubdetails_eventcard_body_date">
-                      <p>01</p>
-                      <p>OCT</p>
-                    </div>
+                <div className="clubdetails_eventcard_body">
+                  <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                  <div className="clubdetails_eventcard_body_date">
+                    <p>01</p>
+                    <p>OCT</p>
                   </div>
                 </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="clubdetails_eventcard">
-                  <img
-                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
-                    alt=""
-                  />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="clubdetails_eventcard">
+                <img
+                  src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                  alt=""
+                />
 
-                  <div className="clubdetails_eventcard_body">
-                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
-                    <div className="clubdetails_eventcard_body_date">
-                      <p>01</p>
-                      <p>OCT</p>
-                    </div>
+                <div className="clubdetails_eventcard_body">
+                  <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                  <div className="clubdetails_eventcard_body_date">
+                    <p>01</p>
+                    <p>OCT</p>
                   </div>
                 </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="clubdetails_eventcard">
-                  <img
-                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
-                    alt=""
-                  />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="clubdetails_eventcard">
+                <img
+                  src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                  alt=""
+                />
 
-                  <div className="clubdetails_eventcard_body">
-                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
-                    <div className="clubdetails_eventcard_body_date">
-                      <p>01</p>
-                      <p>OCT</p>
-                    </div>
+                <div className="clubdetails_eventcard_body">
+                  <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                  <div className="clubdetails_eventcard_body_date">
+                    <p>01</p>
+                    <p>OCT</p>
                   </div>
                 </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="clubdetails_eventcard">
-                  <img
-                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
-                    alt=""
-                  />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="clubdetails_eventcard">
+                <img
+                  src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
+                  alt=""
+                />
 
-                  <div className="clubdetails_eventcard_body">
-                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
-                    <div className="clubdetails_eventcard_body_date">
-                      <p>01</p>
-                      <p>OCT</p>
-                    </div>
+                <div className="clubdetails_eventcard_body">
+                  <h1>ISB Alumni Social Impact SIG Initiative</h1>
+                  <div className="clubdetails_eventcard_body_date">
+                    <p>01</p>
+                    <p>OCT</p>
                   </div>
                 </div>
-              </SwiperSlide>
-            </Swiper>
-          ) : (
-            <Swiper
-              slidesPerView={1}
-              spaceBetween={40}
-              loop={true}
-              autoplay={{
-                delay: 2000,
-                disableOnInteraction: false,
-              }}
-              navigation={false}
-              modules={[Pagination, Autoplay, Navigation]}
-              className="mySwiper"
-            >
-              <SwiperSlide>
-                <div className="clubdetails_eventcard">
-                  <img
-                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
-                    alt=""
-                  />
-
-                  <div className="clubdetails_eventcard_body">
-                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
-                    <div className="clubdetails_eventcard_body_date">
-                      <p>01</p>
-                      <p>OCT</p>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="clubdetails_eventcard">
-                  <img
-                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
-                    alt=""
-                  />
-
-                  <div className="clubdetails_eventcard_body">
-                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
-                    <div className="clubdetails_eventcard_body_date">
-                      <p>01</p>
-                      <p>OCT</p>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="clubdetails_eventcard">
-                  <img
-                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
-                    alt=""
-                  />
-
-                  <div className="clubdetails_eventcard_body">
-                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
-                    <div className="clubdetails_eventcard_body_date">
-                      <p>01</p>
-                      <p>OCT</p>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="clubdetails_eventcard">
-                  <img
-                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
-                    alt=""
-                  />
-
-                  <div className="clubdetails_eventcard_body">
-                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
-                    <div className="clubdetails_eventcard_body_date">
-                      <p>01</p>
-                      <p>OCT</p>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="clubdetails_eventcard">
-                  <img
-                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
-                    alt=""
-                  />
-
-                  <div className="clubdetails_eventcard_body">
-                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
-                    <div className="clubdetails_eventcard_body_date">
-                      <p>01</p>
-                      <p>OCT</p>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="clubdetails_eventcard">
-                  <img
-                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
-                    alt=""
-                  />
-
-                  <div className="clubdetails_eventcard_body">
-                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
-                    <div className="clubdetails_eventcard_body_date">
-                      <p>01</p>
-                      <p>OCT</p>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="clubdetails_eventcard">
-                  <img
-                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
-                    alt=""
-                  />
-
-                  <div className="clubdetails_eventcard_body">
-                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
-                    <div className="clubdetails_eventcard_body_date">
-                      <p>01</p>
-                      <p>OCT</p>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="clubdetails_eventcard">
-                  <img
-                    src="https://149695847.v2.pressablecdn.com/wp-content/uploads/2018/11/data-analysis-ngo.jpg"
-                    alt=""
-                  />
-
-                  <div className="clubdetails_eventcard_body">
-                    <h1>ISB Alumni Social Impact SIG Initiative</h1>
-                    <div className="clubdetails_eventcard_body_date">
-                      <p>01</p>
-                      <p>OCT</p>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          )}
+              </div>
+            </SwiperSlide>
+          </Swiper>
         </div>
       </div>
 
