@@ -77,7 +77,7 @@
     "husky": "^8.0.0",
     "lint-staged": "^13.2.1",
     "prettier": "^3.0.3",
-    "vite": "^4.4.2",
+    "vite": "^4.4.12",
     "vite-plugin-pwa": "^0.16.5"
   },
   "lint-staged": {
