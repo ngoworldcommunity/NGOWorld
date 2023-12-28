@@ -35,7 +35,7 @@ const TopButton = ({
       <div className="authpage_floatingbtn_div" style={{ flexDirection: type }}>
         {isGoBack ? (
           <div
-            className="btn authpage_floatingbtn authpage_goback"
+            className="btn authpage_floatingbtn authpage_goback  place-content-center"
             onClick={() => {
               handleGoBack();
             }}
