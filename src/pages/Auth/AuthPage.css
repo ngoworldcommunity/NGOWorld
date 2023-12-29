@@ -11,6 +11,9 @@
 }
 
 .authpage_leftdiv {
+  display:flex;
+  justify-content:center;
+  align-items:center;
   flex-grow: 1;
   width: 50%;
   padding-top: 15px;
