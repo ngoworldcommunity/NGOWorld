@@ -40,6 +40,12 @@ body:
         - label: "I have read the [Contributing Guidelines](https://github.com/MilanCommunity/Milan/blob/main/CONTRIBUTING.md)"
           required: true
 
+        - label: "I am participating in JWOC"
+          required: false
+
+        - label: "I am participating in IWOC"
+          required: false
+
         - label: "I am willing to work on this issue (blank for no)"
           required: false
 
