@@ -1,12 +1,12 @@
 .btn {
-  padding: 8px 15px;
+  padding: 8px 25px;
   text-align: center;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   width: auto;
   letter-spacing: 1px;
   font-weight: 500;

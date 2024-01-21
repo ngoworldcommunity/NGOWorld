@@ -57,25 +57,25 @@
   text-decoration: none;
   cursor: pointer;
   font-family: Poppins, sans-serif;
-  color: #28183b;
+  color: #e26959;
   font-size: 1rem;
 }
 
 .nav-item div:not(.active-link) {
-  border-bottom: 2px solid #e26959;
+  border-bottom: 2px solid #28183b;
   width: 0%;
   margin: auto;
   transition: all 0.2s ease-in;
 }
 
 .nav-item:hover div {
-  border-bottom: 2px solid #e26959;
+  border-bottom: 2px solid #28183b;
   width: 50%;
   animation: all 0.5 infinite;
 }
 
 .active-link {
-  border-bottom: 2px solid #e26959;
+  border-bottom: 2px solid #28183b;
   width: 50%;
   margin: auto;
 }

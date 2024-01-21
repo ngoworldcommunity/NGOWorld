@@ -5,6 +5,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 import { FaBars } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
+import { IoChevronForwardSharp } from "react-icons/io5";
 import Button from "../Button/GlobalButton/Button";
 import ClickAwayListener from "../../utils/ClickAwayListener";
 
@@ -127,14 +128,20 @@ const Navbar = () => {
                 ) : (
                   <>
                     <Button
-                      variant="outline"
+                      variant="Primary"
                       to="/auth/login"
                       fontweight="bold"
                     >
-                      Sign in
+                      <span>
+                        Contribute to Milan
+                        <IoChevronForwardSharp style={{ marginLeft: "5px" }} />
+                      </span>
                     </Button>
                     <Button to="/auth/signup" fontweight="bold" variant="solid">
-                      Sign up
+                      <span>
+                        Sign Up
+                        <IoChevronForwardSharp style={{ marginLeft: "5px" }} />
+                      </span>
                     </Button>
                   </>
                 )}
