@@ -137,7 +137,11 @@ const Navbar = () => {
                         <IoChevronForwardSharp style={{ marginLeft: "5px" }} />
                       </span>
                     </Button>
-                    <Button to="/auth/signup" fontweight="bold" variant="solid">
+                    <Button
+                      to="/auth/signup"
+                      fontweight="bold"
+                      variant="rounded"
+                    >
                       <span>
                         Sign Up
                         <IoChevronForwardSharp style={{ marginLeft: "5px" }} />

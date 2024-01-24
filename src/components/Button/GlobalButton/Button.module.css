@@ -2,17 +2,24 @@
   padding: 8px 25px;
   text-align: center;
   cursor: pointer;
-  border-radius: 40px;
+  border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   width: auto;
   letter-spacing: 1px;
   font-weight: 500;
   transition: all 0.2s ease-in-out;
 }
 
+.rounded{
+  background: #e26959;
+  border: 1px solid #e26959;
+  border-radius: 40px;
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
 .btn > p {
   font-family: "Poppins", sans-serif;
   margin: 0;
