@@ -80,6 +80,14 @@
   opacity: 0.3;
 }
 
+.rounded:focus,
+.rounded:hover,
+.rounded:active {
+  color: black;
+  border: #e26959 solid 1px;
+  background-color: white;
+  transition: all 0.2s ease-in-out;
+}
 .btn.bold {
   font-weight: 600;
 }

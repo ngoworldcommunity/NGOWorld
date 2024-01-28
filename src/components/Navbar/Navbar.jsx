@@ -127,7 +127,7 @@ const Navbar = () => {
                   />
                 ) : (
                   <>
-                    <Button
+                    {/* <Button
                       variant="Primary"
                       to="/auth/login"
                       fontweight="bold"
@@ -136,7 +136,7 @@ const Navbar = () => {
                         Contribute to Milan
                         <IoChevronForwardSharp style={{ marginLeft: "5px" }} />
                       </span>
-                    </Button>
+                    </Button> */}
                     <Button
                       to="/auth/signup"
                       fontweight="bold"
