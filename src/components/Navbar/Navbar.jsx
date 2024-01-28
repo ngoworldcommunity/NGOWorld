@@ -111,6 +111,17 @@ const Navbar = () => {
                     }
                   ></div>
                 </li>
+                <li className="nav-item home">
+                  <Link to="/rateus" onClick={() => setIsNavbarOpen(false)}>
+                    Rate Us
+                  </Link>
+                  <div
+                    className={
+                      "" +
+                      (location.pathname === "/rateus" ? "active-link" : "")
+                    }
+                  ></div>
+                </li>
               </ul>
               <div className="nav-buttons">
                 {Cookies.get("OAuthLoginInitiated") ||

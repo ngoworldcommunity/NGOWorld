@@ -10,6 +10,7 @@ import {
   AuthSignup,
   AuthLogin,
   ClubProfile,
+  RateUs,
 } from "../../pages/route";
 
 const routesConfig = [
@@ -21,6 +22,7 @@ const routesConfig = [
   { path: "/club/:slug", element: <ClubProfile /> },
   { path: "/events", element: <Events /> },
   { path: "/shop", element: <Shop /> },
+  { path: "/rateus", element: <RateUs /> },
   { path: "*", element: <Error404 /> },
 ];
 

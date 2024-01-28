@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./styles/App.css";
 import BacktoTop from "../src/components/Button/BacktoTop/BacktoTop.jsx";
 import routesConfig from "./assets/data/routesConfig";
-
 const App = () => {
   return (
     <>
@@ -17,6 +16,7 @@ const App = () => {
               element={route?.element}
             />
           ))}
+          {/* <Route path="/rateus" element={<RateUs/>}/> */}
         </Routes>
       </Router>
       <BacktoTop />
