@@ -14,6 +14,5 @@ export { default as Events } from "./Event/AllEvents/Events";
 
 // Shop Routes
 export { default as Shop } from "./Shop/Shop";
-export { default as RateUs } from "./Rating and feedback/RateUs";
 // Not found page
 export { default as Error404 } from "./Error404/Error404";

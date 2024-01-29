@@ -4,7 +4,6 @@
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
-
 .clubspage_cardsdiv {
   margin-top: 5rem;
   margin-bottom: 0;
@@ -15,7 +14,17 @@
   column-gap: 1.5rem;
   row-gap: 1.5rem;
 }
-
+.feedd{
+  display: flex;
+  justify-content: center;
+}
+.btn-feed{
+  background-color: rgb(236, 119, 24);
+  font-size: 3vmin;
+  padding:6px;
+  border-radius: 15px;
+  color: white;
+}
 @media screen and (max-width: 500px) {
   .clubspage_main_parent {
     margin-top: 2rem;

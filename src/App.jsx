@@ -16,7 +16,6 @@ const App = () => {
               element={route?.element}
             />
           ))}
-          {/* <Route path="/rateus" element={<RateUs/>}/> */}
         </Routes>
       </Router>
       <BacktoTop />
