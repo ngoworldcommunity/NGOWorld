@@ -1,5 +1,5 @@
 .btn {
-  padding: 8px 15px;
+  padding: 8px 25px;
   text-align: center;
   cursor: pointer;
   border-radius: 8px;
@@ -13,6 +13,13 @@
   transition: all 0.2s ease-in-out;
 }
 
+.rounded{
+  background: #e26959;
+  border: 1px solid #e26959;
+  border-radius: 40px;
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
 .btn > p {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -73,6 +80,14 @@
   opacity: 0.3;
 }
 
+.rounded:focus,
+.rounded:hover,
+.rounded:active {
+  color: black;
+  border: #e26959 solid 1px;
+  background-color: white;
+  transition: all 0.2s ease-in-out;
+}
 .btn.bold {
   font-weight: 600;
 }
