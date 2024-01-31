@@ -1,12 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./styles/App.css";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import BacktoTop from "../src/components/Button/BacktoTop/BacktoTop.jsx";
 import routesConfig from "./assets/data/routesConfig";
+import "./styles/App.css";
 
 const App = () => {
   return (
-    <>
+    <div className="app">
       <Router>
         <Routes>
           {routesConfig.map((route, index) => (
@@ -20,7 +20,7 @@ const App = () => {
         </Routes>
       </Router>
       <BacktoTop />
-    </>
+    </div>
   );
 };
 

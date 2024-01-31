@@ -7,6 +7,16 @@
   justify-content: center;
   width: 100%;
   height: 95vh;
+  position: relative;
+}
+
+.Landing_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100vw;
+  object-fit: cover;
 }
 
 .banner_subparent {
@@ -318,4 +328,12 @@
     > .mib_collab_bottom_left {
     display: none;
   }
+}
+
+.homebanner_parent {
+  position: relative;
+}
+
+.homebanner_bg {
+  max-width: 100%;
 }

@@ -1,13 +1,16 @@
-import React from "react";
-import "./Banner.css";
 import Cookies from "js-cookie";
+import React from "react";
 import { ImGithub } from "react-icons/im";
 import Button from "../Button/GlobalButton/Button";
+import "./Landing.css";
 
-const HomeBanner = () => {
+import Vector from "../../assets/pictures/Banner/Vector.png";
+
+const Landing = () => {
   return (
     <>
       <div className="container">
+        <img src={Vector} alt="" className="Landing_bg" />
         <div className="banner_mainparent">
           <div className="banner_subparent">
             <div className="banner_textdiv">
@@ -78,4 +81,4 @@ const HomeBanner = () => {
   );
 };
 
-export default HomeBanner;
+export default Landing;
