@@ -178,7 +178,6 @@ import { FaChevronRight } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
 import { Link, useLocation } from "react-router-dom";
-import githubLogo from "../../assets/pictures/Navbar/GitHubLogo.png";
 import navbarbrand from "../../assets/pictures/Navbar/NavbarImg.png";
 import Button from "../Button/GlobalButton/Button";
 import "./Navbar.css";
@@ -251,10 +250,6 @@ const Navbar = () => {
               })}
             </div>
             <div className="navbar_cta">
-              <Button to="/auth/signup" variant="outline">
-                <img src={githubLogo} alt="" />
-              </Button>
-
               <Button to="/auth/signup">
                 <span>Sign Up</span>
 

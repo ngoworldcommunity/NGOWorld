@@ -28,7 +28,7 @@
   font-weight: 600;
   font-family: "Poppins", sans-serif;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 18px;
   line-height: 1;
 }
 
@@ -38,21 +38,6 @@
   margin: auto;
 }
 
-.navbar_cta {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.navbar_cta > a:nth-of-type(1) {
-  width: 80px;
-  height: 50px;
-}
-
-.navbar_cta > a:nth-of-type(1) > img {
-  width: 30px;
-  height: 30px;
-}
 .navbar_ham {
   width: 30px;
   height: 30px;
