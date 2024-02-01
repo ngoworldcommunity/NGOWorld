@@ -4,4 +4,7 @@ export { default as BacktoTop } from "./Button/BacktoTop/BacktoTop";
 export { default as Button } from "./Button/GlobalButton/Button";
 export { default as ComingSoon } from "./ComingSoon/ComingSoon";
 export { default as Footer } from "./Footer/Footer";
+export { default as Header } from "./Header/Header";
+export { default as Loading } from "./Loading/Loading";
+export { default as Modal } from "./Modal/Modal";
 export { default as Navbar } from "./Navbar/Navbar";

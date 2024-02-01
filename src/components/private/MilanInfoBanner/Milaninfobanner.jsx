@@ -1,9 +1,9 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import React, { useEffect } from "react";
-import MilanBuild from "../../assets/pictures/Banner/MilanBuild.svg";
-import MilanCollaborate from "../../assets/pictures/Banner/MilanCollaborate.svg";
-import MilanConnect from "../../assets/pictures/Banner/MilanConnect.svg";
+import MilanBuild from "../../../assets/pictures/Banner/MilanBuild.svg";
+import MilanCollaborate from "../../../assets/pictures/Banner/MilanCollaborate.svg";
+import MilanConnect from "../../../assets/pictures/Banner/MilanConnect.svg";
 import "./MilanInfoBanner.css";
 
 const Milaninfobanner = () => {

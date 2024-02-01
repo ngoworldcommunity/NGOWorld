@@ -11,6 +11,7 @@
   justify-content: space-evenly;
   align-items: center;
   border: none;
+  gap: 10px;
 }
 
 /* .btn:focus {

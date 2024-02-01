@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import useSWR from "swr";
 import { clubEndpoints } from "../../../assets/data/ApiEndpoints";
-import SingleClubEvent from "../../../components/Cards/SingleClubEvent/SingleClubEvent";
-import Header from "../../../components/PageHeader/Header";
-import { Footer, Navbar } from "../../../components/shared";
+
+import { SingleClubEvent } from "../../../components/private";
+import { Footer, Header, Navbar } from "../../../components/shared";
 import ComponentHelmet from "../../../utils/ComponentHelmet";
 import fetcher from "../../../utils/Fetcher";
 import "./Clubs.css";

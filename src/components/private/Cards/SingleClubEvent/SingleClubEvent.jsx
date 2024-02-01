@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../Button/GlobalButton/Button";
+import { Button } from "../../../shared";
 import "./SingleClubEvent.css";
 
 const SingleClubEvent = ({ item }) => {

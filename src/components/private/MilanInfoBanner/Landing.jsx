@@ -1,7 +1,8 @@
+import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
-import Vector from "../../../assets/pictures/Banner/Vector.png";
-import { Button } from "../../shared";
+import Vector from "../../assets/pictures/Banner/Vector.png";
+import Button from "../Button/GlobalButton/Button";
 import "./Landing.css";
 
 const Landing = () => {
@@ -139,8 +140,13 @@ const Landing = () => {
           </div>
         </Marquee>
 
-        <Button to="/auth/signup" className="landing_signup">
-          <span>Sign Up</span>
+        <Button
+          to={`${Cookies.get("isLoggedIn") ? "/clubs" : "/auth/signup"}`}
+          className="landing_signup"
+        >
+          <span>
+            {Cookies.get("isLoggedIn") ? "Checkout our NGOs" : "Sign Up"}{" "}
+          </span>
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
