@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import "../BacktoTop/BacktoTop.css";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { IoIosArrowUp } from "react-icons/io";
+import "../BacktoTop/BacktoTop.css";
 
-const GoToTop = () => {
+const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const goToBtn = () => {
@@ -50,4 +49,4 @@ const GoToTop = () => {
   );
 };
 
-export default GoToTop;
+export default BackToTop;

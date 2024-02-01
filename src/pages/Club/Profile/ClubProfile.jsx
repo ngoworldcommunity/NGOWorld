@@ -2,12 +2,11 @@ import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useSWR from "swr";
 
-import Navbar from "../../../components/Navbar/Navbar";
-import Footer from "../../../components/Footer/Footer";
+import { Button, Footer, Navbar } from "../../../components/shared";
 
-import fetcher from "../../../utils/Fetcher";
 import { clubEndpoints } from "../../../assets/data/ApiEndpoints";
 import { Logout } from "../../../service/MilanApi";
+import fetcher from "../../../utils/Fetcher";
 import { showErrorToast, showSuccessToast } from "../../../utils/Toasts";
 import "./ClubProfile.css";
 
@@ -15,14 +14,13 @@ import { BiEdit, BiLinkExternal, BiLogOut } from "react-icons/bi";
 import { BsDot } from "react-icons/bs";
 import { MdOutlineAttachMoney } from "react-icons/md";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import Cookies from "js-cookie";
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
-import { Pagination, Autoplay, Navigation } from "swiper/modules";
-import Cookies from "js-cookie";
-import Button from "../../../components/Button/GlobalButton/Button";
+import "swiper/css/pagination";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import useAuthStore from "../../../store/useAuth";
 
 function ClubProfile() {

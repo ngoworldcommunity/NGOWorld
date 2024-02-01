@@ -1,27 +1,26 @@
 import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
 import "./UserProfile.css";
 
 import { BiEdit, BiLinkExternal, BiLogoGmail, BiLogOut } from "react-icons/bi";
 import { BsLinkedin } from "react-icons/bs";
 import { RiTwitterXFill } from "react-icons/ri";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useNavigate, useParams } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
-import Footer from "../../components/Footer/Footer";
-import { Pagination, Autoplay, Navigation } from "swiper/modules";
-import { Logout } from "../../service/MilanApi";
-import { useNavigate, useParams } from "react-router-dom";
-import { showErrorToast, showSuccessToast } from "../../utils/Toasts";
-import { ToastContainer } from "react-toastify";
+import "swiper/css/pagination";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import useSWR from "swr";
 import { userEndpoints } from "../../assets/data/ApiEndpoints";
+import { Logout } from "../../service/MilanApi";
 import fetcher from "../../utils/Fetcher";
-import Button from "../../components/Button/GlobalButton/Button";
+import { showErrorToast, showSuccessToast } from "../../utils/Toasts";
+
 import Cookies from "js-cookie";
+import { Button, Footer, Navbar } from "../../components/shared";
 import useAuthStore from "../../store/useAuth";
 
 const UserProfile = () => {

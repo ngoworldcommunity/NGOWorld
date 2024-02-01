@@ -5,7 +5,7 @@ import { FaChevronDown } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import rightabstract from "../../assets/pictures/authpages/authbanner.png";
-import Button from "../../components/Button/GlobalButton/Button";
+import { Button } from "../../components/shared";
 import { userTypeOptions } from "../../constants/Auth";
 import { signupSchema } from "../../constants/AuthSchema";
 import { GoogleAuth } from "../../service/MilanApi";

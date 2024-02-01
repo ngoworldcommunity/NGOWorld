@@ -1,14 +1,14 @@
 import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
+import { FaGithub, FaSquareXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import solidarity from "../../assets/pictures/solidarity.png";
-import { ReportProblem } from "../../service/MilanApi";
+import solidarity from "../../../assets/pictures/solidarity.png";
+import { ReportProblem } from "../../../service/MilanApi";
 import Button from "../Button/GlobalButton/Button";
 import Modal from "../Modal/Modal";
 import "./Footer.css";
-import { FaSquareXTwitter, FaGithub } from "react-icons/fa6";
 
 const Footer = () => {
   const [reportModal, setReportModal] = useState(false);

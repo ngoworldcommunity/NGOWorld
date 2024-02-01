@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import rightabstract from "../../assets/pictures/authpages/authbanner.png";
-import Button from "../../components/Button/GlobalButton/Button";
+import { Button } from "../../components/shared";
 import { signInSchema } from "../../constants/AuthSchema";
 import { GoogleAuth } from "../../service/MilanApi";
 import "./index.css";
