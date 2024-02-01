@@ -1,8 +1,10 @@
 export { default as Home } from "./Home";
 
 //Auth Routes
-export { default as AuthSignup } from "./Auth/AuthSignup";
-export { default as AuthLogin } from "./Auth/AuthLogin";
+export { default as SignIn } from "./Auth/SignIn";
+export { default as SignUp } from "./Auth/SignUp";
+export { default as AuthLogin } from "./Auth/[TBD]AuthLogin";
+export { default as AuthSignup } from "./Auth/[TBD]AuthSignup";
 
 // User Routes
 export { default as UserProfile } from "./User/UserProfile";
