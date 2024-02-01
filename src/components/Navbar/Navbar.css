@@ -13,7 +13,7 @@
 }
 
 .navbar_brand > img {
-  width: 130px;
+  width: 110px;
 }
 
 .navbar_links {
@@ -28,7 +28,7 @@
   font-weight: 600;
   font-family: "Poppins", sans-serif;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1;
 }
 
@@ -36,6 +36,27 @@
   border-bottom: 2px solid #28183b;
   width: 50%;
   margin: auto;
+}
+
+.navbar_cta:hover {
+  background: var(--Brand-brand-500, #ff5b31);
+  box-shadow:
+    0px 0px 1.17px 0px #ff5a30,
+    0px 0px 8.191px 0px #ff5a30,
+    0px 0px 28.084px 0px #ff5a30;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar_cta_arrow {
+  width: 15px;
+  height: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar_cta:hover .navbar_cta_arrow,
+.landing_signup:hover .navbar_cta_arrow {
+  transform: rotate(-90deg);
+  transition: all 0.3s ease-in-out;
 }
 
 .navbar_ham {
@@ -66,7 +87,7 @@
 }
 
 .navbar_mobile_links {
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0);
   padding: 1rem;
   box-shadow: 1px 3px 80px rgba(255, 255, 255, 0.346);
   border-radius: 12px;

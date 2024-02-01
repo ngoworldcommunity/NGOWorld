@@ -36,13 +36,9 @@
 }
 
 .landing_promo:hover {
-  box-shadow:
-    0px 0px 48.975px 0px #f1dedab9,
-    0px 0px 97.95px 0px #f1dedab9,
-    0px 0px 342.826px 0px #f1dedab9,
-    0px 0px 685.652px 0px #f1dedab9,
-    0px 0px 1175.403px 0px #f1dedab9,
-    0px 0px 2056.956px 0px #f1dedab9;
+  -webkit-box-shadow: 0px 0px 29px 7px rgba(255, 124, 90, 0.44);
+  -moz-box-shadow: 0px 0px 29px 7px rgba(255, 124, 90, 0.44);
+  box-shadow: 0px 0px 29px 7px rgba(255, 124, 90, 0.44);
   transition: all 0.2s ease-in-out;
   border: 1px solid var(--headsup-stroke, rgb(215, 86, 54));
 }
@@ -89,8 +85,47 @@
   width: 170px !important;
 }
 
+.landing_signup:hover {
+  background: var(--Brand-brand-500, #ff5b31);
+  box-shadow:
+    0px 0px 1.17px 0px #ff5a30,
+    0px 0px 8.191px 0px #ff5a30,
+    0px 0px 28.084px 0px #ff5a30;
+  transition: all 0.3s ease-in-out;
+}
+
 .landing_signup > span {
   font-size: 20px;
+}
+
+.landing_marque {
+  width: 50% !important;
+  margin: auto;
+  margin-top: 4rem;
+}
+
+.landing_marque_pill {
+  background-color: white;
+  border-radius: 50px;
+  padding: 5px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  font-family: "Outfit", sans-serif;
+  cursor: pointer;
+  z-index: 3;
+  border: 1px solid var(--headsup-stroke, rgba(215, 86, 54, 0.103));
+  font-size: 15px;
+  color: black;
+  margin: 0 20px;
+}
+
+.landing_marque_pill > img {
+  width: 35px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 @media screen and (max-width: 500px) {
@@ -112,12 +147,16 @@
   }
 
   .landing_signup {
-    margin-top: 2rem;
+    margin-top: 4rem;
     width: 150px !important;
   }
 
   .landing_signup > span {
     font-size: 18px;
+  }
+
+  .landing_marque {
+    display: none !important;
   }
 }
 

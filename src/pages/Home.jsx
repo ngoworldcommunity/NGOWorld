@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { ToastContainer } from "react-toastify";
 import Landing from "../components/Banners/Landing.jsx";
+import Milaninfobanner from "../components/Banners/Milaninfobanner.jsx";
+import Footer from "../components/Footer/Footer.jsx";
 import Navbar from "../components/Navbar/Navbar.jsx";
 import { successCallback } from "../service/MilanApi.js";
 import { showErrorToast, showSuccessToast } from "../utils/Toasts.js";
@@ -40,8 +42,8 @@ const Home = () => {
       <Navbar />
 
       <Landing />
-      {/* <Milaninfobanner />
-      <Footer /> */}
+      <Milaninfobanner />
+      <Footer />
     </>
   );
 };
