@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useSWR from "swr";
 
@@ -24,6 +24,8 @@ import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import Cookies from "js-cookie";
 import Button from "../../../components/Button/GlobalButton/Button";
 import useAuthStore from "../../../store/useAuth";
+import Feedback from "../../../components/Feedback system/Feedback";
+import Modal from "../../../components/Modal/Modal";
 
 function ClubProfile() {
   const params = useParams();
@@ -57,7 +59,7 @@ function ClubProfile() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+  const [review, setReview] = useState(false);
   return (
     <>
       <Navbar />
@@ -81,10 +83,13 @@ function ClubProfile() {
 
           <div className="clubdetails_subscribe">
             {Cookies.get("username") !== params.slug ? (
-              <Button fontweight="regular">
-                <MdOutlineAttachMoney className="money_icon" />{" "}
-                <p>Help us continue</p>
-              </Button>
+              <>
+                <Button fontweight="regular">
+                  <MdOutlineAttachMoney className="money_icon" />{" "}
+                  <p>Help us continue</p>
+                </Button>
+                <Button variant="outline">Share feedback</Button>
+              </>
             ) : (
               <>
                 <Button type="button" variant="solid">
@@ -99,10 +104,17 @@ function ClubProfile() {
                 >
                   <BiLogOut /> <p>Logout</p>
                 </Button>
+                <Button onClick={() => setReview(true)}>Share feedback</Button>
               </>
             )}
           </div>
-
+          {review ? (
+            <Modal className="feed" onClose={() => setReview(false)}>
+              <Feedback />
+            </Modal>
+          ) : (
+            <></>
+          )}
           <div className="clubdetails_body">
             <h1>{clubdetails?.name}</h1>
             <p>{clubdetails?.tagLine}</p>

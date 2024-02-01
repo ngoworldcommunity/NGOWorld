@@ -33,6 +33,8 @@
 .clubdetails_subscribe {
   display: flex;
   justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
   margin-top: 1rem;
   gap: 1rem;
 }
