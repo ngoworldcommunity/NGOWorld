@@ -5,8 +5,7 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import Select from "react-select";
 import { ToastContainer } from "react-toastify";
 import countries from "../../assets/data/CountryList";
-import AuthButton from "../../components/Button/AuthButton/AuthButton";
-import TopButton from "../../components/Button/AuthButton/TopButton";
+import { AuthButton, TopButton } from "../../components/shared";
 import { userTypeOptions } from "../../constants/Auth";
 import {
   clubInitialFormState,

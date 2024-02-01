@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import BacktoTop from "../src/components/Button/BacktoTop/BacktoTop.jsx";
+import { BacktoTop } from "./components/shared/index.js";
 import "./styles/App.css";
 import routesConfig from "./utils/routesConfig.jsx";
 

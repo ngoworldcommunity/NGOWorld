@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
-
-import Navbar from "../../../components/Navbar/Navbar";
-import SingleClubEvent from "../../../components/Cards/SingleClubEvent/SingleClubEvent";
-import Footer from "../../../components/Footer/Footer";
-import "./Clubs.css";
-import Header from "../../../components/PageHeader/Header";
 import useSWR from "swr";
-import fetcher from "../../../utils/Fetcher";
 import { clubEndpoints } from "../../../assets/data/ApiEndpoints";
+import SingleClubEvent from "../../../components/Cards/SingleClubEvent/SingleClubEvent";
+import Header from "../../../components/PageHeader/Header";
+import { Footer, Navbar } from "../../../components/shared";
 import ComponentHelmet from "../../../utils/ComponentHelmet";
+import fetcher from "../../../utils/Fetcher";
+import "./Clubs.css";
 
 const Clubs = () => {
   const { data: clubs } = useSWR(clubEndpoints.all, fetcher);
