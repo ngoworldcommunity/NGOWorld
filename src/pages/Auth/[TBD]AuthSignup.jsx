@@ -1,25 +1,25 @@
-import { useState, useRef, useEffect } from "react";
-import { RegisterUser } from "../../service/MilanApi";
+import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { ToastContainer } from "react-toastify";
-import TopButton from "../../components/Button/AuthButton/TopButton";
-import { FiEye, FiEyeOff } from "react-icons/fi";
 import { FaChevronDown } from "react-icons/fa";
-import "./AuthPage.css";
+import { FiEye, FiEyeOff } from "react-icons/fi";
+import Select from "react-select";
+import { ToastContainer } from "react-toastify";
+import countries from "../../assets/data/CountryList";
+import AuthButton from "../../components/Button/AuthButton/AuthButton";
+import TopButton from "../../components/Button/AuthButton/TopButton";
+import { userTypeOptions } from "../../constants/Auth";
 import {
   clubInitialFormState,
   individualInitialFormState,
   useFormLogic,
 } from "../../hooks/useFormLogic";
-import Select from "react-select";
-import countries from "../../assets/data/CountryList";
-import AuthButton from "../../components/Button/AuthButton/AuthButton";
+import { RegisterUser } from "../../service/MilanApi";
 import {
   confirmPasswordToggle,
   passwordToggle,
 } from "../../utils/Auth/PasswordToggle";
 import { renderErrorMessage } from "../../utils/Auth/RenderErrorMessage";
-import { userTypeOptions } from "../../constants/Auth";
+import "./[TBD]AuthPage.css";
 
 const AuthSignup = () => {
   const [userType, setUserType] = useState("individual");

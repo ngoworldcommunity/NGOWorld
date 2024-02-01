@@ -1,77 +1,35 @@
-.navbar_main {
-  background-color: rgba(255, 255, 255, 0.6);
-  padding-bottom: 10px;
-  padding-top: 10px;
+.navbar_parent {
+  background-color: rgba(255, 255, 255, 0);
+  padding: 0.8rem 7rem;
   backdrop-filter: blur(10px);
   box-shadow: 0 20px 30px rgba(255, 255, 255, 0.15);
   z-index: 10;
   position: fixed;
   top: 0;
   width: 100%;
-}
-
-.navbar_main > .navbar_betabtn {
-  position: absolute;
-  left: 15px;
-  top: 15px;
-  z-index: 1;
-  background-color: #000000;
-  color: white;
-  border-radius: 8px;
-  font-size: 16px !important;
-  font-family: "Poppins", sans-serif;
-  width: auto;
-  padding: 0 1rem;
-}
-
-.nav_brand_parent {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
-.nav_brand_name {
-  color: #e26959;
-  text-decoration: none;
-  padding-left: 5px;
-  font-family: Montserrat, sans-serif;
-  font-size: 1.5rem;
+.navbar_brand > img {
+  width: 110px;
 }
 
-.navbar-nav {
-  margin: auto;
-  gap: 30px;
+.navbar_links {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-top: 10px;
 }
 
-.navbar-brand {
-  font-size: 1.8em;
-  color: #28183b;
-  font-family: "Indie Flower", cursive;
+.navbar_link {
+  color: #8c321b;
   font-weight: 600;
-  display: flex;
-  align-items: center;
-  pointer-events: none;
-  margin-left: 30px;
-}
-
-.nav-item a {
+  font-family: "Poppins", sans-serif;
   text-decoration: none;
-  cursor: pointer;
-  font-family: Poppins, sans-serif;
-  color: #e26959;
-  font-size: 1rem;
-}
-
-.nav-item div:not(.active-link) {
-  border-bottom: 2px solid #28183b;
-  width: 0%;
-  margin: auto;
-  transition: all 0.2s ease-in;
-}
-
-.nav-item:hover div {
-  border-bottom: 2px solid #28183b;
-  width: 50%;
-  animation: all 0.5 infinite;
+  font-size: 17px;
+  line-height: 1;
 }
 
 .active-link {
@@ -80,121 +38,108 @@
   margin: auto;
 }
 
-.shop_tag {
-  font-weight: 600;
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+.navbar_cta:hover {
+  background: var(--Brand-brand-500, #ff5b31);
+  box-shadow:
+    0px 0px 1.17px 0px #ff5a30,
+    0px 0px 8.191px 0px #ff5a30,
+    0px 0px 28.084px 0px #ff5a30;
+  transition: all 0.3s ease-in-out;
 }
 
-.home {
-  font-weight: 600;
-  margin: auto;
+.navbar_cta_arrow {
+  width: 15px;
+  height: 15px;
+  transition: all 0.3s ease-in-out;
 }
 
-.shop_icon {
-  width: 10px;
-  height: 10px;
+.navbar_cta:hover .navbar_cta_arrow,
+.landing_signup:hover .navbar_cta_arrow {
+  transform: rotate(-90deg);
+  transition: all 0.3s ease-in-out;
 }
 
-.nav-buttons {
-  display: flex;
-  gap: 5px;
-}
-
-@media (max-width: 1024px) {
-  .navbar-brand {
-    font-size: 1.7rem;
-  }
-
-  .home {
-    margin: auto;
-    padding: 8px;
-  }
-
-  .navbar-nav {
-    padding-left: 0px;
-  }
-
-  .nav-buttons {
-    flex-direction: column;
-    margin: auto;
-    gap: 0px;
-  }
-
-  .navbar-nav {
-    gap: 5px;
-  }
-}
-
-.nav_brand_img {
-  margin-left: 10px;
-  object-fit: cover;
-  cursor: pointer;
-}
-
-.nav_user_img {
+.navbar_ham {
   width: 30px;
   height: 30px;
-  border-radius: 50%;
-  margin-left: 10px;
-  object-fit: cover;
+  color: #28183b;
   cursor: pointer;
-  align-self: center;
+  display: none;
 }
 
-@media (min-width: 769px) {
-  .container-fluid {
-    padding: 1rem 3rem;
-  }
-}
-
-.signUpModalHeader > h1 {
-  font-family: Poppins, sans-serif;
-  color: #000000;
-  font-size: 1.5rem;
-  font-weight: 800;
-  text-align: center;
-}
-
-.button-wrapper {
+.navbar_mobile_linksparent {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.867);
+  z-index: 20;
   display: flex;
-  flex-direction: column;
-  max-width: fit-content;
-  margin: 0 auto;
+  justify-content: end;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
 }
 
-.modal-btn {
-  margin: 20px;
+.navbar_mobile_links {
+  background-color: rgb(255, 255, 255);
+  padding: 1rem;
+  box-shadow: 1px 3px 80px rgba(255, 255, 255, 0.346);
+  border-radius: 12px;
+  width: 80vw;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  position: absolute;
+  top: 20%;
+  padding-top: 2rem;
 }
 
-@media screen and (max-width: 525px) {
-  .navbar_main > .navbar_betabtn {
-    left: 145px;
-    top: 19px;
+.navbar_mobile_link {
+  color: #000000;
+  font-weight: 500;
+  font-family: "Outfit", sans-serif;
+  text-decoration: none;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.navbar_mobile_cta {
+  font-family: "Outfit", sans-serif;
+  text-decoration: none;
+  font-size: 17px;
+  gap: 5px;
+  padding: 0.5rem 1rem;
+}
+
+.navbar_mobile_cta > svg {
+  width: 15px;
+  height: 15px;
+}
+
+.navbar_mobile_close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 430px) {
+  .navbar_parent {
+    padding: 0.8rem 1.5rem;
   }
 
-  .signUpModalHeader {
-    justify-content: center;
-    align-items: center;
+  .navbar_brand > img {
+    width: 100px;
   }
 
-  .signUpModalHeader > h1 {
-    font-size: 1.2rem;
-    margin-left: 1.4rem;
-    flex: auto;
+  .navbar_ham {
+    display: block;
   }
-
-  .nav-buttons {
-    row-gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .nav-buttons > .btn {
-    width: 70%;
-    margin: auto;
-  }
-  /* .nav-buttons > .btn:nth-of-type(1) {
-    display: none;
-  } */
 }
