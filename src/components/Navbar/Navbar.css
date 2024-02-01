@@ -1,5 +1,5 @@
 .navbar_parent {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0);
   padding: 0.8rem 7rem;
   backdrop-filter: blur(10px);
   box-shadow: 0 20px 30px rgba(255, 255, 255, 0.15);
@@ -87,7 +87,7 @@
 }
 
 .navbar_mobile_links {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgb(255, 255, 255);
   padding: 1rem;
   box-shadow: 1px 3px 80px rgba(255, 255, 255, 0.346);
   border-radius: 12px;

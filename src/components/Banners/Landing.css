@@ -4,7 +4,7 @@
   padding-top: 10rem;
   display: flex;
   flex-direction: column;
-  height: 90dvh;
+  min-height: 90dvh;
 }
 
 .Landing_bg {
@@ -47,7 +47,7 @@
   color: var(--Brand-brand-900, #6b2615);
   text-align: center;
   font-family: "Montserrat", sans-serif;
-  font-size: 4rem;
+  font-size: 4.2rem;
   margin-top: 6rem;
   font-style: normal;
   font-weight: 800;
@@ -72,6 +72,7 @@
   width: 55%;
   margin: auto;
   margin-top: 1rem;
+  z-index: 3;
 }
 
 .landing_parent > h2 > span {

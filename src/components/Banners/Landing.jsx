@@ -64,7 +64,7 @@ const Landing = () => {
         </div>
 
         <h1>
-          Connect. Collaborate. <span>Build.</span>
+          Collaborate. Connect. <span>Build.</span>
         </h1>
 
         {windowWidth > 430 ? (

@@ -1,30 +1,27 @@
 import React from "react";
-
 import {
-  Home,
-  UserProfile,
+  AuthLogin,
+  AuthSignup,
   ClubProfile,
   Clubs,
-  Events,
-  Shop,
   Error404,
-  ContactUs,
-  Donate,
-  AuthRegister,
-  AuthLogin,
+  Events,
+  Home,
+  Shop,
+  UserProfile,
 } from "../pages/route";
 
 const routesConfig = [
   { path: "/", element: <Home /> },
-  { path: "/auth/register", element: <AuthRegister /> },
+  { path: "/auth/signup", element: <AuthSignup /> },
   { path: "/auth/login", element: <AuthLogin /> },
-  { path: "/user/profile", element: <UserProfile /> },
+  // { path: "/auth/signup", element: <SignUp /> },
+  // { path: "/auth/login", element: <SignIn /> },
+  { path: "/user/:slug", element: <UserProfile /> },
   { path: "/clubs", element: <Clubs /> },
-  { path: "/clubs/profile", element: <ClubProfile /> },
+  { path: "/club/:slug", element: <ClubProfile /> },
   { path: "/events", element: <Events /> },
   { path: "/shop", element: <Shop /> },
-  { path: "/contact", element: <ContactUs /> },
-  { path: "/donateus", element: <Donate /> },
   { path: "*", element: <Error404 /> },
 ];
 

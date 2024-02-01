@@ -25,6 +25,7 @@
   "dependencies": {
     "@commitlint/cli": "^18.4.2",
     "@commitlint/config-conventional": "^17.6.1",
+    "@hookform/resolvers": "^3.3.4",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/user-event": "^14.4.3",
     "aos": "^2.3.4",
@@ -36,6 +37,7 @@
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.3",
     "react-helmet-async": "^1.3.0",
+    "react-hook-form": "^7.49.3",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.11.2",
     "react-scripts": "^5.0.1",
@@ -47,6 +49,7 @@
     "url": "^0.11.0",
     "vite-plugin-svgr": "^2.2.2",
     "web-vitals": "^3.3.1",
+    "zod": "^3.22.4",
     "zustand": "^4.4.1"
   },
   "scripts": {
