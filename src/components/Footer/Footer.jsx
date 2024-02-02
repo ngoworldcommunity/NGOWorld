@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,8 +9,10 @@ import Button from "../Button/GlobalButton/Button";
 import Modal from "../Modal/Modal";
 import "./Footer.css";
 import { FaSquareXTwitter, FaGithub } from "react-icons/fa6";
+import { modeContext } from "../../App";
 
 const Footer = () => {
+  const { dark } = useContext(modeContext);
   const [reportModal, setReportModal] = useState(false);
   const [reportEmail, setReportEmail] = useState("");
   const [reportFirstName, setReportFirstName] = useState("");
@@ -182,8 +184,9 @@ const Footer = () => {
       )}
       <footer className="bg-white m-0 main-font">
         <div
-          className="px-5 py-2 main-footer"
-          style={{ backgroundColor: "#272626" }}
+          className={`px-5 py-2 main-footer ${
+            dark ? "footer-dark" : "footer-light"
+          }`}
         >
           <div className="row">
             <div className="col-lg-5 col-md-5 mb-lg-0 px-5">
@@ -195,11 +198,19 @@ const Footer = () => {
                 />
               </div>
               {isMobile ? (
-                <p className="h6 join-us text-uppercase text-light font-weight-bold mb-4 mt-2">
+                <p
+                  className={`h6 join-us text-uppercase font-weight-bold mb-4 mt-2 ${
+                    dark ? "headings-dark" : "text-light"
+                  }`}
+                >
                   Check out our socials
                 </p>
               ) : (
-                <p className="footer-text font-italic text-light text-left mt-4 headings">
+                <p
+                  className={`footer-text font-italic text-left mt-4 headings ${
+                    dark ? "headings-dark" : "text-light"
+                  }`}
+                >
                   Want to make Milan better ?<br />
                   <span className=""> Contribute </span>
                   <a
@@ -215,7 +226,11 @@ const Footer = () => {
             </div>
             <div className="join-us col-lg-4 col-md-3 mx-auto mb-lg-0 px-5">
               <div className="join">
-                <p className="h6 join-us text-uppercase text-light font-weight-bold mb-lg-2 mb-3 headings">
+                <p
+                  className={`h6 join-us text-uppercase font-weight-bold mb-lg-2 mb-3 headings ${
+                    dark ? "join-us-head-dark" : "text-light"
+                  }`}
+                >
                   {Cookies.get("isLoggedIn") ? "Explore!" : "Join Us"}
                 </p>
                 <ul className="join-us-list list-unstyled mb-0">
@@ -223,14 +238,18 @@ const Footer = () => {
                     {Cookies.get("isLoggedIn") ? (
                       <Link
                         to="/events"
-                        className="text-decoration-none footer_auth_text"
+                        className={`text-decoration-none  ${
+                          dark ? "join-us-dark" : "footer_auth_text"
+                        }`}
                       >
                         Events
                       </Link>
                     ) : (
                       <Link
                         to="/auth/login"
-                        className="text-decoration-none footer_auth_text"
+                        className={`text-decoration-none  ${
+                          dark ? "join-us-dark" : "footer_auth_text"
+                        }`}
                       >
                         Login
                       </Link>
@@ -240,14 +259,18 @@ const Footer = () => {
                     {Cookies.get("isLoggedIn") ? (
                       <Link
                         to="/shop"
-                        className="text-decoration-none footer_auth_text"
+                        className={`text-decoration-none  ${
+                          dark ? "join-us-dark" : "footer_auth_text"
+                        }`}
                       >
                         Shop
                       </Link>
                     ) : (
                       <Link
                         to="/auth/signup"
-                        className="text-decoration-none footer_auth_text"
+                        className={`text-decoration-none  ${
+                          dark ? "join-us-dark" : "footer_auth_text"
+                        }`}
                       >
                         Register
                       </Link>
@@ -258,7 +281,11 @@ const Footer = () => {
             </div>
             <div className="join-us col-lg-4 col-md-3 mx-auto mb-lg-0 px-5 ">
               <div className="join">
-                <p className="h6 join-us text-uppercase text-light font-weight-bold mb-lg-2 mb-3 headings">
+                <p
+                  className={`h6 join-us text-uppercase font-weight-bold mb-lg-2 mb-3 headings ${
+                    dark ? "join-us-head-dark" : "text-light"
+                  }`}
+                >
                   Socials
                 </p>
                 <ul className="join-us-list list-unstyled mb-0">
@@ -267,7 +294,9 @@ const Footer = () => {
                       href="https://twitter.com/tamalCodes"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-decoration-none footer_auth_text"
+                      className={`text-decoration-none  ${
+                        dark ? "join-us-dark" : "footer_auth_text"
+                      }`}
                     >
                       Twitter
                     </a>
@@ -277,7 +306,9 @@ const Footer = () => {
                       href="https://github.com/MilanCommunity/Milan"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-decoration-none footer_auth_text"
+                      className={`text-decoration-none  ${
+                        dark ? "join-us-dark" : "footer_auth_text"
+                      }`}
                     >
                       GitHub
                     </a>
@@ -286,16 +317,26 @@ const Footer = () => {
               </div>
             </div>
             <div className="mt-4 col-lg-4 col-md-6 mb-lg-0 mx-auto">
-              <p className="h6 headings text-uppercase text-light font-weight-bold mb-2 text-center">
+              <p
+                className={`h6 headings text-uppercase font-weight-bold mb-2 text-center ${
+                  dark ? "talk-to-us-dark" : "text-light"
+                }`}
+              >
                 Talk to us
               </p>
-              <p className="text-center mb-lg-4" style={{ color: "#d8d7d7" }}>
+              <p
+                className={`text-center mb-lg-4 ${
+                  dark ? "text-center-dark" : "text-center-light"
+                }`}
+              >
                 Ideas, problems, violations ? Reach out to us !
               </p>
               <div className="d-flex justify-content-center rounded mx-auto">
                 <button
                   onClick={handleReportModalOpen}
-                  className=" btn-report d-flex align-items-center text-black"
+                  className={`btn-report d-flex align-items-center text-black ${
+                    dark ? "btn-report-dark" : ""
+                  }`}
                 >
                   <span>
                     Contact Us <i className="fa-solid fa-bug"></i>
@@ -312,7 +353,9 @@ const Footer = () => {
                 aria-label="Follow me on Twitter"
                 target="_blank"
               >
-                <FaSquareXTwitter className="twitter-icon" />
+                <FaSquareXTwitter
+                  className={`twitter-icon ${dark ? "dark-social-icon" : ""}`}
+                />
               </a>
             </div>
             <div className="github social-btn">
@@ -322,11 +365,16 @@ const Footer = () => {
                 aria-label="Follow me on Github"
                 target="_blank"
               >
-                <FaGithub className="github-icon" />
+                <FaGithub
+                  className={`github-icon ${dark ? "dark-social-icon" : ""}`}
+                />
               </a>
             </div>
           </div>
-          <p className="text-light text-center" role="contentinfo">
+          <p
+            className={`text-center ${dark ? "desc-dark" : "text-light"}`}
+            role="contentinfo"
+          >
             Developed by team{" "}
             <span
               onClick={clickMilan}
@@ -337,7 +385,7 @@ const Footer = () => {
               }}
               onMouseOver={(e) => {
                 e.target.style.textDecoration = "underline";
-                e.target.style.color = "pink"; // Change to the desired color on hover
+                e.target.style.color = `${dark ? "#D80032" : "pink"}`; // Change to the desired color on hover
               }}
               onMouseOut={(e) => {
                 e.target.style.textDecoration = "none";

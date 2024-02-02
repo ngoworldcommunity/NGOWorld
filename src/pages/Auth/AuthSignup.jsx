@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { RegisterUser } from "../../service/MilanApi";
 import { Helmet } from "react-helmet-async";
 import { ToastContainer } from "react-toastify";
@@ -20,8 +20,10 @@ import {
 } from "../../utils/Auth/PasswordToggle";
 import { renderErrorMessage } from "../../utils/Auth/RenderErrorMessage";
 import { userTypeOptions } from "../../constants/Auth";
+import { modeContext } from "../../App";
 
 const AuthSignup = () => {
+  const { dark } = useContext(modeContext);
   const [userType, setUserType] = useState("individual");
   const [passwordType, setPasswordType] = useState("password");
   const [confirmPasswordType, setConfirmPasswordType] = useState("password");
@@ -79,7 +81,7 @@ const AuthSignup = () => {
                   selectedOption?.current?.state?.prevProps?.value?.label,
                 );
               }}
-              className="authform"
+              className={`authform ${dark ? "authform-dark" : ""}`}
             >
               <TopButton
                 isGoBack={true}
@@ -90,7 +92,10 @@ const AuthSignup = () => {
               <h2 className="separator_header">Personal Details</h2>
 
               <div className="authform_container">
-                <label htmlFor="userType" className="auth_label">
+                <label
+                  htmlFor="userType"
+                  className={`auth_label ${dark ? "label_dark" : ""}`}
+                >
                   User Type
                 </label>
                 <div className="user-type-dropdown">
@@ -116,7 +121,10 @@ const AuthSignup = () => {
               </div>
 
               <div className="authform_container ">
-                <label htmlFor="slug" className="auth_label">
+                <label
+                  htmlFor="slug"
+                  className={`auth_label ${dark ? "label_dark" : ""}`}
+                >
                   Username
                 </label>
                 <input
@@ -137,7 +145,10 @@ const AuthSignup = () => {
               {userType === "individual" ? (
                 <div className="auth_namediv">
                   <div className="authform_container">
-                    <label htmlFor="firstname" className="auth_label">
+                    <label
+                      htmlFor="firstname"
+                      className={`auth_label ${dark ? "label_dark" : ""}`}
+                    >
                       First Name
                     </label>
                     <input
@@ -154,7 +165,10 @@ const AuthSignup = () => {
                   </div>
 
                   <div className="authform_container">
-                    <label htmlFor="lastname" className="auth_label">
+                    <label
+                      htmlFor="lastname"
+                      className={`auth_label ${dark ? "label_dark" : ""}`}
+                    >
                       Last Name
                     </label>
                     <input
@@ -173,7 +187,10 @@ const AuthSignup = () => {
               ) : (
                 <>
                   <div className="authform_container">
-                    <label htmlFor="name" className="auth_label">
+                    <label
+                      htmlFor="name"
+                      className={`auth_label ${dark ? "label_dark" : ""}`}
+                    >
                       Club Name
                     </label>
                     <input
@@ -189,7 +206,10 @@ const AuthSignup = () => {
                     {renderErrorMessage("name", formState)}
                   </div>
                   <div className="authform_container">
-                    <label htmlFor="tagLine" className="auth_label">
+                    <label
+                      htmlFor="tagLine"
+                      className={`auth_label ${dark ? "label_dark" : ""}`}
+                    >
                       Club Tagline
                     </label>
                     <input
@@ -208,7 +228,10 @@ const AuthSignup = () => {
               )}
 
               <div className="authform_container ">
-                <label htmlFor="email" className="auth_label">
+                <label
+                  htmlFor="email"
+                  className={`auth_label ${dark ? "label_dark" : ""}`}
+                >
                   Email address
                 </label>
                 <input
@@ -226,7 +249,10 @@ const AuthSignup = () => {
 
               <div className="auth_passworddiv">
                 <div className="authform_container">
-                  <label htmlFor="password" className="auth_label">
+                  <label
+                    htmlFor="password"
+                    className={`auth_label ${dark ? "label_dark" : ""}`}
+                  >
                     Password
                   </label>
                   <input
@@ -250,7 +276,10 @@ const AuthSignup = () => {
                   {renderErrorMessage("password", formState)}
                 </div>
                 <div className="authform_container">
-                  <label htmlFor="confirmPassword" className="auth_label">
+                  <label
+                    htmlFor="confirmPassword"
+                    className={`auth_label ${dark ? "label_dark" : ""}`}
+                  >
                     Confirm Password
                   </label>
                   <input
@@ -285,7 +314,10 @@ const AuthSignup = () => {
               {userType === "club" && (
                 <>
                   <div className="authform_container">
-                    <label htmlFor="description" className="auth_label">
+                    <label
+                      htmlFor="description"
+                      className={`auth_label ${dark ? "label_dark" : ""}`}
+                    >
                       Club Description
                     </label>
                     <textarea
@@ -301,7 +333,10 @@ const AuthSignup = () => {
                   </div>
 
                   <div className="authform_container">
-                    <label htmlFor="website" className="auth_label">
+                    <label
+                      htmlFor="website"
+                      className={`auth_label ${dark ? "label_dark" : ""}`}
+                    >
                       Club Website
                     </label>
                     <input
@@ -322,7 +357,10 @@ const AuthSignup = () => {
 
               <div className="auth_passworddiv">
                 <div className="authform_container">
-                  <label htmlFor="password" className="auth_label">
+                  <label
+                    htmlFor="password"
+                    className={`auth_label ${dark ? "label_dark" : ""}`}
+                  >
                     City/Town
                   </label>
                   <input
@@ -338,7 +376,10 @@ const AuthSignup = () => {
                   {renderErrorMessage("city", formState)}
                 </div>
                 <div className="authform_container">
-                  <label htmlFor="confirmPassword" className="auth_label">
+                  <label
+                    htmlFor="confirmPassword"
+                    className={`auth_label ${dark ? "label_dark" : ""}`}
+                  >
                     State/Province/Region
                   </label>
                   <input
@@ -356,7 +397,10 @@ const AuthSignup = () => {
               </div>
 
               <div className="authform_container ">
-                <label htmlFor="address" className="auth_label">
+                <label
+                  htmlFor="address"
+                  className={`auth_label ${dark ? "label_dark" : ""}`}
+                >
                   Street Address
                 </label>
                 <textarea
@@ -372,7 +416,10 @@ const AuthSignup = () => {
               </div>
 
               <div className="authform_container ">
-                <label htmlFor="pincode" className="auth_label">
+                <label
+                  htmlFor="pincode"
+                  className={`auth_label ${dark ? "label_dark" : ""}`}
+                >
                   Country
                 </label>
                 <Select options={countries} isClearable ref={selectedOption} />
@@ -380,7 +427,10 @@ const AuthSignup = () => {
               </div>
 
               <div className="authform_container ">
-                <label htmlFor="pincode" className="auth_label">
+                <label
+                  htmlFor="pincode"
+                  className={`auth_label ${dark ? "label_dark" : ""}`}
+                >
                   Pincode / Zipcode
                 </label>
                 <input
@@ -399,7 +449,10 @@ const AuthSignup = () => {
 
               {userType === "club" && (
                 <div className="authform_container ">
-                  <label htmlFor="iframe" className="auth_label">
+                  <label
+                    htmlFor="iframe"
+                    className={`auth_label ${dark ? "label_dark" : ""}`}
+                  >
                     Iframe code
                   </label>
                   <textarea

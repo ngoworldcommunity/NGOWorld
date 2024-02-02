@@ -319,3 +319,55 @@
     display: none;
   }
 }
+.dark-header1{
+  color:#910A67;
+}
+
+.banner_header3-dark{
+  color: #FFE7E7;
+}
+.banner_signup_btn-dark{
+  color: #FFD0EC;
+  border-color: #910A67;
+}
+.banner_contribute_logo-dark{
+  width: 25px;
+  height: 25px;
+  margin-bottom: 0px;
+  color: #FFD0EC;
+}
+.banner_signup_btn-dark:hover{
+  /* color: #910A67; */
+  background-color: #910A67;
+}
+.banner_signup_btn_dark{
+  background-color: #910A67;
+  border-color: #910A67;
+}
+.banner_signup_btn_dark:hover{
+  background-color: #030637;
+  border-color: #910A67;
+  color: #FFD0EC;
+}
+  .mib_top_intro_dark > h1{
+  color: #910A67;
+  background-image: -webkit-linear-gradient(45deg, #FFD0EC 20%, #910A67 60%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 1px;
+  }
+
+  .mib_collab_bottom_middle_dark > h1{
+    color: #FFD1E3;
+  }
+  .mib_collab_bottom_middle_dark > p{
+    color: #FFD1E3;
+  }
+  .mib_collab_bottom_right_dark > h1{
+   color: #910A67;
+  }
+  .mib_collab_bottom_right_dark > p{
+   color: #FFD0EC;
+  }

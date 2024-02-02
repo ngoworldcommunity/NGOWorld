@@ -31,3 +31,13 @@
   text-align: center;
   margin-bottom: 50px;
 }
+.comingsoon_parent_dark > h1{
+  color: pink;
+}
+.comingsoon_parent_dark > p{
+  color: #910A67;
+}
+.comingsoon_parent_dark > a{
+  background-color:#720455;
+  border-color:#720455;
+}

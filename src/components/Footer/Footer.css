@@ -381,3 +381,45 @@
 .underline-animation:hover::after {
   transform: scaleX(1);
 }
+.footer-dark{
+  background-color: #FFD0EC;
+}
+.footer-light{
+  background-color: #322f2f;
+}
+.headings-dark{
+  color: #1F2544;
+}
+.join-us-head-dark{
+  color: #D80032;
+}
+.join-us-dark{
+  color: #030637;
+  margin-bottom: 2px;
+}
+.text-center-dark{
+  color: #030637;
+}
+.talk-to-us-dark{
+  color: #D80032;
+}
+.text-center-light{
+  color: #d8d7d7;
+}
+.btn-report-dark {
+  background-color: #030637;
+}
+
+.btn-report:hover {
+  background-color: #D80032;
+}
+
+.btn-report-dark span {
+  color: white;
+}
+.desc-dark{
+  color: #030637;
+}
+.dark-social-icon{
+  color: #D80032;
+}

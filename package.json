@@ -25,6 +25,11 @@
   "dependencies": {
     "@commitlint/cli": "^18.4.2",
     "@commitlint/config-conventional": "^17.6.1",
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-regular-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/user-event": "^14.4.3",
     "aos": "^2.3.4",

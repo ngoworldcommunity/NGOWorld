@@ -305,3 +305,12 @@ textarea::placeholder {
   top: 40%;
   transform: translateY(-50%);
 }
+.authform-dark > h1{
+  color: #910A67;
+}
+.authform-dark > h2{
+  color: #910A67;
+}
+.label_dark{
+  color: #FFE5E5;
+}

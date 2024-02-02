@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "../../Button/GlobalButton/Button";
 import ComingSoonLogo from "../../../assets/pictures/comingsoon.svg";
 import "./ComingSoon.css";
+import { modeContext } from "../../../App";
 
 const ComingSoon = ({ launchitem }) => {
+  const { dark } = useContext(modeContext);
   return (
     <>
-      <div className="comingsoon_parent">
+      <div
+        className={`comingsoon_parent ${dark ? "comingsoon_parent_dark" : ""}`}
+      >
         <img src={ComingSoonLogo} alt="" />
         <h1>Launching Soon !</h1>
         <p>

@@ -106,16 +106,16 @@
   .navbar-brand {
     font-size: 1.7rem;
   }
-
+  
   .home {
     margin: auto;
     padding: 8px;
   }
-
+  
   .navbar-nav {
     padding-left: 0px;
   }
-
+  
   .nav-buttons {
     flex-direction: column;
     margin: auto;
@@ -178,23 +178,59 @@
     justify-content: center;
     align-items: center;
   }
-
+  
   .signUpModalHeader > h1 {
     font-size: 1.2rem;
     margin-left: 1.4rem;
     flex: auto;
   }
-
+  
   .nav-buttons {
     row-gap: 1rem;
     margin-bottom: 1rem;
   }
-
+  
   .nav-buttons > .btn {
     width: 70%;
     margin: auto;
   }
+
   /* .nav-buttons > .btn:nth-of-type(1) {
     display: none;
   } */
+}
+.nav-item-dark a{
+  color:#910A67; 
+}
+.nav-item-dark div:not(.active-link){
+  border-color: #720455;
+}
+.nav-item-dark:hover div{
+  border-color: #720455;
+}
+.active-link-dark{
+  border-color: #720455;
+}
+.dark{
+  background-color: #030637;
+}
+.nav-buttons .dark-signIN{
+  background-color: #030637;
+  color: #ed64c6;
+  border:1px solid #910A67;
+}
+.nav-buttons .dark-signUp{
+  background-color: #c23d9d;
+  color: #030637;
+  border:1px solid #720455;
+}
+.toggle-btn-dark{
+   margin-left: 20px;
+   background-color: #030637;
+   color:white;
+}
+.toggle-btn{
+  margin-left: 20px;
+  background-color: #030637;
+  color:white;
 }

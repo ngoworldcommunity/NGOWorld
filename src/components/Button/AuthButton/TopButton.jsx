@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useContext } from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import { GoogleAuth } from "../../../service/MilanApi";
+import { modeContext } from "../../../App";
 
 const TopButton = ({
   showgooglebutton,
@@ -16,6 +17,12 @@ const TopButton = ({
   const handleGoBack = () => {
     navigate("/");
   };
+  const dark_btn = {
+    backgroundColor: "#030637",
+    color: "pink",
+    borderColor: "pink",
+  };
+  const { dark } = useContext(modeContext);
 
   const handleNavigatePages = () => {
     navigate(
@@ -36,6 +43,7 @@ const TopButton = ({
         {isGoBack ? (
           <div
             className="btn authpage_floatingbtn authpage_goback"
+            style={dark ? dark_btn : {}}
             onClick={() => {
               handleGoBack();
             }}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { LoginUser } from "../../service/MilanApi";
 import { Helmet } from "react-helmet-async";
 import { ToastContainer } from "react-toastify";
@@ -7,8 +7,10 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import "./AuthPage.css";
 import { useFormLogic } from "../../hooks/useFormLogic";
 import AuthButton from "../../components/Button/AuthButton/AuthButton";
+import { modeContext } from "../../App";
 
 const AuthLogin = () => {
+  const { dark } = useContext(modeContext);
   const { formState, handleChange, handleSubmit } = useFormLogic(
     { email: "", password: "" },
     handleLoginSubmit,
@@ -51,7 +53,10 @@ const AuthLogin = () => {
           </div>
 
           <div className="authpage_rightdiv authpage_logindiv">
-            <form className="authform" onSubmit={handleSubmit}>
+            <form
+              className={`authform ${dark ? "authform-dark" : ""}`}
+              onSubmit={handleSubmit}
+            >
               <TopButton
                 isGoBack={true}
                 showleftGoogleButton={window.innerWidth <= 800 ? true : false}
@@ -59,7 +64,10 @@ const AuthLogin = () => {
               />
               <h1>Sign In</h1>
               <div className="authform_container mb-4">
-                <label htmlFor="email-des" className="auth_label">
+                <label
+                  htmlFor="email-des"
+                  className={`auth_label ${dark ? "label_dark" : ""}`}
+                >
                   Email address
                 </label>
                 <input
@@ -77,7 +85,10 @@ const AuthLogin = () => {
               </div>
 
               <div className="authform_container">
-                <label htmlFor="password-des" className="auth_label">
+                <label
+                  htmlFor="password-des"
+                  className={`auth_label ${dark ? "label_dark" : ""}`}
+                >
                   Password
                 </label>
                 <input
