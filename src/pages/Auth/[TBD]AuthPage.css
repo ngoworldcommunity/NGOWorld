@@ -1,4 +1,4 @@
-.authpage_parent {
+/* .authpage_parent {
   display: flex;
 
   flex-direction: row-reverse;
@@ -305,4 +305,4 @@ textarea::placeholder {
   right: 10px;
   top: 40%;
   transform: translateY(-50%);
-}
+} */

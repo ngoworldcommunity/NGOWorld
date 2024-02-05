@@ -19,7 +19,6 @@
   -moz-box-shadow: 0px 0px 24px -2px rgba(255, 91, 49, 0.56);
   box-shadow: 0px 0px 24px -2px rgba(255, 91, 49, 0.56);
   display: flex;
-
   gap: 4rem;
 }
 
@@ -27,6 +26,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 20px;
+  width: 50%;
 }
 
 .signup_container_left > h1 {

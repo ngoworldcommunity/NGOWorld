@@ -67,6 +67,14 @@
   display: none;
 }
 
+.navbar_hamimg {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: none;
+  border-radius: 50%;
+}
+
 .navbar_mobile_linksparent {
   position: fixed;
   width: 100vw;
@@ -116,6 +124,7 @@
   font-size: 17px;
   gap: 5px;
   padding: 0.5rem 1rem;
+  width: auto;
 }
 
 .navbar_mobile_cta > svg {
@@ -140,6 +149,10 @@
   }
 
   .navbar_ham {
+    display: block;
+  }
+
+  .navbar_hamimg {
     display: block;
   }
 }

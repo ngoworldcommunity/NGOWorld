@@ -83,7 +83,10 @@
   margin: auto;
   z-index: 3;
   margin-top: 4rem;
-  width: 170px !important;
+  /* width: 170px !important; */
+  width: auto;
+  padding: 1rem 2rem;
+  gap: 20px;
 }
 
 .landing_signup:hover {
@@ -149,7 +152,7 @@
 
   .landing_signup {
     margin-top: 4rem;
-    width: 150px !important;
+    width: auto;
   }
 
   .landing_signup > span {
