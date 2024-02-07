@@ -1,4 +1,4 @@
-export { default as Modal } from "./Modal/Modal";
+export { default as Modal } from "./modal/Modal";
 export { default as AuthButton } from "./buttons/authbutton/AuthButton";
 export { default as BacktoTop } from "./buttons/backtotopbutton/BacktoTop";
 export { default as Button } from "./buttons/globalbutton/Button";

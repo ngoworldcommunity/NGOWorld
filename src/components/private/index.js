@@ -1,3 +1,3 @@
-export { default as SingleClubEvent } from "./Cards/SingleClubEvent/SingleClubEvent";
-export { default as Landing } from "./Landing/Landing";
-export { default as MilanInfoBanner } from "./MilanInfoBanner/Milaninfobanner";
+export { default as SingleClubEvent } from "./cards/SingleClubEvent/SingleClubEvent";
+export { default as Landing } from "./landing/Landing";
+export { default as MilanInfoBanner } from "./ingoBanner/Milaninfobanner";
