@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import useSWR from "swr";
-import { clubEndpoints } from "../../../assets/data/ApiEndpoints";
+import { clubEndpoints } from "../../../static/ApiEndpoints";
 
 import { SingleClubEvent } from "../../../components/private";
 import { Footer, Header, Navbar } from "../../../components/shared";

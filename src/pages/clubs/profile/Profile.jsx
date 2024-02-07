@@ -4,11 +4,11 @@ import useSWR from "swr";
 
 import { Button, Footer, Navbar } from "../../../components/shared";
 
-import { clubEndpoints } from "../../../assets/data/ApiEndpoints";
 import { Logout } from "../../../service/MilanApi";
+import { clubEndpoints } from "../../../static/ApiEndpoints";
 import fetcher from "../../../utils/Fetcher";
 import { showErrorToast, showSuccessToast } from "../../../utils/Toasts";
-import "./ClubProfile.css";
+import "./Profile.css";
 
 import { BiEdit, BiLinkExternal, BiLogOut } from "react-icons/bi";
 import { BsDot } from "react-icons/bs";
@@ -21,40 +21,34 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import useAuthStore from "../../../store/useAuth";
 
-function ClubProfile() {
+const Profile = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const params = useParams();
   const navigate = useNavigate();
 
-  const { data: clubdetails } = useSWR(
-    clubEndpoints.bySlug(params.slug),
+  const { data: clubdetails, isLoading } = useSWR(
+    clubEndpoints.details(params.slug),
     fetcher,
   );
 
-  const { toggleLoading } = useAuthStore((state) => ({
-    toggleLoading: state.toggleLoading,
-  }));
+  if (isLoading) return <div>Loading...</div>;
 
   async function handleLogout() {
-    toggleLoading(true);
     const data = await Logout();
 
     if (data?.status === 200) {
       showSuccessToast(data?.data?.message);
       setTimeout(() => {
         navigate("/");
-        toggleLoading(false);
       }, 1500);
     } else {
       showErrorToast(data?.message);
-      toggleLoading(false);
     }
   }
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <>
@@ -79,7 +73,7 @@ function ClubProfile() {
 
           <div className="clubdetails_subscribe">
             {Cookies.get("username") !== params.slug ? (
-              <Button fontweight="regular">
+              <Button>
                 <MdOutlineAttachMoney className="money_icon" />{" "}
                 <p>Help us continue</p>
               </Button>
@@ -430,6 +424,6 @@ function ClubProfile() {
       <Footer />
     </>
   );
-}
+};
 
-export default ClubProfile;
+export default Profile;

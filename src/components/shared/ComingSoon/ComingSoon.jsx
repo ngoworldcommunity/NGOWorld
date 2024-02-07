@@ -1,6 +1,6 @@
 import React from "react";
 import ComingSoonLogo from "../../../assets/pictures/comingsoon.svg";
-import Button from "../Button/GlobalButton/Button";
+import Button from "../buttons/globalbutton/Button";
 import "./ComingSoon.css";
 
 const ComingSoon = ({ launchitem }) => {

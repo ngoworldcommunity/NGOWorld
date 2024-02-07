@@ -88,8 +88,9 @@ const SignIn = () => {
                 type="submit"
                 className="auth_submit"
                 data-cy="loginbutton"
+                isLoading={loading}
               >
-                {loading ? <div className="loader"></div> : "Sign In"}
+                Sign In
               </Button>
 
               <div className="signup_or">

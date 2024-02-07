@@ -14,11 +14,6 @@
   gap: 10px;
 }
 
-/* .btn:focus {
-  outline: 2px dashed #e26959;
-  outline-offset: 2px;
-} */
-
 .solid {
   background: #ff5b31;
   border: 1px solid #ff5b31;
@@ -41,13 +36,6 @@
   color: white;
 }
 
-.solid:disabled {
-  background: #e26959;
-  border: 1px solid #e26959;
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
 .outline:focus,
 .outline:hover,
 .outline:active {
@@ -60,15 +48,6 @@
   border: black solid 1px;
   cursor: not-allowed;
   opacity: 0.3;
-}
-
-.rounded:focus,
-.rounded:hover,
-.rounded:active {
-  color: black;
-  border: #e26959 solid 1px;
-  background-color: white;
-  transition: all 0.2s ease-in-out;
 }
 
 .btn.bold {

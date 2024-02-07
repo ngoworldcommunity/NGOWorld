@@ -5,7 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import navbarbrand from "../../../assets/pictures/Navbar/NavbarImg.png";
-import Button from "../Button/GlobalButton/Button";
+import Button from "../buttons/globalbutton/Button";
 import "./Navbar.css";
 
 const Links = [

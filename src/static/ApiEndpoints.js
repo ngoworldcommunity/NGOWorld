@@ -1,14 +1,14 @@
 const API = import.meta.env.VITE_MILANAPI;
 
 const userEndpoints = {
-  bySlug: (slug) => `${API}/user?slug=${slug}`,
+  details: (username) => `${API}/user?username=${username}`,
   update: `${API}/user/update`,
   report: `${API}/user/report`,
 };
 
 const clubEndpoints = {
   all: `${API}/clubs`,
-  bySlug: (slug) => `${API}/clubs?slug=${slug}`,
+  details: (username) => `${API}/clubs?username=${username}`,
   createEvent: `${API}/club/createevent`,
 };
 
@@ -24,4 +24,4 @@ const authEndpoints = {
   logout: `${API}/auth/logout`,
 };
 
-export { userEndpoints, clubEndpoints, authEndpoints, eventEndpoints };
+export { authEndpoints, clubEndpoints, eventEndpoints, userEndpoints };

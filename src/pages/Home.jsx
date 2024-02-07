@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { ToastContainer } from "react-toastify";
 import { Landing, MilanInfoBanner } from "../components/private/index.js";
-import { Footer, Navbar } from "../components/shared/index.js";
+import { Footer, Navbar } from "../components/shared";
 import { successCallback } from "../service/MilanApi.js";
 import { showErrorToast, showSuccessToast } from "../utils/Toasts.js";
 

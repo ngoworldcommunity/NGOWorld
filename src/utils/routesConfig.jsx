@@ -13,8 +13,6 @@ import {
 
 const routesConfig = [
   { path: "/", element: <Home /> },
-  // { path: "/auth/signup", element: <AuthSignup /> },
-  // { path: "/auth/login", element: <AuthLogin /> },
   { path: "/auth/signup", element: <SignUp /> },
   { path: "/auth/login", element: <SignIn /> },
   { path: "/user/:slug", element: <UserProfile /> },

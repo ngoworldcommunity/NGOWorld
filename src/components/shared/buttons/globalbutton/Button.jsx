@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unknown-property */
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./Button.module.css";
 import { ClipLoader } from "react-spinners";
+import styles from "./Button.module.css";
 
 const Button = ({
   children,

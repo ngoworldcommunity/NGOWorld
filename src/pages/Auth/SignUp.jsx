@@ -170,8 +170,12 @@ const SignUp = () => {
                   )}
                 </div>
 
-                <Button type="submit" className="auth_submit">
-                  {loading ? <div className="loader"></div> : "Sign Up"}
+                <Button
+                  type="submit"
+                  className="auth_submit"
+                  isLoading={loading}
+                >
+                  Sign Up
                 </Button>
 
                 <div className="signup_or">
@@ -273,8 +277,12 @@ const SignUp = () => {
                   )}
                 </div>
 
-                <Button type="submit" className="auth_submit">
-                  {loading ? <div className="loader"></div> : "Sign Up"}
+                <Button
+                  type="submit"
+                  className="auth_submit"
+                  isLoading={loading}
+                >
+                  Sign Up
                 </Button>
 
                 <div className="signup_or">

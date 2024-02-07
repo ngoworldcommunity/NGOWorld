@@ -14,8 +14,8 @@ import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import useSWR from "swr";
-import { userEndpoints } from "../../assets/data/ApiEndpoints";
 import { Logout } from "../../service/MilanApi";
+import { userEndpoints } from "../../static/ApiEndpoints";
 import fetcher from "../../utils/Fetcher";
 import { showErrorToast, showSuccessToast } from "../../utils/Toasts";
 
@@ -33,7 +33,7 @@ const UserProfile = () => {
   }));
 
   const { data: userdetails } = useSWR(
-    userEndpoints.bySlug(params.slug),
+    userEndpoints.details(params.slug),
     fetcher,
   );
 
