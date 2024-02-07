@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import solidarity from "../../../assets/pictures/solidarity.png";
 import { ReportProblem } from "../../../service/MilanApi";
-import Modal from "../Modal/Modal";
+import Modal from "../modal/Modal";
 import Button from "../buttons/globalbutton/Button";
 import "./Footer.css";
 
