@@ -4,10 +4,10 @@
 import Axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import {
-  userEndpoints,
   authEndpoints,
   clubEndpoints,
-} from "../assets/data/ApiEndpoints";
+  userEndpoints,
+} from "../static/ApiEndpoints";
 
 // LOGIN USER
 export const LoginUser = async (credentials) => {
@@ -15,19 +15,22 @@ export const LoginUser = async (credentials) => {
     const User = await Axios.post(authEndpoints.signin, credentials, {
       withCredentials: true,
     });
+
     return User;
   } catch (error) {
-    return error.response.data;
+    return error.response;
   }
 };
 
 // REGISTER USER
 export const RegisterUser = async (credentials) => {
   try {
-    const User = await Axios.post(authEndpoints.signup, credentials);
+    const User = await Axios.post(authEndpoints.signup, credentials, {
+      withCredentials: true,
+    });
     return User;
   } catch (error) {
-    return error.response.data;
+    return error.response;
   }
 };
 
@@ -37,7 +40,7 @@ export const GetAllClubs = async () => {
     const clubs = await Axios.get(clubEndpoints.all);
     return clubs;
   } catch (error) {
-    return error.response.data;
+    return error.response;
   }
 };
 
@@ -67,7 +70,7 @@ export const UpdateUser = async (credentials) => {
       return response;
     }
   } catch (error) {
-    alert(error.response.data.message);
+    alert(error.response.message);
   }
 };
 

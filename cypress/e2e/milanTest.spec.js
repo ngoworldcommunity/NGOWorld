@@ -16,10 +16,10 @@ describe("Checking if the backend is working properly or not", () => {
 describe("Auth checks", () => {
   it("Checking Login", () => {
     cy.visit("/auth/login");
-    cy.get('[ data-cy="email"]').type("gyansujan69@gmail.com", {
+    cy.get('[data-cy="email"]').type("gyansujan69@gmail.com", {
       force: true,
     });
-    cy.get('[ data-cy="password"]').type("tamaldas69", {
+    cy.get('[data-cy="password"]').type("tamaldas69", {
       force: true,
     });
     cy.get('[data-cy="loginbutton"]').scrollIntoView();

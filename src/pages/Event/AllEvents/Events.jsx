@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import Navbar from "../../../components/Navbar/Navbar";
-import ComingSoon from "../../../components/Cards/ComingSoon/ComingSoon";
+import { ComingSoon, Navbar } from "../../../components/shared";
 import ComponentHelmet from "../../../utils/ComponentHelmet";
 
 const Events = () => {

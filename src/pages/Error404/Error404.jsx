@@ -1,6 +1,6 @@
 import React from "react";
 import error404Svg from "../../assets/pictures/error404.svg";
-import Button from "../../components/Button/GlobalButton/Button";
+import { Button } from "../../components/shared";
 import "./Error404.css";
 function Error404() {
   return (

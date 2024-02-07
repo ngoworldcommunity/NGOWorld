@@ -7,11 +7,23 @@
 body {
   margin: 0;
   overflow-x: hidden;
-  font-family: "Mulish", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family:
+    "Mulish",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #fffcf7;
+  overflow-x: hidden;
 }
 
 /* ===== Scrollbar CSS ===== */
@@ -60,5 +72,26 @@ code {
     -o-animation: none !important;
     -ms-animation: none !important;
     animation: none !important;
+  }
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 30px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(farthest-side, #000000 4%, #000000) top/1px 1px no-repeat,
+    conic-gradient(#0000 30%, #000000);
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    #00000000 calc(100% - 5px),
+    #000 0
+  );
+  animation: l13 1s infinite linear;
+}
+@keyframes l13 {
+  100% {
+    transform: rotate(1turn);
   }
 }

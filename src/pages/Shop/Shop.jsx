@@ -1,6 +1,5 @@
 import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import ComingSoon from "../../components/Cards/ComingSoon/ComingSoon";
+import { ComingSoon, Navbar } from "../../components/shared";
 
 const Shop = () => {
   return (
