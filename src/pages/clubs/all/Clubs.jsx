@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import useSWR from "swr";
-import { clubEndpoints } from "../../../static/ApiEndpoints";
-
-import { SingleClubEvent } from "../../../components/private";
+import { DetailedClub } from "../../../components/private";
 import { Footer, Header, Navbar } from "../../../components/shared";
+import { clubEndpoints } from "../../../static/ApiEndpoints";
 import ComponentHelmet from "../../../utils/ComponentHelmet";
 import fetcher from "../../../utils/Fetcher";
 import "./Clubs.css";
@@ -26,7 +25,7 @@ const Clubs = () => {
 
           <ul className="clubspage_cardsdiv">
             {clubs?.map((club) => (
-              <SingleClubEvent key={club?._id} item={club} />
+              <DetailedClub key={club?._id} club={club} />
             ))}
           </ul>
         </div>
