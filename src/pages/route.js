@@ -8,12 +8,13 @@ export { default as SignUp } from "./auth/SignUp";
 export { default as UserProfile } from "./user/UserProfile";
 
 // Club Routes
+export { default as Clubs } from "./clubs/Clubs";
 export { default as Events } from "./event/AllEvents/Events";
-export { default as Clubs } from "./clubs/all/Clubs";
-export { default as ClubProfile } from "./clubs/profile/Profile";
 
 // Shop Routes
 export { default as Shop } from "./shop/Shop";
+
+export { default as Profile } from "./profile/Profile";
 
 // Not found page
 export { default as Error404 } from "./error/Error404";

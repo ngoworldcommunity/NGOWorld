@@ -2,6 +2,7 @@ import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { BacktoTop } from "./components/shared";
 import "./styles/App.css";
+import "./styles/Globals.scss";
 import routesConfig from "./utils/routesConfig.jsx";
 
 const App = () => {

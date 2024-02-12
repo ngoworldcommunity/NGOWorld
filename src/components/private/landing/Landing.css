@@ -84,7 +84,7 @@
   font-family: "Poppins", sans-serif;
   font-size: 17px;
   font-style: normal;
-  width: 180px;
+  width: auto;
   font-weight: 500;
   display: flex;
   justify-content: space-evenly;

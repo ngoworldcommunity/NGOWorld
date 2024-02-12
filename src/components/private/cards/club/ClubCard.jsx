@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "../../../shared";
-import "./style.css";
+import "./ClubCard.css";
 
 const DetailedClub = ({ club }) => {
   return (
