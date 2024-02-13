@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import rightabstract from "../../assets/pictures/authpages/authbanner.png";
 import { Button } from "../../components/shared";
-import { signInSchema } from "../../constants/AuthSchema";
+import { AuthSchema } from "../../constants";
 import { useAuth } from "../../hooks/useAuth";
 import { GoogleAuth } from "../../service/MilanApi";
 import "./index.css";
@@ -18,7 +18,7 @@ const SignIn = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(signInSchema),
+    resolver: zodResolver(AuthSchema.signInSchema),
   });
 
   const navigate = useNavigate();

@@ -1,11 +1,10 @@
 .btn {
-  border-radius: 50px;
+  border-radius: 6px;
   padding: 0.6rem;
   font-family: "Poppins", sans-serif;
   font-size: 17px;
   font-style: normal;
   width: 140px;
-
   font-weight: 500;
   display: flex;
   justify-content: space-evenly;
@@ -28,9 +27,7 @@
   transition: all 0.2s ease-in-out;
 }
 
-.solid:hover,
-.solid:active,
-.solid:focus {
+.solid:hover {
   background-color: #ff5a31d1;
   transition: all 0.2s ease-in-out;
   color: white;
@@ -43,6 +40,7 @@
   transition: all 0.2s ease-in-out;
 }
 
+.solid:disabled,
 .outline:disabled {
   color: black;
   border: black solid 1px;

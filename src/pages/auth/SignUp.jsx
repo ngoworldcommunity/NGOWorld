@@ -9,10 +9,8 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import rightabstract from "../../assets/pictures/authpages/authbanner.png";
 import { Button } from "../../components/shared";
-import {
-  clubSignUpSchema,
-  individualSignUpSchema,
-} from "../../constants/AuthSchema";
+
+import { AuthSchema } from "../../constants";
 import { useAuth } from "../../hooks/useAuth";
 import { toggleActiveAuthType } from "../../redux/slice/authTypeSlice";
 import { GoogleAuth } from "../../service/MilanApi";
@@ -24,7 +22,7 @@ const SignUp = () => {
     handleSubmit: isubmit,
     formState: { errors: ierrors },
   } = useForm({
-    resolver: zodResolver(individualSignUpSchema),
+    resolver: zodResolver(AuthSchema.individualSignUpSchema),
   });
 
   const {
@@ -32,7 +30,7 @@ const SignUp = () => {
     handleSubmit: csubmit,
     formState: { errors: cerrors },
   } = useForm({
-    resolver: zodResolver(clubSignUpSchema),
+    resolver: zodResolver(AuthSchema.clubSignUpSchema),
   });
 
   const navigate = useNavigate();
@@ -72,13 +70,7 @@ const SignUp = () => {
       <div className="signup_parent">
         <div className="signup_container">
           <div className="signup_container_left">
-            <h1
-              onClick={() => {
-                console.log(authTypeActive);
-              }}
-            >
-              Sign Up
-            </h1>
+            <h1>Sign Up</h1>
 
             {authTypeActive === "individual" ? (
               <form

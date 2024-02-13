@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 import { FiEdit3 } from "react-icons/fi";
 import { MdLogout } from "react-icons/md";
@@ -10,22 +10,30 @@ import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import useSWR from "swr";
-import { Button, Navbar } from "../../components/shared";
+import { Button, Navbar, ProfileCompletion } from "../../components/shared";
 import EventsCard from "../../components/shared/cards/events/EventsCard";
 import { Logout } from "../../service/MilanApi";
 import { clubEndpoints } from "../../static/ApiEndpoints";
 import fetcher from "../../utils/Fetcher";
 import { showErrorToast, showSuccessToast } from "../../utils/Toasts";
+import { checkMissingFields } from "../../utils/checkMissingFields";
 import "./Profile.scss";
 
 const Profile = () => {
   const params = useParams();
   const navigate = useNavigate();
+  const [showProfileModal, setShowProfileModal] = useState(false);
 
-  const { data: info } = useSWR(
+  const { data: info, isLoading } = useSWR(
     clubEndpoints.details(params.username),
     fetcher,
   );
+
+  useEffect(() => {
+    if (!isLoading && checkMissingFields(info)) {
+      setShowProfileModal(true);
+    }
+  }, [isLoading]);
 
   async function handleLogout() {
     const data = await Logout();
@@ -45,6 +53,14 @@ const Profile = () => {
       <Navbar />
       <ToastContainer />
 
+      {showProfileModal && (
+        <ProfileCompletion
+          setShowProfileModal={setShowProfileModal}
+          info={info}
+          isLoading={isLoading}
+        />
+      )}
+
       <div className="profile_container">
         <div className="profile_parent">
           <div className="profile_header">
@@ -56,10 +72,7 @@ const Profile = () => {
             <div className="profile_header_details">
               <div>
                 <h1 className="profile_header_name">{info?.name} </h1>
-                <h2 className="profile_header_tagline">
-                  We are a government funded indian inittiative to save the
-                  tigers, and we are doing a great job at it.
-                </h2>
+                <h2 className="profile_header_tagline">{info?.tagLine}</h2>
               </div>
 
               <div className="profile_header_ctadiv">
@@ -92,9 +105,7 @@ const Profile = () => {
                   <Button
                     variant="outline"
                     className="profile_header_cta"
-                    onClick={() => {
-                      handleLogout();
-                    }}
+                    onClickfunction={handleLogout}
                   >
                     <MdLogout
                       style={{
@@ -138,26 +149,12 @@ const Profile = () => {
             </Marquee>
           </div>
 
-          <div className="profile_about">
-            <h1 className="profile_about_title">About Us</h1>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore
-              earum adipisci illum iste unde, veniam enim provident illo velit
-              magnam voluptatem sapiente libero voluptatum commodi nam aliquid,
-              veritatis vero ratione. Lorem, ipsum dolor sit amet consectetur
-              adipisicing elit. Tempore earum adipisci illum iste unde, veniam
-              enim provident illo velit magnam voluptatem sapiente libero
-              voluptatum commodi nam aliquid, veritatis vero ratione. <br />{" "}
-              <br />
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore
-              earum adipisci illum iste unde, veniam enim provident illo velit
-              magnam voluptatem sapiente libero voluptatum commodi nam aliquid,
-              veritatis vero ratione. Lorem, ipsum dolor sit amet consectetur
-              adipisicing elit. Tempore earum adipisci illum iste unde, veniam
-              enim provident illo velit magnam voluptatem sapiente libero
-              voluptatum commodi nam aliquid, veritatis vero ratione.
-            </p>
-          </div>
+          {info?.description && (
+            <div className="profile_about">
+              <h1 className="profile_about_title">About Us</h1>
+              <p>{info?.description}</p>
+            </div>
+          )}
 
           <div className="profile_map">
             <h1 className="profile_about_title">Find us here</h1>

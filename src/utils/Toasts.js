@@ -2,6 +2,12 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import checkInternetConnection from "./CheckInternetConnection";
 
+/**
+ * Displays a success toast message using React Toastify.
+ *
+ * @param {string} message - The message to be displayed in the success toast.
+ * @returns {void}
+ */
 export const showSuccessToast = (message) => {
   if (!checkInternetConnection()) {
     return;
@@ -18,6 +24,13 @@ export const showSuccessToast = (message) => {
     closeButton: false,
   });
 };
+
+/**
+ * Displays an error toast message using React Toastify.
+ *
+ * @param {string} message - The message to be displayed in the error toast.
+ * @returns {void}
+ */
 export const showErrorToast = (message) => {
   if (!checkInternetConnection()) {
     return;

@@ -15,6 +15,7 @@ const Button = ({
   disabled = false,
   isLoading = false,
   cypressfield = "",
+  onClickfunction,
   ...props
 }) => {
   const classes = `btn ${styles.btn} ${className} ${styles[variant]} ${
@@ -37,6 +38,7 @@ const Button = ({
       className={classes}
       data-cy={cypressfield}
       {...props}
+      onClick={onClickfunction}
     >
       {isLoading ? <ClipLoader color="#000000" size={25} /> : children}
     </button>

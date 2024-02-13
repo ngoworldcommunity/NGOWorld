@@ -38,6 +38,10 @@
   margin: auto;
 }
 
+.navbar_cta {
+  border-radius: 50px;
+}
+
 .navbar_cta:hover {
   background: var(--Brand-brand-500, #ff5b31);
   box-shadow:
