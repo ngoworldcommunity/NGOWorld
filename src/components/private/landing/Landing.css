@@ -42,6 +42,10 @@
   transition: all 0.2s ease-in-out;
   border: 1px solid var(--headsup-stroke, rgb(215, 86, 54));
 }
+.landing_promo > span > a {
+  text-decoration: none; 
+  color: black;
+}
 
 .landing_parent > h1 {
   color: var(--Brand-brand-900, #6b2615);
@@ -53,6 +57,7 @@
   font-weight: 800;
   text-transform: capitalize;
   z-index: 3;
+  
 }
 
 .landing_parent > h1 > span {

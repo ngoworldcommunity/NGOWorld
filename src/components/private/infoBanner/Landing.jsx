@@ -57,10 +57,16 @@ const Landing = () => {
             </defs>
           </svg>
           <span>
-            {" "}
-            {windowWidth > 430
-              ? "We are OpenSource, you can contribute too!"
-              : "We are OpenSource"}{" "}
+            <a
+              href="https://github.com/milancommunity/Milan"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {" "}
+              {windowWidth > 430
+                ? "We are OpenSource, you can contribute too!"
+                : "We are OpenSource"}{" "}
+            </a>
           </span>
         </div>
 
