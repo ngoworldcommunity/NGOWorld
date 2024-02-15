@@ -2,17 +2,16 @@ import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
 import { FiEdit3 } from "react-icons/fi";
 import { MdLogout } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import useSWR from "swr";
 import { Button, Navbar, ProfileCompletion } from "../../components/shared";
+import { resetUserData } from "../../redux/slice/userSlice";
 import { Logout } from "../../service/MilanApi";
-import { clubEndpoints } from "../../static/ApiEndpoints";
-import fetcher from "../../utils/Fetcher";
 import { showErrorToast, showSuccessToast } from "../../utils/Toasts";
 import { checkMissingFields } from "../../utils/checkMissingFields";
 import "./Profile.scss";
@@ -21,17 +20,16 @@ const Profile = () => {
   const params = useParams();
   const navigate = useNavigate();
   const [showProfileModal, setShowProfileModal] = useState(false);
+  const [editProfile, seteditProfile] = useState(false);
+  const dispatch = useDispatch();
 
-  const { data: info, isLoading } = useSWR(
-    clubEndpoints.details(params.username),
-    fetcher,
-  );
+  const info = useSelector((state) => state.user);
 
   useEffect(() => {
-    if (!isLoading && checkMissingFields(info)) {
+    if (!Cookies.get("skipProfileCompletion") && checkMissingFields(info)) {
       setShowProfileModal(true);
     }
-  }, [isLoading]);
+  }, []);
 
   async function handleLogout() {
     const data = await Logout();
@@ -40,11 +38,18 @@ const Profile = () => {
       showSuccessToast(data?.data?.message);
       setTimeout(() => {
         navigate("/");
+        dispatch(resetUserData());
+        Cookies.remove("skipProfileCompletion");
       }, 1500);
     } else {
       showErrorToast(data?.message);
     }
   }
+
+  const toggleProfileModal = () => {
+    setShowProfileModal(!showProfileModal);
+    seteditProfile(true);
+  };
 
   return (
     <>
@@ -54,8 +59,8 @@ const Profile = () => {
       {showProfileModal && (
         <ProfileCompletion
           setShowProfileModal={setShowProfileModal}
-          info={info}
-          isLoading={isLoading}
+          editProfile={editProfile}
+          seteditProfile={seteditProfile}
         />
       )}
 
@@ -75,7 +80,11 @@ const Profile = () => {
 
               <div className="profile_header_ctadiv">
                 {params.username === Cookies.get("username") ? (
-                  <Button variant="solid" className="profile_header_cta">
+                  <Button
+                    variant="solid"
+                    className="profile_header_cta"
+                    onClickfunction={toggleProfileModal}
+                  >
                     <FiEdit3 />
                     Edit profile
                   </Button>

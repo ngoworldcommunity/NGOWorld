@@ -199,6 +199,7 @@
       iframe {
         border: 0;
         width: 100%;
+        min-width: 900px;
         height: 500px;
         border-radius: 10px;
         border: 2px solid var(--secondary);

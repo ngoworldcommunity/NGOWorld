@@ -1,10 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { FaChevronDown } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import rightabstract from "../../assets/pictures/authpages/authbanner.png";
@@ -12,7 +11,6 @@ import { Button } from "../../components/shared";
 
 import { AuthSchema } from "../../constants";
 import { useAuth } from "../../hooks/useAuth";
-import { toggleActiveAuthType } from "../../redux/slice/authTypeSlice";
 import { GoogleAuth } from "../../service/MilanApi";
 import "./index.css";
 
@@ -35,10 +33,18 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
+  const authTypeOptions = [
+    { value: "individual", label: "Individual (Person)" },
+    { value: "club", label: "Organization (Charity/Club/NGO)" },
+  ];
+  const [authType, setauthType] = useState("individual");
+
   const handleGoogle = async () => {
     const response = await GoogleAuth();
     window.location.href = response;
   };
+
+  const { authenticateUser, loading } = useAuth("signup");
 
   const handleNavigatePages = () => {
     navigate(
@@ -47,14 +53,6 @@ const SignUp = () => {
         : "/auth/signup",
     );
   };
-
-  const { authenticateUser, loading } = useAuth("signup");
-  const authTypeOptions = useSelector(
-    (state) => state.authType.authTypeOptions,
-  );
-
-  const authTypeActive = useSelector((state) => state.authType.active);
-  const dispatch = useDispatch();
 
   return (
     <>
@@ -72,7 +70,7 @@ const SignUp = () => {
           <div className="signup_container_left">
             <h1>Sign Up</h1>
 
-            {authTypeActive === "individual" ? (
+            {authType === "individual" ? (
               <form
                 onSubmit={isubmit((data) => {
                   authenticateUser(data);
@@ -86,7 +84,11 @@ const SignUp = () => {
                       name="userType"
                       className="form-control auth_select"
                       {...iregister("usertype")}
-                      onChange={() => dispatch(toggleActiveAuthType())}
+                      onChange={() => {
+                        authType === "individual"
+                          ? setauthType("club")
+                          : setauthType("individual");
+                      }}
                     >
                       {authTypeOptions.map((option) => (
                         <option
@@ -218,7 +220,11 @@ const SignUp = () => {
                       name="userType"
                       className="form-control auth_select"
                       {...cregister("usertype")}
-                      onChange={() => dispatch(toggleActiveAuthType())}
+                      onChange={() => {
+                        authType === "individual"
+                          ? setauthType("club")
+                          : setauthType("individual");
+                      }}
                     >
                       {authTypeOptions.map((option) => (
                         <option

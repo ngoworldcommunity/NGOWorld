@@ -1,24 +1,25 @@
 import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
+import { useSelector } from "react-redux";
 import Vector from "../../../assets/pictures/Banner/Vector.png";
 import { Button } from "../../shared";
 import "./Landing.css";
 
 const Landing = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const user = useSelector((state) => state.user);
 
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
-
     window.addEventListener("resize", handleResize);
-
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   return (
     <>
       <div className="container landing_parent">
@@ -64,7 +65,11 @@ const Landing = () => {
           </span>
         </div>
 
-        <h1>
+        <h1
+          onClick={() => {
+            console.log(user);
+          }}
+        >
           Collaborate. Connect. <span>Build.</span>
         </h1>
 

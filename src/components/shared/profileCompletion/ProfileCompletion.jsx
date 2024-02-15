@@ -1,19 +1,31 @@
+import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
 import { ProfileCompletionDetails } from "../../../constants";
+import { updateUserData } from "../../../redux/slice/userSlice";
 import { UpdateUser } from "../../../service/MilanApi";
 import { showErrorToast, showSuccessToast } from "../../../utils/Toasts";
 import Button from "../buttons/globalbutton/Button";
 import "./ProfileCompletion.scss";
 
-const ProfileCompletion = ({ setShowProfileModal, info }) => {
+const ProfileCompletion = ({
+  setShowProfileModal,
+  editProfile,
+  seteditProfile,
+}) => {
   const [missingElements, setMissingElements] = useState([]);
   const [currentStep, setcurrentStep] = useState(0);
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
+  const info = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     calculateMissingElements();
+    if (editProfile) {
+      setFormData(info);
+    }
   }, [info]);
 
   const calculateMissingElements = () => {
@@ -29,10 +41,32 @@ const ProfileCompletion = ({ setShowProfileModal, info }) => {
     setMissingElements(missing);
   };
 
-  const totalSteps =
-    missingElements.length % 2 === 0
-      ? Math.ceil(missingElements.length / 2)
-      : Math.ceil(missingElements.length / 2) + 1;
+  const editProfileFields = [
+    "name",
+    "tagLine",
+    "description",
+    "city",
+    "state",
+    "address",
+    "country",
+    "pincode",
+  ];
+
+  const calculateTotalSteps = () => {
+    if (editProfile) {
+      if (editProfileFields.length % 2 === 0) {
+        return Math.ceil(editProfileFields.length / 2);
+      } else {
+        return Math.ceil(editProfileFields.length / 2) + 1;
+      }
+    } else {
+      if (missingElements.length % 2 === 0) {
+        return Math.ceil(missingElements.length / 2);
+      } else {
+        return Math.ceil(missingElements.length / 2) + 1;
+      }
+    }
+  };
 
   const validateFields = () => {
     let stepErrors = {};
@@ -60,8 +94,12 @@ const ProfileCompletion = ({ setShowProfileModal, info }) => {
   };
 
   const handleIncrementStep = () => {
-    if (validateFields() && currentStep < totalSteps)
-      setcurrentStep(currentStep + 2);
+    if (editProfile) {
+      if (currentStep < calculateTotalSteps()) setcurrentStep(currentStep + 2);
+    } else {
+      if (validateFields() && currentStep < calculateTotalSteps())
+        setcurrentStep(currentStep + 2);
+    }
   };
 
   const handleDecrementStep = () => {
@@ -80,11 +118,18 @@ const ProfileCompletion = ({ setShowProfileModal, info }) => {
       if (response?.status !== 200) {
         showErrorToast(response?.data?.message);
       } else {
+        dispatch(updateUserData(formData));
+        setFormData({});
         setShowProfileModal(false);
+        seteditProfile(false);
         showSuccessToast(response?.data?.message);
       }
     }
   };
+
+  const maxSteps = editProfile
+    ? editProfileFields.length
+    : missingElements.length;
 
   return (
     <div className="profilecompletion_overlay">
@@ -93,38 +138,78 @@ const ProfileCompletion = ({ setShowProfileModal, info }) => {
           className="crossButton"
           onClick={() => {
             setShowProfileModal(false);
+            seteditProfile(false);
+            Cookies.set("skipProfileCompletion", "true", { expires: 7 });
           }}
         />
 
         <div className="profilecompletion_header">
-          <h1>We&apos;re almost done</h1>
-          <p>
-            Please complete your profile to enjoy the full benefits of the
-            platform
-          </p>
+          <h1> {editProfile ? "Edit Profile" : `We're almost done`} </h1>
+          {!editProfile && (
+            <p>
+              Please complete your profile to enjoy the full benefits of the
+              platform
+            </p>
+          )}
         </div>
 
         <form>
-          {missingElements.slice(currentStep, currentStep + 2).map((elId) => {
-            const formElement = ProfileCompletionDetails.elements.find(
-              (element) => element.id === elId,
-            );
+          {editProfile
+            ? editProfileFields
+                .slice(currentStep, currentStep + 2)
+                .map((elId) => {
+                  const formElement = ProfileCompletionDetails.elements.find(
+                    (element) => element.id === elId,
+                  );
+                  console.log("🚀 ~ .map ~ formElement:", formElement);
 
-            return (
-              <div className="profilecompletion_element" key={formElement.id}>
-                <label>{formElement?.label}</label>
-                <input
-                  type={formElement?.type}
-                  name={formElement?.id}
-                  value={formData[formElement?.id] || ""}
-                  onChange={handleChange}
-                  className="auth_input"
-                  placeholder={formElement?.placeholder}
-                />
-                {errors[formElement?.id] && <p>{errors[formElement?.id]}</p>}
-              </div>
-            );
-          })}
+                  return (
+                    <div
+                      className="profilecompletion_element"
+                      key={formElement.id}
+                    >
+                      <label>{formElement?.label}</label>
+                      <input
+                        type={formElement?.type}
+                        name={formElement?.id}
+                        value={formData[formElement?.id] || ""}
+                        onChange={handleChange}
+                        className="auth_input"
+                        placeholder={formElement?.placeholder}
+                      />
+                      {errors[formElement?.id] && (
+                        <p>{errors[formElement?.id]}</p>
+                      )}
+                    </div>
+                  );
+                })
+            : missingElements
+                .slice(currentStep, currentStep + 2)
+                .map((elId) => {
+                  const formElement = ProfileCompletionDetails.elements.find(
+                    (element) => element.id === elId,
+                  );
+
+                  return (
+                    <div
+                      className="profilecompletion_element"
+                      key={formElement.id}
+                    >
+                      <label>{formElement?.label}</label>
+                      <input
+                        type={formElement?.type}
+                        name={formElement?.id}
+                        value={formData[formElement?.id] || ""}
+                        onChange={handleChange}
+                        className="auth_input"
+                        placeholder={formElement?.placeholder}
+                      />
+                      {errors[formElement?.id] && (
+                        <p>{errors[formElement?.id]}</p>
+                      )}
+                    </div>
+                  );
+                })}
         </form>
 
         <div className="profilecompletion_btndiv">
@@ -135,7 +220,7 @@ const ProfileCompletion = ({ setShowProfileModal, info }) => {
           >
             Previous
           </Button>
-          {currentStep + 2 >= missingElements.length ? (
+          {currentStep + 2 >= maxSteps ? (
             <Button variant="solid" onClickfunction={handleSubmit}>
               Finish
             </Button>

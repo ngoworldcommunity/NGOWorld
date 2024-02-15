@@ -15,6 +15,7 @@
  */
 
 export function checkMissingFields(info) {
+  console.log("🚀 ~ checkMissingFields ~ info:", info);
   if (
     info?.city === undefined ||
     info?.state === undefined ||

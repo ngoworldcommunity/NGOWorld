@@ -47,6 +47,7 @@
     "react-select": "^5.7.5",
     "react-spinners": "^0.13.7",
     "react-toastify": "^9.1.1",
+    "redux-persist": "^6.0.0",
     "swiper": "^10.3.0",
     "swr": "^2.1.0",
     "url": "^0.11.0",

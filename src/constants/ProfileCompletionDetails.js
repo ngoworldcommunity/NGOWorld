@@ -3,6 +3,14 @@ import { z } from "zod";
 const ProfileCompletionDetails = {
   elements: [
     {
+      id: "name",
+      label: "Name",
+      placeholder: "Your organization's name",
+      minimumLength: 5,
+      errorMessage: "Name must be at least 5 characters long",
+      type: "text",
+    },
+    {
       id: "tagLine",
       label: "Tagline",
       placeholder: "A small and attractive tagline",
