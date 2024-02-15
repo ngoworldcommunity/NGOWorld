@@ -73,10 +73,18 @@ const Profile = () => {
             />
 
             <div className="profile_header_details">
-              <div>
-                <h1 className="profile_header_name">{info?.name} </h1>
-                <h2 className="profile_header_tagline">{info?.tagLine}</h2>
-              </div>
+              {info?.usertype === "club" ? (
+                <div>
+                  <h1 className="profile_header_name">{info?.name} </h1>
+                  <h2 className="profile_header_tagline">{info?.tagLine}</h2>
+                </div>
+              ) : (
+                <div>
+                  <h1 className="profile_header_name">
+                    {info?.firstname} {info?.lastname}{" "}
+                  </h1>
+                </div>
+              )}
 
               <div className="profile_header_ctadiv">
                 {params.username === Cookies.get("username") ? (
@@ -238,18 +246,20 @@ const Profile = () => {
             </div>
           )}
 
-          <div className="profile_map">
-            <h1 className="profile_about_title">Find us here</h1>
-            <iframe
-              src={
-                info?.iframe ||
-                "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14741.482534684159!2d88.35842639207846!3d22.527784753774615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0276d0a2583ccf%3A0xf1efff5c088752e2!2s6%20Ballygunge%20Place!5e0!3m2!1sen!2sin!4v1695572606793!5m2!1sen!2sin"
-              }
-              allowfullscreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
+          {info?.usertype === "club" && (
+            <div className="profile_map">
+              <h1 className="profile_about_title">Find us here</h1>
+              <iframe
+                src={
+                  info?.iframe ||
+                  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14741.482534684159!2d88.35842639207846!3d22.527784753774615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0276d0a2583ccf%3A0xf1efff5c088752e2!2s6%20Ballygunge%20Place!5e0!3m2!1sen!2sin!4v1695572606793!5m2!1sen!2sin"
+                }
+                allowfullscreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          )}
         </div>
       </div>
     </>

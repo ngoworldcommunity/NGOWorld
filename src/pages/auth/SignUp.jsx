@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, { useState } from "react";
+import React from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { FaChevronDown } from "react-icons/fa";
@@ -9,8 +9,10 @@ import { ToastContainer } from "react-toastify";
 import rightabstract from "../../assets/pictures/authpages/authbanner.png";
 import { Button } from "../../components/shared";
 
+import { useDispatch, useSelector } from "react-redux";
 import { AuthSchema } from "../../constants";
 import { useAuth } from "../../hooks/useAuth";
+import { setAuthType } from "../../redux/slice/authSlice";
 import { GoogleAuth } from "../../service/MilanApi";
 import "./index.css";
 
@@ -32,12 +34,10 @@ const SignUp = () => {
   });
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const authTypeOptions = [
-    { value: "individual", label: "Individual (Person)" },
-    { value: "club", label: "Organization (Charity/Club/NGO)" },
-  ];
-  const [authType, setauthType] = useState("individual");
+  const authTypeOptions = useSelector((state) => state.auth.authTypeOptions);
+  const authType = useSelector((state) => state.auth.authType);
 
   const handleGoogle = async () => {
     const response = await GoogleAuth();
@@ -86,8 +86,8 @@ const SignUp = () => {
                       {...iregister("usertype")}
                       onChange={() => {
                         authType === "individual"
-                          ? setauthType("club")
-                          : setauthType("individual");
+                          ? dispatch(setAuthType("club"))
+                          : dispatch(setAuthType("individual"));
                       }}
                     >
                       {authTypeOptions.map((option) => (
@@ -222,8 +222,8 @@ const SignUp = () => {
                       {...cregister("usertype")}
                       onChange={() => {
                         authType === "individual"
-                          ? setauthType("club")
-                          : setauthType("individual");
+                          ? dispatch(setAuthType("club"))
+                          : dispatch(setAuthType("individual"));
                       }}
                     >
                       {authTypeOptions.map((option) => (

@@ -8,14 +8,13 @@ import {
   Shop,
   SignIn,
   SignUp,
-  UserProfile,
 } from "../pages/route";
 
 const routesConfig = [
   { path: "/", element: <Home /> },
   { path: "/auth/signup", element: <SignUp /> },
   { path: "/auth/login", element: <SignIn /> },
-  { path: "/user/:username", element: <UserProfile /> },
+  { path: "/user/:username", element: <Profile /> },
   { path: "/clubs", element: <Clubs /> },
   { path: "/club/:username", element: <Profile /> },
   { path: "/events", element: <Events /> },
