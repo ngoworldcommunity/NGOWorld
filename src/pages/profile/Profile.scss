@@ -203,6 +203,10 @@
         height: 500px;
         border-radius: 10px;
         border: 2px solid var(--secondary);
+
+        @media screen and (max-width: 430px) {
+          min-width: auto;
+        }
       }
     }
   }

@@ -29,7 +29,6 @@
     @media screen and (max-width: 525px) {
       width: 89vw;
       min-width: 220px;
-      text-align: center;
     }
 
     .profilecompletion_header {
@@ -38,6 +37,10 @@
         font-weight: 700;
         color: var(--secondary);
         font-family: var(--poppins);
+
+        @media screen and (max-width: 500px) {
+          font-size: 1.5rem;
+        }
       }
 
       p {
@@ -67,6 +70,11 @@
           font-weight: 400;
           margin-bottom: 3px;
           color: #6b2615;
+          text-align: left;
+
+          @media screen and (max-width: 500px) {
+            font-size: 15px;
+          }
         }
 
         textarea {
@@ -99,6 +107,10 @@
           transition:
             border-color 0.15s ease-in-out,
             box-shadow 0.15s;
+
+          @media screen and (max-width: 500px) {
+            font-size: 10px !important;
+          }
 
           &:focus {
             outline: none;

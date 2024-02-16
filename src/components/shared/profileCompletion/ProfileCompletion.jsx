@@ -27,7 +27,7 @@ const ProfileCompletion = ({
     if (editProfile) {
       setFormData(info);
     }
-  }, []);
+  }, [editProfile]);
 
   const fields = getProfileFields(info, editProfile);
   const totalfields = fields.length;

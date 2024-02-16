@@ -1,14 +1,12 @@
 import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
-import { useSelector } from "react-redux";
 import Vector from "../../../assets/pictures/Banner/Vector.png";
 import { Button } from "../../shared";
-import "./Landing.css";
+import "./Landing.scss";
 
 const Landing = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const user = useSelector((state) => state.user);
 
   useEffect(() => {
     const handleResize = () => {
@@ -61,15 +59,11 @@ const Landing = () => {
             {" "}
             {windowWidth > 430
               ? "We are OpenSource, you can contribute too!"
-              : "We are OpenSource"}{" "}
+              : "We are OpenSource, contribute now !"}{" "}
           </span>
         </div>
 
-        <h1
-          onClick={() => {
-            console.log(user);
-          }}
-        >
+        <h1>
           Collaborate. Connect. <span>Build.</span>
         </h1>
 
@@ -144,6 +138,7 @@ const Landing = () => {
             Sruti foundation
           </div>
         </Marquee>
+
         {Cookies.get("isLoggedIn") ? (
           <Button to="/auth/signup" className="landing_signup">
             <span>Explore our clubs</span>

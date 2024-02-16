@@ -49,6 +49,7 @@ const Profile = () => {
   const toggleProfileModal = () => {
     setShowProfileModal(!showProfileModal);
     seteditProfile(true);
+    console.log("toggleProfileModal");
   };
 
   return (
@@ -153,7 +154,11 @@ const Profile = () => {
 
           <div className="profile_header_ctadiv">
             {params.username === Cookies.get("username") ? (
-              <Button variant="solid" className="profile_header_cta">
+              <Button
+                variant="solid"
+                className="profile_header_cta"
+                onClickfunction={toggleProfileModal}
+              >
                 <FiEdit3 />
                 Edit profile
               </Button>
