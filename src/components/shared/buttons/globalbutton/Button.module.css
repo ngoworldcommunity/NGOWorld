@@ -11,6 +11,7 @@
   align-items: center;
   border: none;
   gap: 10px;
+  transition: all 0.2s ease-in-out;
 }
 
 .solid {

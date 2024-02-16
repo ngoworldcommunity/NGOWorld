@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { FaChevronRight } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
+import { useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import navbarbrand from "../../../assets/pictures/Navbar/NavbarImg.png";
 import Button from "../buttons/globalbutton/Button";
@@ -30,6 +31,7 @@ const Links = [
 const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
@@ -86,7 +88,7 @@ const Navbar = () => {
                 );
               })}
             </div>
-            {Cookies.get("isLoggedIn") ? (
+            {Cookies.get("isLoggedIn") || isLoggedIn ? (
               <img
                 src="https://www.thetechies.org/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fuser3.04b79840.webp&w=640&q=75"
                 alt=""
