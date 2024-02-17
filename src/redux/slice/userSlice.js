@@ -9,7 +9,6 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     updateUserData: (state, action) => {
-      console.log("🚀 ~ state:", state);
       return {
         ...state,
         ...action.payload,

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { IoIosArrowUp } from "react-icons/io";
-import "./BacktoTop.scss";
+import "./BackToTop.scss";
 
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
