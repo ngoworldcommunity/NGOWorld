@@ -31,3 +31,15 @@
   text-align: center;
   margin-bottom: 50px;
 }
+.notification-div {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: orange;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.notification-div:hover {
+  background-color: darkorange;
+}

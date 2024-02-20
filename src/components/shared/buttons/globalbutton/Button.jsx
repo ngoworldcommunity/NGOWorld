@@ -34,7 +34,6 @@ const Button = ({
     <button
       type={type}
       disabled={disabled}
-      isLoading={isLoading}
       className={classes}
       data-cy={cypressfield}
       {...props}
