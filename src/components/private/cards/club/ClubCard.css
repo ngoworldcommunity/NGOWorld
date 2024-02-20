@@ -3,8 +3,6 @@
   border: 1px solid #6b2615;
   border-radius: 10px;
   padding: 18px;
-  /* max-height: 236px;
-  min-height: 236px; */
   height: 250px;
   transition: all 0.3s ease-in-out;
   display: flex;
