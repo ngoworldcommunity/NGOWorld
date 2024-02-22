@@ -53,7 +53,7 @@ const Milaninfobanner = () => {
               <img src={MilanCollaborate} alt="" />
             </div>
             <div className="mib_collab_bottom_right">
-              <h1>Join us, right away !</h1>
+              <h1>Join us, right away!</h1>
 
               {window.innerWidth < 800 ? (
                 <p>
@@ -193,7 +193,7 @@ const Milaninfobanner = () => {
               <img src={MilanBuild} alt="" />
             </div>
             <div className="mib_collab_bottom_right">
-              <h1>Got something to sell ?</h1>
+              <h1>Got something to sell?</h1>
               {window.innerWidth < 800 ? (
                 <p>
                   Verified organizations can put up their handmade products for

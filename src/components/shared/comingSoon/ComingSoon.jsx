@@ -8,7 +8,7 @@ const ComingSoon = ({ launchitem }) => {
     <>
       <div className="comingsoon_parent">
         <img src={ComingSoonLogo} alt="" />
-        <h1>Launching Soon !</h1>
+        <h1>Launching Soon!</h1>
         <p>
           We will let you know whenever we launch our{" "}
           {launchitem ? launchitem : "page"}.

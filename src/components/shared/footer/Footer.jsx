@@ -200,7 +200,8 @@ const Footer = () => {
                 </p>
               ) : (
                 <p className="footer-text font-italic text-light text-left mt-4 headings">
-                  Want to make Milan better ?<br />
+                  Want to make Milan better?
+                  <br />
                   <span className=""> Contribute </span>
                   <a
                     href="https://github.com/MilanCommunity/Milan"
@@ -290,7 +291,7 @@ const Footer = () => {
                 Talk to us
               </p>
               <p className="text-center mb-lg-4" style={{ color: "#d8d7d7" }}>
-                Ideas, problems, violations ? Reach out to us !
+                Ideas, problems, violations? Reach out to us!
               </p>
               <div className="d-flex justify-content-center rounded mx-auto">
                 <button
