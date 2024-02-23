@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import useSWR from "swr";
-import { DetailedClub } from "../../components/private";
-import { Footer, Header, Navbar } from "../../components/shared";
+import { Footer, Navbar } from "../../components/shared";
+import ClubCard from "../../components/shared/cards/club/ClubCard";
 import { clubEndpoints } from "../../static/ApiEndpoints";
 import ComponentHelmet from "../../utils/ComponentHelmet";
 import fetcher from "../../utils/Fetcher";
@@ -21,13 +21,11 @@ const Clubs = () => {
 
       <main className="container">
         <div className="clubspage_main_parent">
-          <Header type="clubs" />
-
-          <ul className="clubspage_cardsdiv">
-            {clubs?.map((club) => (
-              <DetailedClub key={club?._id} club={club} />
+          <div className="clubspage_cardsdiv">
+            {clubs?.map((club, id) => (
+              <ClubCard club={club} key={id} />
             ))}
-          </ul>
+          </div>
         </div>
       </main>
 

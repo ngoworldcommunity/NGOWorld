@@ -1,22 +1,5 @@
-.btn {
-  border-radius: 6px;
-  padding: 0.6rem;
-  font-family: "Poppins", sans-serif;
-  font-size: 17px;
-  font-style: normal;
-  width: 140px;
-  font-weight: 500;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  border: none;
-  gap: 10px;
-  transition: all 0.2s ease-in-out;
-}
-
 .solid {
-  background: #ff5b31;
-  border: 1px solid #ff5b31;
+  background-color: #ff5b31;
   transition: all 0.2s ease-in-out;
   color: white;
 }
@@ -49,6 +32,6 @@
   opacity: 0.3;
 }
 
-.btn.bold {
-  font-weight: 600;
+.btn {
+  cursor: pointer;
 }
