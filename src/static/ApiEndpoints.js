@@ -13,7 +13,7 @@ const clubEndpoints = {
 };
 
 const eventEndpoints = {
-  all: `${API}/display/allevents`,
+  all: `${API}/events`,
 };
 
 const authEndpoints = {

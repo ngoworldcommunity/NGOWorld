@@ -4,7 +4,7 @@ import { FaChevronRight } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
 import { useSelector } from "react-redux";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import navbarbrand from "../../../assets/pictures/Navbar/NavbarImg.png";
 import Button from "../buttons/globalbutton/Button";
 import "./Navbar.css";
@@ -30,8 +30,9 @@ const Links = [
 
 const Navbar = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+  const usertype = useSelector((state) => state.user.usertype);
+  const username = useSelector((state) => state.user.username);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
@@ -51,16 +52,6 @@ const Navbar = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  const navigateToProfile = () => {
-    if (Cookies.get("isLoggedIn")) {
-      navigate(
-        `/${
-          Cookies.get("usertype") === "individual" ? "user" : "club"
-        }/${Cookies.get("username")}`,
-      );
-    }
-  };
 
   return (
     <nav>
@@ -93,14 +84,17 @@ const Navbar = () => {
                 src="https://www.thetechies.org/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fuser3.04b79840.webp&w=640&q=75"
                 alt=""
                 style={{
-                  width: "40px",
-                  height: "40px",
+                  width: "33px",
+                  height: "33px",
                   borderRadius: "50%",
                   objectFit: "cover",
                   cursor: "pointer",
                 }}
                 onClick={() => {
-                  navigateToProfile();
+                  // navigateToProfile();
+                  document
+                    .querySelector(".nav_dropdown")
+                    .classList.toggle("nav_dropdown_visible");
                 }}
               />
             ) : (
@@ -192,6 +186,49 @@ const Navbar = () => {
             </div>
           </div>
         )}
+
+        <div className="nav_dropdown">
+          <div className="myaccount">
+            <span>@{username}</span>
+            <div
+              role="separator"
+              aria-orientation="horizontal"
+              className="myaccount_separator"
+            ></div>
+            <Link
+              to={`/${usertype === "individual" ? "user" : "club"}/${username}`}
+            >
+              Your Profile
+              <span>⇧⌘P</span>
+            </Link>
+            {usertype === "club" ? (
+              <Link to={"/event/create"}>
+                Your Events <span>⌘E</span>
+              </Link>
+            ) : null}
+            <Link>
+              Settings <span>⌘S</span>
+            </Link>
+          </div>
+          <div className="myaccount">
+            <div
+              role="separator"
+              aria-orientation="horizontal"
+              className="myaccount_separator"
+            ></div>
+            <Link>GitHub</Link>
+            <Link>Support</Link>
+            <Link>Api</Link>
+          </div>
+          <div className="myaccount">
+            <div
+              role="separator"
+              aria-orientation="horizontal"
+              className="myaccount_separator"
+            ></div>
+            <Link>Logout</Link>
+          </div>
+        </div>
       </div>
     </nav>
   );

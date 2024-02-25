@@ -9,7 +9,7 @@ export { default as UserProfile } from "./user/UserProfile";
 
 // Club Routes
 export { default as Clubs } from "./clubs/Clubs";
-export { default as Events } from "./event/AllEvents/Events";
+export { default as Events } from "./events/all/Events";
 
 // Shop Routes
 export { default as Shop } from "./shop/Shop";
