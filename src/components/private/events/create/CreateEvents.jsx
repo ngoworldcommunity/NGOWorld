@@ -16,11 +16,14 @@ import { IoMdCloseCircleOutline } from "react-icons/io";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import "react-time-picker/dist/TimePicker.css";
+import { useEvent } from "../../../../hooks/useEvent";
 import countries from "../../../../static/CountryList";
+import { Button } from "../../../shared";
 import "./CreateEvents.scss";
 
 const CreateEvents = ({ setshowCreateModal }) => {
   const user = useSelector((state) => state.user);
+  const [errors, seterrors] = useState({});
 
   const [event, setevent] = useState({
     name: "",
@@ -40,7 +43,7 @@ const CreateEvents = ({ setshowCreateModal }) => {
       "https://images.pexels.com/videos/3045163/free-video-3045163.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500",
   });
 
-  // const { validateEvent } = useEvent(event);
+  const { validateEvent } = useEvent(event);
 
   const handleCreateBase64 = useCallback(async (e) => {
     const file = e.target.files[0];
@@ -70,10 +73,11 @@ const CreateEvents = ({ setshowCreateModal }) => {
     setevent({ ...event, [e.target.name]: e.target.value });
   };
 
-  // const handleSubmit = () => {
-  //   // seterrors(validateEvent());
-  //   console.log(validateEvent());
-  // };
+  const handleSubmit = () => {
+    console.log(event);
+    seterrors(validateEvent());
+    console.log(validateEvent());
+  };
 
   return (
     <div className="createevent_overlay">
@@ -86,7 +90,13 @@ const CreateEvents = ({ setshowCreateModal }) => {
         />
 
         <div className="createevent_header">
-          <h1>Create</h1>
+          <h1
+            onClick={() => {
+              console.log(Object.keys(errors).length);
+            }}
+          >
+            Create
+          </h1>
         </div>
 
         <div className="createevent_form">
@@ -129,14 +139,18 @@ const CreateEvents = ({ setshowCreateModal }) => {
               value={event.name}
             />
 
+            {errors.name && (
+              <span className="error_message">{errors.name}</span>
+            )}
+
             <div className="date_range">
               <DatePicker
                 label="Start Date"
                 value={event.startDate}
                 name="startDate"
-                onChange={(e) => {
-                  handleChange(e);
-                }}
+                onChange={(newValue) =>
+                  setevent({ ...event, startDate: newValue })
+                }
                 format="DD-MM-YY"
               />
 
@@ -144,9 +158,9 @@ const CreateEvents = ({ setshowCreateModal }) => {
                 label="Start Time"
                 value={event.startTime}
                 name="startTime"
-                onChange={(e) => {
-                  handleChange(e);
-                }}
+                onChange={(newValue) =>
+                  setevent({ ...event, startTime: newValue })
+                }
               />
             </div>
 
@@ -155,9 +169,9 @@ const CreateEvents = ({ setshowCreateModal }) => {
                 label="End Date"
                 value={event.endDate}
                 name="endDate"
-                onChange={(e) => {
-                  handleChange(e);
-                }}
+                onChange={(newValue) =>
+                  setevent({ ...event, endDate: newValue })
+                }
                 format="DD-MM-YY"
               />
 
@@ -165,9 +179,9 @@ const CreateEvents = ({ setshowCreateModal }) => {
                 label="End Time"
                 value={event.endTime}
                 name="endTime"
-                onChange={(e) => {
-                  handleChange(e);
-                }}
+                onChange={(newValue) =>
+                  setevent({ ...event, endTime: newValue })
+                }
               />
             </div>
 
@@ -200,6 +214,7 @@ const CreateEvents = ({ setshowCreateModal }) => {
                 handleChange(e);
               }}
             />
+            {errors.uid && <span className="error_message">{errors.uid}</span>}
 
             <textarea
               type="text"
@@ -210,6 +225,9 @@ const CreateEvents = ({ setshowCreateModal }) => {
                 handleChange(e);
               }}
             />
+            {errors.description && (
+              <span className="error_message">{errors.description}</span>
+            )}
 
             <Accordion defaultExpanded className="location">
               <AccordionSummary
@@ -220,26 +238,37 @@ const CreateEvents = ({ setshowCreateModal }) => {
               >
                 <p>Location Details</p>
               </AccordionSummary>
-              <AccordionDetails className="accordionbody">
-                <input
-                  type="text"
-                  placeholder="City"
-                  name="city"
-                  value={event.city}
-                  onChange={(e) => {
-                    handleChange(e);
-                  }}
-                />
-                <input
-                  type="text"
-                  placeholder="State"
-                  name="state"
-                  value={event.state}
-                  onChange={(e) => {
-                    handleChange(e);
-                  }}
-                />
-              </AccordionDetails>
+
+              <div className="location_citystate">
+                <AccordionDetails className="accordionbody">
+                  <input
+                    type="text"
+                    placeholder="City"
+                    name="city"
+                    value={event.city}
+                    onChange={(e) => {
+                      handleChange(e);
+                    }}
+                  />
+                  {errors.city && (
+                    <span className="error_message">{errors.city}</span>
+                  )}
+                </AccordionDetails>
+                <AccordionDetails className="accordionbody">
+                  <input
+                    type="text"
+                    placeholder="State"
+                    name="state"
+                    value={event.state}
+                    onChange={(e) => {
+                      handleChange(e);
+                    }}
+                  />
+                  {errors.state && (
+                    <span className="error_message">{errors.state}</span>
+                  )}
+                </AccordionDetails>
+              </div>
 
               <AccordionDetails className="accordionbody">
                 <input
@@ -251,6 +280,9 @@ const CreateEvents = ({ setshowCreateModal }) => {
                     handleChange(e);
                   }}
                 />
+                {errors.address && (
+                  <span className="error_message">{errors.address}</span>
+                )}
               </AccordionDetails>
 
               <FormControl fullWidth className="country_accordion">
@@ -288,16 +320,14 @@ const CreateEvents = ({ setshowCreateModal }) => {
                     handleChange(e);
                   }}
                 />
+                {errors.mapIframe && (
+                  <span className="error_message">{errors.mapIframe}</span>
+                )}
               </AccordionDetails>
             </Accordion>
           </div>
 
-          {/* <Button
-            onClickfunction={handleSubmit}
-            disabled={Object.keys(errors).length > 0}
-          >
-            Create
-          </Button> */}
+          <Button onClickfunction={handleSubmit}>Create</Button>
         </div>
       </div>
     </div>

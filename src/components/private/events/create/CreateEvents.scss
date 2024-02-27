@@ -11,6 +11,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  backdrop-filter: blur(5px);
 
   .createevent_modal {
     position: relative;
@@ -248,9 +249,25 @@
               margin-bottom: 0;
             }
           }
-          .accordionbody {
+
+          .location_citystate {
             display: flex;
             gap: 1rem;
+            justify-content: space-between;
+            align-items: center;
+            .accordionbody {
+              display: flex;
+              flex-direction: column;
+              width: 100%;
+              padding: 0;
+              margin-bottom: 10px;
+            }
+          }
+
+          .accordionbody {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
             padding: 0;
             margin-bottom: 10px;
           }
@@ -329,4 +346,12 @@
 
 .css-o4b71y-MuiAccordionSummary-content {
   margin: 0 !important;
+}
+
+.error_message {
+  color: red;
+  font-size: 15px;
+  font-family: var(--outfit);
+  margin-top: 5px;
+  margin-bottom: 0;
 }

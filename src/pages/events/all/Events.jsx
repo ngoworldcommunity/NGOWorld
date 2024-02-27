@@ -19,7 +19,8 @@ const Events = () => {
 
   const toggleCreateEventModal = () => {
     // history.pushState({ path: "/events" }, "", "/events/create");
-    setshowCreateModal(!showCreateModal);
+    setshowCreateModal(true);
+    console.log(showCreateModal);
   };
 
   return (
