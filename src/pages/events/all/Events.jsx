@@ -1,34 +1,45 @@
-import React, { useEffect } from "react";
-// import { FaPlus } from "react-icons/fa";
-import { ComingSoon, Navbar } from "../../../components/shared";
+import React, { useEffect, useState } from "react";
+import { FaPlus } from "react-icons/fa";
+import useSWR from "swr";
+import { EventsCard } from "../../../components/private";
+import CreateEvents from "../../../components/private/events/create/CreateEvents";
+import { Button, Footer, Navbar } from "../../../components/shared";
+import { eventEndpoints } from "../../../static/ApiEndpoints";
 import ComponentHelmet from "../../../utils/ComponentHelmet";
+import fetcher from "../../../utils/Fetcher";
 import "./Events.scss";
 
 const Events = () => {
-  // const { data: events } = useSWR(eventEndpoints.all, fetcher);
+  const { data: events } = useSWR(eventEndpoints.all, fetcher);
+  const [showCreateModal, setshowCreateModal] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // const toggleCreateEventModal = () => {
-  //   history.pushState({ path: "/events" }, "", "/events/create");
-  // };
+  const toggleCreateEventModal = () => {
+    // history.pushState({ path: "/events" }, "", "/events/create");
+    setshowCreateModal(!showCreateModal);
+  };
 
   return (
     <>
       <ComponentHelmet type="Events" />
       <Navbar />
 
-      {/* <main className="container">
+      {showCreateModal && (
+        <CreateEvents setshowCreateModal={setshowCreateModal} />
+      )}
+
+      <main className="container">
         <div className="clubspage_main_parent">
           <div className="events_now_header">
             <p>Happening now</p>
-            <div
+            {/* <div
               role="separator"
               aria-orientation="horizontal"
               className="separator"
-            ></div>
+            ></div> */}
             <Button onClickfunction={toggleCreateEventModal}>
               <FaPlus /> Create an event
             </Button>
@@ -41,8 +52,8 @@ const Events = () => {
         </div>
       </main>
 
-      <Footer /> */}
-      <ComingSoon launchitem={`event's page.`} />
+      <Footer />
+      {/* <ComingSoon launchitem={`event's page.`} /> */}
     </>
   );
 };

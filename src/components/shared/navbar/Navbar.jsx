@@ -91,7 +91,6 @@ const Navbar = () => {
                   cursor: "pointer",
                 }}
                 onClick={() => {
-                  // navigateToProfile();
                   document
                     .querySelector(".nav_dropdown")
                     .classList.toggle("nav_dropdown_visible");

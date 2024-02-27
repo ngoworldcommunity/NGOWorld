@@ -14,6 +14,7 @@ const clubEndpoints = {
 
 const eventEndpoints = {
   all: `${API}/events`,
+  create: `${API}/events/create`,
 };
 
 const authEndpoints = {
