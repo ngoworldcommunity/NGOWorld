@@ -18,9 +18,7 @@ const Events = () => {
   }, []);
 
   const toggleCreateEventModal = () => {
-    // history.pushState({ path: "/events" }, "", "/events/create");
     setshowCreateModal(true);
-    console.log(showCreateModal);
   };
 
   return (
@@ -36,11 +34,7 @@ const Events = () => {
         <div className="clubspage_main_parent">
           <div className="events_now_header">
             <p>Happening now</p>
-            {/* <div
-              role="separator"
-              aria-orientation="horizontal"
-              className="separator"
-            ></div> */}
+
             <Button onClickfunction={toggleCreateEventModal}>
               <FaPlus /> Create an event
             </Button>
@@ -54,7 +48,6 @@ const Events = () => {
       </main>
 
       <Footer />
-      {/* <ComingSoon launchitem={`event's page.`} /> */}
     </>
   );
 };

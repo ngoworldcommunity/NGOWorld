@@ -43,7 +43,7 @@ const CreateEvents = ({ setshowCreateModal }) => {
       "https://images.pexels.com/videos/3045163/free-video-3045163.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500",
   });
 
-  const { validateEvent } = useEvent(event);
+  const { validateEvent, submitCallback } = useEvent(event);
 
   const handleCreateBase64 = useCallback(async (e) => {
     const file = e.target.files[0];
@@ -74,9 +74,8 @@ const CreateEvents = ({ setshowCreateModal }) => {
   };
 
   const handleSubmit = () => {
-    console.log(event);
     seterrors(validateEvent());
-    console.log(validateEvent());
+    submitCallback(event, setshowCreateModal);
   };
 
   return (

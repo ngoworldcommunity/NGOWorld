@@ -1,8 +1,15 @@
+import { useDispatch } from "react-redux";
+import { useSWRConfig } from "swr";
+import { updateCreatedEvents } from "../redux/slice/eventSlice";
 import { CreateEvent } from "../service/MilanApi";
+import { eventEndpoints } from "../static/ApiEndpoints";
+import { showErrorToast, showSuccessToast } from "../utils/Toasts";
 
 export function useEvent(event) {
   const { uid, ...data } = event;
   const errors = {};
+  const dispatch = useDispatch();
+  const { mutate } = useSWRConfig();
 
   const validateEvent = () => {
     if (
@@ -53,9 +60,20 @@ export function useEvent(event) {
     return errors;
   };
 
-  const submitCallback = async (event) => {
+  const submitCallback = async (event, setshowCreateModal) => {
     if (Object.keys(errors).length === 0) {
-      return await CreateEvent(event);
+      const response = await CreateEvent(event);
+
+      if (response.status === 201) {
+        showSuccessToast(response.data.message);
+        setshowCreateModal(false);
+        dispatch(updateCreatedEvents(response.data.savedEvent));
+        mutate(eventEndpoints.all);
+      } else {
+        showErrorToast(response.response.data.message);
+      }
+    } else {
+      showErrorToast("Please fill all the required fields");
     }
   };
 
