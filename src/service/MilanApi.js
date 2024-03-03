@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import {
   authEndpoints,
   clubEndpoints,
+  eventEndpoints,
   userEndpoints,
 } from "../static/ApiEndpoints";
 
@@ -105,6 +106,19 @@ export const successCallback = async () => {
 export const Logout = async () => {
   try {
     const response = await Axios.get(authEndpoints.logout, {
+      withCredentials: true,
+    });
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+// create event API
+export const CreateEvent = async (event) => {
+  try {
+    const response = await Axios.post(eventEndpoints.create, event, {
       withCredentials: true,
     });
 
