@@ -3,11 +3,14 @@ import React, { useEffect, useState } from "react";
 import { FaChevronRight } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
-import { useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import navbarbrand from "../../../assets/pictures/Navbar/NavbarImg.png";
 import Button from "../buttons/globalbutton/Button";
 import "./Navbar.css";
+import { Logout } from "../../../service/MilanApi";
+import { showErrorToast, showSuccessToast } from "../../../utils/Toasts";
+import { resetUserData } from "../../../redux/slice/userSlice";
 
 const Links = [
   {
@@ -30,6 +33,8 @@ const Links = [
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const usertype = useSelector((state) => state.user.usertype);
   const username = useSelector((state) => state.user.username);
@@ -52,6 +57,21 @@ const Navbar = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  async function handleLogout() {
+    const data = await Logout();
+
+    if (data?.status === 200) {
+      showSuccessToast(data?.data?.message);
+      setTimeout(() => {
+        navigate("/");
+        dispatch(resetUserData());
+        Cookies.remove("skipProfileCompletion");
+      }, 1500);
+    } else {
+      showErrorToast(data?.message);
+    }
+  }
 
   return (
     <nav>
@@ -188,7 +208,7 @@ const Navbar = () => {
 
         <div className="nav_dropdown">
           <div className="myaccount">
-            <span>@{username}</span>
+            <span>Hello @{username}</span>
             <div
               role="separator"
               aria-orientation="horizontal"
@@ -225,7 +245,13 @@ const Navbar = () => {
               aria-orientation="horizontal"
               className="myaccount_separator"
             ></div>
-            <Link>Logout</Link>
+            <Link
+              onClick={() => {
+                handleLogout();
+              }}
+            >
+              Logout
+            </Link>
           </div>
         </div>
       </div>

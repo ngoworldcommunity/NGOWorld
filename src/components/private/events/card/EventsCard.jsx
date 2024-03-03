@@ -9,7 +9,7 @@ const EventsCard = ({ event }) => {
     <div className="eventcard_container">
       <div className="eventcard_parent">
         <img
-          src="https://scontent.fccu31-2.fna.fbcdn.net/v/t39.30808-6/428497334_811916017617587_2791842027431671034_n.jpg?stp=c0.5.315.150a_dst-jpg_p235x165&_nc_cat=108&ccb=1-7&_nc_sid=d8d9c5&_nc_ohc=1jlXjOYvChsAX8flJoP&_nc_ht=scontent.fccu31-2.fna&oh=00_AfDpTe8iH6_GTEVKTfaAvf2bphy2dLl3moHqWH2344IOww&oe=65DF8F92"
+          src="https://earth5r.org/wp-content/uploads/2020/07/World-Environment-Day-Mumbai-India-Environmental-NGO-CSR-Earth5R-1230x767.jpg"
           alt=""
         />
 

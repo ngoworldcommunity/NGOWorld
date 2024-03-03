@@ -1,7 +1,7 @@
 export { default as Home } from "./Home";
 
 //Auth Routes
-export { default as SignIn } from "./auth/SignIn";
+export { default as Login } from "./auth/Login";
 export { default as SignUp } from "./auth/SignUp";
 
 // User Routes
