@@ -33,7 +33,7 @@ Follow the below steps to setup the Frontend locally. We are using `npm` as the 
 
 ## Setting up the `.env` file 
 
-We use a `.env` file using the `dotenv` package inside the root of the directory. You must create a `.env` file similar to [.env.example](../.env.example) file.
+We use a `.env` file inside the root of the directory. You must create a `.env` file similar to [.env.example](../.env.example) file.
 
 <br/>
 <br/>

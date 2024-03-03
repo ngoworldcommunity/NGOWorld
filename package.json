@@ -40,7 +40,6 @@
     "axios": "^1.4.0",
     "cypress": "^13.2.0",
     "dayjs": "^1.11.10",
-    "dotenv": "^16.3.1",
     "framer-motion": "^11.0.3",
     "js-cookie": "^3.0.5",
     "react": "^18.2.0",
@@ -52,7 +51,6 @@
     "react-icons": "^4.10.1",
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.11.2",
-    "react-scripts": "^5.0.1",
     "react-select": "^5.7.5",
     "react-spinners": "^0.13.7",
     "react-time-picker": "^6.6.0",
@@ -68,7 +66,7 @@
     "zustand": "^4.4.1"
   },
   "scripts": {
-    "dev": "vite --port 3000",
+    "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "cypress:open": "cypress open",
