@@ -1,7 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -12,7 +14,7 @@ import { useAuth } from "../../hooks/useAuth";
 import { GoogleAuth } from "../../service/MilanApi";
 import "./index.css";
 
-const SignIn = () => {
+const Login = () => {
   const {
     register,
     handleSubmit,
@@ -37,6 +39,7 @@ const SignIn = () => {
   };
 
   const { authenticateUser, loading } = useAuth("login");
+  const [showPassword, setshowPassword] = useState(false);
 
   return (
     <>
@@ -75,12 +78,27 @@ const SignIn = () => {
               <div className="auth_element">
                 <label className="auth_label">Password</label>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   {...register("password")}
                   className="auth_input"
                   placeholder="********"
                   data-cy="password"
                 />
+                {showPassword ? (
+                  <FaEye
+                    onClick={() => {
+                      setshowPassword(!showPassword);
+                    }}
+                    className="togglePassword_icon"
+                  />
+                ) : (
+                  <FaEyeSlash
+                    onClick={() => {
+                      setshowPassword(!showPassword);
+                    }}
+                    className="togglePassword_icon"
+                  />
+                )}
                 {errors.password?.message && <p>{errors.password?.message}</p>}
               </div>
 
@@ -163,4 +181,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default Login;
