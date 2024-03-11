@@ -256,35 +256,7 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-            <div className="join-us col-lg-4 col-md-3 mx-auto mb-lg-0 px-5 ">
-              <div className="join">
-                <p className="h6 join-us text-uppercase text-light font-weight-bold mb-lg-2 mb-3 headings">
-                  Socials
-                </p>
-                <ul className="join-us-list list-unstyled mb-0">
-                  <li className="mb-2">
-                    <a
-                      href="https://twitter.com/tamalCodes"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-decoration-none footer_auth_text"
-                    >
-                      Twitter
-                    </a>
-                  </li>
-                  <li className="mb-2">
-                    <a
-                      href="https://github.com/MilanCommunity/Milan"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-decoration-none footer_auth_text"
-                    >
-                      GitHub
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <div className="join-us col-lg-4 col-md-3 mx-auto mb-lg-0 px-5 "></div>
             <div className="mt-4 col-lg-4 col-md-6 mb-lg-0 mx-auto">
               <p className="h6 headings text-uppercase text-light font-weight-bold mb-2 text-center">
                 Talk to us
@@ -293,14 +265,9 @@ const Footer = () => {
                 Ideas, problems, violations ? Reach out to us !
               </p>
               <div className="d-flex justify-content-center rounded mx-auto">
-                <button
-                  onClick={handleReportModalOpen}
-                  className=" btn-report d-flex align-items-center text-black"
-                >
-                  <span>
-                    Contact Us <i className="fa-solid fa-bug"></i>
-                  </span>
-                </button>
+                <Button onClick={handleReportModalOpen} className="footer_cta">
+                  Contact Us <i className="fa-solid fa-bug"></i>
+                </Button>
               </div>
             </div>
           </div>
