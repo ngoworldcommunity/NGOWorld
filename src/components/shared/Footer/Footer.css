@@ -140,12 +140,12 @@
 
 .github-icon{
   font-size: 1.55rem ;
-  color:#e26959;
+  color:#ff5b31;
 }
 
 .twitter-icon{
   font-size: 1.55rem ;
-  color:#e26959;
+  color:#ff5b31;
 }
 
 .FaGithub {
@@ -356,14 +356,14 @@
   }
 }
 .underline-animation {
-  color: #e26959;
+  color: #ff5b31;
   position: relative;
   text-decoration: none;
   transition: 0.3s ease-in-out;
 }
 
 .underline-animation:hover {
-  color: #e26959;
+  color: #ff5b31;
 }
 
 .underline-animation::after {
