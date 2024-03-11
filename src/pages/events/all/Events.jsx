@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import useSWR from "swr";
 import { EventsCard } from "../../../components/private";
 import CreateEvents from "../../../components/private/events/create/CreateEvents";
@@ -12,6 +13,8 @@ import "./Events.scss";
 const Events = () => {
   const { data: events } = useSWR(eventEndpoints.all, fetcher);
   const [showCreateModal, setshowCreateModal] = useState(false);
+  const userType = useSelector((state) => state.user.userType);
+  // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -35,9 +38,11 @@ const Events = () => {
           <div className="events_now_header">
             <p>Happening now</p>
 
-            <Button onClickfunction={toggleCreateEventModal}>
-              <FaPlus /> Create an event
-            </Button>
+            {userType === "club" && (
+              <Button onClickfunction={toggleCreateEventModal}>
+                <FaPlus /> Create an event
+              </Button>
+            )}
           </div>
           <div className="events_div">
             {events?.map((event, id) => (

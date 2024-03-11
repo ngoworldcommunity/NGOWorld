@@ -1,14 +1,14 @@
 const API = import.meta.env.VITE_MILANAPI;
 
 const userEndpoints = {
-  details: (username) => `${API}/user?username=${username}`,
+  details: (userName) => `${API}/user?userName=${userName}`,
   update: `${API}/user/update`,
   report: `${API}/user/report`,
 };
 
 const clubEndpoints = {
   all: `${API}/clubs`,
-  details: (username) => `${API}/clubs?username=${username}`,
+  details: (userName) => `${API}/clubs?userName=${userName}`,
   createEvent: `${API}/club/createevent`,
 };
 
