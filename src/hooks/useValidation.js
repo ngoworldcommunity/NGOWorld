@@ -45,49 +45,49 @@ const useValidation = (credentials, userSignup, clubSignup) => {
   }
 
   if (userSignup) {
-    if (!credentials.firstname) {
+    if (!credentials.firstName) {
       errors.push({
         error: true,
         message: "Please enter your first name",
-        field: "firstname",
+        field: "firstName",
       });
-    } else if (!nameRegex.test(credentials.firstname)) {
+    } else if (!nameRegex.test(credentials.firstName)) {
       errors.push({
         error: true,
         message: "Please enter a valid first name",
-        field: "firstname",
+        field: "firstName",
       });
     } else if (
-      credentials.firstname.length < 3 ||
-      credentials.firstname.length > 30
+      credentials.firstName.length < 3 ||
+      credentials.firstName.length > 30
     ) {
       errors.push({
         error: true,
         message: "First name must be between 3 and 30 characters long",
-        field: "firstname",
+        field: "firstName",
       });
     }
 
-    if (!credentials.lastname) {
+    if (!credentials.lastName) {
       errors.push({
         error: true,
         message: "Please enter your last name",
-        field: "lastname",
+        field: "lastName",
       });
-    } else if (!nameRegex.test(credentials.lastname)) {
+    } else if (!nameRegex.test(credentials.lastName)) {
       errors.push({
         error: true,
         message: "Please enter a valid last name",
-        field: "lastname",
+        field: "lastName",
       });
     } else if (
-      credentials.lastname.length < 3 ||
-      credentials.lastname.length > 30
+      credentials.lastName.length < 3 ||
+      credentials.lastName.length > 30
     ) {
       errors.push({
         error: true,
         message: "Last name must be between 3 and 30 characters long",
-        field: "lastname",
+        field: "lastName",
       });
     }
   }
@@ -168,7 +168,7 @@ const useValidation = (credentials, userSignup, clubSignup) => {
     if (!credentials.slug) {
       errors.push({
         error: true,
-        message: "Please enter your username",
+        message: "Please enter your userName",
         field: "slug",
       });
     } else if (

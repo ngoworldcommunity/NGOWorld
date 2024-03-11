@@ -1,12 +1,12 @@
 function getMissingElements(info) {
   const missing = [];
 
-  if (info?.usertype === "club") {
+  if (info?.userType === "club") {
     if (!info.name) missing.push("name");
     if (!info.tagLine) missing.push("tagLine");
   } else {
-    if (!info.firstname) missing.push("firstname");
-    if (!info.lastname) missing.push("lastname");
+    if (!info.firstName) missing.push("firstName");
+    if (!info.lastName) missing.push("lastName");
   }
 
   if (!info.description) missing.push("description");
@@ -20,7 +20,7 @@ function getMissingElements(info) {
 }
 
 function getEditableFields(info) {
-  return info?.usertype === "club"
+  return info?.userType === "club"
     ? [
         "name",
         "tagLine",
@@ -32,8 +32,8 @@ function getEditableFields(info) {
         "pincode",
       ]
     : [
-        "firstname",
-        "lastname",
+        "firstName",
+        "lastName",
         "description",
         "city",
         "state",

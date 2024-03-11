@@ -221,3 +221,11 @@ textarea::placeholder {
   right: 15px;
   top: 40px;
 }
+
+.signup_password > .togglePassword_icon {
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  right: 15px;
+  top: 40px;
+}

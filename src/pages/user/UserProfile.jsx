@@ -73,7 +73,7 @@ const UserProfile = () => {
             <div className="userprofile_header">
               <div className="userprofile_name">
                 <h1>
-                  {userdetails?.firstname} {userdetails?.lastname}
+                  {userdetails?.firstName} {userdetails?.lastName}
                 </h1>
                 <p>(He/Him)</p>
               </div>
@@ -102,7 +102,7 @@ const UserProfile = () => {
               </p>
 
               <div className="cta_buttonsdiv">
-                {Cookies.get("username") === params.slug ? (
+                {Cookies.get("userName") === params.slug ? (
                   <>
                     <Button type="button" variant="solid" disabled={isLoading}>
                       <BiEdit /> <p>Edit Profile</p>

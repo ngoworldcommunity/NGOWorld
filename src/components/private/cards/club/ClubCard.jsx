@@ -22,7 +22,7 @@ const DetailedClub = ({ club }) => {
           </Button>
           <Button
             variant="outline"
-            to={`/club/${club?.username}`}
+            to={`/club/${club?.userName}`}
             className="detailedclub_ctabutton"
           >
             Read More

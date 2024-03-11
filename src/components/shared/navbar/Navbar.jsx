@@ -36,8 +36,8 @@ const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
-  const usertype = useSelector((state) => state.user.usertype);
-  const username = useSelector((state) => state.user.username);
+  const userType = useSelector((state) => state.user.userType);
+  const userName = useSelector((state) => state.user.userName);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
@@ -67,6 +67,7 @@ const Navbar = () => {
         navigate("/");
         dispatch(resetUserData());
         Cookies.remove("skipProfileCompletion");
+        localStorage.clear();
       }, 1500);
     } else {
       showErrorToast(data?.message);
@@ -189,10 +190,10 @@ const Navbar = () => {
                 to={`${
                   Cookies.get("isLoggedIn")
                     ? `/${
-                        Cookies.get("usertype") === "individual"
+                        Cookies.get("userType") === "individual"
                           ? "user"
                           : "club"
-                      }/${Cookies.get("username")}`
+                      }/${Cookies.get("userName")}`
                     : "/auth/signup"
                 }`}
                 className="navbar_mobile_cta"
@@ -208,19 +209,19 @@ const Navbar = () => {
 
         <div className="nav_dropdown">
           <div className="myaccount">
-            <span>Hello @{username}</span>
+            <span>Hello @{userName}</span>
             <div
               role="separator"
               aria-orientation="horizontal"
               className="myaccount_separator"
             ></div>
             <Link
-              to={`/${usertype === "individual" ? "user" : "club"}/${username}`}
+              to={`/${userType === "individual" ? "user" : "club"}/${userName}`}
             >
               Your Profile
               <span>⇧⌘P</span>
             </Link>
-            {usertype === "club" ? (
+            {userType === "club" ? (
               <Link to={"/event/create"}>
                 Your Events <span>⌘E</span>
               </Link>
