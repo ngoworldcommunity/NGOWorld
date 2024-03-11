@@ -29,13 +29,13 @@ body {
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {
-  scrollbar-width: 6px;
-  scrollbar-color: #e26959 #ffffff00;
+  scrollbar-width: 1px;
+  scrollbar-color: #e2695900 #ffffff00;
 }
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
-  width: 6px;
+  width: 1px;
 }
 
 *::-webkit-scrollbar-track {
@@ -43,9 +43,9 @@ body {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #e26959;
+  background-color: #e2695900;
   border-radius: 10px;
-  border: 3px solid #ffffff00;
+  border: 0px solid #ffffff00;
 }
 
 code {

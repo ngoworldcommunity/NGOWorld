@@ -1,7 +1,7 @@
 export { default as Home } from "./Home";
 
 //Auth Routes
-export { default as SignIn } from "./auth/SignIn";
+export { default as Login } from "./auth/Login";
 export { default as SignUp } from "./auth/SignUp";
 
 // User Routes
@@ -9,7 +9,7 @@ export { default as UserProfile } from "./user/UserProfile";
 
 // Club Routes
 export { default as Clubs } from "./clubs/Clubs";
-export { default as Events } from "./event/AllEvents/Events";
+export { default as Events } from "./events/all/Events";
 
 // Shop Routes
 export { default as Shop } from "./shop/Shop";

@@ -8,8 +8,8 @@
  * @param {string} info.address - The user's address.
  * @param {string} info.country - The user's country.
  * @param {string} info.pincode - The user's pincode.
- * @param {string} info.usertype - The type of user (e.g., "club").
- * @param {string} info.tagLine - The user's tagline (applicable only if usertype is "club").
+ * @param {string} info.userType - The type of user (e.g., "club").
+ * @param {string} info.tagLine - The user's tagline (applicable only if userType is "club").
  *
  * @returns {boolean} - Returns true if any required field is missing, else returns false.
  */
@@ -26,8 +26,8 @@ export function checkMissingFields(info) {
     console.log("🚀 ~ checkMissingFields ~ info", info);
     return true;
   } else if (
-    (info?.usertype === "club" && info?.tagLine === undefined) ||
-    (info?.usertype === "club" && info?.description === undefined)
+    (info?.userType === "club" && info?.tagLine === undefined) ||
+    (info?.userType === "club" && info?.description === undefined)
   ) {
     return true;
   } else {

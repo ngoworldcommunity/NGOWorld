@@ -1,3 +1,5 @@
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { BacktoTop } from "./components/shared";
@@ -7,21 +9,23 @@ import routesConfig from "./utils/routesConfig.jsx";
 
 const App = () => {
   return (
-    <div className="app">
-      <Router>
-        <Routes>
-          {routesConfig.map((route, index) => (
-            <Route
-              key={index}
-              exact
-              path={route?.path}
-              element={route?.element}
-            />
-          ))}
-        </Routes>
-      </Router>
-      <BacktoTop />
-    </div>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <div className="app">
+        <Router>
+          <Routes>
+            {routesConfig.map((route, index) => (
+              <Route
+                key={index}
+                exact
+                path={route?.path}
+                element={route?.element}
+              />
+            ))}
+          </Routes>
+        </Router>
+        <BacktoTop />
+      </div>
+    </LocalizationProvider>
   );
 };
 
