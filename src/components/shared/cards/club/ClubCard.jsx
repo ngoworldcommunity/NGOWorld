@@ -36,13 +36,13 @@ const ClubCard = ({ club }) => {
         {window.innerWidth > 500 ? (
           <Button
             variant="solid"
-            to={`/club/${club?.username}`}
+            to={`/club/${club?.userName}`}
             className="clubcard_readmore"
           >
             Read More
           </Button>
         ) : (
-          <Link to={`/club/${club?.username}`}>
+          <Link to={`/club/${club?.userName}`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="21"

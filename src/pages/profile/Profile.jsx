@@ -24,6 +24,7 @@ const Profile = () => {
   const dispatch = useDispatch();
 
   const info = useSelector((state) => state.user);
+  console.log("🚀 ~ Profile ~ info:", info);
 
   useEffect(() => {
     if (!Cookies.get("skipProfileCompletion") && checkMissingFields(info)) {
@@ -74,7 +75,7 @@ const Profile = () => {
             />
 
             <div className="profile_header_details">
-              {info?.usertype === "club" ? (
+              {info?.userType === "club" ? (
                 <div>
                   <h1 className="profile_header_name">{info?.name} </h1>
                   <h2 className="profile_header_tagline">{info?.tagLine}</h2>
@@ -82,13 +83,13 @@ const Profile = () => {
               ) : (
                 <div>
                   <h1 className="profile_header_name">
-                    {info?.firstname} {info?.lastname}{" "}
+                    {info?.firstName} {info?.lastName}{" "}
                   </h1>
                 </div>
               )}
 
               <div className="profile_header_ctadiv">
-                {params.username === Cookies.get("username") ? (
+                {params.userName === Cookies.get("userName") ? (
                   <Button
                     variant="solid"
                     className="profile_header_cta"
@@ -117,7 +118,7 @@ const Profile = () => {
                 )}
 
                 {Cookies.get("isLoggedIn") &&
-                Cookies.get("username") === params.username ? (
+                Cookies.get("userName") === params.userName ? (
                   <Button
                     variant="outline"
                     className="profile_header_cta"
@@ -153,7 +154,7 @@ const Profile = () => {
           </div>
 
           <div className="profile_header_ctadiv">
-            {params.username === Cookies.get("username") ? (
+            {params.userName === Cookies.get("userName") ? (
               <Button
                 variant="solid"
                 className="profile_header_cta"
@@ -182,7 +183,7 @@ const Profile = () => {
             )}
 
             {Cookies.get("isLoggedIn") &&
-            Cookies.get("username") === params.username ? (
+            Cookies.get("userName") === params.userName ? (
               <Button
                 variant="outline"
                 className="profile_header_cta"
@@ -251,7 +252,7 @@ const Profile = () => {
             </div>
           )}
 
-          {info?.usertype === "club" && (
+          {info?.userType === "club" && (
             <div className="profile_map">
               <h1 className="profile_about_title">Find us here</h1>
               <iframe

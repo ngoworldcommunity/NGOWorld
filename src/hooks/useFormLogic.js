@@ -75,7 +75,7 @@ export function useFormLogic(
 }
 
 export const individualInitialFormState = {
-  usertype: "individual",
+  userType: "individual",
   slug: "",
   email: "",
   password: "",
@@ -85,12 +85,12 @@ export const individualInitialFormState = {
   address: "",
   country: "",
   pincode: "",
-  firstname: "",
-  lastname: "",
+  firstName: "",
+  lastName: "",
 };
 
 export const clubInitialFormState = {
-  usertype: "club",
+  userType: "club",
   slug: "",
   email: "",
   password: "",

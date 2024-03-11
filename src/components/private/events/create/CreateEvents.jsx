@@ -74,6 +74,7 @@ const CreateEvents = ({ setshowCreateModal }) => {
   };
 
   const handleSubmit = () => {
+    console.log(event);
     seterrors(validateEvent());
     submitCallback(event, setshowCreateModal);
   };
