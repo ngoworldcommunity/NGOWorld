@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
 
   const VITE_PORT = env.PORT || 3000;
-  const VITE_EXPOSE_NETWORK = env.EXPOSE_NETWORK === true;
+  const VITE_EXPOSE_NETWORK = env.EXPOSE_NETWORK === "true";
 
   const HOST_NAME  = VITE_EXPOSE_NETWORK ? true :  env.HOST_NAME || 'localhost';
 
