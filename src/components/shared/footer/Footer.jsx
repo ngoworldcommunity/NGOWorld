@@ -66,8 +66,8 @@ const Footer = () => {
       return;
     }
     const success = await ReportProblem({
-      firstname: reportFirstName,
-      lastname: reportLastName,
+      firstName: reportFirstName,
+      lastName: reportLastName,
       email: reportEmail,
       reportmessage: reportIssue,
     });

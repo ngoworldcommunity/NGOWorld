@@ -8,7 +8,7 @@ const ProfileElements = [
     type: "text",
   },
   {
-    id: "firstname",
+    id: "firstName",
     label: "First Name",
     placeholder: "Your first name",
     minimumLength: 5,
@@ -16,7 +16,7 @@ const ProfileElements = [
     type: "text",
   },
   {
-    id: "lastname",
+    id: "lastName",
     label: "Last Name",
     placeholder: "Your last name",
     minimumLength: 5,
