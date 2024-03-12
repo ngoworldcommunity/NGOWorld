@@ -9,8 +9,6 @@ import { Button } from "../../../shared";
 import "./EventsCard.scss";
 
 const EventsCard = ({ event }) => {
-  console.log("🚀 ~ EventsCard ~ event:", event?.startTime);
-  const userType = useSelector((state) => state.user.userType);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const navigate = useNavigate();
 
@@ -38,23 +36,49 @@ const EventsCard = ({ event }) => {
     <>
       <div className="eventcard_container">
         <div className="eventcard_parent">
-          <img
-            src="https://earth5r.org/wp-content/uploads/2020/07/World-Environment-Day-Mumbai-India-Environmental-NGO-CSR-Earth5R-1230x767.jpg"
-            alt=""
-          />
+          <img src={event?.coverImage} alt="" />
 
           <div className="eventcard_body">
             <p>{event?.name}</p>
 
             <div className="eventcard_datetime">
-              <span>
-                <CiLocationOn
+              {event?.mode === "Offline" ? (
+                <span>
+                  <CiLocationOn
+                    style={{
+                      opacity: "1",
+                    }}
+                  />{" "}
+                  {event?.address}
+                </span>
+              ) : (
+                <span
                   style={{
-                    opacity: "1",
+                    display: "flex",
+                    alignItems: "center",
                   }}
-                />{" "}
-                {event?.address}
-              </span>
+                >
+                  <img
+                    src={
+                      event?.platform === "Zoom"
+                        ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaxhRNvMDVHn8fw7gbZLmN9sM_ppNEb3AnAsBrlGFyK_13ofG6ofodBfnCXuUEwje-MpA"
+                        : event?.platform === "Google Meet"
+                          ? "https://img.icons8.com/color/48/000000/google-meet.png"
+                          : event?.platform === "Microsoft Teams"
+                            ? "https://img.icons8.com/color/48/000000/microsoft-teams.png"
+                            : "https://img.icons8.com/color/48/000000/other.png"
+                    }
+                    alt=""
+                    style={{
+                      width: "15px",
+                      height: "15px",
+                      minHeight: "15px",
+                    }}
+                  />
+                  {event.platform}
+                </span>
+              )}
+
               <span>
                 <CiCalendar /> {formatttedStartDate}
               </span>
@@ -71,7 +95,7 @@ const EventsCard = ({ event }) => {
                       opacity: "1",
                     }}
                   />{" "}
-                  Kolkata Police Head Quarter Lalbazar
+                  {event?.address}
                 </span>
               </div>
 

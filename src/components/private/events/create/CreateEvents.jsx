@@ -18,6 +18,7 @@ import { useSelector } from "react-redux";
 import "react-time-picker/dist/TimePicker.css";
 import { useEvent } from "../../../../hooks/useEvent";
 import countries from "../../../../static/CountryList";
+import platforms from "../../../../static/OnlinePlatform";
 import { Button } from "../../../shared";
 import "./CreateEvents.scss";
 
@@ -41,6 +42,8 @@ const CreateEvents = ({ setshowCreateModal }) => {
     mapIframe: "",
     coverImage:
       "https://images.pexels.com/videos/3045163/free-video-3045163.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    platform: "Zoom",
+    platformLink: "",
   });
 
   const { validateEvent, submitCallback } = useEvent(event);
@@ -48,7 +51,7 @@ const CreateEvents = ({ setshowCreateModal }) => {
   const handleCreateBase64 = useCallback(async (e) => {
     const file = e.target.files[0];
     const base64 = await convertToBase64(file);
-    setevent({ ...event, coverImage: base64 });
+    setevent((prevEvent) => ({ ...prevEvent, coverImage: base64 }));
     e.target.value = "";
   }, []);
 
@@ -74,7 +77,6 @@ const CreateEvents = ({ setshowCreateModal }) => {
   };
 
   const handleSubmit = () => {
-    console.log(event);
     seterrors(validateEvent());
     submitCallback(event, setshowCreateModal);
   };
@@ -229,102 +231,164 @@ const CreateEvents = ({ setshowCreateModal }) => {
               <span className="error_message">{errors.description}</span>
             )}
 
-            <Accordion defaultExpanded className="location">
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-                className="location_header"
-              >
-                <p>Location Details</p>
-              </AccordionSummary>
-
-              <div className="location_citystate">
-                <AccordionDetails className="accordionbody">
-                  <input
-                    type="text"
-                    placeholder="City"
-                    name="city"
-                    value={event.city}
-                    onChange={(e) => {
-                      handleChange(e);
-                    }}
-                  />
-                  {errors.city && (
-                    <span className="error_message">{errors.city}</span>
-                  )}
-                </AccordionDetails>
-                <AccordionDetails className="accordionbody">
-                  <input
-                    type="text"
-                    placeholder="State"
-                    name="state"
-                    value={event.state}
-                    onChange={(e) => {
-                      handleChange(e);
-                    }}
-                  />
-                  {errors.state && (
-                    <span className="error_message">{errors.state}</span>
-                  )}
-                </AccordionDetails>
-              </div>
-
-              <AccordionDetails className="accordionbody">
-                <input
-                  type="text"
-                  placeholder="Address"
-                  name="address"
-                  value={event.address}
-                  onChange={(e) => {
-                    handleChange(e);
-                  }}
-                />
-                {errors.address && (
-                  <span className="error_message">{errors.address}</span>
-                )}
-              </AccordionDetails>
-
-              <FormControl fullWidth className="country_accordion">
-                <InputLabel id="demo-simple-select-label label">
-                  Country Name
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={event.country}
-                  name="country"
-                  label="Event Mode"
-                  className="select"
-                  onChange={(e) => {
-                    handleChange(e);
-                  }}
+            {event?.mode === "Offline" ? (
+              <Accordion defaultExpanded className="location">
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1-content"
+                  id="panel1-header"
+                  className="location_header"
                 >
-                  {countries.map((country, index) => {
-                    return (
-                      <MenuItem value={country.label} key={index}>
-                        {country.label}
-                      </MenuItem>
-                    );
-                  })}
-                </Select>
-              </FormControl>
+                  <p>Location Details</p>
+                </AccordionSummary>
 
-              <AccordionDetails className="accordionbody">
-                <input
-                  type="text"
-                  placeholder="Map Iframe"
-                  name="mapIframe"
-                  value={event.mapIframe}
-                  onChange={(e) => {
-                    handleChange(e);
-                  }}
-                />
-                {errors.mapIframe && (
-                  <span className="error_message">{errors.mapIframe}</span>
-                )}
-              </AccordionDetails>
-            </Accordion>
+                <div className="location_citystate">
+                  <AccordionDetails className="accordionbody">
+                    <input
+                      type="text"
+                      placeholder="City"
+                      name="city"
+                      value={event.city}
+                      onChange={(e) => {
+                        handleChange(e);
+                      }}
+                    />
+                    {errors.city && (
+                      <span className="error_message">{errors.city}</span>
+                    )}
+                  </AccordionDetails>
+                  <AccordionDetails className="accordionbody">
+                    <input
+                      type="text"
+                      placeholder="State"
+                      name="state"
+                      value={event.state}
+                      onChange={(e) => {
+                        handleChange(e);
+                      }}
+                    />
+                    {errors.state && (
+                      <span className="error_message">{errors.state}</span>
+                    )}
+                  </AccordionDetails>
+                </div>
+
+                <AccordionDetails className="accordionbody">
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    name="address"
+                    value={event.address}
+                    onChange={(e) => {
+                      handleChange(e);
+                    }}
+                  />
+                  {errors.address && (
+                    <span className="error_message">{errors.address}</span>
+                  )}
+                </AccordionDetails>
+
+                <FormControl fullWidth className="country_accordion">
+                  <InputLabel id="demo-simple-select-label label">
+                    Country Name
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={event.country}
+                    name="country"
+                    label="Event Mode"
+                    className="select"
+                    onChange={(e) => {
+                      handleChange(e);
+                    }}
+                  >
+                    {countries.map((country, index) => {
+                      return (
+                        <MenuItem value={country.label} key={index}>
+                          {country.label}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                </FormControl>
+
+                <AccordionDetails className="accordionbody">
+                  <input
+                    type="text"
+                    placeholder="Map Iframe"
+                    name="mapIframe"
+                    value={event.mapIframe}
+                    onChange={(e) => {
+                      handleChange(e);
+                    }}
+                  />
+                  {errors.mapIframe && (
+                    <span className="error_message">{errors.mapIframe}</span>
+                  )}
+                </AccordionDetails>
+              </Accordion>
+            ) : (
+              <Accordion defaultExpanded className="location">
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1-content"
+                  id="panel1-header"
+                  className="location_header"
+                >
+                  <p>Meeting Details</p>
+                </AccordionSummary>
+
+                <FormControl fullWidth className="country_accordion">
+                  <InputLabel id="demo-simple-select-label label">
+                    Online Platform
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={event.platform}
+                    name="platform"
+                    label="Event Mode"
+                    className="select"
+                    onChange={(e) => {
+                      handleChange(e);
+                    }}
+                  >
+                    {platforms.map((platform, index) => {
+                      return (
+                        <MenuItem value={platform.label} key={index}>
+                          <img
+                            src={platform.icon}
+                            alt=""
+                            style={{
+                              width: "20px",
+                              height: "20px",
+                              marginRight: "10px",
+                            }}
+                          />
+                          {platform.label}
+                        </MenuItem>
+                      );
+                    })}
+                  </Select>
+                </FormControl>
+
+                <AccordionDetails className="accordionbody">
+                  <input
+                    type="text"
+                    placeholder="Platform Link"
+                    name="platformLink"
+                    value={event.platformLink}
+                    onChange={(e) => {
+                      handleChange(e);
+                    }}
+                  />
+                  {errors.platformLink && (
+                    <span className="error_message">{errors.platformLink}</span>
+                  )}
+                </AccordionDetails>
+              </Accordion>
+            )}
           </div>
 
           <Button onClickfunction={handleSubmit}>Create</Button>

@@ -38,12 +38,14 @@
       object-fit: cover;
       max-width: 100%;
       height: 37%;
+      min-height: 119px;
       width: 100%;
 
       @media screen and (max-width: 430px) {
         height: auto;
         width: 90px;
         border-radius: 6px;
+        min-height: auto;
       }
     }
 

@@ -21,12 +21,7 @@ export function useEvent(event) {
       !data.startDate ||
       !data.endDate ||
       !data.startTime ||
-      !data.endTime ||
-      !data.city ||
-      !data.state ||
-      !data.country ||
-      !data.address ||
-      !data.mapIframe
+      !data.endTime
     ) {
       if (!data.name) errors.name = "Name is required";
       if (!uid) errors.uid = "UID is required";
@@ -37,11 +32,17 @@ export function useEvent(event) {
       if (!data.endDate) errors.endDate = "End date is required";
       if (!data.startTime) errors.startTime = "Start time is required";
       if (!data.endTime) errors.endTime = "End time is required";
-      if (!data.city) errors.city = "City is required";
-      if (!data.state) errors.state = "State is required";
-      if (!data.country) errors.country = "Country is required";
-      if (!data.address) errors.address = "Address is required";
-      if (!data.mapIframe) errors.mapIframe = "Map iframe is required";
+
+      if (data?.mode === "Offline") {
+        if (!data.city) errors.city = "City is required";
+        if (!data.state) errors.state = "State is required";
+        if (!data.country) errors.country = "Country is required";
+        if (!data.address) errors.address = "Address is required";
+        if (!data.mapIframe) errors.mapIframe = "Map iframe is required";
+      } else {
+        if (!data.platformLink)
+          errors.platformLink = "Please provide a platform link";
+      }
     }
 
     if (data.name.length < 10 || data.name.length > 80)
