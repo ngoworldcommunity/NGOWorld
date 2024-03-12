@@ -8,6 +8,7 @@ import { Footer, Navbar } from "../components/shared";
 import { toggleUserLogin, updateUserData } from "../redux/slice/userSlice.js";
 import { successCallback } from "../service/MilanApi.js";
 import { showErrorToast, showSuccessToast } from "../utils/Toasts.js";
+import Joinus from "../components/Joinus.jsx";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -45,6 +46,7 @@ const Home = () => {
       <Navbar />
 
       <Landing />
+      <Joinus />
       <MilanInfoBanner />
       <Footer />
     </>
