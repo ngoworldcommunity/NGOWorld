@@ -10,6 +10,8 @@ import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import useSWR from "swr";
+import { Card, Avatar, Dropdown, Menu } from "antd";
+import { EditOutlined } from "@ant-design/icons";
 import { Button, Navbar, ProfileCompletion } from "../../components/shared";
 import { resetUserData } from "../../redux/slice/userSlice";
 import { Logout } from "../../service/MilanApi";
@@ -32,7 +34,38 @@ const Profile = () => {
     clubEndpoints.details(params.userName),
     fetcher,
   );
+  const [image, setImage] = useState(null);
 
+  const handleUpload = (event) => {
+    const file = event.target.files[0];
+    setImage(file);
+  };
+
+  const removeImage = () => {
+    setImage(null);
+  };
+  const handleImageUpload = (event) => {
+    const uploadedImage = event.target.files[0];
+    setImage(uploadedImage);
+  };
+
+  const menu = (
+    <Menu>
+      <Menu.Item key="1">
+        <label htmlFor="uploadInput">Upload Image</label>
+        <input
+          id="uploadInput"
+          type="file"
+          accept="image/*"
+          style={{ display: "none" }}
+          onChange={handleUpload}
+        />
+      </Menu.Item>
+      <Menu.Item key="2" onClick={removeImage}>
+        Remove Image
+      </Menu.Item>
+    </Menu>
+  );
   useEffect(() => {
     if (
       !Cookies.get("skipProfileCompletion") &&
@@ -79,10 +112,46 @@ const Profile = () => {
       <div className="profile_container">
         <div className="profile_parent">
           <div className="profile_header">
-            <img
-              src="https://api.freelogodesign.org/assets/thumb/logo/bdd55f703a074abb8bf50c0d3891c0a9_400.png?t=638314396148720000"
-              alt=""
-            />
+            <div className="profile_image">
+              <Card className="image_card">
+                <Avatar
+                  size={150}
+                  src={
+                    image
+                      ? URL.createObjectURL(image)
+                      : "https://api.freelogodesign.org/assets/thumb/logo/bdd55f703a074abb8bf50c0d3891c0a9_400.png?t=638314396148720000"
+                  }
+                  style={{
+                    width: 200,
+                    height: 200,
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                  }}
+                />
+                <div className="edit-icon-container">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                    className="image_file"
+                  />
+                  <Dropdown
+                    overlay={menu}
+                    trigger={["click"]}
+                    className="edit-dropdown"
+                  >
+                    <span>
+                      <EditOutlined />
+                      <span>Edit</span>
+                    </span>
+                  </Dropdown>
+                </div>
+              </Card>
+            </div>
 
             <div className="profile_header_details">
               {details?.userType === "club" ? (

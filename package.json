@@ -36,6 +36,7 @@
     "@reduxjs/toolkit": "^2.1.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/user-event": "^14.4.3",
+    "antd": "^5.15.2",
     "aos": "^2.3.4",
     "axios": "^1.4.0",
     "cypress": "^13.2.0",
