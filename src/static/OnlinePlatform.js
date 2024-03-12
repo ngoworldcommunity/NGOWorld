@@ -1,6 +1,6 @@
 const platforms = [
   {
-    label: "Zoom",
+    label: "Zoom Meeting",
     value: "zoom",
     icon: "https://img.icons8.com/color/48/000000/zoom.png",
   },

@@ -2,20 +2,23 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
 
   .separator {
-    width: 65%;
+    width: 80%;
     height: 1px;
-    background-color: #e2e5e871;
+    background-color: #e2e5e870;
+    margin: 0;
+    margin-top: 10px;
+    opacity: 0.2;
   }
 
   p {
-    font-family: var(--poppins);
-    font-size: 33px;
+    font-family: var(--outfit);
+    font-size: 35px;
     font-weight: 600;
     margin: 0;
+    line-height: 1;
   }
 
   @media screen and (max-width: 430px) {

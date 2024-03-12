@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 
+import { useSWRConfig } from "swr";
 import { ProfileElements } from "../../../constants";
 import { updateUserData } from "../../../redux/slice/userSlice";
 import { UpdateUser } from "../../../service/MilanApi";
+import { clubEndpoints } from "../../../static/ApiEndpoints";
 import { showErrorToast, showSuccessToast } from "../../../utils/Toasts";
 import getProfileFields from "../../../utils/getProfileFields";
 import Button from "../buttons/globalbutton/Button";
@@ -20,16 +22,17 @@ const ProfileCompletion = ({
   const [currentIndex, setcurrentIndex] = useState(0);
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
-  const info = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const { mutate } = useSWRConfig();
 
   useEffect(() => {
     if (editProfile) {
-      setFormData(info);
+      setFormData(user);
     }
   }, [editProfile]);
 
-  const fields = getProfileFields(info, editProfile);
+  const fields = getProfileFields(user, editProfile);
   const totalfields = fields.length;
 
   const handleIncrementStep = () => {
@@ -62,6 +65,7 @@ const ProfileCompletion = ({
       setShowProfileModal(false);
       seteditProfile(false);
       showSuccessToast(response?.data?.message);
+      mutate(clubEndpoints.details(user?.userName));
     }
   };
 
