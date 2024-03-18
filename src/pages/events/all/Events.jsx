@@ -14,7 +14,6 @@ const Events = () => {
   const { data: events } = useSWR(eventEndpoints.all, fetcher);
   const [showCreateModal, setshowCreateModal] = useState(false);
   const userType = useSelector((state) => state.user.userType);
-  // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -37,6 +36,8 @@ const Events = () => {
         <div className="clubspage_main_parent">
           <div className="events_now_header">
             <p>Happening now</p>
+
+            <hr className="separator" />
 
             {userType === "club" && (
               <Button onClickfunction={toggleCreateEventModal}>

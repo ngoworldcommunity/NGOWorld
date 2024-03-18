@@ -33,8 +33,8 @@ const ProfileElements = [
   },
   {
     id: "description",
-    label: "Bio",
-    placeholder: "A detailed bio about your organization",
+    label: "About",
+    placeholder: "Tell us about yourself",
     minimumLength: 100,
     errorMessage: "Bio must be at least 100 characters long",
     type: "textarea",
