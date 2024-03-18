@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import useSWR from "swr";
-import { Footer, Navbar } from "../../components/shared";
+import { Footer, Navbar, SkeletonCard } from "../../components/shared";
 import ClubCard from "../../components/shared/cards/club/ClubCard";
 import { clubEndpoints } from "../../static/ApiEndpoints";
 import ComponentHelmet from "../../utils/ComponentHelmet";
@@ -9,8 +9,12 @@ import "./Clubs.css";
 
 const Clubs = () => {
   const { data: clubs } = useSWR(clubEndpoints.all, fetcher);
+  let [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
     window.scrollTo(0, 0);
   }, []);
 
@@ -22,9 +26,21 @@ const Clubs = () => {
       <main className="container">
         <div className="clubspage_main_parent">
           <div className="clubspage_cardsdiv">
-            {clubs?.map((club, id) => (
-              <ClubCard club={club} key={id} />
-            ))}
+            {loading ? (
+              <div
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  justifyContent: "space-evenly",
+                }}
+              >
+                {" "}
+                <SkeletonCard /> <SkeletonCard /> <SkeletonCard />{" "}
+                <SkeletonCard />{" "}
+              </div>
+            ) : (
+              clubs?.map((club, id) => <ClubCard club={club} key={id} />)
+            )}
           </div>
         </div>
       </main>

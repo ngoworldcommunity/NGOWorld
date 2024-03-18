@@ -1,0 +1,15 @@
+
+.skeleton-container{
+    margin:1em;
+    padding: 1em;
+    border-radius: 15px;
+    background-color: #f5f6fa;
+}
+.skeleton-footer{
+    display: flex;
+    justify-content: space-between;
+    /* padding-right: 1em; */
+    margin-top: 2em;
+    position: relative;
+    bottom: 0;
+}

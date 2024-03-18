@@ -9,3 +9,4 @@ export { default as Loading } from "./loading/Loading";
 export { default as Modal } from "./modal/Modal";
 export { default as Navbar } from "./navbar/Navbar";
 export { default as ProfileCompletion } from "./profileCompletion/ProfileCompletion";
+export { default as SkeletonCard } from "./skeleton/Skeleton";
