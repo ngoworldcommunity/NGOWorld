@@ -47,8 +47,8 @@ const Home = () => {
 
       <Landing />
       <Joinus />
-      <MilanInfoBanner />
-      <Footer />
+      {/* <MilanInfoBanner /> */}
+      {/* <Footer /> */}
     </>
   );
 };

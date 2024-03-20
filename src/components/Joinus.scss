@@ -1,8 +1,6 @@
 .js_mainparent {
     /* Join Upsell */
-
     box-sizing: border-box;
-
     /* Auto layout */
     display: flex;
     flex-direction: row;
@@ -12,16 +10,243 @@
     align-content: center;
     padding: 24px 40px;
     gap: 32px;
-
     position: relative;
     width: 978px;
     height: 462.59px;
     left: 210px;
     top: 894px;
-
     background: linear-gradient(94.13deg, #FFFBF4 0.87%, #FFFBF4 85.92%, #FFF7F2 93.16%, #FEEBE1 100%);
     /* Brand/brand-200 */
     border: 1px solid #FFB4A0;
     border-radius: 32px;
+
+    .joinus_left_section {
+
+        .joinus_frame {
+        /* Frame 37 */
+        box-sizing: border-box;
+        width: 433px;
+        min-width: 350px;
+        height: 414px;
+        background: url(registration.jpg);
+        /* Neutral/G400 */
+        border: 0.791411px solid #777270;
+        border-radius: 32px;
+
+        /* Inside auto layout */
+        flex: none;
+        order: 0;
+        flex-grow: 1;
+
+        }
+    }
+
+    .joinus_right_section {
+        /* Content */
+
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 24px;
+
+        width: 433px;
+        height: 414.59px;
+
+        /* Inside auto layout */
+        flex: none;
+        order: 1;
+        flex-grow: 1;
+
+        .label {
+            /* Label */
+            /* Auto layout */
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 16px;
+            gap: 8px;
+            width: 167px;
+            height: 40px;
+            /* Brand/brand-50 */
+            background: #FFEFEA;
+            border-radius: 5px;
+            /* Inside auto layout */
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+            /* Join for Free */
+            width: 135px;
+            height: 24px;
+            font-family: 'General Sans', sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 24px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            /* Brand/brand-700 */
+            color: #B54123;
+            /* Inside auto layout */
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+                
+        }
+
+        .right_parent {
+            /* Text */
+            /* Auto layout */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding: 0px;
+            gap: 16px;
+
+            width: 433px;
+            height: 350.59px;
+
+
+            /* Inside auto layout */
+            flex: none;
+            order: 1;
+            align-self: stretch;
+            flex-grow: 0;
+
+            .more_text {
+                /* More Text */
+
+                /* Auto layout */
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0px;
+                gap: 16px;
+
+                width: 433px;
+                height: 282.31px;
+
+
+                /* Inside auto layout */
+                flex: none;
+                order: 0;
+                align-self: stretch;
+                flex-grow: 0;
+
+            }
+
+            .frame_130 {
+                /* Frame 130 */
+
+                /* Auto layout */
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0px;
+                gap: 16px;
+
+                width: 433px;
+                height: 180px;
+
+
+                /* Inside auto layout */
+                flex: none;
+                order: 0;
+                align-self: stretch;
+                flex-grow: 0;
+
+            }
+
+            .frame_131 {
+                /* Frame 131 */
+
+                /* Auto layout */
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0px;
+                gap: 16px;
+
+                width: 433px;
+                height: 86.31px;
+
+
+                /* Inside auto layout */
+                flex: none;
+                order: 1;
+                align-self: stretch;
+                flex-grow: 0;
+
+            }
+
+            .frame_89 {
+                /* Frame 89 */
+                /* Auto layout */
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 0px;
+                gap: 24px;
+                width: 433px;
+                height: 35.15px;
+
+                /* Inside auto layout */
+                flex: none;
+                order: 0;
+                align-self: stretch;
+                flex-grow: 0;
+
+            }
+
+            h2 {
+                /* Register within Minutes */
+                width: 433px;
+                height: 32px;
+    
+                font-family: 'General Sans', sans-serif;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 32px;
+    
+                /* Brand/brand-900 */
+                color: #6B2615;
+    
+                /* Inside auto layout */
+                flex: none;
+                order: 0;
+                align-self: stretch;
+                flex-grow: 0;
+                }
+                .body {
+                /* As an NGO / Charity / Club, you can create events and collaborate with other orgs. As a user, you can subscribe to these said orgs for free. */
+                width: 433px;
+                height: 132px;
+    
+                font-family: 'General Sans', sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 22px;
+                line-height: 150%;
+                /* or 33px */
+                letter-spacing: 0.01em;
+    
+                /* Neutral/G500 */
+                color: #6B6664;
+    
+                /* Inside auto layout */
+                flex: none;
+                order: 1;
+                align-self: stretch;
+                flex-grow: 0;
+                }
+        }
+     
+    }
+   
 
 }
