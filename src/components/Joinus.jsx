@@ -10,7 +10,7 @@ const Joinus = () => {
       <div className="container  js_mainparent">
 
         <div className="joinus_left_section">
-          <img src={JoinusFrame} alt="" className="joinus_frame"/>
+          <img src={JoinusFrame} alt="" className="joinus_image"/>
         </div>
 
         <div className="joinus_right_section">
@@ -49,12 +49,6 @@ const Joinus = () => {
 
             </div>
             
-             
-            
-                
-          
-              
-
               <Button className="joinus_button">
                 <span>Join Us</span>
 

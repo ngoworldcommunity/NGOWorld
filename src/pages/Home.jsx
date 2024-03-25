@@ -48,7 +48,7 @@ const Home = () => {
       <Landing />
       <Joinus />
       {/* <MilanInfoBanner /> */}
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
