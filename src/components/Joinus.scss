@@ -22,23 +22,59 @@
     flex-grow: 0;
     margin-bottom: 100px;
 
+    @media screen and (max-width: 500px) {
+        /* Join Upsell */
+        box-sizing: border-box;
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        padding: 24px 40px;
+        gap: 32px;
+        width: 398px;
+        height: 982.44px;
+        background: linear-gradient(94.13deg, #FFFBF4 0.87%, #FFFBF4 85.92%, #FFF7F2 93.16%, #FEEBE1 100%);
+        /* Brand/brand-200 */
+        border: 1px solid #FFB4A0;
+        border-radius: 32px;
+        /* Inside auto layout */
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+      }
+
 
     .joinus_left_section {
         /* Frame 37 */
         box-sizing: border-box;
-
         width: 433px;
         min-width: 350px;
         height: 414px;
-
         background: url(registration.jpg);
         /* Neutral/G400 */
         border-radius: 32px;
-
         /* Inside auto layout */
         flex: none;
         order: 0;
-        // flex-grow: 1;
+   
+        @media screen and (max-width: 500px){
+            /* Frame 37 */
+            box-sizing: border-box;
+            width: 350px;
+            min-width: 350px;
+            height: 414px;
+            background: url(registration.jpg);
+            /* Neutral/G400 */
+            border: 0.791411px solid #777270;
+            border-radius: 32px;
+            /* Inside auto layout */
+            flex: none;
+            order: 0;
+            flex-grow: 1;
+        }
     }
 
     .joinus_right_section {
@@ -51,38 +87,35 @@
         align-items: flex-start;
         padding: 0px;
         gap: 24px;
-
         width: 433px;
         height: 414.59px;
-
-
         /* Inside auto layout */
         flex: none;
         order: 1;
         // flex-grow: 1;
 
-
-
         .label {
-            /* Label */
-            /* Auto layout */
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            padding: 8px 16px;
-            gap: 8px;
-            width: 167px;
-            height: 40px;
-            /* Brand/brand-50 */
-            background: #FFEFEA;
-            border-radius: 5px;
-            /* Inside auto layout */
-            flex: none;
-            order: 0;
-            flex-grow: 0;
+        /* Label */
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 16px;
+        gap: 8px;
+        width: 167px;
+        height: 40px;
+        /* Brand/brand-50 */
+        background: #FFEFEA;
+        border-radius: 5px;
+        /* Inside auto layout */
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+           
+            .label_text {
             /* Join for Free */
-            width: 135px;
+            width: 145px;
             height: 24px;
             font-family: 'General Sans', sans-serif;
             font-style: normal;
@@ -97,7 +130,7 @@
             flex: none;
             order: 0;
             flex-grow: 0;
-                
+            }
         }
 
         .right_parent {
@@ -120,90 +153,144 @@
             align-self: stretch;
             flex-grow: 0;
 
-            .more_text {
+            .content {
                 /* More Text */
-
                 /* Auto layout */
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 0px;
                 gap: 16px;
-
                 width: 433px;
                 height: 282.31px;
-
-
                 /* Inside auto layout */
                 flex: none;
                 order: 0;
                 align-self: stretch;
                 flex-grow: 0;
-
             }
 
             .frame_130 {
                 /* Frame 130 */
-
                 /* Auto layout */
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 0px;
                 gap: 16px;
-
                 width: 433px;
                 height: 180px;
-
-
                 /* Inside auto layout */
                 flex: none;
                 order: 0;
                 align-self: stretch;
                 flex-grow: 0;
-
             }
 
             .frame_131 {
                 /* Frame 131 */
-
                 /* Auto layout */
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 0px;
                 gap: 16px;
-
                 width: 433px;
                 height: 86.31px;
-
-
                 /* Inside auto layout */
                 flex: none;
                 order: 1;
                 align-self: stretch;
                 flex-grow: 0;
-
             }
 
             .frame_89 {
-                /* Frame 89 */
+               /* Frame 89 */
                 /* Auto layout */
                 display: flex;
                 flex-direction: row;
-                align-items: center;
                 padding: 0px;
                 gap: 24px;
                 width: 433px;
                 height: 35.15px;
-
                 /* Inside auto layout */
                 flex: none;
                 order: 0;
                 align-self: stretch;
                 flex-grow: 0;
 
+                .frame89_text {
+                    /* Easy, one minute sign up */
+                    width: 362px;
+                    height: 30px;
+                    font-family: 'General Sans', sans-serif;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 22px;
+                    line-height: 30px;
+                    /* identical to box height */
+                    /* Neutral/G600 */
+                    color: #625C5A;
+                    /* Inside auto layout */
+                    flex: none;
+                    order: 1;
+                    flex-grow: 0;
+                }
+
+                .frame89_img {
+                /* Group 5 */
+                width: 35.15px;
+                height: 35.15px;
+                /* Inside auto layout */
+                flex: none;
+                order: 0;
+                flex-grow: 0;
+                }
             }
+
+            .frame_90 {
+                /* Frame 89 */
+                 /* Auto layout */
+                 display: flex;
+                 flex-direction: row;
+                 padding: 0px;
+                 gap: 24px;
+                 width: 433px;
+                 height: 35.15px;
+                 /* Inside auto layout */
+                 flex: none;
+                 order: 0;
+                 align-self: stretch;
+                 flex-grow: 0;
+ 
+                 .frame90_text {
+                     /* Easy, one minute sign up */
+                     width: 362px;
+                     height: 30px;
+                     font-family: 'General Sans', sans-serif;
+                     font-style: normal;
+                     font-weight: 500;
+                     font-size: 22px;
+                     line-height: 30px;
+                     /* identical to box height */
+                     /* Neutral/G600 */
+                     color: #625C5A;
+                     /* Inside auto layout */
+                     flex: none;
+                     order: 1;
+                     flex-grow: 0;
+                 }
+ 
+                 .frame90_img {
+                 /* Group 5 */
+                 width: 35.15px;
+                 height: 35.15px;
+                 /* Inside auto layout */
+                 flex: none;
+                 order: 0;
+                 flex-grow: 0;
+                 }
+             }
 
             h2 {
                 /* Register within Minutes */
@@ -247,6 +334,75 @@
                 align-self: stretch;
                 flex-grow: 0;
                 }
+        }
+
+        .joinus_button {
+        /* CTA */
+
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 24px;
+        gap: 16px;
+
+        width: 161.28px;
+        height: 52.28px;
+
+        /* Brand/brand-500 */
+        background: #FF5B31;
+        border-radius: 104px;
+
+        /* Inside auto layout */
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+
+        span {
+        /* Join Us */
+
+        width: 69px;
+        height: 27px;
+
+        font-family: 'General Sans', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 27px;
+        /* identical to box height */
+        text-transform: capitalize;
+
+        /* Neutral/G10 */
+        color: #FBFBFB;
+
+
+        /* Inside auto layout */
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+
+        }
+
+        &:hover {
+            background: var(--Brand-brand-500, #ff5b31);
+            box-shadow:
+              0px 0px 1.17px 0px #ff5a30,
+              0px 0px 8.191px 0px #ff5a30,
+              0px 0px 28.084px 0px #ff5a30;
+            transition: all 0.3s ease-in-out;
+          }
+      
+          @media screen and (max-width: 500px) {
+            margin-top: 4rem;
+            width: auto;
+          }
+
+          .navbar_cta_arrow {
+            width: 15px;
+            height: 15px;
+            transition: all 0.3s ease-in-out;
+          }
         }
      
     }
