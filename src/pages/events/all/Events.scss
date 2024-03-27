@@ -7,7 +7,7 @@
   .separator {
     width: 80%;
     height: 1px;
-    background-color: #e2e5e870;
+    background-color: var(--secondary);
     margin: 0;
     margin-top: 10px;
     opacity: 0.2;
@@ -20,6 +20,7 @@
     margin: 0;
     white-space: nowrap;
     line-height: 1;
+    color: var(--secondary);
   }
 
   .createevent {
@@ -43,7 +44,7 @@
 }
 
 .events_div {
-  margin-top: 4rem;
+  margin-top: 2rem;
   display: flex;
   align-items: center;
   flex-wrap: wrap;

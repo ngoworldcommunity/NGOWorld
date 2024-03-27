@@ -38,8 +38,8 @@ const Landing = () => {
 
           {windowWidth > 430 ? (
             <p>
-              Welcome to <span>NGOWorld</span>, a platform to connect NGOs,
-              charities and you to build a better tomorrow.
+              Welcome to <span>NGOWorld</span>, a platform to connect and
+              support NGOs, charities and you to build a better tomorrow.
             </p>
           ) : (
             <p>
@@ -64,19 +64,19 @@ const Landing = () => {
             <div className="landing_ctaimgdiv">
               <div className="landing_ctaimages">
                 <img
-                  src="https://www.sruti.org.in/wp-content/uploads/2021/05/education-image.jpg"
+                  src="https://avatars.githubusercontent.com/u/56752104?v=4"
                   alt=""
                 />
                 <img
-                  src="https://www.thetechies.org/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fuser1.92325ddb.webp&w=640&q=75"
+                  src="https://avatars.githubusercontent.com/u/71691473?v=4"
                   alt=""
                 />
                 <img
-                  src="https://www.sruti.org.in/wp-content/uploads/2021/05/education-image.jpg"
+                  src="https://avatars.githubusercontent.com/u/94097778?v=4"
                   alt=""
                 />
                 <img
-                  src="https://www.thetechies.org/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fuser1.92325ddb.webp&w=640&q=75"
+                  src="https://avatars.githubusercontent.com/u/72697074?v=4"
                   alt=""
                 />
               </div>

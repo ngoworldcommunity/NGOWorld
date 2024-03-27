@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap");
 
 .clubspage_main_parent {
-  margin-top: 8rem;
+  margin-top: 3rem;
   margin-bottom: 3rem;
+  min-height: 100vh;
 }
 
 .clubspage_cardsdiv {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: space-between;
-  margin-top: 5rem;
+  gap: 2.5rem;
+  justify-content: center;
   margin-bottom: 0;
 }
 

@@ -23,7 +23,7 @@ const Links = [
   },
   {
     name: "Trending",
-    link: "/clubs",
+    link: "/trending",
   },
   {
     name: "Events",
@@ -109,11 +109,12 @@ const Navbar = () => {
                 src="https://www.thetechies.org/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fuser3.04b79840.webp&w=640&q=75"
                 alt=""
                 style={{
-                  width: "33px",
-                  height: "33px",
+                  width: "37px",
+                  height: "37px",
                   borderRadius: "50%",
                   objectFit: "cover",
                   cursor: "pointer",
+                  zIndex: "100",
                 }}
                 onClick={() => {
                   document
@@ -200,7 +201,7 @@ const Navbar = () => {
 
         <div className="nav_dropdown">
           <div className="myaccount">
-            <span>Hello @{userName}</span>
+            <span className="name">Hello @{userName}</span>
             <div
               role="separator"
               aria-orientation="horizontal"

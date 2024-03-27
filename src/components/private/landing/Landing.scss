@@ -1,7 +1,7 @@
 .landing_parent {
   display: flex;
   flex-direction: column;
-  min-height: 100dvh;
+  min-height: 95dvh;
   align-items: center;
   justify-content: center;
   justify-items: center;
@@ -217,7 +217,7 @@
         gap: 0px;
         z-index: 3;
         img {
-          width: 35px;
+          width: 30px;
           aspect-ratio: 1/1;
           object-fit: cover;
           border-radius: 50%;

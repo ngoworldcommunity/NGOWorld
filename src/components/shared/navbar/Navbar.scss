@@ -1,15 +1,10 @@
 .navbar_parent {
-  background-color: rgba(255, 255, 255, 0);
   padding: 0.8rem 7rem;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 20px 30px rgba(255, 255, 255, 0.15);
-  z-index: 10;
-  position: fixed;
-  top: 0;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 100;
 
   @media screen and (max-width: 430px) {
     padding: 0.8rem 1.5rem;
@@ -17,6 +12,8 @@
 
   .navbar_brand > img {
     width: 170px;
+    z-index: 9999999999999999999999;
+    cursor: pointer;
 
     @media screen and (max-width: 430px) {
       width: 130px;
@@ -29,6 +26,7 @@
     gap: 40px;
     align-items: center;
     margin-top: 10px;
+    z-index: 1;
 
     .navbar_link {
       color: #8c321b;
@@ -179,6 +177,14 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      color: var(--secondary);
+
+      .name {
+        font-family: "Outfit", sans-serif;
+        font-size: 16px;
+        padding: 10px;
+        margin-bottom: 5px;
+      }
 
       &:nth-of-type(3) {
         margin-bottom: 8px;
@@ -191,7 +197,7 @@
       }
 
       a {
-        color: #000000;
+        color: var(--secondary);
         font-weight: 400;
         font-family: "Outfit", sans-serif;
         text-decoration: none;
@@ -212,10 +218,11 @@
       }
     }
   }
-}
 
-.nav_dropdown_visible {
-  display: flex;
-  top: 60px;
-  transition: all 1s ease-in-out;
+  .nav_dropdown_visible {
+    display: flex;
+    top: 60px;
+    transition: all 1s ease-in-out;
+    z-index: 100;
+  }
 }
