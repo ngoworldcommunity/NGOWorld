@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useDispatch } from "react-redux";
 import { ToastContainer } from "react-toastify";
-import { Landing, MilanInfoBanner } from "../components/private/index.js";
+import { Landing } from "../components/private/index.js";
 import { Footer, Navbar } from "../components/shared";
 import { toggleUserLogin, updateUserData } from "../redux/slice/userSlice.js";
 import { successCallback } from "../service/MilanApi.js";
@@ -45,7 +45,7 @@ const Home = () => {
       <Navbar />
 
       <Landing />
-      <MilanInfoBanner />
+
       <Footer />
     </>
   );
