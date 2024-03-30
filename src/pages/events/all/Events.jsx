@@ -23,9 +23,6 @@ const Events = () => {
   let [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
     window.scrollTo(0, 0);
   }, []);
 
