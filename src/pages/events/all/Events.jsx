@@ -16,11 +16,12 @@ import fetcher from "../../../utils/Fetcher";
 import "./Events.scss";
 
 const Events = () => {
-  const { data: events } = useSWR(eventEndpoints.all, fetcher);
+  const { data: events, isLoading: loading } = useSWR(
+    eventEndpoints.all,
+    fetcher,
+  );
   const [showCreateModal, setshowCreateModal] = useState(false);
   const userType = useSelector((state) => state.user.userType);
-
-  let [loading, setLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -57,7 +58,6 @@ const Events = () => {
           </div>
           <div className="events_div">
             {/* <SkeletonCard/> */}
-            {/* loading? <SkeletonCard/> : */}
             {loading ? (
               <div
                 style={{
