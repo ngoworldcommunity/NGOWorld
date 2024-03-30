@@ -35,6 +35,10 @@ Follow the below steps to setup the Frontend locally. We are using `npm` as the 
 
 We use a `.env` file inside the root of the directory. You must create a `.env` file similar to [.env.example](../.env.example) file.
 
+`HOST_NAME` variable is used to set host name which tell vite to use and listen to only.
+
+`EXPOSE_NETWORK` This variable use to tell vite to listen to ur Network IP address and localhost. it useful if you want to access your vite server directory from your network just like how Webserver and FTP/SFTP used to listen on network.
+
 <br/>
 <br/>
 
