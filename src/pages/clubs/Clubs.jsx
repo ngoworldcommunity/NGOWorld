@@ -11,9 +11,6 @@ const Clubs = () => {
   const { data: clubs, isLoading:loading } = useSWR(clubEndpoints.all, fetcher);
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 5000);
     window.scrollTo(0, 0);
   }, []);
 
