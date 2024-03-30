@@ -8,8 +8,7 @@ import fetcher from "../../utils/Fetcher";
 import "./Clubs.css";
 
 const Clubs = () => {
-  const { data: clubs } = useSWR(clubEndpoints.all, fetcher);
-  let [loading, setLoading] = useState(true);
+  const { data: clubs, isLoading:loading } = useSWR(clubEndpoints.all, fetcher);
 
   useEffect(() => {
     setTimeout(() => {
