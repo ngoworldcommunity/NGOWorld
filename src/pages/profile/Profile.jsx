@@ -9,9 +9,12 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import useSWR from "swr";
 import { Button, Navbar, ProfileCompletion } from "../../components/shared";
 import { resetUserData } from "../../redux/slice/userSlice";
 import { Logout } from "../../service/MilanApi";
+import { clubEndpoints } from "../../static/ApiEndpoints";
+import fetcher from "../../utils/Fetcher";
 import { showErrorToast, showSuccessToast } from "../../utils/Toasts";
 import { checkMissingFields } from "../../utils/checkMissingFields";
 import "./Profile.scss";
@@ -21,13 +24,21 @@ const Profile = () => {
   const navigate = useNavigate();
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [editProfile, seteditProfile] = useState(false);
-  const dispatch = useDispatch();
 
-  const info = useSelector((state) => state.user);
-  console.log("🚀 ~ Profile ~ info:", info);
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+  const trueUser = user?.userName === params.userName;
+  const { data: details } = useSWR(
+    clubEndpoints.details(params.userName),
+    fetcher,
+  );
 
   useEffect(() => {
-    if (!Cookies.get("skipProfileCompletion") && checkMissingFields(info)) {
+    if (
+      !Cookies.get("skipProfileCompletion") &&
+      checkMissingFields(user) &&
+      trueUser
+    ) {
       setShowProfileModal(true);
     }
   }, []);
@@ -50,7 +61,6 @@ const Profile = () => {
   const toggleProfileModal = () => {
     setShowProfileModal(!showProfileModal);
     seteditProfile(true);
-    console.log("toggleProfileModal");
   };
 
   return (
@@ -75,21 +85,21 @@ const Profile = () => {
             />
 
             <div className="profile_header_details">
-              {info?.userType === "club" ? (
+              {details?.userType === "club" ? (
                 <div>
-                  <h1 className="profile_header_name">{info?.name} </h1>
-                  <h2 className="profile_header_tagline">{info?.tagLine}</h2>
+                  <h1 className="profile_header_name">{details?.name} </h1>
+                  <h2 className="profile_header_tagline">{details?.tagLine}</h2>
                 </div>
               ) : (
                 <div>
                   <h1 className="profile_header_name">
-                    {info?.firstName} {info?.lastName}{" "}
+                    {details?.firstName} {details?.lastName}{" "}
                   </h1>
                 </div>
               )}
 
               <div className="profile_header_ctadiv">
-                {params.userName === Cookies.get("userName") ? (
+                {trueUser ? (
                   <Button
                     variant="solid"
                     className="profile_header_cta"
@@ -117,8 +127,7 @@ const Profile = () => {
                   </Button>
                 )}
 
-                {Cookies.get("isLoggedIn") &&
-                Cookies.get("userName") === params.userName ? (
+                {trueUser ? (
                   <Button
                     variant="outline"
                     className="profile_header_cta"
@@ -154,7 +163,7 @@ const Profile = () => {
           </div>
 
           <div className="profile_header_ctadiv">
-            {params.userName === Cookies.get("userName") ? (
+            {trueUser ? (
               <Button
                 variant="solid"
                 className="profile_header_cta"
@@ -182,8 +191,7 @@ const Profile = () => {
               </Button>
             )}
 
-            {Cookies.get("isLoggedIn") &&
-            Cookies.get("userName") === params.userName ? (
+            {trueUser ? (
               <Button
                 variant="outline"
                 className="profile_header_cta"
@@ -231,33 +239,24 @@ const Profile = () => {
 
           */}
 
-          {info?.description && (
+          {/* {user?.description && (
+
+          )} */}
+
+          {details?.description && (
             <div className="profile_about">
               <h1 className="profile_about_title">About Us</h1>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi
-                dolore nesciunt beatae libero temporibus expedita similique,
-                laborum blanditiis? Animi aliquam numquam necessitatibus natus
-                libero reprehenderit iusto voluptatem maiores officiis quibusdam
-                neque suscipit, delectus laborum porro architecto aut sapiente
-                quasi repudiandae, ab mollitia. Voluptatem inventore numquam
-                quisquam quidem rerum neque sapiente, praesentium sunt
-                reiciendis pariatur voluptas vel vitae nulla magnam, ex
-                aspernatur necessitatibus. Totam dolores sequi tempore magnam
-                numquam sapiente repellat modi? Et consectetur similique sit
-                laudantium corrupti. Autem, maxime aliquid cumque, culpa earum
-                animi dolorem, voluptates facere sint necessitatibus ea a error
-                vero reprehenderit! A blanditiis cumque itaque fugit dolorem.
-              </p>
+
+              <p>{details?.description}</p>
             </div>
           )}
 
-          {info?.userType === "club" && (
+          {details?.userType === "club" && (
             <div className="profile_map">
               <h1 className="profile_about_title">Find us here</h1>
               <iframe
                 src={
-                  info?.iframe ||
+                  user?.iframe ||
                   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14741.482534684159!2d88.35842639207846!3d22.527784753774615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0276d0a2583ccf%3A0xf1efff5c088752e2!2s6%20Ballygunge%20Place!5e0!3m2!1sen!2sin!4v1695572606793!5m2!1sen!2sin"
                 }
                 allowfullscreen=""

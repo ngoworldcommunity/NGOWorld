@@ -19,7 +19,6 @@ const Events = () => {
   const { data: events } = useSWR(eventEndpoints.all, fetcher);
   const [showCreateModal, setshowCreateModal] = useState(false);
   const userType = useSelector((state) => state.user.userType);
-  // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   let [loading, setLoading] = useState(true);
 
@@ -48,8 +47,13 @@ const Events = () => {
           <div className="events_now_header">
             <p>Happening now</p>
 
+            <hr className="separator" />
+
             {userType === "club" && (
-              <Button onClickfunction={toggleCreateEventModal}>
+              <Button
+                onClickfunction={toggleCreateEventModal}
+                className="createevent"
+              >
                 <FaPlus /> Create an event
               </Button>
             )}

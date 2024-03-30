@@ -8,7 +8,7 @@
   },
   "description": "The frontend for Milan webapp.",
   "license": "MIT",
-  "homepage": "https://milanhub.org/",
+  "homepage": "https://milanhub.vercel.app/",
   "repository": {
     "type": "git",
     "url": "https://github.com/MilanCommunity/Milan"
