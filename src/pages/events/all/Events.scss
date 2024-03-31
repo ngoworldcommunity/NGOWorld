@@ -1,6 +1,6 @@
 .events_now_header {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   align-items: center;
   width: 100%;
 
@@ -18,7 +18,16 @@
     font-size: 35px;
     font-weight: 600;
     margin: 0;
+    white-space: nowrap;
     line-height: 1;
+  }
+
+  .createevent {
+    width: auto;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
   @media screen and (max-width: 430px) {

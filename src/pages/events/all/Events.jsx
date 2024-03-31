@@ -40,7 +40,10 @@ const Events = () => {
             <hr className="separator" />
 
             {userType === "club" && (
-              <Button onClickfunction={toggleCreateEventModal}>
+              <Button
+                onClickfunction={toggleCreateEventModal}
+                className="createevent"
+              >
                 <FaPlus /> Create an event
               </Button>
             )}
