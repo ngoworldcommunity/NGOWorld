@@ -43,7 +43,7 @@ const Login = () => {
   return (
     <>
       <Helmet>
-        <title>NGOWorld | Login</title>
+        <title>NgoWorld | Login</title>
         <meta
           name="description"
           content="Welcome to the Club's login page. Provide all the needed credentials and join us."

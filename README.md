@@ -1,8 +1,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![GitHub release (latest by date)](https://img.shields.io/github/v/release/MilanCommunity/Milan)](https://github.com/MilanCommunity/Milan/releases) ![GitHub repo size](https://img.shields.io/github/repo-size/MilanCommunity/Milan)
 
-# What is NGOWorld ?
+# What is NgoWorld ?
 
-NGOWorld is a hub to **connect** NGOs, Charities, and the world to **collaborate** and **build** a better tomorrow. Sign up as an organization/user and be a cause for change. Don't forget to drop a star ⭐.
+NgoWorld is a hub to **connect** NGOs, Charities, and the world to **collaborate** and **build** a better tomorrow. Sign up as an organization/user and be a cause for change. Don't forget to drop a star ⭐.
 
 <br/>
 
@@ -16,7 +16,7 @@ NGOWorld is a hub to **connect** NGOs, Charities, and the world to **collaborate
 
 </div>
 
-<img alt="NGOWorld Readme Banner" src="./src/assets/pictures/readme/MilanBanner.png" width="700px"/>
+<img alt="NgoWorld Readme Banner" src="./src/assets/pictures/readme/MilanBanner.png" width="700px"/>
 
 </div>
 
@@ -46,11 +46,11 @@ NGOWorld is a hub to **connect** NGOs, Charities, and the world to **collaborate
 
 </br>
 
-# Contributing to NGOWorld 🔐
+# Contributing to NgoWorld 🔐
 
 Remember, Good PR makes you a Good contributor !
 
-We at NGOWorld work hard to maintain the structure, and [use conventional Pull](https://github.com/MilanCommunity/Milan/blob/main/CONTRIBUTING.md#pull-request-title-format-) request titles and commits. Without a proper template for the PR, not following the guidelines and spam might get the pull request closed, or banned.
+We at NgoWorld work hard to maintain the structure, and [use conventional Pull](https://github.com/MilanCommunity/Milan/blob/main/CONTRIBUTING.md#pull-request-title-format-) request titles and commits. Without a proper template for the PR, not following the guidelines and spam might get the pull request closed, or banned.
 
 ## 1️. Setting up the project locally
 
@@ -67,7 +67,7 @@ We at NGOWorld work hard to maintain the structure, and [use conventional Pull](
 
 # License 👮
 
-NGOWorld is Licensed under the <a href="./LICENSE">MIT License</a>. Please go through the License at least once before contributing.
+NgoWorld is Licensed under the <a href="./LICENSE">MIT License</a>. Please go through the License at least once before contributing.
 
 # Support 🙏
 

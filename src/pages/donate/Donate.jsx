@@ -59,7 +59,7 @@ const Donate = () => {
   return (
     <>
       <Helmet>
-        <title>NGOWorld | Donations</title>
+        <title>NgoWorld | Donations</title>
         <meta
           name="description"
           content="Welcome to the donations page, even a small amount can help folks struggling out there."

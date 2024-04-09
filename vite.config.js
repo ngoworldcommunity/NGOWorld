@@ -12,8 +12,8 @@ export default defineConfig({
       includeAssets: ["favicon.svg", "robots.txt"],
       injectRegister: "auto",
       manifest: {
-        short_name: "NGOWorld",
-        name: "NGOWorld",
+        short_name: "NgoWorld",
+        name: "NgoWorld",
         start_url: "./",
         display: "standalone",
         theme_color: "#000000",
@@ -109,7 +109,7 @@ export default defineConfig({
             },
           },
           {
-            urlPattern: new RegExp("^https://api.milanhub.org/(.*)"),
+            urlPattern: new RegExp("^https://api.ngoworld.org/(.*)"),
             handler: "StaleWhileRevalidate",
             options: {
               cacheName: "api",

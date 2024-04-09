@@ -3,19 +3,19 @@ import { Helmet } from "react-helmet-async";
 function ComponentHelmet({ type }) {
   return type == "Clubs" ? (
     <Helmet>
-      <title>NGOWorld | {type}</title>
+      <title>NgoWorld | {type}</title>
       <meta
         name="description"
-        content="This is the clubs page of NGOWorld, where you can find all the clubs in the community."
+        content="This is the clubs page of NgoWorld, where you can find all the clubs in the community."
       />
       <link rel="canonical" href="/" />
     </Helmet>
   ) : type == "Events" ? (
     <Helmet>
-      <title>NGOWorld | Events </title>
+      <title>NgoWorld | Events </title>
       <meta
         name="description"
-        content="This is the events page of NGOWorld, where you can find all the events happening in the community."
+        content="This is the events page of NgoWorld, where you can find all the events happening in the community."
       />
       <link rel="canonical" href="/" />
     </Helmet>

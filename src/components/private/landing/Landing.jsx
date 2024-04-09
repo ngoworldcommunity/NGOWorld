@@ -38,7 +38,7 @@ const Landing = () => {
 
           {windowWidth > 430 ? (
             <p>
-              Welcome to <span>NGOWorld</span>, a platform to connect and
+              Welcome to <span>NgoWorld</span>, a platform to connect and
               support NGOs, charities and you to build a better tomorrow.
             </p>
           ) : (

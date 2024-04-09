@@ -54,7 +54,7 @@ const SignUp = () => {
   return (
     <>
       <Helmet>
-        <title>NGOWorld | SignUp</title>
+        <title>NgoWorld | SignUp</title>
         <meta
           name="description"
           content="Welcome to the Club's registration page. Provide all the needed credentials and join us."
