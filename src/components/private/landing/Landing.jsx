@@ -50,7 +50,7 @@ const Landing = () => {
 
           <div className="landing_ctadiv">
             {Cookies.get("isLoggedIn") ? (
-              <Button to="/auth/signup" className="landing_signup">
+              <Button to="/clubs" className="landing_signup">
                 <span>Explore our clubs</span>
               </Button>
             ) : (

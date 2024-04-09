@@ -1,6 +1,8 @@
 import React from "react";
+import Trending from "../pages/Trending";
 import {
   Clubs,
+  Dashboard,
   Error404,
   Events,
   Home,
@@ -17,8 +19,10 @@ const routesConfig = [
   { path: "/user/:userName", element: <Profile /> },
   { path: "/clubs", element: <Clubs /> },
   { path: "/club/:userName", element: <Profile /> },
+  { path: "/dashboard", element: <Dashboard /> },
   { path: "/events", element: <Events /> },
   { path: "/shop", element: <Shop /> },
+  { path: "/trending", element: <Trending /> },
   { path: "*", element: <Error404 /> },
 ];
 

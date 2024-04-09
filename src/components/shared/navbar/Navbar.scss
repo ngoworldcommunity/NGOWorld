@@ -23,10 +23,11 @@
 
   .navbar_links {
     display: flex;
-    gap: 40px;
+    gap: 30px;
     align-items: center;
     margin-top: 10px;
     z-index: 1;
+    margin-right: 5rem;
 
     .navbar_link {
       color: #8c321b;

@@ -4,7 +4,6 @@ import { FiEdit3 } from "react-icons/fi";
 import { MdLogout } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
@@ -66,7 +65,6 @@ const Profile = () => {
   return (
     <>
       <Navbar />
-      <ToastContainer />
 
       {showProfileModal && (
         <ProfileCompletion

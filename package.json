@@ -36,6 +36,7 @@
     "@reduxjs/toolkit": "^2.1.0",
     "@studio-freight/lenis": "^1.0.33",
     "@studio-freight/react-lenis": "^0.0.38",
+    "@tanstack/react-query": "^5.28.9",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/user-event": "^14.4.3",
     "aos": "^2.3.4",

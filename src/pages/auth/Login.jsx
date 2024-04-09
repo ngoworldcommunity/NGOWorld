@@ -6,7 +6,6 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import rightabstract from "../../assets/pictures/authpages/authbanner.png";
 import { Button } from "../../components/shared";
 import { AuthSchema } from "../../constants";
@@ -51,7 +50,7 @@ const Login = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-      <ToastContainer />
+
       <div className="signup_parent">
         <div className="signup_container">
           <div className="signup_container_left">

@@ -10,6 +10,7 @@ const clubEndpoints = {
   all: `${API}/clubs`,
   details: (userName) => `${API}/clubs?userName=${userName}`,
   createEvent: `${API}/club/createevent`,
+  dashboard: `${API}/clubs/dashboard`,
 };
 
 const eventEndpoints = {

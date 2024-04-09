@@ -2,7 +2,6 @@ import Cookies from "js-cookie";
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useDispatch } from "react-redux";
-import { ToastContainer } from "react-toastify";
 import { Landing } from "../components/private/index.js";
 import { Footer, Navbar } from "../components/shared";
 import { toggleUserLogin, updateUserData } from "../redux/slice/userSlice.js";
@@ -41,7 +40,6 @@ const Home = () => {
         <link rel="canonical" href="/" />
       </Helmet>
 
-      <ToastContainer />
       <Navbar />
 
       <Landing />

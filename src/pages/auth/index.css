@@ -73,7 +73,7 @@
 }
 
 .auth_label {
-  font-family: "Outfit", sans-serif;
+  font-family: var(--outfit);
   font-size: 17px;
   font-weight: 400;
   margin-bottom: 3px;
@@ -98,6 +98,7 @@
   transition:
     border-color 0.15s ease-in-out,
     box-shadow 0.15s;
+  font-family: var(--outfit);
 }
 
 .auth_input:focus {
@@ -145,7 +146,7 @@ textarea::placeholder {
   color: white;
   border-radius: 6px;
   font-size: 15px;
-  font-family: "Outfit", sans-serif;
+  font-family: var(--outfit);
   display: flex;
   align-items: center;
   width: 100%;

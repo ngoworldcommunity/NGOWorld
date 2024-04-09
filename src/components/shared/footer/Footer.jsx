@@ -2,7 +2,6 @@ import React from "react";
 import { FaGithub, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { SiGmail } from "react-icons/si";
 import { Link } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import brand from "../../../assets/pictures/Navbar/MilanNavBrand.svg";
 import "./Footer.scss";
@@ -10,8 +9,6 @@ import "./Footer.scss";
 const Footer = () => {
   return (
     <>
-      <ToastContainer />
-
       <footer>
         <div className="leftside">
           <div className="brand">

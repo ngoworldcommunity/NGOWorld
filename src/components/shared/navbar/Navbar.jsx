@@ -208,7 +208,9 @@ const Navbar = () => {
               className="myaccount_separator"
             ></div>
             <Link
-              to={`/${userType === "individual" ? "user" : "club"}/${userName}`}
+              to={
+                userType === "individual" ? `/user/${userName}` : `/dashboard`
+              }
             >
               Your Profile
               <span>⇧⌘P</span>
