@@ -6,7 +6,6 @@ import { BsLinkedin } from "react-icons/bs";
 import { RiTwitterXFill } from "react-icons/ri";
 
 import { useNavigate, useParams } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
@@ -56,7 +55,7 @@ const UserProfile = () => {
   return (
     <>
       <Navbar />
-      <ToastContainer />
+
       <div className="userprofile_parentcontainer">
         <div className="userprofile_maincontainer">
           <div className="userprofile_pfp">

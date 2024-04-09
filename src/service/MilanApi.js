@@ -127,3 +127,15 @@ export const CreateEvent = async (event) => {
     return error;
   }
 };
+
+export const fetchDashboard = async () => {
+  try {
+    const response = await Axios.get(clubEndpoints.dashboard, {
+      withCredentials: true,
+    });
+
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+};

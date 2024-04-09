@@ -32,9 +32,9 @@
 .signup_container_left > h1 {
   font-size: 35px;
   font-weight: 700;
-  color: var(--Brand-brand-900, #6b2615);
+  color: var(--secondary);
   margin-bottom: 1rem;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .auth_dropdown {
@@ -73,11 +73,11 @@
 }
 
 .auth_label {
-  font-family: "Outfit", sans-serif;
+  font-family: var(--outfit);
   font-size: 17px;
   font-weight: 400;
   margin-bottom: 3px;
-  color: #6b2615;
+  color: var(--secondary);
 }
 
 .auth_input {
@@ -98,6 +98,7 @@
   transition:
     border-color 0.15s ease-in-out,
     box-shadow 0.15s;
+  font-family: var(--outfit);
 }
 
 .auth_input:focus {
@@ -115,6 +116,7 @@ textarea::placeholder {
 .auth_submit {
   border-radius: 0.375rem;
   width: 100%;
+  font-family: var(--poppins);
 }
 
 .signup_rightabstract {
@@ -144,7 +146,7 @@ textarea::placeholder {
   color: white;
   border-radius: 6px;
   font-size: 15px;
-  font-family: "Outfit", sans-serif;
+  font-family: var(--outfit);
   display: flex;
   align-items: center;
   width: 100%;

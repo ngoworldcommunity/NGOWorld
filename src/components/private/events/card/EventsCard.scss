@@ -63,7 +63,7 @@
 
       h1 {
         align-self: start;
-        color: var(--Neutral-G900, #3f3836);
+        color: var(--secondary);
         text-align: center;
         font-family: var(--poppins);
         font-size: 20px;
@@ -158,6 +158,7 @@
         font-family: var(--outfit);
         font-size: 15px;
         font-weight: 500;
+        color: var(--secondary);
       }
     }
 

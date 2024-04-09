@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #root {
+            width: 70%;
+            min-height: 100vh;
+            margin: 5px 15%;
+            padding: 2% 0;
+            border: 1px solid black;
+        }
+
+        .summary {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col {
+            flex: 1 0 0;
+            display: block;
+            margin: 0 10%;
+            margin-top: 5%;
+        }
+
+        #list-of-items div {
+            display: flex;
+            justify-content: center;
+        }
+
+        #list-of-items div {
+            display: flex;
+            justify-content: center;
+        }
+
+        #list-of-items table {
+            margin: 5% 0;
+            width: 80%;
+            text-align: left;
+        }
+
+        .footer {
+            width: 80%;
+            margin: 0 5%;
+            justify-content: center;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 480px) {
+            #root {
+                width: unset;
+                margin: 0;
+            }
+
+            .col {
+                flex: 1 0 300px;
+                display: block;
+                margin: 0 10%;
+                margin-top: 5%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="root">
+        <div class="summary">
+            <div class="col">
+                <img src="edilitics.webp" alt="">
+                <h3>Invoice Number: EDI123456</h3>
+            </div>
+        </div>
+        <div class="summary">
+            <div class="col">
+                <b>Details</b>
+                <br>
+                Invoice Number......EDI123456
+                <br>
+                Invoice Date...........21 Mar 2024
+                <br>
+                Billing ID...............4023-9583-9133
+                <br>
+                Domain Name........edilitics.com
+                <br>
+                Subscription...........Mar-Apr 2024 (1 Month)
+                <br>
+                Purchased Plan......Teams Full Suite (4 users)
+            </div>
+            <div class="col">
+                <b>Payment Summary</b>
+                <br>
+                Total Amount: $269.00/-
+                <br>
+                Paid Amount: $269.00/-
+                <br>
+                Bal Amount: $0.0
+                <br>
+                <br>
+                Card Type: HDFC (***1234)
+                <br>
+                Date Paid On: 21 March 2024
+                <br>
+            </div>
+        </div>
+        <div class="summary">
+            <div class="col">
+                <b>Bill To</b>
+                <br>
+                Raoul Pinto
+                <br>
+                Decision Sciences & Analytics Private Limited
+                <br>
+                G-3, B-wing, 3rd Floor
+                <br>
+                Annapurna CHSL, 1st Road, Santacruz East
+                <br>
+                Mumbai, Maharashtra 400055
+                <br>
+                India
+                <br>
+                Place of Supply/State Code: 27
+            </div>
+        </div>
+        <div id="list-of-items">
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Unit Price</th>
+                            <th>Quantity</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Teams Full Suite <br> Modules - Replicate | Transform | Visualize</td>
+                            <td>$100</td>
+                            <td>4</td>
+                            <td>$400</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                Total Amount: $400
+            </div>
+        </div>
+        <div class="footer">
+            <br><br>
+            <b>Edilitics | Decision Sciences & Analytics Private Limited</b>
+            <br>
+            G-3, B-wing, 3rd Floor
+            Annapurna CHSL, 1st Road, Santacruz East
+            Mumbai, Maharashtra 400055
+            India
+            <br>
+            GSTIN: 06AACCG0527D1Z8
+            <br>
+            PAN: AACCG0527D
+        </div>
+    </div>
+</body>
+
+</html>
