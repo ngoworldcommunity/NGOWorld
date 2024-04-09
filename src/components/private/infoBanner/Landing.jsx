@@ -70,7 +70,7 @@ const Landing = () => {
 
         {windowWidth > 430 ? (
           <h2>
-            Milan is an OpenSource platform to <span>connect</span> NGOs,
+            NGOWorld is an OpenSource platform to <span>connect</span> NGOs,
             Charities, and you to <span>collaborate</span> and{" "}
             <span>build</span> a better tomorrow.
           </h2>

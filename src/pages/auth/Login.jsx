@@ -43,7 +43,7 @@ const Login = () => {
   return (
     <>
       <Helmet>
-        <title>Milan | Login</title>
+        <title>NGOWorld | Login</title>
         <meta
           name="description"
           content="Welcome to the Club's login page. Provide all the needed credentials and join us."
@@ -140,7 +140,7 @@ const Login = () => {
                 >
                   {window.location.pathname.includes("signup")
                     ? "Have an account? Login"
-                    : "New to Milan? Sign up"}
+                    : "No account? Sign up"}
                 </button>
               </div>
             </form>
@@ -169,7 +169,7 @@ const Login = () => {
               >
                 {window.location.pathname.includes("signup")
                   ? "Have an account? Login"
-                  : "New to Milan? Sign up"}
+                  : "No account? Sign up"}
               </button>
             </div>
             <img src={rightabstract} alt="" />

@@ -12,8 +12,8 @@ export default defineConfig({
       includeAssets: ["favicon.svg", "robots.txt"],
       injectRegister: "auto",
       manifest: {
-        short_name: "Milan",
-        name: "Milan",
+        short_name: "NGOWorld",
+        name: "NGOWorld",
         start_url: "./",
         display: "standalone",
         theme_color: "#000000",
