@@ -132,14 +132,14 @@
       .navbar_mobile_link {
         color: #000000;
         font-weight: 500;
-        font-family: "Outfit", sans-serif;
+        font-family: var(--outfit);
         text-decoration: none;
         font-size: 17px;
         line-height: 1;
       }
 
       .navbar_mobile_cta {
-        font-family: "Outfit", sans-serif;
+        font-family: var(--outfit);
         text-decoration: none;
         font-size: 17px;
         gap: 5px;
@@ -181,7 +181,7 @@
       color: var(--secondary);
 
       .name {
-        font-family: "Outfit", sans-serif;
+        font-family: var(--outfit);
         font-size: 16px;
         padding: 10px;
         margin-bottom: 5px;
@@ -200,7 +200,7 @@
       a {
         color: var(--secondary);
         font-weight: 400;
-        font-family: "Outfit", sans-serif;
+        font-family: var(--outfit);
         text-decoration: none;
         font-size: 16px;
         line-height: 1;

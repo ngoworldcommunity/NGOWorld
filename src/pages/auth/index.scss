@@ -27,14 +27,32 @@
   flex-direction: column;
   row-gap: 20px;
   width: 50%;
-}
 
-.signup_container_left > h1 {
-  font-size: 35px;
-  font-weight: 700;
-  color: var(--secondary);
-  margin-bottom: 1rem;
-  font-family: "Poppins", sans-serif;
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    svg {
+      font-size: 20px;
+      background: #0000000a;
+      color: var(--primary);
+      padding: 7px;
+      width: 30px;
+      height: 30px;
+      border-radius: 5px;
+      margin-top: -5px;
+      cursor: pointer;
+    }
+
+    h1 {
+      font-size: 35px;
+      font-weight: 700;
+      color: var(--secondary);
+      line-height: 1;
+      font-family: "Poppins", sans-serif;
+    }
+  }
 }
 
 .auth_dropdown {

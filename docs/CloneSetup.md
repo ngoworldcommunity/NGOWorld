@@ -7,12 +7,12 @@
 
 <!-- /TOC -->
 
-# Getting started 
+# Getting started
 
 ## Forking 🍴
 
 - There will be a `Fork` button on the top right corner of the repository. Click on it.
-- **Uncheck** the option which says `Copy the main branch only`. 
+- **Uncheck** the option which says `Copy the main branch only`.
 - This is important as we have multiple branches in the repository and `beta` is the development branch.
 
 ## Cloning 🌀
@@ -22,7 +22,7 @@
 - Open your terminal and enter the following command and hit enter.
 
 ```shell
-git clone https://github.com/MilanCommunity/Milan.git
+git clone https://github.com/ngoworldcommunity/NGOWorld.git
 ```
 - This will clone the repository to your local storage and you can start working on it.
 

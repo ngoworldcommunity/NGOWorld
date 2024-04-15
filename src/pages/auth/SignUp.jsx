@@ -3,14 +3,14 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { FaChevronDown, FaEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa6";
+import { FaArrowLeftLong, FaEyeSlash } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import rightabstract from "../../assets/pictures/authpages/authbanner.png";
 import { Button } from "../../components/shared";
 import { useAuth } from "../../hooks/useAuth";
 import { GoogleAuth } from "../../service/MilanApi";
-import "./index.css";
+import "./index.scss";
 
 const SignUp = () => {
   // Form setup
@@ -65,7 +65,14 @@ const SignUp = () => {
       <div className="signup_parent">
         <div className="signup_container">
           <div className="signup_container_left">
-            <h1>Sign Up</h1>
+            <div className="header">
+              <FaArrowLeftLong
+                onClick={() => {
+                  navigate("/");
+                }}
+              />
+              <h1>Sign Up</h1>
+            </div>
             <form
               onSubmit={handleSubmit(handleFormSubmit)}
               className="auth_form"

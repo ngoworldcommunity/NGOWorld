@@ -14,6 +14,13 @@ import "./Dashboard.scss";
 const Dashboard = () => {
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [editProfile, seteditProfile] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpand = () => {
+    setIsExpanded(true);
+    const content = document.querySelector(".content");
+    content.classList.toggle("expanded");
+  };
 
   const { data } = useQuery({
     queryKey: ["dashboardData"],
@@ -62,7 +69,7 @@ const Dashboard = () => {
               />
 
               <div className="header">
-                <div>
+                <div className="name">
                   <h1 className="profile_header_name">{data?.name} </h1>
                   <h2 className="profile_header_tagline">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -81,24 +88,47 @@ const Dashboard = () => {
             </div>
           </div>
 
+          <div className="header_mobile">
+            <div className="name">
+              <h1 className="profile_header_name">{data?.name} </h1>
+              <h2 className="profile_header_tagline">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+                cum laudantium
+              </h2>
+            </div>
+            <Button
+              variant="solid"
+              className="cta"
+              onClickfunction={toggleProfileModal}
+            >
+              <FiEdit3 />
+              Edit profile
+            </Button>
+          </div>
+
           <div className="dashboard_body">
             <div className="about">
               <h1>About Us</h1>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Officiis pariatur fugit maiores eligendi, perspiciatis,
-                assumenda similique deserunt omnis exercitationem voluptate
-                porro iste velit, debitis nobis? Hic, rerum! Officiis rerum
-                reiciendis impedit numquam harum, omnis quasi qui cupiditate,
-                accusamus sed ad ipsam aspernatur cumque adipisci molestias
-                aperiam molestiae, nulla doloribus minus! Fugiat, quas nisi. Eum
-                corrupti dolore quas tenetur veritatis nam, quae dolores
-                nesciunt ducimus maiores consectetur minus harum iusto eaque
-                cupiditate doloremque, laudantium facere dolorum sequi, sit
-                distinctio! Animi eligendi cum tempora distinctio nam dolor
-                facere sapiente culpa sed ullam eveniet aliquam, praesentium
-                quidem accusantium, nostrum assumenda esse et quasi.
-              </p>
+              <div className="content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Officiis pariatur fugit maiores eligendi, perspiciatis,
+                  assumenda similique deserunt omnis exercitationem voluptate
+                  porro iste velit, debitis nobis? Hic, rerum! Officiis rerum
+                  reiciendis impedit numquam harum, omnis quasi qui cupiditate,
+                  accusamus sed ad ipsam aspernatur cumque adipisci molestias
+                  aperiam molestiae, nulla doloribus minus! Fugiat, quas nisi.
+                  Eum corrupti dolore quas tenetur veritatis nam, quae dolores
+                  nesciunt ducimus maiores consectetur minus harum iusto eaque
+                  cupiditate doloremque, laudantium facere dolorum sequi, sit
+                  distinctio! Animi eligendi cum
+                </p>
+                <div className="readmore_div">
+                  {!isExpanded && (
+                    <span onClick={toggleExpand}>. . . Read More</span>
+                  )}
+                </div>
+              </div>
             </div>
 
             <div className="events">

@@ -6,7 +6,7 @@
   padding-bottom: 4rem;
 
   @media screen and (max-width: 430px) {
-    padding: 6rem 1rem;
+    padding: 1rem 1rem;
   }
 
   .dashboard_parent {
@@ -29,6 +29,10 @@
         height: 300px;
         width: 100%;
         border-radius: 10px;
+
+        @media screen and (max-width: 430px) {
+          height: 160px;
+        }
       }
 
       .details {
@@ -40,37 +44,61 @@
         gap: 1rem;
         width: 100%;
 
+        @media screen and (max-width: 430px) {
+          top: 7rem;
+          left: 1rem;
+          align-items: last baseline;
+          gap: 0.5rem;
+          width: 100%;
+          min-width: 100%;
+        }
+
         .logo {
           height: 150px;
           width: 150px;
           border-radius: 6px;
+
+          @media screen and (max-width: 430px) {
+            height: 100px;
+            width: 100px;
+          }
         }
 
         .header {
           display: flex;
           align-items: start;
-          width: 100%;
+          width: 81%;
           justify-content: space-between;
-          padding-right: 2rem;
-          h1 {
-            font-size: 2.4rem;
-            color: var(--secondary);
-            font-family: var(--outfit);
-            font-weight: 700;
-            padding: 0;
-            margin: 0;
-            line-height: 1;
-            margin-bottom: 8px;
+
+          @media screen and (max-width: 430px) {
+            padding-right: 0;
+            align-items: flex-start;
           }
 
-          h2 {
-            font-size: 18px;
-            font-family: var(--outfit);
-            font-weight: 500;
-            padding: 0;
-            margin: 0;
-            line-height: 1;
-            max-width: 90%;
+          .name {
+            h1 {
+              font-size: 2.4rem;
+              color: var(--secondary);
+              font-family: var(--outfit);
+              font-weight: 700;
+              padding: 0;
+              margin: 0;
+              line-height: 1;
+              margin-bottom: 8px;
+            }
+
+            h2 {
+              font-size: 18px;
+              font-family: var(--outfit);
+              font-weight: 500;
+              padding: 0;
+              margin: 0;
+              line-height: 1;
+              max-width: 90%;
+            }
+            @media screen and (max-width: 430px) {
+              display: none;
+            }
           }
 
           .cta {
@@ -79,13 +107,72 @@
             align-items: center;
             font-family: var(--outfit);
             background-color: var(--primary);
+
+            @media screen and (max-width: 430px) {
+              display: none;
+            }
           }
+        }
+      }
+    }
+
+    .header_mobile {
+      align-items: start;
+      width: 100%;
+      justify-content: space-between;
+      display: none;
+      margin-top: 3rem;
+
+      @media screen and (max-width: 430px) {
+        padding-right: 0;
+        align-items: flex-start;
+        display: flex;
+      }
+
+      .name {
+        h1 {
+          font-size: 2rem;
+          color: var(--secondary);
+          font-family: var(--outfit);
+          font-weight: 700;
+          padding: 0;
+          margin: 0;
+          line-height: 1;
+          margin-bottom: 10px;
+        }
+
+        h2 {
+          font-size: 17px;
+          font-family: var(--outfit);
+          font-weight: 500;
+          padding: 0;
+          margin: 0;
+          line-height: 1;
+          word-break: break-all;
+          max-width: 100%;
+          font-weight: 400;
+        }
+      }
+
+      .cta {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        font-family: var(--outfit);
+        background-color: var(--primary);
+
+        @media screen and (max-width: 430px) {
+          display: none;
         }
       }
     }
 
     .dashboard_body {
       margin-top: 6rem;
+
+      @media screen and (max-width: 430px) {
+        margin-top: 1.2rem;
+      }
 
       h1 {
         font-size: 2rem;
@@ -101,10 +188,54 @@
         font-weight: 400;
         color: var(--secondary);
         margin-bottom: 1rem;
+        overflow: hidden;
+        max-height: 6em; /* Adjust as needed */
+        transition: max-height 0.3s ease;
+
+        @media screen and (max-width: 430px) {
+          font-size: 16px;
+          word-break: break-all;
+        }
       }
 
-      .events {
-        margin-top: 3rem;
+      .readmore_div {
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+        cursor: pointer;
+
+        span {
+          font-size: 1rem;
+          font-family: var(--outfit);
+          font-weight: 400;
+          color: var(--secondary);
+          margin-bottom: 1rem;
+          overflow: hidden;
+          max-height: 6em; /* Adjust as needed */
+          transition: max-height 0.3s ease;
+          opacity: 0.7;
+          cursor: pointer;
+
+          @media screen and (max-width: 430px) {
+            font-size: 16px;
+            word-break: break-all;
+          }
+        }
+      }
+
+      .content.expanded p {
+        max-height: none;
+      }
+
+      .read-more-button {
+        display: block;
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 0.5rem;
       }
     }
   }

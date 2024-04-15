@@ -22,6 +22,11 @@ export const showSuccessToast = (message) => {
     draggable: false,
     progress: undefined,
     closeButton: false,
+    bodyStyle: {
+      borderRadius: "50%",
+      fontFamily: "Outfit, sans-serif",
+      width: "fit-content",
+    },
   });
 };
 
