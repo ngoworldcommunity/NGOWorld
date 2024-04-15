@@ -6,8 +6,12 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import useSWR from "swr";
+import EventsMarqueeCards from "../../components/private/events/marquee/EventsMarqueeCards";
 import { Button, Navbar, ProfileCompletion } from "../../components/shared";
 import { fetchDashboard } from "../../service/MilanApi";
+import { eventEndpoints } from "../../static/ApiEndpoints";
+import fetcher from "../../utils/Fetcher";
 import { checkMissingFields } from "../../utils/checkMissingFields";
 import "./Dashboard.scss";
 
@@ -17,9 +21,24 @@ const Dashboard = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleExpand = () => {
-    setIsExpanded(true);
-    const content = document.querySelector(".content");
-    content.classList.toggle("expanded");
+    // Toggle the state
+    setIsExpanded(!isExpanded);
+
+    // Get the content element
+    const content = document.getElementsByClassName("about_content_text")[0];
+
+    // If expanded, remove the CSS properties; otherwise, restore them
+    if (isExpanded) {
+      content.style.display = "";
+      content.style.webkitLineClamp = "";
+      content.style.webkitBoxOrient = "";
+      content.style.overflow = "";
+    } else {
+      content.style.display = "-webkit-box";
+      content.style.webkitLineClamp = "3";
+      content.style.webkitBoxOrient = "vertical";
+      content.style.overflow = "hidden";
+    }
   };
 
   const { data } = useQuery({
@@ -28,6 +47,8 @@ const Dashboard = () => {
     refetchOnMount: false,
     retry: 2,
   });
+
+  const { data: events } = useSWR(eventEndpoints.all, fetcher);
 
   useEffect(() => {
     if (!Cookies.get("skipProfileCompletion") && checkMissingFields(data)) {
@@ -70,7 +91,9 @@ const Dashboard = () => {
 
               <div className="header">
                 <div className="name">
-                  <h1 className="profile_header_name">{data?.name} </h1>
+                  <h1 className="profile_header_name dashboard_heading">
+                    {data?.name}{" "}
+                  </h1>
                   <h2 className="profile_header_tagline">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Impedit cum laudantium
@@ -108,9 +131,13 @@ const Dashboard = () => {
 
           <div className="dashboard_body">
             <div className="about">
-              <h1>About Us</h1>
-              <div className="content">
-                <p>
+              <h1 className="dashboard_heading">About Us</h1>
+              <div className="about_content">
+                <p
+                  className={`about_content_text ${
+                    isExpanded ? "expanded" : ""
+                  }`}
+                >
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                   Officiis pariatur fugit maiores eligendi, perspiciatis,
                   assumenda similique deserunt omnis exercitationem voluptate
@@ -121,18 +148,35 @@ const Dashboard = () => {
                   Eum corrupti dolore quas tenetur veritatis nam, quae dolores
                   nesciunt ducimus maiores consectetur minus harum iusto eaque
                   cupiditate doloremque, laudantium facere dolorum sequi, sit
-                  distinctio! Animi eligendi cum
+                  distinctio! Animi eligendi cum nesciunt ducimus maiores
+                  nesciunt ducimus maiores consectetur minus harum iusto eaque
+                  cupiditate doloremque, laudantium facere dolorum sequi, sit
+                  distinctio! Animi eligendi cum nesciunt ducimus maiores
+                  nesciunt ducimus maiores consectetur minus harum iusto eaque
+                  cupiditate doloremque, laudantium facere dolorum sequi, sit
+                  distinctio! Animi eligendi cum nesciunt ducimus maiores
+                  consectetur minus harum iusto eaque cupiditate doloremque,
+                  laudantium facere dolorum sequi, sit distinctio! Animi
+                  eligendi cum
                 </p>
                 <div className="readmore_div">
                   {!isExpanded && (
-                    <span onClick={toggleExpand}>. . . Read More</span>
+                    <span onClick={toggleExpand} className="readmore_div_span">
+                      . . . Read More
+                    </span>
                   )}
                 </div>
               </div>
             </div>
 
             <div className="events">
-              <h1>Events Hosted</h1>
+              <h1 className="dashboard_heading">Events Hosted</h1>
+
+              <div className="events_grid">
+                {events?.map((event, id) => (
+                  <EventsMarqueeCards event={event} key={id} />
+                ))}
+              </div>
             </div>
           </div>
         </div>

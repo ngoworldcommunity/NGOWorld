@@ -5,12 +5,23 @@
   padding-top: 2rem;
   padding-bottom: 4rem;
 
+  .dashboard_heading {
+    font-size: 2.4rem;
+    color: var(--secondary);
+    font-family: var(--outfit);
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
   @media screen and (max-width: 430px) {
     padding: 1rem 1rem;
   }
 
   .dashboard_parent {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -130,7 +141,7 @@
       }
 
       .name {
-        h1 {
+        .profile_header_name {
           font-size: 2rem;
           color: var(--secondary);
           font-family: var(--outfit);
@@ -141,7 +152,7 @@
           margin-bottom: 10px;
         }
 
-        h2 {
+        .profile_header_tagline {
           font-size: 17px;
           font-family: var(--outfit);
           font-weight: 500;
@@ -174,7 +185,7 @@
         margin-top: 1.2rem;
       }
 
-      h1 {
+      .profile_header_name {
         font-size: 2rem;
         font-family: var(--outfit);
         font-weight: 700;
@@ -182,7 +193,7 @@
         margin-bottom: 1rem;
       }
 
-      p {
+      .profile_header_tagline {
         font-size: 1rem;
         font-family: var(--outfit);
         font-weight: 400;
@@ -198,44 +209,69 @@
         }
       }
 
-      .readmore_div {
-        display: flex;
-        width: 100%;
-        justify-content: flex-end;
-        cursor: pointer;
+      .about {
+        margin-top: 2.5rem;
 
-        span {
-          font-size: 1rem;
-          font-family: var(--outfit);
-          font-weight: 400;
-          color: var(--secondary);
-          margin-bottom: 1rem;
-          overflow: hidden;
-          max-height: 6em; /* Adjust as needed */
-          transition: max-height 0.3s ease;
-          opacity: 0.7;
-          cursor: pointer;
+        .about_content {
+          .about_content_text {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+          }
 
-          @media screen and (max-width: 430px) {
-            font-size: 16px;
-            word-break: break-all;
+          .about_content_text.expanded {
+            -webkit-line-clamp: unset !important;
+          }
+
+          .readmore_div {
+            display: flex;
+            width: 100%;
+            justify-content: flex-end;
+            cursor: pointer;
+
+            .readmore_div_span {
+              font-size: 1rem;
+              font-family: var(--outfit);
+              font-weight: 400;
+              color: var(--secondary);
+              margin-bottom: 1rem;
+              opacity: 0.7;
+              cursor: pointer;
+
+              @media screen and (max-width: 430px) {
+                font-size: 16px;
+                word-break: break-all;
+              }
+            }
+          }
+
+          .read-more-button {
+            display: block;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 0.5rem;
           }
         }
       }
 
-      .content.expanded p {
-        max-height: none;
-      }
+      .events {
+        margin-top: 2.5rem;
+        .events_grid {
+          margin-top: 1.5rem;
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          justify-items: flex-start;
 
-      .read-more-button {
-        display: block;
-        background-color: var(--primary);
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-        cursor: pointer;
-        margin-top: 0.5rem;
+          @media screen and (max-width: 430px) {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            row-gap: 1rem;
+          }
+        }
       }
     }
   }
