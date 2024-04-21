@@ -14,12 +14,12 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import useSWR from "swr";
 import { Logout } from "../../service/MilanApi";
-import { userEndpoints } from "../../static/ApiEndpoints";
 import fetcher from "../../utils/Fetcher";
 import { showErrorToast, showSuccessToast } from "../../utils/Toasts";
 
 import Cookies from "js-cookie";
 import { Button, Footer, Navbar } from "../../components/shared";
+import { userEndpoints } from "../../integrations/ApiEndpoints";
 import useAuthStore from "../../store/useAuth";
 
 const UserProfile = () => {

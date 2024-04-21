@@ -1,23 +1,25 @@
-import React, { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import useSWR from "swr";
 import { EventsCard } from "../../../components/private";
 import CreateEvents from "../../../components/private/events/create/CreateEvents";
-import { Button, Footer, Navbar } from "../../../components/shared";
-import { eventEndpoints } from "../../../static/ApiEndpoints";
+import { Button, Footer, Loading, Navbar } from "../../../components/shared";
+import { getEvents } from "../../../integrations/Events";
 import ComponentHelmet from "../../../utils/ComponentHelmet";
-import fetcher from "../../../utils/Fetcher";
 import "./Events.scss";
 
 const Events = () => {
-  const { data: events } = useSWR(eventEndpoints.all, fetcher);
+  const { data: events, isLoading } = useQuery({
+    queryKey: ["eventsData"],
+    queryFn: getEvents,
+    refetchOnMount: true,
+    refetchOnWindowFocus: false,
+    retry: 2,
+  });
+
   const [showCreateModal, setshowCreateModal] = useState(false);
   const userType = useSelector((state) => state.user.userType);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const toggleCreateEventModal = () => {
     setshowCreateModal(true);
@@ -49,9 +51,11 @@ const Events = () => {
             )}
           </div>
           <div className="events_div">
-            {events?.map((event, id) => (
-              <EventsCard event={event} key={id} />
-            ))}
+            {isLoading ? (
+              <Loading />
+            ) : (
+              events?.map((event, id) => <EventsCard event={event} key={id} />)
+            )}
           </div>
         </div>
       </main>

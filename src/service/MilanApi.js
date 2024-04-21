@@ -8,7 +8,7 @@ import {
   clubEndpoints,
   eventEndpoints,
   userEndpoints,
-} from "../static/ApiEndpoints";
+} from "../integrations/ApiEndpoints";
 
 // LOGIN USER
 export const LoginUser = async (credentials) => {

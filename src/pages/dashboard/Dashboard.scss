@@ -14,6 +14,10 @@
     margin: 0;
     line-height: 1;
     margin-bottom: 8px;
+
+    @media screen and (max-width: 430px) {
+      font-size: 1.5rem;
+    }
   }
 
   @media screen and (max-width: 430px) {
@@ -36,14 +40,35 @@
     .dashboard_header {
       position: relative;
 
+      .edit_icon {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+        cursor: pointer;
+        font-size: 2rem;
+        background-color: white;
+
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 1;
+      }
+
       .coverimage {
         height: 300px;
         width: 100%;
         border-radius: 10px;
+        object-fit: cover;
 
         @media screen and (max-width: 430px) {
           height: 160px;
         }
+      }
+
+      .coverimage_input {
+        display: none;
       }
 
       .details {
@@ -64,21 +89,29 @@
           min-width: 100%;
         }
 
-        .logo {
-          height: 150px;
-          width: 150px;
-          border-radius: 6px;
+        .logo_div {
+          position: relative;
+          .logo {
+            height: 150px;
+            width: 150px;
+            border-radius: 6px;
 
-          @media screen and (max-width: 430px) {
-            height: 100px;
-            width: 100px;
+            @media screen and (max-width: 430px) {
+              height: 100px;
+              width: 100px;
+            }
+          }
+
+          .logo_edit_icon {
+            right: -10px;
+            bottom: -10px;
           }
         }
 
         .header {
           display: flex;
           align-items: start;
-          width: 81%;
+          width: 84%;
           justify-content: space-between;
 
           @media screen and (max-width: 430px) {
@@ -150,6 +183,10 @@
           margin: 0;
           line-height: 1;
           margin-bottom: 10px;
+
+          @media screen and (max-width: 430px) {
+            font-size: 1.6rem;
+          }
         }
 
         .profile_header_tagline {
@@ -214,6 +251,7 @@
 
         .about_content {
           .about_content_text {
+            font-family: var(--outfit);
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 3;

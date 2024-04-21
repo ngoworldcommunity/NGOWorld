@@ -191,7 +191,11 @@ const Navbar = () => {
                 className="navbar_mobile_cta"
               >
                 <span>
-                  {Cookies.get("isLoggedIn") ? "Your Profile" : "Sign Up"}
+                  {Cookies.get("isLoggedIn")
+                    ? userType === "club"
+                      ? "Dashboard"
+                      : "Your Profile"
+                    : "Sign Up"}
                 </span>
                 <FaChevronRight />
               </Button>
@@ -212,8 +216,8 @@ const Navbar = () => {
                 userType === "individual" ? `/user/${userName}` : `/dashboard`
               }
             >
-              Your Profile
-              <span>⇧⌘P</span>
+              {userType === "individual" ? "Your Profile" : "Dashboard"}
+              <span>⇧⌘{userType === "club" ? "D" : "P"} </span>
             </Link>
             {userType === "club" ? (
               <Link to={"/event/create"}>

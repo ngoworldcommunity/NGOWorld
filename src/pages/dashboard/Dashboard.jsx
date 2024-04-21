@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import Cookies from "js-cookie";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { FiEdit3 } from "react-icons/fi";
+import { MdOutlineEdit } from "react-icons/md";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
@@ -9,16 +10,20 @@ import "swiper/css/pagination";
 import useSWR from "swr";
 import EventsMarqueeCards from "../../components/private/events/marquee/EventsMarqueeCards";
 import { Button, Navbar, ProfileCompletion } from "../../components/shared";
+import { eventEndpoints } from "../../integrations/ApiEndpoints";
 import { fetchDashboard } from "../../service/MilanApi";
-import { eventEndpoints } from "../../static/ApiEndpoints";
 import fetcher from "../../utils/Fetcher";
 import { checkMissingFields } from "../../utils/checkMissingFields";
+import convertToBase64 from "../../utils/convertToBase64";
 import "./Dashboard.scss";
 
 const Dashboard = () => {
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [editProfile, seteditProfile] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [coverImage, setCoverImage] = useState(
+    "https://images.pexels.com/videos/3045163/free-video-3045163.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  );
 
   const toggleExpand = () => {
     // Toggle the state
@@ -61,6 +66,13 @@ const Dashboard = () => {
     seteditProfile(true);
   };
 
+  const handleCreateDashboardImage = useCallback(async (e) => {
+    if (!e || !e.target || !e.target.files[0]) return;
+    const base64 = await convertToBase64(e);
+    setCoverImage(base64);
+    e.target.value = "";
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -76,18 +88,29 @@ const Dashboard = () => {
       <div className="dashboard_container">
         <div className="dashboard_parent">
           <div className="dashboard_header">
-            <img
-              src="https://images.pexels.com/videos/3045163/free-video-3045163.jpg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;"
-              className="coverimage"
-              alt=""
+            <img src={coverImage} className="coverimage" alt="" />
+            <input
+              type="file"
+              id="coverimage-input"
+              className="coverimage_input"
+              name="coverImage"
+              onChange={handleCreateDashboardImage}
             />
 
+            <label htmlFor="coverimage-input">
+              <MdOutlineEdit className="edit_icon" />
+            </label>
+
             <div className="details">
-              <img
-                src="https://api.freelogodesign.org/assets/thumb/logo/bdd55f703a074abb8bf50c0d3891c0a9_400.png?t=638314396148720000"
-                alt=""
-                className="logo"
-              />
+              <div className="logo_div">
+                <img
+                  src="https://api.freelogodesign.org/assets/thumb/logo/bdd55f703a074abb8bf50c0d3891c0a9_400.png?t=638314396148720000"
+                  alt=""
+                  className="logo"
+                />
+
+                <MdOutlineEdit className="edit_icon logo_edit_icon" />
+              </div>
 
               <div className="header">
                 <div className="name">
@@ -104,7 +127,7 @@ const Dashboard = () => {
                   className="cta"
                   onClickfunction={toggleProfileModal}
                 >
-                  <FiEdit3 />
+                  <MdOutlineEdit />
                   Edit profile
                 </Button>
               </div>

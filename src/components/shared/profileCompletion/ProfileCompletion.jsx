@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { useSWRConfig } from "swr";
 import { ProfileElements } from "../../../constants";
+import { clubEndpoints } from "../../../integrations/ApiEndpoints";
 import { updateUserData } from "../../../redux/slice/userSlice";
 import { UpdateUser } from "../../../service/MilanApi";
-import { clubEndpoints } from "../../../static/ApiEndpoints";
 import { showErrorToast, showSuccessToast } from "../../../utils/Toasts";
 import getProfileFields from "../../../utils/getProfileFields";
 import Button from "../buttons/globalbutton/Button";
@@ -33,6 +33,7 @@ const ProfileCompletion = ({
   }, [editProfile]);
 
   const fields = getProfileFields(user, editProfile);
+
   const totalfields = fields.length;
 
   const handleIncrementStep = () => {
@@ -100,14 +101,25 @@ const ProfileCompletion = ({
             return (
               <div className="profilecompletion_element" key={formElement.id}>
                 <label>{formElement?.label}</label>
-                <input
-                  type={formElement?.type}
-                  name={formElement?.id}
-                  value={formData[formElement?.id] || ""}
-                  onChange={handleChange}
-                  className="auth_input"
-                  placeholder={formElement?.placeholder}
-                />
+                {formElement?.id === "description" ? (
+                  <textarea
+                    type={formElement?.type}
+                    name={formElement?.id}
+                    value={formData[formElement?.id] || ""}
+                    onChange={handleChange}
+                    className="auth_input"
+                    placeholder={formElement?.placeholder}
+                  />
+                ) : (
+                  <input
+                    type={formElement?.type}
+                    name={formElement?.id}
+                    value={formData[formElement?.id] || ""}
+                    onChange={handleChange}
+                    className="auth_input"
+                    placeholder={formElement?.placeholder}
+                  />
+                )}
               </div>
             );
           })}

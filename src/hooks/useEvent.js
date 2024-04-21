@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
 import { useSWRConfig } from "swr";
+import { eventEndpoints } from "../integrations/ApiEndpoints";
 import { updateCreatedEvents } from "../redux/slice/eventSlice";
 import { CreateEvent } from "../service/MilanApi";
-import { eventEndpoints } from "../static/ApiEndpoints";
 import { showErrorToast, showSuccessToast } from "../utils/Toasts";
 
 export function useEvent(event) {
