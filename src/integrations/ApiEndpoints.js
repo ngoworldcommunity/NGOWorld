@@ -1,4 +1,4 @@
-const API = import.meta.env.VITE_MILANAPI;
+const API = import.meta.env.VITE_API_URL;
 
 const userEndpoints = {
   details: (userName) => `${API}/user?userName=${userName}`,
