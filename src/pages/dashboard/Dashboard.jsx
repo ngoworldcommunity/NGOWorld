@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import Cookies from "js-cookie";
 import React, { useCallback, useEffect, useState } from "react";
+import { AiOutlineSave } from "react-icons/ai";
 import { FiEdit3 } from "react-icons/fi";
 import { MdOutlineEdit } from "react-icons/md";
 import "swiper/css";
@@ -12,6 +13,7 @@ import EventsMarqueeCards from "../../components/private/events/marquee/EventsMa
 import { Button, Navbar, ProfileCompletion } from "../../components/shared";
 import { eventEndpoints } from "../../integrations/ApiEndpoints";
 import { fetchDashboard } from "../../service/MilanApi";
+import { defaults } from "../../static/Constants";
 import fetcher from "../../utils/Fetcher";
 import { checkMissingFields } from "../../utils/checkMissingFields";
 import convertToBase64 from "../../utils/convertToBase64";
@@ -21,18 +23,20 @@ const Dashboard = () => {
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [editProfile, seteditProfile] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [coverImage, setCoverImage] = useState(
-    "https://images.pexels.com/videos/3045163/free-video-3045163.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  );
+  const [coverImage, setCoverImage] = useState("");
+  const [logo, setLogo] = useState("");
+
+  const { data } = useQuery({
+    queryKey: ["dashboardData"],
+    queryFn: fetchDashboard,
+    refetchOnMount: false,
+    retry: 2,
+  });
 
   const toggleExpand = () => {
-    // Toggle the state
     setIsExpanded(!isExpanded);
-
-    // Get the content element
     const content = document.getElementsByClassName("about_content_text")[0];
 
-    // If expanded, remove the CSS properties; otherwise, restore them
     if (isExpanded) {
       content.style.display = "";
       content.style.webkitLineClamp = "";
@@ -46,13 +50,6 @@ const Dashboard = () => {
     }
   };
 
-  const { data } = useQuery({
-    queryKey: ["dashboardData"],
-    queryFn: fetchDashboard,
-    refetchOnMount: false,
-    retry: 2,
-  });
-
   const { data: events } = useSWR(eventEndpoints.all, fetcher);
 
   useEffect(() => {
@@ -61,15 +58,27 @@ const Dashboard = () => {
     }
   }, []);
 
-  const toggleProfileModal = () => {
-    setShowProfileModal(!showProfileModal);
-    seteditProfile(true);
+  const handleUpdateProfile = () => {
+    if (logo !== "" || coverImage !== "") {
+      setShowProfileModal(!showProfileModal);
+      seteditProfile(true);
+    } else {
+      setShowProfileModal(!showProfileModal);
+      seteditProfile(true);
+    }
   };
 
   const handleCreateDashboardImage = useCallback(async (e) => {
     if (!e || !e.target || !e.target.files[0]) return;
     const base64 = await convertToBase64(e);
     setCoverImage(base64);
+    e.target.value = "";
+  }, []);
+
+  const handleCreateLogoImage = useCallback(async (e) => {
+    if (!e || !e.target || !e.target.files[0]) return;
+    const base64 = await convertToBase64(e);
+    setLogo(base64);
     e.target.value = "";
   }, []);
 
@@ -88,7 +97,11 @@ const Dashboard = () => {
       <div className="dashboard_container">
         <div className="dashboard_parent">
           <div className="dashboard_header">
-            <img src={coverImage} className="coverimage" alt="" />
+            <img
+              src={coverImage || defaults.coverImage}
+              className="coverimage"
+              alt=""
+            />
             <input
               type="file"
               id="coverimage-input"
@@ -103,13 +116,17 @@ const Dashboard = () => {
 
             <div className="details">
               <div className="logo_div">
-                <img
-                  src="https://api.freelogodesign.org/assets/thumb/logo/bdd55f703a074abb8bf50c0d3891c0a9_400.png?t=638314396148720000"
-                  alt=""
-                  className="logo"
+                <img src={logo || defaults.logo} alt="" className="logo" />
+                <input
+                  type="file"
+                  id="logo-input"
+                  className="coverimage_input"
+                  name="coverImage"
+                  onChange={handleCreateLogoImage}
                 />
-
-                <MdOutlineEdit className="edit_icon logo_edit_icon" />
+                <label htmlFor="logo-input">
+                  <MdOutlineEdit className="edit_icon logo_edit_icon" />
+                </label>{" "}
               </div>
 
               <div className="header">
@@ -125,10 +142,19 @@ const Dashboard = () => {
                 <Button
                   variant="solid"
                   className="cta"
-                  onClickfunction={toggleProfileModal}
+                  onClickfunction={handleUpdateProfile}
                 >
-                  <MdOutlineEdit />
-                  Edit profile
+                  {coverImage !== "" || logo !== "" ? (
+                    <>
+                      <AiOutlineSave />
+                      Save Changes
+                    </>
+                  ) : (
+                    <>
+                      <MdOutlineEdit />
+                      Edit profile
+                    </>
+                  )}
                 </Button>
               </div>
             </div>
@@ -145,7 +171,7 @@ const Dashboard = () => {
             <Button
               variant="solid"
               className="cta"
-              onClickfunction={toggleProfileModal}
+              onClickfunction={handleUpdateProfile}
             >
               <FiEdit3 />
               Edit profile
