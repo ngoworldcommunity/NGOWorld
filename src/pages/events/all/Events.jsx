@@ -51,7 +51,7 @@ const Events = () => {
             )}
           </div>
           <div className="events_div">
-            {isLoading ? (
+            {isLoading || !allEvents || allEvents?.length === 0 ? (
               <Loading />
             ) : (
               allEvents?.map((event, id) => (

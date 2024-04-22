@@ -22,7 +22,7 @@ const Clubs = () => {
       <main className="container">
         <div className="clubspage_main_parent">
           <div className="clubspage_cardsdiv">
-            {isLoading ? (
+            {isLoading || !clubs || clubs?.length === 0 ? (
               <Loading />
             ) : (
               clubs?.map((club, id) => <ClubCard club={club} key={id} />)
