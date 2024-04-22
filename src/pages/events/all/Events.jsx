@@ -10,7 +10,7 @@ import ComponentHelmet from "../../../utils/ComponentHelmet";
 import "./Events.scss";
 
 const Events = () => {
-  const { data: events, isLoading } = useQuery({
+  const { data: allEvents, isLoading } = useQuery({
     queryKey: ["eventsData"],
     queryFn: getEvents,
     refetchOnMount: true,
@@ -54,7 +54,9 @@ const Events = () => {
             {isLoading ? (
               <Loading />
             ) : (
-              events?.map((event, id) => <EventsCard event={event} key={id} />)
+              allEvents?.map((event, id) => (
+                <EventsCard event={event} key={id} />
+              ))
             )}
           </div>
         </div>
