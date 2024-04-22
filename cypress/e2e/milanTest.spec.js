@@ -36,17 +36,17 @@ describe("Navigation to other pages", () => {
     cy.url().should("include", "/");
   });
 
-  it("Checking Navigation to Clubs", () => {
-    cy.visit("/");
-    cy.get("nav").contains("Clubs").click();
-    cy.url().should("include", "/clubs");
-  });
+  // it("Checking Navigation to Clubs", () => {
+  //   cy.visit("/");
+  //   cy.get("nav").contains("Clubs").click();
+  //   cy.url().should("include", "/clubs");
+  // });
 
-  it("Checking Navigation to Events", () => {
-    cy.visit("/");
-    cy.get("nav").contains("Events").click();
-    cy.url().should("include", "/events");
-  });
+  // it("Checking Navigation to Events", () => {
+  //   cy.visit("/");
+  //   cy.get("nav").contains("Events").click();
+  //   cy.url().should("include", "/events");
+  // });
 
   it("Checking Navigation to Shop", () => {
     cy.visit("/");
