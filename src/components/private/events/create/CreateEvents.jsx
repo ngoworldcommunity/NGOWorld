@@ -51,6 +51,7 @@ const CreateEvents = ({ setshowCreateModal }) => {
 
   const handleCreateBase64 = useCallback(async (e) => {
     const base64 = await convertToBase64(e);
+    console.log("🚀 ~ handleCreateBase64 ~ base64:", base64);
     setevent((prevEvent) => ({ ...prevEvent, coverImage: base64 }));
     e.target.value = "";
   }, []);

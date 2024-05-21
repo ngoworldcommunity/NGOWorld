@@ -134,10 +134,18 @@ const Dashboard = () => {
                   <h1 className="profile_header_name dashboard_heading">
                     {data?.name}{" "}
                   </h1>
-                  <h2 className="profile_header_tagline">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Impedit cum laudantium
-                  </h2>
+                  {data?.tagline ? (
+                    <h2 className="profile_header_tagline">{data?.tagline}</h2>
+                  ) : (
+                    <h2
+                      className="profile_header_tagline"
+                      style={{ opacity: 0 }}
+                    >
+                      {" "}
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Impedit cum laudantium
+                    </h2>
+                  )}
                 </div>
                 <Button
                   variant="solid"
@@ -163,10 +171,15 @@ const Dashboard = () => {
           <div className="header_mobile">
             <div className="name">
               <h1 className="profile_header_name">{data?.name} </h1>
-              <h2 className="profile_header_tagline">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-                cum laudantium
-              </h2>
+              {data?.tagline ? (
+                <h2 className="profile_header_tagline">{data?.tagline}</h2>
+              ) : (
+                <h2 className="profile_header_tagline" style={{ opacity: 0 }}>
+                  {" "}
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Impedit cum laudantium
+                </h2>
+              )}
             </div>
             <Button
               variant="solid"
@@ -179,54 +192,42 @@ const Dashboard = () => {
           </div>
 
           <div className="dashboard_body">
-            <div className="about">
-              <h1 className="dashboard_heading">About Us</h1>
-              <div className="about_content">
-                <p
-                  className={`about_content_text ${
-                    isExpanded ? "expanded" : ""
-                  }`}
-                >
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Officiis pariatur fugit maiores eligendi, perspiciatis,
-                  assumenda similique deserunt omnis exercitationem voluptate
-                  porro iste velit, debitis nobis? Hic, rerum! Officiis rerum
-                  reiciendis impedit numquam harum, omnis quasi qui cupiditate,
-                  accusamus sed ad ipsam aspernatur cumque adipisci molestias
-                  aperiam molestiae, nulla doloribus minus! Fugiat, quas nisi.
-                  Eum corrupti dolore quas tenetur veritatis nam, quae dolores
-                  nesciunt ducimus maiores consectetur minus harum iusto eaque
-                  cupiditate doloremque, laudantium facere dolorum sequi, sit
-                  distinctio! Animi eligendi cum nesciunt ducimus maiores
-                  nesciunt ducimus maiores consectetur minus harum iusto eaque
-                  cupiditate doloremque, laudantium facere dolorum sequi, sit
-                  distinctio! Animi eligendi cum nesciunt ducimus maiores
-                  nesciunt ducimus maiores consectetur minus harum iusto eaque
-                  cupiditate doloremque, laudantium facere dolorum sequi, sit
-                  distinctio! Animi eligendi cum nesciunt ducimus maiores
-                  consectetur minus harum iusto eaque cupiditate doloremque,
-                  laudantium facere dolorum sequi, sit distinctio! Animi
-                  eligendi cum
-                </p>
-                <div className="readmore_div">
-                  {!isExpanded && (
-                    <span onClick={toggleExpand} className="readmore_div_span">
-                      . . . Read More
-                    </span>
-                  )}
+            {data?.description && (
+              <div className="about">
+                <h1 className="dashboard_heading">About Us</h1>
+                <div className="about_content">
+                  <p
+                    className={`about_content_text ${
+                      isExpanded ? "expanded" : ""
+                    }`}
+                  >
+                    {data?.description}
+                  </p>
+                  <div className="readmore_div">
+                    {!isExpanded && (
+                      <span
+                        onClick={toggleExpand}
+                        className="readmore_div_span"
+                      >
+                        . . . Read More
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
 
-            <div className="events">
-              <h1 className="dashboard_heading">Events Hosted</h1>
+            {data?.events && (
+              <div className="events">
+                <h1 className="dashboard_heading">Events Hosted</h1>
 
-              <div className="events_grid">
-                {events?.map((event, id) => (
-                  <EventsMarqueeCards event={event} key={id} />
-                ))}
+                <div className="events_grid">
+                  {events?.map((event, id) => (
+                    <EventsMarqueeCards event={event} key={id} />
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

@@ -12,13 +12,13 @@ const Button = ({
   size = "",
   fontweight = "",
   to = "",
-  disabled = false,
+  disabled,
   isLoading = false,
   cypressfield = "",
   onClickfunction,
   ...props
 }) => {
-  const classes = `btn ${styles.btn} ${className} ${styles[variant]} ${
+  const classes = `btn ${styles.btn} ${className}  ${styles[variant]} ${
     size ? styles[size] : ""
   } ${fontweight ? styles[fontweight] : ""}`;
 

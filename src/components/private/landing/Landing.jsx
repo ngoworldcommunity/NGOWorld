@@ -27,12 +27,12 @@ const Landing = () => {
             <>
               <h1>We connect NGOs,</h1>
               <h1>
-                Charities and <span>you.</span>
+                Charities and <span>you</span>
               </h1>
             </>
           ) : (
             <h1>
-              We connect NGOs, charities and <span>you.</span>
+              We connect NGOs, charities and <span>you</span>
             </h1>
           )}
 
