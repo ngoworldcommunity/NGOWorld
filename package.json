@@ -6,12 +6,12 @@
     "name": "Tamal Das",
     "email": "tamalcodes@gmail.com"
   },
-  "description": "The frontend for Milan webapp.",
+  "description": "The frontend for NgoWorld webapp.",
   "license": "MIT",
   "homepage": "https://milanhub.vercel.app/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MilanCommunity/Milan"
+    "url": "https://github.com/ngoworldcommunity/NGOWorld"
   },
   "keywords": [
     "milan",
@@ -34,9 +34,14 @@
     "@mui/x-date-pickers": "^6.19.5",
     "@mui/x-date-pickers-pro": "^6.19.5",
     "@reduxjs/toolkit": "^2.1.0",
+    "@studio-freight/lenis": "^1.0.33",
+    "@studio-freight/react-lenis": "^0.0.38",
+    "@tanstack/react-query": "^5.28.9",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/user-event": "^14.4.3",
     "antd": "^5.15.2",
+    "@vercel/analytics": "^1.2.2",
+    "@vercel/speed-insights": "^1.0.10",
     "aos": "^2.3.4",
     "axios": "^1.4.0",
     "cypress": "^13.2.0",

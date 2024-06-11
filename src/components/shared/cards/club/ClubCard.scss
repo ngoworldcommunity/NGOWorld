@@ -11,6 +11,7 @@
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.1);
   width: 380px;
   transition: all 0.3s ease-in-out;
+  position: relative;
 
   @media screen and (max-width: 500px) {
     padding: 12px;
@@ -63,10 +64,10 @@
 
       h1 {
         align-self: stretch;
-        color: var(--Neutral-G900, #3f3836);
+        color: var(--secondary);
         text-align: center;
         font-family: var(--poppins);
-        font-size: 20px;
+        font-size: 20.5px;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
@@ -74,7 +75,7 @@
 
         @media screen and (max-width: 500px) {
           text-align: left;
-          // truncate to 2 lines
+
           display: -webkit-box;
           -webkit-line-clamp: 1;
           -webkit-box-orient: vertical;
@@ -84,7 +85,7 @@
 
       p {
         align-self: stretch;
-        color: var(--Neutral-G600, #625c5a);
+        color: var(--secondary);
         text-align: center;
         font-family: var(--outfit);
         font-size: 17px;
@@ -92,6 +93,7 @@
         font-weight: 400;
         line-height: normal;
         letter-spacing: 0.32px;
+        min-height: 45px;
 
         @media screen and (max-width: 500px) {
           text-align: left;
@@ -100,6 +102,7 @@
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           overflow: hidden;
+          min-height: auto;
         }
       }
     }
@@ -117,10 +120,6 @@
       display: flex;
       align-items: center;
       gap: 10px;
-
-      // @media screen and (max-width: 500px) {
-      //   display: none;
-      // }
 
       img {
         width: 34px;
@@ -149,9 +148,10 @@
       justify-content: center;
       align-items: center;
       gap: 8px;
-
+      color: var(--primary);
       border-radius: 6px;
-
+      background-color: transparent;
+      border: 1px solid var(--primary);
       white-space: nowrap;
       font-family: var(--outfit) !important;
       font-weight: 400;

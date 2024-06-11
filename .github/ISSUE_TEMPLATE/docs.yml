@@ -1,17 +1,14 @@
 name: 📄 Documentation issue
 description: Found an issue in the documentation? You can use this one!
 title: "Docs: Write a small description here"
-labels:
-  [
-    "status: todo ⏳",
-    "📚 docs"
-  ]
+labels: ["status: todo ⏳", "📚 docs"]
 body:
   - type: textarea
     id: description
     attributes:
       label: Description
-      description: Write a detailed description of the changes you are proposing.
+      description:
+        Write a detailed description of the changes you are proposing.
     validations:
       required: true
   - type: textarea
@@ -42,18 +39,21 @@ body:
     attributes:
       label: "Checklist ✅"
       options:
-        - label: "I checked and didn't find similar [issue](https://github.com/MilanCommunity/Milan/issues)"
+        - label:
+            "I checked and didn't find similar
+            [issue](https://github.com/ngoworldcommunity/NGOWorld/issues)"
           required: true
 
-        - label: "I have read the [Contributing Guidelines](https://github.com/MilanCommunity/Milan/blob/main/CONTRIBUTING.md)"
+        - label:
+            "I have read the [Contributing
+            Guidelines](https://github.com/ngoworldcommunity/NGOWorld/blob/main/CONTRIBUTING.md)"
           required: true
-          
+
         - label: "I am participating in JWOC"
           required: false
 
         - label: "I am participating in IWOC"
           required: false
-
 
         - label: "I am willing to work on this issue (blank for no)"
           required: false
@@ -63,4 +63,3 @@ body:
       value: |
         In case of emergencies contact me on [Twitter](https://twitter.com/tamalCodes)
         Feel free to check out other cool repositories [here](https://github.com/tamalCodes)
-

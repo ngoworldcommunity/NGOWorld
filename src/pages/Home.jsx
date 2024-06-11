@@ -2,8 +2,7 @@ import Cookies from "js-cookie";
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useDispatch } from "react-redux";
-import { ToastContainer } from "react-toastify";
-import { Landing, MilanInfoBanner } from "../components/private/index.js";
+import { Landing } from "../components/private/index.js";
 import { Footer, Navbar } from "../components/shared";
 import { toggleUserLogin, updateUserData } from "../redux/slice/userSlice.js";
 import { successCallback } from "../service/MilanApi.js";
@@ -33,19 +32,18 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Milan | Home</title>
+        <title>NgoWorld</title>
         <meta
           name="description"
-          content="Welcome to the homepage of Milan, a hub for Users to collaborate with NGOs, Charities and more."
+          content="Welcome to the homepage of NgoWorld, a hub for Users to collaborate with NGOs, Charities and more."
         />
         <link rel="canonical" href="/" />
       </Helmet>
 
-      <ToastContainer />
       <Navbar />
 
       <Landing />
-      <MilanInfoBanner />
+
       <Footer />
     </>
   );

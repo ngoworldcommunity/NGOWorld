@@ -36,7 +36,7 @@
         font-size: 2rem;
         font-weight: 700;
         color: var(--secondary);
-        font-family: var(--poppins);
+        font-family: var(--outfit);
 
         @media screen and (max-width: 500px) {
           font-size: 1.5rem;
@@ -140,7 +140,7 @@
         border-radius: 5px;
 
         transition: all 0.3s ease;
-        font-family: "Outfit", sans-serif;
+        font-family: var(--outfit);
       }
     }
   }

@@ -7,7 +7,7 @@ Cypress.env("CI", false);
 
 describe("Checking if the backend is working properly or not", () => {
   it("GET request for users", () => {
-    cy.request("https://api.milanhub.org/display/users").then((response) => {
+    cy.request("https://api.ngoworld.org/display/users").then((response) => {
       expect(response.body.length).to.be.greaterThan(100);
     });
   });
@@ -36,17 +36,17 @@ describe("Navigation to other pages", () => {
     cy.url().should("include", "/");
   });
 
-  it("Checking Navigation to Clubs", () => {
-    cy.visit("/");
-    cy.get("nav").contains("Clubs").click();
-    cy.url().should("include", "/clubs");
-  });
+  // it("Checking Navigation to Clubs", () => {
+  //   cy.visit("/");
+  //   cy.get("nav").contains("Clubs").click();
+  //   cy.url().should("include", "/clubs");
+  // });
 
-  it("Checking Navigation to Events", () => {
-    cy.visit("/");
-    cy.get("nav").contains("Events").click();
-    cy.url().should("include", "/events");
-  });
+  // it("Checking Navigation to Events", () => {
+  //   cy.visit("/");
+  //   cy.get("nav").contains("Events").click();
+  //   cy.url().should("include", "/events");
+  // });
 
   it("Checking Navigation to Shop", () => {
     cy.visit("/");

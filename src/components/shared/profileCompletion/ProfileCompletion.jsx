@@ -1,30 +1,20 @@
-import Cookies from "js-cookie";
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { IoMdCloseCircleOutline } from "react-icons/io";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { useSWRConfig } from "swr";
-import { ProfileElements } from "../../../constants";
-import { updateUserData } from "../../../redux/slice/userSlice";
-import { UpdateUser } from "../../../service/MilanApi";
-import { clubEndpoints } from "../../../static/ApiEndpoints";
-import { showErrorToast, showSuccessToast } from "../../../utils/Toasts";
 import getProfileFields from "../../../utils/getProfileFields";
 import Button from "../buttons/globalbutton/Button";
 import "./ProfileCompletion.scss";
 
-const ProfileCompletion = ({
-  setShowProfileModal,
-  editProfile,
-  seteditProfile,
-}) => {
+const ProfileCompletion = ({ editProfile }) => {
+  console.log("🚀 ~ ProfileCompletion ~ editProfile:", editProfile);
+  const [part, setPart] = useState(editProfile ? 2 : 1);
   const [currentStep, setcurrentStep] = useState(2);
   const [currentIndex, setcurrentIndex] = useState(0);
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
   const user = useSelector((state) => state.user);
-  const dispatch = useDispatch();
-  const { mutate } = useSWRConfig();
+  console.log("🚀 ~ user:", user);
 
   useEffect(() => {
     if (editProfile) {
@@ -33,6 +23,7 @@ const ProfileCompletion = ({
   }, [editProfile]);
 
   const fields = getProfileFields(user, editProfile);
+
   const totalfields = fields.length;
 
   const handleIncrementStep = () => {
@@ -56,42 +47,44 @@ const ProfileCompletion = ({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await UpdateUser(formData);
-    if (response?.status !== 200) {
-      showErrorToast(response?.data?.message);
-    } else {
-      dispatch(updateUserData(formData));
-      setFormData({});
-      setShowProfileModal(false);
-      seteditProfile(false);
-      showSuccessToast(response?.data?.message);
-      mutate(clubEndpoints.details(user?.userName));
-    }
+
+    //  formData is an object
+    // lenght of an object
+    console.log(Object.keys(formData).length);
+    // const response = await UpdateUser(formData);
+    // if (response?.status !== 200) {
+    //   showErrorToast(response?.data?.message);
+    // } else {
+    //   dispatch(updateUserData(formData));
+    //   setFormData({});
+    //   setShowProfileModal(false);
+    //   seteditProfile(false);
+    //   showSuccessToast(response?.data?.message);
+    //   mutate(clubEndpoints.details(user?.userName));
+    // }
   };
 
   return (
     <div className="profilecompletion_overlay">
       <div className="profilecompletion_modal">
-        <IoMdCloseCircleOutline
-          className="crossButton"
-          onClick={() => {
-            setShowProfileModal(false);
-            seteditProfile(false);
-            Cookies.set("skipProfileCompletion", "true", { expires: 7 });
-          }}
-        />
-
         <div className="profilecompletion_header">
-          <h1> {editProfile ? "Edit Profile" : `We're almost done`} </h1>
-          {!editProfile && (
+          {part === 1 ? (
+            <h1> Choose Account Type </h1>
+          ) : (
+            <h1> {editProfile ? "Edit Profile" : `We're almost done`} </h1>
+          )}
+
+          {part === 1 ? (
+            <p>Your Account Type is permanent and cannot be changed later.</p>
+          ) : !editProfile ? (
             <p>
               Please complete your profile to enjoy the full benefits of the
-              platform
+              platform.
             </p>
-          )}
+          ) : null}
         </div>
 
-        <form>
+        {/* <form>
           {fields.slice(currentIndex, currentIndex + 2).map((elId) => {
             const formElement = ProfileElements.find(
               (element) => element.id === elId,
@@ -100,18 +93,29 @@ const ProfileCompletion = ({
             return (
               <div className="profilecompletion_element" key={formElement.id}>
                 <label>{formElement?.label}</label>
-                <input
-                  type={formElement?.type}
-                  name={formElement?.id}
-                  value={formData[formElement?.id] || ""}
-                  onChange={handleChange}
-                  className="auth_input"
-                  placeholder={formElement?.placeholder}
-                />
+                {formElement?.id === "description" ? (
+                  <textarea
+                    type={formElement?.type}
+                    name={formElement?.id}
+                    value={formData[formElement?.id] || ""}
+                    onChange={handleChange}
+                    className="auth_input"
+                    placeholder={formElement?.placeholder}
+                  />
+                ) : (
+                  <input
+                    type={formElement?.type}
+                    name={formElement?.id}
+                    value={formData[formElement?.id] || ""}
+                    onChange={handleChange}
+                    className="auth_input"
+                    placeholder={formElement?.placeholder}
+                  />
+                )}
               </div>
             );
           })}
-        </form>
+        </form> */}
 
         <div className="profilecompletion_btndiv">
           <Button
@@ -122,7 +126,11 @@ const ProfileCompletion = ({
             Previous
           </Button>
           {currentStep == totalfields ? (
-            <Button variant="solid" onClickfunction={handleSubmit}>
+            <Button
+              variant="solid"
+              onClickfunction={handleSubmit}
+              disabled={Object.keys(formData).length === 0}
+            >
               Finish
             </Button>
           ) : (

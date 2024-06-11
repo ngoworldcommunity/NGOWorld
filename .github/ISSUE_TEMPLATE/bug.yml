@@ -1,11 +1,7 @@
 name: 🐞 Bug
 description: Report an issue to help improve the project.
 title: "Bug: Write a small description here"
-labels:
-  [
-    "status: todo ⏳",
-    "🐞 bug"
-  ]
+labels: ["status: todo ⏳", "🐞 bug"]
 body:
   - type: textarea
     id: description
@@ -28,7 +24,7 @@ body:
       description: Please add screenshots/videos if applicable
     validations:
       required: false
-  
+
   - type: dropdown
     id: browser
     attributes:
@@ -50,10 +46,14 @@ body:
     attributes:
       label: "Checklist ✅"
       options:
-        - label: "I checked and didn't find similar [issue](https://github.com/MilanCommunity/Milan/issues)"
+        - label:
+            "I checked and didn't find similar
+            [issue](https://github.com/ngoworldcommunity/NGOWorld/issues)"
           required: true
 
-        - label: "I have read the [Contributing Guidelines](https://github.com/MilanCommunity/Milan/blob/main/CONTRIBUTING.md)"
+        - label:
+            "I have read the [Contributing
+            Guidelines](https://github.com/ngoworldcommunity/NGOWorld/blob/main/CONTRIBUTING.md)"
           required: true
 
         - label: "I am participating in JWOC"

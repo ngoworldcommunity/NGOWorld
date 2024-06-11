@@ -12,8 +12,8 @@ export default defineConfig({
       includeAssets: ["favicon.svg", "robots.txt"],
       injectRegister: "auto",
       manifest: {
-        short_name: "Milan",
-        name: "Milan",
+        short_name: "NgoWorld",
+        name: "NgoWorld",
         start_url: "./",
         display: "standalone",
         theme_color: "#000000",
@@ -75,67 +75,67 @@ export default defineConfig({
           },
         ],
       },
-      workbox: {
-        cleanupOutdatedCaches: true,
-        skipWaiting: true,
-        clientsClaim: true,
+      // workbox: {
+      //   cleanupOutdatedCaches: true,
+      //   skipWaiting: true,
+      //   clientsClaim: true,
 
-        runtimeCaching: [
-          {
-            // Caches Google Fonts with a Cache First strategy.
-            urlPattern: new RegExp(
-              "^https://fonts.(?:googleapis|gstatic).com/(.*)",
-            ),
-            handler: "CacheFirst",
-            options: {
-              cacheName: "google-fonts",
-              expiration: {
-                maxEntries: 30,
-              },
-              cacheableResponse: {
-                statuses: [0, 200],
-              },
-            },
-          },
-          {
-            // Caches images with a Cache First strategy.
-            urlPattern: /\.(?:png|gif|jpg|jpeg|svg|webp)$/,
-            handler: "CacheFirst",
-            options: {
-              cacheName: "images",
-              expiration: {
-                maxEntries: 60,
-              },
-            },
-          },
-          {
-            urlPattern: new RegExp("^https://api.milanhub.org/(.*)"),
-            handler: "StaleWhileRevalidate",
-            options: {
-              cacheName: "api",
-              expiration: {
-                maxAgeSeconds: 86400,
-              },
-              cacheableResponse: {
-                statuses: [0, 200, 201],
-              },
-            },
-          },
-          {
-            urlPattern: new RegExp("^http://localhost:5000/(.*)"),
-            handler: "StaleWhileRevalidate",
-            options: {
-              cacheName: "api-dev",
-              expiration: {
-                maxAgeSeconds: 86400,
-              },
-              cacheableResponse: {
-                statuses: [0, 200, 201],
-              },
-            },
-          },
-        ],
-      },
+      //   runtimeCaching: [
+      //     {
+      //       // Caches Google Fonts with a Cache First strategy.
+      //       urlPattern: new RegExp(
+      //         "^https://fonts.(?:googleapis|gstatic).com/(.*)",
+      //       ),
+      //       handler: "CacheFirst",
+      //       options: {
+      //         cacheName: "google-fonts",
+      //         expiration: {
+      //           maxEntries: 30,
+      //         },
+      //         cacheableResponse: {
+      //           statuses: [0, 200],
+      //         },
+      //       },
+      //     },
+      //     {
+      //       // Caches images with a Cache First strategy.
+      //       urlPattern: /\.(?:png|gif|jpg|jpeg|svg|webp)$/,
+      //       handler: "CacheFirst",
+      //       options: {
+      //         cacheName: "images",
+      //         expiration: {
+      //           maxEntries: 60,
+      //         },
+      //       },
+      //     },
+      //     {
+      //       urlPattern: new RegExp("^https://api.ngoworld.org/(.*)"),
+      //       handler: "StaleWhileRevalidate",
+      //       options: {
+      //         cacheName: "api",
+      //         expiration: {
+      //           maxAgeSeconds: 86400,
+      //         },
+      //         cacheableResponse: {
+      //           statuses: [0, 200, 201],
+      //         },
+      //       },
+      //     },
+      //     {
+      //       urlPattern: new RegExp("^http://localhost:5000/(.*)"),
+      //       handler: "StaleWhileRevalidate",
+      //       options: {
+      //         cacheName: "api-dev",
+      //         expiration: {
+      //           maxAgeSeconds: 86400,
+      //         },
+      //         cacheableResponse: {
+      //           statuses: [0, 200, 201],
+      //         },
+      //       },
+      //     },
+      //   ],
+      // },
     }),
   ],
   server: {

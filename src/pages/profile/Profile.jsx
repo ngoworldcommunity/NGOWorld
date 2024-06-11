@@ -4,7 +4,6 @@ import { FiEdit3 } from "react-icons/fi";
 import { MdLogout } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
@@ -13,9 +12,9 @@ import useSWR from "swr";
 import { Card, Avatar, Dropdown, Menu } from "antd";
 import { EditOutlined } from "@ant-design/icons";
 import { Button, Navbar, ProfileCompletion } from "../../components/shared";
+import { clubEndpoints } from "../../integrations/ApiEndpoints";
 import { resetUserData } from "../../redux/slice/userSlice";
 import { Logout } from "../../service/MilanApi";
-import { clubEndpoints } from "../../static/ApiEndpoints";
 import fetcher from "../../utils/Fetcher";
 import { showErrorToast, showSuccessToast } from "../../utils/Toasts";
 import { checkMissingFields } from "../../utils/checkMissingFields";
@@ -99,7 +98,6 @@ const Profile = () => {
   return (
     <>
       <Navbar />
-      <ToastContainer />
 
       {showProfileModal && (
         <ProfileCompletion

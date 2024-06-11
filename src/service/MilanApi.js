@@ -8,7 +8,7 @@ import {
   clubEndpoints,
   eventEndpoints,
   userEndpoints,
-} from "../static/ApiEndpoints";
+} from "../integrations/ApiEndpoints";
 
 // LOGIN USER
 export const LoginUser = async (credentials) => {
@@ -123,6 +123,18 @@ export const CreateEvent = async (event) => {
     });
 
     return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const fetchDashboard = async () => {
+  try {
+    const response = await Axios.get(clubEndpoints.dashboard, {
+      withCredentials: true,
+    });
+
+    return response.data;
   } catch (error) {
     return error;
   }

@@ -19,6 +19,7 @@ import "react-time-picker/dist/TimePicker.css";
 import { useEvent } from "../../../../hooks/useEvent";
 import countries from "../../../../static/CountryList";
 import platforms from "../../../../static/OnlinePlatform";
+import convertToBase64 from "../../../../utils/convertToBase64";
 import { Button } from "../../../shared";
 import "./CreateEvents.scss";
 
@@ -49,28 +50,11 @@ const CreateEvents = ({ setshowCreateModal }) => {
   const { validateEvent, submitCallback } = useEvent(event);
 
   const handleCreateBase64 = useCallback(async (e) => {
-    const file = e.target.files[0];
-    const base64 = await convertToBase64(file);
+    const base64 = await convertToBase64(e);
+    console.log("🚀 ~ handleCreateBase64 ~ base64:", base64);
     setevent((prevEvent) => ({ ...prevEvent, coverImage: base64 }));
     e.target.value = "";
   }, []);
-
-  const convertToBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      if (!file) {
-        alert("Please select an image");
-      } else {
-        fileReader.readAsDataURL(file);
-        fileReader.onload = () => {
-          resolve(fileReader.result);
-        };
-      }
-      fileReader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  };
 
   const handleChange = (e) => {
     setevent({ ...event, [e.target.name]: e.target.value });

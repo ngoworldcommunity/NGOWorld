@@ -1,15 +1,15 @@
 // This is the donate page where we come and select clubs to donate an amount !
 
+import Cookies from "js-cookie";
 import React, { useEffect, useState } from "react";
-import SingleClubEvent from "../../components/Cards/SingleClubEvent/SingleClubEvent";
-import { GetAllClubs } from "../../service/MilanApi";
-import "./Donate.css";
+import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Helmet } from "react-helmet-async";
+import SingleClubEvent from "../../components/Cards/SingleClubEvent/SingleClubEvent";
 import Loading from "../../components/Loading";
-import Cookies from "js-cookie";
-import { useNavigate } from "react-router-dom";
+import { GetAllClubs } from "../../service/MilanApi";
+import "./Donate.css";
 
 const Donate = () => {
   document.title = "Milan | Donate the needy";
@@ -59,7 +59,7 @@ const Donate = () => {
   return (
     <>
       <Helmet>
-        <title>Milan | Donations</title>
+        <title>NgoWorld | Donations</title>
         <meta
           name="description"
           content="Welcome to the donations page, even a small amount can help folks struggling out there."

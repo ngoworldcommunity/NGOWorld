@@ -1,4 +1,4 @@
-# Frontend Setup 
+# Frontend Setup
 
 Follow the below steps to setup the Frontend locally. We are using `npm` as the package manager. So make sure you have `node` and `npm` installed in your system.
 
@@ -23,7 +23,7 @@ Follow the below steps to setup the Frontend locally. We are using `npm` as the 
 ## Coding standards 🔐
 
 - We are using `ESLint` and `Prettier` for linting and formatting.
-- Maintain the same coding standards as the rest of the codebase. 
+- Maintain the same coding standards as the rest of the codebase.
 - Follow good naming conventions for the files, variables and functions along with proper documentation (if needed).
 - We also use `husky` and `lint-staged` to run the linter and formatter before every commit. Read about this in our [Contributing Guidelines](/CONTRIBUTING.md).
 - Maintain a good folder structure, incase you use anu new components or pages make sure you put them in the right folder.
@@ -31,7 +31,7 @@ Follow the below steps to setup the Frontend locally. We are using `npm` as the 
 - If you are using any new Image , compress it using [online tools]("https://www.iloveimg.com/compress-image") and then use it in the project.
 - **Remember**, writing readable and clean code while following the coding standards is the best thing for any developer.
 
-## Setting up the `.env` file 
+## Setting up the `.env` file
 
 We use a `.env` file using the `dotenv` package inside the root of the directory. You must create a `.env` file similar to [.env.example](../.env.example) file.
 
@@ -42,4 +42,4 @@ We use a `.env` file using the `dotenv` package inside the root of the directory
 
 So now you have the the frontend up and running locally. Now you can start working on the issues. You can follow the below steps to get started with the frontend.
 
-- [Setting up the backend locally](https://github.com/MilanCommunity/Milan-Backend/blob/main/docs/BackendSetup.md)
+- [Setting up the backend locally](https://github.com/ngoworldcommunity/NGOWorld-Backend/blob/main/docs/BackendSetup.md)

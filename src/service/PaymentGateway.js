@@ -1,10 +1,10 @@
+import Axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Axios from "axios";
 
 export default async function displayRazorpay(money) {
   const data = await Axios.post(
-    `${import.meta.env.VITE_MILANAPI}/payment/razorpay`,
+    `${import.meta.env.VITE_API_URL}/payment/razorpay`,
     { amount: money },
   );
 
