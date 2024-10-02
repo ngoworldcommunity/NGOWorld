@@ -11,19 +11,28 @@ import { Button } from "../../components/shared";
 import { useAuth } from "../../hooks/useAuth";
 import { GoogleAuth } from "../../service/MilanApi";
 import "./index.scss";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { AuthSchema } from "../../constants";
 
 const SignUp = () => {
+  // Auth type state
+  const [activeAuthType, setActiveAuthType] = useState("individual");
+
   // Form setup
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: zodResolver(
+      activeAuthType === "individual"
+        ? AuthSchema.individualSignUpSchema
+        : AuthSchema.clubSignUpSchema,
+    ),
+  });
 
   const navigate = useNavigate();
 
-  // Auth type state
-  const [activeAuthType, setActiveAuthType] = useState("individual");
   const authTypeOptions = [
     { value: "individual", label: "Individual (Person)" },
     { value: "club", label: "Organization (Charity/Club/NGO)" },
