@@ -19,6 +19,7 @@ const SignUp = () => {
     password: "",
     userType: authTypeOptions[1],
   });
+  const [errors, setErrors] = useState({});
 
   // Auth functions
   const { authenticateUser, loading } = useAuth("signup");
@@ -49,8 +50,9 @@ const SignUp = () => {
             </div>
             <form
               className="auth_form"
-              onSubmit={() => {
-                authenticateUser(credentials);
+              onSubmit={(e) => {
+                e.preventDefault();
+                authenticateUser(credentials, setErrors);
               }}
             >
               <div className="auth_form_body">
@@ -62,7 +64,8 @@ const SignUp = () => {
                   <label className="auth_label">
                     {credentials.userType.value === "individual"
                       ? "Full Name"
-                      : "Organization Name"}
+                      : "Organization Name"}{" "}
+                    <span>*</span>
                   </label>
                   <input
                     type="text"
@@ -72,24 +75,57 @@ const SignUp = () => {
                         ? "John Doe"
                         : "Save Tigers"
                     }
+                    value={credentials.name}
+                    onChange={(e) => {
+                      setCredentials((prev) => {
+                        return {
+                          ...prev,
+                          name: e.target.value,
+                        };
+                      });
+                    }}
                   />
                 </div>
 
                 <div className="auth_element">
-                  <label className="auth_label">Email</label>
+                  <label className="auth_label">
+                    Email <span>*</span>
+                  </label>
                   <input
                     type="email"
+                    value={credentials.email}
                     className="auth_input"
                     placeholder="john@gmail.com"
+                    onChange={(e) => {
+                      setCredentials((prev) => {
+                        return {
+                          ...prev,
+                          email: e.target.value,
+                        };
+                      });
+                    }}
                   />
+                  <p>{errors.email}</p>
                 </div>
 
                 <div className="auth_element">
-                  <label className="auth_label">Password</label>
+                  <label className="auth_label">
+                    Password <span>*</span>
+                  </label>
                   <input
                     type={showPassword ? "text" : "password"}
                     className="auth_input"
                     placeholder="********"
+                    value={credentials.password}
+                    min={8}
+                    onChange={(e) => {
+                      setCredentials((prev) => {
+                        return {
+                          ...prev,
+                          password: e.target.value,
+                        };
+                      });
+                    }}
                   />
                   {showPassword ? (
                     <FaEye
@@ -106,6 +142,7 @@ const SignUp = () => {
                       className="togglePassword_icon"
                     />
                   )}
+                  <p>{errors.password}</p>
                 </div>
               </div>
               <div className="auth_footer">
@@ -113,6 +150,12 @@ const SignUp = () => {
                   type="submit"
                   className="auth_submit"
                   isLoading={loading}
+                  disabled={
+                    loading ||
+                    !credentials.email ||
+                    !credentials.password ||
+                    !credentials.name
+                  }
                 >
                   Sign Up
                 </Button>
@@ -153,13 +196,16 @@ const SignUp = () => {
                     onClick={() => {
                       setCredentials((prev) => {
                         return {
-                          ...prev,
                           userType:
                             prev.userType.value === "individual"
                               ? authTypeOptions[1]
                               : authTypeOptions[0],
+                          email: "",
+                          password: "",
+                          name: "",
                         };
                       });
+                      setErrors({});
                     }}
                   ></div>
                 </label>

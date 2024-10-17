@@ -73,6 +73,15 @@
       flex-direction: column;
       position: relative;
       width: 100%;
+      p {
+        font-family: var(--outfit);
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 3px;
+        color: red;
+        opacity: 80%;
+        line-height: 1.2;
+      }
     }
 
     .auth_label {
@@ -81,16 +90,19 @@
       font-weight: 400;
       margin-bottom: 3px;
       color: var(--secondary);
+      span {
+        color: red;
+      }
     }
 
     .auth_input {
       display: block;
       width: 100%;
       padding: 0.375rem 0.75rem;
-      font-size: 1rem;
+      font-size: 15px;
       font-weight: 400;
       line-height: 1.5;
-      color: #212529;
+      color: #000000f8;
       background-color: #fff;
       background-clip: padding-box;
       border: 1px solid #ced4da;

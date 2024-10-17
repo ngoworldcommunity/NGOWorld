@@ -15,7 +15,7 @@ export const showSuccessToast = (message) => {
 
   toast.success(message, {
     position: "top-center",
-    autoClose: 1000,
+    autoClose: 2000,
     hideProgressBar: false,
     closeOnClick: false,
     pauseOnHover: false,
@@ -43,16 +43,17 @@ export const showErrorToast = (message) => {
 
   toast.error(message, {
     position: "top-center",
-    autoClose: 1000,
+    autoClose: 2000,
     hideProgressBar: false,
     closeOnClick: false,
-    pauseOnHover: false,
+    pauseOnHover: true,
     draggable: false,
     progress: undefined,
     closeButton: false,
     style: {
       borderRadius: "10px",
       fontFamily: "Outfit, sans-serif",
+      width: "fit-content",
     },
   });
 };
