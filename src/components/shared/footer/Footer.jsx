@@ -1,12 +1,17 @@
-import React from "react";
+import { footerLinks } from "@utils/footerLinksConfig";
 import { FaGithub, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
-import { SiGmail } from "react-icons/si";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import brand from "../../../assets/pictures/Navbar/MilanNavBrand.svg";
 import "./Footer.scss";
 
 const Footer = () => {
+  const icons = {
+    FaLinkedinIn: FaLinkedinIn,
+    FaXTwitter: FaXTwitter,
+    FaGithub: FaGithub,
+  };
+
   return (
     <>
       <footer>
@@ -18,38 +23,71 @@ const Footer = () => {
           <div className="links_parent">
             <div className="product">
               <h1>QUICK STARTS</h1>
-              <Link to={"/trending"}>Trending</Link>
-              <Link to={"/clubs"}>Clubs</Link>
-              <Link to={"/shops"}>Shops</Link>
-              <Link to={"/auth/login"}>Login</Link>
-              <Link to={"/events"}>Events</Link>
+
+              {footerLinks?.quickStarts?.map((item, index) => {
+                return (
+                  <Link key={index} to={item?.path}>
+                    {item?.name}
+                  </Link>
+                );
+              })}
             </div>
             <div className="dev">
               <h1>RESOURCES</h1>
-              <Link to={"/clubs"}>GitHub</Link>
-              <Link to={"/clubs"}>Setup Frontend</Link>
-              <Link to={"/clubs"}>Setup Backend</Link>
-              <Link to={"/clubs"}>Docker resources</Link>
+              {footerLinks?.resources?.map((item, index) => {
+                return item?.path.startsWith("http") ? (
+                  <a
+                    key={index}
+                    href={item?.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item?.name}
+                  </a>
+                ) : (
+                  <Link key={index} to={item?.path}>
+                    {item?.name}
+                  </Link>
+                );
+              })}
             </div>
             <div className="policies">
               <h1>POLICIES</h1>
-              <Link to={"/clubs"}>Terms</Link>
-              <Link to={"/clubs"}>Privacy</Link>
-              <Link to={"/clubs"}>Cookies</Link>
+              {footerLinks?.policies?.map((item, index) => {
+                return (
+                  <Link key={index} to={item?.path} target="_blank">
+                    {item?.name}
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
           <div className="policies_mobile">
-            <Link to={"/clubs"}>Terms</Link> |<Link to={"/clubs"}>Privacy</Link>{" "}
-            |<Link to={"/clubs"}>Cookies</Link>
+            {footerLinks?.policies?.map((item, index) => {
+              return (
+                <Link key={index} to={item?.path} target="_blank">
+                  {item?.name}
+                </Link>
+              );
+            })}
           </div>
         </div>
 
         <div className="rightside">
-          <FaLinkedinIn />
-          <FaXTwitter />
-          <FaGithub />
-          <SiGmail />
+          {footerLinks?.social?.map((item, index) => {
+            const IconComponent = icons[item.icon];
+            return (
+              <a
+                key={index}
+                href={item?.path}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IconComponent />
+              </a>
+            );
+          })}
         </div>
       </footer>
     </>
