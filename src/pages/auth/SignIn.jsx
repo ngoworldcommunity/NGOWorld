@@ -16,9 +16,10 @@ const SignIn = () => {
     email: "",
     password: "",
   });
+  const [errors, setErrors] = useState({});
 
   // Auth functions
-  const { authenticateUser, loading } = useAuth("signup");
+  const { authenticateUser, loading } = useAuth("signin");
   const [showPassword, setshowPassword] = useState(false);
 
   // Handlers
@@ -44,10 +45,12 @@ const SignIn = () => {
             <div className="header">
               <h1>Sign In</h1>
             </div>
+
             <form
               className="auth_form"
-              onSubmit={() => {
-                authenticateUser(credentials);
+              onSubmit={(e) => {
+                e.preventDefault();
+                authenticateUser(credentials, setErrors);
               }}
             >
               <div className="auth_form_body">
@@ -56,20 +59,44 @@ const SignIn = () => {
                 </div>
 
                 <div className="auth_element">
-                  <label className="auth_label">Email</label>
+                  <label className="auth_label">
+                    Email <span>*</span>
+                  </label>
                   <input
                     type="email"
+                    value={credentials.email}
                     className="auth_input"
                     placeholder="john@gmail.com"
+                    onChange={(e) => {
+                      setCredentials((prev) => {
+                        return {
+                          ...prev,
+                          email: e.target.value,
+                        };
+                      });
+                    }}
                   />
+                  <p>{errors.email}</p>
                 </div>
 
                 <div className="auth_element">
-                  <label className="auth_label">Password</label>
+                  <label className="auth_label">
+                    Password <span>*</span>
+                  </label>
                   <input
                     type={showPassword ? "text" : "password"}
                     className="auth_input"
                     placeholder="********"
+                    value={credentials.password}
+                    min={8}
+                    onChange={(e) => {
+                      setCredentials((prev) => {
+                        return {
+                          ...prev,
+                          password: e.target.value,
+                        };
+                      });
+                    }}
                   />
                   {showPassword ? (
                     <FaEye
@@ -86,6 +113,7 @@ const SignIn = () => {
                       className="togglePassword_icon"
                     />
                   )}
+                  <p>{errors.password}</p>
                 </div>
               </div>
               <div className="auth_footer">
@@ -93,6 +121,9 @@ const SignIn = () => {
                   type="submit"
                   className="auth_submit"
                   isLoading={loading}
+                  disabled={
+                    loading || !credentials.email || !credentials.password
+                  }
                 >
                   Sign In
                 </Button>

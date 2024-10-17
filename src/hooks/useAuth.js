@@ -38,7 +38,7 @@ export function useAuth(authType) {
 
     setloading(true);
 
-    const response = await (authType === "login"
+    const response = await (authType === "signin"
       ? LoginUser(credentials)
       : RegisterUser({
           ...credentials,
