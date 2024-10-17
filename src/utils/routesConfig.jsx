@@ -1,4 +1,5 @@
 import React from "react";
+import Test from "../pages/Test";
 import Trending from "../pages/Trending";
 import {
   Clubs,
@@ -23,6 +24,7 @@ const routesConfig = [
   { path: "/events", element: <Events /> },
   { path: "/shop", element: <Shop /> },
   { path: "/trending", element: <Trending /> },
+  { path: "/test", element: <Test /> },
   { path: "*", element: <Error404 /> },
 ];
 

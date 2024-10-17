@@ -79,7 +79,8 @@ footer {
       @media screen and (max-width: 500px) {
         display: flex;
         justify-content: center;
-        gap: 0.5rem;
+        gap: 1rem;
+        flex-wrap: wrap;
         a {
           color: rgba(255, 255, 255, 0.555);
           font-size: 15px;
@@ -96,13 +97,14 @@ footer {
   .rightside {
     display: flex;
     gap: 1rem;
-    color: white;
+
     z-index: 90;
 
-    svg {
+    a > svg {
       width: 1.4rem;
       height: 1.4rem;
       cursor: pointer;
+      color: white !important;
 
       &:hover {
         color: var(--primary);
