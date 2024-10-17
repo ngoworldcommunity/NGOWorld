@@ -1,5 +1,3 @@
-// Import statements
-import { authTypeOptions } from "@/static/Constants";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FaEye } from "react-icons/fa";
@@ -12,12 +10,11 @@ import { useAuth } from "../../hooks/useAuth";
 import { GoogleAuth } from "../../service/MilanApi";
 import "./index.scss";
 
-const SignUp = () => {
+const SignIn = () => {
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
     password: "",
-    userType: authTypeOptions[1],
   });
 
   // Auth functions
@@ -33,10 +30,10 @@ const SignUp = () => {
   return (
     <>
       <Helmet>
-        <title>NgoWorld | SignUp</title>
+        <title>NgoWorld | Login</title>
         <meta
           name="description"
-          content="Welcome to the Club's registration page. Provide all the needed credentials and join us."
+          content="Welcome to the Club's login page. Provide all the needed credentials and join us."
         />
         <link rel="canonical" href="/" />
       </Helmet>
@@ -45,7 +42,7 @@ const SignUp = () => {
         <div className="signup_container">
           <div className="signup_container_left">
             <div className="header">
-              <h1>Sign Up</h1>
+              <h1>Sign In</h1>
             </div>
             <form
               className="auth_form"
@@ -56,23 +53,6 @@ const SignUp = () => {
               <div className="auth_form_body">
                 <div className="auth_element">
                   <div className="auth_dropdown"></div>
-                </div>
-
-                <div className="auth_element">
-                  <label className="auth_label">
-                    {credentials.userType.value === "individual"
-                      ? "Full Name"
-                      : "Organization Name"}
-                  </label>
-                  <input
-                    type="text"
-                    className="auth_input"
-                    placeholder={
-                      credentials.userType.value === "individual"
-                        ? "John Doe"
-                        : "Save Tigers"
-                    }
-                  />
                 </div>
 
                 <div className="auth_element">
@@ -114,7 +94,7 @@ const SignUp = () => {
                   className="auth_submit"
                   isLoading={loading}
                 >
-                  Sign Up
+                  Sign In
                 </Button>
 
                 <div className="signup_or">
@@ -131,40 +111,14 @@ const SignUp = () => {
                 </button>
 
                 <div className="auth_forgot_section">
-                  <Link to={"/auth/signin"}>
-                    {" "}
-                    Already have an account? Login
-                  </Link>
+                  <Link to={"/auth/signup"}>Sign Up to NgoWorld</Link> <p>|</p>{" "}
+                  <p>Forgot Password</p>
                 </div>
               </div>
             </form>
           </div>
 
-          {/* Right abstract */}
           <div className="signup_rightabstract">
-            <div className="signup_topbtn">
-              <div className="custom-checkbox">
-                <input id="status" type="checkbox" name="status" />
-                <label htmlFor="status">
-                  <div
-                    className="status-switch"
-                    data-unchecked="Organization"
-                    data-checked="Individual"
-                    onClick={() => {
-                      setCredentials((prev) => {
-                        return {
-                          ...prev,
-                          userType:
-                            prev.userType.value === "individual"
-                              ? authTypeOptions[1]
-                              : authTypeOptions[0],
-                        };
-                      });
-                    }}
-                  ></div>
-                </label>
-              </div>
-            </div>
             <img src={rightabstract} alt="" />
           </div>
         </div>
@@ -173,4 +127,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;
