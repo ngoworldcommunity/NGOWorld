@@ -18,11 +18,9 @@ const SignIn = () => {
   });
   const [errors, setErrors] = useState({});
 
-  // Auth functions
   const { authenticateUser, loading } = useAuth("signin");
   const [showPassword, setshowPassword] = useState(false);
 
-  // Handlers
   const handleGoogle = async () => {
     const response = await GoogleAuth();
     window.location.href = response;

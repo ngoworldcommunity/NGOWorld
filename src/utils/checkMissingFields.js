@@ -15,7 +15,6 @@
  */
 
 export function checkMissingFields(info) {
-  console.log("🚀 ~ checkMissingFields ~ info:", info);
   if (
     info?.city === undefined ||
     info?.state === undefined ||
@@ -23,7 +22,6 @@ export function checkMissingFields(info) {
     info?.country === undefined ||
     info?.pincode === undefined
   ) {
-    console.log("🚀 ~ checkMissingFields ~ info", info);
     return true;
   } else if (
     (info?.userType === "club" && info?.tagLine === undefined) ||

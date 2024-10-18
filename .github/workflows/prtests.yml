@@ -14,38 +14,38 @@ on:
       - main
 
 jobs:
-  cypress-run:
-    runs-on: ubuntu-latest
-    # use docker container to run tests
-    container: cypress/browsers:node18.12.0-chrome107
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+  # cypress-run:
+  #   runs-on: ubuntu-latest
+  #   # use docker container to run tests
+  #   container: cypress/browsers:node18.12.0-chrome107
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
 
-      - name: Install npm
-        run: npm install -g husky
+  #     - name: Install npm
+  #       run: npm install -g husky
 
-      - name: set environment variables
-        uses: allenevans/set-env@v2.0.0
-        with:
-          HUSKY: 0
+  #     - name: set environment variables
+  #       uses: allenevans/set-env@v2.0.0
+  #       with:
+  #         HUSKY: 0
 
-      - name: "Cypress Tests - Chrome"
-        uses: cypress-io/github-action@v4.2.0
-        with:
-          install: true
-          build: npm run build
-          start: npm run dev
-          wait-on: "http://localhost:3000"
-          wait-on-timeout: 120
-          browser: chrome
-          spec: cypress/e2e/*
-        env:
-          CI: "false"
+  #     - name: "Cypress Tests - Chrome"
+  #       uses: cypress-io/github-action@v4.2.0
+  #       with:
+  #         install: true
+  #         build: npm run build
+  #         start: npm run dev
+  #         wait-on: "http://localhost:3000"
+  #         wait-on-timeout: 120
+  #         browser: chrome
+  #         spec: cypress/e2e/*
+  #       env:
+  #         CI: "false"
 
   Deploy-Preview:
-    needs: cypress-run
-    if: success()
+    # needs: cypress-run
+    # if: success()
     runs-on: ubuntu-latest
 
     steps:

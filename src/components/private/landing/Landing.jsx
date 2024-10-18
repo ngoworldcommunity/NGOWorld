@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Vector from "../../../assets/pictures/Banner/Vector.png";
 import { Button } from "../../shared";
 import "./Landing.scss";
@@ -55,7 +55,7 @@ const Landing = () => {
               </Button>
             ) : (
               <Button to="/auth/signup" className="landing_signup">
-                <span>Intrested? Sign Up</span>
+                <span>Sign up Today !</span>
               </Button>
             )}
 

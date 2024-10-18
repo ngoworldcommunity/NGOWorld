@@ -1,5 +1,4 @@
 function getMissingElements(info) {
-  console.log("🚀 ~ getMissingElements ~ info:", info);
   const missing = [];
 
   if (info?.userType === "club") {

@@ -1,21 +1,32 @@
-import SignIn from "@pages/auth/SignIn";
-import Test from "../pages/Test";
-import Trending from "../pages/Trending";
+import Home from "@pages/Home";
 import {
   Clubs,
   Dashboard,
   Error404,
   Events,
-  Home,
   Profile,
   Shop,
-  SignUp,
-} from "../pages/route";
+} from "@pages/route";
+import Trending from "@pages/Trending";
+import { lazy } from "react";
+import { default as DonotRenderWhenLoggedIn } from "./Auth/DonotRenderWhenLoggedIn";
+
+const SignIn = lazy(() => import("@pages/auth/SignIn"));
+const SignUp = lazy(() => import("@pages/auth/SignUp"));
+
+const ProtectedSignIn = DonotRenderWhenLoggedIn(SignIn);
+const ProtectedSignUp = DonotRenderWhenLoggedIn(SignUp);
 
 const routesConfig = [
   { path: "/", element: <Home /> },
-  { path: "/auth/signup", element: <SignUp /> },
-  { path: "/auth/signin", element: <SignIn /> },
+  {
+    path: "/auth/signup",
+    element: <ProtectedSignUp />,
+  },
+  {
+    path: "/auth/signin",
+    element: <ProtectedSignIn />,
+  },
   { path: "/user/:userName", element: <Profile /> },
   { path: "/clubs", element: <Clubs /> },
   { path: "/club/:userName", element: <Profile /> },
@@ -23,7 +34,6 @@ const routesConfig = [
   { path: "/events", element: <Events /> },
   { path: "/shop", element: <Shop /> },
   { path: "/trending", element: <Trending /> },
-  { path: "/test", element: <Test /> },
   { path: "*", element: <Error404 /> },
 ];
 

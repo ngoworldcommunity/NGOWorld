@@ -1,5 +1,4 @@
 export const renderErrorMessage = (fieldName, formState) => {
-  console.log(formState);
   return (
     formState?.errors?.length > 0 && (
       <div className="authpage_error-div">
