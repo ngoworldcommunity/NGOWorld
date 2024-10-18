@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useSWRConfig } from "swr";
 import { eventEndpoints } from "../integrations/ApiEndpoints";
-import { updateCreatedEvents } from "../redux/slice/eventSlice";
 import { CreateEvent } from "../service/MilanApi";
 import { showErrorToast, showSuccessToast } from "../utils/Toasts";
 
@@ -68,7 +67,7 @@ export function useEvent(event) {
       if (response.status === 201) {
         showSuccessToast(response.data.message);
         setshowCreateModal(false);
-        dispatch(updateCreatedEvents(response.data.savedEvent));
+
         mutate(eventEndpoints.all);
       } else {
         showErrorToast(response.response.data.message);

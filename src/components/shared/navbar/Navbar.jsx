@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaChevronRight } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
@@ -104,7 +104,7 @@ const Navbar = () => {
                 );
               })}
             </div>
-            {Cookies.get("isLoggedIn") || isLoggedIn ? (
+            {Cookies.get("Token") && isLoggedIn ? (
               <img
                 src="https://www.thetechies.org/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fuser3.04b79840.webp&w=640&q=75"
                 alt=""
@@ -131,7 +131,7 @@ const Navbar = () => {
         )}
 
         {!isNavbarOpen &&
-          (Cookies.get("isLoggedIn") ? (
+          (Cookies.get("Token") ? (
             <img
               src="https://www.thetechies.org/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fuser3.04b79840.webp&w=640&q=75"
               alt=""

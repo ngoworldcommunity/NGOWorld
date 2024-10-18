@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import getProfileFields from "../../../utils/getProfileFields";
@@ -7,14 +7,12 @@ import Button from "../buttons/globalbutton/Button";
 import "./ProfileCompletion.scss";
 
 const ProfileCompletion = ({ editProfile }) => {
-  console.log("🚀 ~ ProfileCompletion ~ editProfile:", editProfile);
   const [part, setPart] = useState(editProfile ? 2 : 1);
   const [currentStep, setcurrentStep] = useState(2);
   const [currentIndex, setcurrentIndex] = useState(0);
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
   const user = useSelector((state) => state.user);
-  console.log("🚀 ~ user:", user);
 
   useEffect(() => {
     if (editProfile) {
@@ -50,7 +48,7 @@ const ProfileCompletion = ({ editProfile }) => {
 
     //  formData is an object
     // lenght of an object
-    console.log(Object.keys(formData).length);
+
     // const response = await UpdateUser(formData);
     // if (response?.status !== 200) {
     //   showErrorToast(response?.data?.message);

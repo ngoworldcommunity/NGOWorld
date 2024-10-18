@@ -9,7 +9,7 @@ import Select from "@mui/material/Select";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import dayjs from "dayjs";
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import "react-calendar/dist/Calendar.css";
 import "react-clock/dist/Clock.css";
 import { IoMdCloseCircleOutline } from "react-icons/io";
@@ -51,7 +51,6 @@ const CreateEvents = ({ setshowCreateModal }) => {
 
   const handleCreateBase64 = useCallback(async (e) => {
     const base64 = await convertToBase64(e);
-    console.log("🚀 ~ handleCreateBase64 ~ base64:", base64);
     setevent((prevEvent) => ({ ...prevEvent, coverImage: base64 }));
     e.target.value = "";
   }, []);
@@ -76,13 +75,7 @@ const CreateEvents = ({ setshowCreateModal }) => {
         />
 
         <div className="createevent_header">
-          <h1
-            onClick={() => {
-              console.log(Object.keys(errors).length);
-            }}
-          >
-            Create
-          </h1>
+          <h1>Create</h1>
         </div>
 
         <div className="createevent_form">
