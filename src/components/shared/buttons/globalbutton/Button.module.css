@@ -4,6 +4,14 @@
   color: white;
 }
 
+.solid:disabled {
+  background-color: #ff5b31;
+  color: white;
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .outline {
   border-radius: 12px;
   background-color: white;
@@ -24,11 +32,11 @@
   transition: all 0.2s ease-in-out;
 }
 
-.solid:disabled,
 .outline:disabled {
   color: black;
   border: black solid 1px;
   cursor: not-allowed;
+  background-color: #28183b;
   opacity: 0.5;
 }
 

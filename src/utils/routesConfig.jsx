@@ -1,4 +1,4 @@
-import React from "react";
+import SignIn from "@pages/auth/SignIn";
 import Test from "../pages/Test";
 import Trending from "../pages/Trending";
 import {
@@ -7,7 +7,6 @@ import {
   Error404,
   Events,
   Home,
-  Login,
   Profile,
   Shop,
   SignUp,
@@ -16,7 +15,7 @@ import {
 const routesConfig = [
   { path: "/", element: <Home /> },
   { path: "/auth/signup", element: <SignUp /> },
-  { path: "/auth/login", element: <Login /> },
+  { path: "/auth/signin", element: <SignIn /> },
   { path: "/user/:userName", element: <Profile /> },
   { path: "/clubs", element: <Clubs /> },
   { path: "/club/:userName", element: <Profile /> },
