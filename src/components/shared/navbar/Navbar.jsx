@@ -67,12 +67,14 @@ const Navbar = () => {
 
     if (data?.status === 200) {
       showSuccessToast(data?.data?.message);
-      setTimeout(() => {
-        navigate("/");
-        dispatch(resetUserData());
-        Cookies.remove("skipProfileCompletion");
-        localStorage.clear();
-      }, 1500);
+
+      navigate("/");
+      dispatch(resetUserData());
+      Cookies.remove("skipProfileCompletion");
+      localStorage.clear();
+      document
+        .querySelector(".nav_dropdown")
+        .classList.toggle("nav_dropdown_visible");
     } else {
       showErrorToast(data?.message);
     }

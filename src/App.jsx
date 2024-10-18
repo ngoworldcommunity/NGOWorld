@@ -1,7 +1,7 @@
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import React from "react";
+import { Suspense } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { BacktoTop } from "./components/shared";
@@ -17,18 +17,20 @@ const App = () => {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <div className="app">
           <ToastContainer />
-          <Router>
-            <Routes>
-              {routesConfig.map((route, index) => (
-                <Route
-                  key={index}
-                  exact
-                  path={route?.path}
-                  element={route?.element}
-                />
-              ))}
-            </Routes>
-          </Router>
+          <Suspense fallback={"Loading . . ."}>
+            <Router>
+              <Routes>
+                {routesConfig.map((route, index) => (
+                  <Route
+                    key={index}
+                    exact
+                    path={route?.path}
+                    element={route?.element}
+                  />
+                ))}
+              </Routes>
+            </Router>
+          </Suspense>
           <BacktoTop />
         </div>
       </LocalizationProvider>
