@@ -1,8 +1,10 @@
+import { selectUser } from "@redux/slice/userSlice";
 import { useQuery } from "@tanstack/react-query";
 import { useCallback, useState } from "react";
 import { AiOutlineSave } from "react-icons/ai";
 import { FiEdit3 } from "react-icons/fi";
 import { MdOutlineEdit } from "react-icons/md";
+import { useSelector } from "react-redux";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
@@ -21,7 +23,7 @@ const Dashboard = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [coverImage, setCoverImage] = useState("");
   const [logo, setLogo] = useState("");
-
+  const user = useSelector(selectUser);
   const { data } = useQuery({
     queryKey: ["dashboardData"],
     queryFn: fetchDashboard,
@@ -49,13 +51,6 @@ const Dashboard = () => {
   const { data: events } = useSWR(eventEndpoints.all, fetcher);
 
   const handleUpdateProfile = () => {
-    // if (logo !== "" || coverImage !== "") {
-    //   setShowProfileModal(!showProfileModal);
-    //   seteditProfile(true);
-    // } else {
-    //   setShowProfileModal(!showProfileModal);
-    //   seteditProfile(true);
-    // }
     console.log("Update Profile");
   };
 
@@ -77,7 +72,7 @@ const Dashboard = () => {
     <>
       <Navbar />
 
-      <ProfileCompletion />
+      {user?.userType === "club" && !user?.tagLine && <ProfileCompletion />}
 
       <div className="dashboard_container">
         <div className="dashboard_parent">

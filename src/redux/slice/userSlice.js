@@ -27,6 +27,7 @@ const userSlice = createSlice({
 });
 
 export const selectIsLoggedIn = (state) => state.user.isLoggedIn;
+export const selectUser = (state) => state.user;
 
 export const { updateUserData, resetUserData, toggleUserLogin } =
   userSlice.actions;

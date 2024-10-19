@@ -1,15 +1,21 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
+import { selectUser, updateUserData } from "@redux/slice/userSlice";
+import { UpdateUser } from "@service/MilanApi";
+import { useMutation } from "@tanstack/react-query";
+import { showErrorToast, showSuccessToast } from "@utils/Toasts";
+import _ from "lodash";
+import { Button } from "..";
 import getProfileFields from "../../../utils/getProfileFields";
 import "./ProfileCompletion.scss";
 
 const ProfileCompletion = () => {
   const [credentials, setCredentials] = useState({});
-  const user = useSelector((state) => state.user);
-
+  const user = useSelector(selectUser);
   const fields = getProfileFields(user);
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setCredentials({
@@ -18,6 +24,17 @@ const ProfileCompletion = () => {
     });
   };
 
+  const { mutate: handleUpdateDetails } = useMutation({
+    mutationFn: UpdateUser,
+    onSuccess: (data) => {
+      dispatch(updateUserData(credentials));
+      showSuccessToast(data?.message);
+    },
+    onError: (error) => {
+      showErrorToast(error?.message);
+    },
+  });
+
   return (
     <div className="profilecompletion_overlay">
       <div className="profilecompletion_modal">
@@ -25,15 +42,20 @@ const ProfileCompletion = () => {
           <h1> We&apos;re almost done </h1>
 
           <p>
-            Please complete your profile to enjoy the full benefits of the
-            platform.
+            To make your Organization visible to others, please complete your
+            profile.
           </p>
         </div>
 
-        <form>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleUpdateDetails({ credentials: credentials });
+          }}
+        >
           {fields.map((field) => (
             <div className="profilecompletion_element" key={field}>
-              <label>{field}</label>
+              <label>{_.startCase(field)}</label>
               {field === "description" ? (
                 <textarea
                   name={field}
@@ -44,7 +66,7 @@ const ProfileCompletion = () => {
                 />
               ) : (
                 <input
-                  type="text" // Assuming the default type for other fields is text
+                  type="text"
                   name={field}
                   value={credentials[field] || ""}
                   onChange={handleChange}
@@ -54,6 +76,19 @@ const ProfileCompletion = () => {
               )}
             </div>
           ))}
+
+          <div className="profilecompletion_btndiv">
+            <Button
+              type="submit"
+              disabled={
+                Object.keys(credentials)?.length < 2 ||
+                credentials?.description === "" ||
+                credentials?.tagLine === ""
+              }
+            >
+              Submit
+            </Button>
+          </div>
         </form>
       </div>
     </div>
