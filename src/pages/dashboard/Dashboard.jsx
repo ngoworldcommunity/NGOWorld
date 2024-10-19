@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import Cookies from "js-cookie";
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { AiOutlineSave } from "react-icons/ai";
 import { FiEdit3 } from "react-icons/fi";
 import { MdOutlineEdit } from "react-icons/md";
@@ -15,13 +14,10 @@ import { eventEndpoints } from "../../integrations/ApiEndpoints";
 import { fetchDashboard } from "../../service/MilanApi";
 import { defaults } from "../../static/Constants";
 import fetcher from "../../utils/Fetcher";
-import { checkMissingFields } from "../../utils/checkMissingFields";
 import convertToBase64 from "../../utils/convertToBase64";
 import "./Dashboard.scss";
 
 const Dashboard = () => {
-  const [showProfileModal, setShowProfileModal] = useState(false);
-  const [editProfile, seteditProfile] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [coverImage, setCoverImage] = useState("");
   const [logo, setLogo] = useState("");
@@ -52,20 +48,15 @@ const Dashboard = () => {
 
   const { data: events } = useSWR(eventEndpoints.all, fetcher);
 
-  useEffect(() => {
-    if (!Cookies.get("skipProfileCompletion") && checkMissingFields(data)) {
-      setShowProfileModal(true);
-    }
-  }, []);
-
   const handleUpdateProfile = () => {
-    if (logo !== "" || coverImage !== "") {
-      setShowProfileModal(!showProfileModal);
-      seteditProfile(true);
-    } else {
-      setShowProfileModal(!showProfileModal);
-      seteditProfile(true);
-    }
+    // if (logo !== "" || coverImage !== "") {
+    //   setShowProfileModal(!showProfileModal);
+    //   seteditProfile(true);
+    // } else {
+    //   setShowProfileModal(!showProfileModal);
+    //   seteditProfile(true);
+    // }
+    console.log("Update Profile");
   };
 
   const handleCreateDashboardImage = useCallback(async (e) => {
@@ -86,13 +77,7 @@ const Dashboard = () => {
     <>
       <Navbar />
 
-      {showProfileModal && (
-        <ProfileCompletion
-          setShowProfileModal={setShowProfileModal}
-          editProfile={editProfile}
-          seteditProfile={seteditProfile}
-        />
-      )}
+      <ProfileCompletion />
 
       <div className="dashboard_container">
         <div className="dashboard_parent">

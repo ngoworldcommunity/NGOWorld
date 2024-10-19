@@ -8,3 +8,7 @@ export const authTypeOptions = [
   { value: "individual", label: "Individual" },
   { value: "club", label: "Organization" },
 ];
+
+export const brandingFields = ["tagLine", "description"];
+export const addressFields = ["city", "state", "address", "country", "pincode"];
+export const mandatoryFields = ["name", "username"];
