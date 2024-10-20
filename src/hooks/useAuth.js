@@ -47,7 +47,13 @@ export function useAuth(authType) {
 
     if (response?.status === 201 || response?.status === 200) {
       showSuccessToast(response?.data?.message);
-      dispatch(updateUserData({ ...response.data.user, isLoggedIn: true }));
+      dispatch(
+        updateUserData({
+          isLoggedIn: true,
+          email: response.data.user.email,
+          userName: response.data.user.userName,
+        }),
+      );
 
       setTimeout(() => {
         navigate("/");

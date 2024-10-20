@@ -1,18 +1,18 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-
-import { selectUser, updateUserData } from "@redux/slice/userSlice";
+import { selectUser } from "@redux/slice/userSlice";
 import { UpdateUser } from "@service/MilanApi";
 import { useMutation } from "@tanstack/react-query";
+import getProfileFields from "@utils/getProfileFields";
 import { showErrorToast, showSuccessToast } from "@utils/Toasts";
 import _ from "lodash";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Button } from "..";
-import getProfileFields from "../../../utils/getProfileFields";
 import "./ProfileCompletion.scss";
 
 const ProfileCompletion = () => {
   const [credentials, setCredentials] = useState({});
+  const [errors, setErrors] = useState({});
   const user = useSelector(selectUser);
   const fields = getProfileFields(user);
   const dispatch = useDispatch();
@@ -24,16 +24,44 @@ const ProfileCompletion = () => {
     });
   };
 
-  const { mutate: handleUpdateDetails } = useMutation({
+  const { mutate: mutate_UpdateDetails } = useMutation({
     mutationFn: UpdateUser,
     onSuccess: (data) => {
-      dispatch(updateUserData(credentials));
       showSuccessToast(data?.message);
     },
     onError: (error) => {
       showErrorToast(error?.message);
     },
   });
+
+  const handleUpdateDetails = () => {
+    const newErrors = {};
+
+    if (
+      credentials?.tagLine?.length < 20 ||
+      credentials?.tagLine?.length > 100
+    ) {
+      newErrors.tagLine = "Tagline must be between 20 and 100 characters";
+    }
+
+    if (
+      credentials?.description?.length < 100 ||
+      credentials?.description?.length > 500
+    ) {
+      newErrors.description =
+        "Description must be between 100 and 500 characters";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+    } else {
+      // Clear errors if there are none
+      setErrors({});
+      mutate_UpdateDetails({
+        credentials: credentials,
+      });
+    }
+  };
 
   return (
     <div className="profilecompletion_overlay">
@@ -73,6 +101,9 @@ const ProfileCompletion = () => {
                   className="auth_input"
                   placeholder={`Enter your ${field}`}
                 />
+              )}
+              {errors[field] && (
+                <span className="profilecompletion_error">{errors[field]}</span>
               )}
             </div>
           ))}

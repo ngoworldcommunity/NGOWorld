@@ -9,13 +9,9 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import useSWR from "swr";
-import EventsMarqueeCards from "../../components/private/events/marquee/EventsMarqueeCards";
 import { Button, Navbar, ProfileCompletion } from "../../components/shared";
-import { eventEndpoints } from "../../integrations/ApiEndpoints";
 import { fetchDashboard } from "../../service/MilanApi";
 import { defaults } from "../../static/Constants";
-import fetcher from "../../utils/Fetcher";
 import convertToBase64 from "../../utils/convertToBase64";
 import "./Dashboard.scss";
 
@@ -24,11 +20,13 @@ const Dashboard = () => {
   const [coverImage, setCoverImage] = useState("");
   const [logo, setLogo] = useState("");
   const user = useSelector(selectUser);
-  const { data } = useQuery({
-    queryKey: ["dashboardData"],
+
+  const { data: dashboardData } = useQuery({
+    queryKey: ["dashboard"],
     queryFn: fetchDashboard,
-    refetchOnMount: false,
-    retry: 2,
+    refetchOnMount: true,
+    refetchOnWindowFocus: false,
+    retry: 0,
   });
 
   const toggleExpand = () => {
@@ -48,7 +46,7 @@ const Dashboard = () => {
     }
   };
 
-  const { data: events } = useSWR(eventEndpoints.all, fetcher);
+  // const { data: events } = useSWR(eventEndpoints.all, fetcher);
 
   const handleUpdateProfile = () => {
     console.log("Update Profile");
@@ -112,18 +110,11 @@ const Dashboard = () => {
               <div className="header">
                 <div className="name">
                   <h1 className="profile_header_name dashboard_heading">
-                    {data?.name}{" "}
+                    {dashboardData?.name}{" "}
                   </h1>
-                  {data?.tagline ? (
-                    <h2 className="profile_header_tagline">{data?.tagline}</h2>
-                  ) : (
-                    <h2
-                      className="profile_header_tagline"
-                      style={{ opacity: 0 }}
-                    >
-                      {" "}
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Impedit cum laudantium
+                  {dashboardData?.tagline && (
+                    <h2 className="profile_header_tagline">
+                      {dashboardData?.tagline}
                     </h2>
                   )}
                 </div>
@@ -150,14 +141,10 @@ const Dashboard = () => {
 
           <div className="header_mobile">
             <div className="name">
-              <h1 className="profile_header_name">{data?.name} </h1>
-              {data?.tagline ? (
-                <h2 className="profile_header_tagline">{data?.tagline}</h2>
-              ) : (
-                <h2 className="profile_header_tagline" style={{ opacity: 0 }}>
-                  {" "}
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Impedit cum laudantium
+              <h1 className="profile_header_name">{dashboardData?.name} </h1>
+              {dashboardData?.tagline && (
+                <h2 className="profile_header_tagline">
+                  {dashboardData?.tagline}
                 </h2>
               )}
             </div>
@@ -172,7 +159,7 @@ const Dashboard = () => {
           </div>
 
           <div className="dashboard_body">
-            {data?.description && (
+            {dashboardData?.description && (
               <div className="about">
                 <h1 className="dashboard_heading">About Us</h1>
                 <div className="about_content">
@@ -181,7 +168,7 @@ const Dashboard = () => {
                       isExpanded ? "expanded" : ""
                     }`}
                   >
-                    {data?.description}
+                    {dashboardData?.description}
                   </p>
                   <div className="readmore_div">
                     {!isExpanded && (
@@ -197,7 +184,7 @@ const Dashboard = () => {
               </div>
             )}
 
-            {data?.events && (
+            {/* {data?.events && (
               <div className="events">
                 <h1 className="dashboard_heading">Events Hosted</h1>
 
@@ -207,7 +194,7 @@ const Dashboard = () => {
                   ))}
                 </div>
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>
