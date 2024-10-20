@@ -8,7 +8,7 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(6px);
-  z-index: 20;
+  z-index: 101;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,6 +122,12 @@
             font-family: var(--poppins);
             font-size: 10px !important;
           }
+        }
+
+        .profilecompletion_error {
+          color: red;
+          font-size: 15px;
+          margin-top: 5px;
         }
       }
     }

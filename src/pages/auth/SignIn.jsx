@@ -5,7 +5,7 @@ import { FaEyeSlash } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import rightabstract from "../../assets/pictures/authpages/authbanner.png";
-import { Button } from "../../components/shared";
+import { Button, Navbar } from "../../components/shared";
 import { useAuth } from "../../hooks/useAuth";
 import { GoogleAuth } from "../../service/MilanApi";
 import "./index.scss";
@@ -36,6 +36,7 @@ const SignIn = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
+      <Navbar />
 
       <div className="signup_parent">
         <div className="signup_container">
