@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: space-between;
   z-index: 100;
+  position: relative;
 
   @media screen and (max-width: 430px) {
     padding: 0.8rem 1.5rem;
@@ -127,6 +128,7 @@
       justify-content: center;
       position: absolute;
       top: 20%;
+      align-items: center;
       padding-top: 2rem;
 
       .navbar_mobile_link {
@@ -136,6 +138,11 @@
         text-decoration: none;
         font-size: 17px;
         line-height: 1;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
       }
 
       .navbar_mobile_cta {
@@ -145,6 +152,8 @@
         gap: 5px;
         padding: 0.5rem 1rem;
         width: auto;
+        display: flex;
+        align-items: center;
       }
 
       .navbar_mobile_close {

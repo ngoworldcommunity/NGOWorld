@@ -67,14 +67,12 @@ const Navbar = () => {
 
     if (data?.status === 200) {
       showSuccessToast(data?.data?.message);
-
       navigate("/");
       dispatch(resetUserData());
-      Cookies.remove("skipProfileCompletion");
       localStorage.clear();
       document
         .querySelector(".nav_dropdown")
-        .classList.toggle("nav_dropdown_visible");
+        .classList.remove("nav_dropdown_visible");
     } else {
       showErrorToast(data?.message);
     }
@@ -135,7 +133,7 @@ const Navbar = () => {
         {!isNavbarOpen &&
           (Cookies.get("Token") ? (
             <img
-              src="https://www.thetechies.org/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fuser3.04b79840.webp&w=640&q=75"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTABbXr4i-QODqhy7tofHYmTYh05rYPktzacw&s"
               alt=""
               className="navbar_hamimg"
               onClick={() => {
@@ -160,6 +158,7 @@ const Navbar = () => {
                   toggleNavbar();
                 }}
               />
+
               {Links.map((item, index) => {
                 return (
                   <div key={index}>
@@ -180,27 +179,31 @@ const Navbar = () => {
                 );
               })}
 
-              <Button
-                to={`${
-                  Cookies.get("isLoggedIn")
-                    ? `/${
-                        Cookies.get("userType") === "individual"
-                          ? "user"
-                          : "club"
-                      }/${Cookies.get("userName")}`
-                    : "/auth/signup"
-                }`}
-                className="navbar_mobile_cta"
-              >
-                <span>
-                  {Cookies.get("isLoggedIn")
-                    ? userType === "club"
-                      ? "Dashboard"
-                      : "Your Profile"
-                    : "Sign Up"}
-                </span>
-                <FaChevronRight />
-              </Button>
+              {isLoggedIn ? (
+                <>
+                  <div>
+                    <Link className="navbar_mobile_link" to={"/dashboard"}>
+                      {userType === "individual" ? "Profile" : "Dashboard"}
+                    </Link>
+                  </div>
+                  <div>
+                    <p
+                      className="navbar_mobile_link"
+                      onClick={() => {
+                        handleLogout();
+                        setIsNavbarOpen(false);
+                      }}
+                    >
+                      Logout
+                    </p>
+                  </div>
+                </>
+              ) : (
+                <Button to={"/auth/signup"} className="navbar_mobile_cta">
+                  <span>Sign Up</span>
+                  <FaChevronRight />
+                </Button>
+              )}
             </div>
           </div>
         )}
