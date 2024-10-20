@@ -1,3 +1,4 @@
+import profileImage from "@/assets/pictures/Navbar/profilePlaceholderImage.png";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import { FaChevronRight } from "react-icons/fa6";
@@ -6,7 +7,7 @@ import { RxCross2 } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import navbarbrand from "../../../assets/pictures/Navbar/MilanNavBrand.svg";
-import { resetUserData } from "../../../redux/slice/userSlice";
+import { resetUserData, selectUser } from "../../../redux/slice/userSlice";
 import { Logout } from "../../../service/MilanApi";
 import { showErrorToast, showSuccessToast } from "../../../utils/Toasts";
 import Button from "../buttons/globalbutton/Button";
@@ -40,8 +41,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
-  const userType = useSelector((state) => state.user.userType);
-  const userName = useSelector((state) => state.user.userName);
+  const user = useSelector(selectUser);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
@@ -106,7 +106,7 @@ const Navbar = () => {
             </div>
             {Cookies.get("Token") && isLoggedIn ? (
               <img
-                src="https://www.thetechies.org/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fuser3.04b79840.webp&w=640&q=75"
+                src={user?.profileImage || profileImage}
                 alt=""
                 style={{
                   width: "37px",
@@ -133,7 +133,7 @@ const Navbar = () => {
         {!isNavbarOpen &&
           (Cookies.get("Token") ? (
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTABbXr4i-QODqhy7tofHYmTYh05rYPktzacw&s"
+              src={user?.profileImage || profileImage}
               alt=""
               className="navbar_hamimg"
               onClick={() => {
@@ -183,7 +183,9 @@ const Navbar = () => {
                 <>
                   <div>
                     <Link className="navbar_mobile_link" to={"/dashboard"}>
-                      {userType === "individual" ? "Profile" : "Dashboard"}
+                      {user?.userType === "individual"
+                        ? "Profile"
+                        : "Dashboard"}
                     </Link>
                   </div>
                   <div>
@@ -210,7 +212,7 @@ const Navbar = () => {
 
         <div className="nav_dropdown">
           <div className="myaccount">
-            <span className="name">Hello @{userName}</span>
+            <span className="name">Hello @{user?.userName}</span>
             <div
               role="separator"
               aria-orientation="horizontal"
@@ -218,20 +220,17 @@ const Navbar = () => {
             ></div>
             <Link
               to={
-                userType === "individual" ? `/user/${userName}` : `/dashboard`
+                user?.userType === "individual"
+                  ? `/user/${user?.userName}`
+                  : `/dashboard`
               }
             >
-              {userType === "individual" ? "Your Profile" : "Dashboard"}
-              <span>⇧⌘{userType === "club" ? "D" : "P"} </span>
+              {user?.userType === "individual" ? "Your Profile" : "Dashboard"}
             </Link>
-            {userType === "club" ? (
-              <Link to={"/event/create"}>
-                Your Events <span>⌘E</span>
-              </Link>
+            {user?.userType === "club" ? (
+              <Link to={"/event/create"}>Your Events</Link>
             ) : null}
-            <Link>
-              Settings <span>⌘S</span>
-            </Link>
+            <Link>Settings</Link>
           </div>
           <div className="myaccount">
             <div
@@ -239,16 +238,7 @@ const Navbar = () => {
               aria-orientation="horizontal"
               className="myaccount_separator"
             ></div>
-            <Link>GitHub</Link>
             <Link>Support</Link>
-            <Link>Api</Link>
-          </div>
-          <div className="myaccount">
-            <div
-              role="separator"
-              aria-orientation="horizontal"
-              className="myaccount_separator"
-            ></div>
             <Link
               onClick={() => {
                 handleLogout();

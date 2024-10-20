@@ -187,7 +187,6 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      color: var(--secondary);
 
       .name {
         font-family: var(--outfit);
@@ -203,11 +202,11 @@
       .myaccount_separator {
         width: 100%;
         height: 1px;
-        background-color: #e2e5e871;
+        background-color: #e2e5e883;
       }
 
       a {
-        color: var(--secondary);
+        color: var(--Brand-brand-900, #6b2615);
         font-weight: 400;
         font-family: var(--outfit);
         text-decoration: none;
