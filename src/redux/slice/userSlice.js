@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { isLoggedIn: false, user: {} };
+const initialState = { isLoggedIn: false };
 
 const userSlice = createSlice({
   name: "user",
@@ -27,6 +27,7 @@ const userSlice = createSlice({
 });
 
 export const selectIsLoggedIn = (state) => state.user.isLoggedIn;
+export const selectUser = (state) => state.user;
 
 export const { updateUserData, resetUserData, toggleUserLogin } =
   userSlice.actions;

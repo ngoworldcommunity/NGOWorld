@@ -6,6 +6,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import Select from "react-select";
 import rightabstract from "../../assets/pictures/authpages/authbanner.png";
 import { Button } from "../../components/shared";
 import { useAuth } from "../../hooks/useAuth";
@@ -60,7 +61,36 @@ const SignUp = () => {
                   <div className="auth_dropdown"></div>
                 </div>
 
-                <div className="auth_element">
+                <div className="auth_element auth_element_mobileOnly">
+                  <label className="auth_label">
+                    Account Type
+                    <span>*</span>
+                  </label>
+
+                  <Select
+                    options={authTypeOptions}
+                    styles={{
+                      container: (baseStyles) => ({
+                        ...baseStyles,
+                        fontFamily: "Outfit, sans-serif",
+                        fontSize: "15px !important",
+                      }),
+                    }}
+                    onChange={(e) => {
+                      setCredentials((prev) => {
+                        return {
+                          ...prev,
+                          userType: e,
+                          email: "",
+                          password: "",
+                          name: "",
+                        };
+                      });
+                    }}
+                    defaultValue={authTypeOptions[1]}
+                  />
+                </div>
+                <div className="auth_element ">
                   <label className="auth_label">
                     {credentials.userType.value === "individual"
                       ? "Full Name"

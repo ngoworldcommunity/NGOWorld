@@ -1,48 +1,31 @@
+import {
+  addressFields,
+  brandingFields,
+  mandatoryFields,
+} from "@/static/Constants";
+
 function getMissingElements(info) {
   const missing = [];
 
   if (info?.userType === "club") {
-    if (!info.name) missing.push("name");
-    if (!info.tagLine) missing.push("tagLine");
-  } else {
-    if (!info.firstName) missing.push("firstName");
-    if (!info.lastName) missing.push("lastName");
+    brandingFields.forEach((field) => {
+      if (info[field] === undefined) {
+        missing.push(field);
+      }
+    });
   }
-
-  if (!info.description) missing.push("description");
-  if (!info.city) missing.push("city");
-  if (!info.state) missing.push("state");
-  if (!info.address) missing.push("address");
-  if (!info.country) missing.push("country");
-  if (!info.pincode) missing.push("pincode");
 
   return missing;
 }
 
 function getEditableFields(info) {
   return info?.userType === "club"
-    ? [
-        "name",
-        "tagLine",
-        "description",
-        "city",
-        "state",
-        "address",
-        "country",
-        "pincode",
-      ]
-    : [
-        "firstName",
-        "lastName",
-        "description",
-        "city",
-        "state",
-        "address",
-        "country",
-        "pincode",
-      ];
+    ? [...mandatoryFields, ...brandingFields, ...addressFields]
+    : [...mandatoryFields, ...addressFields];
 }
 
-export default function getProfileFields(info, isEdit) {
-  return isEdit ? getEditableFields(info) : getMissingElements(info);
+export default function getProfileFields(info) {
+  return info?.userType === "club" && (info?.tagLine === "" || !info?.tagLine)
+    ? getMissingElements(info)
+    : getEditableFields(info);
 }

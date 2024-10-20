@@ -37,6 +37,7 @@
         font-weight: 700;
         color: var(--secondary);
         font-family: var(--outfit);
+        margin-bottom: 0;
 
         @media screen and (max-width: 500px) {
           font-size: 1.5rem;
@@ -44,7 +45,7 @@
       }
 
       p {
-        font-size: 1.1rem;
+        font-size: 15px;
         font-weight: 400;
         color: black;
         font-family: var(--outfit);
@@ -63,9 +64,9 @@
         flex-direction: column;
         position: relative;
         width: 100%;
+        font-family: var(--outfit);
 
         label {
-          font-family: var(--outfit);
           font-size: 17px;
           font-weight: 400;
           margin-bottom: 3px;
@@ -85,7 +86,6 @@
           font-size: 16px;
           color: red;
           margin-top: 5px;
-          font-family: var(--outfit);
         }
 
         input,
@@ -136,7 +136,6 @@
         padding: 0.5rem 1rem;
         font-size: 1rem;
         font-weight: 500;
-
         border-radius: 5px;
 
         transition: all 0.3s ease;
@@ -144,17 +143,4 @@
       }
     }
   }
-}
-
-.crossButton {
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  right: 12px;
-  top: 7px;
-  font-size: 27px;
-  border: 0;
-  box-shadow: none;
-  color: var(--secondary);
-  cursor: pointer;
 }

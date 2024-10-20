@@ -62,12 +62,13 @@ export const ReportProblem = async (credentials) => {
 };
 
 // UPDATE USER
-export const UpdateUser = async (credentials) => {
+export const UpdateUser = async ({ credentials }) => {
   try {
-    const user = await Axios.post(userEndpoints.update, credentials, {
+    const response = await Axios.post(userEndpoints.update, credentials, {
       withCredentials: true,
     });
-    return user;
+
+    return response?.data;
   } catch (error) {
     return error.response;
   }
