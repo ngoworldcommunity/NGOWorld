@@ -82,22 +82,22 @@ const Dashboard = () => {
               className="coverimage"
               alt=""
             />
-            <input
+            {/* <input
               type="file"
               id="coverimage-input"
               className="coverimage_input"
               name="coverImage"
               onChange={handleCreateDashboardImage}
-            />
+            /> */}
 
-            <label htmlFor="coverimage-input">
+            {/* <label htmlFor="coverimage-input">
               <MdOutlineEdit className="edit_icon" />
-            </label>
+            </label> */}
 
             <div className="details">
               <div className="logo_div">
                 <img src={logo || defaults.logo} alt="" className="logo" />
-                <input
+                {/* <input
                   type="file"
                   id="logo-input"
                   className="coverimage_input"
@@ -106,7 +106,7 @@ const Dashboard = () => {
                 />
                 <label htmlFor="logo-input">
                   <MdOutlineEdit className="edit_icon logo_edit_icon" />
-                </label>{" "}
+                </label>{" "} */}
               </div>
 
               <div className="header">

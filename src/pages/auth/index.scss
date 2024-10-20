@@ -292,7 +292,15 @@
   display: none;
 }
 
+.auth_element_mobileOnly {
+  display: none !important;
+}
+
 @media screen and (max-width: 450px) {
+  .auth_element_mobileOnly {
+    display: flex !important;
+  }
+
   .signup_parent {
     display: flex;
     flex-direction: column;
@@ -357,4 +365,8 @@
   position: absolute;
   right: 15px;
   top: 40px;
+}
+
+.css-13cymwt-control {
+  font-family: var(--outfit) !important;
 }
