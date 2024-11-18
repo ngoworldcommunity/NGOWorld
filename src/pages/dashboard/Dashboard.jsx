@@ -1,26 +1,14 @@
-import { selectUser } from "@redux/slice/userSlice";
+import TrackSection from "@components/private/dashboard/TrackSection";
 import { useQuery } from "@tanstack/react-query";
-import { useCallback, useState } from "react";
-import { AiOutlineSave } from "react-icons/ai";
-import { FiEdit3 } from "react-icons/fi";
-import { MdOutlineEdit } from "react-icons/md";
-import { useSelector } from "react-redux";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Button, Navbar, ProfileCompletion } from "../../components/shared";
+import { Navbar } from "../../components/shared";
 import { fetchDashboard } from "../../service/MilanApi";
-import { defaults } from "../../static/Constants";
-import convertToBase64 from "../../utils/convertToBase64";
 import "./Dashboard.scss";
 
 const Dashboard = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [coverImage, setCoverImage] = useState("");
-  const [logo, setLogo] = useState("");
-  const user = useSelector(selectUser);
-
   const { data: dashboardData } = useQuery({
     queryKey: ["dashboard"],
     queryFn: fetchDashboard,
@@ -29,173 +17,40 @@ const Dashboard = () => {
     retry: 0,
   });
 
-  const toggleExpand = () => {
-    setIsExpanded(!isExpanded);
-    const content = document.getElementsByClassName("about_content_text")[0];
-
-    if (isExpanded) {
-      content.style.display = "";
-      content.style.webkitLineClamp = "";
-      content.style.webkitBoxOrient = "";
-      content.style.overflow = "";
-    } else {
-      content.style.display = "-webkit-box";
-      content.style.webkitLineClamp = "3";
-      content.style.webkitBoxOrient = "vertical";
-      content.style.overflow = "hidden";
-    }
-  };
-
-  // const { data: events } = useSWR(eventEndpoints.all, fetcher);
-
-  const handleUpdateProfile = () => {
-    console.log("Update Profile");
-  };
-
-  const handleCreateDashboardImage = useCallback(async (e) => {
-    if (!e || !e.target || !e.target.files[0]) return;
-    const base64 = await convertToBase64(e);
-    setCoverImage(base64);
-    e.target.value = "";
-  }, []);
-
-  const handleCreateLogoImage = useCallback(async (e) => {
-    if (!e || !e.target || !e.target.files[0]) return;
-    const base64 = await convertToBase64(e);
-    setLogo(base64);
-    e.target.value = "";
-  }, []);
-
   return (
     <>
       <Navbar />
 
-      {user?.userType === "club" && !user?.tagLine && <ProfileCompletion />}
+      <div className="dashboard_parent">
+        <div className="profileSection_container">
+          <img
+            src="https://images.pexels.com/photos/7130555/pexels-photo-7130555.jpeg?cs=srgb&dl=pexels-codioful-7130555.jpg&fm=jpg"
+            alt=""
+            srcSet=""
+            className="profile_Coverpicture"
+          />
 
-      <div className="dashboard_container">
-        <div className="dashboard_parent">
-          <div className="dashboard_header">
-            <img
-              src={coverImage || defaults.coverImage}
-              className="coverimage"
-              alt=""
-            />
-            {/* <input
-              type="file"
-              id="coverimage-input"
-              className="coverimage_input"
-              name="coverImage"
-              onChange={handleCreateDashboardImage}
-            /> */}
+          <img
+            src="https://t3.ftcdn.net/jpg/04/56/00/16/360_F_456001627_vYt7ZFjxEQ1sshme67JAXorKRPo8gsfN.jpg"
+            alt=""
+            className="profile_picture"
+          />
 
-            {/* <label htmlFor="coverimage-input">
-              <MdOutlineEdit className="edit_icon" />
-            </label> */}
+          <div className="profile_numbers">
+            <p className="counts followersCount">
+              <span>1.25k</span> Followers
+            </p>
 
-            <div className="details">
-              <div className="logo_div">
-                <img src={logo || defaults.logo} alt="" className="logo" />
-                {/* <input
-                  type="file"
-                  id="logo-input"
-                  className="coverimage_input"
-                  name="coverImage"
-                  onChange={handleCreateLogoImage}
-                />
-                <label htmlFor="logo-input">
-                  <MdOutlineEdit className="edit_icon logo_edit_icon" />
-                </label>{" "} */}
-              </div>
-
-              <div className="header">
-                <div className="name">
-                  <h1 className="profile_header_name dashboard_heading">
-                    {dashboardData?.name}{" "}
-                  </h1>
-                  {dashboardData?.tagline && (
-                    <h2 className="profile_header_tagline">
-                      {dashboardData?.tagline}
-                    </h2>
-                  )}
-                </div>
-                <Button
-                  variant="solid"
-                  className="cta"
-                  onClickfunction={handleUpdateProfile}
-                >
-                  {coverImage !== "" || logo !== "" ? (
-                    <>
-                      <AiOutlineSave />
-                      Save Changes
-                    </>
-                  ) : (
-                    <>
-                      <MdOutlineEdit />
-                      Edit profile
-                    </>
-                  )}
-                </Button>
-              </div>
-            </div>
+            <p className="counts EventsCount">
+              <span>231</span> Hosted Events
+            </p>
           </div>
 
-          <div className="header_mobile">
-            <div className="name">
-              <h1 className="profile_header_name">{dashboardData?.name} </h1>
-              {dashboardData?.tagline && (
-                <h2 className="profile_header_tagline">
-                  {dashboardData?.tagline}
-                </h2>
-              )}
-            </div>
-            <Button
-              variant="solid"
-              className="cta"
-              onClickfunction={handleUpdateProfile}
-            >
-              <FiEdit3 />
-              Edit profile
-            </Button>
-          </div>
+          <button>Edit Profile</button>
+        </div>
 
-          <div className="dashboard_body">
-            {dashboardData?.description && (
-              <div className="about">
-                <h1 className="dashboard_heading">About Us</h1>
-                <div className="about_content">
-                  <p
-                    className={`about_content_text ${
-                      isExpanded ? "expanded" : ""
-                    }`}
-                  >
-                    {dashboardData?.description}
-                  </p>
-                  <div className="readmore_div">
-                    {!isExpanded && (
-                      <span
-                        onClick={toggleExpand}
-                        className="readmore_div_span"
-                      >
-                        . . . Read More
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* {data?.events && (
-              <div className="events">
-                <h1 className="dashboard_heading">Events Hosted</h1>
-
-                <div className="events_grid">
-                  {events?.map((event, id) => (
-                    <EventsMarqueeCards event={event} key={id} />
-                  ))}
-                </div>
-              </div>
-            )} */}
-          </div>
+        <div>
+          <TrackSection />
         </div>
       </div>
     </>

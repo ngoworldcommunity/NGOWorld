@@ -1,11 +1,13 @@
-import Cookies from "js-cookie";
+import { selectIsLoggedIn } from "@redux/slice/userSlice";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import Vector from "../../../assets/pictures/Banner/Vector.png";
 import { Button } from "../../shared";
 import "./Landing.scss";
 
 const Landing = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
     const handleResize = () => {
@@ -49,7 +51,7 @@ const Landing = () => {
           )}
 
           <div className="landing_ctadiv">
-            {Cookies.get("isLoggedIn") ? (
+            {isLoggedIn ? (
               <Button to="/clubs" className="landing_signup">
                 <span>Explore our clubs</span>
               </Button>
