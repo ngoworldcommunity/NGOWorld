@@ -20,37 +20,47 @@ const Dashboard = () => {
   return (
     <>
       <Navbar />
-
       <div className="dashboard_parent">
-        <div className="profileSection_container">
-          <img
-            src="https://images.pexels.com/photos/7130555/pexels-photo-7130555.jpeg?cs=srgb&dl=pexels-codioful-7130555.jpg&fm=jpg"
-            alt=""
-            srcSet=""
-            className="profile_Coverpicture"
-          />
+        <div className="profile_header">
+          <div className="profileSection_container">
+            <img
+              src="https://images.pexels.com/photos/7130555/pexels-photo-7130555.jpeg?cs=srgb&dl=pexels-codioful-7130555.jpg&fm=jpg"
+              alt=""
+              srcSet=""
+              className="profile_Coverpicture"
+            />
 
-          <img
-            src="https://t3.ftcdn.net/jpg/04/56/00/16/360_F_456001627_vYt7ZFjxEQ1sshme67JAXorKRPo8gsfN.jpg"
-            alt=""
-            className="profile_picture"
-          />
+            <img
+              src="https://t3.ftcdn.net/jpg/04/56/00/16/360_F_456001627_vYt7ZFjxEQ1sshme67JAXorKRPo8gsfN.jpg"
+              alt=""
+              className="profile_picture"
+            />
 
-          <div className="profile_numbers">
-            <p className="counts followersCount">
-              <span>1.25k</span> Followers
-            </p>
+            <div className="profile_numbers">
+              <p className="counts followersCount">
+                <span>1.25k</span> Followers
+              </p>
 
-            <p className="counts EventsCount">
-              <span>231</span> Hosted Events
-            </p>
+              <p className="counts EventsCount">
+                <span>231</span> Hosted Events
+              </p>
+            </div>
+
+            <button>Edit Profile</button>
+
+            <div className="profile_details">
+              <h2>The Monk community</h2>
+              <p>
+                Organizing @Hack4Bengal, Engineering @Edilitics • Worked w/ 5+
+                startups • Building OSS product with 200+ users • Open to
+                Frontend Roles
+              </p>
+            </div>
           </div>
 
-          <button>Edit Profile</button>
-        </div>
-
-        <div>
-          <TrackSection />
+          <div className="dashboard_track">
+            <TrackSection />
+          </div>
         </div>
       </div>
     </>
