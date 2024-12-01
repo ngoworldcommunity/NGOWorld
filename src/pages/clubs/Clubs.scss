@@ -1,0 +1,22 @@
+.clubs_parent {
+  padding: 2rem 7rem;
+  min-height: 100vh;
+  margin: 0 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+  grid-template-rows: 1fr 1fr 1fr; /* Three equal rows */
+  gap: 2rem; /* Optional: Add space between grid items */
+
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    grid-template-rows: 1fr 1fr 1fr; /* Three equal rows */
+    padding: 2rem 3rem;
+  }
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr; /* One column */
+    grid-template-rows: 1fr 1fr 1fr 1fr; /* Four equal rows */
+    padding: 3rem 2rem;
+    margin: 0;
+  }
+}

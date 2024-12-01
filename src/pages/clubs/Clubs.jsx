@@ -3,10 +3,10 @@ import React from "react";
 import { ClubCard, Footer, Loading, Navbar } from "../../components/shared";
 import { getClubs } from "../../integrations/Clubs";
 import ComponentHelmet from "../../utils/ComponentHelmet";
-import "./Clubs.css";
+import "./Clubs.scss";
 
 const Clubs = () => {
-  const { data: clubs, isLoading } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["clubsData"],
     queryFn: getClubs,
     refetchOnMount: true,
@@ -14,22 +14,30 @@ const Clubs = () => {
     retry: 2,
   });
 
+  // demo 20 array of clubs
+  const clubs = Array.from({ length: 20 }, (_, i) => ({
+    _id: "673ac2814c6e89e58af8ca11",
+    userType: "club",
+    userName: "tamalcodes",
+    name: "God Father Org",
+    email: "tamalcodes@gmail.com",
+    password: "$2a$10$90vC9McfHXpXpLlzUOFeuulorPR9dIQ2ns37uIP5sX5ehyO5C.Mmm",
+    cart: [],
+    __v: 0,
+  }));
+
   return (
     <>
       <ComponentHelmet type="Clubs" />
       <Navbar />
 
-      <main className="container">
-        <div className="clubspage_main_parent">
-          <div className="clubspage_cardsdiv">
-            {isLoading || !clubs || clubs?.length === 0 ? (
-              <Loading />
-            ) : (
-              clubs?.map((club, id) => <ClubCard club={club} key={id} />)
-            )}
-          </div>
-        </div>
-      </main>
+      <div className="clubs_parent">
+        {isLoading || !clubs || clubs?.length === 0 ? (
+          <Loading />
+        ) : (
+          clubs?.map((club, id) => <ClubCard club={club} key={id} />)
+        )}
+      </div>
 
       <Footer />
     </>
