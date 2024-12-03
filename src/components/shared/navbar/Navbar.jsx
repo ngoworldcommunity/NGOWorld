@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import { FaChevronRight } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { RxCross2 } from "react-icons/rx";
+import { RxCaretDown, RxCross2 } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import navbarbrand from "../../../assets/pictures/Navbar/MilanNavBrand.svg";
@@ -86,7 +86,7 @@ const Navbar = () => {
         </Link>
 
         {windowWidth > 900 && (
-          <>
+          <div className="navbar_links_parent">
             <div className="navbar_links">
               {Links.map((item, index) => {
                 return (
@@ -105,29 +105,22 @@ const Navbar = () => {
               })}
             </div>
             {Cookies.get("Token") && isLoggedIn ? (
-              <img
-                src={user?.profileImage || profileImage}
-                alt=""
-                style={{
-                  width: "37px",
-                  height: "37px",
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                  cursor: "pointer",
-                  zIndex: "100",
-                }}
+              <p
                 onClick={() => {
                   document
                     .querySelector(".nav_dropdown")
                     .classList.toggle("nav_dropdown_visible");
                 }}
-              />
+                className="navbar_dropdown_name"
+              >
+                Profile <RxCaretDown />
+              </p>
             ) : (
               <Button to="/auth/signup" className="navbar_cta">
                 <span>Sign Up</span>
               </Button>
             )}
-          </>
+          </div>
         )}
 
         {!isNavbarOpen &&

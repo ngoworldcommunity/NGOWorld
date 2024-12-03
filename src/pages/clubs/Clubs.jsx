@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import { ClubCard, Footer, Loading, Navbar } from "../../components/shared";
 import { getClubs } from "../../integrations/Clubs";
 import ComponentHelmet from "../../utils/ComponentHelmet";
@@ -15,7 +14,7 @@ const Clubs = () => {
   });
 
   // demo 20 array of clubs
-  const clubs = Array.from({ length: 20 }, (_, i) => ({
+  const clubs = Array.from({ length: 20 }, () => ({
     _id: "673ac2814c6e89e58af8ca11",
     userType: "club",
     userName: "tamalcodes",

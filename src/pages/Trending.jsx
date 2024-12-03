@@ -1,4 +1,3 @@
-import React from "react";
 import { ComingSoon, Navbar } from "../components/shared";
 
 const Trending = () => {
@@ -7,7 +6,7 @@ const Trending = () => {
       <Navbar />
       <div className="shop_parent">
         <div className="shop_comingSoon">
-          <ComingSoon launchitem={`tending section`} />
+          <ComingSoon launchitem={`Trending section`} />
         </div>
       </div>
     </>

@@ -59,6 +59,10 @@ const Dashboard = () => {
           </div>
 
           <div className="dashboard_track">
+            <p className="dashboard_track_p">
+              <span> Real time Analytics</span> <br />
+              <span>Coming Soon</span>
+            </p>
             <TrackSection />
           </div>
         </div>

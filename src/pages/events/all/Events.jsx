@@ -1,66 +1,72 @@
+import { getClubs } from "@/integrations/Clubs";
+import { Button, Footer, Loading, Navbar } from "@components/shared";
+import EventCard from "@components/shared/cards/event/EventCard";
+import EventSlider from "@components/shared/cards/event/EventSlider";
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
-import { FaPlus } from "react-icons/fa";
-import { useSelector } from "react-redux";
-import { EventsCard } from "../../../components/private";
-import CreateEvents from "../../../components/private/events/create/CreateEvents";
-import { Button, Footer, Loading, Navbar } from "../../../components/shared";
-import { getEvents } from "../../../integrations/Events";
-import ComponentHelmet from "../../../utils/ComponentHelmet";
+import ComponentHelmet from "@utils/ComponentHelmet";
+import { CiFilter } from "react-icons/ci";
+import { FaPlus } from "react-icons/fa6";
+import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import "./Events.scss";
 
 const Events = () => {
-  const { data: allEvents, isLoading } = useQuery({
-    queryKey: ["eventsData"],
-    queryFn: getEvents,
+  const { data, isLoading } = useQuery({
+    queryKey: ["clubsData"],
+    queryFn: getClubs,
     refetchOnMount: true,
     refetchOnWindowFocus: false,
     retry: 2,
   });
 
-  const [showCreateModal, setshowCreateModal] = useState(false);
-  const userType = useSelector((state) => state.user.userType);
-
-  const toggleCreateEventModal = () => {
-    setshowCreateModal(true);
-  };
+  // demo 20 array of clubs
+  const events = Array.from({ length: 20 }, () => ({
+    _id: "673ac2814c6e89e58af8ca11",
+    userType: "club",
+    userName: "tamalcodes",
+    name: "God Father Org",
+    email: "tamalcodes@gmail.com",
+    password: "$2a$10$90vC9McfHXpXpLlzUOFeuulorPR9dIQ2ns37uIP5sX5ehyO5C.Mmm",
+    cart: [],
+    __v: 0,
+  }));
 
   return (
     <>
-      <ComponentHelmet type="Events" />
+      <ComponentHelmet type="Clubs" />
       <Navbar />
 
-      {showCreateModal && (
-        <CreateEvents setshowCreateModal={setshowCreateModal} />
-      )}
-
-      <main className="container">
-        <div className="clubspage_main_parent">
-          <div className="events_now_header">
-            <p>Happening now</p>
-
-            <hr className="separator" />
-
-            {userType === "club" && (
-              <Button
-                onClickfunction={toggleCreateEventModal}
-                className="createevent"
-              >
-                <FaPlus /> Create an event
-              </Button>
-            )}
-          </div>
-          <div className="events_div">
-            {isLoading || !allEvents || allEvents?.length === 0 ? (
-              <Loading />
-            ) : (
-              allEvents?.map((event, id) => (
-                <EventsCard event={event} key={id} />
-              ))
-            )}
-          </div>
+      <div className="events_header">
+        <div className="events_search_parent">
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="Type to begin search, or use the filters"
+          />
+          <button>
+            Filters <CiFilter />
+          </button>
         </div>
-      </main>
+
+        <Button className="createevent">
+          <FaPlus /> Create An Event
+        </Button>
+      </div>
+
+      <EventSlider />
+
+      <hr className="events_separator" />
+
+      <div className="events_parent">
+        {isLoading || !events || events?.length === 0 ? (
+          <Loading />
+        ) : (
+          events?.map((event, id) => <EventCard event={event} key={id} />)
+        )}
+      </div>
 
       <Footer />
     </>
