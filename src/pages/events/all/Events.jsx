@@ -1,8 +1,6 @@
-import { getClubs } from "@/integrations/Clubs";
 import { Button, Footer, Loading, Navbar } from "@components/shared";
 import EventCard from "@components/shared/cards/event/EventCard";
 import EventSlider from "@components/shared/cards/event/EventSlider";
-import { useQuery } from "@tanstack/react-query";
 import ComponentHelmet from "@utils/ComponentHelmet";
 import { CiFilter } from "react-icons/ci";
 import { FaPlus } from "react-icons/fa6";
@@ -13,14 +11,6 @@ import "swiper/css/pagination";
 import "./Events.scss";
 
 const Events = () => {
-  const { data, isLoading } = useQuery({
-    queryKey: ["clubsData"],
-    queryFn: getClubs,
-    refetchOnMount: true,
-    refetchOnWindowFocus: false,
-    retry: 2,
-  });
-
   // demo 20 array of clubs
   const events = Array.from({ length: 20 }, () => ({
     _id: "673ac2814c6e89e58af8ca11",
@@ -61,7 +51,7 @@ const Events = () => {
       <hr className="events_separator" />
 
       <div className="events_parent">
-        {isLoading || !events || events?.length === 0 ? (
+        {!events || events?.length === 0 ? (
           <Loading />
         ) : (
           events?.map((event, id) => <EventCard event={event} key={id} />)

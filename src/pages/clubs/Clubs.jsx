@@ -1,18 +1,16 @@
-import { useQuery } from "@tanstack/react-query";
-import { ClubCard, Footer, Loading, Navbar } from "../../components/shared";
-import { getClubs } from "../../integrations/Clubs";
+import { CiFilter } from "react-icons/ci";
+import { PiCaretLeftBold } from "react-icons/pi";
+import {
+  Button,
+  ClubCard,
+  Footer,
+  Loading,
+  Navbar,
+} from "../../components/shared";
 import ComponentHelmet from "../../utils/ComponentHelmet";
 import "./Clubs.scss";
 
 const Clubs = () => {
-  const { data, isLoading } = useQuery({
-    queryKey: ["clubsData"],
-    queryFn: getClubs,
-    refetchOnMount: true,
-    refetchOnWindowFocus: false,
-    retry: 2,
-  });
-
   // demo 20 array of clubs
   const clubs = Array.from({ length: 20 }, () => ({
     _id: "673ac2814c6e89e58af8ca11",
@@ -30,8 +28,26 @@ const Clubs = () => {
       <ComponentHelmet type="Clubs" />
       <Navbar />
 
+      <div className="clubs_header">
+        <div className="clubs_search_parent">
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="Type to begin search, or use the filters"
+          />
+          <button>
+            Filters <CiFilter />
+          </button>
+        </div>
+
+        <Button className="viewdashboard">
+          Your Dashboard <PiCaretLeftBold />
+        </Button>
+      </div>
+
       <div className="clubs_parent">
-        {isLoading || !clubs || clubs?.length === 0 ? (
+        {!clubs || clubs?.length === 0 ? (
           <Loading />
         ) : (
           clubs?.map((club, id) => <ClubCard club={club} key={id} />)

@@ -1,9 +1,9 @@
 import Cookies from "js-cookie";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useDispatch } from "react-redux";
 import { Landing } from "../components/private/index.js";
-import { Footer, Navbar } from "../components/shared";
+import { Footer } from "../components/shared";
 import { toggleUserLogin, updateUserData } from "../redux/slice/userSlice.js";
 import { successCallback } from "../service/MilanApi.js";
 import { showErrorToast, showSuccessToast } from "../utils/Toasts.js";
@@ -39,8 +39,6 @@ const Home = () => {
         />
         <link rel="canonical" href="/" />
       </Helmet>
-
-      <Navbar />
 
       <Landing />
 

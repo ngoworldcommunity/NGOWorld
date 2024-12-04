@@ -37,7 +37,7 @@
       font-size: 15px;
       font-family: var(--outfit);
       outline: none;
-      width: 10%;
+      width: 15%;
       text-align: center;
       display: flex;
       align-items: center;
@@ -65,6 +65,9 @@
     color: #ff5a31f0;
     font-weight: 600;
     width: 20%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 }
 

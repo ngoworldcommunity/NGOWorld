@@ -2,7 +2,7 @@ import { selectIsLoggedIn } from "@redux/slice/userSlice";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Vector from "../../../assets/pictures/Banner/Vector.png";
-import { Button } from "../../shared";
+import { Button, Navbar } from "../../shared";
 import "./Landing.scss";
 
 const Landing = () => {
@@ -21,6 +21,7 @@ const Landing = () => {
 
   return (
     <>
+      <Navbar />
       <div className="container landing_parent">
         <img src={Vector} alt="" className="Landing_bg" />
 
