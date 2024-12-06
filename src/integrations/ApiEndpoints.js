@@ -2,6 +2,7 @@ const API = import.meta.env.VITE_API_URL;
 
 const userEndpoints = {
   details: (userName) => `${API}/user?userName=${userName}`,
+  profile: `${API}/user/profile`,
   update: `${API}/user/update`,
   report: `${API}/user/report`,
 };

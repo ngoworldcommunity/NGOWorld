@@ -1,65 +1,27 @@
 /* eslint-disable no-unused-vars */
-import { selectUser } from "@redux/slice/userSlice";
-import { UpdateUser } from "@service/MilanApi";
-import { useMutation } from "@tanstack/react-query";
-import getProfileFields from "@utils/getProfileFields";
-import { showErrorToast, showSuccessToast } from "@utils/Toasts";
-import _ from "lodash";
+import useProfileCompletion from "@hooks/useProfileCompletion";
+import clsx from "clsx";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { RxCross2 } from "react-icons/rx";
 import { Button } from "..";
 import "./ProfileCompletion.scss";
 
-const ProfileCompletion = () => {
-  const [credentials, setCredentials] = useState({});
-  const [errors, setErrors] = useState({});
-  const user = useSelector(selectUser);
-  const fields = getProfileFields(user);
-  const dispatch = useDispatch();
+const ProfileCompletion = ({ edit }) => {
+  const { errors, validateForm, handleChange, credentials } =
+    useProfileCompletion();
 
-  const handleChange = (e) => {
-    setCredentials({
-      ...credentials,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const [uploadedImage, setUploadedImage] = useState(null);
+  const [uploadedProfilePicture, setUploadedProfilePicture] = useState(null);
 
-  const { mutate: mutate_UpdateDetails } = useMutation({
-    mutationFn: UpdateUser,
-    onSuccess: (data) => {
-      showSuccessToast(data?.message);
-    },
-    onError: (error) => {
-      showErrorToast(error?.message);
-    },
-  });
-
-  const handleUpdateDetails = () => {
-    const newErrors = {};
-
-    if (
-      credentials?.tagLine?.length < 20 ||
-      credentials?.tagLine?.length > 100
-    ) {
-      newErrors.tagLine = "Tagline must be between 20 and 100 characters";
-    }
-
-    if (
-      credentials?.description?.length < 100 ||
-      credentials?.description?.length > 500
-    ) {
-      newErrors.description =
-        "Description must be between 100 and 500 characters";
-    }
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-    } else {
-      // Clear errors if there are none
-      setErrors({});
-      mutate_UpdateDetails({
-        credentials: credentials,
-      });
+  const handleFileChange = (event, type) => {
+    const file = event.target.files[0];
+    if (file) {
+      const imageURL = URL.createObjectURL(file);
+      if (type === "cover") {
+        setUploadedImage(imageURL);
+      } else {
+        setUploadedProfilePicture(imageURL);
+      }
     }
   };
 
@@ -67,59 +29,272 @@ const ProfileCompletion = () => {
     <div className="profilecompletion_overlay">
       <div className="profilecompletion_modal">
         <div className="profilecompletion_header">
-          <h1> We&apos;re almost done </h1>
-
-          <p>
-            To make your Organization visible to others, please complete your
-            profile.
-          </p>
+          {edit === false ? (
+            <>
+              {" "}
+              <h1> We&apos;re almost done </h1>
+              <p>
+                To make your Organization visible to others, please complete
+                your profile.
+              </p>
+            </>
+          ) : (
+            <div className="profilecompletion_header_edit">
+              <RxCross2 />
+              <h1> Edit profile </h1>
+              <Button
+                type="submit"
+                disabled={
+                  !credentials?.description ||
+                  !credentials?.address?.line1 ||
+                  !credentials?.address?.line2 ||
+                  !credentials?.address?.city ||
+                  !credentials?.address?.state ||
+                  !credentials?.address?.country ||
+                  !credentials?.address?.pincode
+                }
+              >
+                Save
+              </Button>
+            </div>
+          )}
         </div>
 
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            handleUpdateDetails({ credentials: credentials });
+            validateForm(credentials);
           }}
         >
-          {fields.map((field) => (
-            <div className="profilecompletion_element" key={field}>
-              <label>{_.startCase(field)}</label>
-              {field === "description" ? (
-                <textarea
-                  name={field}
-                  value={credentials[field] || ""}
-                  onChange={handleChange}
-                  className="auth_input"
-                  placeholder={`Enter your ${field}`}
-                />
-              ) : (
-                <input
-                  type="text"
-                  name={field}
-                  value={credentials[field] || ""}
-                  onChange={handleChange}
-                  className="auth_input"
-                  placeholder={`Enter your ${field}`}
-                />
-              )}
-              {errors[field] && (
-                <span className="profilecompletion_error">{errors[field]}</span>
+          <div className="profilecompletion_element">
+            <div className="dropzone_container">
+              <p className="dropzone_coverlabel">Cover Image</p>
+
+              <label htmlFor="dropzone_file" className="dropzone_label">
+                {uploadedImage ? (
+                  <img
+                    src={uploadedImage}
+                    alt="Uploaded Preview"
+                    className="uploaded-image"
+                  />
+                ) : (
+                  <div className="dropzone_content">
+                    <svg
+                      className="dropzone_icon"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 20 16"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                      />
+                    </svg>
+
+                    <p className="dropzone_text">
+                      <span className="font-semibold">Click to upload</span> or
+                      drag and drop
+                    </p>
+                    <p className="dropzone_subtext">
+                      PNG, JPG up to 10MB (800 X 200)
+                    </p>
+                  </div>
+                )}
+              </label>
+
+              <input
+                id="dropzone_file"
+                type="file"
+                className="hidden"
+                onChange={(e) => handleFileChange(e, "cover")}
+              />
+
+              {edit === true && (
+                <>
+                  <label
+                    htmlFor="dropzone_pfp"
+                    className="dropzone_label profile_picture_label"
+                  >
+                    {uploadedProfilePicture ? (
+                      <img
+                        src={uploadedProfilePicture}
+                        alt="Uploaded Preview"
+                        className="uploaded-image profile_picture"
+                      />
+                    ) : (
+                      <div className="dropzone_content">
+                        <svg
+                          className="dropzone_icon"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 20 16"
+                        >
+                          <path
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                          />
+                        </svg>
+                      </div>
+                    )}
+                  </label>
+
+                  <input
+                    id="dropzone_pfp"
+                    type="file"
+                    className="hidden"
+                    onChange={(e) => handleFileChange(e, "pfp")}
+                  />
+                </>
               )}
             </div>
-          ))}
-
-          <div className="profilecompletion_btndiv">
-            <Button
-              type="submit"
-              disabled={
-                Object.keys(credentials)?.length < 2 ||
-                credentials?.description === "" ||
-                credentials?.tagLine === ""
-              }
-            >
-              Submit
-            </Button>
           </div>
+          <div
+            className={clsx("profilecompletion_element", "edit_section")}
+            key={"description"}
+          >
+            <label>
+              <div>
+                Organization Description <span>*</span>
+              </div>
+
+              <span className="counter">
+                {credentials["description"]?.length || 0}/500
+              </span>
+            </label>
+            <textarea
+              value={credentials["description"]}
+              onChange={handleChange("description")}
+              className="auth_input"
+              placeholder={`Enter a meaningful description about your organization`}
+            />
+            {errors["description"] && (
+              <span className="profilecompletion_error">
+                {errors["description"]}
+              </span>
+            )}
+          </div>
+
+          <div className="profilecompletion_flexbox">
+            <div className="profilecompletion_element" key={"description"}>
+              <label>
+                <div>
+                  Address Line 1 <span>*</span>
+                </div>
+              </label>
+              <input
+                value={credentials?.address?.line1}
+                onChange={handleChange("line1")}
+                className="auth_input"
+                placeholder={`Address Line 1`}
+              />
+            </div>
+
+            <div className="profilecompletion_element" key={"description"}>
+              <label>
+                <div>
+                  Address Line 2 <span>*</span>
+                </div>
+              </label>
+              <input
+                value={credentials?.address?.line2}
+                onChange={handleChange("line2")}
+                className="auth_input"
+                placeholder={`Address Line 2`}
+              />
+            </div>
+          </div>
+
+          <div className="profilecompletion_flexbox">
+            <div className="profilecompletion_element" key={"description"}>
+              <label>
+                <div>
+                  City <span>*</span>
+                </div>
+              </label>
+              <input
+                name="city"
+                value={credentials?.address?.city}
+                onChange={handleChange("city")}
+                className="auth_input"
+                placeholder={`City Name`}
+              />
+            </div>
+
+            <div className="profilecompletion_element" key={"description"}>
+              <label>
+                <div>
+                  State/Province <span>*</span>
+                </div>
+              </label>
+              <input
+                name="stat e"
+                value={credentials?.address?.state}
+                onChange={handleChange("state")}
+                className="auth_input"
+                placeholder={`State Name`}
+              />
+            </div>
+          </div>
+
+          <div className="profilecompletion_flexbox">
+            <div className="profilecompletion_element" key={"description"}>
+              <label>
+                <div>
+                  Country of establishment <span>*</span>
+                </div>
+              </label>
+              <input
+                name="country"
+                value={credentials?.address?.country}
+                onChange={handleChange("country")}
+                className="auth_input"
+                placeholder={`Country Name`}
+              />
+            </div>
+
+            <div className="profilecompletion_element" key={"description"}>
+              <label>
+                <div>
+                  Pincode / Zipcode <span>*</span>
+                </div>
+              </label>
+              <input
+                name="pincode"
+                type="number"
+                value={credentials?.address?.pincode}
+                onChange={handleChange("pincode")}
+                className="auth_input"
+                placeholder={`Pincode`}
+              />
+            </div>
+          </div>
+
+          {edit === "false" && (
+            <div className="profilecompletion_btndiv">
+              <Button
+                type="submit"
+                disabled={
+                  !credentials?.description ||
+                  !credentials?.address?.line1 ||
+                  !credentials?.address?.line2 ||
+                  !credentials?.address?.city ||
+                  !credentials?.address?.state ||
+                  !credentials?.address?.country ||
+                  !credentials?.address?.pincode
+                }
+              >
+                Submit
+              </Button>
+            </div>
+          )}
         </form>
       </div>
     </div>

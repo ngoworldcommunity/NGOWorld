@@ -62,13 +62,13 @@ export const ReportProblem = async (credentials) => {
 };
 
 // UPDATE USER
-export const UpdateUser = async ({ credentials }) => {
+export const UpdateUserApiCall = async ({ credentials }) => {
   try {
-    const response = await Axios.post(userEndpoints.update, credentials, {
+    const response = await Axios.patch(userEndpoints.update, credentials, {
       withCredentials: true,
     });
 
-    return response?.data;
+    return response;
   } catch (error) {
     return error.response;
   }

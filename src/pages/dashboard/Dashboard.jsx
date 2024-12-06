@@ -1,20 +1,25 @@
+import { userEndpoints } from "@/integrations/ApiEndpoints";
 import TrackSection from "@components/private/dashboard/TrackSection";
-import { useQuery } from "@tanstack/react-query";
-import "swiper/css";
-import "swiper/css/autoplay";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navbar } from "../../components/shared";
-import { fetchDashboard } from "../../service/MilanApi";
+import { updateUserData } from "@redux/slice/userSlice";
+import fetcher from "@utils/Fetcher";
+import { showErrorToast } from "@utils/Toasts";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import useSWR from "swr";
+import { Navbar, ProfileCompletion } from "../../components/shared";
 import "./Dashboard.scss";
 
 const Dashboard = () => {
-  const { data: dashboardData } = useQuery({
-    queryKey: ["dashboard"],
-    queryFn: fetchDashboard,
-    refetchOnMount: true,
-    refetchOnWindowFocus: false,
-    retry: 0,
+  const [showEditModal, setShowEditModal] = useState(false);
+  const dispatch = useDispatch();
+
+  const { data: profileData } = useSWR(userEndpoints.profile, fetcher, {
+    onSuccess: (data) => {
+      dispatch(updateUserData(data));
+    },
+    onError: (error) => {
+      showErrorToast(error?.response?.data?.message);
+    },
   });
 
   return (
@@ -46,15 +51,17 @@ const Dashboard = () => {
               </p>
             </div>
 
-            <button>Edit Profile</button>
+            <button
+              onClick={() => {
+                setShowEditModal(true);
+              }}
+            >
+              Edit Profile
+            </button>
 
             <div className="profile_details">
-              <h2>The Monk community</h2>
-              <p>
-                Organizing @Hack4Bengal, Engineering @Edilitics • Worked w/ 5+
-                startups • Building OSS product with 200+ users • Open to
-                Frontend Roles
-              </p>
+              <h2>{profileData?.name}</h2>
+              <p>{profileData?.description}</p>
             </div>
           </div>
 
@@ -67,6 +74,9 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+
+      {(profileData?.config?.hasCompletedProfile === false ||
+        showEditModal) && <ProfileCompletion edit={showEditModal} />}
     </>
   );
 };

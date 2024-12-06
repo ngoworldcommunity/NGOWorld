@@ -1,16 +1,16 @@
+import { emailRegex } from "@/static/Constants";
+import { updateUserData } from "@redux/slice/userSlice";
+import checkInternetConnection from "@utils/CheckInternetConnection";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { updateUserData } from "../redux/slice/userSlice";
 import { LoginUser, RegisterUser } from "../service/MilanApi";
-import checkInternetConnection from "../utils/CheckInternetConnection";
 import { showErrorToast, showSuccessToast } from "../utils/Toasts";
 
 export function useAuth(authType) {
   const navigate = useNavigate();
-  const [loading, setloading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const emailRegex = /^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$/;
 
   async function authenticateUser(credentials, setErrors) {
     if (!checkInternetConnection()) {
@@ -36,7 +36,7 @@ export function useAuth(authType) {
       return;
     }
 
-    setloading(true);
+    setLoading(true);
 
     const response = await (authType === "signin"
       ? LoginUser(credentials)
@@ -49,19 +49,18 @@ export function useAuth(authType) {
       showSuccessToast(response?.data?.message);
       dispatch(
         updateUserData({
+          ...response.data.user,
           isLoggedIn: true,
-          email: response.data.user.email,
-          userName: response.data.user.userName,
         }),
       );
 
       setTimeout(() => {
         navigate("/");
-        setloading(false);
+        setLoading(false);
       }, 1000);
     } else {
       showErrorToast(response?.data?.message);
-      setloading(false);
+      setLoading(false);
     }
   }
 
