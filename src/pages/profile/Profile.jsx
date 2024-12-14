@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FiEdit3 } from "react-icons/fi";
 import { MdLogout } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,7 +9,7 @@ import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import useSWR from "swr";
-import { Button, Navbar, ProfileCompletion } from "../../components/shared";
+import { Button, Navbar } from "../../components/shared";
 import { clubEndpoints } from "../../integrations/ApiEndpoints";
 import { resetUserData } from "../../redux/slice/userSlice";
 import { Logout } from "../../service/MilanApi";
@@ -65,14 +65,6 @@ const Profile = () => {
   return (
     <>
       <Navbar />
-
-      {showProfileModal && (
-        <ProfileCompletion
-          setShowProfileModal={setShowProfileModal}
-          editProfile={editProfile}
-          seteditProfile={seteditProfile}
-        />
-      )}
 
       <div className="profile_container">
         <div className="profile_parent">

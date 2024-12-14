@@ -8,6 +8,7 @@ const useProfileCompletion = () => {
 
   const [credentials, setCredentials] = useState({
     description: "",
+    coverImage: "",
     address: {
       line1: "",
       line2: "",
@@ -19,7 +20,6 @@ const useProfileCompletion = () => {
   });
 
   const validateForm = async (updatedCredentials) => {
-    console.log("🚀 ~ validateForm ~ updatedCredentials:", updatedCredentials);
     const newErrors = {};
 
     // Check required fields for top-level fields

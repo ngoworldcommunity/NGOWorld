@@ -76,7 +76,7 @@ const Dashboard = () => {
       </div>
 
       {(profileData?.config?.hasCompletedProfile === false ||
-        showEditModal) && <ProfileCompletion edit={showEditModal} />}
+        showEditModal === true) && <ProfileCompletion edit={showEditModal} />}
     </>
   );
 };
