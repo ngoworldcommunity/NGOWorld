@@ -61,11 +61,28 @@ export const ReportProblem = async (credentials) => {
   }
 };
 
-// UPDATE USER
+// Complete User Profile
 export const completeProfileApiCall = async ({ credentials }) => {
   try {
     const response = await Axios.patch(
       userEndpoints.completeProfile,
+      credentials,
+      {
+        withCredentials: true,
+      },
+    );
+
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+// Update User Profile
+export const updateUserProfile = async ({ credentials }) => {
+  try {
+    const response = await Axios.patch(
+      userEndpoints.updateProfile,
       credentials,
       {
         withCredentials: true,

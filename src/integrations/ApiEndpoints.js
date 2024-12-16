@@ -5,7 +5,8 @@ const userEndpoints = {
   profile: `${API}/user/profile`,
   update: `${API}/user/update/profile`,
   report: `${API}/user/report`,
-  completeProfile: `${API}/user/completeprofile`,
+  completeProfile: `${API}/user/complete`,
+  updateProfile: `${API}/user/update`,
 };
 
 const clubEndpoints = {

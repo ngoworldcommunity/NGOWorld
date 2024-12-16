@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { STATUSCODE } from "@/static/Constants";
-import { completeProfileApiCall } from "@service/MilanApi";
+import { updateUserProfile } from "@service/MilanApi";
 import { showSuccessToast } from "@utils/Toasts";
 import clsx from "clsx";
 import { useState } from "react";
@@ -29,8 +29,8 @@ const ProfileUpdate = ({ setOpenModal, refreshProfileData, profileData }) => {
   const handleChange = (field) => (event) => {
     const updatedCredentials = { ...credentials };
 
-    if (field === "description") {
-      updatedCredentials.description = event.target.value;
+    if (field === "description" || field === "name") {
+      updatedCredentials[field] = event.target.value;
     } else {
       // For address fields, update the address object inside the credentials
       updatedCredentials.address[field] = event.target.value;
@@ -66,16 +66,13 @@ const ProfileUpdate = ({ setOpenModal, refreshProfileData, profileData }) => {
     });
   };
 
-  const validateForm = async (updatedCredentials) => {
+  const validateForm = async () => {
     const newErrors = {};
 
     // Check required fields for top-level fields
-    const requiredFields = ["description"];
+    const requiredFields = ["description", "name"];
     requiredFields.forEach((field) => {
-      if (
-        !updatedCredentials[field] ||
-        updatedCredentials[field].trim() === ""
-      ) {
+      if (!credentials[field] || credentials[field].trim() === "") {
         newErrors[field] = `${field} is required.`;
       }
     });
@@ -91,60 +88,41 @@ const ProfileUpdate = ({ setOpenModal, refreshProfileData, profileData }) => {
     ];
     addressFields.forEach((field) => {
       if (
-        !updatedCredentials.address[field] ||
-        updatedCredentials.address[field].trim() === ""
+        !credentials.address[field] ||
+        credentials.address[field].trim() === ""
       ) {
         newErrors[`address.${field}`] = `${field} is required.`;
       }
     });
 
     // Description length validation
-    if (
-      updatedCredentials.description &&
-      updatedCredentials.description.length > 500
-    ) {
+    if (credentials.description && credentials.description.length > 500) {
       newErrors.description = "Description cannot be more than 500 characters.";
     }
 
-    if (
-      updatedCredentials.description &&
-      updatedCredentials.description.length < 100
-    ) {
+    if (credentials.description && credentials.description.length < 100) {
       newErrors.description = "Description cannot be less than 100 characters.";
     }
 
     // Pincode validation
-    if (
-      updatedCredentials.address.pincode &&
-      isNaN(updatedCredentials.address.pincode)
-    ) {
+    if (credentials.address.pincode && isNaN(credentials.address.pincode)) {
       newErrors["address.pincode"] = "Pincode must be a valid number.";
     }
 
     setErrors(newErrors);
 
-    const data = await completeProfileApiCall({
-      credentials: {
-        ...updatedCredentials,
-        config: {
-          hasCompletedProfile: true,
-        },
-      },
+    const data = await updateUserProfile({
+      credentials,
     });
 
     if (data.status === STATUSCODE.OK) {
       showSuccessToast(data?.data?.message);
+      refreshProfileData();
+      setOpenModal(false);
       return;
     }
 
     return Object.keys(newErrors).length === 0;
-  };
-
-  const clearError = (field) => {
-    setErrors((prevErrors) => {
-      const { [field]: ignored, ...rest } = prevErrors;
-      return rest;
-    });
   };
 
   return (
@@ -161,6 +139,10 @@ const ProfileUpdate = ({ setOpenModal, refreshProfileData, profileData }) => {
             <h1> Edit profile </h1>
             <Button
               type="submit"
+              onClickfunction={(e) => {
+                e.preventDefault();
+                validateForm();
+              }}
               disabled={
                 !credentials?.description ||
                 !credentials?.address?.line1 ||
@@ -176,12 +158,7 @@ const ProfileUpdate = ({ setOpenModal, refreshProfileData, profileData }) => {
           </div>
         </div>
 
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            validateForm(credentials);
-          }}
-        >
+        <form>
           <div className="profileupdate_element">
             <div className="dropzone_container">
               <p className="dropzone_coverlabel">Cover Image</p>
