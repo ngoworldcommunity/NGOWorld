@@ -19,6 +19,37 @@ const useProfileCompletion = () => {
     },
   });
 
+  const handleResetFields = () => {
+    setCredentials({
+      description: "",
+      coverImage: "",
+      address: {
+        line1: "",
+        line2: "",
+        city: "",
+        state: "",
+        country: "",
+        pincode: "",
+      },
+    });
+  };
+
+  const handleSetDefaultValues = (profileData) => {
+    console.log("🚀 ~ handleSetDefaultValues ~ profileData:", profileData);
+    setCredentials({
+      description: profileData?.description || "",
+      coverImage: profileData?.coverImage || "",
+      address: {
+        line1: profileData?.address?.line1 || "",
+        line2: profileData?.address?.line2 || "",
+        city: profileData?.address?.city || "",
+        state: profileData?.address?.state || "",
+        country: profileData?.address?.country || "",
+        pincode: profileData?.address?.pincode || "",
+      },
+    });
+  };
+
   const validateForm = async (updatedCredentials) => {
     const newErrors = {};
 
@@ -113,7 +144,15 @@ const useProfileCompletion = () => {
     setCredentials(updatedCredentials);
   };
 
-  return { credentials, errors, handleChange, validateForm, clearError };
+  return {
+    credentials,
+    errors,
+    handleChange,
+    validateForm,
+    clearError,
+    handleResetFields,
+    handleSetDefaultValues,
+  };
 };
 
 export default useProfileCompletion;

@@ -1,5 +1,7 @@
 import { userEndpoints } from "@/integrations/ApiEndpoints";
 import TrackSection from "@components/private/dashboard/TrackSection";
+import ProfileUpdate from "@components/shared/profileUpdate/ProfileUpdate";
+import useProfileCompletion from "@hooks/useProfileCompletion";
 import { updateUserData } from "@redux/slice/userSlice";
 import fetcher from "@utils/Fetcher";
 import { showErrorToast } from "@utils/Toasts";
@@ -10,7 +12,7 @@ import { Navbar, ProfileCompletion } from "../../components/shared";
 import "./Dashboard.scss";
 
 const Dashboard = () => {
-  const [showEditModal, setShowEditModal] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const dispatch = useDispatch();
 
   const { data: profileData, mutate: refreshProfileData } = useSWR(
@@ -25,6 +27,8 @@ const Dashboard = () => {
       },
     },
   );
+
+  const { handleSetDefaultValues } = useProfileCompletion();
 
   return (
     <>
@@ -57,7 +61,9 @@ const Dashboard = () => {
 
             <button
               onClick={() => {
-                setShowEditModal(true);
+                setOpenModal(true);
+                handleSetDefaultValues(profileData?.user);
+                console.log(profileData?.user);
               }}
             >
               Edit Profile
@@ -79,12 +85,19 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {(profileData?.user?.config?.hasCompletedProfile === false ||
-        showEditModal === true) && (
+      {profileData?.user?.config?.hasCompletedProfile === false && (
         <ProfileCompletion
-          edit={showEditModal}
-          setShowEditModal={setShowEditModal}
+          edit={openModal}
+          setOpenModal={setOpenModal}
           refreshProfileData={refreshProfileData}
+        />
+      )}
+
+      {openModal === true && (
+        <ProfileUpdate
+          setOpenModal={setOpenModal}
+          refreshProfileData={refreshProfileData}
+          profileData={profileData?.user}
         />
       )}
     </>

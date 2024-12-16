@@ -1,5 +1,6 @@
 import { CiFilter } from "react-icons/ci";
 import { PiCaretLeftBold } from "react-icons/pi";
+import { useNavigate } from "react-router-dom";
 import {
   Button,
   ClubCard,
@@ -23,6 +24,8 @@ const Clubs = () => {
     __v: 0,
   }));
 
+  const navigate = useNavigate();
+
   return (
     <>
       <ComponentHelmet type="Clubs" />
@@ -41,7 +44,12 @@ const Clubs = () => {
           </button>
         </div>
 
-        <Button className="viewdashboard">
+        <Button
+          className="viewdashboard"
+          onClickfunction={() => {
+            navigate("/dashboard");
+          }}
+        >
           Your Dashboard <PiCaretLeftBold />
         </Button>
       </div>

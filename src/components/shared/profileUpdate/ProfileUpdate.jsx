@@ -1,18 +1,43 @@
 /* eslint-disable no-unused-vars */
-import useProfileCompletion from "@hooks/useProfileCompletion";
+import { STATUSCODE } from "@/static/Constants";
 import { completeProfileApiCall } from "@service/MilanApi";
 import { showSuccessToast } from "@utils/Toasts";
 import clsx from "clsx";
 import { useState } from "react";
+import { RxCross2 } from "react-icons/rx";
 import { Button } from "..";
-import "./ProfileCompletion.scss";
+import "./ProfileUpdate.scss";
 
-const ProfileCompletion = ({ setShowEditModal, refreshProfileData }) => {
-  const { errors, validateForm, handleChange, credentials, handleResetFields } =
-    useProfileCompletion();
-
+const ProfileUpdate = ({ setOpenModal, refreshProfileData, profileData }) => {
+  const [credentials, setCredentials] = useState({
+    description: profileData?.description || "",
+    name: profileData?.name || "",
+    coverImage: "",
+    address: {
+      line1: profileData?.address?.line1 || "",
+      line2: profileData?.address?.line2 || "",
+      city: profileData?.address?.city || "",
+      state: profileData?.address?.state || "",
+      country: profileData?.address?.country || "",
+      pincode: profileData?.address?.pincode || "",
+    },
+  });
+  const [errors, setErrors] = useState({});
   const [uploadedImage, setUploadedImage] = useState(null);
   const [uploadedProfilePicture, setUploadedProfilePicture] = useState(null);
+
+  const handleChange = (field) => (event) => {
+    const updatedCredentials = { ...credentials };
+
+    if (field === "description") {
+      updatedCredentials.description = event.target.value;
+    } else {
+      // For address fields, update the address object inside the credentials
+      updatedCredentials.address[field] = event.target.value;
+    }
+
+    setCredentials(updatedCredentials);
+  };
 
   const handleFileChange = (event, type) => {
     const file = event.target.files[0];
@@ -26,19 +51,114 @@ const ProfileCompletion = ({ setShowEditModal, refreshProfileData }) => {
     }
   };
 
-  return (
-    <div className="profilecompletion_overlay">
-      <div className="profilecompletion_modal">
-        <div className="profilecompletion_header">
-          <div className="profilecompletion_header_top">
-            <div>
-              <h1> We&apos;re almost done </h1>
-              <p>
-                To make your Organization visible to others, please complete
-                your profile.
-              </p>
-            </div>
+  const handleResetFields = () => {
+    setCredentials({
+      description: "",
+      coverImage: "",
+      address: {
+        line1: "",
+        line2: "",
+        city: "",
+        state: "",
+        country: "",
+        pincode: "",
+      },
+    });
+  };
 
+  const validateForm = async (updatedCredentials) => {
+    const newErrors = {};
+
+    // Check required fields for top-level fields
+    const requiredFields = ["description"];
+    requiredFields.forEach((field) => {
+      if (
+        !updatedCredentials[field] ||
+        updatedCredentials[field].trim() === ""
+      ) {
+        newErrors[field] = `${field} is required.`;
+      }
+    });
+
+    // Check required fields for address fields
+    const addressFields = [
+      "line1",
+      "line2",
+      "city",
+      "state",
+      "country",
+      "pincode",
+    ];
+    addressFields.forEach((field) => {
+      if (
+        !updatedCredentials.address[field] ||
+        updatedCredentials.address[field].trim() === ""
+      ) {
+        newErrors[`address.${field}`] = `${field} is required.`;
+      }
+    });
+
+    // Description length validation
+    if (
+      updatedCredentials.description &&
+      updatedCredentials.description.length > 500
+    ) {
+      newErrors.description = "Description cannot be more than 500 characters.";
+    }
+
+    if (
+      updatedCredentials.description &&
+      updatedCredentials.description.length < 100
+    ) {
+      newErrors.description = "Description cannot be less than 100 characters.";
+    }
+
+    // Pincode validation
+    if (
+      updatedCredentials.address.pincode &&
+      isNaN(updatedCredentials.address.pincode)
+    ) {
+      newErrors["address.pincode"] = "Pincode must be a valid number.";
+    }
+
+    setErrors(newErrors);
+
+    const data = await completeProfileApiCall({
+      credentials: {
+        ...updatedCredentials,
+        config: {
+          hasCompletedProfile: true,
+        },
+      },
+    });
+
+    if (data.status === STATUSCODE.OK) {
+      showSuccessToast(data?.data?.message);
+      return;
+    }
+
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const clearError = (field) => {
+    setErrors((prevErrors) => {
+      const { [field]: ignored, ...rest } = prevErrors;
+      return rest;
+    });
+  };
+
+  return (
+    <div className="profileupdate_overlay">
+      <div className="profileupdate_modal">
+        <div className="profileupdate_header">
+          <div className="profileupdate_header_edit">
+            <RxCross2
+              onClick={() => {
+                setOpenModal(false);
+                handleResetFields();
+              }}
+            />
+            <h1> Edit profile </h1>
             <Button
               type="submit"
               disabled={
@@ -50,17 +170,6 @@ const ProfileCompletion = ({ setShowEditModal, refreshProfileData }) => {
                 !credentials?.address?.country ||
                 !credentials?.address?.pincode
               }
-              onClickfunction={async () => {
-                const data = await completeProfileApiCall({
-                  credentials,
-                });
-
-                if (data?.status === 200) {
-                  showSuccessToast(data?.data?.message);
-                  setShowEditModal(false);
-                  refreshProfileData();
-                }
-              }}
             >
               Save
             </Button>
@@ -73,7 +182,7 @@ const ProfileCompletion = ({ setShowEditModal, refreshProfileData }) => {
             validateForm(credentials);
           }}
         >
-          <div className="profilecompletion_element">
+          <div className="profileupdate_element">
             <div className="dropzone_container">
               <p className="dropzone_coverlabel">Cover Image</p>
 
@@ -119,12 +228,61 @@ const ProfileCompletion = ({ setShowEditModal, refreshProfileData }) => {
                 className="hidden"
                 onChange={(e) => handleFileChange(e, "cover")}
               />
+
+              <label
+                htmlFor="dropzone_pfp"
+                className="dropzone_label profile_picture_label"
+              >
+                {uploadedProfilePicture ? (
+                  <img
+                    src={uploadedProfilePicture}
+                    alt="Uploaded Preview"
+                    className="uploaded-image profile_picture"
+                  />
+                ) : (
+                  <div className="dropzone_content">
+                    <svg
+                      className="dropzone_icon"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 20 16"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                      />
+                    </svg>
+                  </div>
+                )}
+              </label>
+
+              <input
+                id="dropzone_pfp"
+                type="file"
+                className="hidden"
+                onChange={(e) => handleFileChange(e, "pfp")}
+              />
             </div>
           </div>
-          <div
-            className={clsx("profilecompletion_element", "edit_section")}
-            key={"description"}
-          >
+
+          <div className="profileupdate_element edit_section">
+            <label>
+              <div>
+                Organization Name <span>*</span>
+              </div>
+            </label>
+            <input
+              value={credentials?.name}
+              onChange={handleChange("name")}
+              className="auth_input"
+              placeholder={`The name of your organization`}
+            />
+          </div>
+          <div className={clsx("profileupdate_element", "")}>
             <label>
               <div>
                 Organization Description <span>*</span>
@@ -136,19 +294,20 @@ const ProfileCompletion = ({ setShowEditModal, refreshProfileData }) => {
             </label>
             <textarea
               value={credentials["description"]}
+              name="description"
               onChange={handleChange("description")}
               className="auth_input"
               placeholder={`Enter a meaningful description about your organization`}
             />
             {errors["description"] && (
-              <span className="profilecompletion_error">
+              <span className="profileupdate_error">
                 {errors["description"]}
               </span>
             )}
           </div>
 
-          <div className="profilecompletion_flexbox">
-            <div className="profilecompletion_element" key={"description"}>
+          <div className="profileupdate_flexbox">
+            <div className="profileupdate_element">
               <label>
                 <div>
                   Address Line 1 <span>*</span>
@@ -162,7 +321,7 @@ const ProfileCompletion = ({ setShowEditModal, refreshProfileData }) => {
               />
             </div>
 
-            <div className="profilecompletion_element" key={"description"}>
+            <div className="profileupdate_element">
               <label>
                 <div>
                   Address Line 2 <span>*</span>
@@ -177,8 +336,8 @@ const ProfileCompletion = ({ setShowEditModal, refreshProfileData }) => {
             </div>
           </div>
 
-          <div className="profilecompletion_flexbox">
-            <div className="profilecompletion_element" key={"description"}>
+          <div className="profileupdate_flexbox">
+            <div className="profileupdate_element">
               <label>
                 <div>
                   City <span>*</span>
@@ -193,7 +352,7 @@ const ProfileCompletion = ({ setShowEditModal, refreshProfileData }) => {
               />
             </div>
 
-            <div className="profilecompletion_element" key={"description"}>
+            <div className="profileupdate_element">
               <label>
                 <div>
                   State/Province <span>*</span>
@@ -209,8 +368,8 @@ const ProfileCompletion = ({ setShowEditModal, refreshProfileData }) => {
             </div>
           </div>
 
-          <div className="profilecompletion_flexbox">
-            <div className="profilecompletion_element" key={"description"}>
+          <div className="profileupdate_flexbox">
+            <div className="profileupdate_element">
               <label>
                 <div>
                   Country of establishment <span>*</span>
@@ -225,7 +384,7 @@ const ProfileCompletion = ({ setShowEditModal, refreshProfileData }) => {
               />
             </div>
 
-            <div className="profilecompletion_element" key={"description"}>
+            <div className="profileupdate_element">
               <label>
                 <div>
                   Pincode / Zipcode <span>*</span>
@@ -241,27 +400,10 @@ const ProfileCompletion = ({ setShowEditModal, refreshProfileData }) => {
               />
             </div>
           </div>
-
-          <div className="profilecompletion_btndiv">
-            <Button
-              type="submit"
-              disabled={
-                !credentials?.description ||
-                !credentials?.address?.line1 ||
-                !credentials?.address?.line2 ||
-                !credentials?.address?.city ||
-                !credentials?.address?.state ||
-                !credentials?.address?.country ||
-                !credentials?.address?.pincode
-              }
-            >
-              Submit
-            </Button>
-          </div>
         </form>
       </div>
     </div>
   );
 };
 
-export default ProfileCompletion;
+export default ProfileUpdate;
