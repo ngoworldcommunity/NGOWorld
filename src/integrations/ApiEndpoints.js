@@ -3,8 +3,9 @@ const API = import.meta.env.VITE_API_URL;
 const userEndpoints = {
   details: (userName) => `${API}/user?userName=${userName}`,
   profile: `${API}/user/profile`,
-  update: `${API}/user/update`,
+  update: `${API}/user/update/profile`,
   report: `${API}/user/report`,
+  completeProfile: `${API}/user/completeprofile`,
 };
 
 const clubEndpoints = {

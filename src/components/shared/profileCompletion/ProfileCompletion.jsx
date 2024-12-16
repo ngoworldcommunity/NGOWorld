@@ -1,12 +1,14 @@
 /* eslint-disable no-unused-vars */
 import useProfileCompletion from "@hooks/useProfileCompletion";
+import { completeProfileApiCall } from "@service/MilanApi";
+import { showSuccessToast } from "@utils/Toasts";
 import clsx from "clsx";
 import { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { Button } from "..";
 import "./ProfileCompletion.scss";
 
-const ProfileCompletion = ({ edit }) => {
+const ProfileCompletion = ({ edit, setShowEditModal, refreshProfileData }) => {
   const { errors, validateForm, handleChange, credentials } =
     useProfileCompletion();
 
@@ -30,14 +32,41 @@ const ProfileCompletion = ({ edit }) => {
       <div className="profilecompletion_modal">
         <div className="profilecompletion_header">
           {edit === false ? (
-            <>
-              {" "}
-              <h1> We&apos;re almost done </h1>
-              <p>
-                To make your Organization visible to others, please complete
-                your profile.
-              </p>
-            </>
+            <div className="profilecompletion_header_top">
+              <div>
+                <h1> We&apos;re almost done </h1>
+                <p>
+                  To make your Organization visible to others, please complete
+                  your profile.
+                </p>
+              </div>
+
+              <Button
+                type="submit"
+                disabled={
+                  !credentials?.description ||
+                  !credentials?.address?.line1 ||
+                  !credentials?.address?.line2 ||
+                  !credentials?.address?.city ||
+                  !credentials?.address?.state ||
+                  !credentials?.address?.country ||
+                  !credentials?.address?.pincode
+                }
+                onClickfunction={async () => {
+                  const data = await completeProfileApiCall({
+                    credentials,
+                  });
+
+                  if (data?.status === 200) {
+                    showSuccessToast(data?.data?.message);
+                    setShowEditModal(false);
+                    refreshProfileData();
+                  }
+                }}
+              >
+                Save
+              </Button>
+            </div>
           ) : (
             <div className="profilecompletion_header_edit">
               <RxCross2 />

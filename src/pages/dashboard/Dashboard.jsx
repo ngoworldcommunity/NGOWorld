@@ -13,14 +13,18 @@ const Dashboard = () => {
   const [showEditModal, setShowEditModal] = useState(false);
   const dispatch = useDispatch();
 
-  const { data: profileData } = useSWR(userEndpoints.profile, fetcher, {
-    onSuccess: (data) => {
-      dispatch(updateUserData(data));
+  const { data: profileData, mutate: refreshProfileData } = useSWR(
+    userEndpoints.profile,
+    fetcher,
+    {
+      onSuccess: (data) => {
+        dispatch(updateUserData(data?.user));
+      },
+      onError: (error) => {
+        showErrorToast(error?.response?.data?.message);
+      },
     },
-    onError: (error) => {
-      showErrorToast(error?.response?.data?.message);
-    },
-  });
+  );
 
   return (
     <>
@@ -60,8 +64,8 @@ const Dashboard = () => {
             </button>
 
             <div className="profile_details">
-              <h2>{profileData?.name}</h2>
-              <p>{profileData?.description}</p>
+              <h2>{profileData?.user?.name}</h2>
+              <p>{profileData?.user?.description}</p>
             </div>
           </div>
 
@@ -75,8 +79,14 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {(profileData?.config?.hasCompletedProfile === false ||
-        showEditModal === true) && <ProfileCompletion edit={showEditModal} />}
+      {(profileData?.user?.config?.hasCompletedProfile === false ||
+        showEditModal === true) && (
+        <ProfileCompletion
+          edit={showEditModal}
+          setShowEditModal={setShowEditModal}
+          refreshProfileData={refreshProfileData}
+        />
+      )}
     </>
   );
 };

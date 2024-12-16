@@ -1,5 +1,5 @@
 import { STATUSCODE } from "@/static/Constants";
-import { UpdateUserApiCall } from "@service/MilanApi";
+import { completeProfileApiCall } from "@service/MilanApi";
 import { showSuccessToast } from "@utils/Toasts";
 import { useState } from "react";
 
@@ -76,7 +76,7 @@ const useProfileCompletion = () => {
 
     setErrors(newErrors);
 
-    const data = await UpdateUserApiCall({
+    const data = await completeProfileApiCall({
       credentials: {
         ...updatedCredentials,
         config: {
