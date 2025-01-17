@@ -45,9 +45,8 @@
 }
 
 .slide {
-  flex-direction: column; /* Stack content vertically on smaller screens */
-
   @media screen and (max-width: 768px) {
+    flex-direction: column; /* Stack content vertically on smaller screens */
     gap: 1rem; /* Reduce the gap between elements */
   }
 }
