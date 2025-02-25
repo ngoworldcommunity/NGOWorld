@@ -1,7 +1,9 @@
 import { Button, Footer, Loading, Navbar } from "@components/shared";
 import EventCard from "@components/shared/cards/event/EventCard";
 import EventSlider from "@components/shared/cards/event/EventSlider";
+import CreateEvent from "@components/shared/createEvent/createEvent";
 import ComponentHelmet from "@utils/ComponentHelmet";
+import { useState } from "react";
 import { CiFilter } from "react-icons/ci";
 import { FaPlus } from "react-icons/fa6";
 import "swiper/css";
@@ -11,7 +13,8 @@ import "swiper/css/pagination";
 import "./Events.scss";
 
 const Events = () => {
-  // demo 20 array of clubs
+  const [showCreateModal, setShowCreateModal] = useState(false);
+
   const events = Array.from({ length: 20 }, () => ({
     _id: "673ac2814c6e89e58af8ca11",
     userType: "club",
@@ -41,7 +44,12 @@ const Events = () => {
           </button>
         </div>
 
-        <Button className="createevent">
+        <Button
+          className="createevent"
+          onClickfunction={() => {
+            setShowCreateModal(true);
+          }}
+        >
           <FaPlus /> Create An Event
         </Button>
       </div>
@@ -57,6 +65,10 @@ const Events = () => {
           events?.map((event, id) => <EventCard event={event} key={id} />)
         )}
       </div>
+
+      {showCreateModal && (
+        <CreateEvent setShowCreateModal={setShowCreateModal} />
+      )}
 
       <Footer />
     </>
