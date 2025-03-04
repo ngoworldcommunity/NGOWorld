@@ -23,7 +23,7 @@ const Landing = () => {
     <>
       <Navbar />
       <div className="container landing_parent">
-        <img src={Vector} alt="" className="Landing_bg" />
+        <img src={Vector} alt="not loading" className="Landing_bg" />
 
         <div className="landing_body">
           {windowWidth > 430 ? (

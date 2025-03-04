@@ -26,4 +26,42 @@
   gap: 1.2rem;
   padding: 2rem 8rem;
   margin: 0 3rem;
+
+  /* Adjust padding for smaller screens */
+  @media screen and (max-width: 1024px) {
+    padding: 1.5rem 4rem;
+    margin: 0 2rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 1rem 2rem;
+    margin: 0 1rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 1rem;
+    margin: 0;
+  }
+}
+
+.slide {
+  @media screen and (max-width: 768px) {
+    flex-direction: column; /* Stack content vertically on smaller screens */
+    gap: 1rem; /* Reduce the gap between elements */
+  }
+}
+
+.slide > * {
+  width: 100%; /* Full width for each child in smaller screens */
+}
+
+/* Add custom styles for the slider container and slide for very small screens */
+@media screen and (max-width: 480px) {
+  .slide {
+    gap: 0.5rem;
+  }
+
+  .slider-container {
+    padding: 0 1rem; /* Add some padding for the slider container */
+  }
 }

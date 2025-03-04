@@ -1,10 +1,26 @@
 .clubs_header {
   display: flex;
+  flex-wrap: wrap;
+  width: auto;
   align-items: center;
   gap: 1.2rem;
   padding: 2rem 8rem;
   margin: 0 3rem;
   font-family: var(--outfit);
+
+  @media screen and (max-width: 768px) {
+    padding: 1.5rem 1rem;
+    margin: 0 1rem;
+  }
+  @media screen and (max-width: 430px) {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
+    width: auto;
+  }
 
   .clubs_search_parent {
     background-color: #fff;
@@ -37,7 +53,8 @@
       font-size: 15px;
       font-family: var(--outfit);
       outline: none;
-      width: 15%;
+      width: auto; /* Adjusts width for flexibility */
+      min-width: 120px;
       text-align: center;
       display: flex;
       align-items: center;
@@ -64,9 +81,16 @@
     background-color: #fba18b55;
     color: #ff5a31f0;
     font-weight: 600;
-    width: 20%;
+    width: auto;
+    min-width: 160px;
     display: flex;
     align-items: center;
+    gap: 10px;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      justify-content: center;
+    }
 
     svg {
       rotate: 180deg;
@@ -81,20 +105,31 @@
   min-height: 100vh;
   margin: 0 3rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
-  grid-template-rows: 1fr 1fr 1fr; /* Three equal rows */
-  gap: 2rem; /* Optional: Add space between grid items */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 
   @media screen and (max-width: 1200px) {
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-    grid-template-rows: 1fr 1fr 1fr; /* Three equal rows */
     padding: 2rem 3rem;
   }
 
   @media screen and (max-width: 800px) {
-    grid-template-columns: 1fr; /* One column */
-    grid-template-rows: 1fr 1fr 1fr 1fr; /* Four equal rows */
-    padding: 3rem 2rem;
+    padding: 1.5rem 2rem;
     margin: 0;
   }
+}
+
+input,
+button {
+  transition: all 0.3s ease;
+}
+
+input:focus,
+button:focus {
+  outline: 2px solid #ff5a31;
+  outline-offset: 2px;
+}
+
+button:hover {
+  background-color: #ffe2da;
+  cursor: pointer;
 }

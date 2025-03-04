@@ -6,20 +6,38 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  padding: 2rem; /* Padding for small screens */
   font-family: var(--outfit);
 
   img {
     width: 300px;
+    max-width: 80%; /* Ensure the logo adjusts on smaller screens */
+
+    @media screen and (max-width: 768px) {
+      width: 250px;
+    }
+
+    @media screen and (max-width: 480px) {
+      width: 200px;
+    }
   }
 
   h1 {
     font-size: 60px;
     color: #28183b;
-    line-height: 80px;
+    line-height: 1.2;
     font-weight: 900;
-
     margin-top: 2rem;
     text-align: center;
+
+    @media screen and (max-width: 768px) {
+      font-size: 48px;
+    }
+
+    @media screen and (max-width: 480px) {
+      font-size: 36px;
+      margin-top: 1.5rem;
+    }
   }
 
   p {
@@ -29,5 +47,42 @@
     letter-spacing: 1px;
     text-align: center;
     margin-bottom: 50px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+      margin-bottom: 40px;
+    }
+
+    @media screen and (max-width: 480px) {
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+  }
+
+  /* Button styles (assumed to be inside the global button component) */
+  button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #28183b;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #452b61;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: 0.8rem 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    @media screen and (max-width: 480px) {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.8rem;
+    }
   }
 }
