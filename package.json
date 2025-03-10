@@ -61,7 +61,7 @@
     "react-router-dom": "^6.26.2",
     "react-scripts": "^5.0.1",
     "react-select": "^5.7.5",
-    "react-spinners": "^0.13.7",
+    "react-spinners": "^0.15.0",
     "react-time-picker": "^6.6.0",
     "react-toastify": "^9.1.1",
     "redux-persist": "^6.0.0",
