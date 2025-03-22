@@ -13,7 +13,7 @@ footer {
     gap: 3rem;
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 649px) {
     padding: 3rem 1rem;
     flex-direction: column;
     align-items: center;
@@ -29,7 +29,7 @@ footer {
       gap: 3rem;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 649px) {
       gap: 3rem;
       flex-direction: column;
     }
@@ -66,7 +66,7 @@ footer {
       }
 
       .policies {
-        @media screen and (max-width: 500px) {
+        @media screen and (max-width: 649px) {
           display: none;
         }
       }
@@ -76,7 +76,7 @@ footer {
       display: none;
       width: 100%;
 
-      @media screen and (max-width: 500px) {
+      @media screen and (max-width: 649px) {
         display: flex;
         justify-content: center;
         gap: 1rem;
