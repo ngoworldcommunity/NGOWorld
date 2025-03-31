@@ -1,31 +1,31 @@
 // src/config/footerLinksConfig.js
 
-export const footerLinks = {
+export const footerLinks = (t) => ({
   quickStarts: [
-    { name: "Trending Events", path: "/trending" },
-    { name: "NGOs near you", path: "/clubs" },
-    { name: "Login / Signup", path: "/auth/login" },
-    { name: "Events ", path: "/events" },
+    { name: t("trending_events"), path: "/trending" },
+    { name: t("ngos_near_you"), path: "/clubs" },
+    { name: t("login_signup"), path: "/auth/login" },
+    { name: t("events"), path: "/events" },
   ],
   resources: [
     { name: "GitHub", path: "https://github.com/ngoworldcommunity/NGOWorld" },
     {
-      name: "Setup Frontend",
+      name: t("setup_frontend"),
       path: "https://github.com/ngoworldcommunity/NGOWorld/blob/main/docs/FrontendSetup.md",
     },
     {
-      name: "Setup Backend",
+      name: t("setup_backend"),
       path: "https://github.com/ngoworldcommunity/NGOWorld-Backend/blob/main/docs/BackendSetup.md",
     },
     {
-      name: "Docker Resources",
+      name: t("docker_resources"),
       path: "https://github.com/ngoworldcommunity/NGOWorld/blob/main/docs/DockerSetup.md",
     },
   ],
   policies: [
-    { name: "Terms of Use", path: "/terms" },
-    { name: "Privacy Policy", path: "/privacy" },
-    { name: "Cookies Policy", path: "/cookies" },
+    { name: t("terms_of_use"), path: "/terms" },
+    { name: t("privacy_policy"), path: "/privacy" },
+    { name: t("cookies_policy"), path: "/cookies" },
   ],
   social: [
     {
@@ -44,4 +44,4 @@ export const footerLinks = {
       icon: "FaGithub",
     },
   ],
-};
+});

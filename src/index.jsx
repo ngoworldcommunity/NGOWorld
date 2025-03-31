@@ -8,6 +8,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import App from "./App";
 import { persistor, store } from "./redux/store";
 import "./styles/index.css";
+import { BrowserRouter } from "react-router-dom";
 
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty("--vh", `${vh}px`);
@@ -16,7 +17,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <HelmetProvider>
       <PersistGate loading={null} persistor={persistor}>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
         <Analytics />
         <SpeedInsights />
       </PersistGate>

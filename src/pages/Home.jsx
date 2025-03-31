@@ -7,8 +7,10 @@ import { Footer } from "../components/shared";
 import { toggleUserLogin, updateUserData } from "../redux/slice/userSlice.js";
 import { successCallback } from "../service/MilanApi.js";
 import { showErrorToast, showSuccessToast } from "../utils/Toasts.js";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const handleToken = async () => {
     const authData = await successCallback();
@@ -35,7 +37,7 @@ const Home = () => {
         <title>NgoWorld</title>
         <meta
           name="description"
-          content="Welcome to the homepage of NgoWorld, a hub for Users to collaborate with NGOs, Charities and more."
+          content={t("welcomeToHomepage")}
         />
         <link rel="canonical" href="/" />
       </Helmet>

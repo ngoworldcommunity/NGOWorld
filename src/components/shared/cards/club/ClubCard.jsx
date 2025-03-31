@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import clubBanner from "../../../../assets/pictures/Banner/clubbanner.jpg";
 import "./ClubCard.scss";
+import { useTranslation } from "react-i18next";
 
 const ClubCard = ({ club }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="clubcard_parent">
       {/* Top Section */}
@@ -25,11 +28,11 @@ const ClubCard = ({ club }) => {
       <div className="clubcard_ctadiv">
         <div className="profile_numbers">
           <p className="counts followersCount">
-            <span>1.25k</span> Followers
+            <span>1.25k</span> {t("followers")}
           </p>
 
           <p className="counts EventsCount">
-            <span>231</span> Events
+            <span>231</span> {t("events")}
           </p>
         </div>
 

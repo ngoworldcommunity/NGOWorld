@@ -12,37 +12,38 @@ import { Logout } from "../../../service/MilanApi";
 import { showErrorToast, showSuccessToast } from "../../../utils/Toasts";
 import Button from "../buttons/globalbutton/Button";
 import "./Navbar.scss";
+import { useTranslation } from "react-i18next";
 
-const Links = [
+const getLinks = (t) => [
   {
-    name: "Home",
+    name: t('home'),
     link: "/",
   },
   {
-    name: "Clubs",
+    name: t('clubs'),
     link: "/clubs",
   },
   {
-    name: "Trending",
+    name: t('trending'),
     link: "/trending",
   },
   {
-    name: "Events",
+    name: t('events'),
     link: "/events",
   },
   {
-    name: "Shops",
+    name: t('shops'),
     link: "/shop",
   },
 ];
 
 const Navbar = () => {
+  const { t, i18n } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const user = useSelector(selectUser);
-  console.log("🚀 ~ Navbar ~ user:", user);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
@@ -79,9 +80,12 @@ const Navbar = () => {
     }
   }
 
+  const links = getLinks(t);
+
   return (
     <nav>
       <div className="navbar_parent">
+
         <Link className="navbar_brand" to={"/"}>
           <img src={navbarbrand} alt="Milan-logo" className="nav_brand_img" />
         </Link>
@@ -89,7 +93,7 @@ const Navbar = () => {
         {windowWidth > 900 && (
           <div className="navbar_links_parent">
             <div className="navbar_links">
-              {Links.map((item, index) => {
+              {links.map((item, index) => {
                 return (
                   <div key={index}>
                     <Link key={index} className="navbar_link" to={item.link}>
@@ -114,16 +118,16 @@ const Navbar = () => {
                 }}
                 className="navbar_dropdown_name"
               >
-                Profile <RxCaretDown />
+                {t("profile")} <RxCaretDown />
               </p>
             ) : (
               <Button to="/auth/signup" className="navbar_cta">
-                <span>Sign Up</span>
+                <span>{t("sign_up")}</span>
               </Button>
             )}
+
           </div>
         )}
-
         {!isNavbarOpen &&
           (Cookies.get("Token") ? (
             <img
@@ -153,7 +157,7 @@ const Navbar = () => {
                 }}
               />
 
-              {Links.map((item, index) => {
+              {links.map((item, index) => {
                 return (
                   <div key={index}>
                     <Link
@@ -190,7 +194,7 @@ const Navbar = () => {
                         setIsNavbarOpen(false);
                       }}
                     >
-                      Logout
+                      {t("logout")}
                     </p>
                   </div>
                 </>
@@ -222,9 +226,9 @@ const Navbar = () => {
               {user?.userType === "individual" ? "Your Profile" : "Dashboard"}
             </Link>
             {user?.userType === "club" ? (
-              <Link to={"/event/create"}>Your Events</Link>
+              <Link to={"/event/create"}>{t("your_events")}</Link>
             ) : null}
-            <Link>Settings</Link>
+            <Link>{t("settings")}</Link>
           </div>
           <div className="myaccount">
             <div
@@ -232,15 +236,22 @@ const Navbar = () => {
               aria-orientation="horizontal"
               className="myaccount_separator"
             ></div>
-            <Link>Support</Link>
+            <Link>{t("support")}</Link>
             <Link
               onClick={() => {
                 handleLogout();
               }}
             >
-              Logout
+              {t("logout")}
             </Link>
           </div>
+        </div>
+        <div style={{ whiteSpace: 'nowrap' }}>
+          {i18n.language === "fr" ? (
+            <Link to="?lang=en" hrefLang="en">Switch to English</Link>
+          ) : (
+            <Link to="?lang=fr" hrefLang="fr">Switch to French</Link>
+          )}
         </div>
       </div>
     </nav>
