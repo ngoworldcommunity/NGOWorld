@@ -1,11 +1,16 @@
-import { footerLinks } from "@utils/footerLinksConfig";
+import { footerLinks as footerLinksInitial } from "@utils/footerLinksConfig";
 import { FaGithub, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import brand from "../../../assets/pictures/Navbar/MilanNavBrand.svg";
 import "./Footer.scss";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
+  const footerLinks = footerLinksInitial(t);
+
   const icons = {
     FaLinkedinIn: FaLinkedinIn,
     FaXTwitter: FaXTwitter,
@@ -22,7 +27,7 @@ const Footer = () => {
 
           <div className="links_parent">
             <div className="product">
-              <h1>QUICK STARTS</h1>
+              <h1>{t("quick_starts")}</h1>
 
               {footerLinks?.quickStarts?.map((item, index) => {
                 return (
@@ -33,7 +38,7 @@ const Footer = () => {
               })}
             </div>
             <div className="dev">
-              <h1>RESOURCES</h1>
+              <h1>{t("resources")}</h1>
               {footerLinks?.resources?.map((item, index) => {
                 return item?.path.startsWith("http") ? (
                   <a
@@ -52,7 +57,7 @@ const Footer = () => {
               })}
             </div>
             <div className="policies">
-              <h1>POLICIES</h1>
+              <h1>{t("policies")}</h1>
               {footerLinks?.policies?.map((item, index) => {
                 return (
                   <Link key={index} to={item?.path} target="_blank">

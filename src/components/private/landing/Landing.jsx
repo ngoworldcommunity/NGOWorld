@@ -4,10 +4,14 @@ import { useSelector } from "react-redux";
 import Vector from "../../../assets/pictures/Banner/Vector.png";
 import { Button, Navbar } from "../../shared";
 import "./Landing.scss";
+import { useTranslation } from "react-i18next";
+
+const USERS_AMOUNT = 300;
 
 const Landing = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -28,37 +32,35 @@ const Landing = () => {
         <div className="landing_body">
           {windowWidth > 430 ? (
             <>
-              <h1>We connect NGOs,</h1>
+              <h1>{t("connect_ngo")},</h1>
               <h1>
-                Charities and <span>you.</span>
+                {t("charities_and_you")}
               </h1>
             </>
           ) : (
             <h1>
-              We connect NGOs, charities and <span>you.</span>
+              {t("we_connect_ngo")}
             </h1>
           )}
 
           {windowWidth > 430 ? (
             <p>
-              Welcome to <span>NgoWorld</span>, a platform to connect and
-              support NGOs, charities and you to build a better tomorrow.
+              {t('welcome_to_ngo_world')}
             </p>
           ) : (
             <p>
-              A platform for NGOs, charities, clubs and you to collaborate, grow
-              and build a better tomorrow.
+              {t("platform_for_ngos")}
             </p>
           )}
 
           <div className="landing_ctadiv">
             {isLoggedIn ? (
               <Button to="/clubs" className="landing_signup">
-                <span>Explore our clubs</span>
+                <span>{t("explore_our_clubs")}</span>
               </Button>
             ) : (
               <Button to="/auth/signup" className="landing_signup">
-                <span>Sign up Today !</span>
+                <span>{t("sign_up_today")}</span>
               </Button>
             )}
 
@@ -83,7 +85,7 @@ const Landing = () => {
                   alt=""
                 />
               </div>
-              <span>Trusted by 300+ users.</span>
+              <span>{t("trusted_by_users", { count: USERS_AMOUNT })}</span>
             </div>
           </div>
         </div>

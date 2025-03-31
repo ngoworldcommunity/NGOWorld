@@ -12,8 +12,10 @@ import { Button, Navbar } from "../../components/shared";
 import { useAuth } from "../../hooks/useAuth";
 import { GoogleAuth } from "../../service/MilanApi";
 import "./index.scss";
+import { useTranslation } from "react-i18next";
 
 const SignUp = () => {
+  const { t } = useTranslation();
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -35,10 +37,10 @@ const SignUp = () => {
   return (
     <>
       <Helmet>
-        <title>NgoWorld | SignUp</title>
+        <title>NgoWorld | {t("sign_up")}</title>
         <meta
           name="description"
-          content="Welcome to the Club's registration page. Provide all the needed credentials and join us."
+          content={t("welcome_to_the_club_sign_up")}
         />
         <link rel="canonical" href="/" />
       </Helmet>
@@ -49,7 +51,7 @@ const SignUp = () => {
         <div className="signup_container">
           <div className="signup_container_left">
             <div className="header">
-              <h1>Sign Up</h1>
+              <h1>{t("sign_up")}</h1>
             </div>
             <form
               className="auth_form"
@@ -65,7 +67,7 @@ const SignUp = () => {
 
                 <div className="auth_element auth_element_mobileOnly">
                   <label className="auth_label">
-                    Account Type
+                    {t("account_type")}
                     <span>*</span>
                   </label>
 
@@ -95,8 +97,8 @@ const SignUp = () => {
                 <div className="auth_element ">
                   <label className="auth_label">
                     {credentials.userType.value === "individual"
-                      ? "Full Name"
-                      : "Organization Name"}{" "}
+                      ? t("full_name")
+                      : t("organization_name")}{" "}
                     <span>*</span>
                   </label>
                   <input
@@ -142,7 +144,7 @@ const SignUp = () => {
 
                 <div className="auth_element">
                   <label className="auth_label">
-                    Password <span>*</span>
+                    {t("password")} <span>*</span>
                   </label>
                   <input
                     type={showPassword ? "text" : "password"}
@@ -189,12 +191,12 @@ const SignUp = () => {
                     !credentials.name
                   }
                 >
-                  Sign Up
+                  {t("sign_up")}
                 </Button>
 
                 <div className="signup_or">
                   <hr />
-                  <span>or</span>
+                  <span>{t("or")}</span>
                   <hr />
                 </div>
 
@@ -202,13 +204,13 @@ const SignUp = () => {
                   <FcGoogle
                     style={{ fontSize: "18px", marginRight: "0.7rem" }}
                   />
-                  Continue with Google
+                  {t("continue_with_google")}
                 </button>
 
                 <div className="auth_forgot_section">
                   <Link to={"/auth/signin"}>
                     {" "}
-                    Already have an account? Login
+                    {t("already_have_an_account")}
                   </Link>
                 </div>
               </div>
@@ -223,8 +225,8 @@ const SignUp = () => {
                 <label htmlFor="status">
                   <div
                     className="status-switch"
-                    data-unchecked="Organization"
-                    data-checked="Individual"
+                    data-unchecked={t("organization")}
+                    data-checked={t("individual")}
                     onClick={() => {
                       setCredentials((prev) => {
                         return {

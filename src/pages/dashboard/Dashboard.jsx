@@ -10,10 +10,12 @@ import { useDispatch } from "react-redux";
 import useSWR from "swr";
 import { Navbar, ProfileCompletion } from "../../components/shared";
 import "./Dashboard.scss";
+import { useTranslation } from "react-i18next";
 
 const Dashboard = () => {
   const [openModal, setOpenModal] = useState(false);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const { data: profileData, mutate: refreshProfileData } = useSWR(
     userEndpoints.profile,
@@ -51,11 +53,11 @@ const Dashboard = () => {
 
             <div className="profile_numbers">
               <p className="counts followersCount">
-                <span>1.25k</span> Followers
+                <span>1.25k</span> {t("followers")}
               </p>
 
               <p className="counts EventsCount">
-                <span>231</span> Hosted Events
+                <span>231</span> {t("hosted_events")}
               </p>
             </div>
 
@@ -66,7 +68,7 @@ const Dashboard = () => {
                 console.log(profileData?.user);
               }}
             >
-              Edit Profile
+              {t("edit_profile")}
             </button>
 
             <div className="profile_details">
@@ -77,8 +79,8 @@ const Dashboard = () => {
 
           <div className="dashboard_track">
             <p className="dashboard_track_p">
-              <span> Real time Analytics</span> <br />
-              <span>Coming Soon</span>
+              <span> {t("real_time_analytics")}</span> <br />
+              <span>{t("coming_soon")}</span>
             </p>
             <TrackSection />
           </div>

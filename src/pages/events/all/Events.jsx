@@ -11,8 +11,10 @@ import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./Events.scss";
+import { useTranslation } from "react-i18next";
 
 const Events = () => {
+  const { t } = useTranslation();
   const [showCreateModal, setShowCreateModal] = useState(false);
 
   const events = Array.from({ length: 20 }, () => ({
@@ -37,10 +39,10 @@ const Events = () => {
             type="text"
             name=""
             id=""
-            placeholder="Type to begin search, or use the filters"
+            placeholder={t("type_to_begin_search")}
           />
           <button>
-            Filters <CiFilter />
+            {t("filters")} <CiFilter />
           </button>
         </div>
 
@@ -50,7 +52,7 @@ const Events = () => {
             setShowCreateModal(true);
           }}
         >
-          <FaPlus /> Create An Event
+          <FaPlus /> {t("create_event")}
         </Button>
       </div>
 
