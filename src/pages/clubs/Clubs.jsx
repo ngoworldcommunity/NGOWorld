@@ -10,8 +10,11 @@ import {
 } from "../../components/shared";
 import ComponentHelmet from "../../utils/ComponentHelmet";
 import "./Clubs.scss";
+import { useTranslation } from "react-i18next";
 
 const Clubs = () => {
+  const { t } = useTranslation();
+
   // demo 20 array of clubs
   const clubs = Array.from({ length: 20 }, () => ({
     _id: "673ac2814c6e89e58af8ca11",
@@ -37,10 +40,10 @@ const Clubs = () => {
             type="text"
             name=""
             id=""
-            placeholder="Type to begin search, or use the filters"
+            placeholder={t("type_to_begin_search")}
           />
           <button>
-            Filters <CiFilter />
+            {t("filters")} <CiFilter />
           </button>
         </div>
 
@@ -50,7 +53,7 @@ const Clubs = () => {
             navigate("/dashboard");
           }}
         >
-          Your Dashboard <PiCaretLeftBold />
+          {t("your_dashboard")} <PiCaretLeftBold />
         </Button>
       </div>
 

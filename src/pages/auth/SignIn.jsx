@@ -9,8 +9,11 @@ import { Button, Navbar } from "../../components/shared";
 import { useAuth } from "../../hooks/useAuth";
 import { GoogleAuth } from "../../service/MilanApi";
 import "./index.scss";
+import { useTranslation } from "react-i18next";
 
 const SignIn = () => {
+  const { t } = useTranslation();
+
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -29,10 +32,10 @@ const SignIn = () => {
   return (
     <>
       <Helmet>
-        <title>NgoWorld | Login</title>
+        <title>NgoWorld | {t("login")}</title>
         <meta
           name="description"
-          content="Welcome to the Club's login page. Provide all the needed credentials and join us."
+          content={t("welcome_to_the_club")}
         />
         <link rel="canonical" href="/" />
       </Helmet>
@@ -42,7 +45,7 @@ const SignIn = () => {
         <div className="signup_container">
           <div className="signup_container_left">
             <div className="header">
-              <h1>Sign In</h1>
+              <h1>{t("sign_in")}</h1>
             </div>
 
             <form
@@ -80,7 +83,7 @@ const SignIn = () => {
 
                 <div className="auth_element">
                   <label className="auth_label">
-                    Password <span>*</span>
+                    {t("password")} <span>*</span>
                   </label>
                   <input
                     type={showPassword ? "text" : "password"}
@@ -124,7 +127,7 @@ const SignIn = () => {
                     loading || !credentials.email || !credentials.password
                   }
                 >
-                  Sign In
+                  {t("sign_in")}
                 </Button>
 
                 <div className="signup_or">
@@ -137,12 +140,12 @@ const SignIn = () => {
                   <FcGoogle
                     style={{ fontSize: "18px", marginRight: "0.7rem" }}
                   />
-                  Continue with Google
+                  {t("continue_with_google")}
                 </button>
 
                 <div className="auth_forgot_section">
-                  <Link to={"/auth/signup"}>Sign Up to NgoWorld</Link> <p>|</p>{" "}
-                  <p>Forgot Password</p>
+                  <Link to={"/auth/signup"}>{t("sign_up_to_ngo_world")}</Link> <p>|</p>{" "}
+                  <p>{t("forgot_password")}</p>
                 </div>
               </div>
             </form>

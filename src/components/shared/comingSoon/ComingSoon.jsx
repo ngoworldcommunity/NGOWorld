@@ -1,17 +1,20 @@
+import { useTranslation } from "react-i18next";
 import ComingSoonLogo from "../../../assets/pictures/comingsoon.svg";
 import Button from "../buttons/globalbutton/Button";
 import "./ComingSoon.scss";
 
 const ComingSoon = ({ launchitem }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="comingsoon_parent">
       <img src={ComingSoonLogo} alt="" />
-      <h1>Launching Soon !</h1>
+      <h1>{t("launching_soon")}</h1>
       <p>
-        We will let you know as soon as we launch our{" "}
+        {t("we_will_let_you_know")}{" "}
         {launchitem ? launchitem : "page"}
       </p>
-      <Button to="/auth/signup">Sign up to get notified</Button>{" "}
+      <Button to="/auth/signup">{t("sign_to_get_notified")}</Button>{" "}
     </div>
   );
 };

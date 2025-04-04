@@ -2,14 +2,17 @@ import { FiLink } from "react-icons/fi";
 import { IoMdArrowUp } from "react-icons/io";
 import { RiTwitterXLine } from "react-icons/ri";
 import "./EventCard.scss";
+import { useTranslation } from "react-i18next";
 
 const EventCard = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="eventcard_parent">
       <div className="eventcard_top">
         <div className="eventcard_name">
-          <h1>Food Marathon, 2025</h1>
-          <span>GodLike Club</span>
+          <h1>{t("food_marathon", { year: 2025 })}</h1>
+          <span>{t("godlike_club")}</span>
         </div>
 
         <div className="eventcard_links">
@@ -19,11 +22,7 @@ const EventCard = () => {
       </div>
 
       <p>
-        The Food Marathon 2025 is a dynamic NGO event uniting communities to
-        fight hunger and promote food security. Participants will engage in
-        exciting activities while contributing to sustainable food distribution
-        efforts. Together, we can bridge the gap between surplus and need,
-        creating a hunger-free future.
+        {t("the_food_marathon")}
       </p>
 
       <div className="eventcard_ctadiv">
@@ -42,7 +41,7 @@ const EventCard = () => {
               alt=""
             />
           </div>
-          <p>+300 Participated</p>
+          <p>+300 {t("participated")}</p>
         </div>
 
         <button className="eventcard_cta">
