@@ -24,8 +24,8 @@ jobs:
   #   steps:
   #     - name: Checkout
   #       uses: actions/checkout@v4
-        with:
-          persist-credentials: false
+  #       with:
+  #         persist-credentials: false
 
   #     - name: set environment variables
   #       uses: allenevans/set-env@v2.0.0
