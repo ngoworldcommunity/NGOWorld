@@ -53,6 +53,7 @@ record:
 | `utils/toDisplayOrganization.ts` | Maps the API shape onto what the card and profile render | ✅ used by both public pages |
 | `utils/monogram.ts` | Initials for an organization (or a leader) with no image of its own | ✅ used by the card, the profile header, and the "Our team" section |
 | `components/OrganizationCard.tsx` | Presentational card for one organization | ✅ used by `Organizations.tsx`, including its featured strip (`featured` prop) |
+| `components/OrganizationCardSkeleton.tsx` | Loading placeholder for `OrganizationCard`, box-matched | ✅ new (September 2026), used by `Organizations.tsx` for the true first load |
 | `constants/organizationDisplay.ts` | The accent palette (`ORGANIZATION_ACCENTS`) and `formatCount()` — display-only helpers, not business data | ✅ used by both public pages and, for the no-cover fallback, `events/utils/toDisplayEvent.ts`/`toDisplayEventDetail.ts`/`EventCard.tsx`/`EventHero.tsx` |
 | `services/Organizations.ts` | `getOrganizations()` — a real fetcher | ❌ **defined, never called from anywhere** — `Organizations.tsx` fetches through `useSWR` + `organizationEndpoints.directory()` directly instead |
 | `types/interfaces.ts` / `types/types.ts` / `types/index.ts` | Interfaces and type aliases, split by kind — see "Types" below | ✅ imported by every other file in this folder |
@@ -102,14 +103,58 @@ which read as "a weird animation"). The clear button is now always mounted
 (opacity/`pointer-events` toggle) rather than conditionally rendered, so it
 fades rather than pops in.
 
+**Toolbar redesign, three passes (September 2026), direct feedback every time.**
+First pass: pill search field and pill filter chips replacing the original
+underline treatment, because a ten-cause taxonomy wrapped into a ragged
+block. Second pass ("still looks bad"): a `FiFilter` + `filterLabel` caption
+above the chip row, smaller (`text-sm`) chips, the search field's shadow
+dropped for a flat `bg-surface-muted` fill that only gains a shadow on
+`focus-within`, and — the one genuinely new capability, not just
+restyling — a `suggestions` prop wiring the field through the shared
+`Combobox` so it suggests matching organizations (`results.slice(0, 6)`,
+no second fetch) as you type, each one linking straight to that
+organization's profile via `navigate()`. `/events` did not ask for
+suggestions and still renders the plain `role="searchbox"` `<input>`
+unchanged — `suggestions` is opt-in. Third pass: two real bugs caught from
+a live screenshot, not taste — the field's placeholder was hard-clipping
+mid-word (fixed with `truncate`), and the chip row's scroll edge was a hard
+cut with no fade sitting almost flush against the count (fixed with a
+trailing-edge `bg-gradient-to-l from-surface to-transparent` scrim, which
+required moving the mobile `-mx-9` bleed off the scroll element and onto
+its wrapper so the fade positions against the right box). Full geometry:
+[docs/specs/design-system/08-components-shared.md#directorytoolbar](../../../docs/specs/design-system/08-components-shared.md#directorytoolbar).
+
+**Loading, two distinct states (September 2026).** The true first load
+(`isLoading && !data`) renders six `OrganizationCardSkeleton`s rather than
+either a spinner or — the bug this also fixed — the empty state, which
+`results.length === 0` made equally true while nothing had loaded yet. A
+filter/search change instead dims the previous page's still-visible cards
+(`keepPreviousData` + `isValidating`) to a `pointer-events-none opacity-50`
+for 300ms rather than popping straight to the new set.
+
+**The "Your dashboard" button is magnetic**, via `useMagnetic()` (same hook
+as `OpenSource.tsx`'s primary CTA) — leans toward the cursor on hover, no
+`hover:-translate-*`/`active:scale-*` of its own since the hook owns
+`transform`; feedback instead is a deeper shadow, `bg-brand-hover`, and the
+trailing arrow icon translating on `group-hover`.
+
 **Search and filters actually work**, replacing the pre-live version's inert
 input/button. `aria-live` result count, "nothing matches / reset filters"
 empty state.
 
 That chrome is shared with `/events` via
 [`DirectoryToolbar`](../../../components/DirectoryToolbar.tsx). The grid is
-`1 / 2 / 3` columns (`sm` / `xl`) inside `max-w-7xl` with `px-9` mobile
+`1 / 2 / 3` columns (`sm` / `xl`) inside `max-w-6xl` with `px-9` mobile
 padding. Scoped by `useSectionReveal(gridRef, [results.length, domain])`.
+
+**Width fixed to `max-w-6xl` (September 2026).** Both of this page's content
+wrappers (the header block and the grid) were `max-w-7xl` — wider than every
+other page's container, including `Navbar`'s own. On a wide viewport the nav
+row visibly sat inside a narrower box than the heading/grid below it,
+reading as misaligned chrome rather than one consistent page. `/events` had
+the identical drift for the identical reason (both directory pages were
+built from the same pass); fixed there too, see
+[events.md](../../../../../docs/specs/events.md).
 
 Still no pagination (the directory fetches `limit: 60` and stops there).
 
@@ -209,6 +254,14 @@ from before this pass. New in September 2026:
 - **Stat-row `truncate`** on both `dt`/`dd` — "Focus areas" wrapping to two
   lines while its neighbours stayed on one is what threw the row off between
   columns; every label now stays single-line.
+- **Richer hover than the app's standard card recipe (September 2026),
+  direct feedback that hovering "didn't do too much".** Taller lift
+  (`-translate-y-1.5` vs. the standard `-translate-y-1`), a bigger shadow
+  bloom, the name to `text-brand`, the arrow gaining a filled `bg-brand/10`
+  circle behind it. `EventCard`/`EventsMarqueeCards` still use the plain
+  recipe — see
+  [design-system/14-drift-register.md#d15](../../../../docs/specs/design-system/14-drift-register.md#d15--organizationcards-hover-no-longer-matches-eventcardeventsmarqueecards--open-deliberate)
+  for why that's tracked rather than silently inconsistent.
 
 Not exported from the shared barrel (`apps/web/src/components/index.ts`) —
 only ever imported directly by `Organizations.tsx`.

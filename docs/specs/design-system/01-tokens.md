@@ -84,6 +84,7 @@ Both halves must live together.
 | `--animate-question-out` | `question-out 0.17s cubic-bezier(0.4, 0, 1, 1) both` | Setup wizard, forward exit |
 | `--animate-question-in-back` | `question-in-back 0.42s cubic-bezier(0.16, 1, 0.3, 1) both` | Setup wizard, back entrance |
 | `--animate-question-out-back` | `question-out-back 0.17s cubic-bezier(0.4, 0, 1, 1) both` | Setup wizard, back exit |
+| `--animate-shimmer` | `shimmer 1.6s ease-in-out infinite` | `OrganizationCardSkeleton` (loading loop — see [07-motion.md](./07-motion.md#the-loop-bar) for why this doesn't count against the decorative-loop budget) |
 
 Keyframe geometry, the reduced-motion policy and the rule governing loops are in [07-motion.md](./07-motion.md).
 

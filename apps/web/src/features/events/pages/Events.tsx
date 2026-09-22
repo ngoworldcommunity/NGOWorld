@@ -3,7 +3,7 @@ import { FaPlus } from "react-icons/fa6";
 import useSWR from "swr";
 import { DirectoryToolbar, Footer, Navbar } from "@components";
 import ComponentHelmet from "@components/ComponentHelmet";
-import { useSectionReveal } from "@hooks";
+import { useMagnetic, useSectionReveal } from "@hooks";
 import { eventEndpoints } from "@services/ApiEndpoints";
 import fetcher from "@utils/Fetcher";
 import CreateEvent from "../components/CreateEvent";
@@ -102,6 +102,16 @@ const Events = () => {
 
   const groups = useMemo(() => groupEventsByDay(results), [results]);
 
+  // Magnetic, matching `Organizations.tsx`'s "Your dashboard" button
+  // (September 2026) — both directories' one primary action now lean
+  // toward the cursor, rather than one gaining it and the other visibly
+  // not. No `hover:-translate-*`/`active:scale-*` here: the hook owns the
+  // element's transform.
+  const createEventButtonRef = useMagnetic<HTMLButtonElement>({
+    strength: 0.3,
+    max: 8,
+  });
+
   // Scoped to the grid so the reveal never reaches the page chrome above
   // it, and re-run on filter changes so cards revealed by a new filter
   // don't stay at the hook's starting opacity.
@@ -114,7 +124,7 @@ const Events = () => {
       <ComponentHelmet type="Events" />
       <Navbar />
 
-      <div className="mx-auto max-w-7xl px-9 pt-10 pb-6 sm:px-10 lg:px-12 lg:pt-14">
+      <div className="mx-auto max-w-6xl px-9 pt-10 pb-6 sm:px-10 lg:px-12 lg:pt-14">
         <h1 className="font-outfit text-[2rem] leading-tight font-semibold tracking-tight text-brand-secondary sm:text-4xl">
           Events on <span className="text-brand">KarmaCircle</span>
         </h1>
@@ -142,18 +152,22 @@ const Events = () => {
           }
           action={
             <button
+              ref={createEventButtonRef}
               type="button"
               onClick={() => setShowCreateModal(true)}
-              className="flex h-12 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-full border-none bg-brand px-6 font-poppins text-body font-medium whitespace-nowrap text-white shadow-[0_8px_24px_-14px_var(--color-brand)] transition-colors duration-300 ease-out hover:bg-brand-hover motion-safe:active:scale-97"
+              className="group flex h-12 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-full border-none bg-brand px-6 font-poppins text-body font-medium whitespace-nowrap text-white shadow-[0_8px_24px_-14px_var(--color-brand)] transition-[background-color,box-shadow] duration-300 ease-out hover:bg-brand-hover hover:shadow-[0_16px_34px_-12px_var(--color-brand)]"
             >
-              <FaPlus aria-hidden="true" className="size-3.5" />
+              <FaPlus
+                aria-hidden="true"
+                className="size-3.5 transition-transform duration-300 ease-out motion-safe:group-hover:rotate-90"
+              />
               Create an event
             </button>
           }
         />
       </div>
 
-      <div className="mx-auto max-w-7xl px-9 pb-20 sm:px-10 lg:px-12">
+      <div className="mx-auto max-w-6xl px-9 pb-20 sm:px-10 lg:px-12">
         {results.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-brand-secondary/15 bg-white/60 px-8 py-16 text-center">
             <h2 className="font-outfit text-xl font-semibold tracking-tight text-brand-secondary">

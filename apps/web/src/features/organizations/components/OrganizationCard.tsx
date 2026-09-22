@@ -31,9 +31,20 @@ import type { OrganizationCardProps } from "../types";
  * nested-interactive smell. The arrow beside the name is decorative
  * (`aria-hidden`) and animates on `group-hover`.
  *
- * Carries `data-reveal` for the grid's `useSectionReveal` scope, and the
- * app-standard card hover (lift + brand-token glow) - see
- * `docs/specs/ui-kit.md#card-components`.
+ * Carries `data-reveal` for the grid's `useSectionReveal` scope.
+ *
+ * **Hover, richer than the standardized card recipe (September 2026).**
+ * The app-standard card hover (`docs/specs/ui-kit.md#card-components`) is
+ * `-translate-y-1` plus a brand-token glow, shared by this card, `EventCard`
+ * and `EventsMarqueeCards`. This card alone adds a touch more: a slightly
+ * taller lift (`-translate-y-1.5`), a bigger shadow bloom, the name shifting
+ * to `text-brand`, and the arrow gaining a filled circle behind it rather
+ * than only translating. Direct feedback was that the standard recipe read
+ * as "nothing happens" on this specific page — `EventCard`/
+ * `EventsMarqueeCards` still use the plain recipe and are not (yet) part of
+ * this same complaint; see
+ * [14-drift-register.md](../../../../docs/specs/design-system/14-drift-register.md)
+ * for this as a tracked, deliberate divergence rather than an oversight.
  *
  * `featured` adds a small "Featured" badge in the cover's top-right corner
  * for `Organizations.tsx`'s featured strip - purely presentational, and
@@ -49,7 +60,7 @@ const OrganizationCard = ({ organization, featured }: OrganizationCardProps) => 
       data-reveal
       to={`/organization/${organization.userName}`}
       aria-label={`${organization.name} — ${organization.cause} in ${organization.city}`}
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-brand-secondary/8 bg-white text-inherit no-underline shadow-[0_2px_18px_-14px_var(--color-brand-secondary)] transition-[transform,box-shadow,border-color] duration-300 ease-out hover:border-brand/35 hover:shadow-[0_18px_38px_-16px_color-mix(in_srgb,var(--color-brand)_55%,transparent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand motion-safe:hover:-translate-y-1"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-brand-secondary/8 bg-white text-inherit no-underline shadow-[0_2px_18px_-14px_var(--color-brand-secondary)] transition-[transform,box-shadow,border-color] duration-300 ease-out hover:border-brand/35 hover:shadow-[0_24px_46px_-18px_color-mix(in_srgb,var(--color-brand)_58%,transparent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand motion-safe:hover:-translate-y-1.5"
     >
       <div className="relative aspect-16/9 shrink-0 overflow-hidden bg-brand-secondary/10">
         {organization.cover ? (
@@ -96,7 +107,7 @@ const OrganizationCard = ({ organization, featured }: OrganizationCardProps) => 
         <div className="flex items-center gap-1.5">
           {/* One line, always. `min-w-0` is what lets the name truncate
             instead of pushing the tick and the arrow out of the card. */}
-          <h2 className="min-w-0 truncate font-outfit text-body-lg leading-tight font-semibold tracking-tight text-brand-secondary sm:text-lg">
+          <h2 className="min-w-0 truncate font-outfit text-body-lg leading-tight font-semibold tracking-tight text-brand-secondary transition-colors duration-300 ease-out group-hover:text-brand sm:text-lg">
             {organization.name}
           </h2>
           {organization.verified && (
@@ -106,10 +117,15 @@ const OrganizationCard = ({ organization, featured }: OrganizationCardProps) => 
               aria-label="Verified organization"
             />
           )}
-          <FiArrowUpRight
-            aria-hidden="true"
-            className="ml-auto size-5 shrink-0 text-brand-secondary/35 transition-all duration-300 ease-out group-hover:text-brand motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5"
-          />
+          {/* A small circular chip fills in behind the arrow on hover — the
+            same "something responded" cue the arrow's own translate already
+            gave, made a little more felt rather than only a nudge. */}
+          <span className="ml-auto flex size-7 shrink-0 items-center justify-center rounded-full transition-colors duration-300 ease-out group-hover:bg-brand/10">
+            <FiArrowUpRight
+              aria-hidden="true"
+              className="size-4 text-brand-secondary/35 transition-all duration-300 ease-out group-hover:text-brand motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5"
+            />
+          </span>
         </div>
 
         {/* Two lines maximum, on a fixed box so the stat rule below lines up

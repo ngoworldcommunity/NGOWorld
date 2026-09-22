@@ -439,7 +439,22 @@ const OrganizationSetup = () => {
             <Button
               type="submit"
               isLoading={saving}
-              disabled={saving || !canContinue}
+              // `disabled` only for the real in-flight case — a save
+              // already running is genuinely nothing to press. A blocked
+              // Continue is deliberately *not* `disabled`: that would take
+              // it out of the tab order and make it un-clickable, which is
+              // exactly what made the guard below (`setBlockedOn`, the
+              // `setup-required-note` element) and its focus-the-offending-
+              // field behaviour unreachable — dead code a screen reader
+              // could never explain either, since a native `title` tooltip
+              // isn't announced. `aria-disabled` instead reports the same
+              // "not ready" state to assistive tech and to this flow's own
+              // Playwright coverage (`toBeDisabled`/`toBeEnabled` treat the
+              // two the same) while leaving the element operable, so a
+              // press still reaches the form's `onSubmit` guard and gets an
+              // answer instead of nothing.
+              disabled={saving}
+              aria-disabled={!canContinue || undefined}
               title={
                 !canContinue
                   ? unanswered.length > 0
@@ -447,7 +462,9 @@ const OrganizationSetup = () => {
                     : "Fix the highlighted answer to continue."
                   : undefined
               }
-              className="inline-flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3 font-poppins text-[15px] font-semibold shadow-[0_8px_20px_-8px_rgba(168,98,62,0.5)] transition-all hover:-translate-y-0.5 sm:w-auto"
+              className={`inline-flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3 font-poppins text-[15px] font-semibold shadow-[0_8px_20px_-8px_rgba(168,98,62,0.5)] transition-all hover:-translate-y-0.5 sm:w-auto ${
+                !canContinue && !saving ? "cursor-not-allowed opacity-50" : ""
+              }`}
               cypressfield="org-save"
             >
               {isLastQuestion

@@ -33,6 +33,11 @@ MockedRazorpay.mockImplementation(
 
 describe("Payments", () => {
   describe("POST /payment/razorpay", () => {
+    it("rejects an amount above the per-order cap", async () => {
+      const res = await request(app).post("/payment/razorpay").send({ amount: 1000001 });
+      expect(res.status).toBe(400);
+    });
+
     it("creates an order and returns id/currency/amount", async () => {
       const res = await request(app).post("/payment/razorpay").send({ amount: 500 });
 

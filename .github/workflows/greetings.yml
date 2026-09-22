@@ -9,11 +9,18 @@ on:
   pull_request_target:
     types: [opened]
 
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
 jobs:
   welcome:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: EddieHubCommunity/gh-action-community/src/welcome@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

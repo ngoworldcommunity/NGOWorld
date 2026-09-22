@@ -273,28 +273,70 @@ The component owns presentation only.
 
 ### Props
 
-`query`, `onQueryChange`, `searchPlaceholder`, `searchLabel`, `options` (the taxonomy including the `"All"` pseudo-option), `active`, `onSelect`, `filterLabel`, `summary` (a `ReactNode`, e.g. `12 events in Relief`), `action` (the page's single primary button).
+`query`, `onQueryChange`, `searchPlaceholder`, `searchLabel`, `options` (the taxonomy including the `"All"` pseudo-option), `active`, `onSelect`, `filterLabel` (rendered visually now, not just as an `aria-label` — see below), `summary` (a `ReactNode`, e.g. `12 events in Relief`), `action` (the page's single primary button), `suggestions?` (new, September 2026 — see below).
 
-### Geometry
+### `suggestions`, the opt-in live-suggestions dropdown
+
+`{ id, options: ComboboxOption[], onPick, noun? }`. Omitted (still true of `/events`): the field renders exactly the plain `role="searchbox"` `<input>` it always has. Provided (`/organizations`, since it added this): the field renders through the shared [`Combobox`](#combobox) instead — `role="combobox"`, the field's own accessible name now carried by a `sr-only <label htmlFor>` rather than `aria-label` (`Combobox` has no `aria-label` prop; it expects a sibling label, per its own doc comment). `Combobox` owns the panel's open state, keyboard and ARIA entirely; `DirectoryToolbar` only supplies its icon, its clear button and the pill it all sits inside. `/organizations` feeds it the current (already server-filtered) `results`, capped to six, so picking a row is a second fetch avoided, not added — see [organizations.md](../../organizations.md#directorytoolbars-search-suggestions).
+
+### Geometry (pill toolbar, September 2026)
 
 Root: `mt-8 lg:mt-10`.
 
-Row 1, `flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6`:
-- Field: `group flex flex-1 items-center gap-3 border-b border-brand-secondary/15 pb-3 transition-colors duration-200 focus-within:border-brand/55`.
+Row 1, `flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4`:
+- Field: `group flex flex-1 items-center gap-3 rounded-full border border-transparent bg-surface-muted px-5 py-3 transition-[background-color,border-color,box-shadow] duration-200 focus-within:border-brand/45 focus-within:bg-white focus-within:shadow-[0_10px_24px_-16px_color-mix(in_srgb,var(--color-brand)_45%,transparent)]`. Flat at rest — `--color-surface-muted` is the design system's own documented "input/panel background" token (see [01-tokens.md](./01-tokens.md#color-tokens)), so this needs no shadow to read as a control surface, and a field that was seen as looking odd is a field that gains one shadow only when it actually has a reason to (focus), not permanently. **Exception to the radius decision table's "Form input → `rounded-lg`"**: this is an explore/filter field, not a data-entry form, and pairs with the pill-shaped [`FilterDropdown`](#filterdropdown) trigger beside it — see [06-radius-elevation.md](./06-radius-elevation.md#radius) for the note.
 - `FiSearch` at `size-4.5` (18px), `text-ink/35`, `group-focus-within:text-brand`.
-- `<input type="text" role="searchbox">`: `min-w-0 flex-1 border-none bg-transparent font-poppins text-body-lg text-ink outline-none placeholder:text-ink/35`. Deliberately not `type="search"` — that draws browser-native chrome on top of this component's own icon/clear button (Chrome/Safari's magnifier styling, and specifically a native clear "×" in Firefox that `::-webkit-search-cancel-button` never reaches), which read as a stray, half-hidden second control popping in and out. `role="searchbox"` keeps the accessible semantics `type="search"` would have given for free.
+- The field itself: either the plain `<input type="text" role="searchbox">` or `<Combobox>` — see `suggestions` above. The raw `<input>` (no `suggestions`) is a direct child of this flex row, so `min-w-0 flex-1 truncate border-none bg-transparent font-poppins text-body-lg text-ink outline-none placeholder:text-ink/35` works as written. The `<Combobox>` case is `w-full` instead of `min-w-0 flex-1`: `Combobox` wraps the `<input>` in its own `relative min-w-0 flex-1` div (see [`Combobox`](#combobox) below), so *that* wrapper is the actual flex item — `flex-1`/`min-w-0` on the `<input>` itself are inert, and the `<input>` needs `w-full` to fill that wrapper rather than falling back to its browser-default ~20ch intrinsic width, which `truncate` was then clipping well short of the pill's real width (fixed September 2026, fourth pass). The raw `<input>` is deliberately not `type="search"` — that draws browser-native chrome on top of this component's own icon/clear button (Chrome/Safari's magnifier styling, and specifically a native clear "×" in Firefox that `::-webkit-search-cancel-button` never reaches), which read as a stray, half-hidden second control popping in and out. `truncate` (September 2026, third pass) is load-bearing, not cosmetic: the pill's `px-5` leaves less room than the old borderless field had, and a placeholder like `"Search by event, organizer or city"` was hard-clipping mid-word on real mobile widths with no ellipsis — a genuine visual bug the two prior passes introduced and missed, not a style preference.
 - Clear button: always mounted (not conditionally rendered) so it fades rather than pops into existence — `opacity-0 pointer-events-none` plus `aria-hidden`/`tabIndex={-1}` while `query` is empty, `size-6 rounded-full text-ink/40 hover:text-brand transition-[opacity,color] duration-200` with `FiX` at `size-4`, `aria-label="Clear search"`.
+- [`FilterDropdown`](#filterdropdown) — the taxonomy picker, in this row rather than its own line (moved here September 2026, fourth pass; a plain always-visible chip row before that, replaced by the dropdown entirely September 2026, fifth pass — see both below).
 - `action` slot.
 
-Row 2, `mt-6 flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8`:
-- Filter group: `role="group"`, `aria-label={filterLabel}`, `-mx-9 flex gap-6 overflow-x-auto px-9 pb-1 sm:mx-0 sm:flex-wrap sm:gap-x-6 sm:gap-y-2 sm:px-0 [&::-webkit-scrollbar]:hidden`.
-- Filter button: `shrink-0 border-none bg-transparent p-0 pb-1 font-outfit text-body whitespace-nowrap transition-colors duration-200`, with `aria-pressed`. Active: `border-b-2 border-solid border-brand font-medium text-brand`. Rest: `border-b-2 border-solid border-transparent text-ink/55 hover:text-brand-secondary`.
-- Count: `aria-live="polite"`, `shrink-0 font-poppins text-caption tracking-wide text-ink/45 uppercase`.
+Result count, `mt-4`, `font-poppins text-caption tracking-wide text-ink/45 uppercase`, `aria-live="polite"`. Its own line now — it used to sit beside the chip row (`sm:gap-6` between them); with the taxonomy moved into `FilterDropdown`'s own panel, the count is this second row's only remaining content.
 
-### Why it looks this light
+### Why it changed (September 2026, five passes)
 
-The earlier version stacked three heavy rows above the cards: a shadowed white pill search field, nine outlined-and-filled cause chips, and a separate uppercase count line.
-Now the field is a single underline that turns brand on `focus-within`, the causes are plain text with a 2px brand underline marking the active one, and the count shares the filter row, leaving the primary button as **the only filled surface on the page above the grid**.
+**First pass.** The original version (search field on a bare underline, filters as plain underlined text) was deliberately light, but it only stayed clean for a *short* taxonomy — `/organizations`' ten causes wrapped `sm:flex-wrap` into a ragged multi-row block with the result count stranded alone, which read as more clutter than a heavier design would have, not less. Fix: pill chips (active filled brand, rest outlined) in a row that always scrolls instead of ever wrapping, and a bordered pill search field.
+
+**Second pass, direct feedback that the first pass "still looks bad."** Four concrete complaints, four concrete fixes, all still inside the existing token system:
+- *"Add a filter icon somewhere"* → the `FiFilter` + `filterLabel` caption above the chip row.
+- *"The tags [chips] are compact, reduce the font size"* → `text-sm` instead of `text-body`, tighter `px-3.5 py-1.5`.
+- *"The search bar has a weird box shadow, not up to our standards... no autofill"* → dropped the shadow-at-rest entirely (a flat `surface-muted` fill instead — see Geometry above) and added the opt-in `suggestions` dropdown via `Combobox`.
+- *"Gamify the page... nothing happens on card/button hover... the grid pops instead of animating"* → see [`OrganizationCard`](../../../apps/web/src/features/organizations/components/OrganizationCard.tsx)'s richer hover, the dashboard button's `useMagnetic`, and `Organizations.tsx`'s skeleton-loading + crossfade — all covered in [organizations.md](../../organizations.md#directorytoolbars-search-suggestions).
+
+**Third pass, real visual bugs the second pass introduced, caught from a live screenshot rather than reported as taste.** The `px-5` search pill left less horizontal room than the old field had, so a long placeholder now hard-clipped with no ellipsis — fixed with `truncate` on the field. The chip scroll row's trailing edge was a hard, unsignalled cut sitting almost flush against the count — fixed with the trailing-edge fade above, which also required moving the mobile bleed (`-mx-9`) from the scroll element onto its wrapper, since the fade has to be positioned against the box the bleed actually extends, not the box that happens to contain it. A follow-up bug from the same `truncate` fix: it papered over hard-clipping in the plain-`<input>` case, but the `<Combobox>` case (`/organizations`) still clipped early, because `Combobox` wraps the `<input>` in its own flex-item wrapper div, leaving the `min-w-0 flex-1` this component put on the `<input>` itself inert — fixed by giving that branch `w-full` instead, see Row 1 above.
+
+**Fourth pass, direct feedback that the filter-icon caption's own row cost too much vertical space.** It moved from its own full-width line above the chips into Row 1, right beside the search field — the chip group's `aria-label={filterLabel}` already carried the same text for a11y, so the caption line was purely visual and free to fold in elsewhere; it's now `aria-hidden` there. The chips section's top margin dropped from `mt-6` to `mt-4` to match, since it no longer has a labelled row directly above it to separate from. **Superseded by the fifth pass below** — the caption this pass relocated no longer exists; it became the `FilterDropdown` trigger itself.
+
+**Fifth pass, direct feedback that listing every cause as an always-visible chip ("Animal welfare, Disaster relief, Education, …") was the wrong shape for the space, not just visually noisy.** Checked against ~30 filter-UI samples pulled from Mobbin across web apps and marketplaces (Faire, Dribbble, Sweatpals, Apple, Tripadvisor, Homerun, Whop, Polywork, Databricks, Klarna, SSENSE, Urban Outfitters and others) rather than redesigned from taste alone. Two patterns recur:
+1. **Multi-facet panel** (Faire's "All Filters", Dribbble's "Filters" modal, Homerun): one trigger opens a panel holding *several* independent facets (price, location, rating, …) at once, each needing its own "Apply"/"Clear all". Fits when a listing has more than one filterable dimension.
+2. **Single-facet dropdown** (Whop's "Business Type", Polywork's "Topics", Semrush's per-column `Select ▾`, Dropbox's `Folder ▾`/`People ▾`): a pill button that always displays the *current* value, opening a small listbox of the taxonomy on click — no "Apply" step, because choosing a row is the whole action.
+
+`/organizations` and `/events` each have exactly one filterable dimension (cause; Upcoming/Past), so pattern 2 is the fit — pattern 1 would add an unneeded panel-plus-apply step for a single choice. Replaced the always-visible chip row (and the trailing-edge fade and horizontal scroller it needed once a taxonomy like `/organizations`' ten causes stopped fitting on one line — both now moot, there's nothing left to scroll) with [`FilterDropdown`](#filterdropdown), reusing `Combobox`'s own listbox geometry (radius, border, shadow, `motion-safe:animate-pop-in`) so it reads as the same product rather than a third distinct control. The `FiFilter` + `filterLabel` caption the fourth pass relocated into Row 1 is now the dropdown's own trigger button instead of adjacent decoration — one control, not two.
+
+---
+
+## `FilterDropdown`
+
+[components/inputs/FilterDropdown.tsx](../../../apps/web/src/components/inputs/FilterDropdown.tsx).
+The single-select taxonomy picker inside `DirectoryToolbar`'s search row — see that component's "fifth pass" above for why it replaced a row of always-visible chips, and the Mobbin research behind the choice.
+
+### Props
+
+`label` (accessible name, e.g. `"Filter by cause"` — never rendered as its own visible line, only as `aria-label`), `options: readonly T[]`, `active: T`, `onSelect`, `dataCy?`.
+
+### Behavior
+
+The trigger **always displays `active` directly**, the same way a native `<select>` does — `"All"`, `"Healthcare"`, `"Upcoming"`, whatever the caller's current value is. This is deliberately not conditional on detecting some "nothing chosen" state: `/organizations`' taxonomy happens to lead with an `"All"` pseudo-option but `/events`' `TIME_FILTERS` (`["Upcoming", "Past"]`) does not, and a rule that only worked for one of the two callers would be a trap for the next one. `aria-label` on the trigger is `` `${label}: ${active}` ``, so a screen reader gets the same "Filter by cause: Healthcare" framing sighted users get from the icon + text.
+
+Clicking the trigger toggles a `role="listbox"` panel of `role="option"` rows, one per `option`, the active one marked `aria-selected` and checked (`FiCheck`). Picking a row calls `onSelect` and closes the panel — no separate "Apply", because for a single facet the row selection *is* the action (see the fifth-pass write-up above on why this differs from a multi-facet panel like Faire's). Closes on an outside pointerdown or `Escape`, same reasoning as [`Combobox`](#combobox): blur alone would also fire when focus merely left the window, which reads as the panel breaking rather than closing on purpose.
+
+### Geometry
+
+Trigger: `flex items-center gap-1.5 rounded-full border px-3.5 py-2 font-outfit text-sm` — `FiFilter` (`size-3`) then `active`'s text then `FiChevronDown` (`size-3.5`, rotates 180° open). Open: `border-brand/45 bg-white text-brand-secondary`. Closed: `border-brand-secondary/15 bg-transparent text-ink/55 hover:border-brand/35 hover:text-brand-secondary` — the same rest/hover pair the old chips used, so the one surviving control still reads as part of the same family.
+
+Panel: `absolute top-full right-0 mt-2 w-56 max-h-72 overflow-y-auto rounded-xl border border-brand-secondary/15 bg-white p-1 shadow-[0_16px_36px_-20px_rgba(56,44,36,0.45)] motion-safe:animate-pop-in` — lifted verbatim from `Combobox`'s own listbox (see [Panel geometry](#panel-geometry) below) rather than invented fresh, so the two dropdowns in the same toolbar look like one design decision. `right-0`, not `left-0` or `inset-x-0`: the trigger sits mid-row between the search field and `action`, not flush against either edge, so anchoring the panel to the trigger's own right edge is the one option that can't spill into a neighboring control on a narrow `sm:flex-row` width.
+
+Option rows: `flex w-full items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-left font-outfit text-body`. Selected: `bg-brand/8 font-medium text-brand` plus a trailing `FiCheck`. Rest: `text-ink/80 hover:bg-surface-muted`.
 
 ---
 

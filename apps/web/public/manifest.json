@@ -3,8 +3,8 @@
   "name": "KarmaCircle",
   "start_url": "./",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff", 
+  "theme_color": "#fffcf7",
+  "background_color": "#fffcf7",
   "icons": [
     {
      "src": "assets/icons/icon-48x48.png",

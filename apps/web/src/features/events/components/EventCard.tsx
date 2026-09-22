@@ -135,17 +135,26 @@ const EventCard = ({ event }: EventCardProps) => {
           </span>
         )}
 
-        <p className="mt-2 line-clamp-2 min-h-11 font-poppins text-body leading-[1.375rem] text-ink/70">
+        <p className="mt-2 mb-6 line-clamp-2 min-h-11 font-poppins text-body leading-[1.375rem] text-ink/70">
           {event.summary}
         </p>
 
-        {/* `mb-4` rather than leaning on `mt-auto` below: on a card whose
-            copy fills the box, `mt-auto` resolves to zero and the rule ends
-            up sitting directly on the location line. Dropped when there's
-            no stat row beneath it (a live event has no capacity) so the
-            card doesn't end in a stray gap. */}
+        {/* The gap above this block lives on the `<p>`'s own `mb-6`, not on
+            an `mt-*` here — a flex item's margin-top and margin-bottom
+            don't collapse with a sibling's, so that's a safe, guaranteed
+            minimum gap either way. It has to be `mb-6`, not `mt-6` on this
+            div: `mt-auto` below (no-capacity branch) also sets margin-top,
+            and Tailwind's own cascade order — not this string's order —
+            decides which `mt-*` utility wins, so `mt-6 ... mt-auto`
+            silently collapsed to just `mt-auto` and every top-gap bump here
+            was a no-op on cards without a stat row.
+            `mb-4` here (not `mt-auto`) is why a capacity card's stat row
+            doesn't sit directly on the location line when the copy fills
+            the box and `mt-auto` on that row resolves to zero. Dropped
+            when there's no stat row beneath it (a live event has no
+            capacity) so the card doesn't end in a stray gap. */}
         <div
-          className={`mt-3 flex flex-col gap-2 font-poppins text-caption tracking-wide text-ink/55 ${hasCapacity ? "mb-4" : "mt-auto mb-0.5"}`}
+          className={`flex flex-col gap-3 font-poppins text-caption tracking-wide text-ink/55 ${hasCapacity ? "mb-4" : "mt-auto mb-0.5"}`}
         >
           <span className="inline-flex items-center gap-1.5">
             <FiClock aria-hidden="true" className="size-3.5 shrink-0" />

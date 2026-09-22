@@ -13,6 +13,15 @@ import { SignupInput } from "./auth.validation";
 
 const SALT_ROUNDS = 10;
 
+const SIGNUP_PROFILE_FIELDS = [
+  "name",
+  "phone",
+  "description",
+  "address",
+  "profilePicture",
+  "bannerPicture",
+] as const;
+
 // How long a forgot-password link stays valid, counted from the moment
 // requestPasswordReset issues it — not tied to THIRTY_DAYS_MS (the
 // session/cookie lifetime), a deliberately much shorter window since this
@@ -70,7 +79,17 @@ export async function bumpTokenVersion(email: string): Promise<void> {
 export async function signup(
   input: SignupInput,
 ): Promise<{ token: string; user: unknown }> {
-  const { email, userType, ...data } = input;
+  const { email, userType, password, ...rest } = input;
+  // The signup schema is `.passthrough()` (the forms send a varying set of
+  // profile fields), so `rest` is client-controlled. Only these fields may
+  // reach the model: spreading it wholesale let a caller set tokenVersion,
+  // resetPasswordToken/Expires, cart, and config.hasCompletedProfile.
+  const data: Record<string, unknown> = { password };
+  for (const key of SIGNUP_PROFILE_FIELDS) {
+    if (rest[key] !== undefined) {
+      data[key] = rest[key];
+    }
+  }
 
   const existingUser = await userService.findByEmail(email);
   if (existingUser) {
@@ -80,7 +99,7 @@ export async function signup(
     );
   }
 
-  const hashedPassword = await bcrypt.hash(data.password, SALT_ROUNDS);
+  const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
   const userName = await userService.generateUniqueUsername(email);
 
   const UserModel = getUserModel(userType as string | undefined);

@@ -43,6 +43,10 @@ Props, full geometry, and why the chrome is this light: [design-system/08-compon
 
 Props, the ARIA surface, and the five behaviors that must survive a rebuild: [design-system/08-components-shared.md#combobox](./design-system/08-components-shared.md#combobox).
 
+## `FilterDropdown`
+
+The single-select taxonomy picker inside `DirectoryToolbar` (replaced its old always-visible chip row, September 2026 — Mobbin research behind the switch, props, and geometry): [design-system/08-components-shared.md#filterdropdown](./design-system/08-components-shared.md#filterdropdown).
+
 ## `SplitPanelLayout`
 
 Props, `align` semantics, `asideDecor`, the 900px drop, and the panel geometry: [design-system/08-components-shared.md#splitpanellayout](./design-system/08-components-shared.md#splitpanellayout).

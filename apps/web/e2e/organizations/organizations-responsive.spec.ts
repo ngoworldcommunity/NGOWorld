@@ -111,13 +111,14 @@ async function publishLiveOrganization(page: Page): Promise<LiveOrganization> {
  * `documentElement.scrollWidth` to the viewport: `body { overflow-x:
  * hidden }` (index.css) is a deliberate, standing safety net in this app,
  * and `scrollWidth` reports an element's full content extent regardless of
- * whether that overflow is clipped — it flagged `DirectoryToolbar`'s cause
- * filters (an intentional `-mx-9`/`overflow-x-auto` edge-to-edge scroller,
- * contained by that same body rule) as "overflowing" even though nothing
- * is visible or scrollable past the viewport edge. `window.scrollX` after
- * a scroll attempt is what a real user's horizontal swipe/scrollbar would
- * actually observe.
- */
+ * whether that overflow is clipped. It originally flagged `DirectoryToolbar`'s
+ * cause filters as "overflowing" when those were still a `-mx-9`/
+ * `overflow-x-auto` edge-to-edge chip scroller (contained by that same body
+ * rule, nothing visible or scrollable past the viewport edge) — since
+ * replaced by `FilterDropdown`, a fixed-width trigger with no scroller of
+ * its own, but the same `scrollWidth`-vs-`scrollX` gap is still real for
+ * anything else in this page that scrolls sideways on purpose, so the
+ * `window.scrollX` check stays. */
 async function expectNoHorizontalOverflow(page: Page) {
   const scrollX = await page.evaluate(() => {
     window.scrollTo(9999, window.scrollY);

@@ -12,13 +12,18 @@ on:
     paths:
       - "apps/api/**"
 
+permissions:
+  contents: read
+
 jobs:
   Deploy-to-Dev:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Install Vercel CLI
-        run: npm install --global vercel@canary
+        run: npm install --global vercel@latest
       - name: Pull Vercel Environment Information
         run:
           vercel pull --yes --environment=production --token=${{

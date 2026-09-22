@@ -2,14 +2,20 @@ import { useMemo, useRef, useState } from "react";
 import { PiCaretRightBold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import useSWR from "swr";
+import type { ComboboxOption } from "@components/inputs/Combobox";
 import { DirectoryToolbar, Footer, Navbar } from "@components";
 import ComponentHelmet from "@components/ComponentHelmet";
 import OrganizationCard from "@features/organizations/components/OrganizationCard";
-import { useSectionReveal } from "@hooks";
+import OrganizationCardSkeleton from "@features/organizations/components/OrganizationCardSkeleton";
+import { useMagnetic, useSectionReveal } from "@hooks";
 import { organizationEndpoints } from "@services/ApiEndpoints";
 import fetcher from "@utils/Fetcher";
 import { toDisplayOrganization } from "../utils/toDisplayOrganization";
-import type { ApiOrganizationList, OrganizationTaxonomy } from "../types";
+import type {
+  ApiOrganizationList,
+  DisplayOrganization,
+  OrganizationTaxonomy,
+} from "../types";
 
 /** Clears the domain filter. Not a domain the backend knows about. */
 const ALL = "All";
@@ -46,8 +52,11 @@ const Organizations = () => {
   // Filtering is server-side: the directory is paginated, so filtering a
   // single page in the browser would silently hide matches on page two.
   // `keepPreviousData` is what stops the grid flashing empty on every
-  // keystroke while the next response is in flight.
-  const { data, isLoading } = useSWR<ApiOrganizationList>(
+  // keystroke while the next response is in flight — `isValidating` (a
+  // fetch in flight while `data` still holds the *previous* page) is what
+  // lets the grid dim itself smoothly instead of popping straight to the
+  // new set once it lands, see the crossfade wrapper below.
+  const { data, isLoading, isValidating } = useSWR<ApiOrganizationList>(
     organizationEndpoints.directory({
       search: query.trim() || undefined,
       domain: domain === ALL ? undefined : domain,
@@ -60,6 +69,38 @@ const Organizations = () => {
     () => (data?.data ?? []).map(toDisplayOrganization),
     [data],
   );
+
+  // Live suggestions while typing, reusing the already-fetched, already
+  // server-filtered `results` rather than a second request — capped so the
+  // dropdown never outgrows `Combobox`'s own panel. Picking one jumps
+  // straight to that organization's profile rather than just filling the
+  // field, which is the point of a suggestion over the grid it sits above.
+  const suggestionOptions = useMemo<ComboboxOption[]>(
+    () =>
+      query.trim()
+        ? results.slice(0, 6).map((organization) => ({
+            value: organization.name,
+            label: organization.name,
+            hint: organization.city,
+            data: organization,
+          }))
+        : [],
+    [results, query],
+  );
+
+  const handleSuggestionPick = (option: ComboboxOption) => {
+    const organization = option.data as DisplayOrganization;
+    navigate(`/organization/${organization.userName}`);
+  };
+
+  // Magnetic, so the primary action leans toward the cursor — matches
+  // `OpenSource.tsx`'s primary CTA. Note it carries no `hover:-translate-*`/
+  // `active:scale-*`: this hook owns its transform (see `useMagnetic.ts`);
+  // the hover/press feedback here is expressed in shadow and colour instead.
+  const dashboardButtonRef = useMagnetic<HTMLButtonElement>({
+    strength: 0.3,
+    max: 8,
+  });
 
   // "Featured" means only what it says: an organization that actually
   // turned sponsorship on, never just "whichever came first" — this app's
@@ -95,7 +136,7 @@ const Organizations = () => {
       <ComponentHelmet type="Organizations" />
       <Navbar />
 
-      <div className="mx-auto max-w-7xl px-9 pt-10 pb-6 sm:px-10 lg:px-12 lg:pt-14">
+      <div className="mx-auto max-w-6xl px-9 pt-10 pb-6 sm:px-10 lg:px-12 lg:pt-14">
         <h1 className="font-outfit text-[2rem] leading-tight font-semibold tracking-tight text-brand-secondary sm:text-4xl">
           Organizations on <span className="text-brand">KarmaCircle</span>
         </h1>
@@ -113,33 +154,43 @@ const Organizations = () => {
           active={domain}
           onSelect={setDomain}
           filterLabel="Filter by cause"
-          summary={
-            <>
-              {isLoading && !data
-                ? "Loading organizations"
-                : `${data?.pagination.total ?? results.length} ${
-                    (data?.pagination.total ?? results.length) === 1
-                      ? "organization"
-                      : "organizations"
-                  }`}
-              {domain !== ALL && ` in ${domain}`}
-            </>
-          }
+          suggestions={{
+            id: "organizations-search",
+            options: suggestionOptions,
+            onPick: handleSuggestionPick,
+            noun: "organizations",
+          }}
           action={
             <button
+              ref={dashboardButtonRef}
               type="button"
               onClick={() => navigate("/dashboard")}
-              className="flex h-12 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-full border-none bg-brand px-6 font-poppins text-body font-medium whitespace-nowrap text-white shadow-[0_8px_24px_-14px_var(--color-brand)] transition-colors duration-300 ease-out hover:bg-brand-hover motion-safe:active:scale-97"
+              className="group flex h-12 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-full border-none bg-brand px-6 font-poppins text-body font-medium whitespace-nowrap text-white shadow-[0_8px_24px_-14px_var(--color-brand)] transition-[background-color,box-shadow] duration-300 ease-out hover:bg-brand-hover hover:shadow-[0_16px_34px_-12px_var(--color-brand)]"
             >
               Your dashboard
-              <PiCaretRightBold aria-hidden="true" className="size-4" />
+              <PiCaretRightBold
+                aria-hidden="true"
+                className="size-4 transition-transform duration-300 ease-out motion-safe:group-hover:translate-x-1"
+              />
             </button>
           }
         />
       </div>
 
-      <div className="mx-auto max-w-7xl px-9 pb-20 sm:px-10 lg:px-12">
-        {results.length === 0 ? (
+      <div className="mx-auto max-w-6xl px-9 pb-20 sm:px-10 lg:px-12">
+        {isLoading && !data ? (
+          // The true first load, before any page has ever arrived — a
+          // skeleton grid rather than either a bare spinner or, worse, the
+          // empty state (results.length is legitimately 0 while nothing has
+          // loaded yet, and rendering "No organizations here yet" for a
+          // fraction of a second on every visit is its own separate bug,
+          // fixed here alongside the skeleton).
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {Array.from({ length: 6 }).map((_, index) => (
+              <OrganizationCardSkeleton key={index} />
+            ))}
+          </div>
+        ) : results.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-brand-secondary/15 bg-white/60 px-8 py-16 text-center">
             <h2 className="font-outfit text-xl font-semibold tracking-tight text-brand-secondary">
               {query || domain !== ALL
@@ -163,12 +214,25 @@ const Organizations = () => {
             </button>
           </div>
         ) : (
-          <div ref={gridRef}>
+          // Dims (and, briefly, ignores pointer events on) the previous
+          // page's cards while a filter/search change is revalidating —
+          // `keepPreviousData` is what makes there be a previous page to
+          // dim at all — so the swap to the new set reads as a soft
+          // crossfade instead of an instant pop, without hand-rolling a
+          // prev/next animation state machine for it.
+          <div
+            ref={gridRef}
+            className={`transition-opacity duration-300 ease-out ${
+              isValidating ? "pointer-events-none opacity-50" : "opacity-100"
+            }`}
+          >
             {featured.length > 0 && (
               <div className="mb-10">
-                <h2 className="mb-4 font-outfit text-caption font-semibold tracking-[0.14em] text-ink/45 uppercase">
-                  Featured organizations
-                </h2>
+                {/* No "Featured organizations" heading here (removed
+                    September 2026) — each card already carries its own
+                    "Featured" pill (`OrganizationCard`'s `featured` prop),
+                    so the section label above the grid was saying the same
+                    thing twice. */}
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                   {featured.map((organization) => (
                     <OrganizationCard

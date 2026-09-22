@@ -2,7 +2,7 @@ import { z } from "zod";
 import { organizationHandleParamSchema } from "../organizations/organization.validation";
 
 export const createOrderSchema = z.object({
-  amount: z.number().positive(),
+  amount: z.number().positive().max(1000000),
 });
 
 export type CreateOrderInput = z.infer<typeof createOrderSchema>;

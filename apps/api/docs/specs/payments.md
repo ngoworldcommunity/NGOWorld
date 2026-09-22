@@ -4,11 +4,11 @@
 
 ## `POST /payment/razorpay`
 
-No auth. `validate(createOrderSchema)` — `{ amount: number (positive) }`, in **rupees** (see below). `paymentController.createOrder` → `paymentService.createOrder(amount)`:
+No auth. `validate(createOrderSchema)` — `{ amount: number (positive, max 1,000,000) }`, in **rupees** (see below). `paymentController.createOrder` → `paymentService.createOrder(amount)`:
 
 ```ts
 razorpay.orders.create({
-  amount: amountInRupees * 100,   // Razorpay's API wants the smallest currency unit (paise for INR)
+  amount: Math.round(amountInRupees * 100),   // Razorpay's API wants the smallest currency unit (paise for INR)
   currency: "INR",                 // hardcoded — no multi-currency support anywhere in this module
   receipt: crypto.randomUUID(),    // a fresh random receipt id per request, not tied to any order/product record in this DB
   payment_capture: 1,              // auto-capture on payment success, no manual-capture flow
@@ -47,7 +47,7 @@ No auth. `validate(verifySponsorshipPaymentSchema)` — the three fields Razorpa
 
 1. Looks up the `Order` by `razorpayOrderId` **and** `organizationHandle` together — a signature that's valid for one organization's order can't be replayed against a different handle in the URL. `404` (`PAYMENT_ORDER_NOT_FOUND`) if nothing matches.
 2. Recomputes the HMAC-SHA256 of `"{order_id}|{payment_id}"` keyed with `RAZORPAY_KEY_SECRET` — exactly Razorpay's own documented verification step — and compares it to the supplied signature with `crypto.timingSafeEqual`. A mismatch flips the order to `"failed"` and responds `400` (`PAYMENT_VERIFICATION_FAILED`).
-3. On a match, and only if the order wasn't already `"paid"` (re-verifying an already-paid order is a no-op, not a double credit), flips it to `"paid"`, stores `razorpayPaymentId`, and increments `Organization.raisedViaPlatformPaise` by exactly this order's amount via `$inc` — the *only* place in the codebase that field is ever written.
+3. On a match, and only if the order wasn't already `"paid"` (re-verifying an already-paid order is a no-op, not a double credit), flips it to `"paid"` (a single atomic `findOneAndUpdate` conditioned on status not already paid, so two concurrent verify calls cannot both credit; only the call that wins the flip proceeds), stores `razorpayPaymentId`, and increments `Organization.raisedViaPlatformPaise` by exactly this order's amount via `$inc` — the *only* place in the codebase that field is ever written.
 
 Response: `200 { status, raisedViaPlatform }` (`raisedViaPlatform` in rupees, for the frontend to show immediately without a second fetch).
 

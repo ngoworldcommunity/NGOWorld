@@ -4,6 +4,9 @@ on:
   pull_request_target:
     types: [opened, reopened, synchronize, edited, ready_for_review]
 
+permissions:
+  pull-requests: write
+
 jobs:
   lint-pr-title:
     name: Lint PR title

@@ -63,12 +63,12 @@ The hairline exists only below `lg`, where the brand block and the link columns 
 
 ## Horizontal overflow
 
-A filter row that would wrap into four rows above the fold should scroll horizontally instead.
-`DirectoryToolbar` does this with a full-bleed negative margin matched to the page padding:
+A filter row that would wrap into multiple rows above the fold should scroll horizontally instead — at every breakpoint, not just below `sm`.
+`DirectoryToolbar` used to let the row `sm:flex-wrap` once there was room; a ten-option taxonomy (`/organizations`' causes) wrapped into a ragged block with the result count stranded alone, which read as more clutter than the wrap was meant to avoid. September 2026: it never wraps now, full-bleed negative margin matched to the page padding below `sm`, contained within the page padding above it:
 
 ```
--mx-9 flex gap-6 overflow-x-auto px-9 pb-1
-sm:mx-0 sm:flex-wrap sm:gap-x-6 sm:gap-y-2 sm:px-0
+-mx-9 flex min-w-0 gap-2 overflow-x-auto px-9 pb-1
+sm:mx-0 sm:px-0
 [&::-webkit-scrollbar]:hidden
 ```
 
@@ -97,7 +97,7 @@ The `useGSAP` dependency array must be keyed on `windowWidth` state for the gate
 | `Navbar` | < 900px: links hidden; hamburger (logged out) or avatar (logged in) at `max-430px:block`; full-screen sheet | >= 900px: inline links, dropdown |
 | `SplitPanelLayout` | < 900px: left panel not rendered at all; wordmark moves inline above the form | >= 900px: sticky 44% left panel, `top-0`, `h-screen` |
 | `Footer` | stacked, `px-9 py-10`, divider between brand and links, no parallax | `lg:flex-row`, `lg:px-12 lg:py-16`, parallax on |
-| `DirectoryToolbar` | search field then button stacked; filters scroll horizontally; count on its own row | `sm:flex-row`, filters wrap, count shares the filter row |
+| `DirectoryToolbar` | search field then button stacked; filters scroll horizontally; count on its own row | `sm:flex-row`; filters still scroll horizontally (never wrap); count pinned to the same row |
 | Cards | `p-4`, `text-body-lg` title | `sm:p-5`, `sm:text-lg` title |
 | `Modal` | `max-[525px]:w-[89vw] min-w-55 text-center` | `w-[30vw] min-w-125` |
 | `BacktoTop` | `max-500px:` 32px at 24px inset | 40px at 30px inset |

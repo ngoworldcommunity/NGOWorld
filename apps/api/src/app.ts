@@ -18,6 +18,11 @@ import routes from "./routes/index";
 export function createApp(): Express {
   const app = express();
 
+  // Vercel (and any reverse proxy) sits in front of this app. Without this,
+  // req.ip is the proxy's address, so every client shares one rate-limit
+  // bucket: one attacker exhausts authLimiter's 20 attempts for everyone.
+  app.set("trust proxy", 1);
+
   app.use(helmet());
   app.use(compression());
   app.use(pinoHttp({ logger }));

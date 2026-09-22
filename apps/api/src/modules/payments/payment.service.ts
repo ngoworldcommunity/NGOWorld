@@ -37,7 +37,7 @@ function getRazorpayClient(): Razorpay {
 
 export async function createOrder(amountInRupees: number) {
   const options = {
-    amount: amountInRupees * 100,
+    amount: Math.round(amountInRupees * 100),
     currency: CURRENCY,
     receipt: crypto.randomUUID(),
     payment_capture: PAYMENT_CAPTURE,
@@ -172,11 +172,17 @@ export async function verifySponsorshipPayment(
     );
   }
 
-  if (order.status !== ORDER_STATUS.Paid) {
-    order.status = ORDER_STATUS.Paid;
-    order.razorpayPaymentId = input.razorpay_payment_id;
-    await order.save();
+  // Atomic claim: two concurrent verify calls for the same order used to
+  // both read a non-Paid status and both $inc the organization's total.
+  // Only the call that flips the status wins the right to credit it.
+  const claimed = await Order.findOneAndUpdate(
+    { _id: order._id, status: { $ne: ORDER_STATUS.Paid } },
+    { status: ORDER_STATUS.Paid, razorpayPaymentId: input.razorpay_payment_id },
+    { new: true },
+  );
 
+  if (claimed) {
+    order.status = claimed.status;
     await Organization.updateOne(
       { handle: order.organizationHandle },
       { $inc: { raisedViaPlatformPaise: order.amountPaise } },

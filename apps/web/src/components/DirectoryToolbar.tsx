@@ -1,5 +1,20 @@
 import type { ReactNode } from "react";
 import { FiSearch, FiX } from "react-icons/fi";
+import Combobox, { type ComboboxOption } from "./inputs/Combobox";
+import FilterDropdown from "./inputs/FilterDropdown";
+
+interface SuggestionsConfig {
+  /** The `Combobox`'s own id — must be unique per page. */
+  id: string;
+  /** Already matched and ordered by the caller, e.g. the current result
+   * set capped to a handful of rows. Empty hides the panel. */
+  options: ComboboxOption[];
+  /** Fires when a suggestion is picked — typically a direct navigation to
+   * the record's own page, not just filling the field. */
+  onPick: (option: ComboboxOption) => void;
+  /** Announced with the suggestion count, e.g. "organizations". */
+  noun?: string;
+}
 
 interface DirectoryToolbarProps<T extends string> {
   query: string;
@@ -11,10 +26,24 @@ interface DirectoryToolbarProps<T extends string> {
   active: T;
   onSelect: (option: T) => void;
   filterLabel: string;
-  /** Live result count, e.g. `12 events in Relief`. */
-  summary: ReactNode;
+  /**
+   * Live result count, e.g. `12 events in Relief`. Optional — omitted by
+   * `/organizations` (September 2026, direct feedback that a bare count
+   * added nothing above a grid the visitor can just look at); `/events`
+   * still passes one, since a dated list benefits from knowing "how many"
+   * before scrolling it in a way a visible photo grid doesn't.
+   */
+  summary?: ReactNode;
   /** The page's single primary action, rendered top-right. */
   action?: ReactNode;
+  /**
+   * Opt-in live-suggestions dropdown. Omitted (the default, and what
+   * `/events` still uses): the field stays a plain `role="searchbox"`
+   * input, byte-identical to before this existed. Provided: the field
+   * renders through the shared `Combobox` instead (`role="combobox"`),
+   * suggesting matches as the visitor types.
+   */
+  suggestions?: SuggestionsConfig;
 }
 
 /**
@@ -25,13 +54,16 @@ interface DirectoryToolbarProps<T extends string> {
  * how they drifted into looking like two products. It lives here so a
  * change to the toolbar can only ever land on both at once.
  *
- * The visual weight is deliberately low. The earlier version stacked a
- * shadowed white search pill, nine outlined chips and a separate uppercase
- * count line - three heavy rows of chrome above the content the visitor
- * actually came for. Here the field is a single underline, the filters are
- * plain text with the active one underlined in brand, and the count shares
- * the filter row, so the solid button is the only filled surface on the
- * page above the cards.
+ * **Pill toolbar (September 2026).** Field: a flat `surface-muted` pill at
+ * rest (that token is the design system's own documented "input/panel
+ * background" — see [01-tokens.md](../../../docs/specs/design-system/01-tokens.md)),
+ * no shadow until it actually has focus, where it lifts to a white surface
+ * with a brand border and one purposeful shadow. Filters: a single dropdown
+ * trigger in the search row, not a row of always-visible chips — see
+ * [`FilterDropdown`](./inputs/FilterDropdown.tsx) and the research behind
+ * that switch. See
+ * [08-components-shared.md](../../../docs/specs/design-system/08-components-shared.md#directorytoolbar)
+ * for the full rationale and exact classes.
  */
 const DirectoryToolbar = <T extends string>({
   query,
@@ -44,35 +76,63 @@ const DirectoryToolbar = <T extends string>({
   filterLabel,
   summary,
   action,
+  suggestions,
 }: DirectoryToolbarProps<T>) => (
   <div className="mt-8 lg:mt-10">
-    {/* Search + primary action. One row from `sm` up; on a phone the button
-        drops below the field rather than squeezing the input down to a few
-        characters. */}
-    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-      <div className="group flex flex-1 items-center gap-3 border-b border-brand-secondary/15 pb-3 transition-colors duration-200 focus-within:border-brand/55">
+    {/* Search + filter dropdown + primary action. One row from `sm` up; on
+        a phone each drops onto its own line rather than squeezing down. */}
+    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+      <div className="group flex flex-1 items-center gap-3 rounded-full border border-transparent bg-surface-muted px-5 py-3 transition-[background-color,border-color,box-shadow] duration-200 focus-within:border-brand/45 focus-within:bg-white focus-within:shadow-[0_10px_24px_-16px_color-mix(in_srgb,var(--color-brand)_45%,transparent)]">
         <FiSearch
           aria-hidden="true"
           className="size-4.5 shrink-0 text-ink/35 transition-colors duration-200 group-focus-within:text-brand"
         />
-        <input
-          // Deliberately `type="text"` with `role="searchbox"`, not
-          // `type="search"`: this component already renders its own icon
-          // and clear button, but `type="search"` still draws browser-native
-          // chrome on top of that — a magnifier/clear glyph in some
-          // browsers, and specifically a native clear "×" in Firefox that
-          // `::-webkit-search-cancel-button` (Chrome/Safari-only) never
-          // touches. Two clear controls appearing/disappearing at slightly
-          // different times is what read as "a weird animation" — not this
-          // component's own transitions, which are unchanged.
-          type="text"
-          role="searchbox"
-          value={query}
-          onChange={(event) => onQueryChange(event.target.value)}
-          placeholder={searchPlaceholder}
-          aria-label={searchLabel}
-          className="min-w-0 flex-1 border-none bg-transparent font-poppins text-body-lg text-ink outline-none placeholder:text-ink/35"
-        />
+
+        {suggestions ? (
+          <>
+            {/* `Combobox` has no `aria-label` prop of its own — it expects a
+                sibling `<label htmlFor>`, per its own doc comment. */}
+            <label htmlFor={suggestions.id} className="sr-only">
+              {searchLabel}
+            </label>
+            <Combobox
+              id={suggestions.id}
+              value={query}
+              onChange={onQueryChange}
+              onPick={suggestions.onPick}
+              options={suggestions.options}
+              placeholder={searchPlaceholder}
+              noun={suggestions.noun}
+              // `w-full`, not `min-w-0 flex-1`: this `<input>` isn't the flex
+              // item in DirectoryToolbar's row — `Combobox`'s own wrapper div
+              // is (see that component's comment on its `min-w-0 flex-1`).
+              // The input needs to fill *that* wrapper, or it falls back to
+              // its browser-default ~20ch intrinsic width and `truncate`
+              // clips the placeholder well short of the pill's real width.
+              className="w-full truncate border-none bg-transparent font-poppins text-body-lg text-ink outline-none placeholder:text-ink/35"
+            />
+          </>
+        ) : (
+          <input
+            // Deliberately `type="text"` with `role="searchbox"`, not
+            // `type="search"`: this component already renders its own icon
+            // and clear button, but `type="search"` still draws browser-native
+            // chrome on top of that — a magnifier/clear glyph in some
+            // browsers, and specifically a native clear "×" in Firefox that
+            // `::-webkit-search-cancel-button` (Chrome/Safari-only) never
+            // touches. Two clear controls appearing/disappearing at slightly
+            // different times is what read as "a weird animation" — not this
+            // component's own transitions, which are unchanged.
+            type="text"
+            role="searchbox"
+            value={query}
+            onChange={(event) => onQueryChange(event.target.value)}
+            placeholder={searchPlaceholder}
+            aria-label={searchLabel}
+            className="min-w-0 flex-1 truncate border-none bg-transparent font-poppins text-body-lg text-ink outline-none placeholder:text-ink/35"
+          />
+        )}
+
         {/* Rendered at all times (not conditionally mounted) so it fades in
           rather than popping into existence and nudging the field's
           content — `invisible` still removes it from the tab order via
@@ -91,44 +151,29 @@ const DirectoryToolbar = <T extends string>({
         </button>
       </div>
 
+      <FilterDropdown
+        label={filterLabel}
+        options={options}
+        active={active}
+        onSelect={onSelect}
+      />
+
       {action}
     </div>
 
-    {/* Filters + count. A horizontal scroller on narrow screens rather than
-        a wrapping four-row block that pushes the grid below the fold. */}
-    <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8">
-      <div
-        role="group"
-        aria-label={filterLabel}
-        className="-mx-9 flex gap-6 overflow-x-auto px-9 pb-1 sm:mx-0 sm:flex-wrap sm:gap-x-6 sm:gap-y-2 sm:px-0 [&::-webkit-scrollbar]:hidden"
-      >
-        {options.map((option) => {
-          const selected = option === active;
-          return (
-            <button
-              key={option}
-              type="button"
-              aria-pressed={selected}
-              onClick={() => onSelect(option)}
-              className={`shrink-0 cursor-pointer border-none bg-transparent p-0 pb-1 font-outfit text-body whitespace-nowrap transition-colors duration-200 ${
-                selected
-                  ? "border-b-2 border-solid border-brand font-medium text-brand"
-                  : "border-b-2 border-solid border-transparent text-ink/55 hover:text-brand-secondary"
-              }`}
-            >
-              {option}
-            </button>
-          );
-        })}
-      </div>
-
+    {/* Live result count. Used to sit beside a row of always-visible
+        chips; now that the taxonomy lives inside `FilterDropdown`'s own
+        panel, this is the row's only remaining content — and, on
+        `/organizations`, not rendered at all (see `summary`'s own doc
+        comment above). */}
+    {summary && (
       <p
         aria-live="polite"
-        className="shrink-0 font-poppins text-caption tracking-wide text-ink/45 uppercase"
+        className="mt-4 font-poppins text-caption tracking-wide text-ink/45 uppercase"
       >
         {summary}
       </p>
-    </div>
+    )}
   </div>
 );
 

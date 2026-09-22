@@ -31,6 +31,8 @@ Decision table:
 Overriding it from `className` with a different radius is a same-layer collision decided by Tailwind's own class ordering, not by your `className`.
 If you need a pill, use `variant="solid"`.
 
+**Exception, September 2026: `DirectoryToolbar`'s search field is `rounded-full`, not `rounded-lg`.** The "form input" bucket above is data-entry (auth, setup wizard) — `DirectoryToolbar` is an explore/filter bar, paired with the equally pill-shaped `FilterDropdown` trigger beside it (a row of chips originally, replaced by the dropdown — see [08-components-shared.md](./08-components-shared.md#filterdropdown)), matching the Mobbin reference set this redesign was checked against (Delphi, Julienne). Do not "correct" it back to `rounded-lg`; a genuine data-entry field elsewhere should still follow the table.
+
 ## Elevation
 
 There is no shadow token scale. Every shadow is an arbitrary value. These are the ones that recur; treat them as the vocabulary.
@@ -100,6 +102,51 @@ Set once through the CSS variable, not per-toast:
 
 This is the correct, rethemeable form. Copy this shape.
 
+### Liquid glass (September 2026)
+
+```
+bg-white/55 border border-white/50 backdrop-blur-2xl backdrop-saturate-150
+shadow-[<ambient>,inset_0_1px_0_0_rgba(255,255,255,0.65)]
+```
+
+Two occupants: `EventMobileActionBar` (the event page's floating mobile join
+capsule, first) and `Navbar` (September 2026, made this way — see
+[layout-navigation.md](../layout-navigation.md#navbar)). `backdrop-blur`
+alone flattens and grays out whatever scrolls underneath it; the paired
+`backdrop-saturate-150` is what keeps that see-through content looking like
+glass rather than frosted paper — never ship one without the other. The
+`inset_0_1px_0_0_rgba(255,255,255,0.65)` top rim-light is shared unchanged
+between both; the ambient shadow's shape depends on how the surface sits:
+
+| Surface | Ambient shadow | Border |
+| --- | --- | --- |
+| Floating capsule (`EventMobileActionBar`) | `0_20px_45px_-18px_color-mix(in_srgb,var(--color-brand-secondary)_50%,transparent)` — cast on all sides, it floats clear of every edge | `border` on all four sides |
+| Edge-to-edge bar (`Navbar`) | `0_20px_40px_-30px_color-mix(in_srgb,var(--color-brand-secondary)_45%,transparent)` — smaller and softer, cast only downward onto the content scrolling under it | `border-b` only — a full border would draw fake vertical lines down the left/right viewport edges on a bar this wide |
+
+Both still follow the elevation shape rule above: warm-tinted, Y-offset only,
+`color-mix` against `--color-brand-secondary` rather than a frozen hex.
+
+**`Navbar` alone goes one step further: real refraction, not just blur
+(September 2026, revised).** The table above is still exactly
+`EventMobileActionBar`'s recipe — flat blur/tint/shadow, no bend, which on
+review read as plain "glassmorphism" rather than Apple-style "Liquid
+Glass." `Navbar` layers an SVG `feDisplacementMap` filter
+(`#nav-glass-refraction`, defined inline in `Navbar.tsx`) into its
+`backdrop-filter`, fed by Gaussian-blurred `feTurbulence` noise, so the
+backdrop visibly bends passing under the bar rather than just softening —
+confirmed live against `DrivesRail`'s photo cards, whose top edges warp
+crossing the boundary. This needs `style={{ backdropFilter: "url(#id)
+blur(16px) saturate(1.7)" }}` rather than the `backdrop-blur-2xl
+backdrop-saturate-150` utilities in the code block above — Tailwind v4
+composes those into one shared property behind the scenes, which leaves
+no clean way to splice a `url(#id)` filter reference ahead of them.
+`EventMobileActionBar` was deliberately **not** upgraded to match — it's a
+small floating capsule with little backdrop variety under it most of the
+time, where the extra SVG filter cost buys little; do this per-surface,
+not as a blanket rule. Full reasoning, including why an npm "Liquid Glass"
+library was researched and rejected in favor of building this directly:
+[layout-navigation.md#navbar](../layout-navigation.md#navbar).
+
 ### Others in the inventory
 
 `shadow-[0_8px_24px_-10px_var(--color-brand)]` (4), `shadow-[0_12px_28px_-8px_var(--color-brand)]` (3), `shadow-[0_8px_24px_-14px_var(--color-brand)]` (2), `shadow-[0_16px_34px_-22px_var(--color-brand)]`, `shadow-[0_16px_34px_-18px_var(--color-brand)]`, `shadow-[0_10px_26px_-14px_var(--color-brand)]`, `shadow-[0_8px_24px_-12px_var(--color-brand)]`.
@@ -135,7 +182,7 @@ Hairline dividers are `h-px w-full bg-...`, not `border`, inside the Navbar drop
 | `z-99` | Navbar bar |
 | `z-30` | `Combobox` suggestion panel |
 | `z-20` | `Modal` scrim, Navbar mobile sheet scrim |
-| `z-10` | Navbar logo, Navbar dropdown panel, `SplitPanelLayout` aside content |
+| `z-10` | Navbar logo, Navbar dropdown panel, `SplitPanelLayout` aside content, `EventMobileActionBar` (the event detail page's fixed mobile join bar — deliberately below the Navbar mobile sheet scrim's `z-20`, so an open hamburger menu covers it rather than floating above it) |
 | `z-3` | Navbar CTA, `Header` text, `Landing` hero copy |
 | `z-1` | Navbar link row, `EventCard`'s organizer link (above the stretched card overlay) |
 | `100` | `.nav_dropdown_visible`, set in global CSS |

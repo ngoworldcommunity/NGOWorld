@@ -91,6 +91,8 @@ Relying on source order alone is not safe here; see [04-spacing-layout.md](./04-
 | --- | --- |
 | Page / section | `<Loading />` — 64px, `border-4`, `border-brand!`, `border-r-transparent`, `animate-spin`, `role="status"` + `sr-only` text |
 | Button | `Button`'s `isLoading` prop — a `react-spinners` `ClipLoader`, `color="#000000"`, `size={25}`, replacing children |
+| Card grid, first load (September 2026) | `OrganizationCardSkeleton` × 6, box-matched to `OrganizationCard` so the grid doesn't reflow, shimmering via `--animate-shimmer` (see [07-motion.md](./07-motion.md#the-loop-bar)). Renders only for the *true* first load (`isLoading && !data`) — this also fixed a real bug, where that condition being unguarded meant the empty state ("No organizations here yet") could flash for a frame before real data arrived, since `results.length === 0` is also true while nothing has loaded yet |
+| Card grid, revalidating (September 2026) | No skeleton — `keepPreviousData` keeps the previous cards on screen, dimmed to `opacity-50` and `pointer-events-none` for `duration-300` via `useSWR`'s `isValidating`, so a filter/search change reads as a soft crossfade rather than an instant pop. See `Organizations.tsx` |
 | Global flag | A Zustand `isLoading` boolean, the app's one piece of ephemeral global UI state |
 | `.loader` in `index.css` | A 30px conic-gradient + radial-mask spinner, `animation: l13 1s infinite linear`. Legacy; prefer `<Loading />` |
 

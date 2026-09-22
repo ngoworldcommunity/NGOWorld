@@ -19,6 +19,8 @@ There are exactly three looping animations in the app. A fourth must clear the s
 
 Both 2 and 3 are wired as `SplitPanelLayout`'s `asideDecor` from `SetupLayout.tsx`, sit behind the quote, and are anchored to the panel's corners well clear of the copy.
 
+**`--animate-shimmer` (September 2026, `OrganizationCardSkeleton`) loops too, and is deliberately not counted as a fourth.** The loop bar above is about *decoration* — an element with nothing to say that just keeps moving. A loading shimmer is the same category as `<Loading />`'s own `animate-spin`, which was never counted either (see [12-feedback.md](./12-feedback.md#loading): "loading indicators are not `motion-safe:`-gated. They are status, not decoration."). It clears its own, different bar instead: it exists only while a skeleton is actually mounted — typically well under a second, never indefinitely — and it never touches a real text node, only the placeholder blocks standing in for one.
+
 ## Keyframes
 
 All declared inside `@theme` in `index.css`, because Tailwind v4 resolves an `--animate-*` token's `@keyframes` out of that same block.
@@ -69,10 +71,13 @@ Anything consuming these must keep its own JS timeout in step with the CSS durat
 | --- | --- |
 | Button press | `motion-safe:active:scale-97`, on both `Button` variants |
 | Card hover | `motion-safe:hover:-translate-y-1` + brand glow |
+| Card hover, richer variant | `OrganizationCard` only (September 2026): `motion-safe:hover:-translate-y-1.5` + a bigger glow, title to `text-brand`, arrow gains a filled `bg-brand/10` circle behind it. See that component's own doc comment and [14-drift-register.md](./14-drift-register.md) for why `EventCard`/`EventsMarqueeCards` don't (yet) match it |
 | Card image hover | `motion-safe:group-hover:scale-105`, 500ms |
+| Magnetic CTA hover | `useMagnetic()` — the element leans toward the cursor; press/hover feedback moves to colour/shadow since the hook owns `transform`. `OpenSource.tsx`'s primary CTA, and (September 2026) both directories' one primary action: `Organizations.tsx`'s "Your dashboard" and `Events.tsx`'s "Create an event" |
 | Nav link hover | Directional underline wipe: `after:origin-right after:scale-x-0` at rest, `hover:after:origin-left hover:after:scale-x-100`. It sweeps through rather than rubber-banding back. 1px, `bg-brand`, `after:-bottom-1.5` |
 | Logo hover | The 8px brand dot scales to `1.25` on hover of the whole link, not of itself. An 8px hit target is not a hover affordance; the wordmark next to it is. Wordmark shifts to `text-brand` |
 | Arrow hover | `motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5` |
+| Plus-icon hover | `motion-safe:group-hover:rotate-90`, 300ms — `Events.tsx`'s "Create an event" (September 2026) |
 | CTA hover | `hover:-translate-y-0.5` plus a deeper shadow |
 | Caret hover | `group-hover:translate-y-0.5` |
 

@@ -124,8 +124,8 @@ Both have tokens (`error`, `warning`). See [14-drift-register.md](./14-drift-reg
 | `text-ink/45`, `/40`, `/35`, `/25` | counts, placeholders, icons, separators | `DirectoryToolbar`, `Combobox` |
 | `text-white/90 /70 /65 /60 /55 /50 /40 /35` | the full dark-panel and footer text ramp | `Footer`, `SplitPanelLayout`, `AuthLayout` |
 | `border-brand-secondary/8` | the card border | all three cards |
-| `border-brand-secondary/15` | field underline at rest, `Combobox` panel border | `DirectoryToolbar`, `Combobox` |
-| `border-brand/55`, `/35`, `/20` | focus, hover, eyebrow borders | toolbar, cards, eyebrow |
+| `border-brand-secondary/15` | inactive filter-chip border at rest, `Combobox` panel border | `DirectoryToolbar`, `Combobox` |
+| `border-brand/55`, `/45`, `/35`, `/20` | focus, hover, eyebrow borders | toolbar, cards, eyebrow. The search field itself is `border-transparent` at rest (a flat `bg-surface-muted` fill, no border needed) and only gains `border-brand/45` on `focus-within`. |
 | `bg-brand/10`, `/8`, `/5` | brand tint fills | badges, hover rows, eyebrow |
 | `bg-white/10`, `/5` | icon chips and inputs on dark | `AuthLayout`, `Footer` |
 | `border-white/15`, `/10`, `/5` | dividers on dark | `Footer` |

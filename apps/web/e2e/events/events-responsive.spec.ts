@@ -124,7 +124,12 @@ test("the directory renders both an upcoming and a past event, grouped and filte
   await expect(page.getByText(`Past Fundraiser ${stamp}`)).toHaveCount(0);
   await expect(page.getByRole("heading", { level: 2 }).first()).toBeVisible();
 
-  await page.getByRole("button", { name: "Past" }).click();
+  // The time filter is a dropdown (`FilterDropdown`), not a bare chip — its
+  // trigger always shows the current selection ("Upcoming" here) as its own
+  // accessible name prefix, so the click target is the "Filter by time"
+  // substring rather than the literal option text.
+  await page.getByRole("button", { name: "Filter by time" }).click();
+  await page.getByRole("option", { name: "Past" }).click();
   await expect(page.getByText(`Past Fundraiser ${stamp}`)).toBeVisible();
   await expect(page.getByText(`Riverbank Cleanup ${stamp}`)).toHaveCount(0);
 

@@ -5,18 +5,37 @@
   <meta charset="utf-8" />
   <link rel="icon" href="/favicon.ico" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- viewport-fit=cover is what makes env(safe-area-inset-*) resolve to a
+       real value on notched/home-indicator iPhones instead of 0 - needed by
+       the event detail page's fixed mobile action bar (EventMobileActionBar). -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="description"
     content="Welcome to KarmaCircle, we are a hub to connect NGOs, Charities, and the world to collaborate and build a better tommorow."
     data-rh="true" />
   <meta name="google-site-verification" content="ISkkPcMaQwANRR5_0CPjjxQJ3SyWzUt94nSP7wc1JdA" />
 
   <!-- THEME with vendor prefix meta -->
-  <meta name="theme-color" content="#ff5b31" />
-  <meta name="msapplication-navbutton-color" content="#ff5b31" />
-  <meta name="msapplication-TileColor" content="#ff5b31">
+  <!-- `#fffcf7` is `--color-surface` (apps/web/src/styles/index.css) - the
+       app's actual page ground, also set as `body { background-color }`.
+       This used to be `#ff5b31`, a pre-rebrand orange no longer anywhere in
+       the palette, which is why the browser/status-bar chrome around the
+       page read as a jarring, unrelated color (reported as "looks blank" -
+       actually solid black, since manifest.json's own stale `theme_color`
+       of `#000000` is what a standalone/home-screen-installed app actually
+       uses, and nothing here had ever matched the rebrand). See manifest.json
+       for the PWA-install/splash-screen half of the same fix. -->
+  <meta name="theme-color" content="#fffcf7" />
+  <meta name="msapplication-navbutton-color" content="#fffcf7" />
+  <meta name="msapplication-TileColor" content="#fffcf7">
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="#ff5b31" />
+  <!-- `default` (not `black-translucent`) on purpose: this page is light
+       (cream ground, dark ink), and `black-translucent` always draws
+       system status-bar icons in white, which would be unreadable here.
+       `default` is the closest of the three spec-legal values
+       (`default`/`black`/`black-translucent` - a hex code, what this used
+       to be, isn't one of them and was simply ignored) to this page's
+       actual light chrome. -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
   <!-- Primary Meta Tags -->
   <meta name="title" content="KarmaCircle" />

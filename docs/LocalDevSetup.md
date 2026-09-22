@@ -73,7 +73,7 @@ Edit `apps/web/.env` — the example file already sets `VITE_API_URL` to a place
 VITE_API_URL="http://localhost:5050"
 ```
 
-(`5050` to match the backend's `PORT` from step 2.) `VITE_RAZORPAY_KEY_ID`/`VITE_RAZORPAY_KEY_SECRET` can stay empty or be placeholders unless you're testing the donate flow.
+(`5050` to match the backend's `PORT` from step 2.) `VITE_RAZORPAY_KEY_ID` can stay empty or be placeholders unless you're testing the donate flow.
 
 ## 4. Run both
 

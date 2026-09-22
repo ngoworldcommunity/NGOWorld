@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import { useParams } from "react-router-dom";
 import useSWR from "swr";
@@ -14,6 +14,7 @@ import EventFundraiserPanel from "../components/detail/EventFundraiserPanel";
 import EventHero from "../components/detail/EventHero";
 import EventJoinPanel from "../components/detail/EventJoinPanel";
 import EventLocationPanel from "../components/detail/EventLocationPanel";
+import EventMobileActionBar from "../components/detail/EventMobileActionBar";
 import EventSection from "../components/detail/EventSection";
 import { toDisplayEventDetail } from "../utils/toDisplayEventDetail";
 import type { ApiEvent, DetailedEventRecord } from "../types";
@@ -89,6 +90,75 @@ const DetailedEventView = ({ event, detail }: DetailedEventRecord) => {
 
   useSectionReveal(pageRef);
 
+  // EventMobileActionBar only needs to exist when the real join control -
+  // EventJoinPanel's own button - isn't on screen. Showing both at once was
+  // the exact duplication a phone screenshot caught: EventJoinPanel is the
+  // first thing on a phone (see the `order-1` comment below), so right after
+  // the hero the fixed bar and the in-flow "Join this event" button were
+  // both visible together, one directly under the other. `joinPanelVisible`
+  // starts `true` so nothing flashes in before the observer's first
+  // callback fires. The bar also steps aside once the sentinel just above
+  // <Footer /> is reachable, so it never covers the footer's own newsletter
+  // form and links for the rest of the scroll - `hidden` below is the OR of
+  // both reasons to stay out of the way.
+  const joinPanelRef = useRef<HTMLDivElement>(null);
+  const [joinPanelVisible, setJoinPanelVisible] = useState(true);
+  const footerSentinelRef = useRef<HTMLDivElement>(null);
+  const [nearFooter, setNearFooter] = useState(false);
+
+  useEffect(() => {
+    const panel = joinPanelRef.current;
+    if (!panel) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setJoinPanelVisible(entry.isIntersecting),
+    );
+    observer.observe(panel);
+    return () => observer.disconnect();
+  }, []);
+
+  // Not an IntersectionObserver, on purpose - unlike `joinPanelVisible`
+  // above (a symmetric "is it on screen right now" check, which is exactly
+  // what that API is for), "has the footer been reached" is a one-way
+  // threshold: still true for every scroll position *below* the sentinel,
+  // not just the single frame it crosses. An IntersectionObserver only
+  // invokes its callback when `isIntersecting` itself flips - verified
+  // live: scrolling from deep in the footer back up skipped straight from
+  // "sentinel above the viewport" to "sentinel below it" without ever
+  // reporting `true` in between, so `isIntersecting` stayed `false` the
+  // whole way and no callback fired at all, leaving `nearFooter` stuck
+  // `true` and the bar permanently hidden. Reading `getBoundingClientRect()`
+  // directly off the native `scroll` event - same idea as `BackToTop.tsx`'s
+  // own "scrolled past 250px" check - has no such gap: every scroll (however
+  // large the jump) is measured against the sentinel's actual current
+  // position, not against a threshold-crossing notification that can be
+  // skipped. rAF-throttled rather than `BackToTop.tsx`'s 300ms debounce -
+  // this bar showing up over the footer for up to 300ms after a scroll
+  // would be exactly the glitch this is fixing.
+  useEffect(() => {
+    const sentinel = footerSentinelRef.current;
+    if (!sentinel) return;
+
+    let queued = false;
+    const checkNearFooter = () => {
+      queued = false;
+      setNearFooter(sentinel.getBoundingClientRect().top <= window.innerHeight);
+    };
+    const onScrollOrResize = () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(checkNearFooter);
+    };
+
+    checkNearFooter();
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize);
+    return () => {
+      window.removeEventListener("scroll", onScrollOrResize);
+      window.removeEventListener("resize", onScrollOrResize);
+    };
+  }, []);
+
   return (
     <>
       <ComponentHelmet type="Events" />
@@ -97,7 +167,15 @@ const DetailedEventView = ({ event, detail }: DetailedEventRecord) => {
       <div ref={pageRef}>
         <EventHero event={event} detail={detail} />
 
-        <div className="mx-auto max-w-6xl px-9 py-12 sm:px-10 lg:px-12 lg:py-16">
+        {/* `pb-36` (not `py-12`'s plain 3rem) leaves clearance below `lg`
+            for EventMobileActionBar, which is `fixed` and would otherwise
+            sit on top of the last section's content. Sized for the bar's
+            own ~76px plus its own floating gap off the bottom edge (at
+            least 1rem, more on a notched iPhone's `safe-area-inset-bottom`)
+            with room to spare, not just the bar's own height. `lg:py-16`
+            resets both top and bottom together once the bar is
+            `lg:hidden`. */}
+        <div className="mx-auto max-w-6xl px-9 pt-12 pb-36 sm:px-10 lg:px-12 lg:py-16">
           {/* The join panel is the first thing on a phone and the sidebar on
               a desktop: on a narrow screen it is the answer to "can I go,
               and what does it cost" and belongs above the reading, while at
@@ -165,12 +243,14 @@ const DetailedEventView = ({ event, detail }: DetailedEventRecord) => {
             </main>
 
             <aside className="order-1 flex flex-col gap-5 lg:sticky lg:top-24 lg:order-2">
-              <EventJoinPanel
-                event={event}
-                detail={detail}
-                joined={joined}
-                onToggleJoin={() => setJoined((previous) => !previous)}
-              />
+              <div ref={joinPanelRef}>
+                <EventJoinPanel
+                  event={event}
+                  detail={detail}
+                  joined={joined}
+                  onToggleJoin={() => setJoined((previous) => !previous)}
+                />
+              </div>
 
               {/* Most events raise nothing, and the page simply has no
                   fundraiser section when they don't. */}
@@ -180,7 +260,17 @@ const DetailedEventView = ({ event, detail }: DetailedEventRecord) => {
             </aside>
           </div>
         </div>
+
+        <div ref={footerSentinelRef} aria-hidden="true" className="h-px" />
       </div>
+
+      <EventMobileActionBar
+        event={event}
+        detail={detail}
+        joined={joined}
+        onToggleJoin={() => setJoined((previous) => !previous)}
+        hidden={joinPanelVisible || nearFooter}
+      />
 
       <Footer />
     </>

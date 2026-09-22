@@ -22,8 +22,15 @@ async function tour(page: Page, name: string) {
  * reset in e2e/global-setup.ts only runs once for the whole suite, not
  * between files). No credentials are hardcoded: the password is generated
  * here and never reused anywhere else.
+ *
+ * `process.pid`, not just `Date.now()`: this file has one test, run once
+ * per project (chromium/firefox/webkit), each its own worker process
+ * started within the same instant of each other — two of the three landing
+ * on the same millisecond collided in practice (a 409 on signup, one
+ * project seeing another's already-created account). A worker's pid can't
+ * collide with a sibling's the way its clock reading can.
  */
-const stamp = Date.now();
+const stamp = `${Date.now()}${process.pid}`;
 
 // The organization-name field strips anything that isn't a letter or a
 // space as you type (Auth.tsx), so the run's unique suffix has to be
@@ -98,13 +105,24 @@ test("an organization signs up, stays hidden, then appears once its profile is c
 
     // Q2 — what they do. Continue refuses to leave a required question
     // blank: the flow can be *left* at any time, but not walked past.
-    // Today that refusal is a disabled button with a tooltip, not the
-    // clickable-with-a-red-note design docs/specs/organizations.md
-    // describes — see known-issues.md's "Smaller one-off issues" for the
-    // drift this test surfaced. Assert what's actually true, not the
-    // stale design doc.
+    // The button reports as disabled (`aria-disabled`, which `toBeDisabled`
+    // treats the same as the native attribute) but stays clickable, so
+    // pressing it while blocked still reaches the guard and explains
+    // itself with the red note rather than going dead — see
+    // docs/specs/organizations.md's "Behaviours worth keeping" section.
     await expect(page).toHaveURL(/q=2/);
     await expect(page.locator('[data-cy="org-save"]')).toBeDisabled();
+
+    // `force: true` — Playwright's own actionability check treats
+    // `aria-disabled` the same as the native attribute and refuses a plain
+    // `.click()`, but the button has no `disabled` attribute and no
+    // `pointer-events: none`, so a real pointer press does land exactly
+    // like this one; forcing it here is what actually exercises that, not
+    // a workaround for a broken locator.
+    // eslint-disable-next-line playwright/no-force-option
+    await page.locator('[data-cy="org-save"]').click({ force: true });
+    await expect(page.locator('[data-cy="setup-required-note"]')).toBeVisible();
+    await expect(page.locator('[data-cy="org-description"]')).toBeFocused();
 
     await page
       .locator('[data-cy="org-description"]')
@@ -160,9 +178,54 @@ test("an organization signs up, stays hidden, then appears once its profile is c
     await page.locator('[data-cy="org-funds-raised"]').fill("450000");
     await page.locator('[data-cy="org-save"]').click();
 
+    // Completing "reach" already satisfies every required field
+    // (organization.service.ts's `missingRequiredFields()`), so the
+    // organization is live from here on — but the wizard has a third step,
+    // "presence" (logo/cover, socials, address/map, leadership,
+    // sponsorship), and every question in it is optional
+    // (constants/organizationSetup.ts's `PRESENCE_QUESTIONS`). The flow
+    // itself doesn't finish, and so doesn't redirect, until its very last
+    // question — so getting to the public profile from here means walking
+    // through these five screens too, answering none of them.
+    // Each Continue crosses to the next question through `useOrganizationSetup`'s
+    // `transition()`, which animates the leaving question out for `EXIT_MS`
+    // (170ms) before committing the move and only then clears its `busy`
+    // guard — a click fired before that guard clears is silently dropped,
+    // not queued. Waiting for each question's own heading between clicks
+    // (rather than firing all five back to back) is what a real visitor's
+    // pace does naturally and what keeps every click landing.
+    await expect(page).toHaveURL(/step=presence/, { timeout: 15_000 });
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Add a logo and a cover photo" }),
+    ).toBeVisible();
+    await page.locator('[data-cy="org-save"]').click();
+
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Where can people find you online?" }),
+    ).toBeVisible();
+    await page.locator('[data-cy="org-save"]').click();
+
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Add a street address or a map" }),
+    ).toBeVisible();
+    await page.locator('[data-cy="org-save"]').click();
+
+    await expect(
+      page.getByRole("heading", { level: 1, name: "Who leads this organization?" }),
+    ).toBeVisible();
+    await page.locator('[data-cy="org-save"]').click();
+
+    await expect(
+      page.getByRole("heading", {
+        level: 1,
+        name: "Accept direct support through KarmaCircle?",
+      }),
+    ).toBeVisible();
+    await page.locator('[data-cy="org-save"]').click(); // last question — publishes
+
     // Completing the required list publishes the organization, and the
     // page hands the owner straight to the profile it just created.
-    await expect(page).toHaveURL(/\/organization\//, { timeout: 15_000 });
+    await expect(page).toHaveURL(/\/organization\/[^/]+$/, { timeout: 15_000 });
     await expect(page.getByRole("heading", { level: 1, name: org.name })).toBeVisible();
     await tour(page, "5-public-profile");
 
@@ -179,9 +242,14 @@ test("an organization signs up, stays hidden, then appears once its profile is c
     await expect(page.getByText(org.name, { exact: true })).toBeVisible({ timeout: 15_000 });
     await tour(page, "6-directory-with-the-organization");
 
-    // The directory's own filters find it, server-side.
+    // The directory's own filters find it, server-side. Scoped to the
+    // card's own `h2` — the search field now also opens a live-suggestions
+    // dropdown (DirectoryToolbar's `Combobox`) with a matching option of
+    // its own, and a plain text match resolves both.
     await page.locator('input[type="search"], input[type="text"]').first().fill("Guwahati");
-    await expect(page.getByText(org.name, { exact: true })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { level: 2, name: org.name, exact: true }),
+    ).toBeVisible();
 
     // The resume link now skips the step that is already done. Scoped to
     // the heading role — "Your events" also appears in the navbar link

@@ -1,5 +1,12 @@
 import { selectIsLoggedIn } from "@app/store/slices/userSlice";
-import { Suspense, lazy, useEffect, useRef, useState } from "react";
+import {
+  Suspense,
+  lazy,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { useSelector } from "react-redux";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -25,6 +32,10 @@ const Landing = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const heroRef = useRef<HTMLDivElement>(null);
   const ctaRowRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  // Measured, not guessed — see the render return below for why this
+  // replaced the old shared-flex-column trick.
+  const [navHeight, setNavHeight] = useState(0);
   // Drives Navbar's own "Sign Up" visibility (see the ScrollTrigger below
   // and Navbar.tsx's `hideSignUpForHeroCta` prop) — starts `true` since the
   // hero CTA is on screen at initial load on any realistic viewport height,
@@ -39,6 +50,27 @@ const Landing = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
+  }, []);
+
+  // Navbar's real rendered height, fed into the hero's `min-height` below
+  // (`100dvh - navHeight`) — see the render return for why this replaced
+  // the old "Navbar and hero share one flex column" trick. `useLayoutEffect`
+  // for the first measurement so it lands before paint (no flash from 0 to
+  // the real value); `ResizeObserver` after that for anything which
+  // changes it post-mount without a `windowWidth` change of its own — the
+  // nav wrapping its link row onto a second line at an in-between width, or
+  // a webfont swap nudging its line-height once it loads.
+  useLayoutEffect(() => {
+    const el = navRef.current;
+    if (!el) return;
+
+    setNavHeight(el.getBoundingClientRect().height);
+
+    const observer = new ResizeObserver(([entry]) => {
+      setNavHeight(entry.contentRect.height);
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   // Entrance: the headline/paragraph/CTA fade and settle in on mount, then
@@ -98,21 +130,51 @@ const Landing = () => {
   );
 
   return (
-    // A flex column with Navbar as a shrink-0 item and the hero as flex-1
-    // is what actually centers the hero content on screen. The previous
-    // `min-h-[95dvh]` on the hero div guessed at "the viewport minus the
-    // navbar" with a flat percentage — since the sticky Navbar still takes
-    // up real space in normal flow above it, that guess was short by
-    // however tall the navbar rendered, so the hero's own vertical center
-    // sat below the page's actual visual center. `flex-1` fills exactly
-    // whatever space is left after the navbar, on any screen size, with no
-    // guessing — which is also why the old `max-500px:min-h-[100dvh]`
-    // mobile-only patch is gone; it was compensating for the same bug.
-    <div className="flex min-h-dvh flex-col">
-      <Navbar hideSignUpForHeroCta={heroCtaVisible} />
+    // **September 2026: Navbar moved out of the hero's flex column.**
+    // It used to share one `flex min-h-dvh flex-col` box with the hero
+    // (Navbar a plain flow item, hero `flex-1` filling whatever was left) —
+    // that was what let the hero fill exactly "the viewport minus the
+    // navbar" with no hardcoded guess (see the removed `min-h-[95dvh]`
+    // history below). But sharing that box came at a real cost that went
+    // unnoticed until the nav was actually made to stick (see
+    // `Navbar.tsx`): `min-h-dvh` caps that box at exactly one viewport
+    // tall, and `position: sticky` can never stick past the edge of its
+    // own containing block — so the instant the page scrolled past the
+    // first screen, Navbar's containing block had already scrolled fully
+    // out of view, and the "stuck" nav scrolled away with it. Confirmed
+    // live: `nav`'s `getBoundingClientRect().top` went negative past
+    // exactly one `dvh` of scroll. `/organizations` and `/events` never
+    // had this bug — neither wraps `<Navbar />` in any height-constrained
+    // ancestor, it's a plain top-level sibling there.
+    //
+    // Fixed by giving Navbar back that plain, unconstrained position —
+    // still the page's first element, just no longer sharing a box with
+    // the hero — and replacing the flex-1 trick with the same result
+    // computed directly: `navHeight` (measured via `navRef` above, real
+    // DOM height, not guessed) subtracted from `100dvh` as the hero's own
+    // `min-height`. Same "no guessing" property the flex-1 version had
+    // (still not the flat-percentage `min-h-[95dvh]` this was fixed from
+    // originally), just without requiring the two elements to share a
+    // containing block to get there.
+    //
+    // **No wrapper `<div>` around `<Navbar />` either** — an earlier pass
+    // of this fix added one (to hold `navRef`), which reintroduced the
+    // exact same class of bug it was fixing, just one level down: a sticky
+    // element's containing block is its immediate parent, and a wrapper
+    // that auto-sizes to exactly `<nav>`'s own height gives sticky zero
+    // room to move within — confirmed live, an identical sticky probe div
+    // stuck correctly as a bare child of `.app` (2000px+ tall) and failed
+    // identically to this bug the moment it was wrapped in a tightly
+    // auto-sized div instead. `Navbar` now takes `ref` via `forwardRef`
+    // (see `Navbar.tsx`) specifically so `navRef` can attach straight to
+    // the real `<nav>` DOM node, keeping it a bare top-level element here —
+    // exactly how `/organizations` and `/events` already render it.
+    <>
+      <Navbar ref={navRef} hideSignUpForHeroCta={heroCtaVisible} />
       <div
         ref={heroRef}
-        className="relative container flex flex-1 flex-col items-center justify-center overflow-hidden max-500px:items-start max-500px:px-9 max-500px:pt-0"
+        style={{ minHeight: `calc(100dvh - ${navHeight}px)` }}
+        className="relative container flex flex-col items-center justify-center overflow-hidden max-500px:items-start max-500px:px-9 max-500px:pt-0"
       >
         <Suspense fallback={null}>
           <HeroScene className="pointer-events-none [mask-image:radial-gradient(ellipse_80%_75%_at_50%_40%,black_60%,transparent_100%)]" />
@@ -229,7 +291,7 @@ const Landing = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

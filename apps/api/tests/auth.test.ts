@@ -33,6 +33,24 @@ describe("Auth", () => {
     expect(res.headers["set-cookie"]?.[0]).toMatch(/^Token=/);
   });
 
+  it("ignores privileged fields smuggled into the signup body", async () => {
+    const res = await request(app).post("/auth/signup").send({
+      ...credentials,
+      name: "Jane",
+      tokenVersion: 999,
+      resetPasswordToken: "preset",
+      config: { hasCompletedProfile: true },
+    });
+
+    expect(res.status).toBe(201);
+    const { User } = await import("../src/modules/users/user.model");
+    const saved = await User.findOne({ email: credentials.email });
+    expect(saved?.name).toBe("Jane");
+    expect(saved?.tokenVersion).toBe(0);
+    expect(saved?.resetPasswordToken).toBeUndefined();
+    expect(saved?.config?.hasCompletedProfile).toBe(false);
+  });
+
   it("rejects a duplicate signup with 409", async () => {
     await request(app).post("/auth/signup").send(credentials);
     const res = await request(app).post("/auth/signup").send(credentials);

@@ -159,7 +159,14 @@ const Combobox = ({
   };
 
   return (
-    <div ref={wrapper} className="relative">
+    // `min-w-0 flex-1` here, not on the `<input>`: this wrapper, not the
+    // input, is the actual flex item when a caller drops a `Combobox` into
+    // a flex row (DirectoryToolbar's search bar) — an input's `flex-1`/
+    // `min-w-0` classes are inert unless its own parent is a flex
+    // container, which this div's `<input>` child never is. In a
+    // flex-column caller (SetupLocationFields) this is a no-op alongside
+    // the default cross-axis stretch, so it's safe either way.
+    <div ref={wrapper} className="relative min-w-0 flex-1">
       <input
         ref={inputRef}
         id={id}

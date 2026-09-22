@@ -105,6 +105,18 @@
   --animate-question-out-back: question-out-back 0.17s
     cubic-bezier(0.4, 0, 1, 1) both;
 
+  /* Skeleton-card shimmer (September 2026), `/organizations` and `/events`'
+     card grids while a filter/search change is in flight or the directory
+     is loading for the first time. This loops, but it is not one of the
+     "decorative loop" exceptions above and does not count against that
+     budget: it is a loading indicator, not decoration, the same category as
+     `<Loading />`'s own ungated `animate-spin` (see
+     docs/specs/design-system/12-feedback.md#loading) — it only exists while
+     a skeleton is actually mounted (typically well under a second), never
+     indefinitely, and is never applied to a text node, only to the
+     placeholder blocks standing in for one. */
+  --animate-shimmer: shimmer 1.6s ease-in-out infinite;
+
   @keyframes pop-in {
     from {
       opacity: 0;
@@ -186,6 +198,15 @@
     to {
       opacity: 0;
       transform: translateY(26px);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -150% 0;
+    }
+    100% {
+      background-position: 150% 0;
     }
   }
 
